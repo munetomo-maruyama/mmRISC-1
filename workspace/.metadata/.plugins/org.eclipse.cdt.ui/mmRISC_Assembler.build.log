@@ -1,0 +1,30 @@
+00:24:49 **** Build of configuration Debug for project mmRISC_Assembler ****
+make all 
+Building file: ../src/main.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv64-unknown-elf-gcc -march=rv32imac -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -ggdb -std=gnu11 -MMD -MP -MF"src/main.d" -MT"src/main.o" -c -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building file: ../src/startup.S
+Invoking: GNU RISC-V Cross Assembler
+riscv64-unknown-elf-gcc -march=rv32imac -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -ggdb -x assembler-with-cpp -MMD -MP -MF"src/startup.d" -MT"src/startup.o" -c -o "src/startup.o" "../src/startup.S"
+Finished building: ../src/startup.S
+ 
+Building target: mmRISC_Assembler.elf
+Invoking: GNU RISC-V Cross C Linker
+riscv64-unknown-elf-gcc -march=rv32imac -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -ggdb -T "/home/taka/RISCV/mmRISC-1/workspace/mmRISC_Assembler/link.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"mmRISC_Assembler.map" -o "mmRISC_Assembler.elf"  ./src/main.o ./src/startup.o   
+Finished building target: mmRISC_Assembler.elf
+ 
+Invoking: GNU RISC-V Cross Create Flash Image
+riscv64-unknown-elf-objcopy -O ihex "mmRISC_Assembler.elf"  "mmRISC_Assembler.hex"
+Finished building: mmRISC_Assembler.hex
+ 
+Invoking: GNU RISC-V Cross Print Size
+riscv64-unknown-elf-size --format=berkeley "mmRISC_Assembler.elf"
+   text	   data	    bss	    dec	    hex	filename
+   3060	      0	  32768	  35828	   8bf4	mmRISC_Assembler.elf
+Finished building: mmRISC_Assembler.siz
+ 
+
+00:24:49 Build Finished. 0 errors, 0 warnings. (took 416ms)
+

@@ -1,0 +1,961 @@
+//===========================================================
+// mmRISC Porject
+//-----------------------------------------------------------
+// File Name   : startup.S
+// Description : Startup Routine
+//-----------------------------------------------------------
+// History :
+// Rev.01 2017.11.09 M.Maruyama First Release
+//-----------------------------------------------------------
+// Copyright (C) 2017-2021 M.Maruyama
+//===========================================================
+
+#define LREG lw
+#define SREG sw
+#define REGBYTES 4
+
+    .globl _start
+    .globl main
+    .globl trap_entry
+    .globl trap_handler
+
+// Reset Vector
+    .text
+    .section ".vectors"
+    .align 4
+_reset:
+    j    _start
+_vector_base:
+    j    _trap_exception // 00:Exception
+    j    _trap_illegal   // 01:Supervisor Software Interrupt
+    j    _trap_illegal   // 02:Reserved
+    j    _trap_int_soft  // 03:Machine Software Interupt
+    j    _trap_illegal   // 04:Reserved
+    j    _trap_illegal   // 05:Reserved
+    j    _trap_illegal   // 06:Reserved
+    j    _trap_int_timer // 07:Machine Timer Interrupt
+    j    _trap_illegal   // 08:Reserved
+    j    _trap_illegal   // 09:Reserved
+    j    _trap_illegal   // 10:Reserved
+    j    _trap_int_ext   // 11:Machine External Interrupt
+    j    _trap_illegal   // 12:Reserved
+    j    _trap_illegal   // 13:Reserved
+    j    _trap_illegal   // 14:Reserved
+    j    _trap_illegal   // 15:Reserved
+    j    _trap_irq       // 16:IRQ00
+    j    _trap_irq01     // 16:IRQ01
+    j    _trap_irq       // 16:IRQ02
+    j    _trap_irq03     // 16:IRQ03
+    j    _trap_irq       // 16:IRQ04
+    j    _trap_irq       // 16:IRQ05
+    j    _trap_irq       // 16:IRQ06
+    j    _trap_irq       // 16:IRQ07
+    j    _trap_irq       // 16:IRQ08
+    j    _trap_irq       // 16:IRQ09
+    j    _trap_irq       // 16:IRQ10
+    j    _trap_irq       // 16:IRQ11
+    j    _trap_irq       // 16:IRQ12
+    j    _trap_irq       // 16:IRQ13
+    j    _trap_irq       // 16:IRQ14
+    j    _trap_irq       // 16:IRQ15
+    j    _trap_irq       // 16:IRQ16
+    j    _trap_irq       // 16:IRQ17
+    j    _trap_irq       // 16:IRQ18
+    j    _trap_irq       // 16:IRQ19
+    j    _trap_irq       // 16:IRQ20
+    j    _trap_irq       // 16:IRQ21
+    j    _trap_irq       // 16:IRQ22
+    j    _trap_irq       // 16:IRQ23
+    j    _trap_irq       // 16:IRQ24
+    j    _trap_irq       // 16:IRQ25
+    j    _trap_irq       // 16:IRQ26
+    j    _trap_irq       // 16:IRQ27
+    j    _trap_irq       // 16:IRQ28
+    j    _trap_irq       // 16:IRQ29
+    j    _trap_irq       // 16:IRQ30
+    j    _trap_irq       // 16:IRQ31
+    j    _trap_irq       // 16:IRQ32
+    j    _trap_irq       // 16:IRQ33
+    j    _trap_irq       // 16:IRQ34
+    j    _trap_irq       // 16:IRQ35
+    j    _trap_irq       // 16:IRQ36
+    j    _trap_irq       // 16:IRQ37
+    j    _trap_irq       // 16:IRQ38
+    j    _trap_irq       // 16:IRQ39
+    j    _trap_irq       // 16:IRQ40
+    j    _trap_irq       // 16:IRQ41
+    j    _trap_irq       // 16:IRQ42
+    j    _trap_irq       // 16:IRQ43
+    j    _trap_irq       // 16:IRQ44
+    j    _trap_irq       // 16:IRQ45
+    j    _trap_irq       // 16:IRQ46
+    j    _trap_irq       // 16:IRQ47
+    j    _trap_irq       // 16:IRQ48
+    j    _trap_irq       // 16:IRQ49
+    j    _trap_irq       // 16:IRQ50
+    j    _trap_irq       // 16:IRQ51
+    j    _trap_irq       // 16:IRQ52
+    j    _trap_irq       // 16:IRQ53
+    j    _trap_irq       // 16:IRQ54
+    j    _trap_irq       // 16:IRQ55
+    j    _trap_irq       // 16:IRQ56
+    j    _trap_irq       // 16:IRQ57
+    j    _trap_irq       // 16:IRQ58
+    j    _trap_irq       // 16:IRQ59
+    j    _trap_irq       // 16:IRQ60
+    j    _trap_irq       // 16:IRQ61
+    j    _trap_irq       // 16:IRQ62
+    j    _trap_irq       // 16:IRQ63
+
+//-----------------------------------
+// Trap Entry
+//-----------------------------------
+    .text
+    .section ".trap"
+    .align 4
+//
+_trap_exception:
+    csrrw x1, mscratch, x1  // swap ra and macratch
+    jal   _trap_handler_save
+    jal   _trap_handler_exception
+    jal   _trap_handler_load
+    csrrw ra, mscratch, ra  // swap ra and macratch
+    mret
+//
+_trap_int_soft:
+    csrrw ra, mscratch, ra  // swap ra and macratch
+    jal   _trap_handler_save
+    jal   _trap_handler_int_soft
+    jal   _trap_handler_load
+    csrrw ra, mscratch, ra  // swap ra and macratch
+    mret
+//
+_trap_int_timer:
+    csrrw ra, mscratch, ra  // swap ra and macratch
+    jal   _trap_handler_save
+    jal   _trap_handler_int_timer
+    jal   _trap_handler_load
+    csrrw ra, mscratch, ra  // swap ra and macratch
+    mret
+//
+_trap_int_ext:
+    csrrw ra, mscratch, ra  // swap ra and macratch
+    jal   _trap_handler_save
+    jal   _trap_handler_int_ext
+    jal   _trap_handler_load
+    csrrw ra, mscratch, ra  // swap ra and macratch
+    mret
+//
+_trap_irq:
+    csrrw ra, mscratch, ra  // swap ra and macratch
+    jal   _trap_handler_save
+    jal   _trap_handler_irq
+    jal   _trap_handler_load
+    csrrw ra, mscratch, ra  // swap ra and macratch
+    mret
+_trap_irq01:
+    csrrw ra, mscratch, ra  // swap ra and macratch
+    jal   _trap_handler_save
+    jal   _trap_handler_irq01
+    jal   _trap_handler_load
+    csrrw ra, mscratch, ra  // swap ra and macratch
+    mret
+_trap_irq03:
+    csrrw ra, mscratch, ra  // swap ra and macratch
+    jal   _trap_handler_save
+    jal   _trap_handler_irq03
+    jal   _trap_handler_load
+    csrrw ra, mscratch, ra  // swap ra and macratch
+    mret
+//
+_trap_illegal:
+   j     .
+
+_trap_handler_save:
+    csrrw ra, mscratch, ra  // swap ra and macratch
+    addi  sp, sp, -124
+    sw    x1,    0(sp) // ra
+    sw    x2,    4(sp) // sp
+    sw    x3,    8(sp)
+    sw    x4,   12(sp)
+    sw    x5,   16(sp)
+    sw    x6,   20(sp)
+    sw    x7,   24(sp)
+    sw    x8,   28(sp)
+    sw    x9,   32(sp)
+    sw    x10,  36(sp)
+    sw    x11,  40(sp)
+    sw    x12,  44(sp)
+    sw    x13,  48(sp)
+    sw    x14,  52(sp)
+    sw    x15,  56(sp)
+    sw    x16,  60(sp)
+    sw    x17,  64(sp)
+    sw    x18,  68(sp)
+    sw    x19,  72(sp)
+    sw    x20,  76(sp)
+    sw    x21,  80(sp)
+    sw    x22,  84(sp)
+    sw    x23,  88(sp)
+    sw    x24,  92(sp)
+    sw    x25,  96(sp)
+    sw    x26, 100(sp)
+    sw    x27, 104(sp)
+    sw    x28, 108(sp)
+    sw    x29, 112(sp)
+    sw    x30, 116(sp)
+    sw    x31, 120(sp)
+    csrrw ra, mscratch, ra  // swap ra and macratch
+    ret
+
+_trap_handler_load:
+    csrrw ra, mscratch, ra  // swap ra and macratch
+    lw    x1,    0(sp) // ra
+    lw    x2,    4(sp) // sp
+    lw    x3,    8(sp)
+    lw    x4,   12(sp)
+    lw    x5,   16(sp)
+    lw    x6,   20(sp)
+    lw    x7,   24(sp)
+    lw    x8,   28(sp)
+    lw    x9,   32(sp)
+    lw    x10,  36(sp)
+    lw    x11,  40(sp)
+    lw    x12,  44(sp)
+    lw    x13,  48(sp)
+    lw    x14,  52(sp)
+    lw    x15,  56(sp)
+    lw    x16,  60(sp)
+    lw    x17,  64(sp)
+    lw    x18,  68(sp)
+    lw    x19,  72(sp)
+    lw    x20,  76(sp)
+    lw    x21,  80(sp)
+    lw    x22,  84(sp)
+    lw    x23,  88(sp)
+    lw    x24,  92(sp)
+    lw    x25,  96(sp)
+    lw    x26, 100(sp)
+    lw    x27, 104(sp)
+    lw    x28, 108(sp)
+    lw    x29, 112(sp)
+    lw    x30, 116(sp)
+    lw    x31, 120(sp)
+    addi  sp, sp, 124
+    csrrw ra, mscratch, ra  // swap ra and macratch
+    ret
+
+//-------------------------
+// Trap Hander Body
+//-------------------------
+_trap_handler_exception:
+    // save PC and MSTATUS
+    csrr  x8, mepc
+    csrr  x9, mstatus
+    addi  sp, sp, -8
+    sw    x8, 0(sp)
+    sw    x9, 4(sp)
+    // check status
+    csrr  x10, mie
+    csrr  x11, mtvec
+    csrr  x12, mcause
+    csrr  x13, mtval
+    csrr  x14, mip
+    // do any operations
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    // load MSTATUS and PC
+    lw    x8, 0(sp)
+    lw    x9, 4(sp)
+    addi  sp, sp, 8
+    csrw  mstatus, x9
+    addi  x8, x8, 0x04 // pc=pc+4
+    csrw  mepc, x8
+    // Return
+    ret
+//
+_trap_handler_int_soft:
+    // save PC and MSTATUS
+    csrr  x8, mepc
+    csrr  x9, mstatus
+    addi  sp, sp, -8
+    sw    x8, 0(sp)
+    sw    x9, 4(sp)
+    // check status
+    csrr  x10, mie
+    csrr  x11, mtvec
+    csrr  x12, mcause
+    csrr  x13, mtval
+    csrr  x14, mip
+    // do any operations
+    nop
+    nop
+    // load MSTATUS and PC
+    lw    x8, 0(sp)
+    lw    x9, 4(sp)
+    addi  sp, sp, 8
+    csrw  mstatus, x9
+    csrw  mepc, x8
+    // Return
+    ret
+
+_trap_handler_int_timer:
+    // save PC and MSTATUS
+    csrr  x8, mepc
+    csrr  x9, mstatus
+    addi  sp, sp, -8
+    sw    x8, 0(sp)
+    sw    x9, 4(sp)
+    // check status
+    csrr  x10, mie
+    csrr  x11, mtvec
+    csrr  x12, mcause
+    csrr  x13, mtval
+    csrr  x14, mip
+    //
+    // Check Flag
+    li   x8, 0x49000000
+    lw   x10, 0(x8) // MTIME_CTRL
+    andi x10, x10, 0x08
+    li   x11, 0x08
+    bne  x10, x11, _trap_handler_int_timer_fail
+    // Clear Flag
+    lw   x10, 0(x8) // MTIME_CTRL
+    ori  x10, x10, 0x08
+    sw   x10, 0(x8) // MTIME_CTRL
+    lw   x10, 0(x8) // MTIME_CTRL
+    andi x10, x10, 0x08
+    li   x11, 0x00
+    bne  x10, x11, _trap_handler_int_timer_fail
+    //
+    // load MSTATUS and PC
+    lw    x8, 0(sp)
+    lw    x9, 4(sp)
+    addi  sp, sp, 8
+    csrw  mstatus, x9
+    csrw  mepc, x8
+    // Return
+    ret
+_trap_handler_int_timer_fail:
+    j    _trap_handler_int_timer_fail
+
+
+_trap_handler_int_ext:
+    // save PC and MSTATUS
+    csrr  x8, mepc
+    csrr  x9, mstatus
+    addi  sp, sp, -8
+    sw    x8, 0(sp)
+    sw    x9, 4(sp)
+    // check status
+    csrr  x10, mie
+    csrr  x11, mtvec
+    csrr  x12, mcause
+    csrr  x13, mtval
+    csrr  x14, mip
+    // do any operations
+    nop
+    nop
+    // load MSTATUS and PC
+    lw    x8, 0(sp)
+    lw    x9, 4(sp)
+    addi  sp, sp, 8
+    csrw  mstatus, x9
+    csrw  mepc, x8
+    // Return
+    ret
+
+_trap_handler_irq:
+    // save PC, MSTATUS,mintprelvl
+    csrr  x8, mepc
+    csrr  x9, mstatus
+    csrr  x10, 0xbf1 //mintprelvl
+    addi  sp, sp, -12
+    sw    x8 , 0(sp)
+    sw    x9 , 4(sp)
+    sw    x10, 8(sp)
+    // check status
+    csrr  x10, mie
+    csrr  x11, mtvec
+    csrr  x12, mcause
+    csrr  x13, mtval
+    csrr  x14, mip
+    // enable global interrupt (set mie)
+    csrrsi x15, mstatus, 0x08
+    // do any operations
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    // disable global interrupt (clear mie)
+    csrrci x15, mstatus, 0x08
+    // load MSTATUS, PC, mintcurlvl
+    lw    x8 , 0(sp)
+    lw    x9 , 4(sp)
+    lw    x10, 8(sp)
+    addi  sp, sp, 12
+    csrw  0xbf0, x10 // mintcurlvl
+    csrw  mstatus, x9
+    csrw  mepc, x8
+    // Return
+    ret
+
+_trap_handler_irq01:
+    // save PC, MSTATUS,mintprelvl
+    csrr  x8, mepc
+    csrr  x9, mstatus
+    csrr  x10, 0xbf1 //mintprelvl
+    addi  sp, sp, -12
+    sw    x8 , 0(sp)
+    sw    x9 , 4(sp)
+    sw    x10, 8(sp)
+    // check status
+    csrr  x10, mie
+    csrr  x11, mtvec
+    csrr  x12, mcause
+    csrr  x13, mtval
+    csrr  x14, mip
+    // enable global interrupt (set mie)
+    csrrsi x15, mstatus, 0x08
+    // do any operations
+    nop
+    nop
+    // set int_gen
+    li    x8, 0xc0000004
+    li    x9, 0x00000008 // clear IRQ01, set IRQ03
+    sw    x9, 0(x8)
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    // disable global interrupt (clear mie)
+    csrrci x15, mstatus, 0x08
+    // load MSTATUS, PC, mintcurlvl
+    lw    x8 , 0(sp)
+    lw    x9 , 4(sp)
+    lw    x10, 8(sp)
+    addi  sp, sp, 12
+    csrw  0xbf0, x10 // mintcurlvl
+    csrw  mstatus, x9
+    csrw  mepc, x8
+    // Return
+    ret
+
+_trap_handler_irq03:
+    // save PC, MSTATUS,mintprelvl
+    csrr  x8, mepc
+    csrr  x9, mstatus
+    csrr  x10, 0xbf1 //mintprelvl
+    addi  sp, sp, -12
+    sw    x8 , 0(sp)
+    sw    x9 , 4(sp)
+    sw    x10, 8(sp)
+    // check status
+    csrr  x10, mie
+    csrr  x11, mtvec
+    csrr  x12, mcause
+    csrr  x13, mtval
+    csrr  x14, mip
+    // enable global interrupt (set mie)
+    csrrsi x15, mstatus, 0x08
+    // do any operations
+    nop
+    nop
+    // set int_gen
+    li    x8, 0xc0000004
+    li    x9, 0x00000000 // clear IRQ03
+    sw    x9, 0(x8)
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    // disable global interrupt (clear mie)
+    csrrci x15, mstatus, 0x08
+    // load MSTATUS, PC, mintcurlvl
+    lw    x8 , 0(sp)
+    lw    x9 , 4(sp)
+    lw    x10, 8(sp)
+    addi  sp, sp, 12
+    csrw  0xbf0, x10 // mintcurlvl
+    csrw  mstatus, x9
+    csrw  mepc, x8
+    // Return
+    ret
+
+//--------------------------------
+// Startup
+//--------------------------------
+    .text
+    .section ".startup"
+    .align 4
+_start:
+    la    x2, __C_STACK_TOP__ // x2=sp
+
+_test_uart:
+    li    x8, 0xb0000000
+    li    x9, 18
+    sb    x9, 2(x8) // BG0
+    li    x9, 25
+    sb    x9, 3(x8) // BG1
+    li    x9, 0x40
+    sb    x1, 1(x8) // CSR
+    //
+_test_uart_wait:
+    lb    x9, 0(x8) // CSR
+    andi  x9, x9, 0x02
+    beq   x9, x0, _test_uart_wait
+
+
+
+
+
+_test_uart_end:
+
+_test_gpio:
+    li    x8, 0xa0000000
+    li    x9, 0x03ffffff
+    sw    x9, 4(x8)
+    li    x9, 0x12345678
+    sw    x9, 0(x8)
+_test_gpio_end:
+
+_test_int_init:
+    la    x8, _vector_base
+    ori   x8, x8, 0x01 // vectored
+    csrw  mtvec, x8
+    // mintcfgpriority
+    li    x8, 0x87654321 // IRQ07-00
+    csrw  0xbf8, x8
+    // mintcfgenable
+    li    x8, 0x000000ff // IRQ07-00
+    csrw  0xbf2, x8
+    // mintcurlvl
+    li    x8, 0x00
+    csrw  0xbf0, x8
+    // mstatus:mie=1
+    li    x8, 0x08
+    csrs  mstatus, x8
+    // set int_gen
+    li    x8, 0xc0000004
+    li    x9, 0x00000002 // set IRQ01
+    sw    x9, 0(x8)
+    nop
+    nop
+    nop
+    nop
+
+_test_int_init_end:
+
+_test_ecall:
+    ecall
+_test_ecall_end:
+
+_test_csr_marchid:
+    csrr  x8, marchid
+    li    x9, 0x656d3031
+    beq   x8, x9, _test_csr_marchid_end
+    j     .
+_test_csr_marchid_end:
+
+_test_csr_tinfo:
+    csrr  x8, tinfo
+    li    x9, 0x0000003c
+    beq   x8, x9, _test_csr_tinfo_end
+    j     .
+_test_csr_tinfo_end:
+
+_test_mcycle_minstret:
+    csrr  x8, mcycle
+    csrr  x9, mcycleh
+    csrr  x10, minstret
+    csrr  x11, minstreth
+    li    x8, 0x89abcdef
+    li    x9, 0x01234567
+    li    x10, 0x44556677
+    li    x11, 0x00112233
+    csrw  mcycle , x8
+    csrw  mcycleh, x9
+    csrw  minstret , x10
+    csrw  minstreth, x11
+    csrr  x8, mcycle
+    csrr  x9, mcycleh
+    csrr  x10, minstret
+    csrr  x11, minstreth
+_test_mcycle_minstret_end:
+
+
+/*
+_test_tentative_csr:
+_test_tentative_csrrw:
+    li   x12, 0x12345678
+    csrrw x13, mstatus, x12
+    li   x14, 0x0300
+    beq  x13, x14, _test_tentative_csrrw2
+    j    .
+_test_tentative_csrrw2:
+    csrrw x15, mstatus, x0
+    li   x16, 0x12345678
+    beq  x15, x16, _test_tentative_csrrw3
+    j    .
+_test_tentative_csrrw3:
+//
+_test_tentative_csrrwi:
+    csrrwi x13, misa, 0x15
+    li   x14, 0x0301
+    beq  x13, x14, _test_tentative_csrrwi2
+    j    .
+_test_tentative_csrrwi2:
+    csrrw x15, misa, x0
+    li   x16, 0x00000015
+    beq  x15, x16, _test_tentative_csrrwi3
+    j    .
+_test_tentative_csrrwi3:
+//
+_test_tentative_csrrs:
+    li   x12, 0x123400f0
+    csrrs x13, medeleg, x12
+    li   x14, 0x0302
+    beq  x13, x14, _test_tentative_csrrs2
+    j    .
+_test_tentative_csrrs2:
+    csrrw x15, medeleg, x0
+    li   x16, 0x123403f2
+    beq  x15, x16, _test_tentative_csrrs3
+    j    .
+_test_tentative_csrrs3:
+//
+_test_tentative_csrrsi:
+    csrrsi x13, mideleg, 0x0000001c
+    li   x14, 0x0303
+    beq  x13, x14, _test_tentative_csrrsi2
+    j    .
+_test_tentative_csrrsi2:
+    csrrw x15, mideleg, x0
+    li   x16, 0x0000031f
+    beq  x15, x16, _test_tentative_csrrsi3
+    j    .
+_test_tentative_csrrsi3:
+//
+_test_tentative_csrrc:
+    li   x12, 0x00000104
+    csrrc x13, mie, x12
+    li   x14, 0x0304
+    beq  x13, x14, _test_tentative_csrrc2
+    j    .
+_test_tentative_csrrc2:
+    csrrw x15, mie, x0
+    li   x16, 0x00000200
+    beq  x15, x16, _test_tentative_csrrc3
+    j    .
+_test_tentative_csrrc3:
+//
+_test_tentative_csrrci:
+    csrrci x13, mtvec, 0x00000001
+    li   x14, 0x0305
+    beq  x13, x14, _test_tentative_csrrci2
+    j    .
+_test_tentative_csrrci2:
+    csrrw x15, mtvec, x0
+    li   x16, 0x00000304
+    beq  x15, x16, _test_tentative_csrrci3
+    j    .
+_test_tentative_csrrci3:
+_test_csr_tentative_end:
+*/
+
+_test_csr_mtime:
+    li   x8, 0x49000000
+    li   x9, 0x00000003
+    sw   x9, 4(x8) // MTIME_DIV
+    li   x9, 0x89abcd00
+    sw   x9, 8(x8) // MTIME
+    li   x9, 0x01234567
+    sw   x9, 12(x8) // MTIMEH
+    li   x9, 0x89abce00
+    sw   x9, 16(x8) // MTIMECMP
+    li   x9, 0x01234567
+    sw   x9, 20(x8) // MTIMECMPH
+    // Enable Interrupt
+    li    x10, 0x080
+    csrs  mie, x10
+    li    x10, 0x08
+    csrs  mstatus, x10
+    // Start Timer
+    li   x9, 0x00000005 // internal clock
+    sw   x9, 0(x8) // MTIME_CTRL
+    // Wait for Interrupt
+    wfi
+    // Timer Stop
+    sw   x0, 0(x8)
+    nop
+    nop
+_test_csr_mtime_end:
+
+_test_div:
+//
+_test_div1:
+    li   x11, 12345678
+    li   x12, 12345
+    li   x14, 1000
+    divu x13, x11, x12
+    bne  x13, x14, _test_div1_fail
+    li   x14, 678
+    remu x13, x11, x12
+    bne  x13, x14, _test_div1_fail
+    j    _test_div1_pass
+_test_div1_fail:
+    j    _test_div1_fail
+_test_div1_pass:
+//
+_test_div2:
+    li   x11, 4294967295
+    li   x12, 12345
+    li   x14, 347911
+    divu x13, x11, x12
+    bne  x13, x14, _test_div2_fail
+    li   x14, 6000
+    remu x13, x11, x12
+    bne  x13, x14, _test_div2_fail
+    j    _test_div2_pass
+_test_div2_fail:
+    j    _test_div2_fail
+_test_div2_pass:
+//
+_test_div3:
+    li   x11, 256
+    li   x12, 5
+    li   x14, 51
+    div  x13, x11, x12
+    bne  x13, x14, _test_div3_fail
+    li   x14, 1
+    rem  x13, x11, x12
+    bne  x13, x14, _test_div3_fail
+    j    _test_div3_pass
+_test_div3_fail:
+    j    _test_div3_fail
+_test_div3_pass:
+//
+_test_div4:
+    li   x11, 256
+    li   x12, -5
+    li   x14, -51
+    div  x13, x11, x12
+    bne  x13, x14, _test_div4_fail
+    li   x14, 1
+    rem  x13, x11, x12
+    bne  x13, x14, _test_div4_fail
+    j    _test_div4_pass
+_test_div4_fail:
+    j    _test_div4_fail
+_test_div4_pass:
+//
+_test_div5:
+    li   x11, -256
+    li   x12, 5
+    li   x14, -51
+    div  x13, x11, x12
+    bne  x13, x14, _test_div5_fail
+    li   x14, -1
+    rem  x13, x11, x12
+    bne  x13, x14, _test_div5_fail
+    j    _test_div5_pass
+_test_div5_fail:
+    j    _test_div5_fail
+_test_div5_pass:
+//
+_test_div6:
+    li   x11, -256
+    li   x12, -5
+    li   x14, 51
+    div  x13, x11, x12
+    bne  x13, x14, _test_div6_fail
+    li   x14, -1
+    rem  x13, x11, x12
+    bne  x13, x14, _test_div6_fail
+    j    _test_div6_pass
+_test_div6_fail:
+    j    _test_div6_fail
+_test_div6_pass:
+//
+
+
+_test_mul:
+    li   x8, 0x7fffffff
+    li   x9, 0xffffffff
+    mul  x10, x8, x9
+    sw   x10, _mulW, x15
+    mulh x11, x8, x9
+    sw   x11, _mulW, x15
+    mulhu x12, x8, x9
+    sw   x12, _mulW, x15
+    mulhsu x13, x8, x9
+    sw   x13, _mulW, x15
+    mulhsu x14, x9, x8
+    sw   x14, _mulW, x15
+
+    j    _test_store
+
+_mulW:
+    .byte 0xce
+    .byte 0xfa
+    .byte 0xad
+    .byte 0xde
+
+
+_test_store:
+    li   x16, 0x11223344
+    sw   x16, _storeW, x17
+    li   x16, 0xaabbccdd
+    sh   x16, _storeH, x17
+    li   x16, 0x12345678
+    sb   x16, _storeB, x17
+    //
+    lw   x18, _storeW
+    li   x19, 0x11223344
+    bne  x18, x19, _test_store_fail
+    lw   x18, _storeH
+    li   x19, 0x9978ccdd
+    bne  x18, x19, _test_store_fail
+    j    _test_bcc
+_test_store_fail:
+    j    _test_store_fail
+
+    .align 4
+_storeW:
+    .byte 0xce
+    .byte 0xfa
+    .byte 0xad
+    .byte 0xde
+_storeH:
+    .byte 0xef
+    .byte 0xbe
+_storeB:
+    .byte 0x66
+    .byte 0x99
+
+    .align 4
+_test_bcc:
+    li   x12, 0x12345678
+    li   x13, 0x12345678
+    li   x14, 0x89abcdef
+    li   x15, 0x7fffffff
+    li   x16, 0x80000000
+_test_beq:
+    beq  x12, x14, _test_beq_fail
+    beq  x12, x13, _test_bne
+_test_beq_fail:
+    j    _test_beq_fail
+_test_bne:
+    bne  x12, x13, _test_bne_fail
+    bne  x12, x14, _test_blt
+_test_bne_fail:
+    j    _test_bne_fail
+_test_blt:
+    blt  x13, x14, _test_blt_fail
+    blt  x14, x13, _test_bge
+_test_blt_fail:
+    j    _test_blt_fail
+_test_bge:
+    bge  x16, x15, _test_bge_fail
+    bge  x15, x16, _test_bltu
+_test_bge_fail:
+    j    _test_bge_fail
+_test_bltu:
+    bltu x14, x13, _test_bltu_fail
+    bltu x13, x14, _test_bgeu
+_test_bltu_fail:
+    j    _test_bltu_fail
+_test_bgeu:
+    bgeu  x15, x16, _test_bgeu_fail
+    bgeu  x16, x15, _test_jal
+_test_bgeu_fail:
+    j    _test_bgeu_fail
+
+    .align 4
+_test_jal:
+    nop
+    jal  x8, _test_jalr
+    nop
+    nop
+_test_jalr:
+    la   x9, _test_load
+    jalr x10, 2(x9)
+    nop
+_test_load:
+    nop
+    li   x11, 0x89abcdef
+    lw   x12, _dataW
+    addi x13, x12, 0x0123
+    lh   x13, _dataH
+    lb   x14, _dataB
+    nop
+    j    _start2
+    nop
+    nop
+
+    .align 4
+_dataW:
+    .byte 0x00
+    .byte 0x11
+    .byte 0x22
+    .byte 0x33
+    .byte 0x44
+    .byte 0x55
+_dataH:
+    .byte 0x66
+    .byte 0x77
+    .byte 0x88
+_dataB:
+    .byte 0x99
+
+    .align 4
+_start2:
+    j    _start3
+    nop
+    .align 2
+_start3:
+
+_end_of_simulation:
+    li    x8, 0xfffffffc
+    li    x9, 0xdeaddead
+    sw    x9, 0(x8)
+    j   .
+
+
+
+    .text
+    .section ".other_hart"
+    .align 4
+_inc_mem:
+    li   x12, 0x0
+_inc_mem_loop:
+    sw   x12, _inc_mem_dataW, x3
+    addi x12, x12, 0x00000001
+    j    _inc_mem_loop
+
+    .align 4
+_inc_mem_dataW:
+    .byte 0x00
+    .byte 0x00
+    .byte 0x00
+    .byte 0x00
+
+
+//===========================================================
+// End of Program
+//===========================================================
+

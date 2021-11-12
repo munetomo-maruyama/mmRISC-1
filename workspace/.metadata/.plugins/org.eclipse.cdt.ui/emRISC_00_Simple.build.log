@@ -1,0 +1,11 @@
+20:50:17 **** Incremental Build of configuration Debug for project mmRISC_00_Simple ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv64-unknown-elf-size --format=berkeley "mmRISC_00_Simple.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25970	      0	  16388	  42358	   a576	mmRISC_00_Simple.elf
+Finished building: mmRISC_00_Simple.siz
+ 
+
+20:50:17 Build Finished. 0 errors, 0 warnings. (took 388ms)
+

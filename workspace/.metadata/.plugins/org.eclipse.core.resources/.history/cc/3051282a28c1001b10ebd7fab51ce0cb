@@ -1,0 +1,46 @@
+//===========================================================
+// mmRISC Project
+//-----------------------------------------------------------
+// File Name   : main.c
+// Description : Main Routine
+//-----------------------------------------------------------
+// History :
+// Rev.01 2020.09.03 M.Maruyama First Release
+//-----------------------------------------------------------
+// Copyright (C) 2020-2021 M.Maruyama
+//===========================================================
+
+#include <stdint.h>
+#include "common.h"
+#include "interrupt.h"
+#include "gpio.h"
+#include "uart.h"
+
+//-----------------
+// Main Routine
+//-----------------
+void main(void)
+{
+	volatile int i;
+	double fdata;
+
+	i = 0x12345678;
+	fdata = 1.23;
+	printf("%f\n", fdata);
+
+	// Initialize Hardware
+	GPIO_Init();
+	UART_Init();
+    INT_Init();
+
+    //
+    // Forever Loop
+    while(1)
+    {
+        i = i + 1;
+    }
+}
+
+//===========================================================
+// End of Program
+//===========================================================

@@ -1,0 +1,79 @@
+--lpm_counter CBX_DECLARE_ALL_CONNECTED_PORTS="OFF" DEVICE_FAMILY="MAX 10" lpm_avalue=1 lpm_direction="DOWN" lpm_port_updown="PORT_UNUSED" lpm_width=1 aset clk_en clock cnt_en cout
+--VERSION_BEGIN 20.1 cbx_cycloneii 2020:06:05:12:04:24:SJ cbx_lpm_add_sub 2020:06:05:12:04:24:SJ cbx_lpm_compare 2020:06:05:12:04:24:SJ cbx_lpm_counter 2020:06:05:12:04:24:SJ cbx_lpm_decode 2020:06:05:12:04:24:SJ cbx_mgl 2020:06:05:13:25:21:SJ cbx_nadder 2020:06:05:12:04:24:SJ cbx_stratix 2020:06:05:12:04:24:SJ cbx_stratixii 2020:06:05:12:04:24:SJ  VERSION_END
+
+
+-- Copyright (C) 2020  Intel Corporation. All rights reserved.
+--  Your use of Intel Corporation's design tools, logic functions 
+--  and other software and tools, and any partner logic 
+--  functions, and any output files from any of the foregoing 
+--  (including device programming or simulation files), and any 
+--  associated documentation or information are expressly subject 
+--  to the terms and conditions of the Intel Program License 
+--  Subscription Agreement, the Intel Quartus Prime License Agreement,
+--  the Intel FPGA IP License Agreement, or other applicable license
+--  agreement, including, without limitation, that your use is for
+--  the sole purpose of programming logic devices manufactured by
+--  Intel and sold by Intel or its authorized distributors.  Please
+--  refer to the applicable agreement for further details, at
+--  https://fpgasoftware.intel.com/eula.
+
+
+FUNCTION fiftyfivenm_lcell_comb (cin, dataa, datab, datac, datad)
+WITH ( DONT_TOUCH, LUT_MASK, SUM_LUTC_INPUT)
+RETURNS ( combout, cout);
+
+--synthesis_resources = lut 1 reg 1 
+SUBDESIGN cntr_fjg
+( 
+	aset	:	input;
+	clk_en	:	input;
+	clock	:	input;
+	cnt_en	:	input;
+	cout	:	output;
+) 
+VARIABLE 
+	counter_comb_bita0 : fiftyfivenm_lcell_comb
+		WITH (
+			LUT_MASK = "5A60",
+			SUM_LUTC_INPUT = "cin"
+		);
+	counter_reg_bit[0..0] : dffeas;
+	a_val[0..0]	: WIRE;
+	aclr_actual	: WIRE;
+	cout_actual	: WIRE;
+	data[0..0]	: NODE;
+	external_cin	: WIRE;
+	pre_hazard[0..0]	: WIRE;
+	s_val[0..0]	: WIRE;
+	sclr	: NODE;
+	sload	: NODE;
+	sset	: NODE;
+	time_to_clear	: WIRE;
+	updown_dir	: WIRE;
+
+BEGIN 
+	counter_comb_bita[0..0].cin = ( external_cin);
+	counter_comb_bita[0..0].dataa = ( counter_reg_bit[0..0].q);
+	counter_comb_bita[0..0].datab = ( updown_dir);
+	counter_comb_bita[0..0].datad = ( B"1");
+	counter_reg_bit[].asdata = (a_val[] $ ((! sclr) & ((sset & s_val[]) # ((! sset) & data[]))));
+	counter_reg_bit[].clk = clock;
+	counter_reg_bit[].clrn = (! aclr_actual);
+	counter_reg_bit[].d = ( counter_comb_bita[0].combout);
+	counter_reg_bit[].ena = (clk_en & (((cnt_en # sclr) # sset) # sload));
+	counter_reg_bit[].sload = ((sclr # sset) # sload);
+	a_val[] = B"1";
+	aclr_actual = aset;
+	cout = cout_actual;
+	cout_actual = (counter_comb_bita[0].cout # (time_to_clear & updown_dir));
+	data[] = GND;
+	external_cin = B"1";
+	pre_hazard[] = counter_reg_bit[].q;
+	s_val[] = B"1";
+	sclr = GND;
+	sload = GND;
+	sset = GND;
+	time_to_clear = B"0";
+	updown_dir = B"0";
+END;
+--VALID FILE

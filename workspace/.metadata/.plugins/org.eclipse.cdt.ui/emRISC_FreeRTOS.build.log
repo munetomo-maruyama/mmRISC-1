@@ -1,0 +1,80 @@
+11:39:38 **** Build of configuration Debug for project mmRISC_FreeRTOS ****
+make all 
+Building file: ../FreeRTOS/src/event_groups.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/FreeRTOS/inc" -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/App/inc" -std=gnu11 -MMD -MP -MF"FreeRTOS/src/event_groups.d" -MT"FreeRTOS/src/event_groups.o" -c -o "FreeRTOS/src/event_groups.o" "../FreeRTOS/src/event_groups.c"
+Finished building: ../FreeRTOS/src/event_groups.c
+ 
+Building file: ../FreeRTOS/src/heap_4.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/FreeRTOS/inc" -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/App/inc" -std=gnu11 -MMD -MP -MF"FreeRTOS/src/heap_4.d" -MT"FreeRTOS/src/heap_4.o" -c -o "FreeRTOS/src/heap_4.o" "../FreeRTOS/src/heap_4.c"
+Finished building: ../FreeRTOS/src/heap_4.c
+ 
+Building file: ../FreeRTOS/src/list.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/FreeRTOS/inc" -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/App/inc" -std=gnu11 -MMD -MP -MF"FreeRTOS/src/list.d" -MT"FreeRTOS/src/list.o" -c -o "FreeRTOS/src/list.o" "../FreeRTOS/src/list.c"
+Finished building: ../FreeRTOS/src/list.c
+ 
+Building file: ../FreeRTOS/src/port.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/FreeRTOS/inc" -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/App/inc" -std=gnu11 -MMD -MP -MF"FreeRTOS/src/port.d" -MT"FreeRTOS/src/port.o" -c -o "FreeRTOS/src/port.o" "../FreeRTOS/src/port.c"
+Finished building: ../FreeRTOS/src/port.c
+ 
+Building file: ../FreeRTOS/src/portASM.S
+Invoking: GNU RISC-V Cross Assembler
+riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/FreeRTOS/inc" -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/App/inc" -MMD -MP -MF"FreeRTOS/src/portASM.d" -MT"FreeRTOS/src/portASM.o" -c -o "FreeRTOS/src/portASM.o" "../FreeRTOS/src/portASM.S"
+Finished building: ../FreeRTOS/src/portASM.S
+ 
+Building file: ../FreeRTOS/src/queue.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/FreeRTOS/inc" -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/App/inc" -std=gnu11 -MMD -MP -MF"FreeRTOS/src/queue.d" -MT"FreeRTOS/src/queue.o" -c -o "FreeRTOS/src/queue.o" "../FreeRTOS/src/queue.c"
+Finished building: ../FreeRTOS/src/queue.c
+ 
+Building file: ../FreeRTOS/src/stream_buffer.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/FreeRTOS/inc" -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/App/inc" -std=gnu11 -MMD -MP -MF"FreeRTOS/src/stream_buffer.d" -MT"FreeRTOS/src/stream_buffer.o" -c -o "FreeRTOS/src/stream_buffer.o" "../FreeRTOS/src/stream_buffer.c"
+Finished building: ../FreeRTOS/src/stream_buffer.c
+ 
+Building file: ../FreeRTOS/src/tasks.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/FreeRTOS/inc" -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/App/inc" -std=gnu11 -MMD -MP -MF"FreeRTOS/src/tasks.d" -MT"FreeRTOS/src/tasks.o" -c -o "FreeRTOS/src/tasks.o" "../FreeRTOS/src/tasks.c"
+Finished building: ../FreeRTOS/src/tasks.c
+ 
+Building file: ../FreeRTOS/src/timers.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/FreeRTOS/inc" -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/App/inc" -std=gnu11 -MMD -MP -MF"FreeRTOS/src/timers.d" -MT"FreeRTOS/src/timers.o" -c -o "FreeRTOS/src/timers.o" "../FreeRTOS/src/timers.c"
+Finished building: ../FreeRTOS/src/timers.c
+ 
+Building file: ../App/src/main.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/FreeRTOS/inc" -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/App/inc" -std=gnu11 -MMD -MP -MF"App/src/main.d" -MT"App/src/main.o" -c -o "App/src/main.o" "../App/src/main.c"
+Finished building: ../App/src/main.c
+ 
+Building file: ../App/src/riscv-virt.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/FreeRTOS/inc" -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/App/inc" -std=gnu11 -MMD -MP -MF"App/src/riscv-virt.d" -MT"App/src/riscv-virt.o" -c -o "App/src/riscv-virt.o" "../App/src/riscv-virt.c"
+Finished building: ../App/src/riscv-virt.c
+ 
+Building file: ../App/src/startup.S
+Invoking: GNU RISC-V Cross Assembler
+riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/FreeRTOS/inc" -I"/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/App/inc" -MMD -MP -MF"App/src/startup.d" -MT"App/src/startup.o" -c -o "App/src/startup.o" "../App/src/startup.S"
+Finished building: ../App/src/startup.S
+ 
+Building target: mmRISC_FreeRTOS.elf
+Invoking: GNU RISC-V Cross C Linker
+riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/taka/RISCV/mmRISC/workspace/mmRISC_FreeRTOS/link.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"mmRISC_FreeRTOS.map" -o "mmRISC_FreeRTOS.elf"  ./FreeRTOS/src/event_groups.o ./FreeRTOS/src/heap_4.o ./FreeRTOS/src/list.o ./FreeRTOS/src/port.o ./FreeRTOS/src/portASM.o ./FreeRTOS/src/queue.o ./FreeRTOS/src/stream_buffer.o ./FreeRTOS/src/tasks.o ./FreeRTOS/src/timers.o  ./App/src/main.o ./App/src/riscv-virt.o ./App/src/startup.o   
+Finished building target: mmRISC_FreeRTOS.elf
+ 
+Invoking: GNU RISC-V Cross Create Flash Image
+riscv64-unknown-elf-objcopy -O ihex "mmRISC_FreeRTOS.elf"  "mmRISC_FreeRTOS.hex"
+Finished building: mmRISC_FreeRTOS.hex
+ 
+Invoking: GNU RISC-V Cross Print Size
+riscv64-unknown-elf-size --format=berkeley "mmRISC_FreeRTOS.elf"
+   text	   data	    bss	    dec	    hex	filename
+  11582	  46112	  73176	 130870	  1ff36	mmRISC_FreeRTOS.elf
+Finished building: mmRISC_FreeRTOS.siz
+ 
+
+11:39:39 Build Finished. 0 errors, 0 warnings. (took 988ms)
+

@@ -1,0 +1,11 @@
+12:15:12 **** Incremental Build of configuration Debug for project mmRISC_Floating ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv64-unknown-elf-size --format=berkeley "mmRISC_Floating.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24426	      0	  32796	  57222	   df86	mmRISC_Floating.elf
+Finished building: mmRISC_Floating.siz
+ 
+
+12:15:13 Build Finished. 0 errors, 0 warnings. (took 568ms)
+

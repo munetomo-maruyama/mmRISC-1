@@ -1,0 +1,1466 @@
+m255
+K4
+z2
+!s11f MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/taka/RISCV/mmRISC/simulation/modelsim/riscv-tests
+vAHB_ARB
+Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z2 !s110 1636467822
+!i10b 1
+!s100 CZ^C]S_oo2QZ^]HCbmWR91
+Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IRCL?_GY;M=@gg<GDEzoch3
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+S1
+Z5 d/home/taka/RISCV/mmRISC-1/simulation/modelsim/riscv-tests
+Z6 w1622455176
+Z7 8../../../verilog/ahb_matrix/ahb_arb.v
+Z8 F../../../verilog/ahb_matrix/ahb_arb.v
+!i122 2348
+L0 16 164
+Z9 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z10 !s108 1636467822.000000
+Z11 !s107 ../../../verilog/uart/sasc/trunk/rtl/verilog/timescale.v|../../../verilog/common/defines.v|./tb_TOP.v|../../../verilog/ahb_matrix/ahb_arb.v|../../../verilog/ahb_matrix/ahb_interconnect.v|../../../verilog/ahb_matrix/ahb_slave_port.v|../../../verilog/ahb_matrix/ahb_master_port.v|../../../verilog/ahb_matrix/ahb_top.v|../../../verilog/debug/debug_dm.v|../../../verilog/debug/debug_cdc.v|../../../verilog/debug/debug_dtm_jtag.v|../../../verilog/debug/debug_top.v|../../../verilog/cpu/cpu_debug.v|../../../verilog/cpu/cpu_csr_dbg.v|../../../verilog/cpu/cpu_csr_int.v|../../../verilog/cpu/cpu_csr.v|../../../verilog/cpu/cpu_fpu32.v|../../../verilog/cpu/cpu_pipeline.v|../../../verilog/cpu/cpu_datapath.v|../../../verilog/cpu/cpu_fetch.v|../../../verilog/cpu/cpu_top.v|../../../verilog/mmRISC/csr_mtime.v|../../../verilog/mmRISC/bus_m_ahb.v|../../../verilog/mmRISC/mmRISC.v|../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v|../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v|../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v|../../../verilog/uart/uart.v|../../../verilog/port/port.v|../../../verilog/ram/ram.v|../../../verilog/int_gen/int_gen.v|../../../verilog/chip/chip_top.v|
+Z12 !s90 +define+TOHOST=32'h90001000|+define+BUS_INTERVENTION_04|-f|flist|
+!i113 1
+Z13 o-work work -sv -timescale=1ns/100ps
+Z14 !s92 +define+TOHOST=32'h90001000 +define+BUS_INTERVENTION_04 -work work -sv +incdir+../../../verilog/common -timescale=1ns/100ps +define+RISCV_TESTS +define+SIMULATION
+Z15 tCvgOpt 0
+n@a@h@b_@a@r@b
+vAHB_ARB_RB
+R1
+R2
+!i10b 1
+!s100 OgjI2Q=]UPmSNTgYai?9P3
+R3
+I0l<IjQzKD5]AXlHVSc_zX2
+R4
+S1
+R5
+R6
+R7
+R8
+!i122 2348
+L0 184 73
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@a@h@b_@a@r@b_@r@b
+vAHB_INTERCONNECT
+R1
+R2
+!i10b 1
+!s100 NGCK;dBSQk5L0HVMb<@kl3
+R3
+I]^L`?2`OV^Skcn6EDQI2j2
+R4
+S1
+R5
+w1623489856
+8../../../verilog/ahb_matrix/ahb_interconnect.v
+F../../../verilog/ahb_matrix/ahb_interconnect.v
+!i122 2348
+L0 16 342
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@a@h@b_@i@n@t@e@r@c@o@n@n@e@c@t
+vAHB_MASTER_PORT
+R1
+R2
+!i10b 1
+!s100 6mS;d_e[9^X35odV@MIl@0
+R3
+INkaXP0n[O6Y2]k2FVcE7z2
+R4
+S1
+R5
+R6
+8../../../verilog/ahb_matrix/ahb_master_port.v
+F../../../verilog/ahb_matrix/ahb_master_port.v
+!i122 2348
+L0 16 179
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@a@h@b_@m@a@s@t@e@r_@p@o@r@t
+vAHB_MATRIX
+R1
+R2
+!i10b 1
+!s100 CMJnW33J9jM5eANA9ZezC2
+R3
+IDcC>6G5VFzQU8<dX`6<WO2
+R4
+S1
+R5
+R6
+8../../../verilog/ahb_matrix/ahb_top.v
+F../../../verilog/ahb_matrix/ahb_top.v
+!i122 2348
+L0 16 249
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@a@h@b_@m@a@t@r@i@x
+vAHB_SLAVE_PORT
+R1
+R2
+!i10b 1
+!s100 VGhV_RB>Yi2EV<?SY`@dA3
+R3
+IzZDg`>jh2:?hVUd;;d2FW2
+R4
+S1
+R5
+R6
+8../../../verilog/ahb_matrix/ahb_slave_port.v
+F../../../verilog/ahb_matrix/ahb_slave_port.v
+!i122 2348
+L0 16 194
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@a@h@b_@s@l@a@v@e_@p@o@r@t
+vBUS_M_AHB
+R1
+R2
+!i10b 1
+!s100 ]cZhN5ZUjhS3;1;1o5N:G0
+R3
+I@`Z8LY9YQPKHF@3bMcFMj2
+R4
+S1
+R5
+w1635067599
+8../../../verilog/mmRISC/bus_m_ahb.v
+F../../../verilog/mmRISC/bus_m_ahb.v
+!i122 2348
+L0 18 250
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@b@u@s_@m_@a@h@b
+vCHECK_FTYPE
+R1
+R2
+!i10b 1
+!s100 l?YXnfImCj=8@aezKdgLN2
+R3
+IH:YV_[K?M?Hz_a4B15^P70
+R4
+S1
+R5
+Z16 w1635512177
+Z17 8../../../verilog/cpu/cpu_fpu32.v
+Z18 F../../../verilog/cpu/cpu_fpu32.v
+!i122 2348
+L0 2285 44
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@c@h@e@c@k_@f@t@y@p@e
+vCHIP_TOP
+R1
+R2
+!i10b 1
+!s100 m:fD:jDS2@5n@iB^mk3911
+R3
+Im`=G=z4]aTUNNHAN;bl;P1
+R4
+S1
+R5
+w1636466113
+8../../../verilog/chip/chip_top.v
+F../../../verilog/chip/chip_top.v
+!i122 2348
+L0 168 667
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@c@h@i@p_@t@o@p
+vCPU_CSR
+R1
+R2
+!i10b 1
+!s100 Jfal8C=`WM]kJ<08P^c<D3
+R3
+I^QnBed[[Xh0L:AX@kZUCi2
+R4
+S1
+R5
+w1635429857
+8../../../verilog/cpu/cpu_csr.v
+F../../../verilog/cpu/cpu_csr.v
+!i122 2348
+L0 168 788
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@c@p@u_@c@s@r
+vCPU_CSR_DBG
+R1
+R2
+!i10b 1
+!s100 PN^KZ39^`Dnf3i7[8g9JJ3
+R3
+IminZ@WUY2S]LTo5FYiFY]0
+R4
+S1
+R5
+w1635575149
+8../../../verilog/cpu/cpu_csr_dbg.v
+F../../../verilog/cpu/cpu_csr_dbg.v
+!i122 2348
+L0 82 873
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@c@p@u_@c@s@r_@d@b@g
+vCPU_CSR_INT
+R1
+R2
+!i10b 1
+!s100 CA[S_<GmG7]_?TE?DIDa<0
+R3
+In>XjEmFXD2aEB9826@aM;2
+R4
+S1
+R5
+w1635067506
+8../../../verilog/cpu/cpu_csr_int.v
+F../../../verilog/cpu/cpu_csr_int.v
+!i122 2348
+L0 50 398
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@c@p@u_@c@s@r_@i@n@t
+vCPU_DATAPATH
+R1
+R2
+!i10b 1
+!s100 lSWfjkQWdK8JaLc5<aB2L3
+R3
+IG=9=AU;LFD@T5gNmVRRnh2
+R4
+S1
+R5
+w1635067510
+8../../../verilog/cpu/cpu_datapath.v
+F../../../verilog/cpu/cpu_datapath.v
+!i122 2348
+L0 18 784
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@c@p@u_@d@a@t@a@p@a@t@h
+vCPU_DEBUG
+R1
+R2
+!i10b 1
+!s100 GHQXj4d`7B@jh?Eb<6jiV2
+R3
+IRR1Y02Vj3R9D>oM[hLI<T0
+R4
+S1
+R5
+w1635067514
+8../../../verilog/cpu/cpu_debug.v
+F../../../verilog/cpu/cpu_debug.v
+!i122 2348
+L0 18 653
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@c@p@u_@d@e@b@u@g
+vCPU_FETCH
+R1
+R2
+!i10b 1
+!s100 <l^5O:ga8N9Q]W0b@hJ:<3
+R3
+ILlbV?d`BC]Ceb1e?F0L[O3
+R4
+S1
+R5
+w1635067529
+8../../../verilog/cpu/cpu_fetch.v
+F../../../verilog/cpu/cpu_fetch.v
+!i122 2348
+L0 128 582
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@c@p@u_@f@e@t@c@h
+vCPU_FPU32
+R1
+R2
+!i10b 1
+!s100 WEUl9JAdV5d;^SLU4JOTX2
+R3
+ID<zFEnB0;jzge2gDPdm:02
+R4
+S1
+R5
+R16
+R17
+R18
+!i122 2348
+L0 89 2191
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@c@p@u_@f@p@u32
+vCPU_PIPELINE
+R1
+R2
+!i10b 1
+!s100 E8BoEl7R4CS;>HGNiaben3
+R3
+II42>28YQm1Zaih3K1jzYP3
+R4
+S1
+R5
+w1635067538
+8../../../verilog/cpu/cpu_pipeline.v
+F../../../verilog/cpu/cpu_pipeline.v
+!i122 2348
+L0 79 2379
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@c@p@u_@p@i@p@e@l@i@n@e
+vCPU_TOP
+R1
+R2
+!i10b 1
+!s100 3l[`2l?fDf^eNEk][Nb<?3
+R3
+I03KIQVL<=MXWd[[`OJ9SJ1
+R4
+S1
+R5
+w1635067543
+8../../../verilog/cpu/cpu_top.v
+F../../../verilog/cpu/cpu_top.v
+!i122 2348
+L0 19 987
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@c@p@u_@t@o@p
+vCSR_MTIME
+R1
+R2
+!i10b 1
+!s100 1[n`kQ]:>7ST?fX[KagQj2
+R3
+IHhXf1MkOjf<KdSG`4T0@A2
+R4
+S1
+R5
+w1635515215
+8../../../verilog/mmRISC/csr_mtime.v
+F../../../verilog/mmRISC/csr_mtime.v
+!i122 2348
+L0 59 307
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@c@s@r_@m@t@i@m@e
+vDEBUG_CDC
+R1
+R2
+!i10b 1
+!s100 KFRF:l`9?@mbj^GFMCY9a2
+R3
+Il]G>K:[E4dX?cWgXX_SB10
+R4
+S1
+R5
+w1635067573
+8../../../verilog/debug/debug_cdc.v
+F../../../verilog/debug/debug_cdc.v
+!i122 2348
+L0 14 111
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@d@e@b@u@g_@c@d@c
+vDEBUG_DM
+R1
+R2
+!i10b 1
+!s100 N<NBm[SnhkQg5QURLhUin3
+R3
+I;noNo<E:nXcKIBRI2T0U@3
+R4
+S1
+R5
+w1635067577
+8../../../verilog/debug/debug_dm.v
+F../../../verilog/debug/debug_dm.v
+!i122 2348
+L0 99 1246
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@d@e@b@u@g_@d@m
+vDEBUG_DTM_JTAG
+R1
+R2
+!i10b 1
+!s100 ^`Rm3iQzIWfM_`7>d1^i?3
+R3
+I^K3@Gl0?hHNfn^zJ6Og1C2
+R4
+S1
+R5
+w1635067581
+8../../../verilog/debug/debug_dtm_jtag.v
+F../../../verilog/debug/debug_dtm_jtag.v
+!i122 2348
+L0 29 457
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@d@e@b@u@g_@d@t@m_@j@t@a@g
+vDEBUG_TOP
+R1
+R2
+!i10b 1
+!s100 Q?I0WdM?1BUef0j8n`dCe2
+R3
+Iak[;X7:2:54OHoc7J7dI;2
+R4
+S1
+R5
+w1636466565
+8../../../verilog/debug/debug_top.v
+F../../../verilog/debug/debug_top.v
+!i122 2348
+L0 95 183
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@d@e@b@u@g_@t@o@p
+vFADD
+R1
+Z19 !s110 1629647308
+!i10b 1
+!s100 87]jf^PZozbgF:B_lP>jj3
+R3
+IY>7^2FeoHT[X8:UfYjD`12
+R4
+S1
+R0
+Z20 w1629622471
+R17
+R18
+!i122 1379
+L0 1133 71
+R9
+r1
+!s85 0
+31
+Z21 !s108 1629647308.000000
+R11
+Z22 !s90 +define+TOHOST=32'h90003000|+define+BUS_INTERVENTION_04|-f|flist|
+!i113 1
+R13
+Z23 !s92 +define+TOHOST=32'h90003000 +define+BUS_INTERVENTION_04 -work work -sv +incdir+../../../verilog/common -timescale=1ns/100ps +define+RISCV_TESTS +define+SIMULATION
+R15
+n@f@a@d@d
+vFADD_CORE
+R1
+R2
+!i10b 1
+!s100 >Yz5me<OXJzG6h4Bn<3231
+R3
+IWYRnLMbHb1c`GZcbOQ9@i0
+R4
+S1
+R5
+R16
+R17
+R18
+!i122 2348
+L0 3574 172
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@f@a@d@d_@c@o@r@e
+vFADD_HANDLE_SPECIAL_NUMBER
+R1
+R19
+!i10b 1
+!s100 AQoMn3g3fK_kg9WBRkaaU2
+R3
+I>TQhNT5Kf7alNRU3dd]o?3
+R4
+S1
+R0
+R20
+R17
+R18
+!i122 1379
+L0 66 109
+R9
+r1
+!s85 0
+31
+R21
+R11
+R22
+!i113 1
+R13
+R23
+R15
+n@f@a@d@d_@h@a@n@d@l@e_@s@p@e@c@i@a@l_@n@u@m@b@e@r
+vFADD_SPECIAL_NUMBER
+R1
+R2
+!i10b 1
+!s100 iO;i9UVM6m`:GhRVV:OV`1
+R3
+I@WOgDXnK55M`=^jb<V1EM0
+R4
+S1
+R5
+R16
+R17
+R18
+!i122 2348
+L0 2333 134
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@f@a@d@d_@s@p@e@c@i@a@l_@n@u@m@b@e@r
+vFCVT_F2I
+R1
+R2
+!i10b 1
+!s100 P>ND<cUHF:<n8[4:jaDA<3
+R3
+IA5d7?YQLI>iV3FO8IaiT42
+R4
+S1
+R5
+R16
+R17
+R18
+!i122 2348
+L0 3907 176
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@f@c@v@t_@f2@i
+vFCVT_I2F
+R1
+R2
+!i10b 1
+!s100 dD@UOnjm9NhoRCiJ1Tkdn1
+R3
+IjZ3;4[:>8F^TCV=8]A`mT3
+R4
+S1
+R5
+R16
+R17
+R18
+!i122 2348
+L0 4110 83
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@f@c@v@t_@i2@f
+vFDIV_SPECIAL_NUMBER
+R1
+R2
+!i10b 1
+!s100 a]><9VCAZf9k<iVTQgWY^0
+R3
+IF?clF71FS;fLlzV9E@9`E1
+R4
+S1
+R5
+R16
+R17
+R18
+!i122 2348
+L0 2676 142
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@f@d@i@v_@s@p@e@c@i@a@l_@n@u@m@b@e@r
+vFIND_1ST_ONE_IN_FRAC27
+R1
+R2
+!i10b 1
+!s100 0KE<D^F^baSE`<_`LOBU50
+R3
+IiNed8iBZ^PjLoNHVX4h2b2
+R4
+S1
+R5
+R16
+R17
+R18
+!i122 2348
+L0 2899 18
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@f@i@n@d_1@s@t_@o@n@e_@i@n_@f@r@a@c27
+vFIND_1ST_ONE_IN_FRAC66
+R1
+R2
+!i10b 1
+!s100 Ic?QRGmohf6SO1HA4H=NH3
+R3
+IV`V9bCF4M?P05bH9=V3=b1
+R4
+S1
+R5
+R16
+R17
+R18
+!i122 2348
+L0 2922 18
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@f@i@n@d_1@s@t_@o@n@e_@i@n_@f@r@a@c66
+vFIND_1ST_ONE_IN_FRAC70
+R1
+R2
+!i10b 1
+!s100 IoT:NoiLKFm><O<gf:Bd_2
+R3
+I3RGOUf<;WodVBFPjhciAP0
+R4
+S1
+R5
+R16
+R17
+R18
+!i122 2348
+L0 2945 18
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@f@i@n@d_1@s@t_@o@n@e_@i@n_@f@r@a@c70
+vFLOAT32_FROM_INNER79
+R1
+R2
+!i10b 1
+!s100 @4zDBJ@Ej?[gCMYH70ZBQ2
+R3
+IVMl@`CIL8aY[:k4@aiS>=3
+R4
+S1
+R5
+R16
+R17
+R18
+!i122 2348
+L0 3285 282
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@f@l@o@a@t32_@f@r@o@m_@i@n@n@e@r79
+vFMADD_SPECIAL_NUMBER
+R1
+R2
+!i10b 1
+!s100 JX;8MWXBBjJ8=b9jB@b>D0
+R3
+If=c;T[d^8@?0;1oWdYI:11
+R4
+S1
+R5
+R16
+R17
+R18
+!i122 2348
+L0 2620 52
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@f@m@a@d@d_@s@p@e@c@i@a@l_@n@u@m@b@e@r
+vFMUL_CORE
+R1
+R2
+!i10b 1
+!s100 >gRa<6m2OJCK7zJ`:OJQD2
+R3
+I`5UzNWA7]KQ;zaf>[im<I1
+R4
+S1
+R5
+R16
+R17
+R18
+!i122 2348
+L0 3753 104
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@f@m@u@l_@c@o@r@e
+vFMUL_SPECIAL_NUMBER
+R1
+R2
+!i10b 1
+!s100 F6V6km1`53=h`@O0U@I0b1
+R3
+ISPG>0WJa[^_M`^CA56b3g3
+R4
+S1
+R5
+R16
+R17
+R18
+!i122 2348
+L0 2472 127
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@f@m@u@l_@s@p@e@c@i@a@l_@n@u@m@b@e@r
+vFRAC27_ROUND_FRAC66
+R1
+R2
+!i10b 1
+!s100 R4DC>0^iE6a^=Ki;`m^=31
+R3
+I`@=06B^k7B8b6dBQd0]z:2
+R4
+S1
+R5
+R16
+R17
+R18
+!i122 2348
+L0 3119 43
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@f@r@a@c27_@r@o@u@n@d_@f@r@a@c66
+vFRAC70_ROUND_FRAC132
+R1
+R2
+!i10b 1
+!s100 KABEE<?6AIBhnXbh3f:1Q0
+R3
+I6`=9JzTlYa:1=T:Bi[FT;1
+R4
+S1
+R5
+R16
+R17
+R18
+!i122 2348
+L0 3168 43
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@f@r@a@c70_@r@o@u@n@d_@f@r@a@c132
+vFSQRT_SPECIAL_NUMBER
+R1
+R2
+!i10b 1
+!s100 ;hWe@YILiYMkOGz42N`YY3
+R3
+IHJ[NLn`8F21Nj07=[PGl21
+R4
+S1
+R5
+R16
+R17
+R18
+!i122 2348
+L0 2822 72
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@f@s@q@r@t_@s@p@e@c@i@a@l_@n@u@m@b@e@r
+vINNER79_FROM_FLOAT32
+R1
+R2
+!i10b 1
+!s100 F853lTLI7`OaR5L[ho15>1
+R3
+IJQDVcca>M1Pm?4bW5PJ1C0
+R4
+S1
+R5
+R16
+R17
+R18
+!i122 2348
+L0 3221 54
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@i@n@n@e@r79_@f@r@o@m_@f@l@o@a@t32
+vINT_GEN
+R1
+R2
+!i10b 1
+!s100 _=G`?1D:HZnz<;:>fDb0W2
+R3
+Ioe_fUY`D7[E2n1bT=Vm@10
+R4
+S1
+R5
+w1635067593
+8../../../verilog/int_gen/int_gen.v
+F../../../verilog/int_gen/int_gen.v
+!i122 2348
+L0 32 113
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@i@n@t_@g@e@n
+vmmRISC
+R1
+R2
+!i10b 1
+!s100 d7I3eDz:aVPn@?:MKDa3_1
+R3
+IM53]Ta1XDeI6DhA4UG19F0
+R4
+S1
+R5
+w1636465784
+8../../../verilog/mmRISC/mmRISC.v
+F../../../verilog/mmRISC/mmRISC.v
+!i122 2348
+L0 19 488
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+nmm@r@i@s@c
+vPORT
+R1
+R2
+!i10b 1
+!s100 :W[:Mc2MBSX;clDTX`gU[0
+R3
+I;0CcZ=j?zUIU<QlG>F7l30
+R4
+S1
+R5
+w1635067614
+8../../../verilog/port/port.v
+F../../../verilog/port/port.v
+!i122 2348
+L0 35 150
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@p@o@r@t
+vRAM
+R1
+R2
+!i10b 1
+!s100 fKcUS4?T0XC4:CiBkFWd=3
+R3
+IBKJbA`92nY>83OSU2Ef>]3
+R4
+S1
+R5
+w1635067621
+8../../../verilog/ram/ram.v
+F../../../verilog/ram/ram.v
+!i122 2348
+L0 18 264
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@r@a@m
+vROUND_JUDGMENT
+R1
+R2
+!i10b 1
+!s100 LlJB`6GE?GHRXiZTbDA4_3
+R3
+IcjWE;2GB?P;UofIQj1QM00
+R4
+S1
+R5
+R16
+R17
+R18
+!i122 2348
+L0 3048 65
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@r@o@u@n@d_@j@u@d@g@m@e@n@t
+vsasc_brg
+R1
+R2
+!i10b 1
+!s100 XOe3@i2DICFUZ<F2<Ok?k1
+R3
+IhiiAA9o^aL2I:Ff6:[NE<3
+R4
+S1
+R5
+R6
+8../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v
+F../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v
+!i122 2348
+L0 84 72
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+vsasc_fifo4
+R1
+R2
+!i10b 1
+!s100 Qim603O3FbmIXfTacej;Q2
+R3
+Io=bU0IQFM54dnB@alT<Fh3
+R4
+S1
+R5
+R6
+8../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v
+F../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v
+!i122 2348
+L0 60 71
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+vsasc_top
+R1
+R2
+!i10b 1
+!s100 NM`KbX6GQ0niQMXFjH7h;0
+R3
+IWHZAcVMn_EnQ``YEk<AB@0
+R4
+S1
+R5
+R6
+8../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v
+F../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v
+!i122 2348
+L0 73 232
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+vSHIFT_RIGHT_FRAC27
+R1
+R2
+!i10b 1
+!s100 08XW_e_ZbDml`LB:IDj6W0
+R3
+IFVEEXRZ]McDaoNIBmYiP91
+R4
+S1
+R5
+R16
+R17
+R18
+!i122 2348
+L0 2968 22
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@s@h@i@f@t_@r@i@g@h@t_@f@r@a@c27
+vSHIFT_RIGHT_FRAC66
+R1
+R2
+!i10b 1
+!s100 O8Jbe]mn765^H1iGf1:eL2
+R3
+InY@@60TF4_Ad]@IK4ECAh1
+R4
+S1
+R5
+R16
+R17
+R18
+!i122 2348
+L0 2995 22
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@s@h@i@f@t_@r@i@g@h@t_@f@r@a@c66
+vSHIFT_RIGHT_FRAC70
+R1
+R2
+!i10b 1
+!s100 EPAfzR5:AT8OaJdAkGPB51
+R3
+I]U0W2BV6nn;:l2JJLj=:A0
+R4
+S1
+R5
+R16
+R17
+R18
+!i122 2348
+L0 3022 22
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@s@h@i@f@t_@r@i@g@h@t_@f@r@a@c70
+vtb_TOP
+R1
+R2
+!i10b 1
+!s100 OEZjYnPb5<I6@:J0z_A1C2
+R3
+IWYQO7Q`LLj=WI`nfDhaCF3
+R4
+S1
+R5
+w1636467613
+8./tb_TOP.v
+F./tb_TOP.v
+!i122 2348
+L0 33 581
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+ntb_@t@o@p
+vUART
+R1
+R2
+!i10b 1
+!s100 ;DfS9VR=VC<lMC7bZbZ[l0
+R3
+Ik2?azBQ>`;7Y:TMk6]GT:1
+R4
+S1
+R5
+w1635516713
+8../../../verilog/uart/uart.v
+F../../../verilog/uart/uart.v
+!i122 2348
+L0 53 216
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+R14
+R15
+n@u@a@r@t

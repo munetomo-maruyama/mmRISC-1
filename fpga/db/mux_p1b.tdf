@@ -1,0 +1,54 @@
+--lpm_mux CBX_DECLARE_ALL_CONNECTED_PORTS="OFF" DEVICE_FAMILY="MAX 10" LPM_SIZE=2 LPM_WIDTH=8 LPM_WIDTHS=1 data result sel
+--VERSION_BEGIN 20.1 cbx_lpm_mux 2020:11:11:17:03:37:SJ cbx_mgl 2020:11:11:17:50:46:SJ  VERSION_END
+
+
+-- Copyright (C) 2020  Intel Corporation. All rights reserved.
+--  Your use of Intel Corporation's design tools, logic functions 
+--  and other software and tools, and any partner logic 
+--  functions, and any output files from any of the foregoing 
+--  (including device programming or simulation files), and any 
+--  associated documentation or information are expressly subject 
+--  to the terms and conditions of the Intel Program License 
+--  Subscription Agreement, the Intel Quartus Prime License Agreement,
+--  the Intel FPGA IP License Agreement, or other applicable license
+--  agreement, including, without limitation, that your use is for
+--  the sole purpose of programming logic devices manufactured by
+--  Intel and sold by Intel or its authorized distributors.  Please
+--  refer to the applicable agreement for further details, at
+--  https://fpgasoftware.intel.com/eula.
+
+
+
+--synthesis_resources = lut 8 
+SUBDESIGN mux_p1b
+( 
+	data[15..0]	:	input;
+	result[7..0]	:	output;
+	sel[0..0]	:	input;
+) 
+VARIABLE 
+	result_node[7..0]	: WIRE;
+	sel_node[0..0]	: WIRE;
+	w_data163w[1..0]	: WIRE;
+	w_data177w[1..0]	: WIRE;
+	w_data189w[1..0]	: WIRE;
+	w_data201w[1..0]	: WIRE;
+	w_data213w[1..0]	: WIRE;
+	w_data225w[1..0]	: WIRE;
+	w_data237w[1..0]	: WIRE;
+	w_data249w[1..0]	: WIRE;
+
+BEGIN 
+	result[] = result_node[];
+	result_node[] = ( ((sel_node[] & w_data249w[1..1]) # ((! sel_node[]) & w_data249w[0..0])), ((sel_node[] & w_data237w[1..1]) # ((! sel_node[]) & w_data237w[0..0])), ((sel_node[] & w_data225w[1..1]) # ((! sel_node[]) & w_data225w[0..0])), ((sel_node[] & w_data213w[1..1]) # ((! sel_node[]) & w_data213w[0..0])), ((sel_node[] & w_data201w[1..1]) # ((! sel_node[]) & w_data201w[0..0])), ((sel_node[] & w_data189w[1..1]) # ((! sel_node[]) & w_data189w[0..0])), ((sel_node[] & w_data177w[1..1]) # ((! sel_node[]) & w_data177w[0..0])), ((sel_node[] & w_data163w[1..1]) # ((! sel_node[]) & w_data163w[0..0])));
+	sel_node[] = ( sel[0..0]);
+	w_data163w[] = ( data[8..8], data[0..0]);
+	w_data177w[] = ( data[9..9], data[1..1]);
+	w_data189w[] = ( data[10..10], data[2..2]);
+	w_data201w[] = ( data[11..11], data[3..3]);
+	w_data213w[] = ( data[12..12], data[4..4]);
+	w_data225w[] = ( data[13..13], data[5..5]);
+	w_data237w[] = ( data[14..14], data[6..6]);
+	w_data249w[] = ( data[15..15], data[7..7]);
+END;
+--VALID FILE

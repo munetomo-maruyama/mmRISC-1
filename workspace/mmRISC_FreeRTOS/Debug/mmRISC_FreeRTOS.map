@@ -1,0 +1,2628 @@
+Archive member included to satisfy reference by file (symbol)
+
+/opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a(lib_a-memcpy.o)
+                              ./src_kernel/src/queue.o (memcpy)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a(lib_a-memset.o)
+                              ./src_kernel/src/stream_buffer.o (memset)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a(lib_a-strlen.o)
+                              ./src_app/src/xprintf.o (strlen)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clzsi2.o)
+                              ./src_kernel/src/tasks.o (__clzsi2)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+                              ./src_app/src/xprintf.o (__udivdi3)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_umoddi3.o)
+                              ./src_app/src/xprintf.o (__umoddi3)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(adddf3.o)
+                              ./src_app/src/xprintf.o (__adddf3)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(divdf3.o)
+                              ./src_app/src/xprintf.o (__divdf3)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(eqdf2.o)
+                              ./src_app/src/xprintf.o (__nedf2)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(gedf2.o)
+                              ./src_app/src/xprintf.o (__gedf2)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(ledf2.o)
+                              ./src_app/src/xprintf.o (__ledf2)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(muldf3.o)
+                              ./src_app/src/xprintf.o (__muldf3)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(subdf3.o)
+                              ./src_app/src/xprintf.o (__subdf3)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(unorddf2.o)
+                              ./src_app/src/xprintf.o (__unorddf2)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(fixdfsi.o)
+                              ./src_app/src/xprintf.o (__fixdfsi)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(floatsidf.o)
+                              ./src_app/src/xprintf.o (__floatsidf)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clz.o)
+                              /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clzsi2.o) (__clz_tab)
+
+Discarded input sections
+
+ .group         0x0000000000000000        0xc ./src_kernel/src/croutine.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/croutine.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/croutine.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/croutine.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/croutine.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/croutine.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/croutine.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/croutine.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/croutine.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/croutine.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/croutine.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/croutine.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/croutine.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/croutine.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/croutine.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/croutine.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/croutine.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/croutine.o
+ .text          0x0000000000000000        0x0 ./src_kernel/src/croutine.o
+ .data          0x0000000000000000        0x0 ./src_kernel/src/croutine.o
+ .bss           0x0000000000000000        0x0 ./src_kernel/src/croutine.o
+ .debug_info    0x0000000000000000       0x76 ./src_kernel/src/croutine.o
+ .debug_abbrev  0x0000000000000000       0x29 ./src_kernel/src/croutine.o
+ .debug_aranges
+                0x0000000000000000       0x18 ./src_kernel/src/croutine.o
+ .debug_macro   0x0000000000000000       0xde ./src_kernel/src/croutine.o
+ .debug_macro   0x0000000000000000      0x6ee ./src_kernel/src/croutine.o
+ .debug_macro   0x0000000000000000      0x174 ./src_kernel/src/croutine.o
+ .debug_macro   0x0000000000000000       0x22 ./src_kernel/src/croutine.o
+ .debug_macro   0x0000000000000000       0x8e ./src_kernel/src/croutine.o
+ .debug_macro   0x0000000000000000       0x51 ./src_kernel/src/croutine.o
+ .debug_macro   0x0000000000000000      0x103 ./src_kernel/src/croutine.o
+ .debug_macro   0x0000000000000000       0x6a ./src_kernel/src/croutine.o
+ .debug_macro   0x0000000000000000      0x1df ./src_kernel/src/croutine.o
+ .debug_macro   0x0000000000000000      0x112 ./src_kernel/src/croutine.o
+ .debug_macro   0x0000000000000000      0x15a ./src_kernel/src/croutine.o
+ .debug_macro   0x0000000000000000       0xd1 ./src_kernel/src/croutine.o
+ .debug_macro   0x0000000000000000       0x28 ./src_kernel/src/croutine.o
+ .debug_macro   0x0000000000000000       0x1f ./src_kernel/src/croutine.o
+ .debug_macro   0x0000000000000000       0x12 ./src_kernel/src/croutine.o
+ .debug_macro   0x0000000000000000      0x4f6 ./src_kernel/src/croutine.o
+ .debug_macro   0x0000000000000000       0xc3 ./src_kernel/src/croutine.o
+ .debug_macro   0x0000000000000000       0x43 ./src_kernel/src/croutine.o
+ .debug_macro   0x0000000000000000      0x126 ./src_kernel/src/croutine.o
+ .debug_line    0x0000000000000000      0x249 ./src_kernel/src/croutine.o
+ .debug_str     0x0000000000000000     0x8910 ./src_kernel/src/croutine.o
+ .comment       0x0000000000000000       0x13 ./src_kernel/src/croutine.o
+ .riscv.attributes
+                0x0000000000000000       0x26 ./src_kernel/src/croutine.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/event_groups.o
+ .text          0x0000000000000000        0x0 ./src_kernel/src/event_groups.o
+ .data          0x0000000000000000        0x0 ./src_kernel/src/event_groups.o
+ .bss           0x0000000000000000        0x0 ./src_kernel/src/event_groups.o
+ .text.xEventGroupCreate
+                0x0000000000000000       0x42 ./src_kernel/src/event_groups.o
+ .text.xEventGroupSync
+                0x0000000000000000      0x160 ./src_kernel/src/event_groups.o
+ .text.xEventGroupWaitBits
+                0x0000000000000000      0x190 ./src_kernel/src/event_groups.o
+ .text.xEventGroupClearBits
+                0x0000000000000000       0x56 ./src_kernel/src/event_groups.o
+ .text.xEventGroupGetBitsFromISR
+                0x0000000000000000       0x2c ./src_kernel/src/event_groups.o
+ .text.xEventGroupSetBits
+                0x0000000000000000      0x148 ./src_kernel/src/event_groups.o
+ .text.vEventGroupDelete
+                0x0000000000000000       0x62 ./src_kernel/src/event_groups.o
+ .text.vEventGroupSetBitsCallback
+                0x0000000000000000       0x2a ./src_kernel/src/event_groups.o
+ .text.vEventGroupClearBitsCallback
+                0x0000000000000000       0x2a ./src_kernel/src/event_groups.o
+ .text.prvTestWaitCondition
+                0x0000000000000000       0x54 ./src_kernel/src/event_groups.o
+ .debug_info    0x0000000000000000      0x69e ./src_kernel/src/event_groups.o
+ .debug_abbrev  0x0000000000000000      0x177 ./src_kernel/src/event_groups.o
+ .debug_aranges
+                0x0000000000000000       0x68 ./src_kernel/src/event_groups.o
+ .debug_ranges  0x0000000000000000       0x58 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000      0x1d6 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000      0x6ee ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0x19 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0x22 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0x52 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0x94 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0x16 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000      0x10e ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0x8d ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0x16 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0x43 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0x57 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0x10 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0x52 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000      0x182 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000      0x341 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0x16 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0x29 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000      0x103 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0x6a ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000      0x1df ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000      0x112 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000      0x15a ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0xd1 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0x28 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0x1f ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0x12 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000      0x4f6 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0xc3 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000      0x120 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0x91 ./src_kernel/src/event_groups.o
+ .debug_macro   0x0000000000000000       0x19 ./src_kernel/src/event_groups.o
+ .debug_line    0x0000000000000000      0x8b2 ./src_kernel/src/event_groups.o
+ .debug_str     0x0000000000000000     0xb87c ./src_kernel/src/event_groups.o
+ .comment       0x0000000000000000       0x13 ./src_kernel/src/event_groups.o
+ .debug_frame   0x0000000000000000      0x198 ./src_kernel/src/event_groups.o
+ .riscv.attributes
+                0x0000000000000000       0x26 ./src_kernel/src/event_groups.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/heap_4.o
+ .text          0x0000000000000000        0x0 ./src_kernel/src/heap_4.o
+ .data          0x0000000000000000        0x0 ./src_kernel/src/heap_4.o
+ .bss           0x0000000000000000        0x0 ./src_kernel/src/heap_4.o
+ .srodata.xHeapStructSize
+                0x0000000000000000        0x4 ./src_kernel/src/heap_4.o
+ .text.xPortGetFreeHeapSize
+                0x0000000000000000       0x16 ./src_kernel/src/heap_4.o
+ .text.xPortGetMinimumEverFreeHeapSize
+                0x0000000000000000       0x16 ./src_kernel/src/heap_4.o
+ .text.vPortInitialiseBlocks
+                0x0000000000000000        0xe ./src_kernel/src/heap_4.o
+ .text.vPortGetHeapStats
+                0x0000000000000000      0x102 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000      0x6ee ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000       0x19 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000       0x22 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000       0x52 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000       0x94 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000       0x16 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000      0x10e ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000       0x8d ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000       0x16 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000       0x43 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000       0x57 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000       0x10 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000       0x52 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000      0x182 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000      0x341 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000       0x16 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000       0x29 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000      0x103 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000       0x6a ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000      0x1df ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000      0x112 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000      0x15a ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000       0xd1 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000       0x28 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000       0x1f ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000       0x12 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000      0x4f6 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000       0xc3 ./src_kernel/src/heap_4.o
+ .debug_macro   0x0000000000000000      0x120 ./src_kernel/src/heap_4.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/list.o
+ .text          0x0000000000000000        0x0 ./src_kernel/src/list.o
+ .data          0x0000000000000000        0x0 ./src_kernel/src/list.o
+ .bss           0x0000000000000000        0x0 ./src_kernel/src/list.o
+ .text.vListInsertEnd
+                0x0000000000000000       0x66 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000      0x6ee ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000       0x19 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000       0x22 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000       0x52 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000       0x94 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000       0x16 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000      0x10e ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000       0x8d ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000       0x16 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000       0x43 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000       0x57 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000       0x10 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000       0x52 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000      0x182 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000      0x341 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000       0x16 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000       0x29 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000      0x103 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000       0x6a ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000      0x1df ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000      0x112 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000      0x15a ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000       0xd1 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000       0x28 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000       0x1f ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000       0x12 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000      0x4f6 ./src_kernel/src/list.o
+ .debug_macro   0x0000000000000000       0xc3 ./src_kernel/src/list.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/port.o
+ .text          0x0000000000000000        0x0 ./src_kernel/src/port.o
+ .data          0x0000000000000000        0x0 ./src_kernel/src/port.o
+ .bss           0x0000000000000000        0x0 ./src_kernel/src/port.o
+ .srodata.uxTimerIncrementsForOneTick
+                0x0000000000000000        0x4 ./src_kernel/src/port.o
+ .srodata.ullMachineTimerCompareRegisterBase
+                0x0000000000000000        0x4 ./src_kernel/src/port.o
+ .text.vPortEndScheduler
+                0x0000000000000000        0x8 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000      0x6ee ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000       0x22 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000       0x52 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000       0x19 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000       0x94 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000      0x174 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000       0x16 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000       0x43 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000       0x57 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000       0x10 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000       0x52 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000      0x182 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000      0x341 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000      0x103 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000       0x6a ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000      0x1df ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000      0x112 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000      0x15a ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000       0xd1 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000       0x28 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000       0x1f ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000       0x12 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000      0x4f6 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000       0xc3 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000000      0x120 ./src_kernel/src/port.o
+ .data          0x0000000000000000        0x0 ./src_kernel/src/portASM.o
+ .bss           0x0000000000000000        0x0 ./src_kernel/src/portASM.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/queue.o
+ .text          0x0000000000000000        0x0 ./src_kernel/src/queue.o
+ .data          0x0000000000000000        0x0 ./src_kernel/src/queue.o
+ .bss           0x0000000000000000        0x0 ./src_kernel/src/queue.o
+ .text.xQueueGetMutexHolder
+                0x0000000000000000       0x4a ./src_kernel/src/queue.o
+ .text.xQueueGetMutexHolderFromISR
+                0x0000000000000000       0x2e ./src_kernel/src/queue.o
+ .text.xQueueGiveMutexRecursive
+                0x0000000000000000       0x70 ./src_kernel/src/queue.o
+ .text.xQueueTakeMutexRecursive
+                0x0000000000000000       0x80 ./src_kernel/src/queue.o
+ .text.xQueueCreateCountingSemaphore
+                0x0000000000000000       0x58 ./src_kernel/src/queue.o
+ .text.xQueueGenericSendFromISR
+                0x0000000000000000       0xd2 ./src_kernel/src/queue.o
+ .text.xQueuePeek
+                0x0000000000000000      0x1b6 ./src_kernel/src/queue.o
+ .text.xQueueReceiveFromISR
+                0x0000000000000000       0xc2 ./src_kernel/src/queue.o
+ .text.xQueuePeekFromISR
+                0x0000000000000000       0x62 ./src_kernel/src/queue.o
+ .text.uxQueueMessagesWaiting
+                0x0000000000000000       0x34 ./src_kernel/src/queue.o
+ .text.uxQueueSpacesAvailable
+                0x0000000000000000       0x46 ./src_kernel/src/queue.o
+ .text.uxQueueMessagesWaitingFromISR
+                0x0000000000000000       0x28 ./src_kernel/src/queue.o
+ .text.vQueueDelete
+                0x0000000000000000       0x36 ./src_kernel/src/queue.o
+ .text.xQueueIsQueueEmptyFromISR
+                0x0000000000000000       0x32 ./src_kernel/src/queue.o
+ .text.xQueueIsQueueFullFromISR
+                0x0000000000000000       0x3a ./src_kernel/src/queue.o
+ .text.pcQueueGetName
+                0x0000000000000000       0x66 ./src_kernel/src/queue.o
+ .text.vQueueUnregisterQueue
+                0x0000000000000000       0x72 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000      0x6ee ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000       0x19 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000       0x22 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000       0x52 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000       0x94 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000       0x16 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000      0x10e ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000       0x8d ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000       0x16 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000       0x43 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000       0x57 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000       0x10 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000       0x52 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000      0x182 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000      0x341 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000       0x16 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000       0x29 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000       0x35 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000      0x103 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000       0x6a ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000      0x1df ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000      0x112 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000      0x15a ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000       0xd1 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000       0x28 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000       0x1f ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000       0x12 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000      0x4f6 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000       0xc3 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000000      0x120 ./src_kernel/src/queue.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/riscv-virt.o
+ .text          0x0000000000000000        0x0 ./src_kernel/src/riscv-virt.o
+ .data          0x0000000000000000        0x0 ./src_kernel/src/riscv-virt.o
+ .bss           0x0000000000000000        0x0 ./src_kernel/src/riscv-virt.o
+ .text.handle_trap
+                0x0000000000000000        0x8 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000      0x6ee ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000       0x22 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000       0x52 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000       0x19 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000       0x94 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000      0x174 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000       0x16 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000       0x43 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000       0x57 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000       0x10 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000       0x52 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000      0x182 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000      0x341 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000       0x10 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000       0x35 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000       0x46 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000      0x103 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000       0x6a ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000      0x1df ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000      0x112 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000      0x15a ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000       0xd1 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000       0x28 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000       0x1f ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000       0x12 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000000      0x4f6 ./src_kernel/src/riscv-virt.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/stream_buffer.o
+ .text          0x0000000000000000        0x0 ./src_kernel/src/stream_buffer.o
+ .data          0x0000000000000000        0x0 ./src_kernel/src/stream_buffer.o
+ .bss           0x0000000000000000        0x0 ./src_kernel/src/stream_buffer.o
+ .text.xStreamBufferGenericCreate
+                0x0000000000000000       0x9e ./src_kernel/src/stream_buffer.o
+ .text.vStreamBufferDelete
+                0x0000000000000000       0x4a ./src_kernel/src/stream_buffer.o
+ .text.xStreamBufferReset
+                0x0000000000000000       0x74 ./src_kernel/src/stream_buffer.o
+ .text.xStreamBufferSetTriggerLevel
+                0x0000000000000000       0x52 ./src_kernel/src/stream_buffer.o
+ .text.xStreamBufferSpacesAvailable
+                0x0000000000000000       0x84 ./src_kernel/src/stream_buffer.o
+ .text.xStreamBufferBytesAvailable
+                0x0000000000000000       0x32 ./src_kernel/src/stream_buffer.o
+ .text.xStreamBufferSend
+                0x0000000000000000      0x1b0 ./src_kernel/src/stream_buffer.o
+ .text.xStreamBufferSendFromISR
+                0x0000000000000000       0xc8 ./src_kernel/src/stream_buffer.o
+ .text.prvWriteMessageToBuffer
+                0x0000000000000000       0xaa ./src_kernel/src/stream_buffer.o
+ .text.xStreamBufferReceive
+                0x0000000000000000      0x148 ./src_kernel/src/stream_buffer.o
+ .text.xStreamBufferNextMessageLengthBytes
+                0x0000000000000000       0x78 ./src_kernel/src/stream_buffer.o
+ .text.xStreamBufferReceiveFromISR
+                0x0000000000000000       0xb6 ./src_kernel/src/stream_buffer.o
+ .text.prvReadMessageFromBuffer
+                0x0000000000000000       0xbc ./src_kernel/src/stream_buffer.o
+ .text.xStreamBufferIsEmpty
+                0x0000000000000000       0x42 ./src_kernel/src/stream_buffer.o
+ .text.xStreamBufferIsFull
+                0x0000000000000000       0x5c ./src_kernel/src/stream_buffer.o
+ .text.xStreamBufferSendCompletedFromISR
+                0x0000000000000000       0x60 ./src_kernel/src/stream_buffer.o
+ .text.xStreamBufferReceiveCompletedFromISR
+                0x0000000000000000       0x60 ./src_kernel/src/stream_buffer.o
+ .text.prvWriteBytesToBuffer
+                0x0000000000000000       0xc2 ./src_kernel/src/stream_buffer.o
+ .text.prvReadBytesFromBuffer
+                0x0000000000000000       0xc2 ./src_kernel/src/stream_buffer.o
+ .text.prvBytesInBuffer
+                0x0000000000000000       0x5a ./src_kernel/src/stream_buffer.o
+ .text.prvInitialiseNewStreamBuffer
+                0x0000000000000000       0x64 ./src_kernel/src/stream_buffer.o
+ .debug_info    0x0000000000000000      0xb8f ./src_kernel/src/stream_buffer.o
+ .debug_abbrev  0x0000000000000000      0x1b9 ./src_kernel/src/stream_buffer.o
+ .debug_aranges
+                0x0000000000000000       0xc0 ./src_kernel/src/stream_buffer.o
+ .debug_ranges  0x0000000000000000       0xb0 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000      0x1d7 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000      0x6ee ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000       0x22 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000       0x8e ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000       0x51 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000      0x103 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000       0x6a ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000      0x1df ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000       0x58 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000       0x19 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000      0x174 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000       0x16 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000       0x43 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000       0x10 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000       0x52 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000      0x182 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000      0x341 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000       0x10 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000       0x35 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000      0x112 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000      0x15a ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000       0xd1 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000       0x28 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000       0x1f ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000       0x12 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000      0x4f6 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000       0xc3 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000      0x120 ./src_kernel/src/stream_buffer.o
+ .debug_macro   0x0000000000000000       0x18 ./src_kernel/src/stream_buffer.o
+ .debug_line    0x0000000000000000      0xdd9 ./src_kernel/src/stream_buffer.o
+ .debug_str     0x0000000000000000     0xb7ce ./src_kernel/src/stream_buffer.o
+ .comment       0x0000000000000000       0x13 ./src_kernel/src/stream_buffer.o
+ .debug_frame   0x0000000000000000      0x348 ./src_kernel/src/stream_buffer.o
+ .riscv.attributes
+                0x0000000000000000       0x26 ./src_kernel/src/stream_buffer.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/tasks.o
+ .text          0x0000000000000000        0x0 ./src_kernel/src/tasks.o
+ .data          0x0000000000000000        0x0 ./src_kernel/src/tasks.o
+ .bss           0x0000000000000000        0x0 ./src_kernel/src/tasks.o
+ .text.vTaskDelete
+                0x0000000000000000      0x140 ./src_kernel/src/tasks.o
+ .text.vTaskDelay
+                0x0000000000000000       0x4c ./src_kernel/src/tasks.o
+ .text.eTaskGetState
+                0x0000000000000000      0x10e ./src_kernel/src/tasks.o
+ .text.uxTaskPriorityGet
+                0x0000000000000000       0x4c ./src_kernel/src/tasks.o
+ .text.uxTaskPriorityGetFromISR
+                0x0000000000000000       0x3c ./src_kernel/src/tasks.o
+ .text.vTaskPrioritySet
+                0x0000000000000000      0x21a ./src_kernel/src/tasks.o
+ .text.vTaskSuspend
+                0x0000000000000000      0x168 ./src_kernel/src/tasks.o
+ .text.prvTaskIsTaskSuspended
+                0x0000000000000000       0x54 ./src_kernel/src/tasks.o
+ .text.vTaskResume
+                0x0000000000000000      0x13c ./src_kernel/src/tasks.o
+ .text.xTaskResumeFromISR
+                0x0000000000000000      0x152 ./src_kernel/src/tasks.o
+ .text.vTaskEndScheduler
+                0x0000000000000000       0x26 ./src_kernel/src/tasks.o
+ .text.xTaskGetTickCountFromISR
+                0x0000000000000000       0x22 ./src_kernel/src/tasks.o
+ .text.uxTaskGetNumberOfTasks
+                0x0000000000000000       0x16 ./src_kernel/src/tasks.o
+ .text.prvSearchForNameWithinSingleList
+                0x0000000000000000      0x12a ./src_kernel/src/tasks.o
+ .text.xTaskGetHandle
+                0x0000000000000000       0xee ./src_kernel/src/tasks.o
+ .text.xTaskCatchUpTicks
+                0x0000000000000000       0x44 ./src_kernel/src/tasks.o
+ .text.xTaskAbortDelay
+                0x0000000000000000      0x170 ./src_kernel/src/tasks.o
+ .text.vTaskPlaceOnUnorderedEventList
+                0x0000000000000000       0xaa ./src_kernel/src/tasks.o
+ .text.vTaskRemoveFromUnorderedEventList
+                0x0000000000000000      0x1be ./src_kernel/src/tasks.o
+ .text.vTaskSetTimeOutState
+                0x0000000000000000       0x42 ./src_kernel/src/tasks.o
+ .text.xTaskGetSchedulerState
+                0x0000000000000000       0x3a ./src_kernel/src/tasks.o
+ .text.uxTaskResetEventItemValue
+                0x0000000000000000       0x3a ./src_kernel/src/tasks.o
+ .text.ulTaskGenericNotifyTake
+                0x0000000000000000       0xee ./src_kernel/src/tasks.o
+ .text.xTaskGenericNotifyWait
+                0x0000000000000000      0x140 ./src_kernel/src/tasks.o
+ .text.xTaskGenericNotify
+                0x0000000000000000      0x270 ./src_kernel/src/tasks.o
+ .rodata.xTaskGenericNotify
+                0x0000000000000000       0x14 ./src_kernel/src/tasks.o
+ .text.xTaskGenericNotifyFromISR
+                0x0000000000000000      0x2ec ./src_kernel/src/tasks.o
+ .rodata.xTaskGenericNotifyFromISR
+                0x0000000000000000       0x14 ./src_kernel/src/tasks.o
+ .text.vTaskGenericNotifyGiveFromISR
+                0x0000000000000000      0x22e ./src_kernel/src/tasks.o
+ .text.xTaskGenericNotifyStateClear
+                0x0000000000000000       0x78 ./src_kernel/src/tasks.o
+ .text.ulTaskGenericNotifyValueClear
+                0x0000000000000000       0x88 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000      0x6ee ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0x19 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0x22 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0x52 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0x94 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0x16 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000      0x10e ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0x8d ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0x16 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0x43 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0x57 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0x10 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0x52 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000      0x182 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000      0x341 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0x16 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0x29 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0x16 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0x35 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000      0x103 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0x6a ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000      0x1df ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000      0x112 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000      0x15a ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0xd1 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0x28 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0x1f ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0x12 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000      0x4f6 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0xc3 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000      0x120 ./src_kernel/src/tasks.o
+ .debug_macro   0x0000000000000000       0x91 ./src_kernel/src/tasks.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_kernel/src/timers.o
+ .text          0x0000000000000000        0x0 ./src_kernel/src/timers.o
+ .data          0x0000000000000000        0x0 ./src_kernel/src/timers.o
+ .bss           0x0000000000000000        0x0 ./src_kernel/src/timers.o
+ .text.xTimerCreate
+                0x0000000000000000       0x68 ./src_kernel/src/timers.o
+ .text.prvInitialiseNewTimer
+                0x0000000000000000       0x88 ./src_kernel/src/timers.o
+ .text.xTimerGenericCommand
+                0x0000000000000000       0xd2 ./src_kernel/src/timers.o
+ .text.xTimerGetTimerDaemonTaskHandle
+                0x0000000000000000       0x16 ./src_kernel/src/timers.o
+ .text.xTimerGetPeriod
+                0x0000000000000000       0x20 ./src_kernel/src/timers.o
+ .text.vTimerSetReloadMode
+                0x0000000000000000       0x68 ./src_kernel/src/timers.o
+ .text.uxTimerGetReloadMode
+                0x0000000000000000       0x4a ./src_kernel/src/timers.o
+ .text.xTimerGetExpiryTime
+                0x0000000000000000       0x28 ./src_kernel/src/timers.o
+ .text.pcTimerGetName
+                0x0000000000000000       0x20 ./src_kernel/src/timers.o
+ .text.xTimerIsTimerActive
+                0x0000000000000000       0x4a ./src_kernel/src/timers.o
+ .text.pvTimerGetTimerID
+                0x0000000000000000       0x3c ./src_kernel/src/timers.o
+ .text.vTimerSetTimerID
+                0x0000000000000000       0x3c ./src_kernel/src/timers.o
+ .text.xTimerPendFunctionCallFromISR
+                0x0000000000000000       0x66 ./src_kernel/src/timers.o
+ .text.xTimerPendFunctionCall
+                0x0000000000000000       0x66 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000      0x6ee ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000       0x19 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000       0x22 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000       0x52 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000       0x94 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000       0x16 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000      0x10e ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000       0x8d ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000       0x16 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000       0x43 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000       0x57 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000       0x34 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000       0x10 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000       0x52 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000      0x182 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000      0x341 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000       0x16 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000       0x29 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000      0x103 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000       0x6a ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000      0x1df ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000      0x112 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000      0x15a ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000       0xd1 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000       0x28 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000       0x1f ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000       0x12 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000      0x4f6 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000       0xc3 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000      0x120 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000000000       0x80 ./src_kernel/src/timers.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/gpio.o
+ .text          0x0000000000000000        0x0 ./src_app/src/gpio.o
+ .data          0x0000000000000000        0x0 ./src_app/src/gpio.o
+ .bss           0x0000000000000000        0x0 ./src_app/src/gpio.o
+ .text.GPIO_GetKEY
+                0x0000000000000000       0x3a ./src_app/src/gpio.o
+ .text.GPIO_GetSW10
+                0x0000000000000000       0x36 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000      0x6ee ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x22 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x8e ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x51 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000      0x103 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x6a ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000      0x1df ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x58 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x19 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000      0x341 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x16 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x43 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000      0x182 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x1c ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x22 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0xd5 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x1c ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x3d ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x16 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000      0x16f ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x46 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/gpio.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/interrupt.o
+ .text          0x0000000000000000        0x0 ./src_app/src/interrupt.o
+ .data          0x0000000000000000        0x0 ./src_app/src/interrupt.o
+ .bss           0x0000000000000000        0x0 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000      0x6ee ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x22 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x8e ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x51 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000      0x103 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x6a ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000      0x1df ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x58 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x19 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x16 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x97 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000      0x341 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0xfd ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x16 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x43 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000      0x182 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x1c ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x22 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0xd5 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x1c ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x3d ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x16 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000      0x16f ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x46 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000000000       0xa6 ./src_app/src/interrupt.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .text          0x0000000000000000        0x0 ./src_app/src/libc-hooks.o
+ .data          0x0000000000000000        0x0 ./src_app/src/libc-hooks.o
+ .bss           0x0000000000000000        0x0 ./src_app/src/libc-hooks.o
+ .bss.heap_base
+                0x0000000000000000     0x2000 ./src_app/src/libc-hooks.o
+ .sbss.heap_sz  0x0000000000000000        0x4 ./src_app/src/libc-hooks.o
+ .text._sbrk    0x0000000000000000       0x5c ./src_app/src/libc-hooks.o
+ .text._open    0x0000000000000000       0x18 ./src_app/src/libc-hooks.o
+ .text._close   0x0000000000000000       0x14 ./src_app/src/libc-hooks.o
+ .text._stdout_hook_default
+                0x0000000000000000       0x14 ./src_app/src/libc-hooks.o
+ .sdata._stdout_hook
+                0x0000000000000000        0x4 ./src_app/src/libc-hooks.o
+ .text.__stdout_hook_install
+                0x0000000000000000       0x1e ./src_app/src/libc-hooks.o
+ .text._stdin_hook_default
+                0x0000000000000000       0x10 ./src_app/src/libc-hooks.o
+ .sdata._stdin_hook
+                0x0000000000000000        0x4 ./src_app/src/libc-hooks.o
+ .text.__stdin_hook_install
+                0x0000000000000000       0x1e ./src_app/src/libc-hooks.o
+ .text._read    0x0000000000000000       0x98 ./src_app/src/libc-hooks.o
+ .text._write   0x0000000000000000       0x78 ./src_app/src/libc-hooks.o
+ .text._lseek   0x0000000000000000       0x1c ./src_app/src/libc-hooks.o
+ .text._exit    0x0000000000000000        0xc ./src_app/src/libc-hooks.o
+ .text._isatty  0x0000000000000000       0x14 ./src_app/src/libc-hooks.o
+ .text._kill    0x0000000000000000       0x18 ./src_app/src/libc-hooks.o
+ .text._getpid  0x0000000000000000       0x10 ./src_app/src/libc-hooks.o
+ .text._fstat   0x0000000000000000       0x20 ./src_app/src/libc-hooks.o
+ .debug_info    0x0000000000000000      0x5f9 ./src_app/src/libc-hooks.o
+ .debug_abbrev  0x0000000000000000      0x1d4 ./src_app/src/libc-hooks.o
+ .debug_aranges
+                0x0000000000000000       0x90 ./src_app/src/libc-hooks.o
+ .debug_ranges  0x0000000000000000       0x80 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000      0x1d4 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000      0x6ee ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x22 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x19 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x94 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x16 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x57 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x97 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000      0x341 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0xfd ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x16 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x43 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000      0x182 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x6a ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x1c ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x22 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0xd5 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x1c ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x3d ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x16 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000      0x16f ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x16 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x35 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000       0x35 ./src_app/src/libc-hooks.o
+ .debug_macro   0x0000000000000000      0x12c ./src_app/src/libc-hooks.o
+ .debug_line    0x0000000000000000      0x5d1 ./src_app/src/libc-hooks.o
+ .debug_str     0x0000000000000000     0x6b06 ./src_app/src/libc-hooks.o
+ .comment       0x0000000000000000       0x13 ./src_app/src/libc-hooks.o
+ .debug_frame   0x0000000000000000      0x22c ./src_app/src/libc-hooks.o
+ .riscv.attributes
+                0x0000000000000000       0x26 ./src_app/src/libc-hooks.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main.o
+ .text          0x0000000000000000        0x0 ./src_app/src/main.o
+ .data          0x0000000000000000        0x0 ./src_app/src/main.o
+ .bss           0x0000000000000000        0x0 ./src_app/src/main.o
+ .rodata.LED7SEG
+                0x0000000000000000       0x10 ./src_app/src/main.o
+ .text.vApplicationIdleHook
+                0x0000000000000000        0xe ./src_app/src/main.o
+ .text.vAssertCalled
+                0x0000000000000000       0x26 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000      0x6ee ./src_app/src/main.o
+ .debug_macro   0x0000000000000000      0x174 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x22 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x8e ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x51 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000      0x103 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x6a ./src_app/src/main.o
+ .debug_macro   0x0000000000000000      0x1df ./src_app/src/main.o
+ .debug_macro   0x0000000000000000      0x112 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000      0x15a ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0xd1 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x28 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x1f ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x12 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000      0x4f6 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0xc3 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000      0x120 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x58 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x19 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x16 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x35 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000      0x341 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x16 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x43 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000      0x182 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x1c ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x22 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0xd5 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x1c ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x3d ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x16 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000      0x16f ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x46 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/main.o
+ .debug_macro   0x0000000000000000       0x8e ./src_app/src/main.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .group         0x0000000000000000        0xc ./src_app/src/main_blinky.o
+ .text          0x0000000000000000        0x0 ./src_app/src/main_blinky.o
+ .data          0x0000000000000000        0x0 ./src_app/src/main_blinky.o
+ .bss           0x0000000000000000        0x0 ./src_app/src/main_blinky.o
+ .rodata.LED7SEG
+                0x0000000000000000       0x10 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000      0x6ee ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x22 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x19 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x94 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x16 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x57 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x97 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000      0x341 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0xfd ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x16 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x43 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000      0x182 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x6a ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x1c ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x22 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0xd5 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x1c ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x3d ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x16 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000      0x16f ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000      0x103 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000      0x1df ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000      0x112 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000      0x15a ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0xd1 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x28 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x1f ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x12 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000      0x4f6 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0xc3 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000      0x120 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x80 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x22 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x46 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x8e ./src_app/src/main_blinky.o
+ .debug_macro   0x0000000000000000       0x28 ./src_app/src/main_blinky.o
+ .text          0x0000000000000000        0x0 ./src_app/src/startup.o
+ .data          0x0000000000000000        0x0 ./src_app/src/startup.o
+ .bss           0x0000000000000000        0x0 ./src_app/src/startup.o
+ .debug_line    0x0000000000000000       0xc7 ./src_app/src/startup.o
+ .debug_info    0x0000000000000000       0x26 ./src_app/src/startup.o
+ .debug_abbrev  0x0000000000000000       0x14 ./src_app/src/startup.o
+ .debug_aranges
+                0x0000000000000000       0x20 ./src_app/src/startup.o
+ .debug_str     0x0000000000000000       0x5f ./src_app/src/startup.o
+ .riscv.attributes
+                0x0000000000000000       0x24 ./src_app/src/startup.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/system.o
+ .text          0x0000000000000000        0x0 ./src_app/src/system.o
+ .data          0x0000000000000000        0x0 ./src_app/src/system.o
+ .bss           0x0000000000000000        0x0 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000      0x6ee ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x22 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x8e ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x51 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000      0x103 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x6a ./src_app/src/system.o
+ .debug_macro   0x0000000000000000      0x1df ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x58 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x19 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x16 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x97 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000      0x341 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0xfd ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x16 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x43 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000      0x182 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x1c ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x22 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0xd5 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x1c ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x3d ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x16 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000      0x16f ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x46 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/system.o
+ .debug_macro   0x0000000000000000       0x1c ./src_app/src/system.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/uart.o
+ .text          0x0000000000000000        0x0 ./src_app/src/uart.o
+ .data          0x0000000000000000        0x0 ./src_app/src/uart.o
+ .bss           0x0000000000000000        0x0 ./src_app/src/uart.o
+ .rodata.LED7SEG
+                0x0000000000000000       0x10 ./src_app/src/uart.o
+ .text.uart_puts
+                0x0000000000000000       0x42 ./src_app/src/uart.o
+ .text.putchar  0x0000000000000000       0x40 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000      0x6ee ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x22 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x8e ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x51 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000      0x103 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x6a ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000      0x1df ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x58 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x19 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x16 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x97 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000      0x341 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0xfd ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x16 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x43 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000      0x182 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x1c ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x22 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0xd5 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x1c ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x3d ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x16 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000      0x16f ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x46 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x1c ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x8e ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0xac ./src_app/src/uart.o
+ .debug_macro   0x0000000000000000       0x28 ./src_app/src/uart.o
+ .group         0x0000000000000000        0xc ./src_app/src/xprintf.o
+ .group         0x0000000000000000        0xc ./src_app/src/xprintf.o
+ .group         0x0000000000000000        0xc ./src_app/src/xprintf.o
+ .group         0x0000000000000000        0xc ./src_app/src/xprintf.o
+ .group         0x0000000000000000        0xc ./src_app/src/xprintf.o
+ .group         0x0000000000000000        0xc ./src_app/src/xprintf.o
+ .group         0x0000000000000000        0xc ./src_app/src/xprintf.o
+ .group         0x0000000000000000        0xc ./src_app/src/xprintf.o
+ .group         0x0000000000000000        0xc ./src_app/src/xprintf.o
+ .group         0x0000000000000000        0xc ./src_app/src/xprintf.o
+ .group         0x0000000000000000        0xc ./src_app/src/xprintf.o
+ .group         0x0000000000000000        0xc ./src_app/src/xprintf.o
+ .group         0x0000000000000000        0xc ./src_app/src/xprintf.o
+ .group         0x0000000000000000        0xc ./src_app/src/xprintf.o
+ .group         0x0000000000000000        0xc ./src_app/src/xprintf.o
+ .group         0x0000000000000000        0xc ./src_app/src/xprintf.o
+ .group         0x0000000000000000        0xc ./src_app/src/xprintf.o
+ .group         0x0000000000000000        0xc ./src_app/src/xprintf.o
+ .group         0x0000000000000000        0xc ./src_app/src/xprintf.o
+ .group         0x0000000000000000        0xc ./src_app/src/xprintf.o
+ .group         0x0000000000000000        0xc ./src_app/src/xprintf.o
+ .text          0x0000000000000000        0x0 ./src_app/src/xprintf.o
+ .data          0x0000000000000000        0x0 ./src_app/src/xprintf.o
+ .bss           0x0000000000000000        0x0 ./src_app/src/xprintf.o
+ .text.xputc    0x0000000000000000       0x2c ./src_app/src/xprintf.o
+ .text.xfprintf
+                0x0000000000000000       0x52 ./src_app/src/xprintf.o
+ .text.xsprintf
+                0x0000000000000000       0x70 ./src_app/src/xprintf.o
+ .text.put_dump
+                0x0000000000000000      0x19a ./src_app/src/xprintf.o
+ .text.xgets    0x0000000000000000       0xea ./src_app/src/xprintf.o
+ .text.xatoi    0x0000000000000000      0x216 ./src_app/src/xprintf.o
+ .text.xatof    0x0000000000000000      0x3c2 ./src_app/src/xprintf.o
+ .debug_macro   0x0000000000000000      0x6ee ./src_app/src/xprintf.o
+ .debug_macro   0x0000000000000000       0x46 ./src_app/src/xprintf.o
+ .debug_macro   0x0000000000000000       0x22 ./src_app/src/xprintf.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/xprintf.o
+ .debug_macro   0x0000000000000000       0x19 ./src_app/src/xprintf.o
+ .debug_macro   0x0000000000000000       0x94 ./src_app/src/xprintf.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/xprintf.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/xprintf.o
+ .debug_macro   0x0000000000000000      0x174 ./src_app/src/xprintf.o
+ .debug_macro   0x0000000000000000       0x16 ./src_app/src/xprintf.o
+ .debug_macro   0x0000000000000000       0x43 ./src_app/src/xprintf.o
+ .debug_macro   0x0000000000000000       0x57 ./src_app/src/xprintf.o
+ .debug_macro   0x0000000000000000       0x34 ./src_app/src/xprintf.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/xprintf.o
+ .debug_macro   0x0000000000000000       0x52 ./src_app/src/xprintf.o
+ .debug_macro   0x0000000000000000      0x182 ./src_app/src/xprintf.o
+ .debug_macro   0x0000000000000000      0x341 ./src_app/src/xprintf.o
+ .debug_macro   0x0000000000000000       0x10 ./src_app/src/xprintf.o
+ .debug_macro   0x0000000000000000       0x35 ./src_app/src/xprintf.o
+ .data          0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a(lib_a-memcpy.o)
+ .bss           0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a(lib_a-memcpy.o)
+ .data          0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a(lib_a-memset.o)
+ .bss           0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a(lib_a-memset.o)
+ .data          0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a(lib_a-strlen.o)
+ .bss           0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a(lib_a-strlen.o)
+ .data          0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clzsi2.o)
+ .bss           0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clzsi2.o)
+ .data          0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .bss           0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .eh_frame      0x0000000000000000       0x28 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .data          0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_umoddi3.o)
+ .bss           0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_umoddi3.o)
+ .eh_frame      0x0000000000000000       0x28 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_umoddi3.o)
+ .data          0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(adddf3.o)
+ .bss           0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(adddf3.o)
+ .data          0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(divdf3.o)
+ .bss           0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(divdf3.o)
+ .data          0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(eqdf2.o)
+ .bss           0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(eqdf2.o)
+ .data          0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(gedf2.o)
+ .bss           0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(gedf2.o)
+ .data          0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(ledf2.o)
+ .bss           0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(ledf2.o)
+ .data          0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(muldf3.o)
+ .bss           0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(muldf3.o)
+ .data          0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(subdf3.o)
+ .bss           0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(subdf3.o)
+ .data          0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(unorddf2.o)
+ .bss           0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(unorddf2.o)
+ .data          0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(fixdfsi.o)
+ .bss           0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(fixdfsi.o)
+ .data          0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(floatsidf.o)
+ .bss           0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(floatsidf.o)
+ .text          0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clz.o)
+ .data          0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clz.o)
+ .bss           0x0000000000000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clz.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+ROM              0x0000000090000000 0x0000000000020000 xr
+RAM              0x0000000080000000 0x000000000000c000 rw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD ./src_kernel/src/croutine.o
+LOAD ./src_kernel/src/event_groups.o
+LOAD ./src_kernel/src/heap_4.o
+LOAD ./src_kernel/src/list.o
+LOAD ./src_kernel/src/port.o
+LOAD ./src_kernel/src/portASM.o
+LOAD ./src_kernel/src/queue.o
+LOAD ./src_kernel/src/riscv-virt.o
+LOAD ./src_kernel/src/stream_buffer.o
+LOAD ./src_kernel/src/tasks.o
+LOAD ./src_kernel/src/timers.o
+LOAD ./src_app/src/gpio.o
+LOAD ./src_app/src/interrupt.o
+LOAD ./src_app/src/libc-hooks.o
+LOAD ./src_app/src/main.o
+LOAD ./src_app/src/main_blinky.o
+LOAD ./src_app/src/startup.o
+LOAD ./src_app/src/system.o
+LOAD ./src_app/src/uart.o
+LOAD ./src_app/src/xprintf.o
+LOAD /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libm.a
+LOAD /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a
+LOAD /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a
+                0x0000000000004000                STACK_SIZE = 0x4000
+
+.startup        0x0000000090000000       0x70
+                0x0000000090000000                . = ALIGN (0x100)
+ *(.startup*)
+ .startup       0x0000000090000000       0x6c ./src_app/src/startup.o
+                0x0000000090000000                _start
+ *(.startup)
+ FILL mask 0x00000000
+                0x000000009000006c        0x4 LONG 0x0
+
+.text           0x0000000090000100     0x7990
+                0x0000000090000100                . = ALIGN (0x100)
+                [!provide]                        PROVIDE (__TEXT_START__ = .)
+ *(.text.main)
+ .text.main     0x0000000090000100       0x2a ./src_app/src/main.o
+                0x0000000090000100                main
+ *(.text)
+ *fill*         0x000000009000012a       0xd6 
+ .text          0x0000000090000200      0x42c ./src_kernel/src/portASM.o
+                0x0000000090000200                freertos_risc_v_trap_handler
+                0x0000000090000400                xPortStartFirstTask
+                0x0000000090000500                pxPortInitialiseStack
+ .text          0x000000009000062c      0x128 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a(lib_a-memcpy.o)
+                0x000000009000062c                memcpy
+ .text          0x0000000090000754       0xdc /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a(lib_a-memset.o)
+                0x0000000090000754                memset
+ .text          0x0000000090000830       0x8c /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a(lib_a-strlen.o)
+                0x0000000090000830                strlen
+ .text          0x00000000900008bc       0x4c /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clzsi2.o)
+                0x00000000900008bc                __clzsi2
+ .text          0x0000000090000908      0x434 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+                0x0000000090000908                __udivdi3
+ .text          0x0000000090000d3c      0x404 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_umoddi3.o)
+                0x0000000090000d3c                __umoddi3
+ .text          0x0000000090001140      0x7d8 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(adddf3.o)
+                0x0000000090001140                __adddf3
+ .text          0x0000000090001918      0x6e0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(divdf3.o)
+                0x0000000090001918                __divdf3
+ .text          0x0000000090001ff8       0x8c /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(eqdf2.o)
+                0x0000000090001ff8                __eqdf2
+                0x0000000090001ff8                __nedf2
+ .text          0x0000000090002084       0xe4 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(gedf2.o)
+                0x0000000090002084                __gtdf2
+                0x0000000090002084                __gedf2
+ .text          0x0000000090002168       0xe4 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(ledf2.o)
+                0x0000000090002168                __ltdf2
+                0x0000000090002168                __ledf2
+ .text          0x000000009000224c      0x5c8 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(muldf3.o)
+                0x000000009000224c                __muldf3
+ .text          0x0000000090002814      0x7ec /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(subdf3.o)
+                0x0000000090002814                __subdf3
+ .text          0x0000000090003000       0x4c /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(unorddf2.o)
+                0x0000000090003000                __unorddf2
+ .text          0x000000009000304c       0x80 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(fixdfsi.o)
+                0x000000009000304c                __fixdfsi
+ .text          0x00000000900030cc       0xa8 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(floatsidf.o)
+                0x00000000900030cc                __floatsidf
+ *(.text.*)
+ .text.pvPortMalloc
+                0x0000000090003174      0x1d8 ./src_kernel/src/heap_4.o
+                0x0000000090003174                pvPortMalloc
+ .text.vPortFree
+                0x000000009000334c       0xaa ./src_kernel/src/heap_4.o
+                0x000000009000334c                vPortFree
+ .text.prvHeapInit
+                0x00000000900033f6      0x10e ./src_kernel/src/heap_4.o
+ .text.prvInsertBlockIntoFreeList
+                0x0000000090003504       0xf8 ./src_kernel/src/heap_4.o
+ .text.vListInitialise
+                0x00000000900035fc       0x4c ./src_kernel/src/list.o
+                0x00000000900035fc                vListInitialise
+ .text.vListInitialiseItem
+                0x0000000090003648       0x1a ./src_kernel/src/list.o
+                0x0000000090003648                vListInitialiseItem
+ .text.vListInsert
+                0x0000000090003662       0xa2 ./src_kernel/src/list.o
+                0x0000000090003662                vListInsert
+ .text.uxListRemove
+                0x0000000090003704       0x70 ./src_kernel/src/list.o
+                0x0000000090003704                uxListRemove
+ .text.mem_wr32
+                0x0000000090003774       0x20 ./src_kernel/src/port.o
+ .text.vPortSetupTimerInterrupt
+                0x0000000090003794      0x110 ./src_kernel/src/port.o
+                0x0000000090003794                vPortSetupTimerInterrupt
+ .text.xPortStartScheduler
+                0x00000000900038a4       0x24 ./src_kernel/src/port.o
+                0x00000000900038a4                xPortStartScheduler
+ .text.xQueueGenericReset
+                0x00000000900038c8      0x104 ./src_kernel/src/queue.o
+                0x00000000900038c8                xQueueGenericReset
+ .text.xQueueGenericCreate
+                0x00000000900039cc       0xac ./src_kernel/src/queue.o
+                0x00000000900039cc                xQueueGenericCreate
+ .text.prvInitialiseNewQueue
+                0x0000000090003a78       0x60 ./src_kernel/src/queue.o
+ .text.prvInitialiseMutex
+                0x0000000090003ad8       0x40 ./src_kernel/src/queue.o
+ .text.xQueueCreateMutex
+                0x0000000090003b18       0x40 ./src_kernel/src/queue.o
+                0x0000000090003b18                xQueueCreateMutex
+ .text.xQueueGenericSend
+                0x0000000090003b58      0x15c ./src_kernel/src/queue.o
+                0x0000000090003b58                xQueueGenericSend
+ .text.xQueueGiveFromISR
+                0x0000000090003cb4       0xb4 ./src_kernel/src/queue.o
+                0x0000000090003cb4                xQueueGiveFromISR
+ .text.xQueueReceive
+                0x0000000090003d68      0x152 ./src_kernel/src/queue.o
+                0x0000000090003d68                xQueueReceive
+ .text.xQueueSemaphoreTake
+                0x0000000090003eba      0x1a4 ./src_kernel/src/queue.o
+                0x0000000090003eba                xQueueSemaphoreTake
+ .text.prvGetDisinheritPriorityAfterTimeout
+                0x000000009000405e       0x36 ./src_kernel/src/queue.o
+ .text.prvCopyDataToQueue
+                0x0000000090004094      0x12a ./src_kernel/src/queue.o
+ .text.prvCopyDataFromQueue
+                0x00000000900041be       0x6a ./src_kernel/src/queue.o
+ .text.prvUnlockQueue
+                0x0000000090004228       0xc4 ./src_kernel/src/queue.o
+ .text.prvIsQueueEmpty
+                0x00000000900042ec       0x36 ./src_kernel/src/queue.o
+ .text.prvIsQueueFull
+                0x0000000090004322       0x3e ./src_kernel/src/queue.o
+ .text.vQueueAddToRegistry
+                0x0000000090004360       0xb6 ./src_kernel/src/queue.o
+                0x0000000090004360                vQueueAddToRegistry
+ .text.vQueueWaitForMessageRestricted
+                0x0000000090004416       0x8a ./src_kernel/src/queue.o
+                0x0000000090004416                vQueueWaitForMessageRestricted
+ .text.xGetCoreID
+                0x00000000900044a0       0x1a ./src_kernel/src/riscv-virt.o
+                0x00000000900044a0                xGetCoreID
+ .text.vSendString
+                0x00000000900044ba       0x1e ./src_kernel/src/riscv-virt.o
+                0x00000000900044ba                vSendString
+ .text.xTaskCreate
+                0x00000000900044d8       0xac ./src_kernel/src/tasks.o
+                0x00000000900044d8                xTaskCreate
+ .text.prvInitialiseNewTask
+                0x0000000090004584      0x192 ./src_kernel/src/tasks.o
+ .text.prvAddNewTaskToReadyList
+                0x0000000090004716      0x17a ./src_kernel/src/tasks.o
+ .text.xTaskDelayUntil
+                0x0000000090004890       0xc4 ./src_kernel/src/tasks.o
+                0x0000000090004890                xTaskDelayUntil
+ .text.vTaskStartScheduler
+                0x0000000090004954       0x82 ./src_kernel/src/tasks.o
+                0x0000000090004954                vTaskStartScheduler
+ .text.vTaskSuspendAll
+                0x00000000900049d6       0x22 ./src_kernel/src/tasks.o
+                0x00000000900049d6                vTaskSuspendAll
+ .text.xTaskResumeAll
+                0x00000000900049f8      0x25a ./src_kernel/src/tasks.o
+                0x00000000900049f8                xTaskResumeAll
+ .text.xTaskGetTickCount
+                0x0000000090004c52       0x1e ./src_kernel/src/tasks.o
+                0x0000000090004c52                xTaskGetTickCount
+ .text.pcTaskGetName
+                0x0000000090004c70       0x32 ./src_kernel/src/tasks.o
+                0x0000000090004c70                pcTaskGetName
+ .text.xTaskIncrementTick
+                0x0000000090004ca2      0x2da ./src_kernel/src/tasks.o
+                0x0000000090004ca2                xTaskIncrementTick
+ .text.vTaskSwitchContext
+                0x0000000090004f7c      0x114 ./src_kernel/src/tasks.o
+                0x0000000090004f7c                vTaskSwitchContext
+ .text.vTaskPlaceOnEventList
+                0x0000000090005090       0x38 ./src_kernel/src/tasks.o
+                0x0000000090005090                vTaskPlaceOnEventList
+ .text.vTaskPlaceOnEventListRestricted
+                0x00000000900050c8       0xa0 ./src_kernel/src/tasks.o
+                0x00000000900050c8                vTaskPlaceOnEventListRestricted
+ .text.xTaskRemoveFromEventList
+                0x0000000090005168      0x232 ./src_kernel/src/tasks.o
+                0x0000000090005168                xTaskRemoveFromEventList
+ .text.vTaskInternalSetTimeOutState
+                0x000000009000539a       0x2e ./src_kernel/src/tasks.o
+                0x000000009000539a                vTaskInternalSetTimeOutState
+ .text.xTaskCheckForTimeOut
+                0x00000000900053c8       0xe2 ./src_kernel/src/tasks.o
+                0x00000000900053c8                xTaskCheckForTimeOut
+ .text.vTaskMissedYield
+                0x00000000900054aa       0x18 ./src_kernel/src/tasks.o
+                0x00000000900054aa                vTaskMissedYield
+ .text.prvIdleTask
+                0x00000000900054c2       0x10 ./src_kernel/src/tasks.o
+ .text.prvInitialiseTaskLists
+                0x00000000900054d2       0xa4 ./src_kernel/src/tasks.o
+ .text.prvCheckTasksWaitingTermination
+                0x0000000090005576       0x6e ./src_kernel/src/tasks.o
+ .text.prvDeleteTCB
+                0x00000000900055e4       0x2a ./src_kernel/src/tasks.o
+ .text.prvResetNextTaskUnblockTime
+                0x000000009000560e       0x3a ./src_kernel/src/tasks.o
+ .text.xTaskGetCurrentTaskHandle
+                0x0000000090005648       0x1e ./src_kernel/src/tasks.o
+                0x0000000090005648                xTaskGetCurrentTaskHandle
+ .text.xTaskPriorityInherit
+                0x0000000090005666      0x1b6 ./src_kernel/src/tasks.o
+                0x0000000090005666                xTaskPriorityInherit
+ .text.xTaskPriorityDisinherit
+                0x000000009000581c      0x16a ./src_kernel/src/tasks.o
+                0x000000009000581c                xTaskPriorityDisinherit
+ .text.vTaskPriorityDisinheritAfterTimeout
+                0x0000000090005986      0x1aa ./src_kernel/src/tasks.o
+                0x0000000090005986                vTaskPriorityDisinheritAfterTimeout
+ .text.vTaskEnterCritical
+                0x0000000090005b30       0x32 ./src_kernel/src/tasks.o
+                0x0000000090005b30                vTaskEnterCritical
+ .text.vTaskExitCritical
+                0x0000000090005b62       0x42 ./src_kernel/src/tasks.o
+                0x0000000090005b62                vTaskExitCritical
+ .text.pvTaskIncrementMutexHeldCount
+                0x0000000090005ba4       0x2e ./src_kernel/src/tasks.o
+                0x0000000090005ba4                pvTaskIncrementMutexHeldCount
+ .text.prvAddCurrentTaskToDelayedList
+                0x0000000090005bd2      0x174 ./src_kernel/src/tasks.o
+ .text.xTimerCreateTimerTask
+                0x0000000090005d46       0x4e ./src_kernel/src/timers.o
+                0x0000000090005d46                xTimerCreateTimerTask
+ .text.prvReloadTimer
+                0x0000000090005d94       0x5e ./src_kernel/src/timers.o
+ .text.prvProcessExpiredTimer
+                0x0000000090005df2       0x74 ./src_kernel/src/timers.o
+ .text.prvTimerTask
+                0x0000000090005e66       0x28 ./src_kernel/src/timers.o
+ .text.prvProcessTimerOrBlockTask
+                0x0000000090005e8e       0xa0 ./src_kernel/src/timers.o
+ .text.prvGetNextExpireTime
+                0x0000000090005f2e       0x4c ./src_kernel/src/timers.o
+ .text.prvSampleTimeNow
+                0x0000000090005f7a       0x52 ./src_kernel/src/timers.o
+ .text.prvInsertTimerInActiveList
+                0x0000000090005fcc       0xb4 ./src_kernel/src/timers.o
+ .text.prvProcessReceivedCommands
+                0x0000000090006080      0x1b6 ./src_kernel/src/timers.o
+ .text.prvSwitchTimerLists
+                0x0000000090006236       0x62 ./src_kernel/src/timers.o
+ .text.prvCheckForValidListAndQueue
+                0x0000000090006298       0x90 ./src_kernel/src/timers.o
+ .text.mem_wr32
+                0x0000000090006328       0x20 ./src_app/src/gpio.o
+ .text.mem_rd32
+                0x0000000090006348       0x18 ./src_app/src/gpio.o
+ .text.GPIO_Init
+                0x0000000090006360       0x64 ./src_app/src/gpio.o
+                0x0000000090006360                GPIO_Init
+ .text.GPIO_SetSEG
+                0x00000000900063c4      0x164 ./src_app/src/gpio.o
+                0x00000000900063c4                GPIO_SetSEG
+ .text.GPIO_SetLED
+                0x0000000090006528       0x5e ./src_app/src/gpio.o
+                0x0000000090006528                GPIO_SetLED
+ .text.INT_Init
+                0x0000000090006586       0x26 ./src_app/src/interrupt.o
+                0x0000000090006586                INT_Init
+ .text.vApplicationMallocFailedHook
+                0x00000000900065ac        0xc ./src_app/src/main.o
+                0x00000000900065ac                vApplicationMallocFailedHook
+ .text.vApplicationStackOverflowHook
+                0x00000000900065b8       0x14 ./src_app/src/main.o
+                0x00000000900065b8                vApplicationStackOverflowHook
+ .text.vApplicationTickHook
+                0x00000000900065cc        0xe ./src_app/src/main.o
+                0x00000000900065cc                vApplicationTickHook
+ .text.Task_Queue_Tx
+                0x00000000900065da       0xfc ./src_app/src/main_blinky.o
+ .text.Task_Queue_Rx
+                0x00000000900066d6      0x108 ./src_app/src/main_blinky.o
+ .text.Task_IRQ
+                0x00000000900067de       0x5c ./src_app/src/main_blinky.o
+ .text.main_blinky
+                0x000000009000683a       0xd4 ./src_app/src/main_blinky.o
+                0x000000009000683a                main_blinky
+ .text.external_interrupt_handler
+                0x000000009000690e       0x3a ./src_app/src/main_blinky.o
+                0x000000009000690e                external_interrupt_handler
+ .text.Get_System_Freq
+                0x0000000090006948       0x42 ./src_app/src/system.o
+                0x0000000090006948                Get_System_Freq
+ .text.mem_wr8  0x000000009000698a       0x24 ./src_app/src/uart.o
+ .text.mem_rd8  0x00000000900069ae       0x1e ./src_app/src/uart.o
+ .text.INT_UART_Handler
+                0x00000000900069cc       0xa8 ./src_app/src/uart.o
+                0x00000000900069cc                INT_UART_Handler
+ .text.INT_UART_Check
+                0x0000000090006a74       0x34 ./src_app/src/uart.o
+                0x0000000090006a74                INT_UART_Check
+ .text.UART_Init
+                0x0000000090006aa8       0x8a ./src_app/src/uart.o
+                0x0000000090006aa8                UART_Init
+ .text.UART_TxD
+                0x0000000090006b32       0x36 ./src_app/src/uart.o
+                0x0000000090006b32                UART_TxD
+ .text.UART_RxD
+                0x0000000090006b68       0x2c ./src_app/src/uart.o
+                0x0000000090006b68                UART_RxD
+ .text.ilog10   0x0000000090006b94      0x15a ./src_app/src/xprintf.o
+ .text.i10x     0x0000000090006cee      0x118 ./src_app/src/xprintf.o
+ .text.ftoa     0x0000000090006e06      0x480 ./src_app/src/xprintf.o
+ .text.xfputc   0x0000000090007286       0x68 ./src_app/src/xprintf.o
+                0x0000000090007286                xfputc
+ .text.xputs    0x00000000900072ee       0x26 ./src_app/src/xprintf.o
+                0x00000000900072ee                xputs
+ .text.xfputs   0x0000000090007314       0x40 ./src_app/src/xprintf.o
+                0x0000000090007314                xfputs
+ .text.xvfprintf
+                0x0000000090007354      0x6ea ./src_app/src/xprintf.o
+ .text.xprintf  0x0000000090007a3e       0x52 ./src_app/src/xprintf.o
+                0x0000000090007a3e                xprintf
+                [!provide]                        PROVIDE (__TEXT_END__ = .)
+
+.rodata         0x0000000090007a90      0x3e0
+                0x0000000090007b00                . = ALIGN (0x100)
+ *fill*         0x0000000090007a90       0x70 
+ *(.rodata)
+ .rodata        0x0000000090007b00        0x5 ./src_kernel/src/tasks.o
+ *fill*         0x0000000090007b05        0x3 
+ .rodata        0x0000000090007b08        0xd ./src_kernel/src/timers.o
+ *fill*         0x0000000090007b15        0x3 
+ .rodata        0x0000000090007b18       0x70 ./src_app/src/main_blinky.o
+ .rodata        0x0000000090007b88       0x68 ./src_app/src/xprintf.o
+ .rodata        0x0000000090007bf0       0x3c /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(divdf3.o)
+ .rodata        0x0000000090007c2c       0x3c /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(muldf3.o)
+ .rodata        0x0000000090007c68      0x100 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clz.o)
+                0x0000000090007c68                __clz_tab
+ *(.rodata.*)
+ .rodata.prvProcessReceivedCommands
+                0x0000000090007d68       0x28 ./src_kernel/src/timers.o
+ .rodata.LED7SEG
+                0x0000000090007d90       0x10 ./src_app/src/gpio.o
+ .rodata.xvfprintf
+                0x0000000090007da0       0xd0 ./src_app/src/xprintf.o
+                0x0000000090007e70                . = ALIGN (0x4)
+                0x0000000090007e70                PROVIDE (__ROM_INIT_BGN__ = .)
+
+.data           0x0000000080000000        0x0 load address 0x0000000090007e70
+                0x0000000080000000                . = ALIGN (0x100)
+                0x0000000080000000                PROVIDE (__RAM_INIT_BGN__ = .)
+ *(.data)
+ *(.data*)
+
+.srodata        0x0000000080000000        0x4 load address 0x0000000090007e70
+                0x0000000080000800                PROVIDE (__GLOBAL_PTR__ = (. + 0x800))
+ *(.srodata)
+ *(.srodata*)
+ .srodata.xISRStackTop
+                0x0000000080000000        0x4 ./src_kernel/src/port.o
+                0x0000000080000000                xISRStackTop
+
+.rela.dyn       0x0000000080000004        0x0 load address 0x0000000090007e74
+ .rela.text.xPortStartScheduler
+                0x0000000080000004        0x0 ./src_kernel/src/heap_4.o
+
+.sdata          0x0000000080000004        0x8 load address 0x0000000090007e74
+ *(.sdata)
+ *(.sdata.*)
+ .sdata.pullNextTime
+                0x0000000080000004        0x4 ./src_kernel/src/port.o
+                0x0000000080000004                pullNextTime
+ .sdata.uxTopUsedPriority
+                0x0000000080000008        0x4 ./src_kernel/src/tasks.o
+                0x0000000080000008                uxTopUsedPriority
+                0x000000008000000c                PROVIDE (__RAM_INIT_END__ = .)
+
+.sbss           0x0000000080000010       0xa0 load address 0x0000000090007e7c
+                0x0000000080000010                PROVIDE (__BSS_BGN__ = .)
+ *(.sbss)
+ *(.sbss.*)
+ .sbss.xStart   0x0000000080000010        0x8 ./src_kernel/src/heap_4.o
+ .sbss.pxEnd    0x0000000080000018        0x4 ./src_kernel/src/heap_4.o
+ .sbss.xFreeBytesRemaining
+                0x000000008000001c        0x4 ./src_kernel/src/heap_4.o
+ .sbss.xMinimumEverFreeBytesRemaining
+                0x0000000080000020        0x4 ./src_kernel/src/heap_4.o
+ .sbss.xNumberOfSuccessfulAllocations
+                0x0000000080000024        0x4 ./src_kernel/src/heap_4.o
+ .sbss.xNumberOfSuccessfulFrees
+                0x0000000080000028        0x4 ./src_kernel/src/heap_4.o
+ .sbss.xBlockAllocatedBit
+                0x000000008000002c        0x4 ./src_kernel/src/heap_4.o
+ .sbss.ullNextTime
+                0x0000000080000030        0x8 ./src_kernel/src/port.o
+                0x0000000080000030                ullNextTime
+ .sbss.pullMachineTimerCompareRegister
+                0x0000000080000038        0x4 ./src_kernel/src/port.o
+                0x0000000080000038                pullMachineTimerCompareRegister
+ .sbss.pxCurrentTCB
+                0x000000008000003c        0x4 ./src_kernel/src/tasks.o
+                0x000000008000003c                pxCurrentTCB
+ .sbss.pxDelayedTaskList
+                0x0000000080000040        0x4 ./src_kernel/src/tasks.o
+ .sbss.pxOverflowDelayedTaskList
+                0x0000000080000044        0x4 ./src_kernel/src/tasks.o
+ .sbss.uxDeletedTasksWaitingCleanUp
+                0x0000000080000048        0x4 ./src_kernel/src/tasks.o
+ .sbss.uxCurrentNumberOfTasks
+                0x000000008000004c        0x4 ./src_kernel/src/tasks.o
+ .sbss.xTickCount
+                0x0000000080000050        0x4 ./src_kernel/src/tasks.o
+ .sbss.uxTopReadyPriority
+                0x0000000080000054        0x4 ./src_kernel/src/tasks.o
+ .sbss.xSchedulerRunning
+                0x0000000080000058        0x4 ./src_kernel/src/tasks.o
+ .sbss.xPendedTicks
+                0x000000008000005c        0x4 ./src_kernel/src/tasks.o
+ .sbss.xYieldPending
+                0x0000000080000060        0x4 ./src_kernel/src/tasks.o
+ .sbss.xNumOfOverflows
+                0x0000000080000064        0x4 ./src_kernel/src/tasks.o
+ .sbss.uxTaskNumber
+                0x0000000080000068        0x4 ./src_kernel/src/tasks.o
+ .sbss.xNextTaskUnblockTime
+                0x000000008000006c        0x4 ./src_kernel/src/tasks.o
+ .sbss.xIdleTaskHandle
+                0x0000000080000070        0x4 ./src_kernel/src/tasks.o
+ .sbss.uxSchedulerSuspended
+                0x0000000080000074        0x4 ./src_kernel/src/tasks.o
+ .sbss.pxCurrentTimerList
+                0x0000000080000078        0x4 ./src_kernel/src/timers.o
+ .sbss.pxOverflowTimerList
+                0x000000008000007c        0x4 ./src_kernel/src/timers.o
+ .sbss.xTimerQueue
+                0x0000000080000080        0x4 ./src_kernel/src/timers.o
+ .sbss.xTimerTaskHandle
+                0x0000000080000084        0x4 ./src_kernel/src/timers.o
+ .sbss.xLastTime.0
+                0x0000000080000088        0x4 ./src_kernel/src/timers.o
+ .sbss.xQueue   0x000000008000008c        0x4 ./src_app/src/main_blinky.o
+ .sbss.xMutex   0x0000000080000090        0x4 ./src_app/src/main_blinky.o
+ .sbss.xSemaphore
+                0x0000000080000094        0x4 ./src_app/src/main_blinky.o
+ .sbss.data1.2  0x0000000080000098        0x4 ./src_app/src/uart.o
+ .sbss.data2.1  0x000000008000009c        0x4 ./src_app/src/uart.o
+ .sbss.data0.0  0x00000000800000a0        0x4 ./src_app/src/uart.o
+ .sbss.xfunc_output
+                0x00000000800000a4        0x4 ./src_app/src/xprintf.o
+                0x00000000800000a4                xfunc_output
+ .sbss.strptr   0x00000000800000a8        0x4 ./src_app/src/xprintf.o
+ .sbss.xfunc_input
+                0x00000000800000ac        0x4 ./src_app/src/xprintf.o
+                0x00000000800000ac                xfunc_input
+ *(.scommon)
+
+.bss            0x00000000800000b0     0x6158 load address 0x0000000090007e7c
+ *(.bss)
+ *(.bss.*)
+ .bss.ucHeap    0x00000000800000b0     0x4000 ./src_kernel/src/heap_4.o
+ .bss.xISRStack
+                0x00000000800040b0     0x2000 ./src_kernel/src/port.o
+ .bss.xQueueRegistry
+                0x00000000800060b0       0x40 ./src_kernel/src/queue.o
+                0x00000000800060b0                xQueueRegistry
+ .bss.pxReadyTasksLists
+                0x00000000800060f0       0x8c ./src_kernel/src/tasks.o
+ .bss.xDelayedTaskList1
+                0x000000008000617c       0x14 ./src_kernel/src/tasks.o
+ .bss.xDelayedTaskList2
+                0x0000000080006190       0x14 ./src_kernel/src/tasks.o
+ .bss.xPendingReadyList
+                0x00000000800061a4       0x14 ./src_kernel/src/tasks.o
+ .bss.xTasksWaitingTermination
+                0x00000000800061b8       0x14 ./src_kernel/src/tasks.o
+ .bss.xSuspendedTaskList
+                0x00000000800061cc       0x14 ./src_kernel/src/tasks.o
+ .bss.xActiveTimerList1
+                0x00000000800061e0       0x14 ./src_kernel/src/timers.o
+ .bss.xActiveTimerList2
+                0x00000000800061f4       0x14 ./src_kernel/src/timers.o
+                0x0000000080006208                . = ALIGN (0x4)
+                0x0000000080006208                PROVIDE (__BSS_END__ = .)
+
+.stack          0x0000000080008000     0x4000
+                [!provide]                        PROVIDE (__STACK_START__ = .)
+                0x000000008000c000                . = (. + STACK_SIZE)
+ *fill*         0x0000000080008000     0x4000 
+                0x000000008000c000                PROVIDE (__STACK_TOP__ = .)
+                [!provide]                        PROVIDE (__freertos_irq_stack_top = .)
+                [!provide]                        PROVIDE (__STACK_END__ = .)
+
+/DISCARD/
+ *(.eh_frame .eh_frame.*)
+OUTPUT(mmRISC_FreeRTOS.elf elf32-littleriscv)
+
+.debug_info     0x0000000000000000     0x8ff3
+ .debug_info    0x0000000000000000      0x446 ./src_kernel/src/heap_4.o
+ .debug_info    0x0000000000000446      0x2d1 ./src_kernel/src/list.o
+ .debug_info    0x0000000000000717      0x274 ./src_kernel/src/port.o
+ .debug_info    0x000000000000098b       0x26 ./src_kernel/src/portASM.o
+ .debug_info    0x00000000000009b1     0x113c ./src_kernel/src/queue.o
+ .debug_info    0x0000000000001aed       0xe4 ./src_kernel/src/riscv-virt.o
+ .debug_info    0x0000000000001bd1     0x1c4e ./src_kernel/src/tasks.o
+ .debug_info    0x000000000000381f      0xc2f ./src_kernel/src/timers.o
+ .debug_info    0x000000000000444e      0x25d ./src_app/src/gpio.o
+ .debug_info    0x00000000000046ab       0x90 ./src_app/src/interrupt.o
+ .debug_info    0x000000000000473b      0x1b3 ./src_app/src/main.o
+ .debug_info    0x00000000000048ee      0x330 ./src_app/src/main_blinky.o
+ .debug_info    0x0000000000004c1e       0xe4 ./src_app/src/system.o
+ .debug_info    0x0000000000004d02      0x2c2 ./src_app/src/uart.o
+ .debug_info    0x0000000000004fc4      0x6f1 ./src_app/src/xprintf.o
+ .debug_info    0x00000000000056b5      0x144 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clzsi2.o)
+ .debug_info    0x00000000000057f9      0x7b2 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .debug_info    0x0000000000005fab      0x80c /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_umoddi3.o)
+ .debug_info    0x00000000000067b7      0x581 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(adddf3.o)
+ .debug_info    0x0000000000006d38      0x72a /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(divdf3.o)
+ .debug_info    0x0000000000007462      0x255 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(eqdf2.o)
+ .debug_info    0x00000000000076b7      0x253 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(gedf2.o)
+ .debug_info    0x000000000000790a      0x253 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(ledf2.o)
+ .debug_info    0x0000000000007b5d      0x766 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(muldf3.o)
+ .debug_info    0x00000000000082c3      0x581 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(subdf3.o)
+ .debug_info    0x0000000000008844      0x256 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(unorddf2.o)
+ .debug_info    0x0000000000008a9a      0x1e7 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(fixdfsi.o)
+ .debug_info    0x0000000000008c81      0x29b /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(floatsidf.o)
+ .debug_info    0x0000000000008f1c       0xd7 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clz.o)
+
+.debug_abbrev   0x0000000000000000     0x24a7
+ .debug_abbrev  0x0000000000000000      0x191 ./src_kernel/src/heap_4.o
+ .debug_abbrev  0x0000000000000191       0xf2 ./src_kernel/src/list.o
+ .debug_abbrev  0x0000000000000283      0x12d ./src_kernel/src/port.o
+ .debug_abbrev  0x00000000000003b0       0x14 ./src_kernel/src/portASM.o
+ .debug_abbrev  0x00000000000003c4      0x207 ./src_kernel/src/queue.o
+ .debug_abbrev  0x00000000000005cb       0xb1 ./src_kernel/src/riscv-virt.o
+ .debug_abbrev  0x000000000000067c      0x262 ./src_kernel/src/tasks.o
+ .debug_abbrev  0x00000000000008de      0x1fa ./src_kernel/src/timers.o
+ .debug_abbrev  0x0000000000000ad8      0x121 ./src_app/src/gpio.o
+ .debug_abbrev  0x0000000000000bf9       0x47 ./src_app/src/interrupt.o
+ .debug_abbrev  0x0000000000000c40       0xf3 ./src_app/src/main.o
+ .debug_abbrev  0x0000000000000d33      0x10b ./src_app/src/main_blinky.o
+ .debug_abbrev  0x0000000000000e3e       0x83 ./src_app/src/system.o
+ .debug_abbrev  0x0000000000000ec1      0x16e ./src_app/src/uart.o
+ .debug_abbrev  0x000000000000102f      0x1f6 ./src_app/src/xprintf.o
+ .debug_abbrev  0x0000000000001225       0xca /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clzsi2.o)
+ .debug_abbrev  0x00000000000012ef      0x19d /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .debug_abbrev  0x000000000000148c      0x1b9 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_umoddi3.o)
+ .debug_abbrev  0x0000000000001645      0x173 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(adddf3.o)
+ .debug_abbrev  0x00000000000017b8      0x173 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(divdf3.o)
+ .debug_abbrev  0x000000000000192b      0x14b /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(eqdf2.o)
+ .debug_abbrev  0x0000000000001a76      0x15e /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(gedf2.o)
+ .debug_abbrev  0x0000000000001bd4      0x15e /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(ledf2.o)
+ .debug_abbrev  0x0000000000001d32      0x185 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(muldf3.o)
+ .debug_abbrev  0x0000000000001eb7      0x173 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(subdf3.o)
+ .debug_abbrev  0x000000000000202a      0x14b /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(unorddf2.o)
+ .debug_abbrev  0x0000000000002175      0x15e /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(fixdfsi.o)
+ .debug_abbrev  0x00000000000022d3      0x164 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(floatsidf.o)
+ .debug_abbrev  0x0000000000002437       0x70 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clz.o)
+
+.debug_aranges  0x0000000000000000      0x8d8
+ .debug_aranges
+                0x0000000000000000       0x58 ./src_kernel/src/heap_4.o
+ .debug_aranges
+                0x0000000000000058       0x40 ./src_kernel/src/list.o
+ .debug_aranges
+                0x0000000000000098       0x38 ./src_kernel/src/port.o
+ .debug_aranges
+                0x00000000000000d0       0x20 ./src_kernel/src/portASM.o
+ .debug_aranges
+                0x00000000000000f0      0x128 ./src_kernel/src/queue.o
+ .debug_aranges
+                0x0000000000000218       0x30 ./src_kernel/src/riscv-virt.o
+ .debug_aranges
+                0x0000000000000248      0x1f0 ./src_kernel/src/tasks.o
+ .debug_aranges
+                0x0000000000000438       0xe0 ./src_kernel/src/timers.o
+ .debug_aranges
+                0x0000000000000518       0x50 ./src_app/src/gpio.o
+ .debug_aranges
+                0x0000000000000568       0x20 ./src_app/src/interrupt.o
+ .debug_aranges
+                0x0000000000000588       0x48 ./src_app/src/main.o
+ .debug_aranges
+                0x00000000000005d0       0x40 ./src_app/src/main_blinky.o
+ .debug_aranges
+                0x0000000000000610       0x20 ./src_app/src/system.o
+ .debug_aranges
+                0x0000000000000630       0x60 ./src_app/src/uart.o
+ .debug_aranges
+                0x0000000000000690       0x90 ./src_app/src/xprintf.o
+ .debug_aranges
+                0x0000000000000720       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clzsi2.o)
+ .debug_aranges
+                0x0000000000000740       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .debug_aranges
+                0x0000000000000760       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_umoddi3.o)
+ .debug_aranges
+                0x0000000000000780       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(adddf3.o)
+ .debug_aranges
+                0x00000000000007a0       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(divdf3.o)
+ .debug_aranges
+                0x00000000000007c0       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(eqdf2.o)
+ .debug_aranges
+                0x00000000000007e0       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(gedf2.o)
+ .debug_aranges
+                0x0000000000000800       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(ledf2.o)
+ .debug_aranges
+                0x0000000000000820       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(muldf3.o)
+ .debug_aranges
+                0x0000000000000840       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(subdf3.o)
+ .debug_aranges
+                0x0000000000000860       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(unorddf2.o)
+ .debug_aranges
+                0x0000000000000880       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(fixdfsi.o)
+ .debug_aranges
+                0x00000000000008a0       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(floatsidf.o)
+ .debug_aranges
+                0x00000000000008c0       0x18 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clz.o)
+
+.debug_ranges   0x0000000000000000     0x11c0
+ .debug_ranges  0x0000000000000000       0x48 ./src_kernel/src/heap_4.o
+ .debug_ranges  0x0000000000000048       0x30 ./src_kernel/src/list.o
+ .debug_ranges  0x0000000000000078       0x28 ./src_kernel/src/port.o
+ .debug_ranges  0x00000000000000a0      0x118 ./src_kernel/src/queue.o
+ .debug_ranges  0x00000000000001b8       0x20 ./src_kernel/src/riscv-virt.o
+ .debug_ranges  0x00000000000001d8      0x1e0 ./src_kernel/src/tasks.o
+ .debug_ranges  0x00000000000003b8       0xd0 ./src_kernel/src/timers.o
+ .debug_ranges  0x0000000000000488       0x40 ./src_app/src/gpio.o
+ .debug_ranges  0x00000000000004c8       0x10 ./src_app/src/interrupt.o
+ .debug_ranges  0x00000000000004d8       0x38 ./src_app/src/main.o
+ .debug_ranges  0x0000000000000510       0x30 ./src_app/src/main_blinky.o
+ .debug_ranges  0x0000000000000540       0x10 ./src_app/src/system.o
+ .debug_ranges  0x0000000000000550       0x50 ./src_app/src/uart.o
+ .debug_ranges  0x00000000000005a0       0x80 ./src_app/src/xprintf.o
+ .debug_ranges  0x0000000000000620       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clzsi2.o)
+ .debug_ranges  0x0000000000000640       0xf8 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .debug_ranges  0x0000000000000738       0xd8 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_umoddi3.o)
+ .debug_ranges  0x0000000000000810      0x248 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(adddf3.o)
+ .debug_ranges  0x0000000000000a58      0x198 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(divdf3.o)
+ .debug_ranges  0x0000000000000bf0       0x48 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(eqdf2.o)
+ .debug_ranges  0x0000000000000c38       0x50 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(gedf2.o)
+ .debug_ranges  0x0000000000000c88       0x50 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(ledf2.o)
+ .debug_ranges  0x0000000000000cd8      0x1e0 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(muldf3.o)
+ .debug_ranges  0x0000000000000eb8      0x250 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(subdf3.o)
+ .debug_ranges  0x0000000000001108       0x38 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(unorddf2.o)
+ .debug_ranges  0x0000000000001140       0x18 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(fixdfsi.o)
+ .debug_ranges  0x0000000000001158       0x68 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(floatsidf.o)
+
+.debug_macro    0x0000000000000000     0x27c0
+ .debug_macro   0x0000000000000000      0x1a4 ./src_kernel/src/heap_4.o
+ .debug_macro   0x00000000000001a4      0x189 ./src_kernel/src/list.o
+ .debug_macro   0x000000000000032d      0x291 ./src_kernel/src/port.o
+ .debug_macro   0x00000000000005be       0x10 ./src_kernel/src/port.o
+ .debug_macro   0x00000000000005ce       0x35 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000603       0x1c ./src_kernel/src/port.o
+ .debug_macro   0x000000000000061f       0x10 ./src_kernel/src/port.o
+ .debug_macro   0x000000000000062f       0x10 ./src_kernel/src/port.o
+ .debug_macro   0x000000000000063f       0x1c ./src_kernel/src/port.o
+ .debug_macro   0x000000000000065b       0x52 ./src_kernel/src/port.o
+ .debug_macro   0x00000000000006ad       0x22 ./src_kernel/src/port.o
+ .debug_macro   0x00000000000006cf       0x10 ./src_kernel/src/port.o
+ .debug_macro   0x00000000000006df       0x52 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000731       0xd5 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000806       0x1c ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000822       0x3d ./src_kernel/src/port.o
+ .debug_macro   0x000000000000085f       0x16 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000875      0x16f ./src_kernel/src/port.o
+ .debug_macro   0x00000000000009e4       0x46 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000a2a       0x10 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000a3a       0xa6 ./src_kernel/src/port.o
+ .debug_macro   0x0000000000000ae0      0x213 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000cf3       0x16 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000d09       0x80 ./src_kernel/src/queue.o
+ .debug_macro   0x0000000000000d89      0x198 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000f21       0x22 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000f43       0x10 ./src_kernel/src/riscv-virt.o
+ .debug_macro   0x0000000000000f53      0x270 ./src_kernel/src/tasks.o
+ .debug_macro   0x00000000000011c3       0x10 ./src_kernel/src/tasks.o
+ .debug_macro   0x00000000000011d3      0x1d8 ./src_kernel/src/timers.o
+ .debug_macro   0x00000000000013ab       0x97 ./src_kernel/src/timers.o
+ .debug_macro   0x0000000000001442      0x1e3 ./src_app/src/gpio.o
+ .debug_macro   0x0000000000001625       0x16 ./src_app/src/gpio.o
+ .debug_macro   0x000000000000163b       0x97 ./src_app/src/gpio.o
+ .debug_macro   0x00000000000016d2       0xfd ./src_app/src/gpio.o
+ .debug_macro   0x00000000000017cf       0x8e ./src_app/src/gpio.o
+ .debug_macro   0x000000000000185d      0x1ec ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000001a49       0x1c ./src_app/src/interrupt.o
+ .debug_macro   0x0000000000001a65      0x266 ./src_app/src/main.o
+ .debug_macro   0x0000000000001ccb       0xac ./src_app/src/main.o
+ .debug_macro   0x0000000000001d77       0x28 ./src_app/src/main.o
+ .debug_macro   0x0000000000001d9f      0x2af ./src_app/src/main_blinky.o
+ .debug_macro   0x000000000000204e       0x7e ./src_app/src/main_blinky.o
+ .debug_macro   0x00000000000020cc      0x1d9 ./src_app/src/system.o
+ .debug_macro   0x00000000000022a5      0x206 ./src_app/src/uart.o
+ .debug_macro   0x00000000000024ab      0x122 ./src_app/src/xprintf.o
+ .debug_macro   0x00000000000025cd       0x58 ./src_app/src/xprintf.o
+ .debug_macro   0x0000000000002625      0x19b ./src_app/src/xprintf.o
+
+.debug_line     0x0000000000000000     0xf879
+ .debug_line    0x0000000000000000      0x91e ./src_kernel/src/heap_4.o
+ .debug_line    0x000000000000091e      0x4ef ./src_kernel/src/list.o
+ .debug_line    0x0000000000000e0d      0x502 ./src_kernel/src/port.o
+ .debug_line    0x000000000000130f      0x49e ./src_kernel/src/portASM.o
+ .debug_line    0x00000000000017ad     0x18b6 ./src_kernel/src/queue.o
+ .debug_line    0x0000000000003063      0x399 ./src_kernel/src/riscv-virt.o
+ .debug_line    0x00000000000033fc     0x2662 ./src_kernel/src/tasks.o
+ .debug_line    0x0000000000005a5e      0xcac ./src_kernel/src/timers.o
+ .debug_line    0x000000000000670a      0x5d3 ./src_app/src/gpio.o
+ .debug_line    0x0000000000006cdd      0x326 ./src_app/src/interrupt.o
+ .debug_line    0x0000000000007003      0x4cf ./src_app/src/main.o
+ .debug_line    0x00000000000074d2      0x6dd ./src_app/src/main_blinky.o
+ .debug_line    0x0000000000007baf      0x34c ./src_app/src/system.o
+ .debug_line    0x0000000000007efb      0x5e7 ./src_app/src/uart.o
+ .debug_line    0x00000000000084e2     0x1766 ./src_app/src/xprintf.o
+ .debug_line    0x0000000000009c48       0xe5 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clzsi2.o)
+ .debug_line    0x0000000000009d2d      0x74f /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .debug_line    0x000000000000a47c      0x7f3 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_umoddi3.o)
+ .debug_line    0x000000000000ac6f     0x1013 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(adddf3.o)
+ .debug_line    0x000000000000bc82      0xf6a /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(divdf3.o)
+ .debug_line    0x000000000000cbec      0x250 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(eqdf2.o)
+ .debug_line    0x000000000000ce3c      0x2e5 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(gedf2.o)
+ .debug_line    0x000000000000d121      0x2e5 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(ledf2.o)
+ .debug_line    0x000000000000d406      0xda5 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(muldf3.o)
+ .debug_line    0x000000000000e1ab     0x1078 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(subdf3.o)
+ .debug_line    0x000000000000f223      0x19b /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(unorddf2.o)
+ .debug_line    0x000000000000f3be      0x214 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(fixdfsi.o)
+ .debug_line    0x000000000000f5d2      0x24e /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(floatsidf.o)
+ .debug_line    0x000000000000f820       0x59 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clz.o)
+
+.debug_str      0x0000000000000000    0x11633
+ .debug_str     0x0000000000000000     0xac09 ./src_kernel/src/heap_4.o
+                                       0xae3a (size before relaxing)
+ .debug_str     0x000000000000ac09      0x124 ./src_kernel/src/list.o
+                                       0x99d3 (size before relaxing)
+ .debug_str     0x000000000000ad2d     0x154e ./src_kernel/src/port.o
+                                       0xbf26 (size before relaxing)
+ .debug_str     0x000000000000c27b       0x28 ./src_kernel/src/portASM.o
+                                         0x62 (size before relaxing)
+ .debug_str     0x000000000000c2a3      0xf9f ./src_kernel/src/queue.o
+                                       0xbc11 (size before relaxing)
+ .debug_str     0x000000000000d242       0xaa ./src_kernel/src/riscv-virt.o
+                                       0x8e16 (size before relaxing)
+ .debug_str     0x000000000000d2ec     0x1c83 ./src_kernel/src/tasks.o
+                                       0xc9ae (size before relaxing)
+ .debug_str     0x000000000000ef6f      0x5ce ./src_kernel/src/timers.o
+                                       0xc12d (size before relaxing)
+ .debug_str     0x000000000000f53d      0x218 ./src_app/src/gpio.o
+                                       0x7059 (size before relaxing)
+ .debug_str     0x000000000000f755       0xf2 ./src_app/src/interrupt.o
+                                       0x7116 (size before relaxing)
+ .debug_str     0x000000000000f847      0x107 ./src_app/src/main.o
+                                       0xc002 (size before relaxing)
+ .debug_str     0x000000000000f94e      0x8c3 ./src_app/src/main_blinky.o
+                                       0xce02 (size before relaxing)
+ .debug_str     0x0000000000010211       0x33 ./src_app/src/system.o
+                                       0x6f1d (size before relaxing)
+ .debug_str     0x0000000000010244       0xad ./src_app/src/uart.o
+                                       0x73f2 (size before relaxing)
+ .debug_str     0x00000000000102f1      0x98b ./src_app/src/xprintf.o
+                                       0x5cdb (size before relaxing)
+ .debug_str     0x0000000000010c7c      0x1a3 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clzsi2.o)
+                                        0x24c (size before relaxing)
+ .debug_str     0x0000000000010e1f      0x14d /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+                                        0x2e8 (size before relaxing)
+ .debug_str     0x0000000000010f6c        0xa /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_umoddi3.o)
+                                        0x2e8 (size before relaxing)
+ .debug_str     0x0000000000010f76      0x191 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(adddf3.o)
+                                        0x343 (size before relaxing)
+ .debug_str     0x0000000000011107      0x19e /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(divdf3.o)
+                                        0x405 (size before relaxing)
+ .debug_str     0x00000000000112a5       0x59 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(eqdf2.o)
+                                        0x254 (size before relaxing)
+ .debug_str     0x00000000000112fe       0x5e /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(gedf2.o)
+                                        0x278 (size before relaxing)
+ .debug_str     0x000000000001135c       0x3a /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(ledf2.o)
+                                        0x278 (size before relaxing)
+ .debug_str     0x0000000000011396      0x161 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(muldf3.o)
+                                        0x45d (size before relaxing)
+ .debug_str     0x00000000000114f7       0x3c /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(subdf3.o)
+                                        0x343 (size before relaxing)
+ .debug_str     0x0000000000011533       0x40 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(unorddf2.o)
+                                        0x25a (size before relaxing)
+ .debug_str     0x0000000000011573       0x51 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(fixdfsi.o)
+                                        0x251 (size before relaxing)
+ .debug_str     0x00000000000115c4       0x6f /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(floatsidf.o)
+                                        0x2f0 (size before relaxing)
+ .debug_str     0x0000000000011633      0x22f /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clz.o)
+
+.comment        0x0000000000000000       0x12
+ .comment       0x0000000000000000       0x12 ./src_kernel/src/heap_4.o
+                                         0x13 (size before relaxing)
+ .comment       0x0000000000000012       0x13 ./src_kernel/src/list.o
+ .comment       0x0000000000000012       0x13 ./src_kernel/src/port.o
+ .comment       0x0000000000000012       0x13 ./src_kernel/src/queue.o
+ .comment       0x0000000000000012       0x13 ./src_kernel/src/riscv-virt.o
+ .comment       0x0000000000000012       0x13 ./src_kernel/src/tasks.o
+ .comment       0x0000000000000012       0x13 ./src_kernel/src/timers.o
+ .comment       0x0000000000000012       0x13 ./src_app/src/gpio.o
+ .comment       0x0000000000000012       0x13 ./src_app/src/interrupt.o
+ .comment       0x0000000000000012       0x13 ./src_app/src/main.o
+ .comment       0x0000000000000012       0x13 ./src_app/src/main_blinky.o
+ .comment       0x0000000000000012       0x13 ./src_app/src/system.o
+ .comment       0x0000000000000012       0x13 ./src_app/src/uart.o
+ .comment       0x0000000000000012       0x13 ./src_app/src/xprintf.o
+ .comment       0x0000000000000012       0x13 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a(lib_a-memcpy.o)
+ .comment       0x0000000000000012       0x13 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a(lib_a-strlen.o)
+ .comment       0x0000000000000012       0x13 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clzsi2.o)
+ .comment       0x0000000000000012       0x13 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .comment       0x0000000000000012       0x13 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_umoddi3.o)
+ .comment       0x0000000000000012       0x13 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(adddf3.o)
+ .comment       0x0000000000000012       0x13 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(divdf3.o)
+ .comment       0x0000000000000012       0x13 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(eqdf2.o)
+ .comment       0x0000000000000012       0x13 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(gedf2.o)
+ .comment       0x0000000000000012       0x13 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(ledf2.o)
+ .comment       0x0000000000000012       0x13 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(muldf3.o)
+ .comment       0x0000000000000012       0x13 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(subdf3.o)
+ .comment       0x0000000000000012       0x13 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(unorddf2.o)
+ .comment       0x0000000000000012       0x13 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(fixdfsi.o)
+ .comment       0x0000000000000012       0x13 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(floatsidf.o)
+ .comment       0x0000000000000012       0x13 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clz.o)
+
+.riscv.attributes
+                0x0000000000000000       0x2a
+ .riscv.attributes
+                0x0000000000000000       0x26 ./src_kernel/src/heap_4.o
+ .riscv.attributes
+                0x0000000000000026       0x26 ./src_kernel/src/list.o
+ .riscv.attributes
+                0x000000000000004c       0x2a ./src_kernel/src/port.o
+ .riscv.attributes
+                0x0000000000000076       0x28 ./src_kernel/src/portASM.o
+ .riscv.attributes
+                0x000000000000009e       0x26 ./src_kernel/src/queue.o
+ .riscv.attributes
+                0x00000000000000c4       0x2a ./src_kernel/src/riscv-virt.o
+ .riscv.attributes
+                0x00000000000000ee       0x2a ./src_kernel/src/tasks.o
+ .riscv.attributes
+                0x0000000000000118       0x26 ./src_kernel/src/timers.o
+ .riscv.attributes
+                0x000000000000013e       0x26 ./src_app/src/gpio.o
+ .riscv.attributes
+                0x0000000000000164       0x2a ./src_app/src/interrupt.o
+ .riscv.attributes
+                0x000000000000018e       0x2a ./src_app/src/main.o
+ .riscv.attributes
+                0x00000000000001b8       0x26 ./src_app/src/main_blinky.o
+ .riscv.attributes
+                0x00000000000001de       0x2a ./src_app/src/system.o
+ .riscv.attributes
+                0x0000000000000208       0x2a ./src_app/src/uart.o
+ .riscv.attributes
+                0x0000000000000232       0x26 ./src_app/src/xprintf.o
+ .riscv.attributes
+                0x0000000000000258       0x21 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a(lib_a-memcpy.o)
+ .riscv.attributes
+                0x0000000000000279       0x1f /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a(lib_a-memset.o)
+ .riscv.attributes
+                0x0000000000000298       0x21 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a(lib_a-strlen.o)
+ .riscv.attributes
+                0x00000000000002b9       0x21 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clzsi2.o)
+ .riscv.attributes
+                0x00000000000002da       0x21 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .riscv.attributes
+                0x00000000000002fb       0x21 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_umoddi3.o)
+ .riscv.attributes
+                0x000000000000031c       0x21 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(adddf3.o)
+ .riscv.attributes
+                0x000000000000033d       0x21 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(divdf3.o)
+ .riscv.attributes
+                0x000000000000035e       0x21 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(eqdf2.o)
+ .riscv.attributes
+                0x000000000000037f       0x21 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(gedf2.o)
+ .riscv.attributes
+                0x00000000000003a0       0x21 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(ledf2.o)
+ .riscv.attributes
+                0x00000000000003c1       0x21 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(muldf3.o)
+ .riscv.attributes
+                0x00000000000003e2       0x21 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(subdf3.o)
+ .riscv.attributes
+                0x0000000000000403       0x21 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(unorddf2.o)
+ .riscv.attributes
+                0x0000000000000424       0x21 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(fixdfsi.o)
+ .riscv.attributes
+                0x0000000000000445       0x21 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(floatsidf.o)
+ .riscv.attributes
+                0x0000000000000466       0x21 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clz.o)
+
+.debug_frame    0x0000000000000000     0x1e84
+ .debug_frame   0x0000000000000000      0x13c ./src_kernel/src/heap_4.o
+ .debug_frame   0x000000000000013c       0xc4 ./src_kernel/src/list.o
+ .debug_frame   0x0000000000000200       0xb0 ./src_kernel/src/port.o
+ .debug_frame   0x00000000000002b0      0x548 ./src_kernel/src/queue.o
+ .debug_frame   0x00000000000007f8       0x78 ./src_kernel/src/riscv-virt.o
+ .debug_frame   0x0000000000000870      0x8e8 ./src_kernel/src/tasks.o
+ .debug_frame   0x0000000000001158      0x3d8 ./src_kernel/src/timers.o
+ .debug_frame   0x0000000000001530      0x120 ./src_app/src/gpio.o
+ .debug_frame   0x0000000000001650       0x34 ./src_app/src/interrupt.o
+ .debug_frame   0x0000000000001684       0xdc ./src_app/src/main.o
+ .debug_frame   0x0000000000001760       0xbc ./src_app/src/main_blinky.o
+ .debug_frame   0x000000000000181c       0x34 ./src_app/src/system.o
+ .debug_frame   0x0000000000001850      0x16c ./src_app/src/uart.o
+ .debug_frame   0x00000000000019bc      0x29c ./src_app/src/xprintf.o
+ .debug_frame   0x0000000000001c58       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clzsi2.o)
+ .debug_frame   0x0000000000001c78       0x44 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(adddf3.o)
+ .debug_frame   0x0000000000001cbc       0x58 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(divdf3.o)
+ .debug_frame   0x0000000000001d14       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(eqdf2.o)
+ .debug_frame   0x0000000000001d34       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(gedf2.o)
+ .debug_frame   0x0000000000001d54       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(ledf2.o)
+ .debug_frame   0x0000000000001d74       0x54 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(muldf3.o)
+ .debug_frame   0x0000000000001dc8       0x44 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(subdf3.o)
+ .debug_frame   0x0000000000001e0c       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(unorddf2.o)
+ .debug_frame   0x0000000000001e2c       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(fixdfsi.o)
+ .debug_frame   0x0000000000001e4c       0x38 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(floatsidf.o)
+
+.debug_loc      0x0000000000000000     0x60d4
+ .debug_loc     0x0000000000000000       0x6b /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clzsi2.o)
+ .debug_loc     0x000000000000006b      0xbcd /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .debug_loc     0x0000000000000c38      0x930 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_umoddi3.o)
+ .debug_loc     0x0000000000001568     0x11ec /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(adddf3.o)
+ .debug_loc     0x0000000000002754     0x1494 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(divdf3.o)
+ .debug_loc     0x0000000000003be8       0xa4 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(eqdf2.o)
+ .debug_loc     0x0000000000003c8c      0x135 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(gedf2.o)
+ .debug_loc     0x0000000000003dc1      0x135 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(ledf2.o)
+ .debug_loc     0x0000000000003ef6      0xd56 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(muldf3.o)
+ .debug_loc     0x0000000000004c4c     0x114d /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(subdf3.o)
+ .debug_loc     0x0000000000005d99       0x61 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(unorddf2.o)
+ .debug_loc     0x0000000000005dfa      0x181 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(fixdfsi.o)
+ .debug_loc     0x0000000000005f7b      0x159 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(floatsidf.o)

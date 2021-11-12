@@ -1,0 +1,40 @@
+# vsim -c -onfinish exit work.tb_TOP -do "run -all" 
+# Start time: 22:50:59 on Nov 10,2021
+# Loading sv_std.std
+# Loading work.tb_TOP
+# Loading work.CHIP_TOP
+# Loading work.mmRISC
+# Loading work.DEBUG_TOP
+# Loading work.DEBUG_DTM_JTAG
+# Loading work.DEBUG_CDC
+# Loading work.DEBUG_DM
+# Loading work.BUS_M_AHB
+# Loading work.AHB_MATRIX
+# Loading work.AHB_MASTER_PORT
+# Loading work.AHB_INTERCONNECT
+# Loading work.AHB_SLAVE_PORT
+# Loading work.CSR_MTIME
+# Loading work.RAM
+# Loading work.PORT
+# Loading work.UART
+# Loading work.sasc_top
+# Loading work.sasc_fifo4
+# Loading work.sasc_brg
+# Loading work.INT_GEN
+# Loading work.CPU_TOP
+# Loading work.CPU_FETCH
+# Loading work.CPU_DATAPATH
+# Loading work.CPU_PIPELINE
+# Loading work.CPU_CSR
+# Loading work.CPU_CSR_INT
+# Loading work.CPU_CSR_DBG
+# Loading work.CPU_DEBUG
+# Loading work.CPU_FPU32
+# Loading work.AHB_ARB
+# Loading work.AHB_ARB_RB
+# run -all
+# ***** DETECT TOHOST ***** at 90003000
+# ** Note: $finish    : ./tb_TOP.v(154)
+#    Time: 540310 ns  Iteration: 1  Instance: /tb_TOP
+# End time: 22:51:20 on Nov 10,2021, Elapsed time: 0:00:21
+# Errors: 0, Warnings: 0

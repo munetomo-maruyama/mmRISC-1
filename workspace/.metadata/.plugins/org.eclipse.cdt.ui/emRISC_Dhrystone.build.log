@@ -1,0 +1,65 @@
+18:23:21 **** Build of configuration Debug for project mmRISC_Dhrystone ****
+make all 
+Building file: ../src/dhry_1.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -ggdb -O3 -fno-common -fno-builtin-printf -nostartfiles -nostdlib -MMD -MP -MF"src/dhry_1.d" -MT"src/dhry_1.o" -c -o "src/dhry_1.o" "../src/dhry_1.c"
+Finished building: ../src/dhry_1.c
+ 
+Building file: ../src/dhry_2.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -ggdb -O3 -fno-common -fno-builtin-printf -nostartfiles -nostdlib -MMD -MP -MF"src/dhry_2.d" -MT"src/dhry_2.o" -c -o "src/dhry_2.o" "../src/dhry_2.c"
+Finished building: ../src/dhry_2.c
+ 
+Building file: ../src/gpio.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -ggdb -O3 -fno-common -fno-builtin-printf -nostartfiles -nostdlib -MMD -MP -MF"src/gpio.d" -MT"src/gpio.o" -c -o "src/gpio.o" "../src/gpio.c"
+Finished building: ../src/gpio.c
+ 
+Building file: ../src/interrupt.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -ggdb -O3 -fno-common -fno-builtin-printf -nostartfiles -nostdlib -MMD -MP -MF"src/interrupt.d" -MT"src/interrupt.o" -c -o "src/interrupt.o" "../src/interrupt.c"
+Finished building: ../src/interrupt.c
+ 
+Building file: ../src/libc-hooks.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -ggdb -O3 -fno-common -fno-builtin-printf -nostartfiles -nostdlib -MMD -MP -MF"src/libc-hooks.d" -MT"src/libc-hooks.o" -c -o "src/libc-hooks.o" "../src/libc-hooks.c"
+Finished building: ../src/libc-hooks.c
+ 
+Building file: ../src/main.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -ggdb -O3 -fno-common -fno-builtin-printf -nostartfiles -nostdlib -MMD -MP -MF"src/main.d" -MT"src/main.o" -c -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building file: ../src/sc_print.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -ggdb -O3 -fno-common -fno-builtin-printf -nostartfiles -nostdlib -MMD -MP -MF"src/sc_print.d" -MT"src/sc_print.o" -c -o "src/sc_print.o" "../src/sc_print.c"
+Finished building: ../src/sc_print.c
+ 
+Building file: ../src/startup.S
+Invoking: GNU RISC-V Cross Assembler
+riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -ggdb -x assembler-with-cpp -MMD -MP -MF"src/startup.d" -MT"src/startup.o" -c -o "src/startup.o" "../src/startup.S"
+Finished building: ../src/startup.S
+ 
+Building file: ../src/uart.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -ggdb -O3 -fno-common -fno-builtin-printf -nostartfiles -nostdlib -MMD -MP -MF"src/uart.d" -MT"src/uart.o" -c -o "src/uart.o" "../src/uart.c"
+Finished building: ../src/uart.c
+ 
+Building target: mmRISC_Dhrystone.elf
+Invoking: GNU RISC-V Cross C Linker
+riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -ggdb -T "/home/taka/RISCV/mmRISC/workspace/mmRISC_Dhrystone/link.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"mmRISC_Dhrystone.map" -nostartfiles -nostdlib -o "mmRISC_Dhrystone.elf"  ./src/dhry_1.o ./src/dhry_2.o ./src/gpio.o ./src/interrupt.o ./src/libc-hooks.o ./src/main.o ./src/sc_print.o ./src/startup.o ./src/uart.o   -lc -lgcc
+Finished building target: mmRISC_Dhrystone.elf
+ 
+Invoking: GNU RISC-V Cross Create Flash Image
+riscv64-unknown-elf-objcopy -O ihex "mmRISC_Dhrystone.elf"  "mmRISC_Dhrystone.hex"
+Finished building: mmRISC_Dhrystone.hex
+ 
+Invoking: GNU RISC-V Cross Print Size
+riscv64-unknown-elf-size --format=berkeley "mmRISC_Dhrystone.elf"
+   text	   data	    bss	    dec	    hex	filename
+  14608	   1068	  26732	  42408	   a5a8	mmRISC_Dhrystone.elf
+Finished building: mmRISC_Dhrystone.siz
+ 
+
+18:23:21 Build Finished. 0 errors, 0 warnings. (took 829ms)
+

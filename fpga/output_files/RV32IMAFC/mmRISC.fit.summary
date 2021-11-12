@@ -1,0 +1,18 @@
+Fitter Status : Successful - Thu Nov 11 01:22:10 2021
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : mmRISC
+Top-level Entity Name : CHIP_TOP
+Family : MAX 10
+Device : 10M50DAF484C7G
+Timing Models : Final
+Total logic elements : 41,662 / 49,760 ( 84 % )
+    Total combinational functions : 40,582 / 49,760 ( 82 % )
+    Dedicated logic registers : 9,137 / 49,760 ( 18 % )
+Total registers : 9137
+Total pins : 108 / 360 ( 30 % )
+Total virtual pins : 0
+Total memory bits : 1,441,792 / 1,677,312 ( 86 % )
+Embedded Multiplier 9-bit elements : 40 / 288 ( 14 % )
+Total PLLs : 1 / 4 ( 25 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 2 ( 0 % )

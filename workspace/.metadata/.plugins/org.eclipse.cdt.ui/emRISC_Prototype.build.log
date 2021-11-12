@@ -1,0 +1,45 @@
+22:48:14 **** Build of configuration Debug for project mmRISC_Prototype ****
+make all 
+Building file: ../src/gpio.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv64-unknown-elf-gcc -march=rv32ic -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -ggdb -std=gnu11 -MMD -MP -MF"src/gpio.d" -MT"src/gpio.o" -c -o "src/gpio.o" "../src/gpio.c"
+Finished building: ../src/gpio.c
+ 
+Building file: ../src/interrupt.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv64-unknown-elf-gcc -march=rv32ic -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -ggdb -std=gnu11 -MMD -MP -MF"src/interrupt.d" -MT"src/interrupt.o" -c -o "src/interrupt.o" "../src/interrupt.c"
+Finished building: ../src/interrupt.c
+ 
+Building file: ../src/main.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv64-unknown-elf-gcc -march=rv32ic -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -ggdb -std=gnu11 -MMD -MP -MF"src/main.d" -MT"src/main.o" -c -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building file: ../src/startup.S
+Invoking: GNU RISC-V Cross Assembler
+riscv64-unknown-elf-gcc -march=rv32ic -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -ggdb -x assembler-with-cpp -MMD -MP -MF"src/startup.d" -MT"src/startup.o" -c -o "src/startup.o" "../src/startup.S"
+Finished building: ../src/startup.S
+ 
+Building file: ../src/uart.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv64-unknown-elf-gcc -march=rv32ic -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -ggdb -std=gnu11 -MMD -MP -MF"src/uart.d" -MT"src/uart.o" -c -o "src/uart.o" "../src/uart.c"
+Finished building: ../src/uart.c
+ 
+Building target: mmRISC_Prototype.elf
+Invoking: GNU RISC-V Cross C Linker
+riscv64-unknown-elf-gcc -march=rv32ic -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -ggdb -T "/home/taka/RISCV/mmRISC/toolchain/eclipse_workspace/mmRISC_Prototype/link.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"mmRISC_Prototype.map" -o "mmRISC_Prototype.elf"  ./src/gpio.o ./src/interrupt.o ./src/main.o ./src/startup.o ./src/uart.o   
+Finished building target: mmRISC_Prototype.elf
+ 
+Invoking: GNU RISC-V Cross Create Flash Image
+riscv64-unknown-elf-objcopy -O ihex "mmRISC_Prototype.elf"  "mmRISC_Prototype.hex"
+Finished building: mmRISC_Prototype.hex
+ 
+Invoking: GNU RISC-V Cross Print Size
+riscv64-unknown-elf-size --format=berkeley "mmRISC_Prototype.elf"
+   text	   data	    bss	    dec	    hex	filename
+   1044	  20480	      0	  21524	   5414	mmRISC_Prototype.elf
+Finished building: mmRISC_Prototype.siz
+ 
+
+22:48:14 Build Finished. 0 errors, 0 warnings. (took 515ms)
+

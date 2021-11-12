@@ -1,0 +1,61 @@
+# vsim -c -onfinish exit work.tb_TOP -do "run -all" 
+# Start time: 23:23:43 on Nov 09,2021
+# Loading sv_std.std
+# Loading work.tb_TOP
+# Loading work.CHIP_TOP
+# Loading work.mmRISC
+# Loading work.DEBUG_TOP
+# Loading work.DEBUG_DTM_JTAG
+# Loading work.DEBUG_CDC
+# Loading work.DEBUG_DM
+# Loading work.BUS_M_AHB
+# Loading work.AHB_MATRIX
+# Loading work.AHB_MASTER_PORT
+# Loading work.AHB_INTERCONNECT
+# Loading work.AHB_SLAVE_PORT
+# Loading work.CSR_MTIME
+# Loading work.RAM
+# Loading work.PORT
+# Loading work.UART
+# Loading work.sasc_top
+# Loading work.sasc_fifo4
+# Loading work.sasc_brg
+# Loading work.INT_GEN
+# Loading work.CPU_TOP
+# Loading work.CPU_FETCH
+# Loading work.CPU_DATAPATH
+# Loading work.CPU_PIPELINE
+# Loading work.CPU_CSR
+# Loading work.CPU_CSR_INT
+# Loading work.CPU_CSR_DBG
+# Loading work.CPU_DEBUG
+# Loading work.CPU_FPU32
+# Loading work.FMUL_SPECIAL_NUMBER
+# Loading work.CHECK_FTYPE
+# Loading work.FADD_SPECIAL_NUMBER
+# Loading work.FMADD_SPECIAL_NUMBER
+# Loading work.FDIV_SPECIAL_NUMBER
+# Loading work.FSQRT_SPECIAL_NUMBER
+# Loading work.INNER79_FROM_FLOAT32
+# Loading work.FIND_1ST_ONE_IN_FRAC66
+# Loading work.FMUL_CORE
+# Loading work.FRAC70_ROUND_FRAC132
+# Loading work.ROUND_JUDGMENT
+# Loading work.FIND_1ST_ONE_IN_FRAC70
+# Loading work.SHIFT_RIGHT_FRAC70
+# Loading work.FADD_CORE
+# Loading work.SHIFT_RIGHT_FRAC66
+# Loading work.FLOAT32_FROM_INNER79
+# Loading work.FRAC27_ROUND_FRAC66
+# Loading work.FIND_1ST_ONE_IN_FRAC27
+# Loading work.SHIFT_RIGHT_FRAC27
+# Loading work.FCVT_F2I
+# Loading work.FCVT_I2F
+# Loading work.AHB_ARB
+# Loading work.AHB_ARB_RB
+# run -all
+# ***** DETECT TOHOST ***** at 90001000
+# ** Note: $finish    : ./tb_TOP.v(179)
+#    Time: 33550 ns  Iteration: 1  Instance: /tb_TOP
+# End time: 23:23:45 on Nov 09,2021, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0

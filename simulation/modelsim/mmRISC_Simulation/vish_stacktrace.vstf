@@ -1,0 +1,35 @@
+# Current time Sat Jul 22 22:40:56 2017
+# ModelSim ALTERA Stack Trace
+# Program = vish
+# Id = "10.4d"
+# Version = "2015.12"
+# Date = "Dec 30 2015"
+# Platform = linuxpe
+# 0    0x0858cbdd: '<unknown (@0x858cbdd)>'
+# 1    0x0858ce08: '<unknown (@0x858ce08)>'
+# 2    0x0858db70: 'dbg_sym_load_block + 0x40' in '/home/taka/altera_lite/16.0/modelsim_ase/linuxaloem/vish'
+# 3    0x0858e90e: '<unknown (@0x858e90e)>'
+# 4    0x0858e8ff: '<unknown (@0x858e8ff)>'
+# 5    0x08590863: 'parser_sym_load_block + 0xc3' in '/home/taka/altera_lite/16.0/modelsim_ase/linuxaloem/vish'
+# 6    0x0832dc2d: 'tclprim_ParserGetFullPath + 0x27d' in '/home/taka/altera_lite/16.0/modelsim_ase/linuxaloem/vish'
+# 7    0x084a2811: 'TclInvokeStringCommand + 0x71' in '/home/taka/altera_lite/16.0/modelsim_ase/linuxaloem/vish'
+# 8    0x084a732d: '<unknown (@0x84a732d)>'
+# 9    0x084eff4a: '<unknown (@0x84eff4a)>'
+# 10   0x084f88ec: '<unknown (@0x84f88ec)>'
+# 11   0x084a94ac: 'TclEvalObjEx + 0x6c' in '/home/taka/altera_lite/16.0/modelsim_ase/linuxaloem/vish'
+# 12   0x084a9946: 'Tcl_EvalObjEx + 0x36' in '/home/taka/altera_lite/16.0/modelsim_ase/linuxaloem/vish'
+# 13   0xf7813eac: 'Itcl_EvalMemberCode + 0x3cc' in '/home/taka/altera_lite/16.0/modelsim_ase/bin/../linux/itcl3.4/libitcl3.4.so'
+# 14   0x0c33680b: '<unknown (@0xc33680b)>'
+# 15   0x09afca7b: '<unknown (@0x9afca7b)>'
+# 16   0xf7006a5d: '<unknown (@0xf7006a5d)>'
+# Current time Sat Sep 11 15:24:28 2021
+# ModelSim - Intel FPGA Edition Stack Trace
+# Program = vish
+# Id = "2020.1"
+# Version = "2020.02"
+# Date = "Feb 28 2020"
+# Platform = "linuxaloem"
+# 0    0x00000000: '<unknown (@0x0)>'
+# 1    0xfffffffb: '<unknown (@0xfffffffb)>'
+# End of Stack Trace
+
