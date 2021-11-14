@@ -32,7 +32,7 @@ Hardware Break Points (Instruction / Data) x 4 (Configurable) <br)
 Instruction Count Break Point x 1 <br)
 
 ## Privileged Mode
-Machine-Mode (M-Mode) only <br)
+Machine-Mode (M-Mode) only <br>
 
 ## Interrupt
 IRQ_EXT   : External Interrupt <br>
