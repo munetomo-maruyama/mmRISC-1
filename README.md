@@ -65,8 +65,8 @@ JTAG Interface (FT2232D) <br>
 Eclipse <br>
 
 ## Sample Programs
-mmRISC_SampleCPU    Simple CPU Sample Program <br>
-mmRISC_SampleCPU    Simple FPU Sample Program <br>
-mmRISC_FreeRTOS     FreeRTOS Porting (Blinky) <br>
-mmRISC_Dhrystone    Dhrystone Benchmark <br>
-mmRISC_Coremark     Coremark Benchmark <br>
+Simple CPU Sample Program <br>
+Simple FPU Sample Program <br>
+FreeRTOS Porting (Blinky) <br>
+Dhrystone Benchmark <br>
+Coremark Benchmark <br>
