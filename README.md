@@ -24,12 +24,12 @@ Floating Operations <br>
   The convergence loop counts for FDIV.S and FSQRT.S can be configured by software. <br>
 
 ## Debug Support
-External Debug Support Ver.0.13.2 with JTAG Interface <br)
+External Debug Support Ver.0.13.2 with JTAG Interface <br>
 Run / Stop / Step <br)
-Abstract Command to access Register and Memory <br)
-System Bus Access for Memory <br)
-Hardware Break Points (Instruction / Data) x 4 (Configurable) <br)
-Instruction Count Break Point x 1 <br)
+Abstract Command to access Register and Memory <br>
+System Bus Access for Memory <br>
+Hardware Break Points (Instruction / Data) x 4 (Configurable) <br>
+Instruction Count Break Point x 1 <br>
 
 ## Privileged Mode
 Machine-Mode (M-Mode) only <br>
