@@ -9,72 +9,68 @@ RV32IM[A][F]C (configurable)
 ## Harts
 Multi Harts Supported, 1 to 2^20 (configurable)
 
+## Pipeline
+For Integer : 3 to 5 stages <br>
+For Floating Point : 3 to 6 stages <br>
 
-Pipeline
-  For Integer : 3 to 5 stages
-  For Floating Point : 3 to 6 stages
+## Execution Cycles
+Integer Multiplication MUL/MULH/MULHSU/MULHU : 1 cycle
+Integer Division DIV/DIVU/REM/REMU : 33 cyles (Non-Restoring Method)
+Floating Operations <br>
+  FADD.S/FSUB.S/FMUL.S/FMADD.S/FMSUB.S/FNMADD.S/FNMSUB.S : 1 cycle <br>
+  FDIV.S  : 11 cycles (Goldschmidt's Algorithm) <br>
+  FSQRT.S : 19 cycles (Goldschmidt's Algorithm) <br>
+  The convergence loop counts for FDIV.S and FSQRT.S can be configured by software. <br>
 
-Integer Multiplication
-  MUL/MULH/MULHSU/MULHU : 1 cycle
+## Debug Support
+External Debug Support Ver.0.13.2 with JTAG Interface <br)
+Run / Stop / Step <br)
+Abstract Command to access Register and Memory <br)
+System Bus Access for Memory <br)
+Hardware Break Points (Instruction / Data) x 4 (Configurable) <br)
+Instruction Count Break Point x 1 <br)
 
-Integer Division
-  DIV/DIVU/REM/REMU : 33 cyles (Non-Restoring Method)
+## Privileged Mode
+Machine-Mode (M-Mode) only <br)
 
-Floating Operations
-  FADD.S/FSUB.S/FMUL.S/FMADD.S/FMSUB.S/FNMADD.S/FNMSUB.S : 1 cycle
-  FDIV.S  : 11 cycles (Goldschmidt's Algorithm)
-  FSQRT.S : 19 cycles (Goldschmidt's Algorithm)
-  The convergence loop counts for FDIV.S and FSQRT.S can be configured by software.
+## Interrupt
+IRQ_EXT   : External Interrupt <br>
+IRQ_MSOFT : Machine Software Interrupt <br>
+IRQ_MTIME : Machine Timer Interrupt <br>
+IRQ[63:0] : User IRQ, 64 inputs / Vectored Supported / 16 priority levels for each <br>
 
-7. Debug Support
-External Debug Support Ver.0.13.2 with JTAG Interface
-Run / Stop / Step
-Abstract Command to access Register and Memory
-System Bus Access for Memory
-Hardware Break Points (Instruction / Data) x 4 (Configurable)
-Instruction Count Break Point x 1
+## Counters
+64bits MCYCLE (Clock Cycle Counter) <br>
+64bits MINSTRET (Instruction Retired Counter) <br>
+64bits MTIME (Memory Mapped Interrupt Timer) <br>
 
-8. Privileged Mode
-Machine-Mode (M-Mode) only
+## Bus Interface (AHB-Lite)
+Instruction Fetch Bus <br>
+Data Bus multiplexed with Debugger Abstract Command <br>
+LR/SC Monitor Bus <br>
+Debugger System Bus <br>
 
-9. Interrupt
-IRQ_EXT   : External Interrupt
-IRQ_MSOFT : Machine Software Interrupt
-IRQ_MTIME : Machine Timer Interrupt  
-IRQ[63:0] : User IRQ, 64 inputs / Vectored Supported / 16 priority levels for each
+## RTL
+Verilog-2001 / System Verilog <br>
 
-10. Counters
-64bits MCYCLE (Clock Cycle Counter)
-64bits MINSTRET (Instruction Retired Counter)
-64bits MTIME (Memory Mapped Interrupt Timer)
+## Verification
+Vector Simluation <br>
+RISC-V Compliance Test “riscv-arch-test” for I/C/M/Zifence/Privileged <br>
+RISC-V Unit Test “riscv-tests” including Atomic and Floating Point ISA <br>
 
-11. Bus Interface (AHB-Lite)
-Instruction Fetch Bus
-Data Bus multiplexed with Debugger Abstract Command
-LR/SC Monitor Bus
-Debugger System Bus
+## FPGA Proven
+DE10-Lite Board (Intel MAX 10 10M50DAF484C7G) <br>
+JTAG Interface (FT2232D) <br>
+Eclipse <br>
 
-12. RTL
-Verilog-2001 / System Verilog
+## Sample Programs
+mmRISC_SampleCPU    Simple CPU Sample Program <br>
+mmRISC_SampleCPU    Simple FPU Sample Program <br>
+mmRISC_FreeRTOS     FreeRTOS Porting (Blinky) <br>
+mmRISC_Dhrystone    Dhrystone Benchmark <br>
+mmRISC_Coremark     Coremark Benchmark <br>
 
-13. Verification
-Vector Simluation
-RISC-V Compliance Test “riscv-arch-test” for I/C/M/Zifence/Privileged
-RISC-V Unit Test “riscv-tests” including Atomic and Floating Point ISA
-
-13. FPGA Proven
-DE10-Lite Board (Intel MAX 10 10M50DAF484C7G)
-JTAG Interface (FT2232D)
-Eclipse 
-
-14. Sample Programs
-mmRISC_SampleCPU    Simple CPU Sample Program
-mmRISC_SampleCPU    Simple FPU Sample Program
-mmRISC_FreeRTOS     FreeRTOS Porting (Blinky)
-mmRISC_Dhrystone    Dhrystone Benchmark
-mmRISC_Coremark     Coremark Benchmark
-
--------------------------------------
+------------------------------------- <br>
 Copyright (C) 2021 Munetomo Maruyama
 
 
