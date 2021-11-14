@@ -1,7 +1,8 @@
 # mmRISC-1 : RISC-V RV32IMAFC Core for MCU
 
 “mmRISC_1” is a RISC-V compliant CPU core with RV32IM[A][F]C ISA for MCU.<br>
-The “mmRISC” stands for “much more RISC”.
+The “mmRISC” stands for “much more RISC”. <br>
+For details, please refer PDF file under doc directory.
 
 ## ISA
 RV32IM[A][F]C (configurable)
@@ -69,11 +70,3 @@ mmRISC_SampleCPU    Simple FPU Sample Program <br>
 mmRISC_FreeRTOS     FreeRTOS Porting (Blinky) <br>
 mmRISC_Dhrystone    Dhrystone Benchmark <br>
 mmRISC_Coremark     Coremark Benchmark <br>
-
-------------------------------------- <br>
-Copyright (C) 2021 Munetomo Maruyama
-
-
-
-
-
