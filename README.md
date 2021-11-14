@@ -3,26 +3,26 @@ RISC-V RV32IMAFC Core for MCU
 
 “mmRISC_1” is a RISC-V compliant CPU core with RV32IM[A][F]C ISA for MCU. Overview of mmRISC-1 specifications are shown in Table 1.1. “mmRISC” stands for “much more RISC”.
 
-1. ISA
-RV32IM[A][F]C (configurable)
+ISA
+  RV32IM[A][F]C (configurable)
 
-2. Harts
-Multi Harts Supported, 1 to 2^20 (configurable)
+Harts
+  Multi Harts Supported, 1 to 2^20 (configurable)
 
-3. Pipeline
-For Integer : 3 to 5 stages
-For Floating Point : 3 to 6 stages
+Pipeline
+  For Integer : 3 to 5 stages
+  For Floating Point : 3 to 6 stages
 
-4. Integer Multiplication
-MUL/MULH/MULHSU/MULHU : 1 cycle
+Integer Multiplication
+  MUL/MULH/MULHSU/MULHU : 1 cycle
 
-5. Integer Division
-DIV/DIVU/REM/REMU : 33 cyles (Non-Restoring Method)
+Integer Division
+  DIV/DIVU/REM/REMU : 33 cyles (Non-Restoring Method)
 
-6. Floating Operations
-FADD.S/FSUB.S/FMUL.S/FMADD.S/FMSUB.S/FNMADD.S/FNMSUB.S : 1 cycle
-FDIV.S  : 11 cycles (Goldschmidt's Algorithm)
-FSQRT.S : 19 cycles (Goldschmidt's Algorithm)
+Floating Operations
+  FADD.S/FSUB.S/FMUL.S/FMADD.S/FMSUB.S/FNMADD.S/FNMSUB.S : 1 cycle
+  FDIV.S  : 11 cycles (Goldschmidt's Algorithm)
+  FSQRT.S : 19 cycles (Goldschmidt's Algorithm)
   The convergence loop counts for FDIV.S and FSQRT.S can be configured by software.
 
 7. Debug Support
