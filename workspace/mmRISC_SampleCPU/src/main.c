@@ -45,6 +45,7 @@ void main(void)
     printf("Input any Character:\n");
     while(1)
     {
+        mem_wr32(0xfffffffc, 0xdeaddead); // Simulation Stop
     }
 }
 

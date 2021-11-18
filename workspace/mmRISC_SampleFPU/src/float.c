@@ -78,6 +78,8 @@ void main_floating(void)
                 cycleh = (uint64_t) read_csr(mcycleh);
                 cycle_now = (cycleh << 32) + (cyclel);
                 if (cycle_now >= cycle_prev + 1666666) break;
+                //
+                mem_wr32(0xfffffffc, 0xdeaddead); // Simulation Stop
             }
         }
     }

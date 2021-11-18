@@ -51,7 +51,7 @@ C_DEPS += \
 src_kernel/src/%.o: ../src_kernel/src/%.c src_kernel/src/subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: GNU RISC-V Cross C Compiler'
-	riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -ggdb -I"/home/taka/RISCV/mmRISC-1/workspace/mmRISC_FreeRTOS/src_kernel/inc" -I"/home/taka/RISCV/mmRISC-1/workspace/mmRISC_FreeRTOS/src_app/inc" -O0 -fno-common -fno-builtin-printf -nostartfiles -nostdlib -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
+	riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -ggdb -I"/home/taka/RISCV/mmRISC-1/workspace/mmRISC_FreeRTOS/src_kernel/inc" -I"/home/taka/RISCV/mmRISC-1/workspace/mmRISC_FreeRTOS/src_app/inc" -fno-common -fno-builtin-printf -nostartfiles -nostdlib -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

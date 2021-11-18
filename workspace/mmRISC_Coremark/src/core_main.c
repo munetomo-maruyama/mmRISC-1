@@ -109,6 +109,8 @@ MAIN_RETURN_TYPE
 //main(void)
 main_coremark(void)
 {
+  //default_num_contexts = 1; // by MM; add this line if enable -flto option
+    //
     int   argc = 0;
     char *argv[1];
 #else

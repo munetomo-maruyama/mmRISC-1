@@ -41,29 +41,53 @@ void main(void)
     }
 }
 
-// 2021.05.23 : RV32IMC
+// 2021.11.18 : RV32IMC
 // GCC -O2
-// Time: begin= 55447312, end= 55637364, diff= 190052
-// Microseconds for one run through Dhrystone: 19.005
-// Dhrystones per Second:                      52617
-// DMIPS = 52617/1757 = 29.95MIPS
-// DMIPS/MHz = 52617/1757/20 = 1.50DMIPS
-
-// 2021.05.23 : RV32IMC
+// Time: begin= 6289046, end= 6479597, diff= 190551
+// Microseconds for one run through Dhrystone: 19.055
+// Dhrystones per Second:                      52479
+// DMIPS = 52479/1757 = 30MIPS
+// DMIPS/MHz = 52479/1757/20 = 1.49DMIPS
+//
+// 2021.11.18 : RV32IMC
 // GCC -O3
-// Time: begin= 115947002, end= 116130554, diff= 183552
+// Time: begin= 6187333, end= 6370884, diff= 183551
 // Microseconds for one run through Dhrystone: 18.355
 // Dhrystones per Second:                      54480
 // DMIPS = 54480/1757 = 31MIPS
 // DMIPS/MHz = 54480/1757/20 = 1.55DMIPS
 //
-// 2021.05.23 : RV32IMC
+// 2021.11.18 : RV32IMC
 // GCC -O3 -funroll-loops -fpeel-loops -fgcse-sm -fgcse-las -flto
-// Time: begin= 78199455, end= 78325518, diff= 126063
-// Microseconds for one run through Dhrystone: 12.606
-// Dhrystones per Second:                      79325
-// DMIPS = 79325/1757 = 45MIPS
-// DMIPS/MHz = 79325/1757/20 = 2.26DMIPS
+// Time: begin= 6365035, end= 6445095, diff= 80060
+// Microseconds for one run through Dhrystone: 8.006
+// Dhrystones per Second:                      124906
+// DMIPS = 124906/1757 = 71MIPS
+// DMIPS/MHz = 124906/1757/20 = 3.55DMIPS
+//
+// 2021.11.18 : RV32IMFC
+// GCC -O2
+// Time: begin= 5311933, end= 5502484, diff= 190551
+// Microseconds for one run through Dhrystone: 22.866
+// Dhrystones per Second:                      43732
+// DMIPS = 43732/1757 = 25MIPS
+// DMIPS/MHz = 43732/1757/16.67 = 1.49DMIPS
+//
+// 2021.11.18 : RV32IMFC
+// GCC -O3
+// Time: begin= 5162051, end= 5345602, diff= 183551
+// Microseconds for one run through Dhrystone: 22.026
+// Dhrystones per Second:                      45400
+// DMIPS = 45400/1757 = 26MIPS
+// DMIPS/MHz = 45400/1757/16.67 = 1.55DMIPS
+//
+// 2021.11.18 : RV32IMFC
+// GCC -O3 -funroll-loops -fpeel-loops -fgcse-sm -fgcse-las -flto
+// Time: begin= 5066582, end= 5146642, diff= 80060
+// Microseconds for one run through Dhrystone: 9.607
+// Dhrystones per Second:                      104088
+// DMIPS = 104088/1757 = 59MIPS
+// DMIPS/MHz = 104088/1757/16.67 = 3.55DMIPS
 
 //===========================================================
 // End of Program

@@ -431,7 +431,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x35 ./src/libc-hooks.o
  .debug_macro   0x0000000000000000      0x12c ./src/libc-hooks.o
  .debug_line    0x0000000000000000      0x696 ./src/libc-hooks.o
- .debug_str     0x0000000000000000     0x6afe ./src/libc-hooks.o
+ .debug_str     0x0000000000000000     0x6afa ./src/libc-hooks.o
  .comment       0x0000000000000000       0x13 ./src/libc-hooks.o
  .debug_frame   0x0000000000000000      0x14c ./src/libc-hooks.o
  .riscv.attributes
@@ -1311,48 +1311,48 @@ OUTPUT(mmRISC_Dhrystone.elf elf32-littleriscv)
  .debug_line    0x000000000000d34e       0x59 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clz.o)
  .debug_line    0x000000000000d3a7       0xe5 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clzsi2.o)
 
-.debug_str      0x0000000000000000     0x8b9e
- .debug_str     0x0000000000000000     0x70be ./src/dhry_1.o
-                                       0x72ba (size before relaxing)
- .debug_str     0x00000000000070be       0xf0 ./src/dhry_2.o
-                                       0x709e (size before relaxing)
- .debug_str     0x00000000000071ae      0x238 ./src/gpio.o
-                                       0x7051 (size before relaxing)
- .debug_str     0x00000000000073e6      0x3cb ./src/interrupt.o
-                                       0x73e8 (size before relaxing)
- .debug_str     0x00000000000077b1       0x1d ./src/main.o
-                                       0x73b8 (size before relaxing)
- .debug_str     0x00000000000077ce       0x15 ./src/system.o
-                                       0x6f15 (size before relaxing)
- .debug_str     0x00000000000077e3       0x74 ./src/uart.o
-                                       0x71ce (size before relaxing)
- .debug_str     0x0000000000007857      0x9f9 ./src/xprintf.o
-                                       0x5d53 (size before relaxing)
- .debug_str     0x0000000000008250      0x22e /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+.debug_str      0x0000000000000000     0x8b9a
+ .debug_str     0x0000000000000000     0x70ba ./src/dhry_1.o
+                                       0x72b6 (size before relaxing)
+ .debug_str     0x00000000000070ba       0xf0 ./src/dhry_2.o
+                                       0x709a (size before relaxing)
+ .debug_str     0x00000000000071aa      0x238 ./src/gpio.o
+                                       0x704d (size before relaxing)
+ .debug_str     0x00000000000073e2      0x3cb ./src/interrupt.o
+                                       0x73e4 (size before relaxing)
+ .debug_str     0x00000000000077ad       0x1d ./src/main.o
+                                       0x73b4 (size before relaxing)
+ .debug_str     0x00000000000077ca       0x15 ./src/system.o
+                                       0x6f11 (size before relaxing)
+ .debug_str     0x00000000000077df       0x74 ./src/uart.o
+                                       0x71ca (size before relaxing)
+ .debug_str     0x0000000000007853      0x9f9 ./src/xprintf.o
+                                       0x5d4f (size before relaxing)
+ .debug_str     0x000000000000824c      0x22e /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
                                         0x2e8 (size before relaxing)
- .debug_str     0x000000000000847e      0x2e8 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_umoddi3.o)
- .debug_str     0x000000000000847e      0x240 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(adddf3.o)
+ .debug_str     0x000000000000847a      0x2e8 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_umoddi3.o)
+ .debug_str     0x000000000000847a      0x240 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(adddf3.o)
                                         0x343 (size before relaxing)
- .debug_str     0x00000000000086be      0x195 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(divdf3.o)
+ .debug_str     0x00000000000086ba      0x195 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(divdf3.o)
                                         0x405 (size before relaxing)
- .debug_str     0x0000000000008853       0x59 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(eqdf2.o)
+ .debug_str     0x000000000000884f       0x59 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(eqdf2.o)
                                         0x254 (size before relaxing)
- .debug_str     0x00000000000088ac       0x56 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(gedf2.o)
+ .debug_str     0x00000000000088a8       0x56 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(gedf2.o)
                                         0x278 (size before relaxing)
- .debug_str     0x0000000000008902       0x32 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(ledf2.o)
+ .debug_str     0x00000000000088fe       0x32 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(ledf2.o)
                                         0x278 (size before relaxing)
- .debug_str     0x0000000000008934      0x158 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(muldf3.o)
+ .debug_str     0x0000000000008930      0x158 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(muldf3.o)
                                         0x45d (size before relaxing)
- .debug_str     0x0000000000008a8c       0x33 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(subdf3.o)
+ .debug_str     0x0000000000008a88       0x33 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(subdf3.o)
                                         0x343 (size before relaxing)
- .debug_str     0x0000000000008abf       0x35 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(unorddf2.o)
+ .debug_str     0x0000000000008abb       0x35 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(unorddf2.o)
                                         0x25a (size before relaxing)
- .debug_str     0x0000000000008af4       0x47 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(fixdfsi.o)
+ .debug_str     0x0000000000008af0       0x47 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(fixdfsi.o)
                                         0x251 (size before relaxing)
- .debug_str     0x0000000000008b3b       0x63 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(floatsidf.o)
+ .debug_str     0x0000000000008b37       0x63 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(floatsidf.o)
                                         0x2f0 (size before relaxing)
- .debug_str     0x0000000000008b9e      0x22f /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clz.o)
- .debug_str     0x0000000000008b9e      0x24c /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clzsi2.o)
+ .debug_str     0x0000000000008b9a      0x22f /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clz.o)
+ .debug_str     0x0000000000008b9a      0x24c /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a(_clzsi2.o)
 
 .comment        0x0000000000000000       0x12
  .comment       0x0000000000000000       0x12 ./src/dhry_1.o
