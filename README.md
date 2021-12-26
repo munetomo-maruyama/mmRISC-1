@@ -4,6 +4,9 @@
 The “mmRISC” stands for “much more RISC”. <br>
 For details, please refer PDF file under doc directory. <br>
 
+## Technical Notes
+2021.12.26 If you use Questa Sim to simulate mmRISC-1, please add option -voptargs="+acc" in vsim command.
+
 ## ISA
 RV32IM[A][F]C (configurable)
 
