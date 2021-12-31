@@ -7,7 +7,7 @@ For details, please refer PDF file under doc directory. <br>
 ## Technical Notes
 2021.12.26 If you use Questa Sim to simulate mmRISC-1, please add an option -voptargs="+acc" in vsim command.<br>
 2021.12.31 Followings are updated. Main RTL Body of mmRISC is not modified due to no bugs found yet.<br>
-(1) Added MRET and WFI descriptions. 
+(1) Added MRET and WFI descriptions in Technical Reference Manual Rev.02. 
 (2) Supported Questa as logic simulator. To do so, add an option -voptargs="+acc" in vsim command. 
 (3) Supported Initialization of Instruction RAM in FPGA using .mif file. A conversion tool hex2mif is added in tools directory. 
 (4) Updated JTAG interface schematic. 
