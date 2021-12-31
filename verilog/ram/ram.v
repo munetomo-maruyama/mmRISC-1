@@ -40,37 +40,18 @@ module RAM
 );
 
 //------------------
-// RAM Model
+// Control Logic
 //------------------
 reg [ 3:0] ready_count;
 reg        s_dphase;
-//reg [ 1:0] s_dphase_htrans;
 reg [31:0] s_dphase_haddr;
-//reg [31:0] s_dphase_hwdata;
 reg        s_dphase_hwrite;
 reg [ 2:0] s_dphase_hsize;
-//reg        s_dphase_hmastlock;
 //
 reg  [ 7:0] s_mem_0[0:(RAM_SIZE/4)-1];
 reg  [ 7:0] s_mem_1[0:(RAM_SIZE/4)-1];
 reg  [ 7:0] s_mem_2[0:(RAM_SIZE/4)-1];
 reg  [ 7:0] s_mem_3[0:(RAM_SIZE/4)-1];
-//
-`ifdef SIMULATION
-initial
-begin
-    reg [7:0] rom[0:RAM_SIZE-1];
-    integer a;
-    $readmemh("rom.memh", rom);
-    for (a = 0; a < (RAM_SIZE/4); a = a + 1)
-    begin
-        s_mem_0[a] = rom[a * 4 + 0];
-        s_mem_1[a] = rom[a * 4 + 1];
-        s_mem_2[a] = rom[a * 4 + 2];
-        s_mem_3[a] = rom[a * 4 + 3];
-    end
-end
-`endif
 //
 wire        s_mem_re_0, s_mem_re_1, s_mem_re_2, s_mem_re_3;
 wire        s_mem_we_0, s_mem_we_1, s_mem_we_2, s_mem_we_3;
@@ -86,22 +67,16 @@ begin
     if (RES)
     begin
         s_dphase <= 1'b0;
-//      s_dphase_htrans <= 2'b00;
         s_dphase_haddr  <= 32'h00000000;
-//      s_dphase_hwdata <= 32'h00000000;
         s_dphase_hwrite <= 1'b0;
         s_dphase_hsize  <= 3'b000;
-//      s_dphase_hmastlock <= 1'b0;
     end
     else if (S_HREADY & S_HREADYOUT)
     begin
         s_dphase <= S_HTRANS[1];
-//      s_dphase_htrans <= S_HTRANS;
         s_dphase_haddr  <= S_HADDR;
-//      s_dphase_hwdata <= S_HWDATA;
         s_dphase_hwrite <= S_HWRITE;
         s_dphase_hsize  <= S_HSIZE;
-//      s_dphase_hmastlock <= S_HMASTLOCK;
     end
 end
 //
@@ -138,8 +113,10 @@ assign s_mem_wdata_0 = S_HWDATA[ 7: 0];
 assign s_mem_wdata_1 = S_HWDATA[15: 8];
 assign s_mem_wdata_2 = S_HWDATA[23:16];
 assign s_mem_wdata_3 = S_HWDATA[31:24];
-//
+
+//---------------------------------------
 // Simultanous Read-Write Contention
+//---------------------------------------
 reg  s_dphase_contention_0;
 reg  s_dphase_contention_1;
 reg  s_dphase_contention_2;
@@ -214,8 +191,26 @@ begin
     else if (s_mem_we_3)
         s_mem_cdata_3 <= s_mem_wdata_3;
 end
-//
+
+//-------------------------------------------------------------------
 // Inferrence of Dual Port RAM (RW contention : Read new Write Data)
+//-------------------------------------------------------------------
+`ifdef SIMULATION
+initial
+begin
+    reg [7:0] rom[0:RAM_SIZE-1];
+    integer a;
+    $readmemh("rom.memh", rom);
+    for (a = 0; a < (RAM_SIZE/4); a = a + 1)
+    begin
+        s_mem_0[a] = rom[a * 4 + 0];
+        s_mem_1[a] = rom[a * 4 + 1];
+        s_mem_2[a] = rom[a * 4 + 2];
+        s_mem_3[a] = rom[a * 4 + 3];
+    end
+end
+`endif
+//
 always @(posedge CLK)
 begin
     if (s_mem_we_0) s_mem_0[s_mem_waddr_0[(RAM_ADDR-3):0]] <= s_mem_wdata_0; // non blocking
@@ -245,8 +240,10 @@ assign rdata_2 = (s_dphase_contention_2)? s_mem_cdata_2 : s_mem_rdata_2;
 assign rdata_3 = (s_dphase_contention_3)? s_mem_cdata_3 : s_mem_rdata_3;
 assign S_HRDATA = (s_dphase & S_HREADY & S_HREADYOUT)? 
                          {rdata_3, rdata_2, rdata_1, rdata_0} : 32'h00000000;        
-//
+
+//--------------------------------
 // Wait Cycle
+//--------------------------------
 reg [3:0] wait_cycle;
 always @(posedge CLK, posedge RES)
 begin

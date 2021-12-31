@@ -1,6 +1,6 @@
 Flow report for mmRISC
-Thu Nov 11 01:23:08 2021
-Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Fri Dec 31 16:23:56 2021
+Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
 ---------------------
@@ -21,7 +21,7 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2020  Intel Corporation. All rights reserved.
+Copyright (C) 2021  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
@@ -41,20 +41,20 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Thu Nov 11 01:23:08 2021       ;
-; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Flow Status                        ; Successful - Fri Dec 31 16:23:56 2021       ;
+; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; mmRISC                                      ;
 ; Top-level Entity Name              ; CHIP_TOP                                    ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 41,662 / 49,760 ( 84 % )                    ;
-;     Total combinational functions  ; 40,582 / 49,760 ( 82 % )                    ;
-;     Dedicated logic registers      ; 9,137 / 49,760 ( 18 % )                     ;
-; Total registers                    ; 9137                                        ;
+; Total logic elements               ; 41,463 / 49,760 ( 83 % )                    ;
+;     Total combinational functions  ; 40,419 / 49,760 ( 81 % )                    ;
+;     Dedicated logic registers      ; 9,195 / 49,760 ( 18 % )                     ;
+; Total registers                    ; 9195                                        ;
 ; Total pins                         ; 108 / 360 ( 30 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 1,441,792 / 1,677,312 ( 86 % )              ;
+; Total memory bits                  ; 1,442,816 / 1,677,312 ( 86 % )              ;
 ; Embedded Multiplier 9-bit elements ; 40 / 288 ( 14 % )                           ;
 ; Total PLLs                         ; 1 / 4 ( 25 % )                              ;
 ; UFM blocks                         ; 0 / 1 ( 0 % )                               ;
@@ -67,40 +67,52 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/11/2021 00:46:52 ;
+; Start date & time ; 12/31/2021 15:37:20 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; mmRISC              ;
 +-------------------+---------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                                 ;
-+-------------------------------------+------------------------------------------+---------------+-------------+-----------------------------------+
-; Assignment Name                     ; Value                                    ; Default Value ; Entity Name ; Section Id                        ;
-+-------------------------------------+------------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 121380417324.163655921224585             ; --            ; --          ; --                                ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                      ; --            ; --          ; eda_board_design_timing           ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                      ; --            ; --          ; eda_board_design_boundary_scan    ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                      ; --            ; --          ; eda_board_design_signal_integrity ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                      ; --            ; --          ; eda_board_design_symbol           ;
-; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                              ; --            ; --          ; eda_simulation                    ;
-; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)                ; <None>        ; --          ; --                                ;
-; EDA_TIME_SCALE                      ; 1 ps                                     ; --            ; --          ; eda_simulation                    ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                       ; --            ; --          ; --                                ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                        ; --            ; --          ; --                                ;
-; MISC_FILE                           ; PLL_bb.v                                 ; --            ; --          ; --                                ;
-; MISC_FILE                           ; PLL.ppf                                  ; --            ; --          ; --                                ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family)   ; --            ; CHIP_TOP    ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)   ; --            ; CHIP_TOP    ; Top                               ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)   ; --            ; CHIP_TOP    ; Top                               ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                      ; --            ; --          ; --                                ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW    ; --            ; --          ; --                                ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                             ; --            ; --          ; --                                ;
-; SEARCH_PATH                         ; /home/taka/RISCV/mmRISC-1/verilog/common ; --            ; --          ; --                                ;
-; TOP_LEVEL_ENTITY                    ; CHIP_TOP                                 ; mmRISC        ; --          ; --                                ;
-; VERILOG_INPUT_VERSION               ; SystemVerilog_2005                       ; Verilog_2001  ; --          ; --                                ;
-; VERILOG_SHOW_LMF_MAPPING_MESSAGES   ; Off                                      ; --            ; --          ; --                                ;
-+-------------------------------------+------------------------------------------+---------------+-------------+-----------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                  ;
++--------------------------------------+------------------------------------------+---------------+-------------+-----------------------------------+
+; Assignment Name                      ; Value                                    ; Default Value ; Entity Name ; Section Id                        ;
++--------------------------------------+------------------------------------------+---------------+-------------+-----------------------------------+
+; COMPILER_SIGNATURE_ID                ; 121380417324.164093264014349             ; --            ; --          ; --                                ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                      ; --            ; --          ; eda_board_design_timing           ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                      ; --            ; --          ; eda_board_design_boundary_scan    ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                      ; --            ; --          ; eda_board_design_signal_integrity ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                      ; --            ; --          ; eda_board_design_symbol           ;
+; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                              ; --            ; --          ; eda_simulation                    ;
+; EDA_SIMULATION_TOOL                  ; Questa Intel FPGA (Verilog)              ; <None>        ; --          ; --                                ;
+; EDA_TIME_SCALE                       ; 1 ps                                     ; --            ; --          ; eda_simulation                    ;
+; FITTER_EFFORT                        ; Standard Fit                             ; Auto Fit      ; --          ; --                                ;
+; MAX_CORE_JUNCTION_TEMP               ; 85                                       ; --            ; --          ; --                                ;
+; MIN_CORE_JUNCTION_TEMP               ; 0                                        ; --            ; --          ; --                                ;
+; MISC_FILE                            ; PLL_bb.v                                 ; --            ; --          ; --                                ;
+; MISC_FILE                            ; PLL.ppf                                  ; --            ; --          ; --                                ;
+; MISC_FILE                            ; RAM128KB_DP_bb.v                         ; --            ; --          ; --                                ;
+; OPTIMIZATION_MODE                    ; High Performance Effort                  ; Balanced      ; --          ; --                                ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS       ; Half Signal Swing                        ; --            ; --          ; --                                ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS       ; Half Signal Swing                        ; --            ; --          ; --                                ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS      ; Half Vccio                               ; --            ; --          ; --                                ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS      ; Half Vccio                               ; --            ; --          ; --                                ;
+; PARTITION_COLOR                      ; -- (Not supported for targeted family)   ; --            ; CHIP_TOP    ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family)   ; --            ; CHIP_TOP    ; Top                               ;
+; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family)   ; --            ; CHIP_TOP    ; Top                               ;
+; PHYSICAL_SYNTHESIS_COMBO_LOGIC       ; On                                       ; Off           ; --          ; --                                ;
+; PHYSICAL_SYNTHESIS_REGISTER_RETIMING ; On                                       ; Off           ; --          ; --                                ;
+; PLACEMENT_EFFORT_MULTIPLIER          ; 4.0                                      ; 1.0           ; --          ; --                                ;
+; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                      ; --            ; --          ; --                                ;
+; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW    ; --            ; --          ; --                                ;
+; PROJECT_OUTPUT_DIRECTORY             ; output_files                             ; --            ; --          ; --                                ;
+; ROUTER_TIMING_OPTIMIZATION_LEVEL     ; MAXIMUM                                  ; Normal        ; --          ; --                                ;
+; SEARCH_PATH                          ; /home/taka/RISCV/mmRISC-1/verilog/common ; --            ; --          ; --                                ;
+; TOP_LEVEL_ENTITY                     ; CHIP_TOP                                 ; mmRISC        ; --          ; --                                ;
+; VERILOG_INPUT_VERSION                ; SystemVerilog_2005                       ; Verilog_2001  ; --          ; --                                ;
+; VERILOG_MACRO                        ; FPGA=<None>                              ; --            ; --          ; --                                ;
+; VERILOG_SHOW_LMF_MAPPING_MESSAGES    ; Off                                      ; --            ; --          ; --                                ;
++--------------------------------------+------------------------------------------+---------------+-------------+-----------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -108,12 +120,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:08:23     ; 1.0                     ; 981 MB              ; 00:08:24                           ;
-; Fitter               ; 00:26:50     ; 1.1                     ; 1534 MB             ; 00:44:44                           ;
-; Assembler            ; 00:00:04     ; 1.0                     ; 477 MB              ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:40     ; 1.7                     ; 832 MB              ; 00:01:05                           ;
-; EDA Netlist Writer   ; 00:00:07     ; 1.0                     ; 764 MB              ; 00:00:06                           ;
-; Total                ; 00:36:04     ; --                      ; --                  ; 00:54:23                           ;
+; Analysis & Synthesis ; 00:05:34     ; 1.0                     ; 959 MB              ; 00:05:37                           ;
+; Fitter               ; 00:39:45     ; 1.0                     ; 1516 MB             ; 00:48:14                           ;
+; Assembler            ; 00:00:05     ; 1.0                     ; 505 MB              ; 00:00:05                           ;
+; Timing Analyzer      ; 00:00:49     ; 1.7                     ; 876 MB              ; 00:01:20                           ;
+; EDA Netlist Writer   ; 00:00:07     ; 1.0                     ; 786 MB              ; 00:00:08                           ;
+; Total                ; 00:46:20     ; --                      ; --                  ; 00:55:24                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -122,11 +134,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+------------------+----------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name        ; OS Version ; Processor type ;
 +----------------------+------------------+----------------+------------+----------------+
-; Analysis & Synthesis ; ubuntu           ; Ubuntu 20.04.2 ; 20         ; x86_64         ;
-; Fitter               ; ubuntu           ; Ubuntu 20.04.2 ; 20         ; x86_64         ;
-; Assembler            ; ubuntu           ; Ubuntu 20.04.2 ; 20         ; x86_64         ;
-; Timing Analyzer      ; ubuntu           ; Ubuntu 20.04.2 ; 20         ; x86_64         ;
-; EDA Netlist Writer   ; ubuntu           ; Ubuntu 20.04.2 ; 20         ; x86_64         ;
+; Analysis & Synthesis ; ubuntu           ; Ubuntu 20.04.3 ; 20         ; x86_64         ;
+; Fitter               ; ubuntu           ; Ubuntu 20.04.3 ; 20         ; x86_64         ;
+; Assembler            ; ubuntu           ; Ubuntu 20.04.3 ; 20         ; x86_64         ;
+; Timing Analyzer      ; ubuntu           ; Ubuntu 20.04.3 ; 20         ; x86_64         ;
+; EDA Netlist Writer   ; ubuntu           ; Ubuntu 20.04.3 ; 20         ; x86_64         ;
 +----------------------+------------------+----------------+------------+----------------+
 
 

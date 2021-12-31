@@ -1,13 +1,16 @@
 # Convert hex to memh
-#exec ../../../tools/hex2v ../../../workspace/mmRISC_SampleCPU/Debug/mmRISC_SampleCPU.hex > rom.memh
-exec ../../../tools/hex2v ../../../workspace/mmRISC_SampleFPU/Debug/mmRISC_SampleFPU.hex > rom.memh
+exec ../../../tools/hex2v ../../../workspace/mmRISC_SampleCPU/Debug/mmRISC_SampleCPU.hex > rom.memh
+#exec ../../../tools/hex2v ../../../workspace/mmRISC_SampleFPU/Debug/mmRISC_SampleFPU.hex > rom.memh
+#exec ../../../tools/hex2v ../../../workspace/mmRISC_Coremark/Debug/mmRISC_Coremark.hex > rom.memh
 
 # Directory
 set DIR_RTL ../../../verilog
+set FPGA_RTL ../../../fpga
 
 # Compile
 #   +define+MULTI_HART \
 #   +define+RAM_WAIT \
+#   +define+FPGA \
 
 vlog \
     -work work \
@@ -17,6 +20,8 @@ vlog \
     +define+SIMULATION \
     $DIR_RTL/chip/chip_top.v \
     $DIR_RTL/ram/ram.v \
+    $DIR_RTL/ram/ram_fpga.v \
+    $FPGA_RTL/RAM128KB_DP.v\
     $DIR_RTL/port/port.v \
     $DIR_RTL/uart/uart.v \
     $DIR_RTL/uart/sasc/trunk/rtl/verilog/sasc_top.v \
@@ -51,17 +56,31 @@ vlog \
 #transcript file log#.txt
 
 # Start Simulation
-#vsim -c -L altera_mf_ver \
+#vsim -c -voptargs="+acc" -L altera_mf_ver \
 #    work.tb_TOP
-vsim -c \
+vsim -c -voptargs="+acc" \
+    -L altera_mf_ver \
     work.tb_TOP
-
 
 # Add Waveform
 add wave -divider TestBench
 add wave -hex -position end  sim:/tb_TOP/tb_clk
 add wave -hex -position end  sim:/tb_TOP/tb_res
 add wave -hex -position end  sim:/tb_TOP/tb_cyc
+#
+add wave -hex -position end  sim:/tb_TOP/cpu_res
+add wave -hex -position end  sim:/tb_TOP/cpu_clk
+add wave -hex -position end  sim:/tb_TOP/cpu_stall
+add wave -hex -position end  sim:/tb_TOP/cpu_bcc
+add wave -hex -position end  sim:/tb_TOP/cpu_cmp
+add wave -hex -position end  sim:/tb_TOP/count_bcc
+add wave -hex -position end  sim:/tb_TOP/count_bcc_stall
+add wave -hex -position end  sim:/tb_TOP/count_bcc_taken
+add wave -hex -position end  sim:/tb_TOP/count_bcc_not_taken
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_CSR/csr_mcycle
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_CSR/csr_mcycleh
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_CSR/csr_minstret
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_CSR/csr_minstreth
 
 add wave -divider RESET
 add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/RES_N

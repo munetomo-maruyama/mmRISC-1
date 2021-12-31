@@ -42,8 +42,8 @@ set_global_assignment -name DEVICE 10M50DAF484C7G
 set_global_assignment -name TOP_LEVEL_ENTITY CHIP_TOP
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 19.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "21:34:16  DECEMBER 31, 2019"
-set_global_assignment -name LAST_QUARTUS_VERSION "20.1.1 Lite Edition"
-set_global_assignment -name SEARCH_PATH /home/taka/RISCV/mmRISC-1/verilog/common
+set_global_assignment -name LAST_QUARTUS_VERSION "21.1.0 Lite Edition"
+set_global_assignment -name SEARCH_PATH "/home/taka/RISCV/mmRISC-1/verilog/common"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -51,7 +51,7 @@ set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
 set_global_assignment -name DEVICE_FILTER_PIN_COUNT 484
 set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 7
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
-set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
+set_global_assignment -name EDA_SIMULATION_TOOL "Questa Intel FPGA (Verilog)"
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_timing
@@ -77,7 +77,7 @@ set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_RO
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name POWER_UP_LEVEL LOW -to por_n
 set_instance_assignment -name POWER_UP_LEVEL LOW -to por_count
-set_global_assignment -name OPTIMIZATION_MODE BALANCED
+set_global_assignment -name OPTIMIZATION_MODE "HIGH PERFORMANCE EFFORT"
 set_location_assignment PIN_W9 -to RXD
 set_location_assignment PIN_W10 -to TXD
 set_location_assignment PIN_C14 -to GPIO0[0]
@@ -283,6 +283,8 @@ set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to TDI
 set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to TCK
 set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to TXD
 set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to RXD
+
+set_global_assignment -name VERILOG_MACRO "FPGA=<None>"
 set_global_assignment -name VERILOG_FILE ../verilog/chip/chip_top.v
 set_global_assignment -name VERILOG_FILE ../verilog/mmRISC/mmRISC.v
 set_global_assignment -name VERILOG_FILE ../verilog/mmRISC/bus_m_ahb.v
@@ -311,10 +313,20 @@ set_global_assignment -name VERILOG_FILE ../verilog/uart/sasc/trunk/rtl/verilog/
 set_global_assignment -name VERILOG_FILE ../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v
 set_global_assignment -name VERILOG_FILE ../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v
 set_global_assignment -name VERILOG_FILE ../verilog/ram/ram.v
+set_global_assignment -name VERILOG_FILE ../verilog/ram/ram_fpga.v
 set_global_assignment -name VERILOG_FILE ../verilog/port/port.v
 set_global_assignment -name QIP_FILE PLL.qip
-set_global_assignment -name QIP_FILE DPRAM.qip
+set_global_assignment -name QIP_FILE RAM128KB_DP.qip
 set_global_assignment -name SOURCE_FILE db/mmRISC.cmp.rdb
 set_global_assignment -name SDC_FILE mmRISC.sdc
-
+set_global_assignment -name CDF_FILE Chain1.cdf
+set_global_assignment -name ENABLE_OCT_DONE ON
+set_global_assignment -name EXTERNAL_FLASH_FALLBACK_ADDRESS 00000000
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name INTERNAL_FLASH_UPDATE_MODE "SINGLE COMP IMAGE WITH ERAM"
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

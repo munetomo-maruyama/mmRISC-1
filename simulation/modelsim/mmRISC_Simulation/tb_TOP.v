@@ -33,7 +33,6 @@
 //------------------------
 module tb_TOP;
 
-integer i;
 reg [63:0] DR_OUT; // global
 
 //-------------------------------
@@ -257,8 +256,17 @@ wire rxd;
 wire txd;
 //
 assign srst_n = tb_srst_n;
-assign rxd = 1'b1;
-//assign rxd = txd;
+pullup(txd);
+//
+generate
+    genvar i;
+    for (i = 0; i < 32; i = i + 1)
+    begin
+        pullup(gpio0[i]);
+        pullup(gpio1[i]);
+        pullup(gpio2[i]);
+    end
+endgenerate
 //
 CHIP_TOP U_CHIP_TOP
 (
@@ -282,8 +290,8 @@ CHIP_TOP U_CHIP_TOP
     .GPIO1 (gpio1),
     .GPIO2 (gpio2),
     //
-    .RXD (rxd),
-    .TXD (txd)
+    .RXD (txd),
+    .TXD (rxd)
 );
 
 //--------------------------
@@ -381,6 +389,7 @@ endtask;
 // Task : JTAG_Shift_IR
 //----------------------
 task Task_JTAG_Shift_IR(input [4:0] IR, integer verbose);
+    integer i;
     reg [4:0] IR_OUT;
     //---- Run Test Idle
         tb_tms = 1'b1;
@@ -726,6 +735,40 @@ begin
     #(`TB_TCYC_CLK  * 10);
     $display("***** DETECT FINAL STIMULUS *****");
     stop_by_stimulus = 1'b1;
+end
+
+//--------------------------------------
+// Counter for Bcc Taken and Not Taken
+//--------------------------------------
+reg  [31:0] count_bcc;
+reg  [31:0] count_bcc_stall;
+reg  [31:0] count_bcc_taken;
+reg  [31:0] count_bcc_not_taken;
+//
+wire cpu_res, cpu_clk;
+wire cpu_stall, cpu_bcc, cpu_cmp;
+assign cpu_res   = U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_PIPELINE.RES_CPU;
+assign cpu_clk   = U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_PIPELINE.CLK;
+assign cpu_stall = U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_PIPELINE.stall;
+assign cpu_bcc   = U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_PIPELINE.fetch_start_by_cond;
+assign cpu_cmp   = U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_PIPELINE.ID_CMP_RSLT;
+//
+always @(posedge cpu_clk, posedge cpu_res)
+begin
+    if (cpu_res)
+    begin
+        count_bcc           <= 32'h0;
+        count_bcc_stall     <= 32'h0;
+        count_bcc_taken     <= 32'h0;
+        count_bcc_not_taken <= 32'h0;
+    end
+    else
+    begin
+        if (cpu_bcc & ~cpu_stall) count_bcc <= count_bcc + 32'h1;
+        if (cpu_bcc &  cpu_stall) count_bcc_stall <= count_bcc_stall + 32'h1;
+        if (cpu_bcc & ~cpu_stall &  cpu_cmp) count_bcc_taken <= count_bcc_taken + 32'h1;
+        if (cpu_bcc & ~cpu_stall & ~cpu_cmp) count_bcc_not_taken <= count_bcc_not_taken + 32'h1;
+    end
 end
 
 //------------------------

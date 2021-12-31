@@ -1,10 +1,262 @@
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2021.2 linux_x86_64 Apr 14 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
 do sim_TOP.do
 # ../../../verilog
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 22:18:45 on Nov 12,2021
-# vlog -reportprogress 300 -work work -sv "+incdir+../../../verilog/common" -timescale=1ns/100ps "+define+SIMULATION" ../../../verilog/chip/chip_top.v ../../../verilog/ram/ram.v ../../../verilog/port/port.v ../../../verilog/uart/uart.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v ../../../verilog/int_gen/int_gen.v ../../../verilog/mmRISC/mmRISC.v ../../../verilog/mmRISC/bus_m_ahb.v ../../../verilog/mmRISC/csr_mtime.v ../../../verilog/cpu/cpu_top.v ../../../verilog/cpu/cpu_fetch.v ../../../verilog/cpu/cpu_datapath.v ../../../verilog/cpu/cpu_pipeline.v ../../../verilog/cpu/cpu_fpu32.v ../../../verilog/cpu/cpu_csr.v ../../../verilog/cpu/cpu_csr_int.v ../../../verilog/cpu/cpu_csr_dbg.v ../../../verilog/cpu/cpu_debug.v ../../../verilog/debug/debug_top.v ../../../verilog/debug/debug_dtm_jtag.v ../../../verilog/debug/debug_cdc.v ../../../verilog/debug/debug_dm.v ../../../verilog/ahb_matrix/ahb_top.v ../../../verilog/ahb_matrix/ahb_master_port.v ../../../verilog/ahb_matrix/ahb_slave_port.v ../../../verilog/ahb_matrix/ahb_interconnect.v ../../../verilog/ahb_matrix/ahb_arb.v ./tb_TOP.v 
+# ../../../fpga
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:53:58 on Dec 31,2021
+# vlog -reportprogress 300 -work work -sv "+incdir+../../../verilog/common" -timescale=1ns/100ps "+define+SIMULATION" "+define+FPGA" ../../../verilog/chip/chip_top.v ../../../verilog/ram/ram.v ../../../verilog/ram/ram_fpga.v ../../../fpga/RAM128KB.v ../../../verilog/port/port.v ../../../verilog/uart/uart.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v ../../../verilog/int_gen/int_gen.v ../../../verilog/mmRISC/mmRISC.v ../../../verilog/mmRISC/bus_m_ahb.v ../../../verilog/mmRISC/csr_mtime.v ../../../verilog/cpu/cpu_top.v ../../../verilog/cpu/cpu_fetch.v ../../../verilog/cpu/cpu_datapath.v ../../../verilog/cpu/cpu_pipeline.v ../../../verilog/cpu/cpu_fpu32.v ../../../verilog/cpu/cpu_csr.v ../../../verilog/cpu/cpu_csr_int.v ../../../verilog/cpu/cpu_csr_dbg.v ../../../verilog/cpu/cpu_debug.v ../../../verilog/debug/debug_top.v ../../../verilog/debug/debug_dtm_jtag.v ../../../verilog/debug/debug_cdc.v ../../../verilog/debug/debug_dm.v ../../../verilog/ahb_matrix/ahb_top.v ../../../verilog/ahb_matrix/ahb_master_port.v ../../../verilog/ahb_matrix/ahb_slave_port.v ../../../verilog/ahb_matrix/ahb_interconnect.v ../../../verilog/ahb_matrix/ahb_arb.v ./tb_TOP.v 
 # -- Compiling module CHIP_TOP
 # -- Compiling module RAM
+# -- Compiling module RAM_FPGA
+# ** Error (suppressible): ../../../verilog/ram/ram_fpga.v(212): (vlog-2388) 'ready_count' already declared in this scope (RAM_FPGA) at ../../../verilog/ram/ram_fpga.v(72).
+# ** Error: ../../../verilog/ram/ram_fpga.v(212): (vlog-13311) 'ready_count' already declared in this scope ('RAM_FPGA') with a type.
+# ** Error: ../../../verilog/ram/ram_fpga.v(217): (vlog-2730) Undefined variable: 'wait_cycle'.
+# ** Error: ../../../verilog/ram/ram_fpga.v(232): (vlog-2730) Undefined variable: 'wait_cycle'.
+# ** Error: ../../../verilog/ram/ram_fpga.v(238): (vlog-2730) Undefined variable: 'wait_cycle'.
+# ** Error: (vlog-7) Failed to open design unit file "../../../fpga/RAM128KB.v" in read mode.
+# No such file or directory. (errno = ENOENT)
+# -- Compiling module PORT
+# -- Compiling module UART
+# -- Compiling module sasc_top
+# -- Compiling module sasc_fifo4
+# -- Compiling module sasc_brg
+# -- Compiling module INT_GEN
+# -- Compiling module mmRISC
+# -- Compiling module BUS_M_AHB
+# -- Compiling module CSR_MTIME
+# -- Compiling module CPU_TOP
+# -- Compiling module CPU_FETCH
+# -- Compiling module CPU_DATAPATH
+# -- Compiling module CPU_PIPELINE
+# -- Compiling module CPU_FPU32
+# -- Compiling module CHECK_FTYPE
+# -- Compiling module FADD_SPECIAL_NUMBER
+# -- Compiling module FMUL_SPECIAL_NUMBER
+# -- Compiling module FMADD_SPECIAL_NUMBER
+# -- Compiling module FDIV_SPECIAL_NUMBER
+# -- Compiling module FSQRT_SPECIAL_NUMBER
+# -- Compiling module FIND_1ST_ONE_IN_FRAC27
+# -- Compiling module FIND_1ST_ONE_IN_FRAC66
+# -- Compiling module FIND_1ST_ONE_IN_FRAC70
+# -- Compiling module SHIFT_RIGHT_FRAC27
+# -- Compiling module SHIFT_RIGHT_FRAC66
+# -- Compiling module SHIFT_RIGHT_FRAC70
+# -- Compiling module ROUND_JUDGMENT
+# -- Compiling module FRAC27_ROUND_FRAC66
+# -- Compiling module FRAC70_ROUND_FRAC132
+# -- Compiling module INNER79_FROM_FLOAT32
+# -- Compiling module FLOAT32_FROM_INNER79
+# -- Compiling module FADD_CORE
+# -- Compiling module FMUL_CORE
+# -- Compiling module FCVT_F2I
+# -- Compiling module FCVT_I2F
+# -- Compiling module CPU_CSR
+# -- Compiling module CPU_CSR_INT
+# -- Compiling module CPU_CSR_DBG
+# -- Compiling module CPU_DEBUG
+# -- Compiling module DEBUG_TOP
+# -- Compiling module DEBUG_DTM_JTAG
+# -- Compiling module DEBUG_CDC
+# -- Compiling module DEBUG_DM
+# -- Compiling module AHB_MATRIX
+# -- Compiling module AHB_MASTER_PORT
+# -- Compiling module AHB_SLAVE_PORT
+# -- Compiling module AHB_INTERCONNECT
+# -- Compiling module AHB_ARB
+# -- Compiling module AHB_ARB_RB
+# -- Compiling module tb_TOP
+# End time: 10:53:58 on Dec 31,2021, Elapsed time: 0:00:00
+# Errors: 6, Warnings: 0
+# ** Error: /home/taka/intelFPGA_lite/21.1/questa_fse/linux_x86_64/vlog failed.
+# Error in macro ./sim_TOP.do line 53
+# /home/taka/intelFPGA_lite/21.1/questa_fse/linux_x86_64/vlog failed.
+#     while executing
+# "vlog \
+#     -work work \
+#     -sv \
+#     +incdir+$DIR_RTL/common \
+#     -timescale=1ns/100ps \
+#     +define+SIMULATION \
+#     +define+FPGA \
+#     $DIR_RTL/ch..."
+do sim_TOP.do
+# ../../../verilog
+# ../../../fpga
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:55:05 on Dec 31,2021
+# vlog -reportprogress 300 -work work -sv "+incdir+../../../verilog/common" -timescale=1ns/100ps "+define+SIMULATION" "+define+FPGA" ../../../verilog/chip/chip_top.v ../../../verilog/ram/ram.v ../../../verilog/ram/ram_fpga.v ../../../fpga/RAM128KB.v ../../../verilog/port/port.v ../../../verilog/uart/uart.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v ../../../verilog/int_gen/int_gen.v ../../../verilog/mmRISC/mmRISC.v ../../../verilog/mmRISC/bus_m_ahb.v ../../../verilog/mmRISC/csr_mtime.v ../../../verilog/cpu/cpu_top.v ../../../verilog/cpu/cpu_fetch.v ../../../verilog/cpu/cpu_datapath.v ../../../verilog/cpu/cpu_pipeline.v ../../../verilog/cpu/cpu_fpu32.v ../../../verilog/cpu/cpu_csr.v ../../../verilog/cpu/cpu_csr_int.v ../../../verilog/cpu/cpu_csr_dbg.v ../../../verilog/cpu/cpu_debug.v ../../../verilog/debug/debug_top.v ../../../verilog/debug/debug_dtm_jtag.v ../../../verilog/debug/debug_cdc.v ../../../verilog/debug/debug_dm.v ../../../verilog/ahb_matrix/ahb_top.v ../../../verilog/ahb_matrix/ahb_master_port.v ../../../verilog/ahb_matrix/ahb_slave_port.v ../../../verilog/ahb_matrix/ahb_interconnect.v ../../../verilog/ahb_matrix/ahb_arb.v ./tb_TOP.v 
+# -- Compiling module CHIP_TOP
+# -- Compiling module RAM
+# -- Compiling module RAM_FPGA
+# ** Error (suppressible): ../../../verilog/ram/ram_fpga.v(212): (vlog-2388) 'ready_count' already declared in this scope (RAM_FPGA) at ../../../verilog/ram/ram_fpga.v(72).
+# ** Error: ../../../verilog/ram/ram_fpga.v(212): (vlog-13311) 'ready_count' already declared in this scope ('RAM_FPGA') with a type.
+# ** Error: ../../../verilog/ram/ram_fpga.v(217): (vlog-2730) Undefined variable: 'wait_cycle'.
+# ** Error: ../../../verilog/ram/ram_fpga.v(232): (vlog-2730) Undefined variable: 'wait_cycle'.
+# ** Error: ../../../verilog/ram/ram_fpga.v(238): (vlog-2730) Undefined variable: 'wait_cycle'.
+# ** Error: (vlog-7) Failed to open design unit file "../../../fpga/RAM128KB.v" in read mode.
+# No such file or directory. (errno = ENOENT)
+# -- Compiling module PORT
+# -- Compiling module UART
+# -- Compiling module sasc_top
+# -- Compiling module sasc_fifo4
+# -- Compiling module sasc_brg
+# -- Compiling module INT_GEN
+# -- Compiling module mmRISC
+# -- Compiling module BUS_M_AHB
+# -- Compiling module CSR_MTIME
+# -- Compiling module CPU_TOP
+# -- Compiling module CPU_FETCH
+# -- Compiling module CPU_DATAPATH
+# -- Compiling module CPU_PIPELINE
+# -- Compiling module CPU_FPU32
+# -- Compiling module CHECK_FTYPE
+# -- Compiling module FADD_SPECIAL_NUMBER
+# -- Compiling module FMUL_SPECIAL_NUMBER
+# -- Compiling module FMADD_SPECIAL_NUMBER
+# -- Compiling module FDIV_SPECIAL_NUMBER
+# -- Compiling module FSQRT_SPECIAL_NUMBER
+# -- Compiling module FIND_1ST_ONE_IN_FRAC27
+# -- Compiling module FIND_1ST_ONE_IN_FRAC66
+# -- Compiling module FIND_1ST_ONE_IN_FRAC70
+# -- Compiling module SHIFT_RIGHT_FRAC27
+# -- Compiling module SHIFT_RIGHT_FRAC66
+# -- Compiling module SHIFT_RIGHT_FRAC70
+# -- Compiling module ROUND_JUDGMENT
+# -- Compiling module FRAC27_ROUND_FRAC66
+# -- Compiling module FRAC70_ROUND_FRAC132
+# -- Compiling module INNER79_FROM_FLOAT32
+# -- Compiling module FLOAT32_FROM_INNER79
+# -- Compiling module FADD_CORE
+# -- Compiling module FMUL_CORE
+# -- Compiling module FCVT_F2I
+# -- Compiling module FCVT_I2F
+# -- Compiling module CPU_CSR
+# -- Compiling module CPU_CSR_INT
+# -- Compiling module CPU_CSR_DBG
+# -- Compiling module CPU_DEBUG
+# -- Compiling module DEBUG_TOP
+# -- Compiling module DEBUG_DTM_JTAG
+# -- Compiling module DEBUG_CDC
+# -- Compiling module DEBUG_DM
+# -- Compiling module AHB_MATRIX
+# -- Compiling module AHB_MASTER_PORT
+# -- Compiling module AHB_SLAVE_PORT
+# -- Compiling module AHB_INTERCONNECT
+# -- Compiling module AHB_ARB
+# -- Compiling module AHB_ARB_RB
+# -- Compiling module tb_TOP
+# End time: 10:55:05 on Dec 31,2021, Elapsed time: 0:00:00
+# Errors: 6, Warnings: 0
+# ** Error: /home/taka/intelFPGA_lite/21.1/questa_fse/linux_x86_64/vlog failed.
+# Error in macro ./sim_TOP.do line 53
+# /home/taka/intelFPGA_lite/21.1/questa_fse/linux_x86_64/vlog failed.
+#     while executing
+# "vlog \
+#     -work work \
+#     -sv \
+#     +incdir+$DIR_RTL/common \
+#     -timescale=1ns/100ps \
+#     +define+SIMULATION \
+#     +define+FPGA \
+#     $DIR_RTL/ch..."
+do sim_TOP.do
+# ../../../verilog
+# ../../../fpga
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:55:29 on Dec 31,2021
+# vlog -reportprogress 300 -work work -sv "+incdir+../../../verilog/common" -timescale=1ns/100ps "+define+SIMULATION" "+define+FPGA" ../../../verilog/chip/chip_top.v ../../../verilog/ram/ram.v ../../../verilog/ram/ram_fpga.v ../../../fpga/RAM128KB.v ../../../verilog/port/port.v ../../../verilog/uart/uart.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v ../../../verilog/int_gen/int_gen.v ../../../verilog/mmRISC/mmRISC.v ../../../verilog/mmRISC/bus_m_ahb.v ../../../verilog/mmRISC/csr_mtime.v ../../../verilog/cpu/cpu_top.v ../../../verilog/cpu/cpu_fetch.v ../../../verilog/cpu/cpu_datapath.v ../../../verilog/cpu/cpu_pipeline.v ../../../verilog/cpu/cpu_fpu32.v ../../../verilog/cpu/cpu_csr.v ../../../verilog/cpu/cpu_csr_int.v ../../../verilog/cpu/cpu_csr_dbg.v ../../../verilog/cpu/cpu_debug.v ../../../verilog/debug/debug_top.v ../../../verilog/debug/debug_dtm_jtag.v ../../../verilog/debug/debug_cdc.v ../../../verilog/debug/debug_dm.v ../../../verilog/ahb_matrix/ahb_top.v ../../../verilog/ahb_matrix/ahb_master_port.v ../../../verilog/ahb_matrix/ahb_slave_port.v ../../../verilog/ahb_matrix/ahb_interconnect.v ../../../verilog/ahb_matrix/ahb_arb.v ./tb_TOP.v 
+# -- Compiling module CHIP_TOP
+# -- Compiling module RAM
+# -- Compiling module RAM_FPGA
+# ** Error: (vlog-7) Failed to open design unit file "../../../fpga/RAM128KB.v" in read mode.
+# No such file or directory. (errno = ENOENT)
+# -- Compiling module PORT
+# -- Compiling module UART
+# -- Compiling module sasc_top
+# -- Compiling module sasc_fifo4
+# -- Compiling module sasc_brg
+# -- Compiling module INT_GEN
+# -- Compiling module mmRISC
+# -- Compiling module BUS_M_AHB
+# -- Compiling module CSR_MTIME
+# -- Compiling module CPU_TOP
+# -- Compiling module CPU_FETCH
+# -- Compiling module CPU_DATAPATH
+# -- Compiling module CPU_PIPELINE
+# -- Compiling module CPU_FPU32
+# -- Compiling module CHECK_FTYPE
+# -- Compiling module FADD_SPECIAL_NUMBER
+# -- Compiling module FMUL_SPECIAL_NUMBER
+# -- Compiling module FMADD_SPECIAL_NUMBER
+# -- Compiling module FDIV_SPECIAL_NUMBER
+# -- Compiling module FSQRT_SPECIAL_NUMBER
+# -- Compiling module FIND_1ST_ONE_IN_FRAC27
+# -- Compiling module FIND_1ST_ONE_IN_FRAC66
+# -- Compiling module FIND_1ST_ONE_IN_FRAC70
+# -- Compiling module SHIFT_RIGHT_FRAC27
+# -- Compiling module SHIFT_RIGHT_FRAC66
+# -- Compiling module SHIFT_RIGHT_FRAC70
+# -- Compiling module ROUND_JUDGMENT
+# -- Compiling module FRAC27_ROUND_FRAC66
+# -- Compiling module FRAC70_ROUND_FRAC132
+# -- Compiling module INNER79_FROM_FLOAT32
+# -- Compiling module FLOAT32_FROM_INNER79
+# -- Compiling module FADD_CORE
+# -- Compiling module FMUL_CORE
+# -- Compiling module FCVT_F2I
+# -- Compiling module FCVT_I2F
+# -- Compiling module CPU_CSR
+# -- Compiling module CPU_CSR_INT
+# -- Compiling module CPU_CSR_DBG
+# -- Compiling module CPU_DEBUG
+# -- Compiling module DEBUG_TOP
+# -- Compiling module DEBUG_DTM_JTAG
+# -- Compiling module DEBUG_CDC
+# -- Compiling module DEBUG_DM
+# -- Compiling module AHB_MATRIX
+# -- Compiling module AHB_MASTER_PORT
+# -- Compiling module AHB_SLAVE_PORT
+# -- Compiling module AHB_INTERCONNECT
+# -- Compiling module AHB_ARB
+# -- Compiling module AHB_ARB_RB
+# -- Compiling module tb_TOP
+# End time: 10:55:29 on Dec 31,2021, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /home/taka/intelFPGA_lite/21.1/questa_fse/linux_x86_64/vlog failed.
+# Error in macro ./sim_TOP.do line 53
+# /home/taka/intelFPGA_lite/21.1/questa_fse/linux_x86_64/vlog failed.
+#     while executing
+# "vlog \
+#     -work work \
+#     -sv \
+#     +incdir+$DIR_RTL/common \
+#     -timescale=1ns/100ps \
+#     +define+SIMULATION \
+#     +define+FPGA \
+#     $DIR_RTL/ch..."
+do sim_TOP.do
+# ../../../verilog
+# ../../../fpga
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:56:17 on Dec 31,2021
+# vlog -reportprogress 300 -work work -sv "+incdir+../../../verilog/common" -timescale=1ns/100ps "+define+SIMULATION" "+define+FPGA" ../../../verilog/chip/chip_top.v ../../../verilog/ram/ram.v ../../../verilog/ram/ram_fpga.v ../../../fpga/RAM128KB_DP.v ../../../verilog/port/port.v ../../../verilog/uart/uart.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v ../../../verilog/int_gen/int_gen.v ../../../verilog/mmRISC/mmRISC.v ../../../verilog/mmRISC/bus_m_ahb.v ../../../verilog/mmRISC/csr_mtime.v ../../../verilog/cpu/cpu_top.v ../../../verilog/cpu/cpu_fetch.v ../../../verilog/cpu/cpu_datapath.v ../../../verilog/cpu/cpu_pipeline.v ../../../verilog/cpu/cpu_fpu32.v ../../../verilog/cpu/cpu_csr.v ../../../verilog/cpu/cpu_csr_int.v ../../../verilog/cpu/cpu_csr_dbg.v ../../../verilog/cpu/cpu_debug.v ../../../verilog/debug/debug_top.v ../../../verilog/debug/debug_dtm_jtag.v ../../../verilog/debug/debug_cdc.v ../../../verilog/debug/debug_dm.v ../../../verilog/ahb_matrix/ahb_top.v ../../../verilog/ahb_matrix/ahb_master_port.v ../../../verilog/ahb_matrix/ahb_slave_port.v ../../../verilog/ahb_matrix/ahb_interconnect.v ../../../verilog/ahb_matrix/ahb_arb.v ./tb_TOP.v 
+# -- Compiling module CHIP_TOP
+# -- Compiling module RAM
+# -- Compiling module RAM_FPGA
+# -- Compiling module RAM128KB_DP
 # -- Compiling module PORT
 # -- Compiling module UART
 # -- Compiling module sasc_top
@@ -58,63 +310,546 @@ do sim_TOP.do
 # 
 # Top level modules:
 # 	tb_TOP
-# End time: 22:18:45 on Nov 12,2021, Elapsed time: 0:00:00
+# End time: 10:56:18 on Dec 31,2021, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# vsim -c work.tb_TOP 
-# Start time: 22:18:45 on Nov 12,2021
+# vsim -c -voptargs=""+acc"" -L altera_mf_ver work.tb_TOP 
+# Start time: 10:56:18 on Dec 31,2021
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vopt-143) Recognized 2 FSMs in module "CPU_FPU32(fast)".
+# ** Note: (vopt-143) Recognized 2 FSMs in module "DEBUG_DTM_JTAG(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "sasc_top(fast)".
 # Loading sv_std.std
-# Loading work.tb_TOP
-# Loading work.CHIP_TOP
-# Loading work.mmRISC
-# Loading work.DEBUG_TOP
-# Loading work.DEBUG_DTM_JTAG
-# Loading work.DEBUG_CDC
-# Loading work.DEBUG_DM
-# Loading work.BUS_M_AHB
-# Loading work.AHB_MATRIX
-# Loading work.AHB_MASTER_PORT
-# Loading work.AHB_INTERCONNECT
-# Loading work.AHB_SLAVE_PORT
-# Loading work.CSR_MTIME
-# Loading work.RAM
-# Loading work.PORT
-# Loading work.UART
-# Loading work.sasc_top
-# Loading work.sasc_fifo4
-# Loading work.sasc_brg
-# Loading work.INT_GEN
-# Loading work.CPU_TOP
-# Loading work.CPU_FETCH
-# Loading work.CPU_DATAPATH
-# Loading work.CPU_PIPELINE
-# Loading work.CPU_CSR
-# Loading work.CPU_CSR_INT
-# Loading work.CPU_CSR_DBG
-# Loading work.CPU_DEBUG
-# Loading work.CPU_FPU32
-# Loading work.FMUL_SPECIAL_NUMBER
-# Loading work.CHECK_FTYPE
-# Loading work.FADD_SPECIAL_NUMBER
-# Loading work.FMADD_SPECIAL_NUMBER
-# Loading work.FDIV_SPECIAL_NUMBER
-# Loading work.FSQRT_SPECIAL_NUMBER
-# Loading work.INNER79_FROM_FLOAT32
-# Loading work.FIND_1ST_ONE_IN_FRAC66
-# Loading work.FMUL_CORE
-# Loading work.FRAC70_ROUND_FRAC132
-# Loading work.ROUND_JUDGMENT
-# Loading work.FIND_1ST_ONE_IN_FRAC70
-# Loading work.SHIFT_RIGHT_FRAC70
-# Loading work.FADD_CORE
-# Loading work.SHIFT_RIGHT_FRAC66
-# Loading work.FLOAT32_FROM_INNER79
-# Loading work.FRAC27_ROUND_FRAC66
-# Loading work.FIND_1ST_ONE_IN_FRAC27
-# Loading work.SHIFT_RIGHT_FRAC27
-# Loading work.FCVT_F2I
-# Loading work.FCVT_I2F
-# Loading work.AHB_ARB
-# Loading work.AHB_ARB_RB
+# Loading work.tb_TOP(fast)
+# Loading work.CHIP_TOP(fast)
+# Loading work.mmRISC(fast)
+# Loading work.DEBUG_TOP(fast)
+# Loading work.DEBUG_DTM_JTAG(fast)
+# Loading work.DEBUG_CDC(fast)
+# Loading work.DEBUG_CDC(fast__1)
+# Loading work.DEBUG_DM(fast)
+# Loading work.CPU_TOP(fast)
+# Loading work.CPU_FETCH(fast)
+# Loading work.CPU_DATAPATH(fast)
+# Loading work.CPU_PIPELINE(fast)
+# Loading work.CPU_CSR(fast)
+# Loading work.CPU_CSR_INT(fast)
+# Loading work.CPU_CSR_DBG(fast)
+# Loading work.CPU_DEBUG(fast)
+# Loading work.CPU_FPU32(fast)
+# Loading work.FMUL_SPECIAL_NUMBER(fast)
+# Loading work.CHECK_FTYPE(fast)
+# Loading work.FADD_SPECIAL_NUMBER(fast)
+# Loading work.FMADD_SPECIAL_NUMBER(fast)
+# Loading work.FDIV_SPECIAL_NUMBER(fast)
+# Loading work.FSQRT_SPECIAL_NUMBER(fast)
+# Loading work.INNER79_FROM_FLOAT32(fast)
+# Loading work.FIND_1ST_ONE_IN_FRAC66(fast)
+# Loading work.FMUL_CORE(fast)
+# Loading work.FRAC70_ROUND_FRAC132(fast)
+# Loading work.ROUND_JUDGMENT(fast)
+# Loading work.FIND_1ST_ONE_IN_FRAC70(fast)
+# Loading work.SHIFT_RIGHT_FRAC70(fast)
+# Loading work.FADD_CORE(fast)
+# Loading work.SHIFT_RIGHT_FRAC66(fast)
+# Loading work.FLOAT32_FROM_INNER79(fast)
+# Loading work.FRAC27_ROUND_FRAC66(fast)
+# Loading work.FIND_1ST_ONE_IN_FRAC27(fast)
+# Loading work.SHIFT_RIGHT_FRAC27(fast)
+# Loading work.FCVT_F2I(fast)
+# Loading work.FCVT_I2F(fast)
+# Loading work.BUS_M_AHB(fast)
+# Loading work.AHB_MATRIX(fast)
+# Loading work.AHB_MASTER_PORT(fast)
+# Loading work.AHB_INTERCONNECT(fast)
+# Loading work.AHB_ARB(fast)
+# Loading work.AHB_ARB_RB(fast)
+# Loading work.AHB_SLAVE_PORT(fast)
+# Loading work.CSR_MTIME(fast)
+# Loading work.RAM(fast)
+# Loading work.RAM_FPGA(fast)
+# Loading work.RAM128KB_DP(fast)
+# Loading altera_mf_ver.altsyncram(fast)
+# Loading altera_mf_ver.altsyncram_body(fast)
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES(fast)
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.PORT(fast)
+# Loading work.UART(fast)
+# Loading work.sasc_top(fast)
+# Loading work.sasc_fifo4(fast)
+# Loading work.sasc_brg(fast)
+# Loading work.INT_GEN(fast)
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: tb_TOP.U_CHIP_TOP.U_RAM1.U_RAM128KB_DP.altsyncram_component.m_default.altsyncram_inst
+# ----JTAG_RESET_SYS
+# ----JTAG_INIT_STATE
+# Read IDCODE
+# ----JTAG IR SFT_IN(0x1) SFT_OUT(0x1)
+# ----JTAG DR SFT_IN(0x0000000000000000) SFT_OUT(0x0000000016d6d001)
+# RD DM_Default
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x7f 0xdead007f 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x7f 0xxxxxxxxx 0x0) SFT_OUT(0x7f 0xdead007f 0x0)
+#  ---> Verify OK:0xdead007f
+# WR&RD DM_CONTROL to set dmactive
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x00000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000001 0x0)
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x10 0x00000001 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000001 0x0)
+#  ---> Verify OK:0x00000001
+# Write DTMCS to Assert dmihardreset and Check dmactive cleared
+# ----JTAG IR SFT_IN(0x10) SFT_OUT(0x11)
+# ----JTAG DR SFT_IN(0x0000000000020000) SFT_OUT(0x0000000000005071)
+# ----JTAG DR SFT_IN(0x0000000000000000) SFT_OUT(0x0000000000005071)
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x10 0x00000000 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000000 0x0)
+#  ---> Verify OK:0x00000000
+# Reset Rest of the System by ndmreset and set dmactive
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x00000003 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000003 0x0)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x00000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000001 0x0)
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x10 0x00000001 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000001 0x0)
+#  ---> Verify OK:0x00000001
+# Select Hart 0
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x14 0x00000000 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x14 0xxxxxxxxx 0x0) SFT_OUT(0x14 0x00000000 0x0)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x15 0x00000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x15 0xxxxxxxxx 0x0) SFT_OUT(0x15 0x00000001 0x0)
+# HART_STEP_OPERATION
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x80000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x80000001 0x0)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x04 0x00000004 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x00000004 0x0)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x17 0x002307b0 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x17 0x002307b0 0x0)
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x16 0x00000002 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x16 0x00000002 0x0)
+#  ---> Verify OK:0x00000002
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x04 0x00000000 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x00000000 0x0)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x17 0x002307b0 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x17 0x002307b0 0x0)
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x16 0x00000002 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x16 0x00000002 0x0)
+#  ---> Verify OK:0x00000002
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
+# ***** DETECT FINAL STIMULUS *****
+do sim_TOP.do
+# ../../../verilog
+# ../../../fpga
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 11:00:21 on Dec 31,2021
+# vlog -reportprogress 300 -work work -sv "+incdir+../../../verilog/common" -timescale=1ns/100ps "+define+SIMULATION" ../../../verilog/chip/chip_top.v ../../../verilog/ram/ram.v ../../../verilog/ram/ram_fpga.v ../../../fpga/RAM128KB_DP.v ../../../verilog/port/port.v ../../../verilog/uart/uart.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v ../../../verilog/int_gen/int_gen.v ../../../verilog/mmRISC/mmRISC.v ../../../verilog/mmRISC/bus_m_ahb.v ../../../verilog/mmRISC/csr_mtime.v ../../../verilog/cpu/cpu_top.v ../../../verilog/cpu/cpu_fetch.v ../../../verilog/cpu/cpu_datapath.v ../../../verilog/cpu/cpu_pipeline.v ../../../verilog/cpu/cpu_fpu32.v ../../../verilog/cpu/cpu_csr.v ../../../verilog/cpu/cpu_csr_int.v ../../../verilog/cpu/cpu_csr_dbg.v ../../../verilog/cpu/cpu_debug.v ../../../verilog/debug/debug_top.v ../../../verilog/debug/debug_dtm_jtag.v ../../../verilog/debug/debug_cdc.v ../../../verilog/debug/debug_dm.v ../../../verilog/ahb_matrix/ahb_top.v ../../../verilog/ahb_matrix/ahb_master_port.v ../../../verilog/ahb_matrix/ahb_slave_port.v ../../../verilog/ahb_matrix/ahb_interconnect.v ../../../verilog/ahb_matrix/ahb_arb.v ./tb_TOP.v 
+# -- Compiling module CHIP_TOP
+# -- Compiling module RAM
+# -- Compiling module RAM_FPGA
+# -- Compiling module RAM128KB_DP
+# -- Compiling module PORT
+# -- Compiling module UART
+# -- Compiling module sasc_top
+# -- Compiling module sasc_fifo4
+# -- Compiling module sasc_brg
+# -- Compiling module INT_GEN
+# -- Compiling module mmRISC
+# -- Compiling module BUS_M_AHB
+# -- Compiling module CSR_MTIME
+# -- Compiling module CPU_TOP
+# -- Compiling module CPU_FETCH
+# -- Compiling module CPU_DATAPATH
+# -- Compiling module CPU_PIPELINE
+# -- Compiling module CPU_FPU32
+# -- Compiling module CHECK_FTYPE
+# -- Compiling module FADD_SPECIAL_NUMBER
+# -- Compiling module FMUL_SPECIAL_NUMBER
+# -- Compiling module FMADD_SPECIAL_NUMBER
+# -- Compiling module FDIV_SPECIAL_NUMBER
+# -- Compiling module FSQRT_SPECIAL_NUMBER
+# -- Compiling module FIND_1ST_ONE_IN_FRAC27
+# -- Compiling module FIND_1ST_ONE_IN_FRAC66
+# -- Compiling module FIND_1ST_ONE_IN_FRAC70
+# -- Compiling module SHIFT_RIGHT_FRAC27
+# -- Compiling module SHIFT_RIGHT_FRAC66
+# -- Compiling module SHIFT_RIGHT_FRAC70
+# -- Compiling module ROUND_JUDGMENT
+# -- Compiling module FRAC27_ROUND_FRAC66
+# -- Compiling module FRAC70_ROUND_FRAC132
+# -- Compiling module INNER79_FROM_FLOAT32
+# -- Compiling module FLOAT32_FROM_INNER79
+# -- Compiling module FADD_CORE
+# -- Compiling module FMUL_CORE
+# -- Compiling module FCVT_F2I
+# -- Compiling module FCVT_I2F
+# -- Compiling module CPU_CSR
+# -- Compiling module CPU_CSR_INT
+# -- Compiling module CPU_CSR_DBG
+# -- Compiling module CPU_DEBUG
+# -- Compiling module DEBUG_TOP
+# -- Compiling module DEBUG_DTM_JTAG
+# -- Compiling module DEBUG_CDC
+# -- Compiling module DEBUG_DM
+# -- Compiling module AHB_MATRIX
+# -- Compiling module AHB_MASTER_PORT
+# -- Compiling module AHB_SLAVE_PORT
+# -- Compiling module AHB_INTERCONNECT
+# -- Compiling module AHB_ARB
+# -- Compiling module AHB_ARB_RB
+# -- Compiling module tb_TOP
+# 
+# Top level modules:
+# 	RAM_FPGA
+# 	tb_TOP
+# End time: 11:00:21 on Dec 31,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 11:00:24 on Dec 31,2021, Elapsed time: 0:04:06
+# Errors: 0, Warnings: 0
+# vsim -c -voptargs=""+acc"" -L altera_mf_ver work.tb_TOP 
+# Start time: 11:00:24 on Dec 31,2021
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Note: (vopt-143) Recognized 2 FSMs in module "CPU_FPU32(fast)".
+# ** Note: (vopt-143) Recognized 2 FSMs in module "DEBUG_DTM_JTAG(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "sasc_top(fast)".
+# Loading sv_std.std
+# Loading work.tb_TOP(fast)
+# Loading work.CHIP_TOP(fast)
+# Loading work.mmRISC(fast)
+# Loading work.DEBUG_TOP(fast)
+# Loading work.DEBUG_DTM_JTAG(fast)
+# Loading work.DEBUG_CDC(fast)
+# Loading work.DEBUG_CDC(fast__1)
+# Loading work.DEBUG_DM(fast)
+# Loading work.CPU_TOP(fast)
+# Loading work.CPU_FETCH(fast)
+# Loading work.CPU_DATAPATH(fast)
+# Loading work.CPU_PIPELINE(fast)
+# Loading work.CPU_CSR(fast)
+# Loading work.CPU_CSR_INT(fast)
+# Loading work.CPU_CSR_DBG(fast)
+# Loading work.CPU_DEBUG(fast)
+# Loading work.CPU_FPU32(fast)
+# Loading work.FMUL_SPECIAL_NUMBER(fast)
+# Loading work.CHECK_FTYPE(fast)
+# Loading work.FADD_SPECIAL_NUMBER(fast)
+# Loading work.FMADD_SPECIAL_NUMBER(fast)
+# Loading work.FDIV_SPECIAL_NUMBER(fast)
+# Loading work.FSQRT_SPECIAL_NUMBER(fast)
+# Loading work.INNER79_FROM_FLOAT32(fast)
+# Loading work.FIND_1ST_ONE_IN_FRAC66(fast)
+# Loading work.FMUL_CORE(fast)
+# Loading work.FRAC70_ROUND_FRAC132(fast)
+# Loading work.ROUND_JUDGMENT(fast)
+# Loading work.FIND_1ST_ONE_IN_FRAC70(fast)
+# Loading work.SHIFT_RIGHT_FRAC70(fast)
+# Loading work.FADD_CORE(fast)
+# Loading work.SHIFT_RIGHT_FRAC66(fast)
+# Loading work.FLOAT32_FROM_INNER79(fast)
+# Loading work.FRAC27_ROUND_FRAC66(fast)
+# Loading work.FIND_1ST_ONE_IN_FRAC27(fast)
+# Loading work.SHIFT_RIGHT_FRAC27(fast)
+# Loading work.FCVT_F2I(fast)
+# Loading work.FCVT_I2F(fast)
+# Loading work.BUS_M_AHB(fast)
+# Loading work.AHB_MATRIX(fast)
+# Loading work.AHB_MASTER_PORT(fast)
+# Loading work.AHB_INTERCONNECT(fast)
+# Loading work.AHB_ARB(fast)
+# Loading work.AHB_ARB_RB(fast)
+# Loading work.AHB_SLAVE_PORT(fast)
+# Loading work.CSR_MTIME(fast)
+# Loading work.RAM(fast)
+# Loading work.PORT(fast)
+# Loading work.UART(fast)
+# Loading work.sasc_top(fast)
+# Loading work.sasc_fifo4(fast)
+# Loading work.sasc_brg(fast)
+# Loading work.INT_GEN(fast)
+# ----JTAG_RESET_SYS
+# ----JTAG_INIT_STATE
+# Read IDCODE
+# ----JTAG IR SFT_IN(0x1) SFT_OUT(0x1)
+# ----JTAG DR SFT_IN(0x0000000000000000) SFT_OUT(0x0000000016d6d001)
+# RD DM_Default
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x7f 0xdead007f 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x7f 0xxxxxxxxx 0x0) SFT_OUT(0x7f 0xdead007f 0x0)
+#  ---> Verify OK:0xdead007f
+# WR&RD DM_CONTROL to set dmactive
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x00000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000001 0x0)
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x10 0x00000001 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000001 0x0)
+#  ---> Verify OK:0x00000001
+# Write DTMCS to Assert dmihardreset and Check dmactive cleared
+# ----JTAG IR SFT_IN(0x10) SFT_OUT(0x11)
+# ----JTAG DR SFT_IN(0x0000000000020000) SFT_OUT(0x0000000000005071)
+# ----JTAG DR SFT_IN(0x0000000000000000) SFT_OUT(0x0000000000005071)
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x10 0x00000000 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000000 0x0)
+#  ---> Verify OK:0x00000000
+# Reset Rest of the System by ndmreset and set dmactive
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x00000003 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000003 0x0)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x00000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000001 0x0)
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x10 0x00000001 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000001 0x0)
+#  ---> Verify OK:0x00000001
+# Select Hart 0
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x14 0x00000000 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x14 0xxxxxxxxx 0x0) SFT_OUT(0x14 0x00000000 0x0)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x15 0x00000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x15 0xxxxxxxxx 0x0) SFT_OUT(0x15 0x00000001 0x0)
+# HART_STEP_OPERATION
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x80000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x80000001 0x0)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x04 0x00000004 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x00000004 0x0)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x17 0x002307b0 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x17 0x002307b0 0x0)
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x16 0x00000002 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x16 0x00000002 0x0)
+#  ---> Verify OK:0x00000002
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x04 0x00000000 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x00000000 0x0)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x17 0x002307b0 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x17 0x002307b0 0x0)
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x16 0x00000002 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x16 0x00000002 0x0)
+#  ---> Verify OK:0x00000002
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
+# ***** DETECT FINAL STIMULUS *****
+
+do sim_TOP.do
+# ../../../verilog
+# ../../../fpga
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 11:08:42 on Dec 31,2021
+# vlog -reportprogress 300 -work work -sv "+incdir+../../../verilog/common" -timescale=1ns/100ps "+define+SIMULATION" ../../../verilog/chip/chip_top.v ../../../verilog/ram/ram.v ../../../verilog/ram/ram_fpga.v ../../../fpga/RAM128KB_DP.v ../../../verilog/port/port.v ../../../verilog/uart/uart.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v ../../../verilog/int_gen/int_gen.v ../../../verilog/mmRISC/mmRISC.v ../../../verilog/mmRISC/bus_m_ahb.v ../../../verilog/mmRISC/csr_mtime.v ../../../verilog/cpu/cpu_top.v ../../../verilog/cpu/cpu_fetch.v ../../../verilog/cpu/cpu_datapath.v ../../../verilog/cpu/cpu_pipeline.v ../../../verilog/cpu/cpu_fpu32.v ../../../verilog/cpu/cpu_csr.v ../../../verilog/cpu/cpu_csr_int.v ../../../verilog/cpu/cpu_csr_dbg.v ../../../verilog/cpu/cpu_debug.v ../../../verilog/debug/debug_top.v ../../../verilog/debug/debug_dtm_jtag.v ../../../verilog/debug/debug_cdc.v ../../../verilog/debug/debug_dm.v ../../../verilog/ahb_matrix/ahb_top.v ../../../verilog/ahb_matrix/ahb_master_port.v ../../../verilog/ahb_matrix/ahb_slave_port.v ../../../verilog/ahb_matrix/ahb_interconnect.v ../../../verilog/ahb_matrix/ahb_arb.v ./tb_TOP.v 
+# -- Compiling module CHIP_TOP
+# -- Compiling module RAM
+# -- Compiling module RAM_FPGA
+# -- Compiling module RAM128KB_DP
+# -- Compiling module PORT
+# -- Compiling module UART
+# -- Compiling module sasc_top
+# -- Compiling module sasc_fifo4
+# -- Compiling module sasc_brg
+# -- Compiling module INT_GEN
+# -- Compiling module mmRISC
+# -- Compiling module BUS_M_AHB
+# -- Compiling module CSR_MTIME
+# -- Compiling module CPU_TOP
+# -- Compiling module CPU_FETCH
+# -- Compiling module CPU_DATAPATH
+# -- Compiling module CPU_PIPELINE
+# -- Compiling module CPU_FPU32
+# -- Compiling module CPU_CSR
+# -- Compiling module CPU_CSR_INT
+# -- Compiling module CPU_CSR_DBG
+# -- Compiling module CPU_DEBUG
+# -- Compiling module DEBUG_TOP
+# -- Compiling module DEBUG_DTM_JTAG
+# -- Compiling module DEBUG_CDC
+# -- Compiling module DEBUG_DM
+# -- Compiling module AHB_MATRIX
+# -- Compiling module AHB_MASTER_PORT
+# -- Compiling module AHB_SLAVE_PORT
+# -- Compiling module AHB_INTERCONNECT
+# -- Compiling module AHB_ARB
+# -- Compiling module AHB_ARB_RB
+# -- Compiling module tb_TOP
+# 
+# Top level modules:
+# 	RAM_FPGA
+# 	tb_TOP
+# End time: 11:08:42 on Dec 31,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 11:08:44 on Dec 31,2021, Elapsed time: 0:08:20
+# Errors: 0, Warnings: 0
+# vsim -c -voptargs=""+acc"" -L altera_mf_ver work.tb_TOP 
+# Start time: 11:08:44 on Dec 31,2021
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.tb_TOP(fast)
+# Loading work.CHIP_TOP(fast)
+# Loading work.mmRISC(fast)
+# Loading work.DEBUG_TOP(fast)
+# Loading work.DEBUG_DTM_JTAG(fast)
+# Loading work.DEBUG_CDC(fast)
+# Loading work.DEBUG_CDC(fast__1)
+# Loading work.DEBUG_DM(fast)
+# Loading work.CPU_TOP(fast)
+# Loading work.CPU_FETCH(fast)
+# Loading work.CPU_DATAPATH(fast)
+# Loading work.CPU_PIPELINE(fast)
+# Loading work.CPU_CSR(fast)
+# Loading work.CPU_CSR_INT(fast)
+# Loading work.CPU_CSR_DBG(fast)
+# Loading work.CPU_DEBUG(fast)
+# Loading work.CPU_FPU32(fast)
+# Loading work.BUS_M_AHB(fast)
+# Loading work.AHB_MATRIX(fast)
+# Loading work.AHB_MASTER_PORT(fast)
+# Loading work.AHB_INTERCONNECT(fast)
+# Loading work.AHB_ARB(fast)
+# Loading work.AHB_ARB_RB(fast)
+# Loading work.AHB_SLAVE_PORT(fast)
+# Loading work.CSR_MTIME(fast)
+# Loading work.RAM(fast)
+# Loading work.PORT(fast)
+# Loading work.UART(fast)
+# Loading work.sasc_top(fast)
+# Loading work.sasc_fifo4(fast)
+# Loading work.sasc_brg(fast)
+# Loading work.INT_GEN(fast)
+# ** UI-Msg: (vish-4014) No objects found matching '/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_FPU32/regFR'.
+# Error in macro ./sim_TOP.do line 1103
+# ** UI-Msg: (vish-4014) No objects found matching '/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_FPU32/regFR'.
+#     while executing
+# "add wave -divider FPU32"
+do sim_TOP.do
+# ../../../verilog
+# ../../../fpga
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 11:16:36 on Dec 31,2021
+# vlog -reportprogress 300 -work work -sv "+incdir+../../../verilog/common" -timescale=1ns/100ps "+define+SIMULATION" "+define+FPGA" ../../../verilog/chip/chip_top.v ../../../verilog/ram/ram.v ../../../verilog/ram/ram_fpga.v ../../../fpga/RAM128KB_DP.v ../../../verilog/port/port.v ../../../verilog/uart/uart.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v ../../../verilog/int_gen/int_gen.v ../../../verilog/mmRISC/mmRISC.v ../../../verilog/mmRISC/bus_m_ahb.v ../../../verilog/mmRISC/csr_mtime.v ../../../verilog/cpu/cpu_top.v ../../../verilog/cpu/cpu_fetch.v ../../../verilog/cpu/cpu_datapath.v ../../../verilog/cpu/cpu_pipeline.v ../../../verilog/cpu/cpu_fpu32.v ../../../verilog/cpu/cpu_csr.v ../../../verilog/cpu/cpu_csr_int.v ../../../verilog/cpu/cpu_csr_dbg.v ../../../verilog/cpu/cpu_debug.v ../../../verilog/debug/debug_top.v ../../../verilog/debug/debug_dtm_jtag.v ../../../verilog/debug/debug_cdc.v ../../../verilog/debug/debug_dm.v ../../../verilog/ahb_matrix/ahb_top.v ../../../verilog/ahb_matrix/ahb_master_port.v ../../../verilog/ahb_matrix/ahb_slave_port.v ../../../verilog/ahb_matrix/ahb_interconnect.v ../../../verilog/ahb_matrix/ahb_arb.v ./tb_TOP.v 
+# -- Compiling module CHIP_TOP
+# -- Compiling module RAM
+# -- Compiling module RAM_FPGA
+# -- Compiling module RAM128KB_DP
+# -- Compiling module PORT
+# -- Compiling module UART
+# -- Compiling module sasc_top
+# -- Compiling module sasc_fifo4
+# -- Compiling module sasc_brg
+# -- Compiling module INT_GEN
+# -- Compiling module mmRISC
+# -- Compiling module BUS_M_AHB
+# -- Compiling module CSR_MTIME
+# -- Compiling module CPU_TOP
+# -- Compiling module CPU_FETCH
+# -- Compiling module CPU_DATAPATH
+# -- Compiling module CPU_PIPELINE
+# -- Compiling module CPU_FPU32
+# -- Compiling module CHECK_FTYPE
+# -- Compiling module FADD_SPECIAL_NUMBER
+# -- Compiling module FMUL_SPECIAL_NUMBER
+# -- Compiling module FMADD_SPECIAL_NUMBER
+# -- Compiling module FDIV_SPECIAL_NUMBER
+# -- Compiling module FSQRT_SPECIAL_NUMBER
+# -- Compiling module FIND_1ST_ONE_IN_FRAC27
+# -- Compiling module FIND_1ST_ONE_IN_FRAC66
+# -- Compiling module FIND_1ST_ONE_IN_FRAC70
+# -- Compiling module SHIFT_RIGHT_FRAC27
+# -- Compiling module SHIFT_RIGHT_FRAC66
+# -- Compiling module SHIFT_RIGHT_FRAC70
+# -- Compiling module ROUND_JUDGMENT
+# -- Compiling module FRAC27_ROUND_FRAC66
+# -- Compiling module FRAC70_ROUND_FRAC132
+# -- Compiling module INNER79_FROM_FLOAT32
+# -- Compiling module FLOAT32_FROM_INNER79
+# -- Compiling module FADD_CORE
+# -- Compiling module FMUL_CORE
+# -- Compiling module FCVT_F2I
+# -- Compiling module FCVT_I2F
+# -- Compiling module CPU_CSR
+# -- Compiling module CPU_CSR_INT
+# -- Compiling module CPU_CSR_DBG
+# -- Compiling module CPU_DEBUG
+# -- Compiling module DEBUG_TOP
+# -- Compiling module DEBUG_DTM_JTAG
+# -- Compiling module DEBUG_CDC
+# -- Compiling module DEBUG_DM
+# -- Compiling module AHB_MATRIX
+# -- Compiling module AHB_MASTER_PORT
+# -- Compiling module AHB_SLAVE_PORT
+# -- Compiling module AHB_INTERCONNECT
+# -- Compiling module AHB_ARB
+# -- Compiling module AHB_ARB_RB
+# -- Compiling module tb_TOP
+# 
+# Top level modules:
+# 	tb_TOP
+# End time: 11:16:36 on Dec 31,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 11:16:38 on Dec 31,2021, Elapsed time: 0:07:54
+# Errors: 0, Warnings: 0
+# vsim -c -voptargs=""+acc"" -L altera_mf_ver work.tb_TOP 
+# Start time: 11:16:38 on Dec 31,2021
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Note: (vopt-143) Recognized 2 FSMs in module "CPU_FPU32(fast)".
+# ** Note: (vopt-143) Recognized 2 FSMs in module "DEBUG_DTM_JTAG(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "sasc_top(fast)".
+# Loading sv_std.std
+# Loading work.tb_TOP(fast)
+# Loading work.CHIP_TOP(fast)
+# Loading work.mmRISC(fast)
+# Loading work.DEBUG_TOP(fast)
+# Loading work.DEBUG_DTM_JTAG(fast)
+# Loading work.DEBUG_CDC(fast)
+# Loading work.DEBUG_CDC(fast__1)
+# Loading work.DEBUG_DM(fast)
+# Loading work.CPU_TOP(fast)
+# Loading work.CPU_FETCH(fast)
+# Loading work.CPU_DATAPATH(fast)
+# Loading work.CPU_PIPELINE(fast)
+# Loading work.CPU_CSR(fast)
+# Loading work.CPU_CSR_INT(fast)
+# Loading work.CPU_CSR_DBG(fast)
+# Loading work.CPU_DEBUG(fast)
+# Loading work.CPU_FPU32(fast)
+# Loading work.FMUL_SPECIAL_NUMBER(fast)
+# Loading work.CHECK_FTYPE(fast)
+# Loading work.FADD_SPECIAL_NUMBER(fast)
+# Loading work.FMADD_SPECIAL_NUMBER(fast)
+# Loading work.FDIV_SPECIAL_NUMBER(fast)
+# Loading work.FSQRT_SPECIAL_NUMBER(fast)
+# Loading work.INNER79_FROM_FLOAT32(fast)
+# Loading work.FIND_1ST_ONE_IN_FRAC66(fast)
+# Loading work.FMUL_CORE(fast)
+# Loading work.FRAC70_ROUND_FRAC132(fast)
+# Loading work.ROUND_JUDGMENT(fast)
+# Loading work.FIND_1ST_ONE_IN_FRAC70(fast)
+# Loading work.SHIFT_RIGHT_FRAC70(fast)
+# Loading work.FADD_CORE(fast)
+# Loading work.SHIFT_RIGHT_FRAC66(fast)
+# Loading work.FLOAT32_FROM_INNER79(fast)
+# Loading work.FRAC27_ROUND_FRAC66(fast)
+# Loading work.FIND_1ST_ONE_IN_FRAC27(fast)
+# Loading work.SHIFT_RIGHT_FRAC27(fast)
+# Loading work.FCVT_F2I(fast)
+# Loading work.FCVT_I2F(fast)
+# Loading work.BUS_M_AHB(fast)
+# Loading work.AHB_MATRIX(fast)
+# Loading work.AHB_MASTER_PORT(fast)
+# Loading work.AHB_INTERCONNECT(fast)
+# Loading work.AHB_ARB(fast)
+# Loading work.AHB_ARB_RB(fast)
+# Loading work.AHB_SLAVE_PORT(fast)
+# Loading work.CSR_MTIME(fast)
+# Loading work.RAM(fast)
+# Loading work.RAM_FPGA(fast)
+# Loading work.RAM128KB_DP(fast)
+# Loading altera_mf_ver.altsyncram(fast)
+# Loading altera_mf_ver.altsyncram_body(fast)
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES(fast)
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.PORT(fast)
+# Loading work.UART(fast)
+# Loading work.sasc_top(fast)
+# Loading work.sasc_fifo4(fast)
+# Loading work.sasc_brg(fast)
+# Loading work.INT_GEN(fast)
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: tb_TOP.U_CHIP_TOP.U_RAM1.U_RAM128KB_DP.altsyncram_component.m_default.altsyncram_inst
 # ----JTAG_RESET_SYS
 # ----JTAG_INIT_STATE
 # Read IDCODE
@@ -175,16 +910,19 @@ do sim_TOP.do
 #     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
 # ***** DETECT FINAL STIMULUS *****
 # ***** DETECT FINAL INSTRUCTION *****
-# ** Note: $stop    : ./tb_TOP.v(111)
-#    Time: 15129870 ns  Iteration: 2  Instance: /tb_TOP
-# Break in Module tb_TOP at ./tb_TOP.v line 111
+# ** Note: $stop    : ./tb_TOP.v(110)
+#    Time: 15831230 ns  Iteration: 2  Instance: /tb_TOP
+# Break in Module tb_TOP at ./tb_TOP.v line 110
 do sim_TOP.do
 # ../../../verilog
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 22:26:51 on Nov 12,2021
-# vlog -reportprogress 300 -work work -sv "+incdir+../../../verilog/common" -timescale=1ns/100ps "+define+SIMULATION" ../../../verilog/chip/chip_top.v ../../../verilog/ram/ram.v ../../../verilog/port/port.v ../../../verilog/uart/uart.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v ../../../verilog/int_gen/int_gen.v ../../../verilog/mmRISC/mmRISC.v ../../../verilog/mmRISC/bus_m_ahb.v ../../../verilog/mmRISC/csr_mtime.v ../../../verilog/cpu/cpu_top.v ../../../verilog/cpu/cpu_fetch.v ../../../verilog/cpu/cpu_datapath.v ../../../verilog/cpu/cpu_pipeline.v ../../../verilog/cpu/cpu_fpu32.v ../../../verilog/cpu/cpu_csr.v ../../../verilog/cpu/cpu_csr_int.v ../../../verilog/cpu/cpu_csr_dbg.v ../../../verilog/cpu/cpu_debug.v ../../../verilog/debug/debug_top.v ../../../verilog/debug/debug_dtm_jtag.v ../../../verilog/debug/debug_cdc.v ../../../verilog/debug/debug_dm.v ../../../verilog/ahb_matrix/ahb_top.v ../../../verilog/ahb_matrix/ahb_master_port.v ../../../verilog/ahb_matrix/ahb_slave_port.v ../../../verilog/ahb_matrix/ahb_interconnect.v ../../../verilog/ahb_matrix/ahb_arb.v ./tb_TOP.v 
+# ../../../fpga
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 12:13:50 on Dec 31,2021
+# vlog -reportprogress 300 -work work -sv "+incdir+../../../verilog/common" -timescale=1ns/100ps "+define+SIMULATION" "+define+RAM_WAIT" "+define+FPGA" ../../../verilog/chip/chip_top.v ../../../verilog/ram/ram.v ../../../verilog/ram/ram_fpga.v ../../../fpga/RAM128KB_DP.v ../../../verilog/port/port.v ../../../verilog/uart/uart.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v ../../../verilog/int_gen/int_gen.v ../../../verilog/mmRISC/mmRISC.v ../../../verilog/mmRISC/bus_m_ahb.v ../../../verilog/mmRISC/csr_mtime.v ../../../verilog/cpu/cpu_top.v ../../../verilog/cpu/cpu_fetch.v ../../../verilog/cpu/cpu_datapath.v ../../../verilog/cpu/cpu_pipeline.v ../../../verilog/cpu/cpu_fpu32.v ../../../verilog/cpu/cpu_csr.v ../../../verilog/cpu/cpu_csr_int.v ../../../verilog/cpu/cpu_csr_dbg.v ../../../verilog/cpu/cpu_debug.v ../../../verilog/debug/debug_top.v ../../../verilog/debug/debug_dtm_jtag.v ../../../verilog/debug/debug_cdc.v ../../../verilog/debug/debug_dm.v ../../../verilog/ahb_matrix/ahb_top.v ../../../verilog/ahb_matrix/ahb_master_port.v ../../../verilog/ahb_matrix/ahb_slave_port.v ../../../verilog/ahb_matrix/ahb_interconnect.v ../../../verilog/ahb_matrix/ahb_arb.v ./tb_TOP.v 
 # -- Compiling module CHIP_TOP
 # -- Compiling module RAM
+# -- Compiling module RAM_FPGA
+# -- Compiling module RAM128KB_DP
 # -- Compiling module PORT
 # -- Compiling module UART
 # -- Compiling module sasc_top
@@ -238,65 +976,78 @@ do sim_TOP.do
 # 
 # Top level modules:
 # 	tb_TOP
-# End time: 22:26:52 on Nov 12,2021, Elapsed time: 0:00:01
+# End time: 12:13:51 on Dec 31,2021, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# End time: 22:26:53 on Nov 12,2021, Elapsed time: 0:08:08
+# End time: 12:13:53 on Dec 31,2021, Elapsed time: 0:57:15
 # Errors: 0, Warnings: 0
-# vsim -c work.tb_TOP 
-# Start time: 22:26:53 on Nov 12,2021
+# vsim -c -voptargs=""+acc"" -L altera_mf_ver work.tb_TOP 
+# Start time: 12:13:53 on Dec 31,2021
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Note: (vopt-143) Recognized 2 FSMs in module "CPU_FPU32(fast)".
+# ** Note: (vopt-143) Recognized 2 FSMs in module "DEBUG_DTM_JTAG(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "sasc_top(fast)".
 # Loading sv_std.std
-# Loading work.tb_TOP
-# Loading work.CHIP_TOP
-# Loading work.mmRISC
-# Loading work.DEBUG_TOP
-# Loading work.DEBUG_DTM_JTAG
-# Loading work.DEBUG_CDC
-# Loading work.DEBUG_DM
-# Loading work.BUS_M_AHB
-# Loading work.AHB_MATRIX
-# Loading work.AHB_MASTER_PORT
-# Loading work.AHB_INTERCONNECT
-# Loading work.AHB_SLAVE_PORT
-# Loading work.CSR_MTIME
-# Loading work.RAM
-# Loading work.PORT
-# Loading work.UART
-# Loading work.sasc_top
-# Loading work.sasc_fifo4
-# Loading work.sasc_brg
-# Loading work.INT_GEN
-# Loading work.CPU_TOP
-# Loading work.CPU_FETCH
-# Loading work.CPU_DATAPATH
-# Loading work.CPU_PIPELINE
-# Loading work.CPU_CSR
-# Loading work.CPU_CSR_INT
-# Loading work.CPU_CSR_DBG
-# Loading work.CPU_DEBUG
-# Loading work.CPU_FPU32
-# Loading work.FMUL_SPECIAL_NUMBER
-# Loading work.CHECK_FTYPE
-# Loading work.FADD_SPECIAL_NUMBER
-# Loading work.FMADD_SPECIAL_NUMBER
-# Loading work.FDIV_SPECIAL_NUMBER
-# Loading work.FSQRT_SPECIAL_NUMBER
-# Loading work.INNER79_FROM_FLOAT32
-# Loading work.FIND_1ST_ONE_IN_FRAC66
-# Loading work.FMUL_CORE
-# Loading work.FRAC70_ROUND_FRAC132
-# Loading work.ROUND_JUDGMENT
-# Loading work.FIND_1ST_ONE_IN_FRAC70
-# Loading work.SHIFT_RIGHT_FRAC70
-# Loading work.FADD_CORE
-# Loading work.SHIFT_RIGHT_FRAC66
-# Loading work.FLOAT32_FROM_INNER79
-# Loading work.FRAC27_ROUND_FRAC66
-# Loading work.FIND_1ST_ONE_IN_FRAC27
-# Loading work.SHIFT_RIGHT_FRAC27
-# Loading work.FCVT_F2I
-# Loading work.FCVT_I2F
-# Loading work.AHB_ARB
-# Loading work.AHB_ARB_RB
+# Loading work.tb_TOP(fast)
+# Loading work.CHIP_TOP(fast)
+# Loading work.mmRISC(fast)
+# Loading work.DEBUG_TOP(fast)
+# Loading work.DEBUG_DTM_JTAG(fast)
+# Loading work.DEBUG_CDC(fast)
+# Loading work.DEBUG_CDC(fast__1)
+# Loading work.DEBUG_DM(fast)
+# Loading work.CPU_TOP(fast)
+# Loading work.CPU_FETCH(fast)
+# Loading work.CPU_DATAPATH(fast)
+# Loading work.CPU_PIPELINE(fast)
+# Loading work.CPU_CSR(fast)
+# Loading work.CPU_CSR_INT(fast)
+# Loading work.CPU_CSR_DBG(fast)
+# Loading work.CPU_DEBUG(fast)
+# Loading work.CPU_FPU32(fast)
+# Loading work.FMUL_SPECIAL_NUMBER(fast)
+# Loading work.CHECK_FTYPE(fast)
+# Loading work.FADD_SPECIAL_NUMBER(fast)
+# Loading work.FMADD_SPECIAL_NUMBER(fast)
+# Loading work.FDIV_SPECIAL_NUMBER(fast)
+# Loading work.FSQRT_SPECIAL_NUMBER(fast)
+# Loading work.INNER79_FROM_FLOAT32(fast)
+# Loading work.FIND_1ST_ONE_IN_FRAC66(fast)
+# Loading work.FMUL_CORE(fast)
+# Loading work.FRAC70_ROUND_FRAC132(fast)
+# Loading work.ROUND_JUDGMENT(fast)
+# Loading work.FIND_1ST_ONE_IN_FRAC70(fast)
+# Loading work.SHIFT_RIGHT_FRAC70(fast)
+# Loading work.FADD_CORE(fast)
+# Loading work.SHIFT_RIGHT_FRAC66(fast)
+# Loading work.FLOAT32_FROM_INNER79(fast)
+# Loading work.FRAC27_ROUND_FRAC66(fast)
+# Loading work.FIND_1ST_ONE_IN_FRAC27(fast)
+# Loading work.SHIFT_RIGHT_FRAC27(fast)
+# Loading work.FCVT_F2I(fast)
+# Loading work.FCVT_I2F(fast)
+# Loading work.BUS_M_AHB(fast)
+# Loading work.AHB_MATRIX(fast)
+# Loading work.AHB_MASTER_PORT(fast)
+# Loading work.AHB_INTERCONNECT(fast)
+# Loading work.AHB_ARB(fast)
+# Loading work.AHB_ARB_RB(fast)
+# Loading work.AHB_SLAVE_PORT(fast)
+# Loading work.CSR_MTIME(fast)
+# Loading work.RAM(fast)
+# Loading work.RAM_FPGA(fast)
+# Loading work.RAM128KB_DP(fast)
+# Loading altera_mf_ver.altsyncram(fast)
+# Loading altera_mf_ver.altsyncram_body(fast)
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES(fast)
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION(fast)
+# Loading work.PORT(fast)
+# Loading work.UART(fast)
+# Loading work.sasc_top(fast)
+# Loading work.sasc_fifo4(fast)
+# Loading work.sasc_brg(fast)
+# Loading work.INT_GEN(fast)
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: tb_TOP.U_CHIP_TOP.U_RAM1.U_RAM128KB_DP.altsyncram_component.m_default.altsyncram_inst
 # ----JTAG_RESET_SYS
 # ----JTAG_INIT_STATE
 # Read IDCODE
@@ -310,36 +1061,16 @@ do sim_TOP.do
 # ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x00000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
 #     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000001 0x0)
 # ----JTAG_DMI_READ (TRY 0) SFT_IN(0x10 0x00000001 0x1) SFT_OUT(0x00 0x00000000 0x0)
-# ***** DETECT FINAL INSTRUCTION *****
-# ***** DETECT FINAL INSTRUCTION *****
-# ***** DETECT FINAL INSTRUCTION *****
 #     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000001 0x0)
 #  ---> Verify OK:0x00000001
 # Write DTMCS to Assert dmihardreset and Check dmactive cleared
-# ***** DETECT FINAL INSTRUCTION *****
 # ----JTAG IR SFT_IN(0x10) SFT_OUT(0x11)
-# ***** DETECT FINAL INSTRUCTION *****
-# ***** DETECT FINAL INSTRUCTION *****
 # ----JTAG DR SFT_IN(0x0000000000020000) SFT_OUT(0x0000000000005071)
-# ***** DETECT FINAL INSTRUCTION *****
-# ***** DETECT FINAL INSTRUCTION *****
 # ----JTAG DR SFT_IN(0x0000000000000000) SFT_OUT(0x0000000000005071)
-# ***** DETECT FINAL INSTRUCTION *****
-# ***** DETECT FINAL INSTRUCTION *****
-# ***** DETECT FINAL INSTRUCTION *****
-# ***** DETECT FINAL INSTRUCTION *****
 # ----JTAG_DMI_READ (TRY 0) SFT_IN(0x10 0x00000000 0x1) SFT_OUT(0x00 0x00000000 0x0)
-# ***** DETECT FINAL INSTRUCTION *****
-# ***** DETECT FINAL INSTRUCTION *****
-# ***** DETECT FINAL INSTRUCTION *****
-# ***** DETECT FINAL INSTRUCTION *****
 #     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000000 0x0)
 #  ---> Verify OK:0x00000000
 # Reset Rest of the System by ndmreset and set dmactive
-# ***** DETECT FINAL INSTRUCTION *****
-# ***** DETECT FINAL INSTRUCTION *****
-# ***** DETECT FINAL INSTRUCTION *****
-# ***** DETECT FINAL INSTRUCTION *****
 # ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x00000003 0x2) SFT_OUT(0x00 0x00000000 0x0)
 #     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000003 0x0)
 # ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x00000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
@@ -351,13 +1082,8 @@ do sim_TOP.do
 # ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x14 0x00000000 0x2) SFT_OUT(0x00 0x00000000 0x0)
 #     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x14 0xxxxxxxxx 0x0) SFT_OUT(0x14 0x00000000 0x0)
 # ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x15 0x00000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# ***** DETECT FINAL INSTRUCTION *****
 #     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x15 0xxxxxxxxx 0x0) SFT_OUT(0x15 0x00000001 0x0)
 # HART_STEP_OPERATION
-# ***** DETECT FINAL INSTRUCTION *****
-# ***** DETECT FINAL INSTRUCTION *****
-# ***** DETECT FINAL INSTRUCTION *****
-# ***** DETECT FINAL INSTRUCTION *****
 # ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x80000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
 #     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x80000001 0x0)
 # ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x04 0x00000004 0x2) SFT_OUT(0x00 0x00000000 0x0)
@@ -379,13 +1105,198 @@ do sim_TOP.do
 #     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x16 0x00000002 0x0)
 #  ---> Verify OK:0x00000002
 # ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# ***** DETECT FINAL INSTRUCTION *****
-# ***** DETECT FINAL INSTRUCTION *****
-# ***** DETECT FINAL INSTRUCTION *****
-# ***** DETECT FINAL INSTRUCTION *****
 #     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
-# ***** DETECT FINAL INSTRUCTION *****
 # ***** DETECT FINAL STIMULUS *****
-# ** Note: $stop    : ./tb_TOP.v(111)
-#    Time: 243500 ns  Iteration: 1  Instance: /tb_TOP
-# Break in Module tb_TOP at ./tb_TOP.v line 111
+do sim_TOP.do
+# ../../../verilog
+# ../../../fpga
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 12:16:35 on Dec 31,2021
+# vlog -reportprogress 300 -work work -sv "+incdir+../../../verilog/common" -timescale=1ns/100ps "+define+SIMULATION" ../../../verilog/chip/chip_top.v ../../../verilog/ram/ram.v ../../../verilog/ram/ram_fpga.v ../../../fpga/RAM128KB_DP.v ../../../verilog/port/port.v ../../../verilog/uart/uart.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v ../../../verilog/int_gen/int_gen.v ../../../verilog/mmRISC/mmRISC.v ../../../verilog/mmRISC/bus_m_ahb.v ../../../verilog/mmRISC/csr_mtime.v ../../../verilog/cpu/cpu_top.v ../../../verilog/cpu/cpu_fetch.v ../../../verilog/cpu/cpu_datapath.v ../../../verilog/cpu/cpu_pipeline.v ../../../verilog/cpu/cpu_fpu32.v ../../../verilog/cpu/cpu_csr.v ../../../verilog/cpu/cpu_csr_int.v ../../../verilog/cpu/cpu_csr_dbg.v ../../../verilog/cpu/cpu_debug.v ../../../verilog/debug/debug_top.v ../../../verilog/debug/debug_dtm_jtag.v ../../../verilog/debug/debug_cdc.v ../../../verilog/debug/debug_dm.v ../../../verilog/ahb_matrix/ahb_top.v ../../../verilog/ahb_matrix/ahb_master_port.v ../../../verilog/ahb_matrix/ahb_slave_port.v ../../../verilog/ahb_matrix/ahb_interconnect.v ../../../verilog/ahb_matrix/ahb_arb.v ./tb_TOP.v 
+# -- Compiling module CHIP_TOP
+# -- Compiling module RAM
+# -- Compiling module RAM_FPGA
+# -- Compiling module RAM128KB_DP
+# -- Compiling module PORT
+# -- Compiling module UART
+# -- Compiling module sasc_top
+# -- Compiling module sasc_fifo4
+# -- Compiling module sasc_brg
+# -- Compiling module INT_GEN
+# -- Compiling module mmRISC
+# -- Compiling module BUS_M_AHB
+# -- Compiling module CSR_MTIME
+# -- Compiling module CPU_TOP
+# -- Compiling module CPU_FETCH
+# -- Compiling module CPU_DATAPATH
+# -- Compiling module CPU_PIPELINE
+# -- Compiling module CPU_FPU32
+# -- Compiling module CHECK_FTYPE
+# -- Compiling module FADD_SPECIAL_NUMBER
+# -- Compiling module FMUL_SPECIAL_NUMBER
+# -- Compiling module FMADD_SPECIAL_NUMBER
+# -- Compiling module FDIV_SPECIAL_NUMBER
+# -- Compiling module FSQRT_SPECIAL_NUMBER
+# -- Compiling module FIND_1ST_ONE_IN_FRAC27
+# -- Compiling module FIND_1ST_ONE_IN_FRAC66
+# -- Compiling module FIND_1ST_ONE_IN_FRAC70
+# -- Compiling module SHIFT_RIGHT_FRAC27
+# -- Compiling module SHIFT_RIGHT_FRAC66
+# -- Compiling module SHIFT_RIGHT_FRAC70
+# -- Compiling module ROUND_JUDGMENT
+# -- Compiling module FRAC27_ROUND_FRAC66
+# -- Compiling module FRAC70_ROUND_FRAC132
+# -- Compiling module INNER79_FROM_FLOAT32
+# -- Compiling module FLOAT32_FROM_INNER79
+# -- Compiling module FADD_CORE
+# -- Compiling module FMUL_CORE
+# -- Compiling module FCVT_F2I
+# -- Compiling module FCVT_I2F
+# -- Compiling module CPU_CSR
+# -- Compiling module CPU_CSR_INT
+# -- Compiling module CPU_CSR_DBG
+# -- Compiling module CPU_DEBUG
+# -- Compiling module DEBUG_TOP
+# -- Compiling module DEBUG_DTM_JTAG
+# -- Compiling module DEBUG_CDC
+# -- Compiling module DEBUG_DM
+# -- Compiling module AHB_MATRIX
+# -- Compiling module AHB_MASTER_PORT
+# -- Compiling module AHB_SLAVE_PORT
+# -- Compiling module AHB_INTERCONNECT
+# -- Compiling module AHB_ARB
+# -- Compiling module AHB_ARB_RB
+# -- Compiling module tb_TOP
+# 
+# Top level modules:
+# 	RAM_FPGA
+# 	tb_TOP
+# End time: 12:16:35 on Dec 31,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 12:16:38 on Dec 31,2021, Elapsed time: 0:02:45
+# Errors: 0, Warnings: 0
+# vsim -c -voptargs=""+acc"" -L altera_mf_ver work.tb_TOP 
+# Start time: 12:16:38 on Dec 31,2021
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Note: (vopt-143) Recognized 2 FSMs in module "CPU_FPU32(fast)".
+# ** Note: (vopt-143) Recognized 2 FSMs in module "DEBUG_DTM_JTAG(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "sasc_top(fast)".
+# Loading sv_std.std
+# Loading work.tb_TOP(fast)
+# Loading work.CHIP_TOP(fast)
+# Loading work.mmRISC(fast)
+# Loading work.DEBUG_TOP(fast)
+# Loading work.DEBUG_DTM_JTAG(fast)
+# Loading work.DEBUG_CDC(fast)
+# Loading work.DEBUG_CDC(fast__1)
+# Loading work.DEBUG_DM(fast)
+# Loading work.CPU_TOP(fast)
+# Loading work.CPU_FETCH(fast)
+# Loading work.CPU_DATAPATH(fast)
+# Loading work.CPU_PIPELINE(fast)
+# Loading work.CPU_CSR(fast)
+# Loading work.CPU_CSR_INT(fast)
+# Loading work.CPU_CSR_DBG(fast)
+# Loading work.CPU_DEBUG(fast)
+# Loading work.CPU_FPU32(fast)
+# Loading work.FMUL_SPECIAL_NUMBER(fast)
+# Loading work.CHECK_FTYPE(fast)
+# Loading work.FADD_SPECIAL_NUMBER(fast)
+# Loading work.FMADD_SPECIAL_NUMBER(fast)
+# Loading work.FDIV_SPECIAL_NUMBER(fast)
+# Loading work.FSQRT_SPECIAL_NUMBER(fast)
+# Loading work.INNER79_FROM_FLOAT32(fast)
+# Loading work.FIND_1ST_ONE_IN_FRAC66(fast)
+# Loading work.FMUL_CORE(fast)
+# Loading work.FRAC70_ROUND_FRAC132(fast)
+# Loading work.ROUND_JUDGMENT(fast)
+# Loading work.FIND_1ST_ONE_IN_FRAC70(fast)
+# Loading work.SHIFT_RIGHT_FRAC70(fast)
+# Loading work.FADD_CORE(fast)
+# Loading work.SHIFT_RIGHT_FRAC66(fast)
+# Loading work.FLOAT32_FROM_INNER79(fast)
+# Loading work.FRAC27_ROUND_FRAC66(fast)
+# Loading work.FIND_1ST_ONE_IN_FRAC27(fast)
+# Loading work.SHIFT_RIGHT_FRAC27(fast)
+# Loading work.FCVT_F2I(fast)
+# Loading work.FCVT_I2F(fast)
+# Loading work.BUS_M_AHB(fast)
+# Loading work.AHB_MATRIX(fast)
+# Loading work.AHB_MASTER_PORT(fast)
+# Loading work.AHB_INTERCONNECT(fast)
+# Loading work.AHB_ARB(fast)
+# Loading work.AHB_ARB_RB(fast)
+# Loading work.AHB_SLAVE_PORT(fast)
+# Loading work.CSR_MTIME(fast)
+# Loading work.RAM(fast)
+# Loading work.PORT(fast)
+# Loading work.UART(fast)
+# Loading work.sasc_top(fast)
+# Loading work.sasc_fifo4(fast)
+# Loading work.sasc_brg(fast)
+# Loading work.INT_GEN(fast)
+# ----JTAG_RESET_SYS
+# ----JTAG_INIT_STATE
+# Read IDCODE
+# ----JTAG IR SFT_IN(0x1) SFT_OUT(0x1)
+# ----JTAG DR SFT_IN(0x0000000000000000) SFT_OUT(0x0000000016d6d001)
+# RD DM_Default
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x7f 0xdead007f 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x7f 0xxxxxxxxx 0x0) SFT_OUT(0x7f 0xdead007f 0x0)
+#  ---> Verify OK:0xdead007f
+# WR&RD DM_CONTROL to set dmactive
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x00000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000001 0x0)
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x10 0x00000001 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000001 0x0)
+#  ---> Verify OK:0x00000001
+# Write DTMCS to Assert dmihardreset and Check dmactive cleared
+# ----JTAG IR SFT_IN(0x10) SFT_OUT(0x11)
+# ----JTAG DR SFT_IN(0x0000000000020000) SFT_OUT(0x0000000000005071)
+# ----JTAG DR SFT_IN(0x0000000000000000) SFT_OUT(0x0000000000005071)
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x10 0x00000000 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000000 0x0)
+#  ---> Verify OK:0x00000000
+# Reset Rest of the System by ndmreset and set dmactive
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x00000003 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000003 0x0)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x00000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000001 0x0)
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x10 0x00000001 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000001 0x0)
+#  ---> Verify OK:0x00000001
+# Select Hart 0
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x14 0x00000000 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x14 0xxxxxxxxx 0x0) SFT_OUT(0x14 0x00000000 0x0)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x15 0x00000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x15 0xxxxxxxxx 0x0) SFT_OUT(0x15 0x00000001 0x0)
+# HART_STEP_OPERATION
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x80000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x80000001 0x0)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x04 0x00000004 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x00000004 0x0)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x17 0x002307b0 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x17 0x002307b0 0x0)
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x16 0x00000002 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x16 0x00000002 0x0)
+#  ---> Verify OK:0x00000002
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x04 0x00000000 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x00000000 0x0)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x17 0x002307b0 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x17 0x002307b0 0x0)
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x16 0x00000002 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x16 0x00000002 0x0)
+#  ---> Verify OK:0x00000002
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
+# ***** DETECT FINAL STIMULUS *****
+# ***** DETECT FINAL INSTRUCTION *****
+# ** Note: $stop    : ./tb_TOP.v(110)
+#    Time: 15831230 ns  Iteration: 2  Instance: /tb_TOP
+# Break in Module tb_TOP at ./tb_TOP.v line 110
+# End time: 13:58:08 on Dec 31,2021, Elapsed time: 1:41:30
+# Errors: 0, Warnings: 0

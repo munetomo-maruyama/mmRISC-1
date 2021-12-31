@@ -1,6 +1,6 @@
 Timing Analyzer report for mmRISC
-Wed Nov 10 22:47:14 2021
-Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Fri Dec 31 11:56:28 2021
+Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
 ---------------------
@@ -52,7 +52,7 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2020  Intel Corporation. All rights reserved.
+Copyright (C) 2021  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
@@ -72,7 +72,7 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------------------------+
 ; Timing Analyzer Summary                                                     ;
 +-----------------------+-----------------------------------------------------+
-; Quartus Prime Version ; Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Quartus Prime Version ; Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Timing Analyzer       ; Legacy Timing Analyzer                              ;
 ; Revision Name         ; mmRISC                                              ;
 ; Device Family         ; MAX 10                                              ;
@@ -91,12 +91,12 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 2           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
-; Average used               ; 1.83        ;
+; Average used               ; 1.70        ;
 ; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  83.4%      ;
+;     Processor 2            ;  69.6%      ;
 +----------------------------+-------------+
 
 
@@ -105,7 +105,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------+--------+--------------------------+
 ; SDC File Path ; Status ; Read at                  ;
 +---------------+--------+--------------------------+
-; mmRISC.sdc    ; OK     ; Wed Nov 10 22:46:28 2021 ;
+; mmRISC.sdc    ; OK     ; Fri Dec 31 11:56:02 2021 ;
 +---------------+--------+--------------------------+
 
 
@@ -121,15 +121,15 @@ https://fpgasoftware.intel.com/eula.
 +------------+------+---------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------+
-; Slow 1200mV 85C Model Fmax Summary                                                                       ;
-+-----------+-----------------+------------+---------------------------------------------------------------+
-; Fmax      ; Restricted Fmax ; Clock Name ; Note                                                          ;
-+-----------+-----------------+------------+---------------------------------------------------------------+
-; 22.19 MHz ; 22.19 MHz       ; CLK        ;                                                               ;
-; 39.89 MHz ; 39.89 MHz       ; TCK        ;                                                               ;
-; 323.0 MHz ; 250.0 MHz       ; CLK50      ; limit due to minimum period restriction (max I/O toggle rate) ;
-+-----------+-----------------+------------+---------------------------------------------------------------+
++--------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary               ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 21.47 MHz  ; 21.47 MHz       ; CLK        ;      ;
+; 39.82 MHz  ; 39.82 MHz       ; TCK        ;      ;
+; 242.48 MHz ; 242.48 MHz      ; CLK50      ;      ;
++------------+-----------------+------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -138,9 +138,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+--------+--------------------+
 ; Clock ; Slack  ; End Point TNS      ;
 +-------+--------+--------------------+
-; CLK   ; 3.344  ; 0.000              ;
-; CLK50 ; 16.904 ; 0.000              ;
-; TCK   ; 37.464 ; 0.000              ;
+; CLK   ; 3.432  ; 0.000              ;
+; CLK50 ; 15.876 ; 0.000              ;
+; TCK   ; 37.445 ; 0.000              ;
 +-------+--------+--------------------+
 
 
@@ -149,7 +149,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+-------+--------------------+
 ; Clock ; Slack ; End Point TNS      ;
 +-------+-------+--------------------+
-; CLK   ; 0.301 ; 0.000              ;
+; CLK   ; 0.340 ; 0.000              ;
 ; CLK50 ; 0.356 ; 0.000              ;
 ; TCK   ; 0.378 ; 0.000              ;
 +-------+-------+--------------------+
@@ -160,9 +160,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+--------+-----------------------+
 ; Clock ; Slack  ; End Point TNS         ;
 +-------+--------+-----------------------+
-; CLK   ; 1.818  ; 0.000                 ;
-; TCK   ; 2.376  ; 0.000                 ;
-; LOCK  ; 13.984 ; 0.000                 ;
+; TCK   ; 2.500  ; 0.000                 ;
+; CLK   ; 3.503  ; 0.000                 ;
+; LOCK  ; 11.906 ; 0.000                 ;
 +-------+--------+-----------------------+
 
 
@@ -171,9 +171,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+-------+-----------------------+
 ; Clock ; Slack ; End Point TNS         ;
 +-------+-------+-----------------------+
-; CLK   ; 0.953 ; 0.000                 ;
-; TCK   ; 2.611 ; 0.000                 ;
-; LOCK  ; 4.283 ; 0.000                 ;
+; CLK   ; 0.929 ; 0.000                 ;
+; TCK   ; 1.992 ; 0.000                 ;
+; LOCK  ; 5.211 ; 0.000                 ;
 +-------+-------+-----------------------+
 
 
@@ -184,8 +184,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+--------+----------------------------------+
 ; CLK50 ; 9.701  ; 0.000                            ;
 ; CLK   ; 24.663 ; 0.000                            ;
-; TCK   ; 49.627 ; 0.000                            ;
-; LOCK  ; 49.759 ; 0.000                            ;
+; TCK   ; 49.668 ; 0.000                            ;
+; LOCK  ; 49.771 ; 0.000                            ;
 +-------+--------+----------------------------------+
 
 
@@ -196,7 +196,7 @@ The design MTBF is not calculated because there are no specified synchronizers i
 Number of Synchronizer Chains Found: 5
 Shortest Synchronizer Chain: 2 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-Worst Case Available Settling Time: 89.718 ns
+Worst Case Available Settling Time: 90.068 ns
 
 
 
@@ -206,9 +206,9 @@ Worst Case Available Settling Time: 89.718 ns
 +------------+-----------------+------------+---------------------------------------------------------------+
 ; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
 +------------+-----------------+------------+---------------------------------------------------------------+
-; 24.05 MHz  ; 24.05 MHz       ; CLK        ;                                                               ;
-; 42.09 MHz  ; 42.09 MHz       ; TCK        ;                                                               ;
-; 355.62 MHz ; 250.0 MHz       ; CLK50      ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 23.45 MHz  ; 23.45 MHz       ; CLK        ;                                                               ;
+; 42.01 MHz  ; 42.01 MHz       ; TCK        ;                                                               ;
+; 261.16 MHz ; 250.0 MHz       ; CLK50      ; limit due to minimum period restriction (max I/O toggle rate) ;
 +------------+-----------------+------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -218,9 +218,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+--------+-------------------+
 ; Clock ; Slack  ; End Point TNS     ;
 +-------+--------+-------------------+
-; CLK   ; 3.732  ; 0.000             ;
-; CLK50 ; 17.188 ; 0.000             ;
-; TCK   ; 38.122 ; 0.000             ;
+; CLK   ; 4.174  ; 0.000             ;
+; CLK50 ; 16.171 ; 0.000             ;
+; TCK   ; 38.098 ; 0.000             ;
 +-------+--------+-------------------+
 
 
@@ -229,8 +229,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+-------+-------------------+
 ; Clock ; Slack ; End Point TNS     ;
 +-------+-------+-------------------+
-; CLK   ; 0.300 ; 0.000             ;
-; CLK50 ; 0.321 ; 0.000             ;
+; CLK   ; 0.305 ; 0.000             ;
+; CLK50 ; 0.322 ; 0.000             ;
 ; TCK   ; 0.339 ; 0.000             ;
 +-------+-------+-------------------+
 
@@ -240,9 +240,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+--------+----------------------+
 ; Clock ; Slack  ; End Point TNS        ;
 +-------+--------+----------------------+
-; CLK   ; 2.396  ; 0.000                ;
-; TCK   ; 2.876  ; 0.000                ;
-; LOCK  ; 14.429 ; 0.000                ;
+; TCK   ; 3.063  ; 0.000                ;
+; CLK   ; 4.033  ; 0.000                ;
+; LOCK  ; 12.531 ; 0.000                ;
 +-------+--------+----------------------+
 
 
@@ -251,9 +251,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+-------+----------------------+
 ; Clock ; Slack ; End Point TNS        ;
 +-------+-------+----------------------+
-; CLK   ; 0.875 ; 0.000                ;
-; TCK   ; 2.409 ; 0.000                ;
-; LOCK  ; 3.905 ; 0.000                ;
+; CLK   ; 0.855 ; 0.000                ;
+; TCK   ; 1.818 ; 0.000                ;
+; LOCK  ; 4.752 ; 0.000                ;
 +-------+-------+----------------------+
 
 
@@ -264,8 +264,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+--------+---------------------------------+
 ; CLK50 ; 9.719  ; 0.000                           ;
 ; CLK   ; 24.683 ; 0.000                           ;
-; TCK   ; 49.720 ; 0.000                           ;
-; LOCK  ; 49.754 ; 0.000                           ;
+; TCK   ; 49.706 ; 0.000                           ;
+; LOCK  ; 49.763 ; 0.000                           ;
 +-------+--------+---------------------------------+
 
 
@@ -276,7 +276,7 @@ The design MTBF is not calculated because there are no specified synchronizers i
 Number of Synchronizer Chains Found: 5
 Shortest Synchronizer Chain: 2 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-Worst Case Available Settling Time: 90.375 ns
+Worst Case Available Settling Time: 90.693 ns
 
 
 
@@ -286,9 +286,9 @@ Worst Case Available Settling Time: 90.375 ns
 +-------+--------+-------------------+
 ; Clock ; Slack  ; End Point TNS     ;
 +-------+--------+-------------------+
-; CLK   ; 6.553  ; 0.000             ;
-; CLK50 ; 18.642 ; 0.000             ;
-; TCK   ; 40.376 ; 0.000             ;
+; CLK   ; 6.701  ; 0.000             ;
+; CLK50 ; 18.101 ; 0.000             ;
+; TCK   ; 40.351 ; 0.000             ;
 +-------+--------+-------------------+
 
 
@@ -297,8 +297,8 @@ Worst Case Available Settling Time: 90.375 ns
 +-------+-------+-------------------+
 ; Clock ; Slack ; End Point TNS     ;
 +-------+-------+-------------------+
-; CLK   ; 0.121 ; 0.000             ;
-; CLK50 ; 0.151 ; 0.000             ;
+; CLK   ; 0.147 ; 0.000             ;
+; CLK50 ; 0.152 ; 0.000             ;
 ; TCK   ; 0.166 ; 0.000             ;
 +-------+-------+-------------------+
 
@@ -308,9 +308,9 @@ Worst Case Available Settling Time: 90.375 ns
 +-------+--------+----------------------+
 ; Clock ; Slack  ; End Point TNS        ;
 +-------+--------+----------------------+
-; CLK   ; 5.669  ; 0.000                ;
-; TCK   ; 5.956  ; 0.000                ;
-; LOCK  ; 16.426 ; 0.000                ;
+; TCK   ; 6.013  ; 0.000                ;
+; CLK   ; 6.381  ; 0.000                ;
+; LOCK  ; 15.466 ; 0.000                ;
 +-------+--------+----------------------+
 
 
@@ -319,9 +319,9 @@ Worst Case Available Settling Time: 90.375 ns
 +-------+-------+----------------------+
 ; Clock ; Slack ; End Point TNS        ;
 +-------+-------+----------------------+
-; CLK   ; 0.415 ; 0.000                ;
-; TCK   ; 1.192 ; 0.000                ;
-; LOCK  ; 2.038 ; 0.000                ;
+; CLK   ; 0.405 ; 0.000                ;
+; TCK   ; 0.887 ; 0.000                ;
+; LOCK  ; 2.480 ; 0.000                ;
 +-------+-------+----------------------+
 
 
@@ -330,10 +330,10 @@ Worst Case Available Settling Time: 90.375 ns
 +-------+--------+---------------------------------+
 ; Clock ; Slack  ; End Point TNS                   ;
 +-------+--------+---------------------------------+
-; CLK50 ; 9.470  ; 0.000                           ;
+; CLK50 ; 9.469  ; 0.000                           ;
 ; CLK   ; 24.710 ; 0.000                           ;
-; TCK   ; 49.334 ; 0.000                           ;
-; LOCK  ; 49.781 ; 0.000                           ;
+; TCK   ; 49.373 ; 0.000                           ;
+; LOCK  ; 49.770 ; 0.000                           ;
 +-------+--------+---------------------------------+
 
 
@@ -344,7 +344,7 @@ The design MTBF is not calculated because there are no specified synchronizers i
 Number of Synchronizer Chains Found: 5
 Shortest Synchronizer Chain: 2 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-Worst Case Available Settling Time: 95.305 ns
+Worst Case Available Settling Time: 95.429 ns
 
 
 
@@ -354,11 +354,11 @@ Worst Case Available Settling Time: 95.305 ns
 +------------------+--------+-------+----------+---------+---------------------+
 ; Clock            ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +------------------+--------+-------+----------+---------+---------------------+
-; Worst-case Slack ; 3.344  ; 0.121 ; 1.818    ; 0.415   ; 9.470               ;
-;  CLK             ; 3.344  ; 0.121 ; 1.818    ; 0.415   ; 24.663              ;
-;  CLK50           ; 16.904 ; 0.151 ; N/A      ; N/A     ; 9.470               ;
-;  LOCK            ; N/A    ; N/A   ; 13.984   ; 2.038   ; 49.754              ;
-;  TCK             ; 37.464 ; 0.166 ; 2.376    ; 1.192   ; 49.334              ;
+; Worst-case Slack ; 3.432  ; 0.147 ; 2.500    ; 0.405   ; 9.469               ;
+;  CLK             ; 3.432  ; 0.147 ; 3.503    ; 0.405   ; 24.663              ;
+;  CLK50           ; 15.876 ; 0.152 ; N/A      ; N/A     ; 9.469               ;
+;  LOCK            ; N/A    ; N/A   ; 11.906   ; 2.480   ; 49.763              ;
+;  TCK             ; 37.445 ; 0.166 ; 2.500    ; 0.887   ; 49.373              ;
 ; Design-wide TNS  ; 0.0    ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
 ;  CLK             ; 0.000  ; 0.000 ; 0.000    ; 0.000   ; 0.000               ;
 ;  CLK50           ; 0.000  ; 0.000 ; N/A      ; N/A     ; 0.000               ;
@@ -962,9 +962,9 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; CLK        ; CLK      ; 9583     ; 0        ; 0        ; 0        ;
-; CLK50      ; CLK      ; 11182    ; 0        ; 0        ; 0        ;
-; LOCK       ; CLK      ; 11182    ; 5591     ; 0        ; 0        ;
+; CLK        ; CLK      ; 9570     ; 0        ; 0        ; 0        ;
+; CLK50      ; CLK      ; 11156    ; 0        ; 0        ; 0        ;
+; LOCK       ; CLK      ; 11156    ; 5578     ; 0        ; 0        ;
 ; TCK        ; CLK      ; 2296     ; 0        ; 0        ; 0        ;
 ; CLK50      ; LOCK     ; 2        ; 0        ; 0        ; 0        ;
 ; CLK50      ; TCK      ; 412      ; 0        ; 4        ; 0        ;
@@ -979,9 +979,9 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; CLK        ; CLK      ; 9583     ; 0        ; 0        ; 0        ;
-; CLK50      ; CLK      ; 11182    ; 0        ; 0        ; 0        ;
-; LOCK       ; CLK      ; 11182    ; 5591     ; 0        ; 0        ;
+; CLK        ; CLK      ; 9570     ; 0        ; 0        ; 0        ;
+; CLK50      ; CLK      ; 11156    ; 0        ; 0        ; 0        ;
+; LOCK       ; CLK      ; 11156    ; 5578     ; 0        ; 0        ;
 ; TCK        ; CLK      ; 2296     ; 0        ; 0        ; 0        ;
 ; CLK50      ; LOCK     ; 2        ; 0        ; 0        ; 0        ;
 ; CLK50      ; TCK      ; 412      ; 0        ; 4        ; 0        ;
@@ -1034,8 +1034,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +--------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
-    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Wed Nov 10 22:46:26 2021
+    Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+    Info: Processing started: Fri Dec 31 11:56:00 2021
 Info: Command: quartus_sta mmRISC -c mmRISC
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -1054,43 +1054,43 @@ Warning (332056): PLL cross checking found inconsistent PLL clock settings:
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
-Info (332146): Worst-case setup slack is 3.344
+Info (332146): Worst-case setup slack is 3.432
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     3.344               0.000 CLK 
-    Info (332119):    16.904               0.000 CLK50 
-    Info (332119):    37.464               0.000 TCK 
-Info (332146): Worst-case hold slack is 0.301
+    Info (332119):     3.432               0.000 CLK 
+    Info (332119):    15.876               0.000 CLK50 
+    Info (332119):    37.445               0.000 TCK 
+Info (332146): Worst-case hold slack is 0.340
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.301               0.000 CLK 
+    Info (332119):     0.340               0.000 CLK 
     Info (332119):     0.356               0.000 CLK50 
     Info (332119):     0.378               0.000 TCK 
-Info (332146): Worst-case recovery slack is 1.818
+Info (332146): Worst-case recovery slack is 2.500
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     1.818               0.000 CLK 
-    Info (332119):     2.376               0.000 TCK 
-    Info (332119):    13.984               0.000 LOCK 
-Info (332146): Worst-case removal slack is 0.953
+    Info (332119):     2.500               0.000 TCK 
+    Info (332119):     3.503               0.000 CLK 
+    Info (332119):    11.906               0.000 LOCK 
+Info (332146): Worst-case removal slack is 0.929
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.953               0.000 CLK 
-    Info (332119):     2.611               0.000 TCK 
-    Info (332119):     4.283               0.000 LOCK 
+    Info (332119):     0.929               0.000 CLK 
+    Info (332119):     1.992               0.000 TCK 
+    Info (332119):     5.211               0.000 LOCK 
 Info (332146): Worst-case minimum pulse width slack is 9.701
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     9.701               0.000 CLK50 
     Info (332119):    24.663               0.000 CLK 
-    Info (332119):    49.627               0.000 TCK 
-    Info (332119):    49.759               0.000 LOCK 
+    Info (332119):    49.668               0.000 TCK 
+    Info (332119):    49.771               0.000 LOCK 
 Info (332114): Report Metastability: Found 5 synchronizer chains.
     Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
     Info (332114): Number of Synchronizer Chains Found: 5
     Info (332114): Shortest Synchronizer Chain: 2 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-    Info (332114): Worst Case Available Settling Time: 89.718 ns
+    Info (332114): Worst Case Available Settling Time: 90.068 ns
     Info (332114): 
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
@@ -1098,92 +1098,92 @@ Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Warning (332056): PLL cross checking found inconsistent PLL clock settings:
     Warning (332056): Clock: CLK with period: 50.000 found on PLL node: U_PLL|altpll_component|auto_generated|pll1|clk[0] does not match the period requirement: 20.000
-Info (332146): Worst-case setup slack is 3.732
+Info (332146): Worst-case setup slack is 4.174
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     3.732               0.000 CLK 
-    Info (332119):    17.188               0.000 CLK50 
-    Info (332119):    38.122               0.000 TCK 
-Info (332146): Worst-case hold slack is 0.300
+    Info (332119):     4.174               0.000 CLK 
+    Info (332119):    16.171               0.000 CLK50 
+    Info (332119):    38.098               0.000 TCK 
+Info (332146): Worst-case hold slack is 0.305
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.300               0.000 CLK 
-    Info (332119):     0.321               0.000 CLK50 
+    Info (332119):     0.305               0.000 CLK 
+    Info (332119):     0.322               0.000 CLK50 
     Info (332119):     0.339               0.000 TCK 
-Info (332146): Worst-case recovery slack is 2.396
+Info (332146): Worst-case recovery slack is 3.063
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     2.396               0.000 CLK 
-    Info (332119):     2.876               0.000 TCK 
-    Info (332119):    14.429               0.000 LOCK 
-Info (332146): Worst-case removal slack is 0.875
+    Info (332119):     3.063               0.000 TCK 
+    Info (332119):     4.033               0.000 CLK 
+    Info (332119):    12.531               0.000 LOCK 
+Info (332146): Worst-case removal slack is 0.855
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.875               0.000 CLK 
-    Info (332119):     2.409               0.000 TCK 
-    Info (332119):     3.905               0.000 LOCK 
+    Info (332119):     0.855               0.000 CLK 
+    Info (332119):     1.818               0.000 TCK 
+    Info (332119):     4.752               0.000 LOCK 
 Info (332146): Worst-case minimum pulse width slack is 9.719
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     9.719               0.000 CLK50 
     Info (332119):    24.683               0.000 CLK 
-    Info (332119):    49.720               0.000 TCK 
-    Info (332119):    49.754               0.000 LOCK 
+    Info (332119):    49.706               0.000 TCK 
+    Info (332119):    49.763               0.000 LOCK 
 Info (332114): Report Metastability: Found 5 synchronizer chains.
     Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
     Info (332114): Number of Synchronizer Chains Found: 5
     Info (332114): Shortest Synchronizer Chain: 2 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-    Info (332114): Worst Case Available Settling Time: 90.375 ns
+    Info (332114): Worst Case Available Settling Time: 90.693 ns
     Info (332114): 
 Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Warning (332056): PLL cross checking found inconsistent PLL clock settings:
     Warning (332056): Clock: CLK with period: 50.000 found on PLL node: U_PLL|altpll_component|auto_generated|pll1|clk[0] does not match the period requirement: 20.000
-Info (332146): Worst-case setup slack is 6.553
+Info (332146): Worst-case setup slack is 6.701
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     6.553               0.000 CLK 
-    Info (332119):    18.642               0.000 CLK50 
-    Info (332119):    40.376               0.000 TCK 
-Info (332146): Worst-case hold slack is 0.121
+    Info (332119):     6.701               0.000 CLK 
+    Info (332119):    18.101               0.000 CLK50 
+    Info (332119):    40.351               0.000 TCK 
+Info (332146): Worst-case hold slack is 0.147
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.121               0.000 CLK 
-    Info (332119):     0.151               0.000 CLK50 
+    Info (332119):     0.147               0.000 CLK 
+    Info (332119):     0.152               0.000 CLK50 
     Info (332119):     0.166               0.000 TCK 
-Info (332146): Worst-case recovery slack is 5.669
+Info (332146): Worst-case recovery slack is 6.013
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     5.669               0.000 CLK 
-    Info (332119):     5.956               0.000 TCK 
-    Info (332119):    16.426               0.000 LOCK 
-Info (332146): Worst-case removal slack is 0.415
+    Info (332119):     6.013               0.000 TCK 
+    Info (332119):     6.381               0.000 CLK 
+    Info (332119):    15.466               0.000 LOCK 
+Info (332146): Worst-case removal slack is 0.405
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.415               0.000 CLK 
-    Info (332119):     1.192               0.000 TCK 
-    Info (332119):     2.038               0.000 LOCK 
-Info (332146): Worst-case minimum pulse width slack is 9.470
+    Info (332119):     0.405               0.000 CLK 
+    Info (332119):     0.887               0.000 TCK 
+    Info (332119):     2.480               0.000 LOCK 
+Info (332146): Worst-case minimum pulse width slack is 9.469
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     9.470               0.000 CLK50 
+    Info (332119):     9.469               0.000 CLK50 
     Info (332119):    24.710               0.000 CLK 
-    Info (332119):    49.334               0.000 TCK 
-    Info (332119):    49.781               0.000 LOCK 
+    Info (332119):    49.373               0.000 TCK 
+    Info (332119):    49.770               0.000 LOCK 
 Info (332114): Report Metastability: Found 5 synchronizer chains.
     Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
     Info (332114): Number of Synchronizer Chains Found: 5
     Info (332114): Shortest Synchronizer Chain: 2 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-    Info (332114): Worst Case Available Settling Time: 95.305 ns
+    Info (332114): Worst Case Available Settling Time: 95.429 ns
     Info (332114): 
 Info (332101): Design is fully constrained for setup requirements
 Info (332101): Design is fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 696 megabytes
-    Info: Processing ended: Wed Nov 10 22:47:14 2021
-    Info: Elapsed time: 00:00:48
-    Info: Total CPU time (on all processors): 00:00:46
+    Info: Peak virtual memory: 729 megabytes
+    Info: Processing ended: Fri Dec 31 11:56:28 2021
+    Info: Elapsed time: 00:00:28
+    Info: Total CPU time (on all processors): 00:00:45
 
 

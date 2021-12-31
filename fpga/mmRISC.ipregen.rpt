@@ -1,6 +1,6 @@
 IP Upgrade report for mmRISC
-Sat Oct  9 22:46:35 2021
-Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Wed Dec 29 11:28:37 2021
+Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
 ---------------------
@@ -16,7 +16,7 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2020  Intel Corporation. All rights reserved.
+Copyright (C) 2021  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
@@ -36,8 +36,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------+
 ; IP Upgrade Summary                                                         ;
 +------------------------------+---------------------------------------------+
-; IP Components Upgrade Status ; Passed - Sat Oct  9 22:46:35 2021           ;
-; Quartus Prime Version        ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; IP Components Upgrade Status ; Passed - Wed Dec 29 11:28:37 2021           ;
+; Quartus Prime Version        ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                ; mmRISC                                      ;
 ; Top-level Entity Name        ; CHIP_TOP                                    ;
 ; Family                       ; MAX 10                                      ;
@@ -49,7 +49,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------+----------------+---------+----------------------+----------------------+-----------------+---------+
 ; Entity Name ; Component Name ; Version ; Original Source File ; Generation File Path ; New Source File ; Message ;
 +-------------+----------------+---------+----------------------+----------------------+-----------------+---------+
-; PLL         ; ALTPLL         ; 17.1    ; PLL.qip              ; PLL.v                ; PLL.qip         ;         ;
+; PLL         ; ALTPLL         ; 20.1    ; PLL.qip              ; PLL.v                ; PLL.qip         ;         ;
 +-------------+----------------+---------+----------------------+----------------------+-----------------+---------+
 
 
@@ -59,11 +59,11 @@ https://fpgasoftware.intel.com/eula.
 Info (11902): Backing up file "PLL.v" to "PLL.BAK.v"
 Info (11837): Started upgrading IP component ALTPLL with file "PLL.v"
 Info (11131): Completed upgrading IP component ALTPLL with file "PLL.v"
-Info (23030): Evaluation of Tcl script /home/taka/intelFPGA_lite/20.1.1/quartus/common/tcl/internal/ip_regen/ip_regen.tcl was successful
+Info (23030): Evaluation of Tcl script /home/taka/intelFPGA_lite/21.1/quartus/common/tcl/internal/ip_regen/ip_regen.tcl was successful
 Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 620 megabytes
-    Info: Processing ended: Sat Oct  9 22:46:35 2021
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:11
+    Info: Peak virtual memory: 608 megabytes
+    Info: Processing ended: Wed Dec 29 11:28:37 2021
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:12
 
 

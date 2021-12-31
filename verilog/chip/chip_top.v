@@ -217,6 +217,7 @@ assign SRSTn = (srst_n_out)? 1'bz : 1'b0;
 assign srst_n_in = (SRSTn === 1'bz)? 1'b1 : SRSTn; // if HIZ, then 1
 `else
 wire srst_n_in;
+wire srst_n_out;
 wire RTCK;
 assign srst_n_in = RES_N;
 `endif
@@ -715,6 +716,28 @@ U_RAM0
 //--------------------
 // RAM 1
 //--------------------
+`ifdef FPGA
+RAM_FPGA U_RAM1
+(
+    // Global Signals
+    .CLK  (clk),
+    .RES  (res_sys),
+    // Slave Ports
+    .S_HSEL      (s_hsel[2]),
+    .S_HTRANS    (s_htrans[2]),
+    .S_HWRITE    (s_hwrite[2]),
+    .S_HMASTLOCK (s_hmastlock[2]),
+    .S_HSIZE     (s_hsize[2]),
+    .S_HBURST    (s_hburst[2]),
+    .S_HPROT     (s_hprot[2]),
+    .S_HADDR     (s_haddr[2]),
+    .S_HWDATA    (s_hwdata[2]),
+    .S_HREADY    (s_hready[2]),
+    .S_HREADYOUT (s_hreadyout[2]),
+    .S_HRDATA    (s_hrdata[2]),
+    .S_HRESP     (s_hresp[2])
+);
+`else
 RAM
    #(
         .RAM_SIZE(`RAM1_SIZE)
@@ -739,6 +762,7 @@ U_RAM1
     .S_HRDATA    (s_hrdata[2]),
     .S_HRESP     (s_hresp[2])
 );
+`endif
 
 //--------------------
 // GPIO Port

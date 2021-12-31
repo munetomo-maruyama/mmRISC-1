@@ -21,17 +21,18 @@
 #include "uart.h"
 #include "xprintf.h"
 
+//-----------------------
+// Global Variable
+//-----------------------
+extern uint32_t uart_rxd_data;
+
 //-----------------
 // Main Routine
 //-----------------
 void main(void)
 {
-    int    i;
-    double fth, fsin;
-    int    ith, isin;
-    char   buf[256];
-    char   *pbuf;
-    long   num;
+    uint32_t i;
+    uint64_t cyclel, cycleh, cycle_prev, cycle_now;
     //
     // Initialize Hardware
     GPIO_Init();
@@ -39,13 +40,34 @@ void main(void)
     INT_Init();
     //
     // Message
-    printf("======== mmRISC ========\n");
+    printf("======== mmRISC-1 ========\n");
     //
     // Wait for Interrupt
     printf("Input any Character:\n");
+    //
+    // Forever Loop
+    i = 0;
     while(1)
     {
-        mem_wr32(0xfffffffc, 0xdeaddead); // Simulation Stop
+        i = i + 1;
+        //
+        cyclel = (uint64_t) read_csr(mcycle);
+        cycleh = (uint64_t) read_csr(mcycleh);
+        cycle_prev = (cycleh << 32) + (cyclel);
+        //
+        while (1)
+        {
+            cyclel = (uint64_t) read_csr(mcycle);
+            cycleh = (uint64_t) read_csr(mcycleh);
+            cycle_now = (cycleh << 32) + (cyclel);
+            if (cycle_now >= cycle_prev + 1666666) break;
+            //
+            uint32_t seg;
+            seg = (uart_rxd_data << 16) + (i & 0x0ffff);
+            GPIO_SetSEG(seg);
+            //
+            mem_wr32(0xfffffffc, 0xdeaddead); // Simulation Stop
+        }
     }
 }
 
