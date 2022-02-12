@@ -5,15 +5,17 @@ The “mmRISC” stands for “much more RISC”. <br>
 For details, please refer PDF file under doc directory. <br>
 
 ## Technical Notes
-### 2021.12.26 If you use Questa Sim to simulate mmRISC-1, please add an option -voptargs="+acc" in vsim command.<br>
-### 2021.12.31 Followings are updated. Main RTL Body of mmRISC is not modified due to no bugs found yet.<br>
+### 2021.12.26 Notes on Questa Sim
+If you use Questa Sim to simulate mmRISC-1, please add an option -voptargs="+acc" in vsim command.<br>
+### 2021.12.31 Some modifications except for mmRISC Core
+Followings are updated. Main RTL Body of mmRISC is not modified due to no bugs found yet.<br>
   (1) Added MRET and WFI descriptions in Technical Reference Manual Rev.02. <br>
   (2) Supported Questa as logic simulator. To do so, add an option -voptargs="+acc" in vsim command. <br>
   (3) Supported Initialization of Instruction RAM in FPGA using .mif file. A conversion tool hex2mif is added in tools directory. <br>
   (4) Updated JTAG interface schematic. <br>
   (5) Changed operation of application mmRISC_SampleCPU. <br>
   (6) Add a retro text video game StarTrek as an application. <br>
-### 2022.02.12 Fixed a bug in cpu_pipeline.v.<br>
+### 2022.02.12 Fixed a bug in cpu_pipeline.v
   BUG: Sometimes ignored HALT/RESUME Requests from Debugger during ID Stage is being stalled due to memory wait cycles.
   WHY: DBG_HALT_ACK  and DBG_RESUME_ACK are asserted in one cycle even during ID stallings. If these ACK signals are asserted, corresponding DBG_HALT_REQ and DBG_RESUME_REQ are immediately negated, then the pipeline control may ignore DBG_HALT_REQ and DBG_RESUME_REQ.
   FIX: DBG_HALT_ACK  and DBG_RESUME_ACK are asserted only at last of ID stages after its stalls.
