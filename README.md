@@ -16,7 +16,7 @@ For details, please refer PDF file under doc directory. <br>
 2022.02.12 Fixed a bug in cpu_pipeline.v.<br>
   BUG: Sometimes ignored HALT/RESUME Requests from Debugger during ID Stage is being stalled due to memory wait cycles.
   WHY: DBG_HALT_ACK  and DBG_RESUME_ACK are asserted in one cycle even during ID stallings. If these ACK signals are asserted, corresponding DBG_HALT_REQ and DBG_RESUME_REQ are immediately negated, then the pipeline control may ignore DBG_HALT_REQ and DBG_RESUME_REQ.
-  FIX: DBG_HALT_ACK  and DBG_RESUME_ACK are asserted only at last of ID stages after its stallings.
+  FIX: DBG_HALT_ACK  and DBG_RESUME_ACK are asserted only at last of ID stages after its stalls.
 
 ## ISA
 RV32IM[A][F]C (configurable)
