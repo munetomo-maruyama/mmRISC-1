@@ -71,7 +71,7 @@
 //
 
 
-`include "defines.v"
+`include "defines_core.v"
 
 //----------------------
 // Define Module
@@ -170,11 +170,11 @@ module CPU_PIPELINE
     output wire [31:0] INSTR_CODE, // Instruction Retired Code
     //
     input  wire        DBG_HALT_REQ,    // HALT Request
-    output reg         DBG_HALT_ACK,    // HALT Acknowledge
+    output wire        DBG_HALT_ACK,    // HALT Acknowledge
     input  wire        DBG_HALT_RESET,  // HALT when Reset
     input  wire        DBG_HALT_EBREAK, // HALT when EBREAK
     input  wire        DBG_RESUME_REQ,  // Resume Request 
-    output reg         DBG_RESUME_ACK,  // Resume Acknowledge 
+    output wire        DBG_RESUME_ACK,  // Resume Acknowledge 
     output reg  [31:0] DBG_DPC_SAVE,    // Debug PC to be saved
     input  wire [31:0] DBG_DPC_LOAD,    // Debug PC to be loaded
     output reg  [ 2:0] DBG_CAUSE,       // Debug Entry Cause
@@ -672,6 +672,12 @@ reg  [13:0] id_fpu_dst1;
 reg  [ 7:0] id_fpu_cmd;      // FPU Command in ID Stage
 reg  [ 2:0] id_fpu_rmode;    // FPU Round Mode in ID Stage
 
+//--------------------------
+// HALT and RESUME Control
+//--------------------------
+reg  dbg_halt_ack;   // HALT Acknowledge
+reg  dbg_resume_ack; // RESUME Acknowledge 
+
 //-------------------------
 // Datapath Interface
 //-------------------------
@@ -711,6 +717,9 @@ assign ID_FPU_SRC3  = (1'b1             )? id_fpu_src3  : 14'h0;
 assign ID_FPU_DST1  = (1'b1             )? id_fpu_dst1  : 14'h0;
 assign ID_FPU_CMD   = (slot & ~stall_cpu)? id_fpu_cmd   :  8'h0;
 assign ID_FPU_RMODE = (1'b1             )? id_fpu_rmode :  3'b0;
+//
+assign DBG_HALT_ACK   = (slot & ~stall)? dbg_halt_ack   : 1'b0;
+assign DBG_RESUME_ACK = (slot & ~stall)? dbg_resume_ack : 1'b0;
 
 //------------------------
 // ID Stage State
@@ -894,8 +903,8 @@ begin
     trg_ack_inst = 1'b0;
     trg_ack_data = 1'b0;
     //
-    DBG_HALT_ACK   = 1'b0;
-    DBG_RESUME_ACK = 1'b0;
+    dbg_halt_ack   = 1'b0;
+    dbg_resume_ack = 1'b0;
     DBG_DPC_SAVE   = 32'h00000000;
     DBG_CAUSE      = 3'b000;
     //
@@ -917,7 +926,7 @@ begin
                 4'h0: begin
                           if (DBG_HALT_RESET) // FF
                           begin
-                              DBG_HALT_ACK   = 1'b1;
+                              dbg_halt_ack   = 1'b1;
                               DBG_DPC_SAVE   = RESET_VECTOR; // FIXED
                               DBG_CAUSE      = `DBG_CAUSE_RESETHALT;
                               state_id_ope_nxt = `STATE_ID_DEBUG_MODE;
@@ -953,7 +962,7 @@ begin
         begin
             if (DBG_RESUME_REQ) // FF
             begin
-                DBG_RESUME_ACK = 1'b1;
+                dbg_resume_ack = 1'b1;
                 //
                 fetch_start = 1'b1;
                 jump_target_resume = 1'b1;
@@ -991,7 +1000,7 @@ begin
                 else if (DBG_HALT_REQ & (state_id_seq == 4'h0)) // FF
                 begin
                     pipe_id_enable = 1'b0; // disabled stage
-                    DBG_HALT_ACK   = 1'b1;
+                    dbg_halt_ack   = 1'b1;
                     DBG_DPC_SAVE   = pipe_id_pc; // FF
                     DBG_CAUSE      = `DBG_CAUSE_HALTREQ;
                     state_id_ope_nxt = `STATE_ID_DEBUG_MODE;
@@ -1069,7 +1078,7 @@ begin
                     else // Goto Debug Mode
                     begin
                         pipe_id_enable = 1'b0; // disabled stage
-                        DBG_HALT_ACK   = 1'b1;
+                        dbg_halt_ack   = 1'b1;
                         DBG_DPC_SAVE   = pipe_id_pc; // FF
                         DBG_CAUSE      = `DBG_CAUSE_HALTREQ;
                         state_id_ope_nxt = `STATE_ID_DEBUG_MODE;
@@ -1139,7 +1148,7 @@ begin
                 begin
                     if (DBG_HALT_EBREAK)
                     begin
-                        DBG_HALT_ACK   = 1'b1;
+                        dbg_halt_ack   = 1'b1;
                         DBG_DPC_SAVE   = pipe_id_pc; // FF
                         DBG_CAUSE      = `DBG_CAUSE_EBRREK;
                         state_id_ope_nxt = `STATE_ID_DEBUG_MODE;
@@ -1185,7 +1194,7 @@ begin
                     else // Goto Debug Mode
                     begin
                         pipe_id_enable = 1'b0; // disabled stage
-                        DBG_HALT_ACK   = 1'b1;
+                        dbg_halt_ack   = 1'b1;
                         DBG_DPC_SAVE   = pipe_id_pc; // FF
                         DBG_CAUSE      = `DBG_CAUSE_HALTREQ;
                         state_id_ope_nxt = `STATE_ID_DEBUG_MODE;
