@@ -23,7 +23,7 @@ Followings are updated. Main RTL Body of mmRISC is not modified due to no bugs f
   WHY: DBG_HALT_ACK  and DBG_RESUME_ACK are asserted in one cycle even during ID stallings. If these ACK signals are asserted, corresponding DBG_HALT_REQ and DBG_RESUME_REQ are immediately negated, then the pipeline control may ignore DBG_HALT_REQ and DBG_RESUME_REQ. <br>
   FIX: DBG_HALT_ACK and DBG_RESUME_ACK are asserted only at last of ID stages after its stalls in cpu_pipeline.v. <br>
   
-### 2022.03.20 Added Simple I2C and SDRAM Interface in FPGA.
+### 2022.03.20 Fixed following bugs in Floating Point Instructions in mmRISC Core
   BUG1: FMV W.X and FMV X.W sometimes could not transfer correct data according to pipeline stall or wait-cycle timing. <br>
   WHY1: EX_FPU_DSTDATA was active only when EX_ALU_DST1 was asserted.  <br>
   FIX1: EX_FPU_DSTDATA is connected from ex_busZ directly in cpu_datapath.v. EX_FPU_SRCDATA is stretched until next updating in cpu_fpu32.v. <br>
@@ -32,7 +32,7 @@ Followings are updated. Main RTL Body of mmRISC is not modified due to no bugs f
   WHY2: The register contention check between FLW's destination and FMADD's source 3 (src3) was not implemented. <br>
   FIX2: Contention check between FLW's destination and FMADD's source 3 (src3) is implemented in cpu_pipeline.v. <br>
 
-### 2022.03.20 (2) Fixed following bugs in Floating Point Instructions in mmRISC Core
+### 2022.03.20 (2) Added Simple I2C and SDRAM Interface in FPGA
  Followings are updated. <br> 
  (1) common/defines.v is divided into defines_core.v for mmRISC Core and defines_chip.v for Chip System. (defines.v is not used any more.)<br>
  (2) Simple I2C Core is added in FPGA. Related modifications are applied in RTL and Verification resources. Simple CPU Sample Program supports I2C which comunicates with Accelerometer Sensor on MAX10-Lite board. <br>
