@@ -17,6 +17,7 @@
 #include "common.h"
 #include "csr.h"
 #include "gpio.h"
+#include "i2c.h"
 #include "interrupt.h"
 #include "uart.h"
 #include "xprintf.h"
@@ -33,10 +34,12 @@ void main(void)
 {
     uint32_t i;
     uint64_t cyclel, cycleh, cycle_prev, cycle_now;
+    int16_t gX, gY, gZ;
     //
     // Initialize Hardware
     GPIO_Init();
     UART_Init();
+    GSENSOR_Init();
     INT_Init();
     //
     // Message
@@ -49,17 +52,20 @@ void main(void)
     i = 0;
     while(1)
     {
-        i = i + 1;
-        //
         cyclel = (uint64_t) read_csr(mcycle);
         cycleh = (uint64_t) read_csr(mcycleh);
         cycle_prev = (cycleh << 32) + (cyclel);
         //
         while (1)
         {
+            GSENSOR_ReadXYZ(&gX, &gY, &gZ);
+            //
             cyclel = (uint64_t) read_csr(mcycle);
             cycleh = (uint64_t) read_csr(mcycleh);
             cycle_now = (cycleh << 32) + (cyclel);
+            //
+            printf("CYCLE = 0x%08x%08x  (gX,gY,gZ)=(%4d,%4d,%4d)\n",
+                   (int)cycleh, (int)cyclel, (int)gX, (int)gY, (int)gZ);
             if (cycle_now >= cycle_prev + 1666666) break;
             //
             uint32_t seg;
@@ -68,6 +74,8 @@ void main(void)
             //
             mem_wr32(0xfffffffc, 0xdeaddead); // Simulation Stop
         }
+        //
+        i = i + 1;
     }
 }
 

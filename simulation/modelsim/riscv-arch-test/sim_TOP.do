@@ -1,20 +1,27 @@
 # Directory
 set DIR_RTL ../../../verilog
+set FPGA_RTL ../../../fpga
 
 # Compile
 vlog \
     -work work \
     -sv \
     +incdir+$DIR_RTL/common \
+    +incdir+$DIR_RTL/ahb_sdram/model \
     -timescale=1ns/100ps \
     +define+RISCV_ARCH_TEST \
     +define+SIMULATION \
+    +define+den512Mb \
+    +define+sg75     \
+    +define+x16      \
     +define+BUS_INTERVENTION_01 \
-    +define+DUMP_BGN=32'h90002080 \
-    +define+DUMP_END=32'h90002190 \
-    +define+TOHOST=32'h90001000 \
+    +define+DUMP_BGN=32'h90004010 \
+    +define+DUMP_END=32'h900048e0 \
+    +define+TOHOST=32'h90003000 \
     $DIR_RTL/chip/chip_top.v \
     $DIR_RTL/ram/ram.v \
+    $DIR_RTL/ram/ram_fpga.v \
+    $FPGA_RTL/RAM128KB_DP.v\
     $DIR_RTL/port/port.v \
     $DIR_RTL/uart/uart.v \
     $DIR_RTL/uart/sasc/trunk/rtl/verilog/sasc_top.v \
@@ -42,13 +49,18 @@ vlog \
     $DIR_RTL/ahb_matrix/ahb_slave_port.v \
     $DIR_RTL/ahb_matrix/ahb_interconnect.v \
     $DIR_RTL/ahb_matrix/ahb_arb.v \
+    $DIR_RTL/ahb_sdram/logic/ahb_lite_sdram.v \
+    $DIR_RTL/ahb_sdram/model/sdr.v \
     ./tb_TOP.v
    
 # Transcript File
 #transcript file log#.txt
 
 # Start Simulation
-vsim -c \
+#vsim -c -voptargs="+acc" -L altera_mf_ver \
+#    work.tb_TOP
+vsim -c -voptargs="+acc" \
+    -L altera_mf_ver \
     work.tb_TOP
 
 # Add Waveform
@@ -63,67 +75,67 @@ add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/por_n
 add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/res_org
 add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/res_pll
 
-#add wave -divider RAM1
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/RES
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/CLK
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HSEL
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HTRANS
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HWRITE
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HMASTLOCK
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HSIZE
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HBURST
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HPROT
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HADDR
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HWDATA
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HREADY
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HREADYOUT
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HRDATA
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HRESP
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/ready_count
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_dphase
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_dphase_htrans
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_dphase_h#addr
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_dphase_hwdata
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_dphase_hwrite
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_dphase_hsize
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_dphase_hmastlock
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_re_0
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_re_1
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_re_2
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_re_3
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_we_0
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_we_1
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_we_2
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_we_3
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_r#addr_0
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_r#addr_1
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_r#addr_2
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_r#addr_3
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_w#addr_0
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_w#addr_1
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_w#addr_2
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_w#addr_3
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_rdata_0
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_rdata_1
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_rdata_2
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_rdata_3
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_wdata_0
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_wdata_1
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_wdata_2
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_wdata_3
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_dphase_contention_0
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_dphase_contention_1
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_dphase_contention_2
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_dphase_contention_3
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_cdata_0
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_cdata_1
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_cdata_2
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/s_mem_cdata_3
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/rdata_0
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/rdata_1
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/rdata_2
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/rdata_3
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/wait_cycle
+#add wave -divider RAMI
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/RES
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/CLK
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HSEL
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HTRANS
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HWRITE
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HMASTLOCK
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HSIZE
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HBURST
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HPROT
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HADDR
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HWDATA
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HREADY
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HREADYOUT
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HRDATA
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HRESP
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/ready_count
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_dphase
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_dphase_htrans
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_dphase_h#addr
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_dphase_hwdata
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_dphase_hwrite
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_dphase_hsize
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_dphase_hmastlock
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_re_0
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_re_1
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_re_2
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_re_3
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_we_0
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_we_1
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_we_2
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_we_3
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_r#addr_0
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_r#addr_1
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_r#addr_2
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_r#addr_3
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_w#addr_0
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_w#addr_1
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_w#addr_2
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_w#addr_3
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_rdata_0
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_rdata_1
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_rdata_2
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_rdata_3
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_wdata_0
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_wdata_1
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_wdata_2
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_wdata_3
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_dphase_contention_0
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_dphase_contention_1
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_dphase_contention_2
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_dphase_contention_3
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_cdata_0
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_cdata_1
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_cdata_2
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/s_mem_cdata_3
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/rdata_0
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/rdata_1
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/rdata_2
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/rdata_3
+#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/wait_cycle
 
 add wave -divider CPU_FETCH
 add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_FETCH/FETCH_START

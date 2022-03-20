@@ -11,12 +11,15 @@
 // Copyright (C) 2017-2020 M.Maruyama
 //===========================================================
 
-`include "defines.v"
+`include "defines_core.v"
 
 //----------------------
 // Define Module
 //----------------------
 module mmRISC
+    #(parameter
+        HART_COUNT = 1
+     )
 (
     input  wire RES_ORG, // Reset Origin (e.g. Power On Reset)
     output wire RES_SYS, // Reset System (including reset from debug)
@@ -34,45 +37,45 @@ module mmRISC
     output wire TDO_E, // JTAG Data Output Enable
     output wire RTCK,  // JTAG Return Clock
     //
-    input  wire [31:0] RESET_VECTOR     [0:`HART_COUNT-1], // Reset Vector
+    input  wire [31:0] RESET_VECTOR     [0:HART_COUNT-1], // Reset Vector
     input  wire        DEBUG_SECURE,      // Debug should be secure, or not
     input  wire [31:0] DEBUG_SECURE_CODE, // Debug Security Pass Code
     //
-    output wire        CPUI_M_HSEL      [0:`HART_COUNT-1], // AHB for CPU Instruction
-    output wire [ 1:0] CPUI_M_HTRANS    [0:`HART_COUNT-1], // AHB for CPU Instruction
-    output wire        CPUI_M_HWRITE    [0:`HART_COUNT-1], // AHB for CPU Instruction
-    output wire        CPUI_M_HMASTLOCK [0:`HART_COUNT-1], // AHB for CPU Instruction
-    output wire [ 2:0] CPUI_M_HSIZE     [0:`HART_COUNT-1], // AHB for CPU Instruction
-    output wire [ 2:0] CPUI_M_HBURST    [0:`HART_COUNT-1], // AHB for CPU Instruction
-    output wire [ 3:0] CPUI_M_HPROT     [0:`HART_COUNT-1], // AHB for CPU Instruction
-    output wire [31:0] CPUI_M_HADDR     [0:`HART_COUNT-1], // AHB for CPU Instruction
-    output wire [31:0] CPUI_M_HWDATA    [0:`HART_COUNT-1], // AHB for CPU Instruction
-    output wire        CPUI_M_HREADY    [0:`HART_COUNT-1], // AHB for CPU Instruction
-    input  wire        CPUI_M_HREADYOUT [0:`HART_COUNT-1], // AHB for CPU Instruction
-    input  wire [31:0] CPUI_M_HRDATA    [0:`HART_COUNT-1], // AHB for CPU Instruction
-    input  wire        CPUI_M_HRESP     [0:`HART_COUNT-1], // AHB for CPU Instruction
+    output wire        CPUI_M_HSEL      [0:HART_COUNT-1], // AHB for CPU Instruction
+    output wire [ 1:0] CPUI_M_HTRANS    [0:HART_COUNT-1], // AHB for CPU Instruction
+    output wire        CPUI_M_HWRITE    [0:HART_COUNT-1], // AHB for CPU Instruction
+    output wire        CPUI_M_HMASTLOCK [0:HART_COUNT-1], // AHB for CPU Instruction
+    output wire [ 2:0] CPUI_M_HSIZE     [0:HART_COUNT-1], // AHB for CPU Instruction
+    output wire [ 2:0] CPUI_M_HBURST    [0:HART_COUNT-1], // AHB for CPU Instruction
+    output wire [ 3:0] CPUI_M_HPROT     [0:HART_COUNT-1], // AHB for CPU Instruction
+    output wire [31:0] CPUI_M_HADDR     [0:HART_COUNT-1], // AHB for CPU Instruction
+    output wire [31:0] CPUI_M_HWDATA    [0:HART_COUNT-1], // AHB for CPU Instruction
+    output wire        CPUI_M_HREADY    [0:HART_COUNT-1], // AHB for CPU Instruction
+    input  wire        CPUI_M_HREADYOUT [0:HART_COUNT-1], // AHB for CPU Instruction
+    input  wire [31:0] CPUI_M_HRDATA    [0:HART_COUNT-1], // AHB for CPU Instruction
+    input  wire        CPUI_M_HRESP     [0:HART_COUNT-1], // AHB for CPU Instruction
     //
-    output wire        CPUD_M_HSEL      [0:`HART_COUNT-1], // AHB for CPU Data
-    output wire [ 1:0] CPUD_M_HTRANS    [0:`HART_COUNT-1], // AHB for CPU Data
-    output wire        CPUD_M_HWRITE    [0:`HART_COUNT-1], // AHB for CPU Data
-    output wire        CPUD_M_HMASTLOCK [0:`HART_COUNT-1], // AHB for CPU Data
-    output wire [ 2:0] CPUD_M_HSIZE     [0:`HART_COUNT-1], // AHB for CPU Data
-    output wire [ 2:0] CPUD_M_HBURST    [0:`HART_COUNT-1], // AHB for CPU Data
-    output wire [ 3:0] CPUD_M_HPROT     [0:`HART_COUNT-1], // AHB for CPU Data
-    output wire [31:0] CPUD_M_HADDR     [0:`HART_COUNT-1], // AHB for CPU Data
-    output wire [31:0] CPUD_M_HWDATA    [0:`HART_COUNT-1], // AHB for CPU Data
-    output wire        CPUD_M_HREADY    [0:`HART_COUNT-1], // AHB for CPU Data
-    input  wire        CPUD_M_HREADYOUT [0:`HART_COUNT-1], // AHB for CPU Data
-    input  wire [31:0] CPUD_M_HRDATA    [0:`HART_COUNT-1], // AHB for CPU Data
-    input  wire        CPUD_M_HRESP     [0:`HART_COUNT-1], // AHB for CPU Data
+    output wire        CPUD_M_HSEL      [0:HART_COUNT-1], // AHB for CPU Data
+    output wire [ 1:0] CPUD_M_HTRANS    [0:HART_COUNT-1], // AHB for CPU Data
+    output wire        CPUD_M_HWRITE    [0:HART_COUNT-1], // AHB for CPU Data
+    output wire        CPUD_M_HMASTLOCK [0:HART_COUNT-1], // AHB for CPU Data
+    output wire [ 2:0] CPUD_M_HSIZE     [0:HART_COUNT-1], // AHB for CPU Data
+    output wire [ 2:0] CPUD_M_HBURST    [0:HART_COUNT-1], // AHB for CPU Data
+    output wire [ 3:0] CPUD_M_HPROT     [0:HART_COUNT-1], // AHB for CPU Data
+    output wire [31:0] CPUD_M_HADDR     [0:HART_COUNT-1], // AHB for CPU Data
+    output wire [31:0] CPUD_M_HWDATA    [0:HART_COUNT-1], // AHB for CPU Data
+    output wire        CPUD_M_HREADY    [0:HART_COUNT-1], // AHB for CPU Data
+    input  wire        CPUD_M_HREADYOUT [0:HART_COUNT-1], // AHB for CPU Data
+    input  wire [31:0] CPUD_M_HRDATA    [0:HART_COUNT-1], // AHB for CPU Data
+    input  wire        CPUD_M_HRESP     [0:HART_COUNT-1], // AHB for CPU Data
     //
     `ifdef RISCV_ISA_RV32A
-    input  wire        CPUM_S_HSEL      [0:`HART_COUNT-1], // AHB Monitor for LR/SC
-    input  wire [ 1:0] CPUM_S_HTRANS    [0:`HART_COUNT-1], // AHB Monitor for LR/SC
-    input  wire        CPUM_S_HWRITE    [0:`HART_COUNT-1], // AHB Monitor for LR/SC
-    input  wire [31:0] CPUM_S_HADDR     [0:`HART_COUNT-1], // AHB Monitor for LR/SC
-    input  wire        CPUM_S_HREADY    [0:`HART_COUNT-1], // AHB Monitor for LR/SC
-    input  wire        CPUM_S_HREADYOUT [0:`HART_COUNT-1], // AHB Monitor for LR/SC
+    input  wire        CPUM_S_HSEL      [0:HART_COUNT-1], // AHB Monitor for LR/SC
+    input  wire [ 1:0] CPUM_S_HTRANS    [0:HART_COUNT-1], // AHB Monitor for LR/SC
+    input  wire        CPUM_S_HWRITE    [0:HART_COUNT-1], // AHB Monitor for LR/SC
+    input  wire [31:0] CPUM_S_HADDR     [0:HART_COUNT-1], // AHB Monitor for LR/SC
+    input  wire        CPUM_S_HREADY    [0:HART_COUNT-1], // AHB Monitor for LR/SC
+    input  wire        CPUM_S_HREADYOUT [0:HART_COUNT-1], // AHB Monitor for LR/SC
     `endif
     //
     output wire        DBGD_M_HSEL     , // AHB for Debugger System Access
@@ -108,49 +111,49 @@ integer x;
 //------------------------
 // Instruction Fetch Bus
 //------------------------
-wire        busi_m_req      [0 : `HART_COUNT - 1]; // Bus Master Command Request
-wire        busi_m_ack      [0 : `HART_COUNT - 1]; // Bus Master Command Acknowledge
-wire        busi_m_seq      [0 : `HART_COUNT - 1]; // Bus Master Command Sequence
-wire        busi_m_cont     [0 : `HART_COUNT - 1]; // Bus Master Command Continuing
-wire [ 2:0] busi_m_burst    [0 : `HART_COUNT - 1]; // Bus Master Command Burst
-wire        busi_m_lock     [0 : `HART_COUNT - 1]; // Bus Master Command Lock
-wire [ 3:0] busi_m_prot     [0 : `HART_COUNT - 1]; // Bus Master Command Protect
-wire        busi_m_write    [0 : `HART_COUNT - 1]; // Bus Master Command Write (if 0, read)
-wire [ 1:0] busi_m_size     [0 : `HART_COUNT - 1]; // Bus Master Command Size (0:byte, 1:HWord, 2:Word)
-wire [31:0] busi_m_addr     [0 : `HART_COUNT - 1]; // Bus Master Command Address
-wire [31:0] busi_m_wdata    [0 : `HART_COUNT - 1]; // Bus Master Command Write Data
-wire        busi_m_last     [0 : `HART_COUNT - 1]; // Bus Master Command Last Cycle
-wire [31:0] busi_m_rdata    [0 : `HART_COUNT - 1]; // Bus Master Command Read Data
-reg  [ 3:0] busi_m_done     [0 : `HART_COUNT - 1]; // Bus Master Command Done ({BUSERR, EXCEPTION, WRITE, DONE})
-wire [31:0] busi_m_rdata_raw[0 : `HART_COUNT - 1]; // Bus Master Command Read Data Unclocked
-wire [ 3:0] busi_m_done_raw [0 : `HART_COUNT - 1]; // Bus Master Command Done ({BUSERR, EXCEPTION, WRITE, DONE}) Unclocked
+wire        busi_m_req      [0 : HART_COUNT - 1]; // Bus Master Command Request
+wire        busi_m_ack      [0 : HART_COUNT - 1]; // Bus Master Command Acknowledge
+wire        busi_m_seq      [0 : HART_COUNT - 1]; // Bus Master Command Sequence
+wire        busi_m_cont     [0 : HART_COUNT - 1]; // Bus Master Command Continuing
+wire [ 2:0] busi_m_burst    [0 : HART_COUNT - 1]; // Bus Master Command Burst
+wire        busi_m_lock     [0 : HART_COUNT - 1]; // Bus Master Command Lock
+wire [ 3:0] busi_m_prot     [0 : HART_COUNT - 1]; // Bus Master Command Protect
+wire        busi_m_write    [0 : HART_COUNT - 1]; // Bus Master Command Write (if 0, read)
+wire [ 1:0] busi_m_size     [0 : HART_COUNT - 1]; // Bus Master Command Size (0:byte, 1:HWord, 2:Word)
+wire [31:0] busi_m_addr     [0 : HART_COUNT - 1]; // Bus Master Command Address
+wire [31:0] busi_m_wdata    [0 : HART_COUNT - 1]; // Bus Master Command Write Data
+wire        busi_m_last     [0 : HART_COUNT - 1]; // Bus Master Command Last Cycle
+wire [31:0] busi_m_rdata    [0 : HART_COUNT - 1]; // Bus Master Command Read Data
+reg  [ 3:0] busi_m_done     [0 : HART_COUNT - 1]; // Bus Master Command Done ({BUSERR, EXCEPTION, WRITE, DONE})
+wire [31:0] busi_m_rdata_raw[0 : HART_COUNT - 1]; // Bus Master Command Read Data Unclocked
+wire [ 3:0] busi_m_done_raw [0 : HART_COUNT - 1]; // Bus Master Command Done ({BUSERR, EXCEPTION, WRITE, DONE}) Unclocked
 
 //------------------------
 // Data Access Bus
 //------------------------
-wire        busd_m_req      [0 : `HART_COUNT - 1]; // Bus Master Command Request
-wire        busd_m_ack      [0 : `HART_COUNT - 1]; // Bus Master Command Acknowledge
-wire        busd_m_seq      [0 : `HART_COUNT - 1]; // Bus Master Command Sequence
-wire        busd_m_cont     [0 : `HART_COUNT - 1]; // Bus Master Command Continuing
-wire [ 2:0] busd_m_burst    [0 : `HART_COUNT - 1]; // Bus Master Command Burst
-wire        busd_m_lock     [0 : `HART_COUNT - 1]; // Bus Master Command Lock
-wire [ 3:0] busd_m_prot     [0 : `HART_COUNT - 1]; // Bus Master Command Protect
-wire        busd_m_write    [0 : `HART_COUNT - 1]; // Bus Master Command Write (if 0, read)
-wire [ 1:0] busd_m_size     [0 : `HART_COUNT - 1]; // Bus Master Command Size (0:byte, 1:HWord, 2:Word)
-wire [31:0] busd_m_addr     [0 : `HART_COUNT - 1]; // Bus Master Command Address
-wire [31:0] busd_m_wdata    [0 : `HART_COUNT - 1]; // Bus Master Command Write Data
-wire        busd_m_last     [0 : `HART_COUNT - 1]; // Bus Master Command Last Cycle
-wire [31:0] busd_m_rdata    [0 : `HART_COUNT - 1]; // Bus Master Command Read Data
-reg  [ 3:0] busd_m_done     [0 : `HART_COUNT - 1]; // Bus Master Command Done ({BUSERR, EXCEPTION, WRITE, DONE})
-wire [31:0] busd_m_rdata_raw[0 : `HART_COUNT - 1]; // Bus Master Command Read Data Unclocked
-wire [ 3:0] busd_m_done_raw [0 : `HART_COUNT - 1]; // Bus Master Command Done ({BUSERR, EXCEPTION, WRITE, DONE}) Unclocked
+wire        busd_m_req      [0 : HART_COUNT - 1]; // Bus Master Command Request
+wire        busd_m_ack      [0 : HART_COUNT - 1]; // Bus Master Command Acknowledge
+wire        busd_m_seq      [0 : HART_COUNT - 1]; // Bus Master Command Sequence
+wire        busd_m_cont     [0 : HART_COUNT - 1]; // Bus Master Command Continuing
+wire [ 2:0] busd_m_burst    [0 : HART_COUNT - 1]; // Bus Master Command Burst
+wire        busd_m_lock     [0 : HART_COUNT - 1]; // Bus Master Command Lock
+wire [ 3:0] busd_m_prot     [0 : HART_COUNT - 1]; // Bus Master Command Protect
+wire        busd_m_write    [0 : HART_COUNT - 1]; // Bus Master Command Write (if 0, read)
+wire [ 1:0] busd_m_size     [0 : HART_COUNT - 1]; // Bus Master Command Size (0:byte, 1:HWord, 2:Word)
+wire [31:0] busd_m_addr     [0 : HART_COUNT - 1]; // Bus Master Command Address
+wire [31:0] busd_m_wdata    [0 : HART_COUNT - 1]; // Bus Master Command Write Data
+wire        busd_m_last     [0 : HART_COUNT - 1]; // Bus Master Command Last Cycle
+wire [31:0] busd_m_rdata    [0 : HART_COUNT - 1]; // Bus Master Command Read Data
+reg  [ 3:0] busd_m_done     [0 : HART_COUNT - 1]; // Bus Master Command Done ({BUSERR, EXCEPTION, WRITE, DONE})
+wire [31:0] busd_m_rdata_raw[0 : HART_COUNT - 1]; // Bus Master Command Read Data Unclocked
+wire [ 3:0] busd_m_done_raw [0 : HART_COUNT - 1]; // Bus Master Command Done ({BUSERR, EXCEPTION, WRITE, DONE}) Unclocked
 
 //--------------------------------
 // Bus Monitor for LR/SC
 //--------------------------------
-wire        busm_s_req      [0 : `HART_COUNT - 1]; // AHB Monitor for LR/SC
-wire        busm_s_write    [0 : `HART_COUNT - 1]; // AHB Monitor for LR/SC
-wire [31:0] busm_s_addr     [0 : `HART_COUNT - 1]; // AHB Monitor for LR/SC
+wire        busm_s_req      [0 : HART_COUNT - 1]; // AHB Monitor for LR/SC
+wire        busm_s_write    [0 : HART_COUNT - 1]; // AHB Monitor for LR/SC
+wire [31:0] busm_s_addr     [0 : HART_COUNT - 1]; // AHB Monitor for LR/SC
 
 //-----------------------------
 // Debugger System Access Bus
@@ -175,31 +178,31 @@ wire [ 3:0] buss_m_done_raw ; // Bus Master Command Done ({BUSERR, EXCEPTION, WR
 //---------------
 // Debug Module
 //---------------
-wire debug_mode[0 : `HART_COUNT - 1]; // Debug Mode
+wire debug_mode[0 : HART_COUNT - 1]; // Debug Mode
 //
-wire hart_halt_req     [0 : `HART_COUNT - 1]; // HART Halt Command
-wire hart_status       [0 : `HART_COUNT - 1]; // HART Status (0:Run, 1:Halt) 
-wire hart_available    [0 : `HART_COUNT - 1]; // HART Availability (eg. unavailabe if stby)
-wire hart_reset        [0 : `HART_COUNT - 1]; // HART Reset Signal    
-wire hart_halt_on_reset[0 : `HART_COUNT - 1]; // HART Halt on Reset
-wire hart_resume_req   [0 : `HART_COUNT - 1]; // HART Resume Request
-wire hart_resume_ack   [0 : `HART_COUNT - 1]; // HART Resume Acknowledge
+wire hart_halt_req     [0 : HART_COUNT - 1]; // HART Halt Command
+wire hart_status       [0 : HART_COUNT - 1]; // HART Status (0:Run, 1:Halt) 
+wire hart_available    [0 : HART_COUNT - 1]; // HART Availability (eg. unavailabe if stby)
+wire hart_reset        [0 : HART_COUNT - 1]; // HART Reset Signal    
+wire hart_halt_on_reset[0 : HART_COUNT - 1]; // HART Halt on Reset
+wire hart_resume_req   [0 : HART_COUNT - 1]; // HART Resume Request
+wire hart_resume_ack   [0 : HART_COUNT - 1]; // HART Resume Acknowledge
 //
-wire        dbgabs_req  [0 : `HART_COUNT - 1]; // Debug Abstract Command Request
-wire        dbgabs_ack  [0 : `HART_COUNT - 1]; // Debug Abstract Command Acknowledge
-wire [ 1:0] dbgabs_type [0 : `HART_COUNT - 1]; // Debug Abstract Command Type
-wire        dbgabs_write[0 : `HART_COUNT - 1]; // Debug Abstract Command Write (if 0, read)
-wire [ 1:0] dbgabs_size [0 : `HART_COUNT - 1]; // Debug Abstract Command Size (0:byte, 1:HWord, 2:Word)
-wire [31:0] dbgabs_addr [0 : `HART_COUNT - 1]; // Debug Abstract Command Address
-wire [31:0] dbgabs_wdata[0 : `HART_COUNT - 1]; // Debug Abstract Command Write Data
-wire [31:0] dbgabs_rdata[0 : `HART_COUNT - 1]; // Debug Abstract Command Read Data
-wire [ 3:0] dbgabs_done [0 : `HART_COUNT - 1]; // Debug Abstract Command Done ({BUSERR, EXCEPT, WRITE, ACK})
+wire        dbgabs_req  [0 : HART_COUNT - 1]; // Debug Abstract Command Request
+wire        dbgabs_ack  [0 : HART_COUNT - 1]; // Debug Abstract Command Acknowledge
+wire [ 1:0] dbgabs_type [0 : HART_COUNT - 1]; // Debug Abstract Command Type
+wire        dbgabs_write[0 : HART_COUNT - 1]; // Debug Abstract Command Write (if 0, read)
+wire [ 1:0] dbgabs_size [0 : HART_COUNT - 1]; // Debug Abstract Command Size (0:byte, 1:HWord, 2:Word)
+wire [31:0] dbgabs_addr [0 : HART_COUNT - 1]; // Debug Abstract Command Address
+wire [31:0] dbgabs_wdata[0 : HART_COUNT - 1]; // Debug Abstract Command Write Data
+wire [31:0] dbgabs_rdata[0 : HART_COUNT - 1]; // Debug Abstract Command Read Data
+wire [ 3:0] dbgabs_done [0 : HART_COUNT - 1]; // Debug Abstract Command Done ({BUSERR, EXCEPT, WRITE, ACK})
 //
-wire dbg_stop_timer[0 : `HART_COUNT - 1]; // Stop Timer due to Debug Mode
+wire dbg_stop_timer[0 : HART_COUNT - 1]; // Stop Timer due to Debug Mode
 //
 DEBUG_TOP
     #(
-         .HART_COUNT(`HART_COUNT)
+         .HART_COUNT(HART_COUNT)
     )
 U_DEBUG_TOP
 (
@@ -263,7 +266,7 @@ U_DEBUG_TOP
 // CPU Cores
 //--------------
 generate
-    for (i = 0; i < `HART_COUNT; i = i + 1)
+    for (i = 0; i < HART_COUNT; i = i + 1)
     begin : U_CPU_TOP
         CPU_TOP U_CPU_TOP
         (
@@ -351,7 +354,7 @@ endgenerate
 always @*
 begin
     DBG_STOP_TIMER = 1'b0;
-    for (x = 0; x < `HART_COUNT; x = x + 1)
+    for (x = 0; x < HART_COUNT; x = x + 1)
         DBG_STOP_TIMER = DBG_STOP_TIMER | dbg_stop_timer[x];
 end
 
@@ -359,7 +362,7 @@ end
 // Bus Interface : AHB for CPU Instruction
 //--------------------------------------------------
 generate
-    for (i = 0; i < `HART_COUNT; i = i + 1)
+    for (i = 0; i < HART_COUNT; i = i + 1)
     begin : U_BUS_M_AHB_CPUI
         BUS_M_AHB U_BUS_M_AHB_CPUI
         (
@@ -404,7 +407,7 @@ endgenerate
 // Bus Interface : AHB for CPU Data
 //--------------------------------------------------
 generate
-    for (i = 0; i < `HART_COUNT; i = i + 1)
+    for (i = 0; i < HART_COUNT; i = i + 1)
     begin : U_BUS_M_AHB_CPUD
         BUS_M_AHB U_BUS_M_AHB_CPUD
         (
@@ -490,7 +493,7 @@ BUS_M_AHB U_BUS_M_AHB_DBGD
 // Bus Interface : Monitor for LR/SC
 //-----------------------------------
 generate
-    for (i = 0; i < `HART_COUNT; i = i + 1)
+    for (i = 0; i < HART_COUNT; i = i + 1)
     begin : U_BUS_MONITOR
         assign busm_s_req[i] = CPUM_S_HSEL[i]   & CPUM_S_HTRANS[i][1]
                              & CPUM_S_HREADY[i] & CPUM_S_HREADYOUT[i];

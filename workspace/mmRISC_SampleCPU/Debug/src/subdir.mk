@@ -5,6 +5,8 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../src/gpio.c \
+../src/gsensor.c \
+../src/i2c.c \
 ../src/interrupt.c \
 ../src/libc-hooks.c \
 ../src/main.c \
@@ -17,6 +19,8 @@ S_UPPER_SRCS += \
 
 OBJS += \
 ./src/gpio.o \
+./src/gsensor.o \
+./src/i2c.o \
 ./src/interrupt.o \
 ./src/libc-hooks.o \
 ./src/main.o \
@@ -30,6 +34,8 @@ S_UPPER_DEPS += \
 
 C_DEPS += \
 ./src/gpio.d \
+./src/gsensor.d \
+./src/i2c.d \
 ./src/interrupt.d \
 ./src/libc-hooks.d \
 ./src/main.d \

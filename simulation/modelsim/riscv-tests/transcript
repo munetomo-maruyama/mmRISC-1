@@ -1,6 +1,6 @@
 # vsim -c -onfinish exit work.tb_TOP -do "run -all" 
-# Start time: 14:02:24 on Dec 31,2021
-# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Start time: 00:15:28 on Mar 20,2022
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
 # //  Questa Intel Starter FPGA Edition-64
 # //  Version 2021.2 linux_x86_64 Apr 14 2021
 # //
@@ -18,9 +18,20 @@
 # Loading sv_std.std
 # Loading work.tb_TOP(fast)
 # Loading work.CPU_TOP(fast)
+# Loading work.i2c_slave_model(fast)
+# Loading work.sdr(fast)
 # run -all
+# DEBUG i2c_slave; stop condition detected at       1.0 ns
+# tb_TOP.U_SDRAM : at time     840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time     920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time    1000.0 ns LMR  : Load Mode Register
+# tb_TOP.U_SDRAM :                             CAS Latency      = 2
+# tb_TOP.U_SDRAM :                             Burst Length     = 2
+# tb_TOP.U_SDRAM :                             Burst Type       = Sequential
+# tb_TOP.U_SDRAM :                             Write Burst Mode = Programmed Burst Length
+# tb_TOP.U_SDRAM : at time    8760.0 ns AREF : Auto Refresh
 # ***** DETECT TOHOST ***** at 90001000
-# ** Note: $finish    : ./tb_TOP.v(179)
-#    Time: 33550 ns  Iteration: 1  Instance: /tb_TOP
-# End time: 14:02:29 on Dec 31,2021, Elapsed time: 0:00:05
+# ** Note: $finish    : ./tb_TOP.v(181)
+#    Time: 13750 ns  Iteration: 1  Instance: /tb_TOP
+# End time: 00:15:35 on Mar 20,2022, Elapsed time: 0:00:07
 # Errors: 0, Warnings: 0

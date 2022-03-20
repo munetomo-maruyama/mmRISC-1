@@ -1,9 +1,14 @@
 -work work
 -sv
 +incdir+../../../verilog/common
++incdir+../../../verilog/ahb_sdram/model
++incdir+../../../verilog/i2c/i2c/trunk/rtl/verilog
 -timescale=1ns/100ps
 +define+RISCV_ARCH_TEST
 +define+SIMULATION
++define+den512mb
++define+sg75
++define+x16
 ../../../verilog/chip/chip_top.v
 ../../../verilog/int_gen/int_gen.v
 ../../../verilog/ram/ram.v
@@ -12,6 +17,11 @@
 ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v
 ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v
 ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v
+../../../verilog/i2c/i2c.v
+../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_top.v
+../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_bit_ctrl.v
+../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_byte_ctrl.v
+../../../verilog/i2c/i2c_slave_model.v
 ../../../verilog/mmRISC/mmRISC.v
 ../../../verilog/mmRISC/bus_m_ahb.v
 ../../../verilog/mmRISC/csr_mtime.v
@@ -33,4 +43,6 @@
 ../../../verilog/ahb_matrix/ahb_slave_port.v
 ../../../verilog/ahb_matrix/ahb_interconnect.v
 ../../../verilog/ahb_matrix/ahb_arb.v
+../../../verilog/ahb_sdram/logic/ahb_lite_sdram.v
+../../../verilog/ahb_sdram/model/sdr.v
 ./tb_TOP.v

@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Fri Dec 31 15:42:57 2021
+Analysis & Synthesis Status : Successful - Sun Mar 20 09:36:14 2022
 Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 Revision Name : mmRISC
 Top-level Entity Name : CHIP_TOP
 Family : MAX 10
-Total logic elements : 42,486
-    Total combinational functions : 40,412
-    Dedicated logic registers : 9,195
-Total registers : 9195
-Total pins : 108
+Total logic elements : 43,516
+    Total combinational functions : 41,353
+    Dedicated logic registers : 9,452
+Total registers : 9452
+Total pins : 150
 Total virtual pins : 0
 Total memory bits : 1,442,816
 Embedded Multiplier 9-bit elements : 40

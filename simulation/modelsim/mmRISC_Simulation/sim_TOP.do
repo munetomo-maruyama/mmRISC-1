@@ -1,6 +1,7 @@
 # Convert hex to memh
-exec ../../../tools/hex2v ../../../workspace/mmRISC_SampleCPU/Debug/mmRISC_SampleCPU.hex > rom.memh
-#exec ../../../tools/hex2v ../../../workspace/mmRISC_SampleFPU/Debug/mmRISC_SampleFPU.hex > rom.memh
+#exec ../../../tools/hex2v ../../../workspace/mmRISC_SampleCPU/Debug/mmRISC_SampleCPU.hex > rom.memh
+exec ../../../tools/hex2v ../../../workspace/mmRISC_SampleFPU/Debug/mmRISC_SampleFPU.hex > rom.memh
+#exec ../../../tools/hex2v ../../../workspace/mmRISC_SampleFPU_old/Debug/mmRISC_SampleFPU_old.hex > rom.memh
 #exec ../../../tools/hex2v ../../../workspace/mmRISC_Coremark/Debug/mmRISC_Coremark.hex > rom.memh
 
 # Directory
@@ -16,17 +17,27 @@ vlog \
     -work work \
     -sv \
     +incdir+$DIR_RTL/common \
+    +incdir+$DIR_RTL/ahb_sdram/model \
+    +incdir+$DIR_RTL/i2c/i2c/trunk/rtl/verilog \
     -timescale=1ns/100ps \
     +define+SIMULATION \
+    +define+den512Mb \
+    +define+sg75     \
+    +define+x16      \
     $DIR_RTL/chip/chip_top.v \
-    $DIR_RTL/ram/ram.v \
+    $DIR_RTL/ram/ram.v      \
     $DIR_RTL/ram/ram_fpga.v \
-    $FPGA_RTL/RAM128KB_DP.v\
+    $FPGA_RTL/RAM128KB_DP.v \
     $DIR_RTL/port/port.v \
-    $DIR_RTL/uart/uart.v \
-    $DIR_RTL/uart/sasc/trunk/rtl/verilog/sasc_top.v \
+    $DIR_RTL/uart/uart.v                              \
+    $DIR_RTL/uart/sasc/trunk/rtl/verilog/sasc_top.v   \
     $DIR_RTL/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v \
-    $DIR_RTL/uart/sasc/trunk/rtl/verilog/sasc_brg.v \
+    $DIR_RTL/uart/sasc/trunk/rtl/verilog/sasc_brg.v   \
+    $DIR_RTL/i2c/i2c.v                                        \
+    $DIR_RTL/i2c/i2c/trunk/rtl/verilog/i2c_master_top.v       \
+    $DIR_RTL/i2c/i2c/trunk/rtl/verilog/i2c_master_bit_ctrl.v  \
+    $DIR_RTL/i2c/i2c/trunk/rtl/verilog/i2c_master_byte_ctrl.v \
+    $DIR_RTL/i2c/i2c_slave_model.v                            \
     $DIR_RTL/int_gen/int_gen.v \
     $DIR_RTL/mmRISC/mmRISC.v \
     $DIR_RTL/mmRISC/bus_m_ahb.v \
@@ -49,6 +60,8 @@ vlog \
     $DIR_RTL/ahb_matrix/ahb_slave_port.v \
     $DIR_RTL/ahb_matrix/ahb_interconnect.v \
     $DIR_RTL/ahb_matrix/ahb_arb.v \
+    $DIR_RTL/ahb_sdram/logic/ahb_lite_sdram.v \
+    $DIR_RTL/ahb_sdram/model/sdr.v \
     ./tb_TOP.v
 #$DIR_RTL/../fpga/PLL.v \
 
@@ -102,14 +115,14 @@ add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG
 add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DTM_JTAG/RES_DBG
 add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/HART_RESET
 
-#add wave -divider JTAG
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/TCK
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/TMS
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/TDI
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/TDO
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/TDO_D
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/TDO_E
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/TRSTn
+add wave -divider JTAG
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/TCK
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/TMS
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/TDI
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/TDO
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/TDO_D
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/TDO_E
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/TRSTn
 #add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/SRSTn
 #add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DTM_JTAG/res_tap_async
 #add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DTM_JTAG/dtmcs_dmihardreset_tck
@@ -224,101 +237,101 @@ add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG
 #add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_AHB_MATRIX/U_AHB_INTERCONNECT/phase_a_ack_winner
 #add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_AHB_MATRIX/U_AHB_INTERCONNECT/s_hmastlock
 
-#add wave -divider DMBUS
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DTM_JTAG/DMBUS_REQ
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DTM_JTAG/DMBUS_RW
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DTM_JTAG/DMBUS_ADDR
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DTM_JTAG/DMBUS_WDATA
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DTM_JTAG/DMBUS_RDATA
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DTM_JTAG/DMBUS_ACK
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DTM_JTAG/DMBUS_ERR
+add wave -divider DMBUS
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DTM_JTAG/DMBUS_REQ
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DTM_JTAG/DMBUS_RW
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DTM_JTAG/DMBUS_ADDR
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DTM_JTAG/DMBUS_WDATA
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DTM_JTAG/DMBUS_RDATA
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DTM_JTAG/DMBUS_ACK
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DTM_JTAG/DMBUS_ERR
 
-#add wave -divider DM
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/authok
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/rdata_dm_control
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/dm_control
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/dm_data
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/haltreq
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/resumereq
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/hasel
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/hartsel
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/ha_sel
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/dm_hawindowsel
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/dm_hamask
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/HART_HALT_REQ
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/HART_STATUS
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/HART_AVAILABLE
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/HART_RESET
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/HART_HALT_ON_RESET
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/HART_RESUME_REQ
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/HART_RESUME_ACK
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/rdata_dm_status
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/allhavereset
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/anyhavereset
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/allresumeack
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/anyresumeack
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/allnoexistent
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/anynoexistent
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/allunavail
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/anyunavail
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/allrunning
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/anyrunning
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/allhalted
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/anyhalted
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DMBUS_REQ
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DMBUS_RW
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DMBUS_ADDR
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DMBUS_WDATA
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DMBUS_RDATA
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DMBUS_ACK
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DMBUS_ERR
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sel_dm_command
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_REQ
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_ACK
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_TYPE
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_WRITE
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_SIZE
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_ADDR
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_WDATA
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_RDATA
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_DONE
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_REQ_internal
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_ACK_internal
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_TYPE_internal
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_WRITE_internal
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_ADDR_internal
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_WDATA_internal
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_RDATA_internal
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_DONE_internal
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/ha_sel
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/abstract_busy
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/cmderr
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/dbgabs_arg0_read
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/dbgabs_arg0_data
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/dbgabs_arg1_incr
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/dbgabs_autoincr
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sbcs
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sb#addr
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sbdata
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sel_dm_sbcs
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sel_dm_sb#addr
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sel_dm_sbdata
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sb_req
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sb_ack
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sbbusy
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sb_done
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sb_req_readon#addr
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sb_req_readondata
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/DBGD_M_HSEL
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/DBGD_M_HTRANS
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/DBGD_M_HWRITE
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/DBGD_M_HSIZE
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/DBGD_M_HADDR
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/DBGD_M_HWDATA
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/DBGD_M_HREADY
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/DBGD_M_HREADYOUT
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/DBGD_M_HRDATA
-#add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/DBGD_M_HRESP
+add wave -divider DM
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/authok
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/rdata_dm_control
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/dm_control
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/dm_data
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/haltreq
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/resumereq
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/hasel
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/hartsel
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/ha_sel
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/dm_hawindowsel
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/dm_hamask
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/HART_HALT_REQ
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/HART_STATUS
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/HART_AVAILABLE
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/HART_RESET
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/HART_HALT_ON_RESET
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/HART_RESUME_REQ
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/HART_RESUME_ACK
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/rdata_dm_status
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/allhavereset
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/anyhavereset
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/allresumeack
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/anyresumeack
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/allnoexistent
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/anynoexistent
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/allunavail
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/anyunavail
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/allrunning
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/anyrunning
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/allhalted
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/anyhalted
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DMBUS_REQ
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DMBUS_RW
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DMBUS_ADDR
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DMBUS_WDATA
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DMBUS_RDATA
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DMBUS_ACK
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DMBUS_ERR
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sel_dm_command
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_REQ
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_ACK
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_TYPE
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_WRITE
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_SIZE
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_ADDR
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_WDATA
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_RDATA
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_DONE
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_REQ_internal
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_ACK_internal
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_TYPE_internal
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_WRITE_internal
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_ADDR_internal
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_WDATA_internal
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_RDATA_internal
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/DBGABS_DONE_internal
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/ha_sel
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/abstract_busy
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/cmderr
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/dbgabs_arg0_read
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/dbgabs_arg0_data
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/dbgabs_arg1_incr
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/dbgabs_autoincr
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sbcs
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sbaddr
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sbdata
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sel_dm_sbcs
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sel_dm_sbaddr
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sel_dm_sbdata
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sb_req
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sb_ack
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sbbusy
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sb_done
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sb_req_readonaddr
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG_DM/sb_req_readondata
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/DBGD_M_HSEL
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/DBGD_M_HTRANS
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/DBGD_M_HWRITE
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/DBGD_M_HSIZE
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/DBGD_M_HADDR
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/DBGD_M_HWDATA
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/DBGD_M_HREADY
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/DBGD_M_HREADYOUT
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/DBGD_M_HRDATA
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/DBGD_M_HRESP
 
 #add wave -divider CPU
 #add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/DEBUG_MODE
@@ -536,35 +549,35 @@ add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_DEBUG_TOP/U_DEBUG
 #add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_DATAPATH/WB_MACMD
 #add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_DATAPATH/WB_LOAD_DST
 
-add wave -divider RAM0
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM0/S_HSEL
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM0/S_HTRANS
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM0/S_HWRITE
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM0/S_HMASTLOCK
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM0/S_HSIZE
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM0/S_HBURST
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM0/S_HPROT
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM0/S_HADDR
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM0/S_HWDATA
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM0/S_HREADY
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM0/S_HREADYOUT
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM0/S_HRDATA
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM0/S_HRESP
+add wave -divider RAMD
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMD/S_HSEL
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMD/S_HTRANS
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMD/S_HWRITE
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMD/S_HMASTLOCK
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMD/S_HSIZE
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMD/S_HBURST
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMD/S_HPROT
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMD/S_HADDR
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMD/S_HWDATA
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMD/S_HREADY
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMD/S_HREADYOUT
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMD/S_HRDATA
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMD/S_HRESP
 
-add wave -divider RAM1
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HSEL
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HTRANS
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HWRITE
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HMASTLOCK
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HSIZE
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HBURST
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HPROT
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HADDR
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HWDATA
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HREADY
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HREADYOUT
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HRDATA
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAM1/S_HRESP
+add wave -divider RAMI
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HSEL
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HTRANS
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HWRITE
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HMASTLOCK
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HSIZE
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HBURST
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HPROT
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HADDR
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HWDATA
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HREADY
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HREADYOUT
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HRDATA
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_RAMI/S_HRESP
 
 add wave -divider CPU[0]
 add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/CPUI_M_HSEL[0]
@@ -1081,17 +1094,32 @@ add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_UART/BRG/sio_ce_x4_t
 add wave -divider FPU32
 add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_FPU32/RES_CPU
 add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_FPU32/CLK
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_FPU32/DBGABS_FPR_REQ
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_FPU32/DBGABS_FPR_WRITE
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_FPU32/DBGABS_FPR_ADDR
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_FPU32/DBGABS_FPR_WDATA
-add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_FPU32/DBGABS_FPR_RDATA
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/CPUI_M_HSEL[0]
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/CPUI_M_HWRITE[0]
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/CPUI_M_HSIZE[0]
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/CPUI_M_HADDR[0]
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/CPUI_M_HWDATA[0]
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/CPUI_M_HRDATA[0]
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/CPUI_M_HREADYOUT[0]
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/CPUD_M_HSEL[0]
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/CPUD_M_HWRITE[0]
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/CPUD_M_HSIZE[0]
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/CPUD_M_HADDR[0]
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/CPUD_M_HWDATA[0]
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/CPUD_M_HRDATA[0]
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/CPUD_M_HREADYOUT[0]
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_PIPELINE/slot
 add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_PIPELINE/stall
 add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_PIPELINE/ID_FPU_STALL
 add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_PIPELINE/pipe_id_enable
 add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_PIPELINE/pipe_id_pc
 add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_PIPELINE/pipe_id_code
 add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_DATAPATH/regXR
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_FPU32/DBGABS_FPR_REQ
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_FPU32/DBGABS_FPR_WRITE
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_FPU32/DBGABS_FPR_ADDR
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_FPU32/DBGABS_FPR_WDATA
+add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_FPU32/DBGABS_FPR_RDATA
 add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_FPU32/EX_ALU_DST1
 add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_FPU32/EX_ALU_SRC1
 add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_FPU32/EX_FPU_DSTDATA
@@ -1278,6 +1306,49 @@ add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_
 add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_FPU32/U_FCVT_I2F/frac
 add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_FPU32/U_FCVT_I2F/frac_round
 add wave -hex -position end  sim:/tb_TOP/U_CHIP_TOP/U_MMRISC/U_CPU_TOP[0]/U_CPU_TOP/U_CPU_FPU32/U_FCVT_I2F/FLOAT_OUT
+
+add wave -divider SDRAM
+add wave -hex -position end  sim:/tb_TOP/sdram_clk
+add wave -hex -position end  sim:/tb_TOP/sdram_cke
+add wave -hex -position end  sim:/tb_TOP/sdram_csn
+add wave -hex -position end  sim:/tb_TOP/sdram_dqm
+add wave -hex -position end  sim:/tb_TOP/sdram_rasn
+add wave -hex -position end  sim:/tb_TOP/sdram_casn
+add wave -hex -position end  sim:/tb_TOP/sdram_wen
+add wave -hex -position end  sim:/tb_TOP/sdram_ba
+add wave -hex -position end  sim:/tb_TOP/sdram_addr
+add wave -hex -position end  sim:/tb_TOP/sdram_dq
+
+add wave -divider I2C
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/CLK
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/RES
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HSEL
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HTRANS
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HWRITE
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HMASTLOCK
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HSIZE
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HBURST
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HPROT
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HADDR
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HWDATA
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HREADY
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HREADYOUT
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HRDATA
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HRESP
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/I2C_SCL_I
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/I2C_SCL_O
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/I2C_SCL_OEN
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/I2C_SDA_I
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/I2C_SDA_O
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/I2C_SDA_OEN
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/IRQ_I2C
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/wb_stb_o
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/wb_cyc_o
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/wb_we_o
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/wb_adr_o
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/wb_dat_o
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/wb_dat_i
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/wb_ack_i
 
 # Do Simulation with logging all signals in WLF file
 log -r *

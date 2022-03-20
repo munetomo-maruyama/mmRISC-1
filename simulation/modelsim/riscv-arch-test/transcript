@@ -1,5 +1,5 @@
 # vsim -c -onfinish exit work.tb_TOP -do "run -all" 
-# Start time: 14:51:08 on Dec 31,2021
+# Start time: 01:03:36 on Mar 20,2022
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # //  Questa Intel Starter FPGA Edition-64
 # //  Version 2021.2 linux_x86_64 Apr 14 2021
@@ -18,9 +18,46 @@
 # Loading sv_std.std
 # Loading work.tb_TOP(fast)
 # Loading work.CPU_TOP(fast)
+# Loading work.i2c_slave_model(fast)
+# Loading work.sdr(fast)
 # run -all
+# DEBUG i2c_slave; stop condition detected at       1.0 ns
+# tb_TOP.U_SDRAM : at time     840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time     920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time    1000.0 ns LMR  : Load Mode Register
+# tb_TOP.U_SDRAM :                             CAS Latency      = 2
+# tb_TOP.U_SDRAM :                             Burst Length     = 2
+# tb_TOP.U_SDRAM :                             Burst Type       = Sequential
+# tb_TOP.U_SDRAM :                             Write Burst Mode = Programmed Burst Length
+# tb_TOP.U_SDRAM : at time    8760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time   16600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time   24440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time   32280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time   40120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time   47960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time   55800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time   63640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time   71480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time   79320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time   87160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time   95000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  102840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  110680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  118520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  126360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  134200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  142040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  149880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  157720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  165560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  173400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  181240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  189080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  196920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  204760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  212600.0 ns AREF : Auto Refresh
 # ***** DETECT TOHOST ***** at 90003000
-# ** Note: $finish    : ./tb_TOP.v(154)
-#    Time: 540310 ns  Iteration: 1  Instance: /tb_TOP
-# End time: 14:51:22 on Dec 31,2021, Elapsed time: 0:00:14
+# ** Note: $finish    : ./tb_TOP.v(155)
+#    Time: 216450 ns  Iteration: 1  Instance: /tb_TOP
+# End time: 01:03:50 on Mar 20,2022, Elapsed time: 0:00:14
 # Errors: 0, Warnings: 0

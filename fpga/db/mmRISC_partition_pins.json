@@ -12,6 +12,90 @@
 					"strict" : false
 				},
 				{
+					"name" : "SDRAM_CKE",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_DQM[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_DQM[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_RASn",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_CASn",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_WEn",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_BA[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_BA[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_ADDR[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_ADDR[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_ADDR[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_ADDR[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_ADDR[4]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_ADDR[5]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_ADDR[6]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_ADDR[7]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_ADDR[8]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_ADDR[9]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_ADDR[10]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_ADDR[11]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_ADDR[12]",
+					"strict" : false
+				},
+				{
 					"name" : "GPIO0[0]",
 					"strict" : false
 				},
@@ -396,7 +480,83 @@
 					"strict" : false
 				},
 				{
+					"name" : "I2C_SCL",
+					"strict" : false
+				},
+				{
+					"name" : "I2C_SDA",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_DQ[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_DQ[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_DQ[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_DQ[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_DQ[4]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_DQ[5]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_DQ[6]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_DQ[7]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_DQ[8]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_DQ[9]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_DQ[10]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_DQ[11]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_DQ[12]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_DQ[13]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_DQ[14]",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_DQ[15]",
+					"strict" : false
+				},
+				{
 					"name" : "RES_N",
+					"strict" : false
+				},
+				{
+					"name" : "CLK50",
 					"strict" : false
 				},
 				{
@@ -408,15 +568,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "CLK50",
-					"strict" : false
-				},
-				{
 					"name" : "TDI",
 					"strict" : false
 				},
 				{
 					"name" : "TMS",
+					"strict" : false
+				},
+				{
+					"name" : "I2C_INT1",
+					"strict" : false
+				},
+				{
+					"name" : "I2C_INT2",
 					"strict" : false
 				},
 				{

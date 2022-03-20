@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "common.h"
+#include "csr.h"
 #include "float.h"
 #include "gpio.h"
 #include "interrupt.h"
@@ -39,6 +40,7 @@ void main(void)
     INT_Init();
     //
     // Main Floating
+    write_csr(0xbe0, 0x000000ff);
     main_floating();
 }
 

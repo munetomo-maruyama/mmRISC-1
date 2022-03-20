@@ -12,7 +12,9 @@
 // Copyright (C) 2017-2021 M.Maruyama
 //===========================================================
 
-`include "defines.v"
+`include "defines_core.v"
+`include "defines_chip.v"
+
 `timescale 1ns/100ps
 //`define JTAG_FAST
 //
@@ -32,7 +34,6 @@
 //------------------------
 module tb_TOP;
 
-integer i;
 reg [63:0] DR_OUT; // global
 
 //-------------------------------
@@ -143,10 +144,10 @@ begin
         //
         for (addr = `DUMP_BGN; addr < `DUMP_END; addr = addr + 4)
         begin
-            data =               U_CHIP_TOP.U_RAM1.s_mem_3[addr[23:2]];
-            data = (data << 8) + U_CHIP_TOP.U_RAM1.s_mem_2[addr[23:2]];
-            data = (data << 8) + U_CHIP_TOP.U_RAM1.s_mem_1[addr[23:2]];
-            data = (data << 8) + U_CHIP_TOP.U_RAM1.s_mem_0[addr[23:2]];
+            data =               U_CHIP_TOP.U_RAMI.s_mem_3[addr[23:2]];
+            data = (data << 8) + U_CHIP_TOP.U_RAMI.s_mem_2[addr[23:2]];
+            data = (data << 8) + U_CHIP_TOP.U_RAMI.s_mem_1[addr[23:2]];
+            data = (data << 8) + U_CHIP_TOP.U_RAMI.s_mem_0[addr[23:2]];
             $fdisplay(fdump, "%08x", data);
         end
         //
@@ -172,18 +173,45 @@ wire [31:0] gpio1;
 wire [31:0] gpio2;
 wire rxd;
 wire txd;
+wire i2c_scl;  // I2C SCL
+wire i2c_sda;  // I2C SDA
+wire i2c_ena;  // I2C Enable (Fixed to 1)
+wire i2c_adr;  // I2C ALTADDR (Fixed to 0)
+wire i2c_int1; // I2C Device Interrupt Request 1
+wire i2c_int2; // I2C Device Interrupt Request 2
+//
+wire        sdram_clk;  // SDRAM Clock
+wire        sdram_cke;  // SDRAM Clock Enable
+wire        sdram_csn;  // SDRAM Chip Select
+wire [ 1:0] sdram_dqm;  // SDRAM Byte Data Mask
+wire        sdram_rasn; // SDRAM Row Address Strobe
+wire        sdram_casn; // SDRAM Column Address Strobe
+wire        sdram_wen;  // SDRAM Write Enable
+wire [ 1:0] sdram_ba;   // SDRAM Bank Address
+wire [12:0] sdram_addr; // SDRAM Addess
+wire [15:0] sdram_dq;   // SDRAM Data
 //
 assign srst_n = tb_srst_n;
-assign rxd = 1'b1;
+pullup(txd);
+pullup(i2c_scl);
+pullup(i2c_sda);
+assign i2c_int1 = 1'b0;
+assign i2c_int2 = 1'b0;
+//
+generate
+    genvar i;
+    for (i = 0; i < 32; i = i + 1)
+    begin
+        pullup(gpio0[i]);
+        pullup(gpio1[i]);
+        pullup(gpio2[i]);
+    end
+endgenerate
 //
 CHIP_TOP U_CHIP_TOP
 (
     .RES_N (~tb_res),
     .CLK50 (tb_clk),
-    //
-    .SDRAM_CLK(),
-    .SDRAM_CKE(),
-    .SDRAM_CSn(),
     //
     .TRSTn (tb_trst_n),
     .SRSTn (srst_n),
@@ -198,8 +226,52 @@ CHIP_TOP U_CHIP_TOP
     .GPIO1 (gpio1),
     .GPIO2 (gpio2),
     //
-    .RXD (rxd),
-    .TXD (txd)
+    .RXD (txd),
+    .TXD (rxd),
+    //
+    .I2C_SCL  (i2c_scl),  // I2C SCL
+    .I2C_SDA  (i2c_sda),  // I2C SDA
+    .I2C_ENA  (i2c_ena),  // I2C Enable (Fixed to 1)
+    .I2C_ADR  (i2c_adr),  // I2C ALTADDR (Fixed to 0)
+    .I2C_INT1 (i2c_int1), // I2C Device Interrupt Request 1
+    .I2C_INT2 (i2c_int2), // I2C Device Interrupt Request 2
+    //
+    .SDRAM_CLK  (sdram_clk),  // SDRAM Clock
+    .SDRAM_CKE  (sdram_cke),  // SDRAM Clock Enable
+    .SDRAM_CSn  (sdram_csn),  // SDRAM Chip Select
+    .SDRAM_DQM  (sdram_dqm),  // SDRAM Byte Data Mask
+    .SDRAM_RASn (sdram_rasn), // SDRAM Row Address Strobe
+    .SDRAM_CASn (sdram_casn), // SDRAM Column Address Strobe
+    .SDRAM_WEn  (sdram_wen),  // SDRAM Write Enable
+    .SDRAM_BA   (sdram_ba),   // SDRAM Bank Address
+    .SDRAM_ADDR (sdram_addr), // SDRAM Addess
+    .SDRAM_DQ   (sdram_dq)    // SDRAM Data
+);
+
+//--------------------
+// I2C Model
+//--------------------
+i2c_slave_model U_I2C_SLAVE
+(
+    .scl (i2c_scl),
+    .sda (i2c_sda)
+);
+
+//--------------------
+// SDRAM Model
+//--------------------
+sdr U_SDRAM
+(
+    .Dq    (sdram_dq),
+    .Addr  (sdram_addr),
+    .Ba    (sdram_ba),
+    .Clk   (sdram_clk),
+    .Cke   (sdram_cke),
+    .Cs_n  (sdram_csn),
+    .Ras_n (sdram_rasn),
+    .Cas_n (sdram_casn),
+    .We_n  (sdram_wen),
+    .Dqm   (sdram_dqm)
 );
 
 //--------------------------
@@ -297,6 +369,7 @@ endtask;
 // Task : JTAG_Shift_IR
 //----------------------
 task Task_JTAG_Shift_IR(input [4:0] IR, integer verbose);
+    integer i;
     reg [4:0] IR_OUT;
     //---- Run Test Idle
         tb_tms = 1'b1;

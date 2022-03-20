@@ -11,7 +11,9 @@
 // Copyright (C) 2017-2020 M.Maruyama
 //===========================================================
 
-`include "defines.v"
+`include "defines_core.v"
+`include "defines_chip.v"
+
 `timescale 1ns/100ps
 //`define JTAG_FAST
 //
@@ -26,7 +28,8 @@
 `define TB_STOP 1000000000 //cyc
 `define TB_RESET_WIDTH 50 //ns
 //
-`define JTAG_OPERATION
+//`define JTAG_OPERATION
+`define DUMP_ID_STAGE
 
 //------------------------
 // Top of Testbench
@@ -199,7 +202,7 @@ always @(posedge watch_clk)
 begin
     if (watch_dump & watch_hready & watch_hreadyout)
     begin
-        $fdisplay(fdump, "%08x %08x", watch_dump_addr, watch_hwdata);
+      //$fdisplay(fdump, "%08x %08x", watch_dump_addr, watch_hwdata);
     end
 end
 
@@ -211,6 +214,7 @@ wire watch_instr_exec;
 wire [31:0] watch_pipe_id_pc;
 wire [31:0] watch_pipe_id_code;
 wire [31:0] watch_regxr[0:31];
+wire [31:0] watch_regfr[0:31];
 //
 assign watch_instr_exec = U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_PIPELINE.INSTR_EXEC;
 assign watch_pipe_id_pc = U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_PIPELINE.pipe_id_pc;
@@ -220,6 +224,7 @@ generate
     for (n = 0; n < 32; n = n + 1)
     begin
         assign watch_regxr[n] = U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_DATAPATH.regXR[n];
+        assign watch_regfr[n] = U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_FPU32.regFR[n];
     end
 endgenerate
 //
@@ -228,12 +233,16 @@ begin
     if (watch_instr_exec)
     begin
         integer i;
-        $write("ID PC=%08x CODE=%08x ", watch_pipe_id_pc, watch_pipe_id_code);
+        $fwrite(fdump, "ID PC=%08x CODE=%08x ", watch_pipe_id_pc, watch_pipe_id_code);
         for (i = 0; i < 32; i = i + 1)
         begin
-            $write("R%0d=%08x ", i, watch_regxr[i]);
+            $fwrite(fdump, "XR%0d=%08x ", i, watch_regxr[i]);
         end
-        $display("");
+        for (i = 0; i < 32; i = i + 1)
+        begin
+            $fwrite(fdump, "FR%0d=%08x ", i, watch_regfr[i]);
+        end
+        $fdisplay(fdump, "");
     end
 end
 `endif
@@ -254,9 +263,30 @@ wire [31:0] gpio1;
 wire [31:0] gpio2;
 wire rxd;
 wire txd;
+wire i2c_scl;  // I2C SCL
+wire i2c_sda;  // I2C SDA
+wire i2c_ena;  // I2C Enable (Fixed to 1)
+wire i2c_adr;  // I2C ALTADDR (Fixed to 0)
+wire i2c_int1; // I2C Device Interrupt Request 1
+wire i2c_int2; // I2C Device Interrupt Request 2
+//
+wire        sdram_clk;  // SDRAM Clock
+wire        sdram_cke;  // SDRAM Clock Enable
+wire        sdram_csn;  // SDRAM Chip Select
+wire [ 1:0] sdram_dqm;  // SDRAM Byte Data Mask
+wire        sdram_rasn; // SDRAM Row Address Strobe
+wire        sdram_casn; // SDRAM Column Address Strobe
+wire        sdram_wen;  // SDRAM Write Enable
+wire [ 1:0] sdram_ba;   // SDRAM Bank Address
+wire [12:0] sdram_addr; // SDRAM Addess
+wire [15:0] sdram_dq;   // SDRAM Data
 //
 assign srst_n = tb_srst_n;
 pullup(txd);
+pullup(i2c_scl);
+pullup(i2c_sda);
+assign i2c_int1 = 1'b0;
+assign i2c_int2 = 1'b0;
 //
 generate
     genvar i;
@@ -273,10 +303,6 @@ CHIP_TOP U_CHIP_TOP
     .RES_N (~tb_res),
     .CLK50 (tb_clk),
     //
-    .SDRAM_CLK(),
-    .SDRAM_CKE(),
-    .SDRAM_CSn(),
-    //
     .TRSTn (tb_trst_n),
     .SRSTn (srst_n),
     //
@@ -291,7 +317,51 @@ CHIP_TOP U_CHIP_TOP
     .GPIO2 (gpio2),
     //
     .RXD (txd),
-    .TXD (rxd)
+    .TXD (rxd),
+    //
+    .I2C_SCL  (i2c_scl),  // I2C SCL
+    .I2C_SDA  (i2c_sda),  // I2C SDA
+    .I2C_ENA  (i2c_ena),  // I2C Enable (Fixed to 1)
+    .I2C_ADR  (i2c_adr),  // I2C ALTADDR (Fixed to 0)
+    .I2C_INT1 (i2c_int1), // I2C Device Interrupt Request 1
+    .I2C_INT2 (i2c_int2), // I2C Device Interrupt Request 2
+    //
+    .SDRAM_CLK  (sdram_clk),  // SDRAM Clock
+    .SDRAM_CKE  (sdram_cke),  // SDRAM Clock Enable
+    .SDRAM_CSn  (sdram_csn),  // SDRAM Chip Select
+    .SDRAM_DQM  (sdram_dqm),  // SDRAM Byte Data Mask
+    .SDRAM_RASn (sdram_rasn), // SDRAM Row Address Strobe
+    .SDRAM_CASn (sdram_casn), // SDRAM Column Address Strobe
+    .SDRAM_WEn  (sdram_wen),  // SDRAM Write Enable
+    .SDRAM_BA   (sdram_ba),   // SDRAM Bank Address
+    .SDRAM_ADDR (sdram_addr), // SDRAM Addess
+    .SDRAM_DQ   (sdram_dq)    // SDRAM Data
+);
+
+//--------------------
+// I2C Model
+//--------------------
+i2c_slave_model U_I2C_SLAVE
+(
+    .scl (i2c_scl),
+    .sda (i2c_sda)
+);
+
+//--------------------
+// SDRAM Model
+//--------------------
+sdr U_SDRAM
+(
+    .Dq    (sdram_dq),
+    .Addr  (sdram_addr),
+    .Ba    (sdram_ba),
+    .Clk   (sdram_clk),
+    .Cke   (sdram_cke),
+    .Cs_n  (sdram_csn),
+    .Ras_n (sdram_rasn),
+    .Cas_n (sdram_casn),
+    .We_n  (sdram_wen),
+    .Dqm   (sdram_dqm)
 );
 
 //--------------------------
@@ -675,12 +745,13 @@ initial
 begin
     Task_JTAG_INIT_PIN();
     #(`TB_TCYC_TCLK * 10);
+    //
+`ifdef JTAG_OPERATION
     Task_JTAG_RESET_SYS();
     #(`TB_TCYC_TCLK * 10);
     #(`TB_TCYC_CLK * 10);
     Task_JTAG_INIT_STATE();
     #(`TB_TCYC_TCLK * 10);
-`ifdef JTAG_OPERATION
     //
     $display("Read IDCODE");
     Task_JTAG_Shift_IR(`JTAG_IR_IDCODE, `VERBOSE_ON);
@@ -708,6 +779,37 @@ begin
     Task_JTAG_DMI_WRTE(`DM_HAWINDOWSEL, 32'h00000000, `VERBOSE_OFF);
     Task_JTAG_DMI_WRTE(`DM_HAWINDOW   , 32'h00000001, `VERBOSE_OFF);
     //
+    $display("Halt Hart 0");
+    Task_JTAG_DMI_WRTE(`DM_CONTROL, 32'h80000001, `VERBOSE_OFF);
+    //
+    $display("ABSCMD WR/RD FPR 00");
+    Task_JTAG_DMI_WRTE(`DM_DATA_0, 32'h456789ab, `VERBOSE_OFF);
+    Task_JTAG_DMI_READ(`DM_DATA_0, 32'h456789ab, `VERBOSE_OFF);
+    Task_JTAG_DMI_WRTE(`DM_COMMAND, {8'h0, 1'b0, 3'h2, 1'b0, 1'b0, 1'b1, 1'b1, 16'h1020}, `VERBOSE_OFF); // WR
+    Task_JTAG_DMI_READ(`DM_ABSTRACTCS, 32'h00000002, `VERBOSE_OFF);
+    Task_JTAG_DMI_WRTE(`DM_DATA_0, 32'h00000000, `VERBOSE_OFF);
+    Task_JTAG_DMI_READ(`DM_DATA_0, 32'h00000000, `VERBOSE_OFF);
+    Task_JTAG_DMI_WRTE(`DM_COMMAND, {8'h0, 1'b0, 3'h2, 1'b0, 1'b0, 1'b1, 1'b0, 16'h1020}, `VERBOSE_OFF); // RD
+    Task_JTAG_DMI_READ(`DM_ABSTRACTCS, 32'h00000002, `VERBOSE_OFF);
+    Task_JTAG_DMI_READ(`DM_DATA_0, 32'h456789ab, `VERBOSE_OFF);
+    //
+    $display("ABSCMD WR/RD FPR 31");
+    Task_JTAG_DMI_WRTE(`DM_DATA_0, 32'h56789abc, `VERBOSE_OFF);
+    Task_JTAG_DMI_READ(`DM_DATA_0, 32'h56789abc, `VERBOSE_OFF);
+    Task_JTAG_DMI_WRTE(`DM_COMMAND, {8'h0, 1'b0, 3'h2, 1'b0, 1'b0, 1'b1, 1'b1, 16'h103f}, `VERBOSE_OFF); // WR
+    Task_JTAG_DMI_READ(`DM_ABSTRACTCS, 32'h00000002, `VERBOSE_OFF);
+    Task_JTAG_DMI_WRTE(`DM_DATA_0, 32'h00000000, `VERBOSE_OFF);
+    Task_JTAG_DMI_READ(`DM_DATA_0, 32'h00000000, `VERBOSE_OFF);
+    Task_JTAG_DMI_WRTE(`DM_COMMAND, {8'h0, 1'b0, 3'h2, 1'b0, 1'b0, 1'b1, 1'b0, 16'h103f}, `VERBOSE_OFF); // RD
+    Task_JTAG_DMI_READ(`DM_ABSTRACTCS, 32'h00000002, `VERBOSE_OFF);
+    Task_JTAG_DMI_READ(`DM_DATA_0, 32'h56789abc, `VERBOSE_OFF);
+    //
+    $display("Resume Hart 0");
+    Task_JTAG_DMI_WRTE(`DM_CONTROL, 32'h40000001, `VERBOSE_OFF);
+    $display("Halt Hart 0");
+    Task_JTAG_DMI_WRTE(`DM_CONTROL, 32'h80000001, `VERBOSE_OFF);
+    $display("Resume Hart 0");
+    Task_JTAG_DMI_WRTE(`DM_CONTROL, 32'h40000001, `VERBOSE_OFF);
     //
     $display("HART_STEP_OPERATION");
     jtag_data = (1 << 31) | (0 << 26) | (0 << 16) | (1 << 0); // haltreq

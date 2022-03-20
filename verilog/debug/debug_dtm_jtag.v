@@ -21,7 +21,7 @@
 // [Yes] 6.1.6 BYPASS (at 0x11)
 // [---] 6.1.7 Recommended JTAG Connector
 
-`include "defines.v"
+`include "defines_core.v"
 
 //----------------------
 // Define Module

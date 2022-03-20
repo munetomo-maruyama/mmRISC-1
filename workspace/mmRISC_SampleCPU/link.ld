@@ -16,11 +16,12 @@ OUTPUT_ARCH( "riscv" )
 ENTRY(_start)
 
 MEMORY {
-  ROM (rx) : ORIGIN = 0x90000000, LENGTH = 128K
-  RAM (rw) : ORIGIN = 0x80000000, LENGTH =  48K
+  ROM (rx) : ORIGIN = 0x90000000, LENGTH =   128K
+  SDR (rw) : ORIGIN = 0x80000000, LENGTH = 65536K
+  RAM (rw) : ORIGIN = 0x88000000, LENGTH =    48K
 }
 
-STACK_SIZE = 32K;
+STACK_SIZE = 1024K;
 
 SECTIONS {
 
@@ -87,21 +88,21 @@ SECTIONS {
     *(.sbss)
     *(.sbss.*)
     *(.scommon)
-  } >RAM
+  } >SDR
 
   .bss : {
     *(.bss)
     *(.bss.*)
     . = ALIGN(4);
     PROVIDE(__BSS_END__ = .);
-  } >RAM
+  } >SDR
 
-  .stack ORIGIN(RAM) + LENGTH(RAM) - STACK_SIZE : {
+  .stack ORIGIN(SDR) + LENGTH(SDR) - STACK_SIZE : {
     PROVIDE(__STACK_START__ = .);
     . += STACK_SIZE;
     PROVIDE(__STACK_TOP__ = .);
     PROVIDE(__STACK_END__ = .);
-  } >RAM
+  } >SDR
 
   /DISCARD/ : {
     *(.eh_frame .eh_frame.*)

@@ -43,7 +43,6 @@ set_global_assignment -name TOP_LEVEL_ENTITY CHIP_TOP
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 19.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "21:34:16  DECEMBER 31, 2019"
 set_global_assignment -name LAST_QUARTUS_VERSION "21.1.0 Lite Edition"
-set_global_assignment -name SEARCH_PATH "/home/taka/RISCV/mmRISC-1/verilog/common"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -285,6 +284,206 @@ set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to TXD
 set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to RXD
 
 set_global_assignment -name VERILOG_MACRO "FPGA=<None>"
+set_global_assignment -name ENABLE_OCT_DONE ON
+set_global_assignment -name EXTERNAL_FLASH_FALLBACK_ADDRESS 00000000
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name INTERNAL_FLASH_UPDATE_MODE "SINGLE COMP IMAGE WITH ERAM"
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to CLK50
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[31]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[30]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[29]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[28]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[27]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[26]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[25]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[24]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[23]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[22]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[21]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[20]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[19]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[18]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[17]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[16]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[15]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[14]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[13]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[12]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[11]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[10]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[9]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[8]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[7]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[6]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[5]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[4]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[3]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[2]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[1]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO0[0]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[31]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[30]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[29]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[28]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[27]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[26]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[25]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[24]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[23]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[22]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[21]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[20]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[19]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[18]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[17]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[16]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[15]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[14]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[13]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[12]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[11]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[10]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[9]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[8]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[7]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[6]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[5]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[4]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[3]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[2]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[1]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO1[0]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[31]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[30]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[29]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[28]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[27]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[26]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[25]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[24]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[23]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[22]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[21]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[20]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[19]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[18]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[17]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[16]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[15]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[14]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[13]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[12]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[11]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[10]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[9]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[8]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[7]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[6]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[5]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[4]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[3]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[2]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[1]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to GPIO2[0]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to RES_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to RXD
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_CKE
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_CLK
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to TCK
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to TDI
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_CSn
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to TDO
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to TMS
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to TRSTn
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to TXD
+
+
+set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 2
+set_global_assignment -name VERILOG_MACRO "den512Mb=<None>"
+set_global_assignment -name VERILOG_MACRO "sg75=<None>"
+set_global_assignment -name VERILOG_MACRO "x16=<None>"
+set_location_assignment PIN_R20 -to SDRAM_ADDR[12]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_ADDR[12]
+set_location_assignment PIN_V20 -to SDRAM_WEn
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_WEn
+set_location_assignment PIN_U22 -to SDRAM_RASn
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_RASn
+set_location_assignment PIN_V22 -to SDRAM_DQM[0]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_DQM[0]
+set_location_assignment PIN_J21 -to SDRAM_DQM[1]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_DQM[1]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_DQM
+set_location_assignment PIN_Y21 -to SDRAM_DQ[0]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_DQ[0]
+set_location_assignment PIN_Y20 -to SDRAM_DQ[1]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_DQ[1]
+set_location_assignment PIN_AA22 -to SDRAM_DQ[2]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_DQ[2]
+set_location_assignment PIN_AA21 -to SDRAM_DQ[3]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_DQ[3]
+set_location_assignment PIN_Y22 -to SDRAM_DQ[4]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_DQ[4]
+set_location_assignment PIN_W22 -to SDRAM_DQ[5]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_DQ[5]
+set_location_assignment PIN_W20 -to SDRAM_DQ[6]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_DQ[6]
+set_location_assignment PIN_V21 -to SDRAM_DQ[7]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_DQ[7]
+set_location_assignment PIN_P21 -to SDRAM_DQ[8]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_DQ[8]
+set_location_assignment PIN_J22 -to SDRAM_DQ[9]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_DQ[9]
+set_location_assignment PIN_H21 -to SDRAM_DQ[10]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_DQ[10]
+set_location_assignment PIN_H22 -to SDRAM_DQ[11]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_DQ[11]
+set_location_assignment PIN_G22 -to SDRAM_DQ[12]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_DQ[12]
+set_location_assignment PIN_G20 -to SDRAM_DQ[13]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_DQ[13]
+set_location_assignment PIN_G19 -to SDRAM_DQ[14]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_DQ[14]
+set_location_assignment PIN_F22 -to SDRAM_DQ[15]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_DQ[15]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_DQ
+set_location_assignment PIN_U21 -to SDRAM_CASn
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_CASn
+set_location_assignment PIN_T21 -to SDRAM_BA[0]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_BA[0]
+set_location_assignment PIN_T22 -to SDRAM_BA[1]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_BA[1]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_BA
+set_location_assignment PIN_U17 -to SDRAM_ADDR[0]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_ADDR[0]
+set_location_assignment PIN_W19 -to SDRAM_ADDR[1]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_ADDR[1]
+set_location_assignment PIN_V18 -to SDRAM_ADDR[2]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_ADDR[2]
+set_location_assignment PIN_U18 -to SDRAM_ADDR[3]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_ADDR[3]
+set_location_assignment PIN_U19 -to SDRAM_ADDR[4]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_ADDR[4]
+set_location_assignment PIN_T18 -to SDRAM_ADDR[5]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_ADDR[5]
+set_location_assignment PIN_T19 -to SDRAM_ADDR[6]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_ADDR[6]
+set_location_assignment PIN_R18 -to SDRAM_ADDR[7]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_ADDR[7]
+set_location_assignment PIN_P18 -to SDRAM_ADDR[8]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_ADDR[8]
+set_location_assignment PIN_P19 -to SDRAM_ADDR[9]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_ADDR[9]
+set_location_assignment PIN_T20 -to SDRAM_ADDR[10]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_ADDR[10]
+set_location_assignment PIN_P20 -to SDRAM_ADDR[11]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_ADDR[11]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_ADDR
 set_global_assignment -name VERILOG_FILE ../verilog/chip/chip_top.v
 set_global_assignment -name VERILOG_FILE ../verilog/mmRISC/mmRISC.v
 set_global_assignment -name VERILOG_FILE ../verilog/mmRISC/bus_m_ahb.v
@@ -312,21 +511,32 @@ set_global_assignment -name VERILOG_FILE ../verilog/uart/uart.v
 set_global_assignment -name VERILOG_FILE ../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v
 set_global_assignment -name VERILOG_FILE ../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v
 set_global_assignment -name VERILOG_FILE ../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v
+set_global_assignment -name VERILOG_FILE ../verilog/i2c/i2c.v
+set_global_assignment -name VERILOG_FILE ../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_bit_ctrl.v
+set_global_assignment -name VERILOG_FILE ../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_byte_ctrl.v
+set_global_assignment -name VERILOG_FILE ../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_top.v
 set_global_assignment -name VERILOG_FILE ../verilog/ram/ram.v
 set_global_assignment -name VERILOG_FILE ../verilog/ram/ram_fpga.v
+set_global_assignment -name VERILOG_FILE ../verilog/ahb_sdram/logic/ahb_lite_sdram.v
 set_global_assignment -name VERILOG_FILE ../verilog/port/port.v
 set_global_assignment -name QIP_FILE PLL.qip
 set_global_assignment -name QIP_FILE RAM128KB_DP.qip
 set_global_assignment -name SOURCE_FILE db/mmRISC.cmp.rdb
 set_global_assignment -name SDC_FILE mmRISC.sdc
 set_global_assignment -name CDF_FILE Chain1.cdf
-set_global_assignment -name ENABLE_OCT_DONE ON
-set_global_assignment -name EXTERNAL_FLASH_FALLBACK_ADDRESS 00000000
-set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
-set_global_assignment -name INTERNAL_FLASH_UPDATE_MODE "SINGLE COMP IMAGE WITH ERAM"
-set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
-set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
-set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
-set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
-set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_global_assignment -name CDF_FILE output_files/Chain1.cdf
+set_global_assignment -name SEARCH_PATH ../verilog/common
+set_global_assignment -name SEARCH_PATH ../verilog/i2c/i2c/trunk/rtl/verilog
+set_location_assignment PIN_V12 -to I2C_ADR
+set_location_assignment PIN_AB16 -to I2C_ENA
+set_location_assignment PIN_Y14 -to I2C_INT1
+set_location_assignment PIN_Y13 -to I2C_INT2
+set_location_assignment PIN_AB15 -to I2C_SCL
+set_location_assignment PIN_V11 -to I2C_SDA
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to I2C_ADR
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to I2C_ENA
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to I2C_INT1
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to I2C_INT2
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to I2C_SCL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to I2C_SDA
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

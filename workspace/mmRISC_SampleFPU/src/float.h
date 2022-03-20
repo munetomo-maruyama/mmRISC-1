@@ -77,9 +77,9 @@ typedef uint32_t FLAG;
 FTYPE    check_ftype(float f);
 float    qnan_snan(float snan);
 //
-uint32_t fmt32_float(float fdata);
+int32_t  fmt32_float(float fdata);
 uint32_t fmt32_element(uint32_t sign, uint32_t expo, uint32_t frac);
-float    float_fmt32(uint32_t fmt32);
+float    float_fmt32(int32_t fmt32);
 void     print_fmt(float fdata);
 void     print_float(float fdata);
 //

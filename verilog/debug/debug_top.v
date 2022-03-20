@@ -87,7 +87,7 @@
 // (1) Abstract Command Autoexec: abstractauto 0x18
 // (2) Next Debug Module: nextdm 0x1d
 
-`include "defines.v"
+`include "defines_core.v"
 
 //----------------------
 // Define Module

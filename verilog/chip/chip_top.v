@@ -14,9 +14,7 @@
 // < FPGA Board Terasic DE10-Lite>
 // RES_N     B8  KEY0
 // CLK50     P11
-// SDRAM_CLK L14 Disable SDRAM
-// SDRAM_CKE N22 Disable SDRAM
-// SDRAM_CSn U20 Disable SDRAM
+//
 // TRSTn     Y5  GPIO_29
 // TCK       Y6  GPIO_27
 // TMS       AA2 GPIO_35
@@ -25,6 +23,53 @@
 //
 // TXD       W10 GPIO_1
 // RXD       W9  GPIO_3
+//
+// I2C_SCL   AB15  GSENSOR SCL
+// I2C_SDA   V11   GSENSOR SDA
+// I2C_ENA   AB16  GSENSOR CSn (Fixed to 1)
+// I2C_ADR   V12   GSENSOR ALTADDR (Fixed to 0)
+// I2C_INT1  Y14   GSENSOR INT1
+// I2C_INT2  Y13   GSENSOR INT2
+//
+// SDRAM_CLK      L14
+// SDRAM_CKE      N22
+// SDRAM_CSn      U20
+// SDRAM_DQM [ 0] V22
+// SDRAM_DQM [ 1] J21
+// SDRAM_RASn     U22
+// SDRAM_CASn     U21
+// SDRAM_WEn      V20
+// SDRAM_BA  [ 0] T21
+// SDRAM_BA  [ 1] T22
+// SDRAM_ADDR[ 0] U17
+// SDRAM_ADDR[ 1] W19 
+// SDRAM_ADDR[ 2] V18
+// SDRAM_ADDR[ 3] U18
+// SDRAM_ADDR[ 4] U19
+// SDRAM_ADDR[ 5] T18
+// SDRAM_ADDR[ 6] T19
+// SDRAM_ADDR[ 7] R18
+// SDRAM_ADDR[ 8] P18
+// SDRAM_ADDR[ 9] P19
+// SDRAM_ADDR[10] T20
+// SDRAM_ADDR[11] P20
+// SDRAM_ADDR[12] R20
+// SDRAM_DQ  [ 0] Y21
+// SDRAM_DQ  [ 1] Y20
+// SDRAM_DQ  [ 2] AA22
+// SDRAM_DQ  [ 3] AA21
+// SDRAM_DQ  [ 4] Y22
+// SDRAM_DQ  [ 5] W22
+// SDRAM_DQ  [ 6] W20
+// SDRAM_DQ  [ 7] V21
+// SDRAM_DQ  [ 8] P21
+// SDRAM_DQ  [ 9] J22
+// SDRAM_DQ  [10] H21
+// SDRAM_DQ  [11] H22
+// SDRAM_DQ  [12] G22
+// SDRAM_DQ  [13] G20
+// SDRAM_DQ  [14] G19
+// SDRAM_DQ  [15] F22
 //
 // GPIO0[ 0] C14 HEX00 segA
 // GPIO0[ 1] E15 HEX01 segB
@@ -125,42 +170,8 @@
 // GPIO2[30] AA6  GPIO_28
 // GPIO2[31] AA5  GPIO_30
 
-`include "defines.v"
-
-//---------------------
-// RAM Size
-//---------------------
-`ifdef SIMULATION
-    `define RAM0_SIZE (16*1024*1024)
-    `define RAM1_SIZE (16*1024*1024)
-`elsif
-    `define RAM0_SIZE ( 48*1024) // RAM
-    `define RAM1_SIZE (128*1024) // ROM
-`endif
-
-//----------------------
-// Bus Configuration
-//----------------------
-`define MASTERS (`HART_COUNT * 2 + 1)
-`define MASTERS_BIT $clog2(`MASTERS)
-//
-`define M_PRIORITY_0 1 // CPUD
-`define M_PRIORITY_1 1 // CPUD
-`define M_PRIORITY_2 1 // CPUD
-`define M_PRIORITY_3 1 // CPUD
-`define M_PRIORITY_4 2 // CPUI
-`define M_PRIORITY_5 2 // CPUI
-`define M_PRIORITY_6 2 // CPUI
-`define M_PRIORITY_7 2 // CPUI
-`define M_PRIORITY_8 0 // DBGD
-//
-`define SLAVES 6
-`define SLAVE_CSR_MTIME 0
-`define SLAVE_RAM0      1
-`define SLAVE_RAM1      2
-`define SLAVE_GPIO      3
-`define SLAVE_UART      4
-`define SLAVE_INT_GETN  5
+`include "defines_chip.v"
+`include "defines_core.v"
 
 //----------------------
 // Define Module
@@ -190,22 +201,29 @@ module CHIP_TOP
     input  wire RXD, // UART receive data
     output wire TXD, // UART transmit data
     //
-    output wire SDRAM_CLK, // Disable SDRAM
-    output wire SDRAM_CKE, // Disable SDRAM
-    output wire SDRAM_CSn  // Disable SDRAM
+    inout  wire I2C_SCL,  // I2C SCL
+    inout  wire I2C_SDA,  // I2C SDA
+    output wire I2C_ENA,  // I2C Enable (Fixed to 1)
+    output wire I2C_ADR,  // I2C ALTADDR (Fixed to 0)
+    input  wire I2C_INT1, // I2C Device Interrupt Request 1
+    input  wire I2C_INT2, // I2C Device Interrupt Request 2
+    //
+    output wire        SDRAM_CLK,  // SDRAM Clock
+    output wire        SDRAM_CKE,  // SDRAM Clock Enable
+    output wire        SDRAM_CSn,  // SDRAM Chip Select
+    output wire [ 1:0] SDRAM_DQM,  // SDRAM Byte Data Mask
+    output wire        SDRAM_RASn, // SDRAM Row Address Strobe
+    output wire        SDRAM_CASn, // SDRAM Column Address Strobe
+    output wire        SDRAM_WEn,  // SDRAM Write Enable
+    output wire [ 1:0] SDRAM_BA,   // SDRAM Bank Address
+    output wire [12:0] SDRAM_ADDR, // SDRAM Addess
+    inout  wire [15:0] SDRAM_DQ    // SDRAM Data
 );
 
 //------------------
 // Genvar
 //------------------
 genvar i;
-
-//----------------
-// Disable SDRAM
-//----------------
-assign SDRAM_CLK = 1'b0;
-assign SDRAM_CKE = 1'b0;
-assign SDRAM_CSn = 1'b1;
 
 //------------------------------
 // Treatment of SRSTn and RTCK
@@ -296,6 +314,8 @@ assign locked = locked_pll & locked_reg;
 `endif
 //
 assign stby = 1'b0;
+//
+assign SDRAM_CLK = ~clk;
 
 //-----------------
 // JTAG TDO Buffer
@@ -421,12 +441,12 @@ generate
         assign cpui_m_hresp[i]     = m_hresp    [i+`HART_COUNT];
         //
         `ifdef RISCV_ISA_RV32A
-        assign cpum_s_hsel[i]      = s_hsel[2];      // Monitor RAM1
-        assign cpum_s_htrans[i]    = s_htrans[2];    // Monitor RAM1
-        assign cpum_s_hwrite[i]    = s_hwrite[2];    // Monitor RAM1
-        assign cpum_s_haddr[i]     = s_haddr[2];     // Monitor RAM1
-        assign cpum_s_hready[i]    = s_hready[2];    // Monitor RAM1
-        assign cpum_s_hreadyout[i] = s_hreadyout[2]; // Monitor RAM1
+        assign cpum_s_hsel[i]      = s_hsel     [`SLAVE_SDRAM]; // Monitor SDRAM
+        assign cpum_s_htrans[i]    = s_htrans   [`SLAVE_SDRAM]; // Monitor SDRAM
+        assign cpum_s_hwrite[i]    = s_hwrite   [`SLAVE_SDRAM]; // Monitor SDRAM
+        assign cpum_s_haddr[i]     = s_haddr    [`SLAVE_SDRAM]; // Monitor SDRAM
+        assign cpum_s_hready[i]    = s_hready   [`SLAVE_SDRAM]; // Monitor SDRAM
+        assign cpum_s_hreadyout[i] = s_hreadyout[`SLAVE_SDRAM]; // Monitor SDRAM
         `endif
     end
     //
@@ -451,6 +471,8 @@ wire        irq_msoft;
 wire        irq_mtime;
 wire [63:0] irq_gen;
 wire [63:0] irq;
+wire        irq_uart;
+wire        irq_i2c;
 //
 // Timer Counter
 wire [31:0] mtime;
@@ -459,9 +481,22 @@ wire        dbg_stop_timer; // Stop Timer due to Debug Mode
 //
 // UART
 wire cts, rts;
-wire irq_uart;
-//
 assign cts = 1'b0;
+//
+// I2C
+wire i2c_scl_i;   // SCL Input
+wire i2c_scl_o;   // SCL Output
+wire i2c_scl_oen; // SCL Output Enable (neg)
+wire i2c_sda_i;   // SDA Input
+wire i2c_sda_o;   // SDA Output
+wire i2c_sda_oen; // SDA Output Enable (neg)
+//
+assign i2c_scl_i = I2C_SCL;
+assign I2C_SCL = (i2c_scl_oen)? 1'bz : i2c_scl_o;
+assign i2c_sda_i = I2C_SDA;
+assign I2C_SDA = (i2c_sda_oen)? 1'bz : i2c_sda_o;
+assign I2C_ENA = 1'b1;
+assign I2C_ADR = 1'b0;
 
 //-----------------------------------------
 // mmRISC
@@ -470,19 +505,20 @@ assign cts = 1'b0;
 generate
     for (i = 0; i < `HART_COUNT; i = i + 1)
     begin : RESET_VECTOR
-        if (i == 0) assign reset_vector[0] = 32'h90000000;
-        if (i == 1) assign reset_vector[1] = 32'h91000000;
-        if (i == 2) assign reset_vector[2] = 32'h92000000;
-        if (i == 3) assign reset_vector[3] = 32'h93000000;
+        assign reset_vector[i] = (`RESET_VECTOR_BASE) + (`RESET_VECTOR_DISP * i);
     end
 endgenerate
 //
 // Security
-assign debug_secure = 1'b0;              // no Debug Authentification
-assign debug_secure_code = 32'h12345678; // Debug Authentification Code
+assign debug_secure      = `DEBUG_SECURE_ENBL;
+assign debug_secure_code = `DEBUG_SECURE_CODE;
 //
 // mmRISC Body
-mmRISC U_MMRISC
+mmRISC
+   #(
+        .HART_COUNT   (`HART_COUNT)
+    )
+U_MMRISC
 (
     .RES_ORG (res_org),
     .RES_SYS (res_sys),
@@ -588,26 +624,26 @@ generate
     end
 endgenerate
 
+//-----------------------
 // Slave Address
-//   MTIME  : 0x49000000-0x4900001f
-//   RAM0   : 0x80000000-0x8fffffff
-//   RAM1   : 0x90000000-0x9fffffff
-//   PORT   : 0xA0000000-0xafffffff
-//   UART   : 0xB0000000-0xbfffffff
-//   INT_GEN: 0xC0000000-0xcfffffff
-assign s_haddr_base[0] = 32'h49000000;
-assign s_haddr_base[1] = 32'h80000000;
-assign s_haddr_base[2] = 32'h90000000;
-assign s_haddr_base[3] = 32'ha0000000;
-assign s_haddr_base[4] = 32'hb0000000;
-assign s_haddr_base[5] = 32'hc0000000;
+//-----------------------
+assign s_haddr_base[`SLAVE_MTIME ] = `SLAVE_BASE_MTIME;
+assign s_haddr_base[`SLAVE_SDRAM ] = `SLAVE_BASE_SDRAM;
+assign s_haddr_base[`SLAVE_RAMD  ] = `SLAVE_BASE_RAMD;
+assign s_haddr_base[`SLAVE_RAMI  ] = `SLAVE_BASE_RAMI;
+assign s_haddr_base[`SLAVE_GPIO  ] = `SLAVE_BASE_GPIO;
+assign s_haddr_base[`SLAVE_UART  ] = `SLAVE_BASE_UART;
+assign s_haddr_base[`SLAVE_INTGEN] = `SLAVE_BASE_INTGEN;
+assign s_haddr_base[`SLAVE_I2C   ] = `SLAVE_BASE_I2C;
 //
-assign s_haddr_mask[0] = 32'hffffffe0;
-assign s_haddr_mask[1] = 32'hf0000000;
-assign s_haddr_mask[2] = 32'hf0000000;
-assign s_haddr_mask[3] = 32'hf0000000;
-assign s_haddr_mask[4] = 32'hf0000000;
-assign s_haddr_mask[5] = 32'hf0000000;
+assign s_haddr_mask[`SLAVE_MTIME ] = `SLAVE_MASK_MTIME;
+assign s_haddr_mask[`SLAVE_SDRAM ] = `SLAVE_MASK_SDRAM;
+assign s_haddr_mask[`SLAVE_RAMD  ] = `SLAVE_MASK_RAMD;
+assign s_haddr_mask[`SLAVE_RAMI  ] = `SLAVE_MASK_RAMI;
+assign s_haddr_mask[`SLAVE_GPIO  ] = `SLAVE_MASK_GPIO;
+assign s_haddr_mask[`SLAVE_UART  ] = `SLAVE_MASK_UART;
+assign s_haddr_mask[`SLAVE_INTGEN] = `SLAVE_MASK_INTGEN;
+assign s_haddr_mask[`SLAVE_I2C   ] = `SLAVE_MASK_I2C;
 //
 AHB_MATRIX
    #(
@@ -661,19 +697,19 @@ CSR_MTIME U_CSR_MTIME
     .CLK  (clk),
     .RES  (res_sys),
     // Slave Ports
-    .S_HSEL      (s_hsel[0]),
-    .S_HTRANS    (s_htrans[0]),
-    .S_HWRITE    (s_hwrite[0]),
-    .S_HMASTLOCK (s_hmastlock[0]),
-    .S_HSIZE     (s_hsize[0]),
-    .S_HBURST    (s_hburst[0]),
-    .S_HPROT     (s_hprot[0]),
-    .S_HADDR     (s_haddr[0]),
-    .S_HWDATA    (s_hwdata[0]),
-    .S_HREADY    (s_hready[0]),
-    .S_HREADYOUT (s_hreadyout[0]),
-    .S_HRDATA    (s_hrdata[0]),
-    .S_HRESP     (s_hresp[0]),
+    .S_HSEL      (s_hsel     [`SLAVE_MTIME]),
+    .S_HTRANS    (s_htrans   [`SLAVE_MTIME]),
+    .S_HWRITE    (s_hwrite   [`SLAVE_MTIME]),
+    .S_HMASTLOCK (s_hmastlock[`SLAVE_MTIME]),
+    .S_HSIZE     (s_hsize    [`SLAVE_MTIME]),
+    .S_HBURST    (s_hburst   [`SLAVE_MTIME]),
+    .S_HPROT     (s_hprot    [`SLAVE_MTIME]),
+    .S_HADDR     (s_haddr    [`SLAVE_MTIME]),
+    .S_HWDATA    (s_hwdata   [`SLAVE_MTIME]),
+    .S_HREADY    (s_hready   [`SLAVE_MTIME]),
+    .S_HREADYOUT (s_hreadyout[`SLAVE_MTIME]),
+    .S_HRDATA    (s_hrdata   [`SLAVE_MTIME]),
+    .S_HRESP     (s_hresp    [`SLAVE_MTIME]),
     // External Clock
     .CSR_MTIME_EXTCLK (TCK),
     // Interrupt Output
@@ -685,82 +721,118 @@ CSR_MTIME U_CSR_MTIME
     .DBG_STOP_TIMER (dbg_stop_timer)  // Stop Timer due to Debug Mode
 );
 
-//--------------------
-// RAM 0
-//--------------------
-RAM
-   #(
-        .RAM_SIZE(`RAM0_SIZE)
-    )
-U_RAM0 
+//----------------------
+// SDRAM Interface
+//----------------------
+ahb_lite_sdram U_AHB_SDRAM
 (
     // Global Signals
-    .CLK  (clk),
-    .RES  (res_sys),
+    .HCLK     (clk),
+    .HRESETn  (~res_sys),
     // Slave Ports
-    .S_HSEL      (s_hsel[1]),
-    .S_HTRANS    (s_htrans[1]),
-    .S_HWRITE    (s_hwrite[1]),
-    .S_HMASTLOCK (s_hmastlock[1]),
-    .S_HSIZE     (s_hsize[1]),
-    .S_HBURST    (s_hburst[1]),
-    .S_HPROT     (s_hprot[1]),
-    .S_HADDR     (s_haddr[1]),
-    .S_HWDATA    (s_hwdata[1]),
-    .S_HREADY    (s_hready[1]),
-    .S_HREADYOUT (s_hreadyout[1]),
-    .S_HRDATA    (s_hrdata[1]),
-    .S_HRESP     (s_hresp[1])
+    // Slave Ports
+    .HSEL      (s_hsel     [`SLAVE_SDRAM]),
+    .HTRANS    (s_htrans   [`SLAVE_SDRAM]),
+    .HWRITE    (s_hwrite   [`SLAVE_SDRAM]),
+    .HMASTLOCK (s_hmastlock[`SLAVE_SDRAM]),
+    .HSIZE     (s_hsize    [`SLAVE_SDRAM]),
+    .HBURST    (s_hburst   [`SLAVE_SDRAM]),
+    .HPROT     (s_hprot    [`SLAVE_SDRAM]),
+    .HADDR     (s_haddr    [`SLAVE_SDRAM]),
+    .HWDATA    (s_hwdata   [`SLAVE_SDRAM]),
+    .HREADY    (s_hready   [`SLAVE_SDRAM]),
+    .HREADYOUT (s_hreadyout[`SLAVE_SDRAM]),
+    .HRDATA    (s_hrdata   [`SLAVE_SDRAM]),
+    .HRESP     (s_hresp    [`SLAVE_SDRAM]),
+    .SI_Endian (1'b0),
+    //SDRAM side
+    .CKE   (SDRAM_CKE),
+    .CSn   (SDRAM_CSn),
+    .RASn  (SDRAM_RASn),
+    .CASn  (SDRAM_CASn),
+    .WEn   (SDRAM_WEn),
+    .ADDR  (SDRAM_ADDR),
+    .BA    (SDRAM_BA),
+    .DQ    (SDRAM_DQ),
+    .DQM   (SDRAM_DQM)
 );
 
 //--------------------
-// RAM 1
+// RAM Data
 //--------------------
-`ifdef FPGA
-RAM_FPGA U_RAM1
+RAM
+   #(
+        .RAM_SIZE(`RAMD_SIZE)
+    )
+U_RAMD
 (
     // Global Signals
     .CLK  (clk),
     .RES  (res_sys),
     // Slave Ports
-    .S_HSEL      (s_hsel[2]),
-    .S_HTRANS    (s_htrans[2]),
-    .S_HWRITE    (s_hwrite[2]),
-    .S_HMASTLOCK (s_hmastlock[2]),
-    .S_HSIZE     (s_hsize[2]),
-    .S_HBURST    (s_hburst[2]),
-    .S_HPROT     (s_hprot[2]),
-    .S_HADDR     (s_haddr[2]),
-    .S_HWDATA    (s_hwdata[2]),
-    .S_HREADY    (s_hready[2]),
-    .S_HREADYOUT (s_hreadyout[2]),
-    .S_HRDATA    (s_hrdata[2]),
-    .S_HRESP     (s_hresp[2])
+    .S_HSEL      (s_hsel     [`SLAVE_RAMD]),
+    .S_HTRANS    (s_htrans   [`SLAVE_RAMD]),
+    .S_HWRITE    (s_hwrite   [`SLAVE_RAMD]),
+    .S_HMASTLOCK (s_hmastlock[`SLAVE_RAMD]),
+    .S_HSIZE     (s_hsize    [`SLAVE_RAMD]),
+    .S_HBURST    (s_hburst   [`SLAVE_RAMD]),
+    .S_HPROT     (s_hprot    [`SLAVE_RAMD]),
+    .S_HADDR     (s_haddr    [`SLAVE_RAMD]),
+    .S_HWDATA    (s_hwdata   [`SLAVE_RAMD]),
+    .S_HREADY    (s_hready   [`SLAVE_RAMD]),
+    .S_HREADYOUT (s_hreadyout[`SLAVE_RAMD]),
+    .S_HRDATA    (s_hrdata   [`SLAVE_RAMD]),
+    .S_HRESP     (s_hresp    [`SLAVE_RAMD])
+);
+
+//--------------------
+// RAM Instruction
+//--------------------
+`ifdef FPGA
+RAM_FPGA U_RAMI
+(
+    // Global Signals
+    .CLK  (clk),
+    .RES  (res_sys),
+    // Slave Ports
+    .S_HSEL      (s_hsel     [`SLAVE_RAMI]),
+    .S_HTRANS    (s_htrans   [`SLAVE_RAMI]),
+    .S_HWRITE    (s_hwrite   [`SLAVE_RAMI]),
+    .S_HMASTLOCK (s_hmastlock[`SLAVE_RAMI]),
+    .S_HSIZE     (s_hsize    [`SLAVE_RAMI]),
+    .S_HBURST    (s_hburst   [`SLAVE_RAMI]),
+    .S_HPROT     (s_hprot    [`SLAVE_RAMI]),
+    .S_HADDR     (s_haddr    [`SLAVE_RAMI]),
+    .S_HWDATA    (s_hwdata   [`SLAVE_RAMI]),
+    .S_HREADY    (s_hready   [`SLAVE_RAMI]),
+    .S_HREADYOUT (s_hreadyout[`SLAVE_RAMI]),
+    .S_HRDATA    (s_hrdata   [`SLAVE_RAMI]),
+    .S_HRESP     (s_hresp    [`SLAVE_RAMI])
 );
 `else
 RAM
    #(
-        .RAM_SIZE(`RAM1_SIZE)
+        .RAM_SIZE(`RAMI_SIZE)
     )
-U_RAM1 
+U_RAMI
 (
     // Global Signals
     .CLK  (clk),
     .RES  (res_sys),
     // Slave Ports
-    .S_HSEL      (s_hsel[2]),
-    .S_HTRANS    (s_htrans[2]),
-    .S_HWRITE    (s_hwrite[2]),
-    .S_HMASTLOCK (s_hmastlock[2]),
-    .S_HSIZE     (s_hsize[2]),
-    .S_HBURST    (s_hburst[2]),
-    .S_HPROT     (s_hprot[2]),
-    .S_HADDR     (s_haddr[2]),
-    .S_HWDATA    (s_hwdata[2]),
-    .S_HREADY    (s_hready[2]),
-    .S_HREADYOUT (s_hreadyout[2]),
-    .S_HRDATA    (s_hrdata[2]),
-    .S_HRESP     (s_hresp[2])
+    .S_HSEL      (s_hsel     [`SLAVE_RAMI]),
+    .S_HTRANS    (s_htrans   [`SLAVE_RAMI]),
+    .S_HWRITE    (s_hwrite   [`SLAVE_RAMI]),
+    .S_HMASTLOCK (s_hmastlock[`SLAVE_RAMI]),
+    .S_HSIZE     (s_hsize    [`SLAVE_RAMI]),
+    .S_HBURST    (s_hburst   [`SLAVE_RAMI]),
+    .S_HPROT     (s_hprot    [`SLAVE_RAMI]),
+    .S_HADDR     (s_haddr    [`SLAVE_RAMI]),
+    .S_HWDATA    (s_hwdata   [`SLAVE_RAMI]),
+    .S_HREADY    (s_hready   [`SLAVE_RAMI]),
+    .S_HREADYOUT (s_hreadyout[`SLAVE_RAMI]),
+    .S_HRDATA    (s_hrdata   [`SLAVE_RAMI]),
+    .S_HRESP     (s_hresp    [`SLAVE_RAMI])
 );
 `endif
 
@@ -773,19 +845,19 @@ PORT U_PORT
     .CLK  (clk),
     .RES  (res_sys),
     // Slave Ports
-    .S_HSEL      (s_hsel[3]),
-    .S_HTRANS    (s_htrans[3]),
-    .S_HWRITE    (s_hwrite[3]),
-    .S_HMASTLOCK (s_hmastlock[3]),
-    .S_HSIZE     (s_hsize[3]),
-    .S_HBURST    (s_hburst[3]),
-    .S_HPROT     (s_hprot[3]),
-    .S_HADDR     (s_haddr[3]),
-    .S_HWDATA    (s_hwdata[3]),
-    .S_HREADY    (s_hready[3]),
-    .S_HREADYOUT (s_hreadyout[3]),
-    .S_HRDATA    (s_hrdata[3]),
-    .S_HRESP     (s_hresp[3]),
+    .S_HSEL      (s_hsel     [`SLAVE_GPIO]),
+    .S_HTRANS    (s_htrans   [`SLAVE_GPIO]),
+    .S_HWRITE    (s_hwrite   [`SLAVE_GPIO]),
+    .S_HMASTLOCK (s_hmastlock[`SLAVE_GPIO]),
+    .S_HSIZE     (s_hsize    [`SLAVE_GPIO]),
+    .S_HBURST    (s_hburst   [`SLAVE_GPIO]),
+    .S_HPROT     (s_hprot    [`SLAVE_GPIO]),
+    .S_HADDR     (s_haddr    [`SLAVE_GPIO]),
+    .S_HWDATA    (s_hwdata   [`SLAVE_GPIO]),
+    .S_HREADY    (s_hready   [`SLAVE_GPIO]),
+    .S_HREADYOUT (s_hreadyout[`SLAVE_GPIO]),
+    .S_HRDATA    (s_hrdata   [`SLAVE_GPIO]),
+    .S_HRESP     (s_hresp    [`SLAVE_GPIO]),
     // GPIO Port
     .GPIO0 (GPIO0),
     .GPIO1 (GPIO1),
@@ -801,19 +873,19 @@ UART U_UART
     .CLK  (clk),
     .RES  (res_sys),
     // Slave Ports
-    .S_HSEL      (s_hsel[4]),
-    .S_HTRANS    (s_htrans[4]),
-    .S_HWRITE    (s_hwrite[4]),
-    .S_HMASTLOCK (s_hmastlock[4]),
-    .S_HSIZE     (s_hsize[4]),
-    .S_HBURST    (s_hburst[4]),
-    .S_HPROT     (s_hprot[4]),
-    .S_HADDR     (s_haddr[4]),
-    .S_HWDATA    (s_hwdata[4]),
-    .S_HREADY    (s_hready[4]),
-    .S_HREADYOUT (s_hreadyout[4]),
-    .S_HRDATA    (s_hrdata[4]),
-    .S_HRESP     (s_hresp[4]),
+    .S_HSEL      (s_hsel     [`SLAVE_UART]),
+    .S_HTRANS    (s_htrans   [`SLAVE_UART]),
+    .S_HWRITE    (s_hwrite   [`SLAVE_UART]),
+    .S_HMASTLOCK (s_hmastlock[`SLAVE_UART]),
+    .S_HSIZE     (s_hsize    [`SLAVE_UART]),
+    .S_HBURST    (s_hburst   [`SLAVE_UART]),
+    .S_HPROT     (s_hprot    [`SLAVE_UART]),
+    .S_HADDR     (s_haddr    [`SLAVE_UART]),
+    .S_HWDATA    (s_hwdata   [`SLAVE_UART]),
+    .S_HREADY    (s_hready   [`SLAVE_UART]),
+    .S_HREADYOUT (s_hreadyout[`SLAVE_UART]),
+    .S_HRDATA    (s_hrdata   [`SLAVE_UART]),
+    .S_HRESP     (s_hresp    [`SLAVE_UART]),
     // UART Port
     .RXD (RXD),
     .TXD (TXD),
@@ -832,25 +904,68 @@ INT_GEN U_INT_GEN
     .CLK  (clk),
     .RES  (res_sys),
     // Slave Ports
-    .S_HSEL      (s_hsel[5]),
-    .S_HTRANS    (s_htrans[5]),
-    .S_HWRITE    (s_hwrite[5]),
-    .S_HMASTLOCK (s_hmastlock[5]),
-    .S_HSIZE     (s_hsize[5]),
-    .S_HBURST    (s_hburst[5]),
-    .S_HPROT     (s_hprot[5]),
-    .S_HADDR     (s_haddr[5]),
-    .S_HWDATA    (s_hwdata[5]),
-    .S_HREADY    (s_hready[5]),
-    .S_HREADYOUT (s_hreadyout[5]),
-    .S_HRDATA    (s_hrdata[5]),
-    .S_HRESP     (s_hresp[5]),
+    .S_HSEL      (s_hsel     [`SLAVE_INTGEN]),
+    .S_HTRANS    (s_htrans   [`SLAVE_INTGEN]),
+    .S_HWRITE    (s_hwrite   [`SLAVE_INTGEN]),
+    .S_HMASTLOCK (s_hmastlock[`SLAVE_INTGEN]),
+    .S_HSIZE     (s_hsize    [`SLAVE_INTGEN]),
+    .S_HBURST    (s_hburst   [`SLAVE_INTGEN]),
+    .S_HPROT     (s_hprot    [`SLAVE_INTGEN]),
+    .S_HADDR     (s_haddr    [`SLAVE_INTGEN]),
+    .S_HWDATA    (s_hwdata   [`SLAVE_INTGEN]),
+    .S_HREADY    (s_hready   [`SLAVE_INTGEN]),
+    .S_HREADYOUT (s_hreadyout[`SLAVE_INTGEN]),
+    .S_HRDATA    (s_hrdata   [`SLAVE_INTGEN]),
+    .S_HRESP     (s_hresp    [`SLAVE_INTGEN]),
     // Interrupt Output
     .IRQ_EXT (irq_ext),
     .IRQ     (irq_gen)
 );
-//
-assign irq = irq_gen | {63'h0, irq_uart};
+
+//-------------------
+// I2C
+//-------------------
+I2C U_I2C 
+(
+    // Global Signals
+    .CLK  (clk),
+    .RES  (res_sys),
+    // Slave Ports
+    .S_HSEL      (s_hsel     [`SLAVE_I2C]),
+    .S_HTRANS    (s_htrans   [`SLAVE_I2C]),
+    .S_HWRITE    (s_hwrite   [`SLAVE_I2C]),
+    .S_HMASTLOCK (s_hmastlock[`SLAVE_I2C]),
+    .S_HSIZE     (s_hsize    [`SLAVE_I2C]),
+    .S_HBURST    (s_hburst   [`SLAVE_I2C]),
+    .S_HPROT     (s_hprot    [`SLAVE_I2C]),
+    .S_HADDR     (s_haddr    [`SLAVE_I2C]),
+    .S_HWDATA    (s_hwdata   [`SLAVE_I2C]),
+    .S_HREADY    (s_hready   [`SLAVE_I2C]),
+    .S_HREADYOUT (s_hreadyout[`SLAVE_I2C]),
+    .S_HRDATA    (s_hrdata   [`SLAVE_I2C]),
+    .S_HRESP     (s_hresp    [`SLAVE_I2C]),
+    // I2C Port
+    .I2C_SCL_I   (i2c_scl_i),   // SCL Input
+    .I2C_SCL_O   (i2c_scl_o),   // SCL Output
+    .I2C_SCL_OEN (i2c_scl_oen), // SCL Output Enable (neg)
+    .I2C_SDA_I   (i2c_sda_i),   // SDA Input
+    .I2C_SDA_O   (i2c_sda_o),   // SDA Output
+    .I2C_SDA_OEN (i2c_sda_oen), // SDA Output Enable (neg)
+    // Interrupt
+    .IRQ_I2C (irq_i2c)
+);
+
+//-----------------------------------------
+// Interrupts
+//-----------------------------------------
+assign irq = irq_gen | 
+    {
+        60'h0,
+        I2C_INT2,
+        I2C_INT1,
+        irq_i2c,
+        irq_uart
+    };
 
 //------------------------
 // End of Module

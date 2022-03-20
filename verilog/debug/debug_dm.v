@@ -91,7 +91,7 @@
 // [---] 3.12.25 System Bus Data 95:64 (sbdata2, at 0x3e)
 // [---] 3.12.26 System Bus Data 127:96 (sbdata3, at 0x3f)
 
-`include "defines.v"
+`include "defines_core.v"
 
 //----------------------
 // Define Module
