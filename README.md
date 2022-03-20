@@ -28,6 +28,15 @@ Followings are updated. Main RTL Body of mmRISC is not modified due to no bugs f
   WHY2: The register contention check between FLW's destination and FMADD's source 3 (src3) was not implemented. <br>
   FIX2: Contention check between FLW's destination and FMADD's source 3 (src3) is implemented in cpu_pipeline.v. <br>
 
+### 2022.03.20 Fixed following bugs in Floating Point Instructions in mmRISC Core
+ Followings are updated. <br> 
+ (1) common/defines.v is divided into defines_core.v for mmRISC Core and defines_chip.v for Chip System. (defines.v is not used any more.)<br>
+ (2) Simple I2C Core is added in FPGA. Related modifications are applied in RTL and Verification resources. Simple CPU Sample Program supports I2C which comunicates with Accelerometer Sensor on MAX10-Lite board. <br>
+ (3) Simple SDRAM Interface logic is added in FPGA which accesses 64MB SDRAM on MAX10-Lite board. <br>
+ 0x80000000-( 64GB) SDRAM <br>
+ 0x88000000-( 48KB) Internal Data RAM <br>
+ 0x90000000-(128KB) Internal Instruction RAM <br>
+
 ## ISA
 RV32IM[A][F]C (configurable)
 
