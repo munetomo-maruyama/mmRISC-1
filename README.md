@@ -40,6 +40,7 @@ Followings are updated. Main RTL Body of mmRISC is not modified due to no bugs f
  0x80000000-( 64GB) SDRAM <br>
  0x88000000-( 48KB) Internal Data RAM <br>
  0x90000000-(128KB) Internal Instruction RAM <br>
+ * The Technical Reference Manual has not been updated along with above updates. Please wait for a while. <br>
 
 ## ISA
 RV32IM[A][F]C (configurable)
