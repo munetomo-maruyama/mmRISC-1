@@ -28,7 +28,7 @@ Followings are updated. Main RTL Body of mmRISC is not modified due to no bugs f
   WHY1: EX_FPU_DSTDATA was active only when EX_ALU_DST1 was asserted.  <br>
   FIX1: EX_FPU_DSTDATA is connected from ex_busZ directly in cpu_datapath.v. EX_FPU_SRCDATA is stretched until next updating in cpu_fpu32.v. <br>
   <br>
-  BUG2: In FLW (load) followed by FMADD.S/FMSUB.S/FNMSUB.S/FNMADD.S, FMADDs did not use latest loaded data in src3.
+  BUG2: In FLW (load) followed by FMADD.S/FMSUB.S/FNMSUB.S/FNMADD.S, FMADDs did not use latest loaded data in src3. <br>
   WHY2: The register contention check between FLW's destination and FMADD's source 3 (src3) was not implemented. <br>
   FIX2: Contention check between FLW's destination and FMADD's source 3 (src3) is implemented in cpu_pipeline.v. <br>
 
