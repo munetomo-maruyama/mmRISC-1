@@ -76,7 +76,7 @@
 //   bit[ 3:0] R/W  FDIV  Convergence Loop Count (default 4)
 //===========================================================
 
-`include "defines.v"
+`include "defines_core.v"
 
 //=====================================================================
 //---------------------------------------------------------------------
@@ -122,9 +122,9 @@ module CPU_FPU32
     input  wire [13:0] EX_STSRC,        // FPU Memory Store Data Source in EX Stage
     input  wire [13:0] WB_LOAD_DST,     // FPU Memory Load Destination in WB Stage
     //
-    output reg  [31:0] EX_FPU_SRCDATA,  // FPU Source Data in EX Stage
+    output wire [31:0] EX_FPU_SRCDATA,  // FPU Source Data in EX Stage
     input  wire [31:0] EX_FPU_DSTDATA,  // FPU Destinaton Data in EX Stage
-    output reg  [31:0] EX_FPU_ST_DATA,  // FPU Memory Store Data in EX Stage
+    output wire [31:0] EX_FPU_ST_DATA,  // FPU Memory Store Data in EX Stage
     input  wire [31:0] WB_FPU_LD_DATA,  // FPU Memory Load Data in WB Stage
     //
     output reg         FPUCSR_DIRTY,        // FPU CSR is Dirty
@@ -1290,71 +1290,105 @@ assign pipe_i_float_src2_nan = (pipe_i_float_src2[30:23] == 8'hff) & (pipe_i_flo
 //
 assign chk_ftype_float_in = (pipe_i_cmd_fclass)? pipe_i_float_src1 : 32'h00000000;
 //
+reg        ex_fpu_srcdata_update;
+reg [31:0] ex_fpu_srcdata_root;
+reg [31:0] ex_fpu_srcdata_keep;
+//
 always @*
 begin
-    EX_FPU_SRCDATA = 32'h00000000;
+    ex_fpu_srcdata_root   = 32'h00000000;
+    ex_fpu_srcdata_update = 1'b0;
     //--------------------------------------
     // FMV.X.W
     //--------------------------------------
     if ((pipe_i_token[7:0] == `FPU32_CMD_FMVXW  ) & ((EX_ALU_SRC1 & `ALU_MSK) == `ALU_FPR))
-        EX_FPU_SRCDATA = regFR[EX_ALU_SRC1[4:0]];
+    begin
+        ex_fpu_srcdata_root   = regFR[EX_ALU_SRC1[4:0]];
+        ex_fpu_srcdata_update = 1'b1;
+    end
     //--------------------------------------
     // FEQ.S/FLT.S/FLE.S
     //--------------------------------------
     else if (pipe_i_cmd_feq)
     begin
-        EX_FPU_SRCDATA = (pipe_i_float_src1_nan)? 32'h00000000
-                       : (pipe_i_float_src2_nan)? 32'h00000000
-                       : (pipe_i_float_src1 == pipe_i_float_src2)? 32'h00000001
-                       : 32'h00000000;
+        ex_fpu_srcdata_root = (pipe_i_float_src1_nan)? 32'h00000000
+                            : (pipe_i_float_src2_nan)? 32'h00000000
+                            : (pipe_i_float_src1 == pipe_i_float_src2)? 32'h00000001
+                            : 32'h00000000;
+        ex_fpu_srcdata_update = 1'b1;
     end
     else if (pipe_i_cmd_flt)
     begin
-        EX_FPU_SRCDATA = (pipe_i_float_src1_nan)? 32'h00000000
-                       : (pipe_i_float_src2_nan)? 32'h00000000
-                       : ( pipe_i_float_src1[31] & ~pipe_i_float_src2[31])? 32'h00000001
-                       : (~pipe_i_float_src1[31] &  pipe_i_float_src2[31])? 32'h00000000
-                       : (~pipe_i_float_src1[31] & ~pipe_i_float_src2[31])? 
-                            ((pipe_i_float_src1 < pipe_i_float_src2) ? 32'h00000001 : 32'h00000000)
-                       : ( pipe_i_float_src1[31] &  pipe_i_float_src2[31])? 
-                            ((pipe_i_float_src1 > pipe_i_float_src2) ? 32'h00000001 : 32'h00000000)                        
-                       : 32'h00000000;
+        ex_fpu_srcdata_root = (pipe_i_float_src1_nan)? 32'h00000000
+                            : (pipe_i_float_src2_nan)? 32'h00000000
+                            : ( pipe_i_float_src1[31] & ~pipe_i_float_src2[31])? 32'h00000001
+                            : (~pipe_i_float_src1[31] &  pipe_i_float_src2[31])? 32'h00000000
+                            : (~pipe_i_float_src1[31] & ~pipe_i_float_src2[31])? 
+                                ((pipe_i_float_src1 < pipe_i_float_src2) ? 32'h00000001 : 32'h00000000)
+                            : ( pipe_i_float_src1[31] &  pipe_i_float_src2[31])? 
+                                ((pipe_i_float_src1 > pipe_i_float_src2) ? 32'h00000001 : 32'h00000000)                        
+                            : 32'h00000000;
+        ex_fpu_srcdata_update = 1'b1;
     end
     else if (pipe_i_cmd_fle)
     begin
-        EX_FPU_SRCDATA = (pipe_i_float_src1_nan)? 32'h00000000
-                       : (pipe_i_float_src2_nan)? 32'h00000000
-                       : ( pipe_i_float_src1[31] & ~pipe_i_float_src2[31])? 32'h00000001
-                       : (~pipe_i_float_src1[31] &  pipe_i_float_src2[31])? 32'h00000000
-                       : (~pipe_i_float_src1[31] & ~pipe_i_float_src2[31])? 
-                            ((pipe_i_float_src1 <= pipe_i_float_src2) ? 32'h00000001 : 32'h00000000)
-                       : ( pipe_i_float_src1[31] &  pipe_i_float_src2[31])? 
-                            ((pipe_i_float_src1 >= pipe_i_float_src2) ? 32'h00000001 : 32'h00000000)                        
-                       : 32'h00000000;
+        ex_fpu_srcdata_root = (pipe_i_float_src1_nan)? 32'h00000000
+                            : (pipe_i_float_src2_nan)? 32'h00000000
+                            : ( pipe_i_float_src1[31] & ~pipe_i_float_src2[31])? 32'h00000001
+                            : (~pipe_i_float_src1[31] &  pipe_i_float_src2[31])? 32'h00000000
+                            : (~pipe_i_float_src1[31] & ~pipe_i_float_src2[31])? 
+                                ((pipe_i_float_src1 <= pipe_i_float_src2) ? 32'h00000001 : 32'h00000000)
+                            : ( pipe_i_float_src1[31] &  pipe_i_float_src2[31])? 
+                                ((pipe_i_float_src1 >= pipe_i_float_src2) ? 32'h00000001 : 32'h00000000)                        
+                            : 32'h00000000;
+        ex_fpu_srcdata_update = 1'b1;
     end
     //--------------------------------------
     // FCLASS.S
     //--------------------------------------
     else if (pipe_i_cmd_fclass)
-        EX_FPU_SRCDATA = (chk_ftype_out == `FPU32_FT_NEGQNA)? 32'h00000001 << `FPU32_FT_POSQNA
-                       : (chk_ftype_out == `FPU32_FT_NEGSNA)? 32'h00000001 << `FPU32_FT_POSSNA
-                       : 32'h00000001 << chk_ftype_out;
+    begin
+        ex_fpu_srcdata_root = (chk_ftype_out == `FPU32_FT_NEGQNA)? 32'h00000001 << `FPU32_FT_POSQNA
+                            : (chk_ftype_out == `FPU32_FT_NEGSNA)? 32'h00000001 << `FPU32_FT_POSSNA
+                            : 32'h00000001 << chk_ftype_out;
+        ex_fpu_srcdata_update = 1'b1;
+    end
     //--------------------------------------
     // FCVT.W.S/FCVT.WU.S
     //--------------------------------------
-    else if ((EX_ALU_SRC1 & `ALU_MSK) == `ALU_FPR)
-        EX_FPU_SRCDATA = pipe_c_int_out;
+    else if ((pipe_c_token[7:1] == 7'b1100000) & ((EX_ALU_SRC1 & `ALU_MSK) == `ALU_FPR)) // FCVT.W.S/FCVT.WU.S
+  //else if ((EX_ALU_SRC1 & `ALU_MSK) == `ALU_FPR)
+    begin
+        ex_fpu_srcdata_root   = pipe_c_int_out;
+        ex_fpu_srcdata_update = 1'b1;
+    end
 end
 //
-always @*
+always @(posedge CLK, posedge RES_CPU)
 begin
-    EX_FPU_ST_DATA = 32'h00000000;
-    //--------------------------------------
-    // FSW
-    //--------------------------------------
-    if ((EX_STSRC & `ALU_MSK) == `ALU_FPR)
-        EX_FPU_ST_DATA = regFR[EX_STSRC[4:0]];
+    if (RES_CPU)
+        ex_fpu_srcdata_keep <= 32'b00000000;
+    else if (ex_fpu_srcdata_update)
+        ex_fpu_srcdata_keep <= ex_fpu_srcdata_root;
 end
+//
+assign EX_FPU_SRCDATA
+    = (ex_fpu_srcdata_update)? ex_fpu_srcdata_root : ex_fpu_srcdata_keep;
+//
+//always @*
+//begin
+//    EX_FPU_ST_DATA = 32'h00000000;
+//    //--------------------------------------
+//    // FSW
+//    //--------------------------------------
+//    if ((EX_STSRC & `ALU_MSK) == `ALU_FPR)
+//        EX_FPU_ST_DATA = regFR[EX_STSRC[4:0]];
+//end
+//
+//--------------------------------------
+// FSW
+//--------------------------------------
+assign EX_FPU_ST_DATA = regFR[EX_STSRC[4:0]];
 
 //-----------------------------------------------
 // FPU Execution sets Flags
@@ -2264,11 +2298,11 @@ assign CSR_FPU_DBG_RDATA = 32'h00000000;
 assign CSR_FPU_CPU_RDATA = 32'h00000000;
 assign ID_FPU_STALL  = 1'b0;
 assign SET_MSTATUS_FS_DIRTY = 1'b0;
+assign EX_FPU_SRCDATA = 32'h00000000;
+assign EX_FPU_ST_DATA = 32'h00000000;
 initial
 begin
     DBGABS_FPR_RDATA = 32'h00000000;
-    EX_FPU_SRCDATA   = 32'h00000000;
-    EX_FPU_ST_DATA   = 32'h00000000;
     FPUCSR_DIRTY     = 1'b0;
 end
 `endif // RISCV_ISA_RV32F

@@ -11,7 +11,7 @@
 // Copyright (C) 2017-2020 M.Maruyama
 //===========================================================
 
-`include "defines.v"
+`include "defines_core.v"
 
 //----------------------
 // Define Module

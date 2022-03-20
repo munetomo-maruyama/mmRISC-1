@@ -42,7 +42,7 @@
 //   bit[ 3: 0] R/W  priority[x*8+0] : Priority Level for IRQ[x*8+0]
 //===========================================================
 
-`include "defines.v"
+`include "defines_core.v"
 
 //----------------------
 // Define Module

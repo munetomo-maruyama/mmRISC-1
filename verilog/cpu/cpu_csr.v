@@ -160,7 +160,7 @@
 //   [NOTE] Reading these registers follow same manner as mcycle/mcycleh.
 //---------------------------------------
 
-`include "defines.v"
+`include "defines_core.v"
 
 //----------------------
 // Define Module

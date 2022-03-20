@@ -10,7 +10,7 @@
 // Copyright (C) 2017-2020 M.Maruyama
 //===========================================================
 
-`include "defines.v"
+`include "defines_core.v"
 
 //----------------------
 // Define Module
@@ -791,8 +791,9 @@ assign scond_dst_data = 32'h00000000;
 //--------------------------------------------
 // FPU Operation
 //--------------------------------------------
-assign EX_FPU_DSTDATA = ((EX_ALU_DST1 & `ALU_MSK) == `ALU_FPR)? ex_busZ
-                      : 32'h00000000;
+//assign EX_FPU_DSTDATA = ((EX_ALU_DST1 & `ALU_MSK) == `ALU_FPR)? ex_busZ
+//                    : 32'h00000000;
+assign EX_FPU_DSTDATA = ex_busZ;
 assign WB_FPU_LD_DATA = wb_busW;
 
 //------------------------

@@ -120,7 +120,7 @@
 // | 1 | 0 | 4n   16W0 16W1 16W2 |       na  16W1 16W2 | 16W0          | addr_buf0 | pre2 0    0    buf0 |
 // | 1 | 0 | 4n   16W0 16W1 32L0 |       na  16W1 32L0 | 16W0          | addr_buf0 | pre2 0    0    buf0 |
 
-`include "defines.v"
+`include "defines_core.v"
 
 //----------------------
 // Define Module

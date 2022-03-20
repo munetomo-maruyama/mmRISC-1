@@ -74,7 +74,7 @@
 //     Interrupt Trigger, Exception Trigger
 //     Trigger Data 3, Trigger Extra
 
-`include "defines.v"
+`include "defines_core.v"
 
 //----------------------
 // Define Module

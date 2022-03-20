@@ -567,6 +567,7 @@ end
 //
 assign stall_cpu = id_alu_src1[13] & ex_load_dst[13] & (id_alu_src1[12:0] == ex_load_dst[12:0])
                  | id_alu_src2[13] & ex_load_dst[13] & (id_alu_src2[12:0] == ex_load_dst[12:0])
+                 | id_alu_src3[13] & ex_load_dst[13] & (id_alu_src3[12:0] == ex_load_dst[12:0]) // FMADD..
                  | id_alu_dst1[13] & ex_load_dst[13] & (id_alu_dst1[12:0] == ex_load_dst[12:0])
                  | id_alu_dst2[13] & ex_load_dst[13] & (id_alu_dst2[12:0] == ex_load_dst[12:0])
                  | id_dec_src1[13] & ex_load_dst[13] & (id_dec_src1[12:0] == ex_load_dst[12:0])
