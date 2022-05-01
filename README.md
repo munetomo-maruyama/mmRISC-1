@@ -45,19 +45,19 @@ Followings are updated. Main RTL Body of mmRISC is not modified due to no bugs f
 ### 2022.05.01 Fixed Operation of RV32F Instruction in which source registers are FRn and destination register is XRn. 
  BUG : When RV32F Instruction in which destination register is XRn, such as FMV.X.W, FCLASS.S, FCMP,FCVT.W(U).S and FCMP.S,<br>
        is followed by an instruction in which above XRn is used as source register, sometimes the source value is old one<br>
-       that has not been updated by the RV32F instruction.
- WHY : Incorrect instruction stallings.
+       that has not been updated by the RV32F instruction.<br>
+ WHY : Incorrect instruction stallings.<br>
  FIX : Make the RV32F instruction in which its destination is XRn be multicycle instruction in each.<br>
-       Updated cpu_pipeline.v and cpu_fpu32.v.
+       Updated cpu_pipeline.v and cpu_fpu32.v.<br>
 
 ### 2022.05.01 Added Simple SPI, one more I2C in FPGA. Added an application mmRISC_TouchLCD
 (1) Added SPI, one more I2C.<br>
 (2) Wrote know-hows in Technical Reference Manual to use Raspberry Pi as a Development Environment including OpenOCD interface.<br>
-    Added an example of openocd script for Raspberry Pi in directory "openocd".
+    Added an example of openocd script for Raspberry Pi in directory "openocd".<br>
 (3) In application mmRISC_SampleCPU, added access of Acceleration Sensor on MAX10-Lite board through I2C interface.<br>
 (4) Added new application mmRISC_TouchLCD which handles Adafruit-2-8-tft-touch-shield-v2<br>
     with Resistive Touch Panel or Capacitive Touch Panel for Arduino.<br>
-(5) In each sample program, baud rate of UART is unified to 115200bps.
+(5) In each sample program, baud rate of UART is unified to 115200bps.<br>
 
 ## ISA
 RV32IM[A][F]C (configurable)
