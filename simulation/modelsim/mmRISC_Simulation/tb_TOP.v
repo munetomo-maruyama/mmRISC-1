@@ -269,6 +269,10 @@ wire i2c_ena;  // I2C Enable (Fixed to 1)
 wire i2c_adr;  // I2C ALTADDR (Fixed to 0)
 wire i2c_int1; // I2C Device Interrupt Request 1
 wire i2c_int2; // I2C Device Interrupt Request 2
+wire [ 3:0] spi_csn;  // SPI Chip Select
+wire        spi_sck;  // SPI Clock
+wire        spi_mosi; // SPI MOSI
+wire        spi_miso; // SPI MISO
 //
 wire        sdram_clk;  // SDRAM Clock
 wire        sdram_cke;  // SDRAM Clock Enable
@@ -287,6 +291,7 @@ pullup(i2c_scl);
 pullup(i2c_sda);
 assign i2c_int1 = 1'b0;
 assign i2c_int2 = 1'b0;
+assign spi_miso = ~spi_mosi; // reversed loop back
 //
 generate
     genvar i;
@@ -325,6 +330,11 @@ CHIP_TOP U_CHIP_TOP
     .I2C_ADR  (i2c_adr),  // I2C ALTADDR (Fixed to 0)
     .I2C_INT1 (i2c_int1), // I2C Device Interrupt Request 1
     .I2C_INT2 (i2c_int2), // I2C Device Interrupt Request 2
+    //
+    .SPI_CSN  (spi_csn),  // SPI Chip Select
+    .SPI_SCK  (spi_sck),  // SPI Clock
+    .SPI_MOSI (spi_mosi), // SPI MOSI
+    .SPI_MISO (spi_miso), // SPI MISO
     //
     .SDRAM_CLK  (sdram_clk),  // SDRAM Clock
     .SDRAM_CKE  (sdram_cke),  // SDRAM Clock Enable

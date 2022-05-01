@@ -16,6 +16,10 @@
 //-------------------------
 // Define Registers
 //-------------------------
+#define I2C0 0
+#define I2C1 1
+#define I2C_REG(ch, addr) ((ch == I2C0)? addr : addr + 0x0100)
+//
 #define I2C_PRERL 0xd0000000 // byte
 #define I2C_PRERH 0xd0000004 // byte
 #define I2C_CTL   0xd0000008 // byte
@@ -40,11 +44,11 @@
 //---------------
 // Prototype
 //---------------
-void I2C_Init(uint8_t dev_addr7);
-void I2C_WriteByte(uint8_t addr, uint8_t data);
-uint8_t I2C_ReadByte(uint8_t addr);
-void I2C_WriteMultiBytes(uint8_t addr, uint8_t bytes, uint8_t *data);
-void I2C_ReadMultiBytes(uint8_t addr, uint8_t bytes, uint8_t *data);
+void I2C_Init(uint32_t ch, uint8_t dev_addr7);
+void I2C_WriteByte(uint32_t ch, uint8_t addr, uint8_t data);
+uint8_t I2C_ReadByte(uint32_t ch, uint8_t addr);
+void I2C_WriteMultiBytes(uint32_t ch, uint8_t addr, uint8_t bytes, uint8_t *data);
+void I2C_ReadMultiBytes(uint32_t ch, uint8_t addr, uint8_t bytes, uint8_t *data);
 
 //===========================================================
 // End of Program

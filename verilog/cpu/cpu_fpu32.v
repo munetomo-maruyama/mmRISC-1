@@ -1283,8 +1283,11 @@ assign pipe_i_cmd_flt    = (pipe_i_token[7:0] == `FPU32_CMD_FLT   );
 assign pipe_i_cmd_fle    = (pipe_i_token[7:0] == `FPU32_CMD_FLE   );
 assign pipe_i_cmd_fclass = (pipe_i_token[7:0] == `FPU32_CMD_FCLASS);
 //
-assign pipe_i_float_src1 = (pipe_i_token[35])? regFR[pipe_i_token[34:30]] : 32'h0;
-assign pipe_i_float_src2 = (pipe_i_token[29])? regFR[pipe_i_token[28:24]] : 32'h0;
+//assign pipe_i_float_src1 = (pipe_i_token[35])? regFR[pipe_i_token[34:30]] : 32'h0;
+//assign pipe_i_float_src2 = (pipe_i_token[29])? regFR[pipe_i_token[28:24]] : 32'h0;
+assign pipe_i_float_src1 = idata_float_in1;
+assign pipe_i_float_src2 = idata_float_in2;
+//
 assign pipe_i_float_src1_nan = (pipe_i_float_src1[30:23] == 8'hff) & (pipe_i_float_src1[22:0] != 23'h0);
 assign pipe_i_float_src2_nan = (pipe_i_float_src2[30:23] == 8'hff) & (pipe_i_float_src2[22:0] != 23'h0);
 //
@@ -1296,14 +1299,15 @@ reg [31:0] ex_fpu_srcdata_keep;
 //
 always @*
 begin
-    ex_fpu_srcdata_root   = 32'h00000000;
-    ex_fpu_srcdata_update = 1'b0;
+    ex_fpu_srcdata_root        = 32'h00000000;
+    ex_fpu_srcdata_update      = 1'b0;
     //--------------------------------------
     // FMV.X.W
     //--------------------------------------
     if ((pipe_i_token[7:0] == `FPU32_CMD_FMVXW  ) & ((EX_ALU_SRC1 & `ALU_MSK) == `ALU_FPR))
     begin
-        ex_fpu_srcdata_root   = regFR[EX_ALU_SRC1[4:0]];
+      //ex_fpu_srcdata_root   = regFR[EX_ALU_SRC1[4:0]];
+        ex_fpu_srcdata_root   = idata_float_in1;
         ex_fpu_srcdata_update = 1'b1;
     end
     //--------------------------------------
@@ -1372,8 +1376,8 @@ begin
         ex_fpu_srcdata_keep <= ex_fpu_srcdata_root;
 end
 //
-assign EX_FPU_SRCDATA
-    = (ex_fpu_srcdata_update)? ex_fpu_srcdata_root : ex_fpu_srcdata_keep;
+assign EX_FPU_SRCDATA = ex_fpu_srcdata_keep;
+//  = (ex_fpu_srcdata_update)? ex_fpu_srcdata_root : ex_fpu_srcdata_keep;
 //
 //always @*
 //begin

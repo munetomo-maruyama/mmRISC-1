@@ -51,17 +51,17 @@ void UART_Init(void)
     uint32_t freq = Get_System_Freq();
     if (freq == 20000000) // without RV32F 20.00MHz
     {
-        mem_wr8(UART_BG0, 18);
-        mem_wr8(UART_BG1, 26);
-      //mem_wr8(UART_BG0,  5);
-      //mem_wr8(UART_BG1,  6);
+      //mem_wr8(UART_BG0, 18);
+      //mem_wr8(UART_BG1, 26);
+        mem_wr8(UART_BG0,  5);
+        mem_wr8(UART_BG1,  6);
     }
     else // with RV32F 16.66.00MHz
     {
-        mem_wr8(UART_BG0, 85);
-        mem_wr8(UART_BG1,  5);
-      //mem_wr8(UART_BG0,  4);
-      //mem_wr8(UART_BG1,  6);
+      //mem_wr8(UART_BG0, 85);
+      //mem_wr8(UART_BG1,  5);
+        mem_wr8(UART_BG0,  4);
+        mem_wr8(UART_BG1,  6);
     }
     //
   //mem_wr8(UART_CSR, 0x40); // IERX=1

@@ -10,7 +10,7 @@
 // Copyright (C) 2020-2021 M.Maruyama
 //===========================================================
 
-#define MYLIB
+//#define MYLIB
 
 #include <stdio.h>
 #include <math.h>
@@ -18,10 +18,9 @@
 #include "csr.h"
 #include "float.h"
 #include "gpio.h"
+#include "system.h"
 #include "uart.h"
 #include "xprintf.h"
-
-#define STRING(frn) #frn
 
 //--------------------------------
 // Read FRx
@@ -533,7 +532,6 @@ void main_floating(void)
 {
     uint32_t i;
     uint32_t bcd1000, bcd100, bcd10, bcd1, bcd;
-    uint64_t cyclel, cycleh, cycle_prev, cycle_now;
     //
     /*
     uint64_t n;
@@ -581,20 +579,10 @@ void main_floating(void)
             GPIO_SetSEG_SignedDecimal(isin_disp);
             printf("i=%3d fth=%8.6f fsin=%9.6f\n", i, fth, fsin);
             //
-            cyclel = (uint64_t) read_csr(mcycle);
-            cycleh = (uint64_t) read_csr(mcycleh);
-            cycle_prev = (cycleh << 32) + (cyclel);
-            while (1)
-            {
-                cyclel = (uint64_t) read_csr(mcycle);
-                cycleh = (uint64_t) read_csr(mcycleh);
-                cycle_now = (cycleh << 32) + (cyclel);
-                if (cycle_now >= cycle_prev + 1666666) break;
-                //
-                mem_wr32(0xfffffffc, 0xdeaddead); // Simulation Stop
-            }
+            mem_wr32(0xfffffffc, 0xdeaddead); // Simulation Stop
+            //
+            Wait_mSec(100);
         }
-      //break;
     }
 }
 

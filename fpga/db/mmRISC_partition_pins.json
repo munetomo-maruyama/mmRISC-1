@@ -4,11 +4,39 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "RESOUT_N",
+					"strict" : false
+				},
+				{
 					"name" : "TDO",
 					"strict" : false
 				},
 				{
 					"name" : "TXD",
+					"strict" : false
+				},
+				{
+					"name" : "SPI_CSN[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SPI_CSN[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SPI_CSN[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SPI_CSN[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SPI_SCK",
+					"strict" : false
+				},
+				{
+					"name" : "SPI_MOSI",
 					"strict" : false
 				},
 				{
@@ -480,11 +508,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "I2C_SCL",
+					"name" : "I2C0_SCL",
 					"strict" : false
 				},
 				{
-					"name" : "I2C_SDA",
+					"name" : "I2C0_SDA",
+					"strict" : false
+				},
+				{
+					"name" : "I2C1_SCL",
+					"strict" : false
+				},
+				{
+					"name" : "I2C1_SDA",
 					"strict" : false
 				},
 				{
@@ -568,19 +604,23 @@
 					"strict" : false
 				},
 				{
-					"name" : "TDI",
-					"strict" : false
-				},
-				{
 					"name" : "TMS",
 					"strict" : false
 				},
 				{
-					"name" : "I2C_INT1",
+					"name" : "TDI",
 					"strict" : false
 				},
 				{
-					"name" : "I2C_INT2",
+					"name" : "I2C0_INT1",
+					"strict" : false
+				},
+				{
+					"name" : "I2C0_INT2",
+					"strict" : false
+				},
+				{
+					"name" : "SPI_MISO",
 					"strict" : false
 				},
 				{

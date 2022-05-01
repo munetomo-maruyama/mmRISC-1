@@ -534,12 +534,12 @@ assign divout = ( EX_DIV_ZERO & (EX_DIV_FUNC[1:0] == 2'b01))? 32'hffffffff // DI
 //--------------------
 // BUSX
 //--------------------
-assign ex_busX = (EX_AMO_2NDST                        )? wb_busW 
-               : (fwd_wb_ex1                          )? wb_busW
+assign ex_busX = ((EX_ALU_SRC1 & `ALU_MSK) == `ALU_FPR)? EX_FPU_SRCDATA // FPU is source
+               : ( EX_AMO_2NDST                       )? wb_busW 
+               : ( fwd_wb_ex1                         )? wb_busW
                : ((EX_ALU_SRC1 & `ALU_MSK) == `ALU_GPR)? regXR[EX_ALU_SRC1[4:0]]
                : ((EX_ALU_SRC1           ) == `ALU_IMM)? EX_ALU_IMM
                : ((EX_ALU_SRC1           ) == `ALU_PC )? EX_PC
-               : ((EX_ALU_SRC1 & `ALU_MSK) == `ALU_FPR)? EX_FPU_SRCDATA
                : 32'h00000000;
 
 //--------------------

@@ -1,2 +1,0 @@
-create_clock -name TCK -period 100.000
-create_clock -name CLK -period 50 [get_nets {U_PLL|altpll_component|auto_generated|wire_pll1_clk[0]}]

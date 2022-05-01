@@ -25,6 +25,28 @@ uint32_t Get_System_Freq(void)
     return freq;
 }
 
+//-----------------------
+// Wait mSec
+//-----------------------
+void Wait_mSec(uint32_t mSec)
+{
+    uint64_t cyclel, cycleh, cycle_prev, cycle_now;
+    uint32_t freq;
+    //
+    freq = Get_System_Freq();
+    cyclel = (uint64_t) read_csr(mcycle);
+    cycleh = (uint64_t) read_csr(mcycleh);
+    cycle_prev = (cycleh << 32) + (cyclel);
+    //
+    while (1)
+    {
+        cyclel = (uint64_t) read_csr(mcycle);
+        cycleh = (uint64_t) read_csr(mcycleh);
+        cycle_now = (cycleh << 32) + (cyclel);
+        if (cycle_now >= cycle_prev + (mSec * freq / 1000)) break;
+    }
+}
+
 //===========================================================
 // End of Program
 //===========================================================

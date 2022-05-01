@@ -55,7 +55,7 @@ main-build: mmRISC_Coremark.elf secondary-outputs
 mmRISC_Coremark.elf: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GNU RISC-V Cross C Linker'
-	riscv64-unknown-elf-gcc -march=rv32imac -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O3 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -funroll-loops -fpeel-loops -fgcse-sm -fgcse-las  -g3 -ggdb -T "/home/taka/RISCV/mmRISC-1/workspace/mmRISC_Coremark/link.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"mmRISC_Coremark.map" -nostartfiles -nostdlib -o "mmRISC_Coremark.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	riscv64-unknown-elf-gcc -march=rv32imac -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -Ofast -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -funroll-loops -fpeel-loops -fgcse-sm -fgcse-las  -g3 -ggdb -T "/home/taka/RISCV/mmRISC-1/workspace/mmRISC_Coremark/link.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"mmRISC_Coremark.map" -nostartfiles -nostdlib -o "mmRISC_Coremark.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

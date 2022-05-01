@@ -17,6 +17,7 @@
 // Prototype
 //---------------------------------
 uint32_t Get_System_Freq(void);
+void Wait_mSec(uint32_t mSec);
 
 //===========================================================
 // End of Program

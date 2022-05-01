@@ -1679,7 +1679,7 @@ Memory Configuration
 
 Name             Origin             Length             Attributes
 ROM              0x0000000090000000 0x0000000000020000 xr
-RAM              0x0000000080000000 0x000000000000c000 rw
+RAM              0x0000000088000000 0x000000000000c000 rw
 *default*        0x0000000000000000 0xffffffffffffffff
 
 Linker script and memory map
@@ -1718,7 +1718,7 @@ LOAD /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a
  FILL mask 0x00000000
                 0x000000009000006c        0x4 LONG 0x0
 
-.text           0x0000000090000100     0x7990
+.text           0x0000000090000100     0x798e
                 0x0000000090000100                . = ALIGN (0x100)
                 [!provide]                        PROVIDE (__TEXT_START__ = .)
  *(.text.main)
@@ -1999,27 +1999,27 @@ LOAD /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a
                 0x0000000090006a74       0x34 ./src_app/src/uart.o
                 0x0000000090006a74                INT_UART_Check
  .text.UART_Init
-                0x0000000090006aa8       0x8a ./src_app/src/uart.o
+                0x0000000090006aa8       0x88 ./src_app/src/uart.o
                 0x0000000090006aa8                UART_Init
  .text.UART_TxD
-                0x0000000090006b32       0x36 ./src_app/src/uart.o
-                0x0000000090006b32                UART_TxD
+                0x0000000090006b30       0x36 ./src_app/src/uart.o
+                0x0000000090006b30                UART_TxD
  .text.UART_RxD
-                0x0000000090006b68       0x2c ./src_app/src/uart.o
-                0x0000000090006b68                UART_RxD
- .text.ilog10   0x0000000090006b94      0x15a ./src_app/src/xprintf.o
- .text.i10x     0x0000000090006cee      0x118 ./src_app/src/xprintf.o
- .text.ftoa     0x0000000090006e06      0x480 ./src_app/src/xprintf.o
- .text.xfputc   0x0000000090007286       0x68 ./src_app/src/xprintf.o
-                0x0000000090007286                xfputc
- .text.xputs    0x00000000900072ee       0x26 ./src_app/src/xprintf.o
-                0x00000000900072ee                xputs
- .text.xfputs   0x0000000090007314       0x40 ./src_app/src/xprintf.o
-                0x0000000090007314                xfputs
+                0x0000000090006b66       0x2c ./src_app/src/uart.o
+                0x0000000090006b66                UART_RxD
+ .text.ilog10   0x0000000090006b92      0x15a ./src_app/src/xprintf.o
+ .text.i10x     0x0000000090006cec      0x118 ./src_app/src/xprintf.o
+ .text.ftoa     0x0000000090006e04      0x480 ./src_app/src/xprintf.o
+ .text.xfputc   0x0000000090007284       0x68 ./src_app/src/xprintf.o
+                0x0000000090007284                xfputc
+ .text.xputs    0x00000000900072ec       0x26 ./src_app/src/xprintf.o
+                0x00000000900072ec                xputs
+ .text.xfputs   0x0000000090007312       0x40 ./src_app/src/xprintf.o
+                0x0000000090007312                xfputs
  .text.xvfprintf
-                0x0000000090007354      0x6ea ./src_app/src/xprintf.o
- .text.xprintf  0x0000000090007a3e       0x52 ./src_app/src/xprintf.o
-                0x0000000090007a3e                xprintf
+                0x0000000090007352      0x6ea ./src_app/src/xprintf.o
+ .text.xprintf  0x0000000090007a3c       0x52 ./src_app/src/xprintf.o
+                0x0000000090007a3c                xprintf
                 [!provide]                        PROVIDE (__TEXT_END__ = .)
 
 .rodata         0x0000000090007a90      0x3e0
@@ -2046,147 +2046,147 @@ LOAD /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32im/ilp32/libgcc.a
                 0x0000000090007e70                . = ALIGN (0x4)
                 0x0000000090007e70                PROVIDE (__ROM_INIT_BGN__ = .)
 
-.data           0x0000000080000000        0x0 load address 0x0000000090007e70
-                0x0000000080000000                . = ALIGN (0x100)
-                0x0000000080000000                PROVIDE (__RAM_INIT_BGN__ = .)
+.data           0x0000000088000000        0x0 load address 0x0000000090007e70
+                0x0000000088000000                . = ALIGN (0x100)
+                0x0000000088000000                PROVIDE (__RAM_INIT_BGN__ = .)
  *(.data)
  *(.data*)
 
-.srodata        0x0000000080000000        0x4 load address 0x0000000090007e70
-                0x0000000080000800                PROVIDE (__GLOBAL_PTR__ = (. + 0x800))
+.srodata        0x0000000088000000        0x4 load address 0x0000000090007e70
+                0x0000000088000800                PROVIDE (__GLOBAL_PTR__ = (. + 0x800))
  *(.srodata)
  *(.srodata*)
  .srodata.xISRStackTop
-                0x0000000080000000        0x4 ./src_kernel/src/port.o
-                0x0000000080000000                xISRStackTop
+                0x0000000088000000        0x4 ./src_kernel/src/port.o
+                0x0000000088000000                xISRStackTop
 
-.rela.dyn       0x0000000080000004        0x0 load address 0x0000000090007e74
+.rela.dyn       0x0000000088000004        0x0 load address 0x0000000090007e74
  .rela.text.xPortStartScheduler
-                0x0000000080000004        0x0 ./src_kernel/src/heap_4.o
+                0x0000000088000004        0x0 ./src_kernel/src/heap_4.o
 
-.sdata          0x0000000080000004        0x8 load address 0x0000000090007e74
+.sdata          0x0000000088000004        0x8 load address 0x0000000090007e74
  *(.sdata)
  *(.sdata.*)
  .sdata.pullNextTime
-                0x0000000080000004        0x4 ./src_kernel/src/port.o
-                0x0000000080000004                pullNextTime
+                0x0000000088000004        0x4 ./src_kernel/src/port.o
+                0x0000000088000004                pullNextTime
  .sdata.uxTopUsedPriority
-                0x0000000080000008        0x4 ./src_kernel/src/tasks.o
-                0x0000000080000008                uxTopUsedPriority
-                0x000000008000000c                PROVIDE (__RAM_INIT_END__ = .)
+                0x0000000088000008        0x4 ./src_kernel/src/tasks.o
+                0x0000000088000008                uxTopUsedPriority
+                0x000000008800000c                PROVIDE (__RAM_INIT_END__ = .)
 
-.sbss           0x0000000080000010       0xa0 load address 0x0000000090007e7c
-                0x0000000080000010                PROVIDE (__BSS_BGN__ = .)
+.sbss           0x0000000088000010       0xa0 load address 0x0000000090007e7c
+                0x0000000088000010                PROVIDE (__BSS_BGN__ = .)
  *(.sbss)
  *(.sbss.*)
- .sbss.xStart   0x0000000080000010        0x8 ./src_kernel/src/heap_4.o
- .sbss.pxEnd    0x0000000080000018        0x4 ./src_kernel/src/heap_4.o
+ .sbss.xStart   0x0000000088000010        0x8 ./src_kernel/src/heap_4.o
+ .sbss.pxEnd    0x0000000088000018        0x4 ./src_kernel/src/heap_4.o
  .sbss.xFreeBytesRemaining
-                0x000000008000001c        0x4 ./src_kernel/src/heap_4.o
+                0x000000008800001c        0x4 ./src_kernel/src/heap_4.o
  .sbss.xMinimumEverFreeBytesRemaining
-                0x0000000080000020        0x4 ./src_kernel/src/heap_4.o
+                0x0000000088000020        0x4 ./src_kernel/src/heap_4.o
  .sbss.xNumberOfSuccessfulAllocations
-                0x0000000080000024        0x4 ./src_kernel/src/heap_4.o
+                0x0000000088000024        0x4 ./src_kernel/src/heap_4.o
  .sbss.xNumberOfSuccessfulFrees
-                0x0000000080000028        0x4 ./src_kernel/src/heap_4.o
+                0x0000000088000028        0x4 ./src_kernel/src/heap_4.o
  .sbss.xBlockAllocatedBit
-                0x000000008000002c        0x4 ./src_kernel/src/heap_4.o
+                0x000000008800002c        0x4 ./src_kernel/src/heap_4.o
  .sbss.ullNextTime
-                0x0000000080000030        0x8 ./src_kernel/src/port.o
-                0x0000000080000030                ullNextTime
+                0x0000000088000030        0x8 ./src_kernel/src/port.o
+                0x0000000088000030                ullNextTime
  .sbss.pullMachineTimerCompareRegister
-                0x0000000080000038        0x4 ./src_kernel/src/port.o
-                0x0000000080000038                pullMachineTimerCompareRegister
+                0x0000000088000038        0x4 ./src_kernel/src/port.o
+                0x0000000088000038                pullMachineTimerCompareRegister
  .sbss.pxCurrentTCB
-                0x000000008000003c        0x4 ./src_kernel/src/tasks.o
-                0x000000008000003c                pxCurrentTCB
+                0x000000008800003c        0x4 ./src_kernel/src/tasks.o
+                0x000000008800003c                pxCurrentTCB
  .sbss.pxDelayedTaskList
-                0x0000000080000040        0x4 ./src_kernel/src/tasks.o
+                0x0000000088000040        0x4 ./src_kernel/src/tasks.o
  .sbss.pxOverflowDelayedTaskList
-                0x0000000080000044        0x4 ./src_kernel/src/tasks.o
+                0x0000000088000044        0x4 ./src_kernel/src/tasks.o
  .sbss.uxDeletedTasksWaitingCleanUp
-                0x0000000080000048        0x4 ./src_kernel/src/tasks.o
+                0x0000000088000048        0x4 ./src_kernel/src/tasks.o
  .sbss.uxCurrentNumberOfTasks
-                0x000000008000004c        0x4 ./src_kernel/src/tasks.o
+                0x000000008800004c        0x4 ./src_kernel/src/tasks.o
  .sbss.xTickCount
-                0x0000000080000050        0x4 ./src_kernel/src/tasks.o
+                0x0000000088000050        0x4 ./src_kernel/src/tasks.o
  .sbss.uxTopReadyPriority
-                0x0000000080000054        0x4 ./src_kernel/src/tasks.o
+                0x0000000088000054        0x4 ./src_kernel/src/tasks.o
  .sbss.xSchedulerRunning
-                0x0000000080000058        0x4 ./src_kernel/src/tasks.o
+                0x0000000088000058        0x4 ./src_kernel/src/tasks.o
  .sbss.xPendedTicks
-                0x000000008000005c        0x4 ./src_kernel/src/tasks.o
+                0x000000008800005c        0x4 ./src_kernel/src/tasks.o
  .sbss.xYieldPending
-                0x0000000080000060        0x4 ./src_kernel/src/tasks.o
+                0x0000000088000060        0x4 ./src_kernel/src/tasks.o
  .sbss.xNumOfOverflows
-                0x0000000080000064        0x4 ./src_kernel/src/tasks.o
+                0x0000000088000064        0x4 ./src_kernel/src/tasks.o
  .sbss.uxTaskNumber
-                0x0000000080000068        0x4 ./src_kernel/src/tasks.o
+                0x0000000088000068        0x4 ./src_kernel/src/tasks.o
  .sbss.xNextTaskUnblockTime
-                0x000000008000006c        0x4 ./src_kernel/src/tasks.o
+                0x000000008800006c        0x4 ./src_kernel/src/tasks.o
  .sbss.xIdleTaskHandle
-                0x0000000080000070        0x4 ./src_kernel/src/tasks.o
+                0x0000000088000070        0x4 ./src_kernel/src/tasks.o
  .sbss.uxSchedulerSuspended
-                0x0000000080000074        0x4 ./src_kernel/src/tasks.o
+                0x0000000088000074        0x4 ./src_kernel/src/tasks.o
  .sbss.pxCurrentTimerList
-                0x0000000080000078        0x4 ./src_kernel/src/timers.o
+                0x0000000088000078        0x4 ./src_kernel/src/timers.o
  .sbss.pxOverflowTimerList
-                0x000000008000007c        0x4 ./src_kernel/src/timers.o
+                0x000000008800007c        0x4 ./src_kernel/src/timers.o
  .sbss.xTimerQueue
-                0x0000000080000080        0x4 ./src_kernel/src/timers.o
+                0x0000000088000080        0x4 ./src_kernel/src/timers.o
  .sbss.xTimerTaskHandle
-                0x0000000080000084        0x4 ./src_kernel/src/timers.o
+                0x0000000088000084        0x4 ./src_kernel/src/timers.o
  .sbss.xLastTime.0
-                0x0000000080000088        0x4 ./src_kernel/src/timers.o
- .sbss.xQueue   0x000000008000008c        0x4 ./src_app/src/main_blinky.o
- .sbss.xMutex   0x0000000080000090        0x4 ./src_app/src/main_blinky.o
+                0x0000000088000088        0x4 ./src_kernel/src/timers.o
+ .sbss.xQueue   0x000000008800008c        0x4 ./src_app/src/main_blinky.o
+ .sbss.xMutex   0x0000000088000090        0x4 ./src_app/src/main_blinky.o
  .sbss.xSemaphore
-                0x0000000080000094        0x4 ./src_app/src/main_blinky.o
- .sbss.data1.2  0x0000000080000098        0x4 ./src_app/src/uart.o
- .sbss.data2.1  0x000000008000009c        0x4 ./src_app/src/uart.o
- .sbss.data0.0  0x00000000800000a0        0x4 ./src_app/src/uart.o
+                0x0000000088000094        0x4 ./src_app/src/main_blinky.o
+ .sbss.data1.2  0x0000000088000098        0x4 ./src_app/src/uart.o
+ .sbss.data2.1  0x000000008800009c        0x4 ./src_app/src/uart.o
+ .sbss.data0.0  0x00000000880000a0        0x4 ./src_app/src/uart.o
  .sbss.xfunc_output
-                0x00000000800000a4        0x4 ./src_app/src/xprintf.o
-                0x00000000800000a4                xfunc_output
- .sbss.strptr   0x00000000800000a8        0x4 ./src_app/src/xprintf.o
+                0x00000000880000a4        0x4 ./src_app/src/xprintf.o
+                0x00000000880000a4                xfunc_output
+ .sbss.strptr   0x00000000880000a8        0x4 ./src_app/src/xprintf.o
  .sbss.xfunc_input
-                0x00000000800000ac        0x4 ./src_app/src/xprintf.o
-                0x00000000800000ac                xfunc_input
+                0x00000000880000ac        0x4 ./src_app/src/xprintf.o
+                0x00000000880000ac                xfunc_input
  *(.scommon)
 
-.bss            0x00000000800000b0     0x6158 load address 0x0000000090007e7c
+.bss            0x00000000880000b0     0x6158 load address 0x0000000090007e7c
  *(.bss)
  *(.bss.*)
- .bss.ucHeap    0x00000000800000b0     0x4000 ./src_kernel/src/heap_4.o
+ .bss.ucHeap    0x00000000880000b0     0x4000 ./src_kernel/src/heap_4.o
  .bss.xISRStack
-                0x00000000800040b0     0x2000 ./src_kernel/src/port.o
+                0x00000000880040b0     0x2000 ./src_kernel/src/port.o
  .bss.xQueueRegistry
-                0x00000000800060b0       0x40 ./src_kernel/src/queue.o
-                0x00000000800060b0                xQueueRegistry
+                0x00000000880060b0       0x40 ./src_kernel/src/queue.o
+                0x00000000880060b0                xQueueRegistry
  .bss.pxReadyTasksLists
-                0x00000000800060f0       0x8c ./src_kernel/src/tasks.o
+                0x00000000880060f0       0x8c ./src_kernel/src/tasks.o
  .bss.xDelayedTaskList1
-                0x000000008000617c       0x14 ./src_kernel/src/tasks.o
+                0x000000008800617c       0x14 ./src_kernel/src/tasks.o
  .bss.xDelayedTaskList2
-                0x0000000080006190       0x14 ./src_kernel/src/tasks.o
+                0x0000000088006190       0x14 ./src_kernel/src/tasks.o
  .bss.xPendingReadyList
-                0x00000000800061a4       0x14 ./src_kernel/src/tasks.o
+                0x00000000880061a4       0x14 ./src_kernel/src/tasks.o
  .bss.xTasksWaitingTermination
-                0x00000000800061b8       0x14 ./src_kernel/src/tasks.o
+                0x00000000880061b8       0x14 ./src_kernel/src/tasks.o
  .bss.xSuspendedTaskList
-                0x00000000800061cc       0x14 ./src_kernel/src/tasks.o
+                0x00000000880061cc       0x14 ./src_kernel/src/tasks.o
  .bss.xActiveTimerList1
-                0x00000000800061e0       0x14 ./src_kernel/src/timers.o
+                0x00000000880061e0       0x14 ./src_kernel/src/timers.o
  .bss.xActiveTimerList2
-                0x00000000800061f4       0x14 ./src_kernel/src/timers.o
-                0x0000000080006208                . = ALIGN (0x4)
-                0x0000000080006208                PROVIDE (__BSS_END__ = .)
+                0x00000000880061f4       0x14 ./src_kernel/src/timers.o
+                0x0000000088006208                . = ALIGN (0x4)
+                0x0000000088006208                PROVIDE (__BSS_END__ = .)
 
-.stack          0x0000000080008000     0x4000
+.stack          0x0000000088008000     0x4000
                 [!provide]                        PROVIDE (__STACK_START__ = .)
-                0x000000008000c000                . = (. + STACK_SIZE)
- *fill*         0x0000000080008000     0x4000 
-                0x000000008000c000                PROVIDE (__STACK_TOP__ = .)
+                0x000000008800c000                . = (. + STACK_SIZE)
+ *fill*         0x0000000088008000     0x4000 
+                0x000000008800c000                PROVIDE (__STACK_TOP__ = .)
                 [!provide]                        PROVIDE (__freertos_irq_stack_top = .)
                 [!provide]                        PROVIDE (__STACK_END__ = .)
 

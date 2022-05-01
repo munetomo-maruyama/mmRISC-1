@@ -1,6 +1,12 @@
 # vsim -c -onfinish exit work.tb_TOP -do "run -all" 
-# Start time: 01:03:36 on Mar 20,2022
+# Start time: 19:16:40 on Apr 24,2022
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: ./tb_TOP.v(211): (vopt-2685) [TFMPC] - Too few port connections for 'U_CHIP_TOP'.  Expected 34, found 30.
+# ** Warning: ./tb_TOP.v(211): (vopt-2718) [TFMPC] - Missing connection for port 'SPI_MISO'.
+# ** Warning: ./tb_TOP.v(211): (vopt-2718) [TFMPC] - Missing connection for port 'SPI_MOSI'.
+# ** Warning: ./tb_TOP.v(211): (vopt-2718) [TFMPC] - Missing connection for port 'SPI_SCK'.
+# ** Warning: ./tb_TOP.v(211): (vopt-2718) [TFMPC] - Missing connection for port 'SPI_CSN'.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=5.
 # //  Questa Intel Starter FPGA Edition-64
 # //  Version 2021.2 linux_x86_64 Apr 14 2021
 # //
@@ -59,5 +65,5 @@
 # ***** DETECT TOHOST ***** at 90003000
 # ** Note: $finish    : ./tb_TOP.v(155)
 #    Time: 216450 ns  Iteration: 1  Instance: /tb_TOP
-# End time: 01:03:50 on Mar 20,2022, Elapsed time: 0:00:14
-# Errors: 0, Warnings: 0
+# End time: 19:16:52 on Apr 24,2022, Elapsed time: 0:00:12
+# Errors: 0, Warnings: 5

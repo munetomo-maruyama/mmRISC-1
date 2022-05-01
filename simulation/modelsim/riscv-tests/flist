@@ -22,6 +22,9 @@
 ../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_bit_ctrl.v
 ../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_byte_ctrl.v
 ../../../verilog/i2c/i2c_slave_model.v
+../../../verilog/spi/spi.v
+../../../verilog/spi/simple_spi/trunk/rtl/verilog/simple_spi_top.v
+../../../verilog/spi/simple_spi/trunk/rtl/verilog/fifo4.v
 ../../../verilog/mmRISC/mmRISC.v
 ../../../verilog/mmRISC/bus_m_ahb.v
 ../../../verilog/mmRISC/csr_mtime.v

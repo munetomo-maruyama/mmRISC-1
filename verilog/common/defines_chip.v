@@ -91,7 +91,7 @@
 `define M_PRIORITY_7 2 // CPUI
 `define M_PRIORITY_8 0 // DBGD
 //
-`define SLAVES 8
+`define SLAVES 10
 `define SLAVE_MTIME   0
 `define SLAVE_SDRAM   1
 `define SLAVE_RAMD    2
@@ -99,7 +99,9 @@
 `define SLAVE_GPIO    4
 `define SLAVE_UART    5
 `define SLAVE_INTGEN  6
-`define SLAVE_I2C     7
+`define SLAVE_I2C0    7
+`define SLAVE_I2C1    8
+`define SLAVE_SPI     9
 
 //-----------------------
 // Slave Address
@@ -111,7 +113,9 @@
 // GPIO   : 0xA0000000-0xafffffff
 // UART   : 0xB0000000-0xbfffffff
 // INTGEN : 0xC0000000-0xcfffffff
-// I2C    : 0xd0000000-0xd00000ff
+// I2C0   : 0xd0000000-0xd00000ff
+// I2C1   : 0xd0000100-0xd00001ff
+// SPI    : 0xe0000000-0xe00000ff
 //
 `define SLAVE_BASE_MTIME  32'h49000000
 `define SLAVE_BASE_SDRAM  32'h80000000
@@ -120,7 +124,9 @@
 `define SLAVE_BASE_GPIO   32'ha0000000
 `define SLAVE_BASE_UART   32'hb0000000
 `define SLAVE_BASE_INTGEN 32'hc0000000
-`define SLAVE_BASE_I2C    32'hd0000000
+`define SLAVE_BASE_I2C0   32'hd0000000
+`define SLAVE_BASE_I2C1   32'hd0000100
+`define SLAVE_BASE_SPI    32'he0000000
 //
 `define SLAVE_MASK_MTIME  32'hffffffe0
 `define SLAVE_MASK_SDRAM  32'hf8000000
@@ -129,7 +135,9 @@
 `define SLAVE_MASK_GPIO   32'hf0000000
 `define SLAVE_MASK_UART   32'hf0000000
 `define SLAVE_MASK_INTGEN 32'hf0000000
-`define SLAVE_MASK_I2C    32'hffffff00
+`define SLAVE_MASK_I2C0   32'hffffff00
+`define SLAVE_MASK_I2C1   32'hffffff00
+`define SLAVE_MASK_SPI    32'hffffff00
 
 //-----------------------------
 // mmRISC Reset Vectors

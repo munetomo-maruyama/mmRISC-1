@@ -56,6 +56,7 @@
 //---------------
 // Prototype
 //---------------
+void GSENSOR_Init(void);
 void GSENSOR_ReadXYZ(int16_t *datax, int16_t *datay, int16_t *dataz);
 
 

@@ -1093,7 +1093,7 @@ Memory Configuration
 
 Name             Origin             Length             Attributes
 ROM              0x0000000090000000 0x0000000000020000 xr
-RAM              0x0000000080000000 0x000000000000c000 rw
+RAM              0x0000000088000000 0x000000000000c000 rw
 *default*        0x0000000000000000 0xffffffffffffffff
 
 Linker script and memory map
@@ -1710,204 +1710,204 @@ LOAD /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/rv32i/ilp32/libgcc.a
  *fill*         0x000000009001ab57        0x1 
                 0x000000009001ab58                PROVIDE (__ROM_INIT_BGN__ = .)
 
-.data           0x0000000080000000      0xa90 load address 0x000000009001ab58
-                0x0000000080000000                . = ALIGN (0x100)
-                0x0000000080000000                PROVIDE (__RAM_INIT_BGN__ = .)
+.data           0x0000000088000000      0xa90 load address 0x000000009001ab58
+                0x0000000088000000                . = ALIGN (0x100)
+                0x0000000088000000                PROVIDE (__RAM_INIT_BGN__ = .)
  *(.data)
- .data          0x0000000080000000      0x428 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-impure.o)
- .data          0x0000000080000428      0x16c /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-locale.o)
-                0x0000000080000428                __global_locale
- .data          0x0000000080000594      0x408 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-mallocr.o)
-                0x0000000080000594                __malloc_av_
+ .data          0x0000000088000000      0x428 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-impure.o)
+ .data          0x0000000088000428      0x16c /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-locale.o)
+                0x0000000088000428                __global_locale
+ .data          0x0000000088000594      0x408 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-mallocr.o)
+                0x0000000088000594                __malloc_av_
  *(.data*)
- .data.c        0x000000008000099c       0x78 ./src/startrek.o
-                0x000000008000099c                c
+ .data.c        0x000000008800099c       0x78 ./src/startrek.o
+                0x000000008800099c                c
  .data.device_name.2
-                0x0000000080000a14       0x24 ./src/startrek.o
+                0x0000000088000a14       0x24 ./src/startrek.o
  .data.quad_name.1
-                0x0000000080000a38       0x44 ./src/startrek.o
+                0x0000000088000a38       0x44 ./src/startrek.o
  .data.sect_name.0
-                0x0000000080000a7c       0x14 ./src/startrek.o
+                0x0000000088000a7c       0x14 ./src/startrek.o
 
-.srodata        0x0000000080000a90      0x1a8 load address 0x000000009001b5e8
-                0x0000000080001290                PROVIDE (__GLOBAL_PTR__ = (. + 0x800))
+.srodata        0x0000000088000a90      0x1a8 load address 0x000000009001b5e8
+                0x0000000088001290                PROVIDE (__GLOBAL_PTR__ = (. + 0x800))
  *(.srodata)
- .srodata       0x0000000080000a90        0x4 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-impure.o)
-                0x0000000080000a90                _global_impure_ptr
+ .srodata       0x0000000088000a90        0x4 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-impure.o)
+                0x0000000088000a90                _global_impure_ptr
  *(.srodata*)
- *fill*         0x0000000080000a94        0x4 
- .srodata.cst8  0x0000000080000a98        0x8 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libm.a(lib_a-w_pow.o)
- .srodata.cst8  0x0000000080000aa0       0xf8 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libm.a(lib_a-e_pow.o)
+ *fill*         0x0000000088000a94        0x4 
+ .srodata.cst8  0x0000000088000a98        0x8 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libm.a(lib_a-w_pow.o)
+ .srodata.cst8  0x0000000088000aa0       0xf8 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libm.a(lib_a-e_pow.o)
                                         0x100 (size before relaxing)
- .srodata.cst8  0x0000000080000b98       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libm.a(lib_a-math_err.o)
+ .srodata.cst8  0x0000000088000b98       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libm.a(lib_a-math_err.o)
                                          0x30 (size before relaxing)
- .srodata.cst8  0x0000000080000bb8       0x30 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libm.a(lib_a-s_scalbn.o)
- .srodata.cst8  0x0000000080000be8        0x8 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-rand.o)
- .srodata.cst8  0x0000000080000bf0       0x28 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-strtod.o)
+ .srodata.cst8  0x0000000088000bb8       0x30 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libm.a(lib_a-s_scalbn.o)
+ .srodata.cst8  0x0000000088000be8        0x8 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-rand.o)
+ .srodata.cst8  0x0000000088000bf0       0x28 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-strtod.o)
                                          0x48 (size before relaxing)
- .srodata.cst4  0x0000000080000c18        0x4 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-strtod.o)
- *fill*         0x0000000080000c1c        0x4 
- .srodata.cst8  0x0000000080000c20        0x8 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-mprec.o)
+ .srodata.cst4  0x0000000088000c18        0x4 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-strtod.o)
+ *fill*         0x0000000088000c1c        0x4 
+ .srodata.cst8  0x0000000088000c20        0x8 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-mprec.o)
                                          0x10 (size before relaxing)
- .srodata.cst4  0x0000000080000c28        0x4 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-sf_nan.o)
- *fill*         0x0000000080000c2c        0x4 
- .srodata.cst8  0x0000000080000c30        0x8 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-s_nan.o)
+ .srodata.cst4  0x0000000088000c28        0x4 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-sf_nan.o)
+ *fill*         0x0000000088000c2c        0x4 
+ .srodata.cst8  0x0000000088000c30        0x8 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-s_nan.o)
 
-.sdata          0x0000000080000c38       0x20 load address 0x000000009001b790
+.sdata          0x0000000088000c38       0x20 load address 0x000000009001b790
  *(.sdata)
- .sdata         0x0000000080000c38        0x4 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-impure.o)
-                0x0000000080000c38                _impure_ptr
- .sdata         0x0000000080000c3c        0x2 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-lnumeric.o)
- *fill*         0x0000000080000c3e        0x2 
- .sdata         0x0000000080000c40        0x8 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-mallocr.o)
-                0x0000000080000c40                __malloc_sbrk_base
-                0x0000000080000c44                __malloc_trim_threshold
+ .sdata         0x0000000088000c38        0x4 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-impure.o)
+                0x0000000088000c38                _impure_ptr
+ .sdata         0x0000000088000c3c        0x2 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-lnumeric.o)
+ *fill*         0x0000000088000c3e        0x2 
+ .sdata         0x0000000088000c40        0x8 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-mallocr.o)
+                0x0000000088000c40                __malloc_sbrk_base
+                0x0000000088000c44                __malloc_trim_threshold
  *(.sdata.*)
  .sdata._stdout_hook
-                0x0000000080000c48        0x4 ./src/libc-hooks.o
+                0x0000000088000c48        0x4 ./src/libc-hooks.o
  .sdata._stdin_hook
-                0x0000000080000c4c        0x4 ./src/libc-hooks.o
- .sdata.e0      0x0000000080000c50        0x4 ./src/startrek.o
-                0x0000000080000c50                e0
- .sdata.p0      0x0000000080000c54        0x4 ./src/startrek.o
-                0x0000000080000c54                p0
-                0x0000000080000c58                PROVIDE (__RAM_INIT_END__ = .)
+                0x0000000088000c4c        0x4 ./src/libc-hooks.o
+ .sdata.e0      0x0000000088000c50        0x4 ./src/startrek.o
+                0x0000000088000c50                e0
+ .sdata.p0      0x0000000088000c54        0x4 ./src/startrek.o
+                0x0000000088000c54                p0
+                0x0000000088000c58                PROVIDE (__RAM_INIT_END__ = .)
 
-.sbss           0x0000000080000c58      0x104 load address 0x000000009001b7b0
-                0x0000000080000c58                PROVIDE (__BSS_BGN__ = .)
+.sbss           0x0000000088000c58      0x104 load address 0x000000009001b7b0
+                0x0000000088000c58                PROVIDE (__BSS_BGN__ = .)
  *(.sbss)
- .sbss          0x0000000080000c58        0xc /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-mallocr.o)
-                0x0000000080000c58                __malloc_max_total_mem
-                0x0000000080000c5c                __malloc_max_sbrked_mem
-                0x0000000080000c60                __malloc_top_pad
- .sbss          0x0000000080000c64        0x4 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-reent.o)
-                0x0000000080000c64                errno
+ .sbss          0x0000000088000c58        0xc /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-mallocr.o)
+                0x0000000088000c58                __malloc_max_total_mem
+                0x0000000088000c5c                __malloc_max_sbrked_mem
+                0x0000000088000c60                __malloc_top_pad
+ .sbss          0x0000000088000c64        0x4 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-reent.o)
+                0x0000000088000c64                errno
  *(.sbss.*)
- .sbss.num.0    0x0000000080000c68        0x4 ./src/interrupt.o
- .sbss.heap_sz  0x0000000080000c6c        0x4 ./src/libc-hooks.o
- .sbss.b3       0x0000000080000c70        0x4 ./src/startrek.o
-                0x0000000080000c70                b3
- .sbss.b4       0x0000000080000c74        0x4 ./src/startrek.o
-                0x0000000080000c74                b4
- .sbss.b5       0x0000000080000c78        0x4 ./src/startrek.o
-                0x0000000080000c78                b5
- .sbss.b9       0x0000000080000c7c        0x4 ./src/startrek.o
-                0x0000000080000c7c                b9
- .sbss.d0       0x0000000080000c80        0x4 ./src/startrek.o
-                0x0000000080000c80                d0
- .sbss.d1       0x0000000080000c84        0x4 ./src/startrek.o
-                0x0000000080000c84                d1
- .sbss.e        0x0000000080000c88        0x4 ./src/startrek.o
-                0x0000000080000c88                e
- .sbss.g5       0x0000000080000c8c        0x4 ./src/startrek.o
-                0x0000000080000c8c                g5
- .sbss.k3       0x0000000080000c90        0x4 ./src/startrek.o
-                0x0000000080000c90                k3
- .sbss.k7       0x0000000080000c94        0x4 ./src/startrek.o
-                0x0000000080000c94                k7
- .sbss.k9       0x0000000080000c98        0x4 ./src/startrek.o
-                0x0000000080000c98                k9
- .sbss.n        0x0000000080000c9c        0x4 ./src/startrek.o
-                0x0000000080000c9c                n
- .sbss.p        0x0000000080000ca0        0x4 ./src/startrek.o
-                0x0000000080000ca0                p
- .sbss.q1       0x0000000080000ca4        0x4 ./src/startrek.o
-                0x0000000080000ca4                q1
- .sbss.q2       0x0000000080000ca8        0x4 ./src/startrek.o
-                0x0000000080000ca8                q2
- .sbss.r1       0x0000000080000cac        0x4 ./src/startrek.o
-                0x0000000080000cac                r1
- .sbss.r2       0x0000000080000cb0        0x4 ./src/startrek.o
-                0x0000000080000cb0                r2
- .sbss.s        0x0000000080000cb4        0x4 ./src/startrek.o
-                0x0000000080000cb4                s
- .sbss.s3       0x0000000080000cb8        0x4 ./src/startrek.o
-                0x0000000080000cb8                s3
- .sbss.s8       0x0000000080000cbc        0x4 ./src/startrek.o
-                0x0000000080000cbc                s8
- .sbss.t0       0x0000000080000cc0        0x4 ./src/startrek.o
-                0x0000000080000cc0                t0
- .sbss.t9       0x0000000080000cc4        0x4 ./src/startrek.o
-                0x0000000080000cc4                t9
- .sbss.z3       0x0000000080000cc8        0x4 ./src/startrek.o
-                0x0000000080000cc8                z3
- .sbss.z1       0x0000000080000ccc        0x4 ./src/startrek.o
-                0x0000000080000ccc                z1
- .sbss.z2       0x0000000080000cd0        0x4 ./src/startrek.o
-                0x0000000080000cd0                z2
- .sbss.z4       0x0000000080000cd4        0x4 ./src/startrek.o
-                0x0000000080000cd4                z4
- .sbss.z5       0x0000000080000cd8        0x4 ./src/startrek.o
-                0x0000000080000cd8                z5
- *fill*         0x0000000080000cdc        0x4 
- .sbss.a        0x0000000080000ce0        0x8 ./src/startrek.o
-                0x0000000080000ce0                a
- .sbss.c1       0x0000000080000ce8        0x8 ./src/startrek.o
-                0x0000000080000ce8                c1
- .sbss.d4       0x0000000080000cf0        0x8 ./src/startrek.o
-                0x0000000080000cf0                d4
- .sbss.s1       0x0000000080000cf8        0x8 ./src/startrek.o
-                0x0000000080000cf8                s1
- .sbss.s2       0x0000000080000d00        0x8 ./src/startrek.o
-                0x0000000080000d00                s2
- .sbss.t        0x0000000080000d08        0x8 ./src/startrek.o
-                0x0000000080000d08                t
- .sbss.w1       0x0000000080000d10        0x8 ./src/startrek.o
-                0x0000000080000d10                w1
- .sbss.x        0x0000000080000d18        0x8 ./src/startrek.o
-                0x0000000080000d18                x
- .sbss.y        0x0000000080000d20        0x8 ./src/startrek.o
-                0x0000000080000d20                y
- .sbss.x1       0x0000000080000d28        0x8 ./src/startrek.o
-                0x0000000080000d28                x1
- .sbss.x2       0x0000000080000d30        0x8 ./src/startrek.o
-                0x0000000080000d30                x2
- .sbss.sA       0x0000000080000d38        0x4 ./src/startrek.o
-                0x0000000080000d38                sA
- .sbss.sC       0x0000000080000d3c        0x7 ./src/startrek.o
-                0x0000000080000d3c                sC
- *fill*         0x0000000080000d43        0x1 
- .sbss.data1.2  0x0000000080000d44        0x4 ./src/uart.o
- .sbss.data2.1  0x0000000080000d48        0x4 ./src/uart.o
- .sbss.data0.0  0x0000000080000d4c        0x4 ./src/uart.o
+ .sbss.num.0    0x0000000088000c68        0x4 ./src/interrupt.o
+ .sbss.heap_sz  0x0000000088000c6c        0x4 ./src/libc-hooks.o
+ .sbss.b3       0x0000000088000c70        0x4 ./src/startrek.o
+                0x0000000088000c70                b3
+ .sbss.b4       0x0000000088000c74        0x4 ./src/startrek.o
+                0x0000000088000c74                b4
+ .sbss.b5       0x0000000088000c78        0x4 ./src/startrek.o
+                0x0000000088000c78                b5
+ .sbss.b9       0x0000000088000c7c        0x4 ./src/startrek.o
+                0x0000000088000c7c                b9
+ .sbss.d0       0x0000000088000c80        0x4 ./src/startrek.o
+                0x0000000088000c80                d0
+ .sbss.d1       0x0000000088000c84        0x4 ./src/startrek.o
+                0x0000000088000c84                d1
+ .sbss.e        0x0000000088000c88        0x4 ./src/startrek.o
+                0x0000000088000c88                e
+ .sbss.g5       0x0000000088000c8c        0x4 ./src/startrek.o
+                0x0000000088000c8c                g5
+ .sbss.k3       0x0000000088000c90        0x4 ./src/startrek.o
+                0x0000000088000c90                k3
+ .sbss.k7       0x0000000088000c94        0x4 ./src/startrek.o
+                0x0000000088000c94                k7
+ .sbss.k9       0x0000000088000c98        0x4 ./src/startrek.o
+                0x0000000088000c98                k9
+ .sbss.n        0x0000000088000c9c        0x4 ./src/startrek.o
+                0x0000000088000c9c                n
+ .sbss.p        0x0000000088000ca0        0x4 ./src/startrek.o
+                0x0000000088000ca0                p
+ .sbss.q1       0x0000000088000ca4        0x4 ./src/startrek.o
+                0x0000000088000ca4                q1
+ .sbss.q2       0x0000000088000ca8        0x4 ./src/startrek.o
+                0x0000000088000ca8                q2
+ .sbss.r1       0x0000000088000cac        0x4 ./src/startrek.o
+                0x0000000088000cac                r1
+ .sbss.r2       0x0000000088000cb0        0x4 ./src/startrek.o
+                0x0000000088000cb0                r2
+ .sbss.s        0x0000000088000cb4        0x4 ./src/startrek.o
+                0x0000000088000cb4                s
+ .sbss.s3       0x0000000088000cb8        0x4 ./src/startrek.o
+                0x0000000088000cb8                s3
+ .sbss.s8       0x0000000088000cbc        0x4 ./src/startrek.o
+                0x0000000088000cbc                s8
+ .sbss.t0       0x0000000088000cc0        0x4 ./src/startrek.o
+                0x0000000088000cc0                t0
+ .sbss.t9       0x0000000088000cc4        0x4 ./src/startrek.o
+                0x0000000088000cc4                t9
+ .sbss.z3       0x0000000088000cc8        0x4 ./src/startrek.o
+                0x0000000088000cc8                z3
+ .sbss.z1       0x0000000088000ccc        0x4 ./src/startrek.o
+                0x0000000088000ccc                z1
+ .sbss.z2       0x0000000088000cd0        0x4 ./src/startrek.o
+                0x0000000088000cd0                z2
+ .sbss.z4       0x0000000088000cd4        0x4 ./src/startrek.o
+                0x0000000088000cd4                z4
+ .sbss.z5       0x0000000088000cd8        0x4 ./src/startrek.o
+                0x0000000088000cd8                z5
+ *fill*         0x0000000088000cdc        0x4 
+ .sbss.a        0x0000000088000ce0        0x8 ./src/startrek.o
+                0x0000000088000ce0                a
+ .sbss.c1       0x0000000088000ce8        0x8 ./src/startrek.o
+                0x0000000088000ce8                c1
+ .sbss.d4       0x0000000088000cf0        0x8 ./src/startrek.o
+                0x0000000088000cf0                d4
+ .sbss.s1       0x0000000088000cf8        0x8 ./src/startrek.o
+                0x0000000088000cf8                s1
+ .sbss.s2       0x0000000088000d00        0x8 ./src/startrek.o
+                0x0000000088000d00                s2
+ .sbss.t        0x0000000088000d08        0x8 ./src/startrek.o
+                0x0000000088000d08                t
+ .sbss.w1       0x0000000088000d10        0x8 ./src/startrek.o
+                0x0000000088000d10                w1
+ .sbss.x        0x0000000088000d18        0x8 ./src/startrek.o
+                0x0000000088000d18                x
+ .sbss.y        0x0000000088000d20        0x8 ./src/startrek.o
+                0x0000000088000d20                y
+ .sbss.x1       0x0000000088000d28        0x8 ./src/startrek.o
+                0x0000000088000d28                x1
+ .sbss.x2       0x0000000088000d30        0x8 ./src/startrek.o
+                0x0000000088000d30                x2
+ .sbss.sA       0x0000000088000d38        0x4 ./src/startrek.o
+                0x0000000088000d38                sA
+ .sbss.sC       0x0000000088000d3c        0x7 ./src/startrek.o
+                0x0000000088000d3c                sC
+ *fill*         0x0000000088000d43        0x1 
+ .sbss.data1.2  0x0000000088000d44        0x4 ./src/uart.o
+ .sbss.data2.1  0x0000000088000d48        0x4 ./src/uart.o
+ .sbss.data0.0  0x0000000088000d4c        0x4 ./src/uart.o
  .sbss.xfunc_output
-                0x0000000080000d50        0x4 ./src/xprintf.o
-                0x0000000080000d50                xfunc_output
- .sbss.strptr   0x0000000080000d54        0x4 ./src/xprintf.o
+                0x0000000088000d50        0x4 ./src/xprintf.o
+                0x0000000088000d50                xfunc_output
+ .sbss.strptr   0x0000000088000d54        0x4 ./src/xprintf.o
  .sbss.xfunc_input
-                0x0000000080000d58        0x4 ./src/xprintf.o
-                0x0000000080000d58                xfunc_input
+                0x0000000088000d58        0x4 ./src/xprintf.o
+                0x0000000088000d58                xfunc_input
  *(.scommon)
 
-.bss            0x0000000080000d60     0x24fc load address 0x000000009001b7b0
+.bss            0x0000000088000d60     0x24fc load address 0x000000009001b7b0
  *(.bss)
- .bss           0x0000000080000d60       0x28 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-mallocr.o)
-                0x0000000080000d60                __malloc_current_mallinfo
+ .bss           0x0000000088000d60       0x28 /opt/riscv/lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32i/ilp32/libc.a(lib_a-mallocr.o)
+                0x0000000088000d60                __malloc_current_mallinfo
  *(.bss.*)
  .bss.heap_base
-                0x0000000080000d88     0x2000 ./src/libc-hooks.o
- .bss.g         0x0000000080002d88      0x144 ./src/startrek.o
-                0x0000000080002d88                g
- .bss.k         0x0000000080002ecc       0x40 ./src/startrek.o
-                0x0000000080002ecc                k
- .bss.z         0x0000000080002f0c      0x144 ./src/startrek.o
-                0x0000000080002f0c                z
- .bss.d         0x0000000080003050       0x48 ./src/startrek.o
-                0x0000000080003050                d
- .bss.sQ        0x0000000080003098       0xc2 ./src/startrek.o
-                0x0000000080003098                sQ
- *fill*         0x000000008000315a        0x2 
- .bss.sG2       0x000000008000315c       0xff ./src/startrek.o
-                0x000000008000315c                sG2
-                0x000000008000325c                . = ALIGN (0x4)
- *fill*         0x000000008000325b        0x1 
-                0x000000008000325c                PROVIDE (__BSS_END__ = .)
+                0x0000000088000d88     0x2000 ./src/libc-hooks.o
+ .bss.g         0x0000000088002d88      0x144 ./src/startrek.o
+                0x0000000088002d88                g
+ .bss.k         0x0000000088002ecc       0x40 ./src/startrek.o
+                0x0000000088002ecc                k
+ .bss.z         0x0000000088002f0c      0x144 ./src/startrek.o
+                0x0000000088002f0c                z
+ .bss.d         0x0000000088003050       0x48 ./src/startrek.o
+                0x0000000088003050                d
+ .bss.sQ        0x0000000088003098       0xc2 ./src/startrek.o
+                0x0000000088003098                sQ
+ *fill*         0x000000008800315a        0x2 
+ .bss.sG2       0x000000008800315c       0xff ./src/startrek.o
+                0x000000008800315c                sG2
+                0x000000008800325c                . = ALIGN (0x4)
+ *fill*         0x000000008800325b        0x1 
+                0x000000008800325c                PROVIDE (__BSS_END__ = .)
 
-.stack          0x0000000080004000     0x8000
+.stack          0x0000000088004000     0x8000
                 [!provide]                        PROVIDE (__STACK_START__ = .)
-                0x000000008000c000                . = (. + STACK_SIZE)
- *fill*         0x0000000080004000     0x8000 
-                0x000000008000c000                PROVIDE (__STACK_TOP__ = .)
+                0x000000008800c000                . = (. + STACK_SIZE)
+ *fill*         0x0000000088004000     0x8000 
+                0x000000008800c000                PROVIDE (__STACK_TOP__ = .)
                 [!provide]                        PROVIDE (__STACK_END__ = .)
 
 /DISCARD/

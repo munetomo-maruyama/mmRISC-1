@@ -15,6 +15,8 @@
 // RES_N     B8  KEY0
 // CLK50     P11
 //
+// RESOUT_N  F16 RESET Output (negative)
+//
 // TRSTn     Y5  GPIO_29
 // TCK       Y6  GPIO_27
 // TMS       AA2 GPIO_35
@@ -24,12 +26,23 @@
 // TXD       W10 GPIO_1
 // RXD       W9  GPIO_3
 //
-// I2C_SCL   AB15  GSENSOR SCL
-// I2C_SDA   V11   GSENSOR SDA
-// I2C_ENA   AB16  GSENSOR CSn (Fixed to 1)
-// I2C_ADR   V12   GSENSOR ALTADDR (Fixed to 0)
-// I2C_INT1  Y14   GSENSOR INT1
-// I2C_INT2  Y13   GSENSOR INT2
+// I2C0_SCL  AB15  GSENSOR SCL
+// I2C0_SDA  V11   GSENSOR SDA
+// I2C0_ENA  AB16  GSENSOR CSn (Fixed to 1)
+// I2C0_ADR  V12   GSENSOR ALTADDR (Fixed to 0)
+// I2C0_INT1 Y14   GSENSOR INT1
+// I2C0_INT2 Y13   GSENSOR INT2
+//
+// I2C1_SCL   AA20  Arduino IO15 CT_SCL (Capacitive Touch Controller)
+// I2C1_SDA   AB21  Arduino IO14 CT_SDA (Capacitive Touch Controller)
+// 
+// SPI_CSN[3] AB9   Arduino IO04 CARD_CS (SD Card)
+// SPI_CSN[2] AB17  Arduino IO08 RT_CS   (Resistive Touch Controller)
+// SPI_CSN[1] AA17  Arduino IO09 TFT_DC  (LCD Controller)
+// SPI_CSN[0] AB19  Arduino IO10 TFT_CS  (LCD Controller)
+// SPI_MOSI   AA19  Arduino IO11
+// SPI_MISO   Y19   Arduino IO12
+// SPI_SCK    AB20  Arduino IO13
 //
 // SDRAM_CLK      L14
 // SDRAM_CKE      N22
@@ -178,8 +191,10 @@
 //----------------------
 module CHIP_TOP
 (
-    input wire RES_N, // Reset Input (Negative)
-    input wire CLK50, // Clock Input (50MHz)
+    input  wire RES_N, // Reset Input (Negative)
+    input  wire CLK50, // Clock Input (50MHz)
+    //
+    output wire RESOUT_N, // Reset Output (negative) 
     //
     input  wire TRSTn, // JTAG TAP Reset
 `ifdef SIMULATION
@@ -201,12 +216,20 @@ module CHIP_TOP
     input  wire RXD, // UART receive data
     output wire TXD, // UART transmit data
     //
-    inout  wire I2C_SCL,  // I2C SCL
-    inout  wire I2C_SDA,  // I2C SDA
-    output wire I2C_ENA,  // I2C Enable (Fixed to 1)
-    output wire I2C_ADR,  // I2C ALTADDR (Fixed to 0)
-    input  wire I2C_INT1, // I2C Device Interrupt Request 1
-    input  wire I2C_INT2, // I2C Device Interrupt Request 2
+    inout  wire I2C0_SCL,  // I2C0 SCL
+    inout  wire I2C0_SDA,  // I2C0 SDA
+    output wire I2C0_ENA,  // I2C0 Enable (Fixed to 1)
+    output wire I2C0_ADR,  // I2C0 ALTADDR (Fixed to 0)
+    input  wire I2C0_INT1, // I2C0 Device Interrupt Request 1
+    input  wire I2C0_INT2, // I2C0 Device Interrupt Request 2
+    //
+    inout  wire I2C1_SCL,  // I2C1 SCL
+    inout  wire I2C1_SDA,  // I2C1 SDA
+    //
+    output wire [ 3:0] SPI_CSN,  // SPI Chip Select
+    output wire        SPI_SCK,  // SPI Clock
+    output wire        SPI_MOSI, // SPI MOSI
+    input  wire        SPI_MISO, // SPI MISO
     //
     output wire        SDRAM_CLK,  // SDRAM Clock
     output wire        SDRAM_CKE,  // SDRAM Clock Enable
@@ -271,6 +294,8 @@ end
 //
 assign res_pll = (~por_n) | (~RES_N);
 assign res_org = res_pll | (~locked);
+//
+assign RESOUT_N = ~res_sys;
 
 //-----------------
 // Clock and PLL
@@ -472,7 +497,9 @@ wire        irq_mtime;
 wire [63:0] irq_gen;
 wire [63:0] irq;
 wire        irq_uart;
-wire        irq_i2c;
+wire        irq_i2c0;
+wire        irq_i2c1;
+wire        irq_spi;
 //
 // Timer Counter
 wire [31:0] mtime;
@@ -483,20 +510,33 @@ wire        dbg_stop_timer; // Stop Timer due to Debug Mode
 wire cts, rts;
 assign cts = 1'b0;
 //
-// I2C
-wire i2c_scl_i;   // SCL Input
-wire i2c_scl_o;   // SCL Output
-wire i2c_scl_oen; // SCL Output Enable (neg)
-wire i2c_sda_i;   // SDA Input
-wire i2c_sda_o;   // SDA Output
-wire i2c_sda_oen; // SDA Output Enable (neg)
+// I2C0
+wire i2c0_scl_i;   // SCL Input
+wire i2c0_scl_o;   // SCL Output
+wire i2c0_scl_oen; // SCL Output Enable (neg)
+wire i2c0_sda_i;   // SDA Input
+wire i2c0_sda_o;   // SDA Output
+wire i2c0_sda_oen; // SDA Output Enable (neg)
 //
-assign i2c_scl_i = I2C_SCL;
-assign I2C_SCL = (i2c_scl_oen)? 1'bz : i2c_scl_o;
-assign i2c_sda_i = I2C_SDA;
-assign I2C_SDA = (i2c_sda_oen)? 1'bz : i2c_sda_o;
-assign I2C_ENA = 1'b1;
-assign I2C_ADR = 1'b0;
+assign i2c0_scl_i = I2C0_SCL;
+assign I2C0_SCL   = (i2c0_scl_oen)? 1'bz : i2c0_scl_o;
+assign i2c0_sda_i = I2C0_SDA;
+assign I2C0_SDA   = (i2c0_sda_oen)? 1'bz : i2c0_sda_o;
+assign I2C0_ENA   = 1'b1;
+assign I2C0_ADR   = 1'b0;
+//
+// I2C1
+wire i2c1_scl_i;   // SCL Input
+wire i2c1_scl_o;   // SCL Output
+wire i2c1_scl_oen; // SCL Output Enable (neg)
+wire i2c1_sda_i;   // SDA Input
+wire i2c1_sda_o;   // SDA Output
+wire i2c1_sda_oen; // SDA Output Enable (neg)
+//
+assign i2c1_scl_i = I2C1_SCL;
+assign I2C1_SCL   = (i2c1_scl_oen)? 1'bz : i2c1_scl_o;
+assign i2c1_sda_i = I2C1_SDA;
+assign I2C1_SDA   = (i2c1_sda_oen)? 1'bz : i2c1_sda_o;
 
 //-----------------------------------------
 // mmRISC
@@ -634,7 +674,9 @@ assign s_haddr_base[`SLAVE_RAMI  ] = `SLAVE_BASE_RAMI;
 assign s_haddr_base[`SLAVE_GPIO  ] = `SLAVE_BASE_GPIO;
 assign s_haddr_base[`SLAVE_UART  ] = `SLAVE_BASE_UART;
 assign s_haddr_base[`SLAVE_INTGEN] = `SLAVE_BASE_INTGEN;
-assign s_haddr_base[`SLAVE_I2C   ] = `SLAVE_BASE_I2C;
+assign s_haddr_base[`SLAVE_I2C0  ] = `SLAVE_BASE_I2C0;
+assign s_haddr_base[`SLAVE_I2C1  ] = `SLAVE_BASE_I2C1;
+assign s_haddr_base[`SLAVE_SPI   ] = `SLAVE_BASE_SPI;
 //
 assign s_haddr_mask[`SLAVE_MTIME ] = `SLAVE_MASK_MTIME;
 assign s_haddr_mask[`SLAVE_SDRAM ] = `SLAVE_MASK_SDRAM;
@@ -643,7 +685,9 @@ assign s_haddr_mask[`SLAVE_RAMI  ] = `SLAVE_MASK_RAMI;
 assign s_haddr_mask[`SLAVE_GPIO  ] = `SLAVE_MASK_GPIO;
 assign s_haddr_mask[`SLAVE_UART  ] = `SLAVE_MASK_UART;
 assign s_haddr_mask[`SLAVE_INTGEN] = `SLAVE_MASK_INTGEN;
-assign s_haddr_mask[`SLAVE_I2C   ] = `SLAVE_MASK_I2C;
+assign s_haddr_mask[`SLAVE_I2C0  ] = `SLAVE_MASK_I2C0;
+assign s_haddr_mask[`SLAVE_I2C1  ] = `SLAVE_MASK_I2C1;
+assign s_haddr_mask[`SLAVE_SPI   ] = `SLAVE_MASK_SPI;
 //
 AHB_MATRIX
    #(
@@ -923,36 +967,100 @@ INT_GEN U_INT_GEN
 );
 
 //-------------------
-// I2C
+// I2C0
 //-------------------
-I2C U_I2C 
+I2C U_I2C0
 (
     // Global Signals
     .CLK  (clk),
     .RES  (res_sys),
     // Slave Ports
-    .S_HSEL      (s_hsel     [`SLAVE_I2C]),
-    .S_HTRANS    (s_htrans   [`SLAVE_I2C]),
-    .S_HWRITE    (s_hwrite   [`SLAVE_I2C]),
-    .S_HMASTLOCK (s_hmastlock[`SLAVE_I2C]),
-    .S_HSIZE     (s_hsize    [`SLAVE_I2C]),
-    .S_HBURST    (s_hburst   [`SLAVE_I2C]),
-    .S_HPROT     (s_hprot    [`SLAVE_I2C]),
-    .S_HADDR     (s_haddr    [`SLAVE_I2C]),
-    .S_HWDATA    (s_hwdata   [`SLAVE_I2C]),
-    .S_HREADY    (s_hready   [`SLAVE_I2C]),
-    .S_HREADYOUT (s_hreadyout[`SLAVE_I2C]),
-    .S_HRDATA    (s_hrdata   [`SLAVE_I2C]),
-    .S_HRESP     (s_hresp    [`SLAVE_I2C]),
+    .S_HSEL      (s_hsel     [`SLAVE_I2C0]),
+    .S_HTRANS    (s_htrans   [`SLAVE_I2C0]),
+    .S_HWRITE    (s_hwrite   [`SLAVE_I2C0]),
+    .S_HMASTLOCK (s_hmastlock[`SLAVE_I2C0]),
+    .S_HSIZE     (s_hsize    [`SLAVE_I2C0]),
+    .S_HBURST    (s_hburst   [`SLAVE_I2C0]),
+    .S_HPROT     (s_hprot    [`SLAVE_I2C0]),
+    .S_HADDR     (s_haddr    [`SLAVE_I2C0]),
+    .S_HWDATA    (s_hwdata   [`SLAVE_I2C0]),
+    .S_HREADY    (s_hready   [`SLAVE_I2C0]),
+    .S_HREADYOUT (s_hreadyout[`SLAVE_I2C0]),
+    .S_HRDATA    (s_hrdata   [`SLAVE_I2C0]),
+    .S_HRESP     (s_hresp    [`SLAVE_I2C0]),
     // I2C Port
-    .I2C_SCL_I   (i2c_scl_i),   // SCL Input
-    .I2C_SCL_O   (i2c_scl_o),   // SCL Output
-    .I2C_SCL_OEN (i2c_scl_oen), // SCL Output Enable (neg)
-    .I2C_SDA_I   (i2c_sda_i),   // SDA Input
-    .I2C_SDA_O   (i2c_sda_o),   // SDA Output
-    .I2C_SDA_OEN (i2c_sda_oen), // SDA Output Enable (neg)
+    .I2C_SCL_I   (i2c0_scl_i),   // SCL Input
+    .I2C_SCL_O   (i2c0_scl_o),   // SCL Output
+    .I2C_SCL_OEN (i2c0_scl_oen), // SCL Output Enable (neg)
+    .I2C_SDA_I   (i2c0_sda_i),   // SDA Input
+    .I2C_SDA_O   (i2c0_sda_o),   // SDA Output
+    .I2C_SDA_OEN (i2c0_sda_oen), // SDA Output Enable (neg)
     // Interrupt
-    .IRQ_I2C (irq_i2c)
+    .IRQ_I2C (irq_i2c0)
+);
+
+//-------------------
+// I2C1
+//-------------------
+I2C U_I2C1
+(
+    // Global Signals
+    .CLK  (clk),
+    .RES  (res_sys),
+    // Slave Ports
+    .S_HSEL      (s_hsel     [`SLAVE_I2C1]),
+    .S_HTRANS    (s_htrans   [`SLAVE_I2C1]),
+    .S_HWRITE    (s_hwrite   [`SLAVE_I2C1]),
+    .S_HMASTLOCK (s_hmastlock[`SLAVE_I2C1]),
+    .S_HSIZE     (s_hsize    [`SLAVE_I2C1]),
+    .S_HBURST    (s_hburst   [`SLAVE_I2C1]),
+    .S_HPROT     (s_hprot    [`SLAVE_I2C1]),
+    .S_HADDR     (s_haddr    [`SLAVE_I2C1]),
+    .S_HWDATA    (s_hwdata   [`SLAVE_I2C1]),
+    .S_HREADY    (s_hready   [`SLAVE_I2C1]),
+    .S_HREADYOUT (s_hreadyout[`SLAVE_I2C1]),
+    .S_HRDATA    (s_hrdata   [`SLAVE_I2C1]),
+    .S_HRESP     (s_hresp    [`SLAVE_I2C1]),
+    // I2C Port
+    .I2C_SCL_I   (i2c1_scl_i),   // SCL Input
+    .I2C_SCL_O   (i2c1_scl_o),   // SCL Output
+    .I2C_SCL_OEN (i2c1_scl_oen), // SCL Output Enable (neg)
+    .I2C_SDA_I   (i2c1_sda_i),   // SDA Input
+    .I2C_SDA_O   (i2c1_sda_o),   // SDA Output
+    .I2C_SDA_OEN (i2c1_sda_oen), // SDA Output Enable (neg)
+    // Interrupt
+    .IRQ_I2C (irq_i2c1)
+);
+
+//-------------------
+// SPI
+//-------------------
+SPI U_SPI 
+(
+    // Global Signals
+    .CLK  (clk),
+    .RES  (res_sys),
+    // Slave Ports
+    .S_HSEL      (s_hsel     [`SLAVE_SPI]),
+    .S_HTRANS    (s_htrans   [`SLAVE_SPI]),
+    .S_HWRITE    (s_hwrite   [`SLAVE_SPI]),
+    .S_HMASTLOCK (s_hmastlock[`SLAVE_SPI]),
+    .S_HSIZE     (s_hsize    [`SLAVE_SPI]),
+    .S_HBURST    (s_hburst   [`SLAVE_SPI]),
+    .S_HPROT     (s_hprot    [`SLAVE_SPI]),
+    .S_HADDR     (s_haddr    [`SLAVE_SPI]),
+    .S_HWDATA    (s_hwdata   [`SLAVE_SPI]),
+    .S_HREADY    (s_hready   [`SLAVE_SPI]),
+    .S_HREADYOUT (s_hreadyout[`SLAVE_SPI]),
+    .S_HRDATA    (s_hrdata   [`SLAVE_SPI]),
+    .S_HRESP     (s_hresp    [`SLAVE_SPI]),
+    // SPI Port
+    .SPI_CSN   (SPI_CSN),  // SPI Chip Select
+    .SPI_SCK   (SPI_SCK),  // SPI Clock
+    .SPI_MOSI  (SPI_MOSI), // SPI MOSI
+    .SPI_MISO  (SPI_MISO), // SPI MISO
+    // Interrupt
+    .IRQ_SPI (irq_spi)
 );
 
 //-----------------------------------------
@@ -960,10 +1068,12 @@ I2C U_I2C
 //-----------------------------------------
 assign irq = irq_gen | 
     {
-        60'h0,
-        I2C_INT2,
-        I2C_INT1,
-        irq_i2c,
+        58'h0,
+        I2C0_INT2,
+        I2C0_INT1,
+        irq_spi,
+        irq_i2c1,
+        irq_i2c0,
         irq_uart
     };
 

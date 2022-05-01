@@ -1,6 +1,6 @@
 # vsim -c -onfinish exit work.tb_TOP -do "run -all" 
-# Start time: 00:15:28 on Mar 20,2022
-# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Start time: 18:29:52 on Apr 24,2022
+# ** Note: (vsim-8009) Loading existing optimized design _opt
 # //  Questa Intel Starter FPGA Edition-64
 # //  Version 2021.2 linux_x86_64 Apr 14 2021
 # //
@@ -33,5 +33,5 @@
 # ***** DETECT TOHOST ***** at 90001000
 # ** Note: $finish    : ./tb_TOP.v(181)
 #    Time: 13750 ns  Iteration: 1  Instance: /tb_TOP
-# End time: 00:15:35 on Mar 20,2022, Elapsed time: 0:00:07
+# End time: 18:29:58 on Apr 24,2022, Elapsed time: 0:00:06
 # Errors: 0, Warnings: 0

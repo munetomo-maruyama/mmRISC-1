@@ -2139,16 +2139,41 @@ begin
                         32'b1110000_00000_?????_000_?????_1010011,
                         32'b1110000_00000_?????_001_?????_1010011:
                         begin
-                            id_fpu_cmd   = {pipe_id_code[31:27], pipe_id_code[14:12]};
-                            id_fpu_src1 = `ALU_FPR | {9'h0, pipe_id_code[19:15]}; // FF
-                            id_alu_src1 = `ALU_FPR | {9'h0, pipe_id_code[19:15]}; // FF
-                            id_alu_src2 = `ALU_GPR; // Zero
-                            id_alu_func = `ALUFUNC_ADD;
-                            id_alu_dst1 = `ALU_GPR | {9'h0, pipe_id_code[11: 7]}; // FF
-                            state_id_ope_nxt = `STATE_ID_DECODE_NORMAL;
-                            state_id_ope_upd = 1'b1;
-                            decode_stp   = 1'b1;                
-                            decode_ack   = 1'b1;                
+                            // Destination data output is from F/F to meeet STA;
+                            // that is EX_FPU_SRCDATA is clocked output.
+                            casez (state_id_seq)
+                                4'h0:
+                                begin
+                                    id_fpu_cmd   = {pipe_id_code[31:27], pipe_id_code[14:12]};
+                                    id_fpu_src1 = `ALU_FPR | {9'h0, pipe_id_code[19:15]}; // FF
+                                    id_alu_src1 = `ALU_FPR | {9'h0, pipe_id_code[19:15]}; // FF
+                                    id_alu_src2 = `ALU_GPR; // Zero
+                                  //id_alu_func = `ALUFUNC_ADD;
+                                  //id_alu_dst1 = `ALU_GPR | {9'h0, pipe_id_code[11: 7]}; // FF
+                                  state_id_seq_inc = 1'b1;
+                                  decode_stp   = 1'b1;                
+                                end
+                                //
+                                4'h1:
+                                begin
+                                    id_alu_src1 = `ALU_FPR | {9'h0, pipe_id_code[19:15]}; // FF
+                                    id_alu_src2 = `ALU_GPR; // Zero
+                                    id_alu_func = `ALUFUNC_ADD;
+                                    id_alu_dst1 = `ALU_GPR | {9'h0, pipe_id_code[11: 7]}; // FF
+                                    state_id_ope_nxt = `STATE_ID_DECODE_NORMAL;
+                                    state_id_ope_upd = 1'b1;
+                                    decode_stp   = 1'b1;                
+                                    decode_ack   = 1'b1;                
+                                end
+                                //
+                                default:
+                                begin
+                                    state_id_ope_nxt = `STATE_ID_DECODE_NORMAL;
+                                    state_id_ope_upd = 1'b1;
+                                    decode_stp   = 1'b1;                
+                                    decode_ack   = 1'b1;                
+                                end
+                            endcase
                         end
                         //
                         // RV32F FADD.S/FSUB.S/FMUL.S/FDIV.S
@@ -2271,6 +2296,8 @@ begin
                         //
                         32'b1100000_0000?_?????_???_?????_1010011:
                         begin
+                            // Destination data output is from F/F to meeet STA;
+                            // that is EX_FPU_SRCDATA is clocked output.
                             casez (state_id_seq)
                                 4'h0:
                                 begin
@@ -2287,13 +2314,23 @@ begin
                                     id_fpu_src1 = `ALU_FPR | {9'h0, pipe_id_code[19:15]}; // FF
                                     id_alu_src1 = `ALU_FPR | {9'h0, pipe_id_code[19:15]}; // FF
                                     id_alu_src2 = `ALU_GPR; // Zero
+                                  //id_alu_func = `ALUFUNC_ADD;
+                                  //id_alu_dst1 = `ALU_GPR | {9'h0, pipe_id_code[11: 7]}; // FF
+                                    state_id_seq_inc = 1'b1;
+                                    decode_stp       = 1'b1;                
+                                end
+                                //
+                                4'h2:
+                                begin
+                                    id_alu_src1 = `ALU_FPR | {9'h0, pipe_id_code[19:15]}; // FF
+                                    id_alu_src2 = `ALU_GPR; // Zero
                                     id_alu_func = `ALUFUNC_ADD;
                                     id_alu_dst1 = `ALU_GPR | {9'h0, pipe_id_code[11: 7]}; // FF
                                     state_id_ope_nxt = `STATE_ID_DECODE_NORMAL;
                                     state_id_ope_upd = 1'b1;
                                     decode_stp   = 1'b1;                
                                     decode_ack   = 1'b1;                
-                            end
+                                end
                                 //
                                 default:
                                 begin
@@ -2348,23 +2385,48 @@ begin
                             endcase                            
                         end
                         //
-                        // RV32F FEQ.S/FLT.S/FLE.S
+                        // RV32F FCMP.S(FEQ.S/FLT.S/FLE.S)
                         //
                         32'b1010000_?????_?????_010_?????_1010011,
                         32'b1010000_?????_?????_001_?????_1010011,
                         32'b1010000_?????_?????_000_?????_1010011:
                         begin
-                            id_fpu_cmd  = {pipe_id_code[31:27], pipe_id_code[14:12]};
-                            id_fpu_src1 = `ALU_FPR | {9'h0, pipe_id_code[19:15]}; // FF
-                            id_fpu_src2 = `ALU_FPR | {9'h0, pipe_id_code[24:20]}; // FF
-                            id_alu_src1 = `ALU_FPR | {9'h0, pipe_id_code[19:15]}; // FF
-                            id_alu_src2 = `ALU_GPR; // Zero
-                            id_alu_func = `ALUFUNC_ADD;
-                            id_alu_dst1 = `ALU_GPR | {9'h0, pipe_id_code[11: 7]}; // FF
-                            state_id_ope_nxt = `STATE_ID_DECODE_NORMAL;
-                            state_id_ope_upd = 1'b1;
-                            decode_stp   = 1'b1;                
-                            decode_ack   = 1'b1;                
+                            // Destination data output is from F/F to meeet STA;
+                            // that is EX_FPU_SRCDATA is clocked output.
+                            casez (state_id_seq)
+                                4'h0:
+                                begin
+                                    id_fpu_cmd  = {pipe_id_code[31:27], pipe_id_code[14:12]};
+                                    id_fpu_src1 = `ALU_FPR | {9'h0, pipe_id_code[19:15]}; // FF
+                                    id_fpu_src2 = `ALU_FPR | {9'h0, pipe_id_code[24:20]}; // FF
+                                    id_alu_src1 = `ALU_FPR | {9'h0, pipe_id_code[19:15]}; // FF
+                                    id_alu_src2 = `ALU_FPR | {9'h0, pipe_id_code[24:20]}; // FF
+                                  //id_alu_func = `ALUFUNC_BUSX;
+                                  //id_alu_dst1 = `ALU_GPR | {9'h0, pipe_id_code[11: 7]}; // FF
+                                    state_id_seq_inc = 1'b1;
+                                    decode_stp       = 1'b1;                
+                                end
+                                //
+                                4'h1:
+                                begin
+                                    id_alu_src1 = `ALU_FPR | {9'h0, pipe_id_code[19:15]}; // FF
+                                    id_alu_src2 = `ALU_FPR | {9'h0, pipe_id_code[24:20]}; // FF
+                                    id_alu_func = `ALUFUNC_BUSX;
+                                    id_alu_dst1 = `ALU_GPR | {9'h0, pipe_id_code[11: 7]}; // FF
+                                    state_id_ope_nxt = `STATE_ID_DECODE_NORMAL;
+                                    state_id_ope_upd = 1'b1;
+                                    decode_stp   = 1'b1;                
+                                    decode_ack   = 1'b1;                
+                                end
+                                //
+                                default:
+                                begin
+                                    state_id_ope_nxt = `STATE_ID_DECODE_NORMAL;
+                                    state_id_ope_upd = 1'b1;
+                                    decode_stp   = 1'b1;                
+                                    decode_ack   = 1'b1;                
+                                end
+                            endcase
                         end
                         //
                         // RV32FC C.FLW : Load Floating Data

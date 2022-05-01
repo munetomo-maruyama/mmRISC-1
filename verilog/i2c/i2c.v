@@ -108,19 +108,19 @@ begin
         wb_we_o  <= 1'b0;
         wb_adr_o <= 3'b000;
     end
-    else if (wb_ack_i)
-    begin
-        wb_cyc_o <= 1'b0;
-        wb_stb_o <= 1'b0;
-        wb_we_o  <= 1'b0;
-        wb_adr_o <= 3'b000;
-    end
     else if (S_HSEL & S_HTRANS[1] & S_HREADY & S_HREADYOUT)
     begin
         wb_cyc_o <= 1'b1;
         wb_stb_o <= 1'b1;
         wb_we_o  <= S_HWRITE;
         wb_adr_o <= S_HADDR[4:2];
+    end
+    else if (S_HREADY & S_HREADYOUT)
+    begin
+        wb_cyc_o <= 1'b0;
+        wb_stb_o <= 1'b0;
+        wb_we_o  <= 1'b0;
+        wb_adr_o <= 3'b000;
     end
 end
 //

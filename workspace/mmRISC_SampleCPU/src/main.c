@@ -17,8 +17,10 @@
 #include "common.h"
 #include "csr.h"
 #include "gpio.h"
+#include "gsensor.h"
 #include "i2c.h"
 #include "interrupt.h"
+#include "system.h"
 #include "uart.h"
 #include "xprintf.h"
 
@@ -33,7 +35,7 @@ extern uint32_t uart_rxd_data;
 void main(void)
 {
     uint32_t i;
-    uint64_t cyclel, cycleh, cycle_prev, cycle_now;
+    uint64_t cyclel, cycleh;
     int16_t gX, gY, gZ;
     //
     // Initialize Hardware
@@ -54,28 +56,21 @@ void main(void)
     {
         cyclel = (uint64_t) read_csr(mcycle);
         cycleh = (uint64_t) read_csr(mcycleh);
-        cycle_prev = (cycleh << 32) + (cyclel);
         //
-        while (1)
-        {
-            GSENSOR_ReadXYZ(&gX, &gY, &gZ);
-            //
-            cyclel = (uint64_t) read_csr(mcycle);
-            cycleh = (uint64_t) read_csr(mcycleh);
-            cycle_now = (cycleh << 32) + (cyclel);
-            //
-            printf("CYCLE = 0x%08x%08x  (gX,gY,gZ)=(%4d,%4d,%4d)\n",
-                   (int)cycleh, (int)cyclel, (int)gX, (int)gY, (int)gZ);
-            if (cycle_now >= cycle_prev + 1666666) break;
-            //
-            uint32_t seg;
-            seg = (uart_rxd_data << 16) + (i & 0x0ffff);
-            GPIO_SetSEG(seg);
-            //
-            mem_wr32(0xfffffffc, 0xdeaddead); // Simulation Stop
-        }
+        GSENSOR_ReadXYZ(&gX, &gY, &gZ);
+        //
+        printf("CYCLE = 0x%08x%08x  (gX,gY,gZ)=(%4d,%4d,%4d)\n",
+               (int)cycleh, (int)cyclel, (int)gX, (int)gY, (int)gZ);
+        //
+        uint32_t seg;
+        seg = (uart_rxd_data << 16) + (i & 0x0ffff);
+        GPIO_SetSEG(seg);
+        //
+        mem_wr32(0xfffffffc, 0xdeaddead); // Simulation Stop
         //
         i = i + 1;
+        //
+        Wait_mSec(100);
     }
 }
 

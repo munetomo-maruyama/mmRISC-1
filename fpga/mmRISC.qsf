@@ -280,7 +280,6 @@ set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to TMS
 set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to TDO
 set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to TDI
 set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to TCK
-set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to TXD
 set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to RXD
 
 set_global_assignment -name VERILOG_MACRO "FPGA=<None>"
@@ -484,6 +483,8 @@ set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_ADDR[10]
 set_location_assignment PIN_P20 -to SDRAM_ADDR[11]
 set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_ADDR[11]
 set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SDRAM_ADDR
+set_global_assignment -name SEARCH_PATH ../verilog/common
+set_global_assignment -name SEARCH_PATH ../verilog/i2c/i2c/trunk/rtl/verilog
 set_global_assignment -name VERILOG_FILE ../verilog/chip/chip_top.v
 set_global_assignment -name VERILOG_FILE ../verilog/mmRISC/mmRISC.v
 set_global_assignment -name VERILOG_FILE ../verilog/mmRISC/bus_m_ahb.v
@@ -515,6 +516,9 @@ set_global_assignment -name VERILOG_FILE ../verilog/i2c/i2c.v
 set_global_assignment -name VERILOG_FILE ../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_bit_ctrl.v
 set_global_assignment -name VERILOG_FILE ../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_byte_ctrl.v
 set_global_assignment -name VERILOG_FILE ../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_top.v
+set_global_assignment -name VERILOG_FILE ../verilog/spi/spi.v
+set_global_assignment -name VERILOG_FILE ../verilog/spi/simple_spi/trunk/rtl/verilog/simple_spi_top.v
+set_global_assignment -name VERILOG_FILE ../verilog/spi/simple_spi/trunk/rtl/verilog/fifo4.v
 set_global_assignment -name VERILOG_FILE ../verilog/ram/ram.v
 set_global_assignment -name VERILOG_FILE ../verilog/ram/ram_fpga.v
 set_global_assignment -name VERILOG_FILE ../verilog/ahb_sdram/logic/ahb_lite_sdram.v
@@ -525,18 +529,44 @@ set_global_assignment -name SOURCE_FILE db/mmRISC.cmp.rdb
 set_global_assignment -name SDC_FILE mmRISC.sdc
 set_global_assignment -name CDF_FILE Chain1.cdf
 set_global_assignment -name CDF_FILE output_files/Chain1.cdf
-set_global_assignment -name SEARCH_PATH ../verilog/common
-set_global_assignment -name SEARCH_PATH ../verilog/i2c/i2c/trunk/rtl/verilog
-set_location_assignment PIN_V12 -to I2C_ADR
-set_location_assignment PIN_AB16 -to I2C_ENA
-set_location_assignment PIN_Y14 -to I2C_INT1
-set_location_assignment PIN_Y13 -to I2C_INT2
-set_location_assignment PIN_AB15 -to I2C_SCL
-set_location_assignment PIN_V11 -to I2C_SDA
-set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to I2C_ADR
-set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to I2C_ENA
-set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to I2C_INT1
-set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to I2C_INT2
-set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to I2C_SCL
-set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to I2C_SDA
+set_location_assignment PIN_AB9 -to SPI_CSN[3]
+set_location_assignment PIN_AB17 -to SPI_CSN[2]
+set_location_assignment PIN_AA17 -to SPI_CSN[1]
+set_location_assignment PIN_AB19 -to SPI_CSN[0]
+set_location_assignment PIN_Y19 -to SPI_MISO
+set_location_assignment PIN_AA19 -to SPI_MOSI
+set_location_assignment PIN_AB20 -to SPI_SCK
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SPI_CSN[3]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SPI_SCK
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SPI_MOSI
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SPI_MISO
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SPI_CSN[2]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SPI_CSN[1]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SPI_CSN[0]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to SPI_CSN
+set_location_assignment PIN_V12 -to I2C0_ADR
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to I2C0_ADR
+set_location_assignment PIN_AB16 -to I2C0_ENA
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to I2C0_ENA
+set_location_assignment PIN_Y14 -to I2C0_INT1
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to I2C0_INT1
+set_location_assignment PIN_Y13 -to I2C0_INT2
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to I2C0_INT2
+set_location_assignment PIN_AB15 -to I2C0_SCL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to I2C0_SCL
+set_location_assignment PIN_V11 -to I2C0_SDA
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to I2C0_SDA
+set_location_assignment PIN_AA20 -to I2C1_SCL
+set_location_assignment PIN_AB21 -to I2C1_SDA
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to I2C1_SCL
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to I2C1_SDA
+set_location_assignment PIN_F16 -to RESOUT_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to RESOUT_N
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to I2C0_INT1
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to I2C0_INT2
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to I2C0_SCL
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to I2C0_SDA
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to I2C1_SCL
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to I2C1_SDA
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to SPI_MISO
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

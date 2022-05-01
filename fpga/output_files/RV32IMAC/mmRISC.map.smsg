@@ -1,4 +1,4 @@
-Info (10281): Verilog HDL Declaration information at chip_top.v(329): object "reset_vector" differs only in case from object "RESET_VECTOR" in the same scope File: /home/taka/RISCV/mmRISC-1/verilog/chip/chip_top.v Line: 329
+Info (10281): Verilog HDL Declaration information at chip_top.v(354): object "reset_vector" differs only in case from object "RESET_VECTOR" in the same scope File: /home/taka/RISCV/mmRISC-1/verilog/chip/chip_top.v Line: 354
 Info (10281): Verilog HDL Declaration information at mmRISC.v(103): object "DBG_STOP_TIMER" differs only in case from object "dbg_stop_timer" in the same scope File: /home/taka/RISCV/mmRISC-1/verilog/mmRISC/mmRISC.v Line: 103
 Info (10281): Verilog HDL Declaration information at csr_mtime.v(88): object "MTIME" differs only in case from object "mtime" in the same scope File: /home/taka/RISCV/mmRISC-1/verilog/mmRISC/csr_mtime.v Line: 88
 Info (10281): Verilog HDL Declaration information at csr_mtime.v(89): object "MTIMEH" differs only in case from object "mtimeh" in the same scope File: /home/taka/RISCV/mmRISC-1/verilog/mmRISC/csr_mtime.v Line: 89

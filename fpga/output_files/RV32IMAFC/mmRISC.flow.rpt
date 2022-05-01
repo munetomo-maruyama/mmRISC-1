@@ -1,5 +1,5 @@
 Flow report for mmRISC
-Sun Mar 20 10:57:30 2022
+Sun May  1 14:39:10 2022
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -41,18 +41,18 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sun Mar 20 10:57:30 2022       ;
+; Flow Status                        ; Successful - Sun May  1 14:39:10 2022       ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; mmRISC                                      ;
 ; Top-level Entity Name              ; CHIP_TOP                                    ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 42,459 / 49,760 ( 85 % )                    ;
-;     Total combinational functions  ; 41,360 / 49,760 ( 83 % )                    ;
-;     Dedicated logic registers      ; 9,452 / 49,760 ( 19 % )                     ;
-; Total registers                    ; 9452                                        ;
-; Total pins                         ; 150 / 360 ( 42 % )                          ;
+; Total logic elements               ; 42,605 / 49,760 ( 86 % )                    ;
+;     Total combinational functions  ; 41,406 / 49,760 ( 83 % )                    ;
+;     Dedicated logic registers      ; 9,799 / 49,760 ( 20 % )                     ;
+; Total registers                    ; 9799                                        ;
+; Total pins                         ; 160 / 360 ( 44 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 1,442,816 / 1,677,312 ( 86 % )              ;
 ; Embedded Multiplier 9-bit elements ; 40 / 288 ( 14 % )                           ;
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/20/2022 08:43:16 ;
+; Start date & time ; 05/01/2022 13:35:44 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; mmRISC              ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                ; 121380417324.164773339601168           ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID                ; 121380417324.165137974413662           ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -125,12 +125,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:52:55     ; 1.0                     ; 960 MB              ; 00:05:22                           ;
-; Fitter               ; 01:19:39     ; 1.0                     ; 1499 MB             ; 01:16:32                           ;
-; Assembler            ; 00:00:05     ; 1.0                     ; 510 MB              ; 00:00:04                           ;
-; Timing Analyzer      ; 00:01:14     ; 1.8                     ; 884 MB              ; 00:01:12                           ;
-; EDA Netlist Writer   ; 00:00:07     ; 1.0                     ; 794 MB              ; 00:00:06                           ;
-; Total                ; 02:14:00     ; --                      ; --                  ; 01:23:16                           ;
+; Analysis & Synthesis ; 00:09:04     ; 1.0                     ; 985 MB              ; 00:08:31                           ;
+; Fitter               ; 00:52:27     ; 1.1                     ; 1516 MB             ; 00:50:26                           ;
+; Assembler            ; 00:00:05     ; 1.0                     ; 506 MB              ; 00:00:05                           ;
+; Timing Analyzer      ; 00:01:24     ; 1.8                     ; 897 MB              ; 00:01:21                           ;
+; EDA Netlist Writer   ; 00:00:08     ; 1.0                     ; 793 MB              ; 00:00:08                           ;
+; Total                ; 01:03:08     ; --                      ; --                  ; 01:00:31                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

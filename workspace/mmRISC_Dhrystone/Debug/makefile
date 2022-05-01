@@ -55,7 +55,7 @@ main-build: mmRISC_Dhrystone.elf secondary-outputs
 mmRISC_Dhrystone.elf: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GNU RISC-V Cross C Linker'
-	riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O3 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -ggdb -T "/home/taka/RISCV/mmRISC-1/workspace/mmRISC_Dhrystone/link.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"mmRISC_Dhrystone.map" -nostartfiles -nostdlib -o "mmRISC_Dhrystone.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	riscv64-unknown-elf-gcc -march=rv32imc -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O3 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -funroll-loops -fpeel-loops -fgcse-sm -fgcse-las -flto  -g3 -ggdb -T "/home/taka/RISCV/mmRISC-1/workspace/mmRISC_Dhrystone/link.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"mmRISC_Dhrystone.map" -nostartfiles -nostdlib -o "mmRISC_Dhrystone.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

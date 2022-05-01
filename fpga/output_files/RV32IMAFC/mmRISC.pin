@@ -108,10 +108,10 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : AA13      :        :                   :      
 GPIO2[15]                    : AA14      : bidir  : 2.5 V             :         : 4         : Y              
 GPIO2[14]                    : AA15      : bidir  : 2.5 V             :         : 4         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AA16      :        :                   :         : 4         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AA17      :        :                   :         : 4         :                
+SPI_CSN[1]                   : AA17      : output : 2.5 V             :         : 4         : Y              
 GND                          : AA18      : gnd    :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AA19      :        :                   :         : 4         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AA20      :        :                   :         : 4         :                
+SPI_MOSI                     : AA19      : output : 2.5 V             :         : 4         : Y              
+I2C1_SCL                     : AA20      : bidir  : 2.5 V             :         : 4         : Y              
 SDRAM_DQ[3]                  : AA21      : bidir  : 2.5 V             :         : 5         : Y              
 SDRAM_DQ[2]                  : AA22      : bidir  : 2.5 V             :         : 5         : Y              
 GND                          : AB1       : gnd    :                   :         :           :                
@@ -122,19 +122,19 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : AB5       :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : AB6       :        :                   :         : 3         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AB7       :        :                   :         : 3         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AB8       :        :                   :         : 3         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AB9       :        :                   :         : 3         :                
+SPI_CSN[3]                   : AB9       : output : 2.5 V             :         : 3         : Y              
 GPIO2[23]                    : AB10      : bidir  : 2.5 V             :         : 4         : Y              
 GPIO2[21]                    : AB11      : bidir  : 2.5 V             :         : 4         : Y              
 GPIO2[19]                    : AB12      : bidir  : 2.5 V             :         : 4         : Y              
 GPIO2[18]                    : AB13      : bidir  : 2.5 V             :         : 4         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AB14      :        :                   :         : 4         :                
-I2C_SCL                      : AB15      : bidir  : 2.5 V             :         : 4         : Y              
-I2C_ENA                      : AB16      : output : 2.5 V             :         : 4         : Y              
-RESERVED_INPUT_WITH_WEAK_PULLUP : AB17      :        :                   :         : 4         :                
+I2C0_SCL                     : AB15      : bidir  : 2.5 V             :         : 4         : Y              
+I2C0_ENA                     : AB16      : output : 2.5 V             :         : 4         : Y              
+SPI_CSN[2]                   : AB17      : output : 2.5 V             :         : 4         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AB18      :        :                   :         : 4         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AB19      :        :                   :         : 4         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AB20      :        :                   :         : 4         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AB21      :        :                   :         : 4         :                
+SPI_CSN[0]                   : AB19      : output : 2.5 V             :         : 4         : Y              
+SPI_SCK                      : AB20      : output : 2.5 V             :         : 4         : Y              
+I2C1_SDA                     : AB21      : bidir  : 2.5 V             :         : 4         : Y              
 GND                          : AB22      : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : B1        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : B2        :        :                   :         : 8         :                
@@ -239,7 +239,7 @@ VCCIO7                       : F12       : power  :                   : 2.5V    
 GND                          : F13       : gnd    :                   :         :           :                
 VCCIO7                       : F14       : power  :                   : 2.5V    : 7         :                
 GPIO2[9]                     : F15       : bidir  : 2.5 V             :         : 7         : Y              
-RESERVED_INPUT_WITH_WEAK_PULLUP : F16       :        :                   :         : 7         :                
+RESOUT_N                     : F16       : output : 2.5 V             :         : 7         : Y              
 GPIO1[7]                     : F17       : bidir  : 2.5 V             :         : 6         : Y              
 GPIO1[0]                     : F18       : bidir  : 2.5 V             :         : 6         : Y              
 GPIO1[5]                     : F19       : bidir  : 2.5 V             :         : 6         : Y              
@@ -498,8 +498,8 @@ GPIO1[30]                    : V7        : bidir  : 2.5 V             :         
 GPIO1[28]                    : V8        : bidir  : 2.5 V             :         : 3         : Y              
 GPIO1[27]                    : V9        : bidir  : 2.5 V             :         : 3         : Y              
 GPIO1[26]                    : V10       : bidir  : 2.5 V             :         : 3         : Y              
-I2C_SDA                      : V11       : bidir  : 2.5 V             :         : 4         : Y              
-I2C_ADR                      : V12       : output : 2.5 V             :         : 4         : Y              
+I2C0_SDA                     : V11       : bidir  : 2.5 V             :         : 4         : Y              
+I2C0_ADR                     : V12       : output : 2.5 V             :         : 4         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : V13       :        :                   :         : 4         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : V14       :        :                   :         : 4         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : V15       :        :                   :         : 4         :                
@@ -544,13 +544,13 @@ GND                          : Y9        : gnd    :                   :         
 RESERVED_INPUT_WITH_WEAK_PULLUP : Y10       :        :                   :         : 3         :                
 GPIO2[20]                    : Y11       : bidir  : 2.5 V             :         : 4         : Y              
 GND                          : Y12       : gnd    :                   :         :           :                
-I2C_INT2                     : Y13       : input  : 2.5 V             :         : 4         : Y              
-I2C_INT1                     : Y14       : input  : 2.5 V             :         : 4         : Y              
+I2C0_INT2                    : Y13       : input  : 2.5 V             :         : 4         : Y              
+I2C0_INT1                    : Y14       : input  : 2.5 V             :         : 4         : Y              
 GND                          : Y15       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : Y16       :        :                   :         : 4         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : Y17       :        :                   :         : 4         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : Y18       :        :                   :         : 4         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : Y19       :        :                   :         : 4         :                
+SPI_MISO                     : Y19       : input  : 2.5 V             :         : 4         : Y              
 SDRAM_DQ[1]                  : Y20       : bidir  : 2.5 V             :         : 5         : Y              
 SDRAM_DQ[0]                  : Y21       : bidir  : 2.5 V             :         : 5         : Y              
 SDRAM_DQ[4]                  : Y22       : bidir  : 2.5 V             :         : 5         : Y              

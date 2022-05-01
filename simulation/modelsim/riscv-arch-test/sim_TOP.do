@@ -2,12 +2,16 @@
 set DIR_RTL ../../../verilog
 set FPGA_RTL ../../../fpga
 
+vlib work
+vmap work work
+
 # Compile
 vlog \
     -work work \
     -sv \
     +incdir+$DIR_RTL/common \
     +incdir+$DIR_RTL/ahb_sdram/model \
+    +incdir+$DIR_RTL/i2c/i2c/trunk/rtl/verilog \
     -timescale=1ns/100ps \
     +define+RISCV_ARCH_TEST \
     +define+SIMULATION \
@@ -27,6 +31,14 @@ vlog \
     $DIR_RTL/uart/sasc/trunk/rtl/verilog/sasc_top.v \
     $DIR_RTL/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v \
     $DIR_RTL/uart/sasc/trunk/rtl/verilog/sasc_brg.v \
+    $DIR_RTL/i2c/i2c.v                                        \
+    $DIR_RTL/i2c/i2c/trunk/rtl/verilog/i2c_master_top.v       \
+    $DIR_RTL/i2c/i2c/trunk/rtl/verilog/i2c_master_bit_ctrl.v  \
+    $DIR_RTL/i2c/i2c/trunk/rtl/verilog/i2c_master_byte_ctrl.v \
+    $DIR_RTL/i2c/i2c_slave_model.v                            \
+    $DIR_RTL/spi/spi.v                                         \
+    $DIR_RTL/spi/simple_spi/trunk/rtl/verilog/simple_spi_top.v \
+    $DIR_RTL/spi/simple_spi/trunk/rtl/verilog/fifo4.v          \
     $DIR_RTL/int_gen/int_gen.v \
     $DIR_RTL/mmRISC/mmRISC.v \
     $DIR_RTL/mmRISC/bus_m_ahb.v \

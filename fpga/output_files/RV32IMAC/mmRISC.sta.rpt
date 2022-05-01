@@ -1,5 +1,5 @@
 Timing Analyzer report for mmRISC
-Sun Mar 20 01:16:28 2022
+Sun May  1 13:33:00 2022
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -91,12 +91,12 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 2           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
-; Average used               ; 1.82        ;
+; Average used               ; 1.81        ;
 ; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  81.7%      ;
+;     Processor 2            ;  81.4%      ;
 +----------------------------+-------------+
 
 
@@ -105,7 +105,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------+--------+--------------------------+
 ; SDC File Path ; Status ; Read at                  ;
 +---------------+--------+--------------------------+
-; mmRISC.sdc    ; OK     ; Sun Mar 20 01:15:47 2022 ;
+; mmRISC.sdc    ; OK     ; Sun May  1 13:32:17 2022 ;
 +---------------+--------+--------------------------+
 
 
@@ -126,9 +126,9 @@ https://fpgasoftware.intel.com/eula.
 +------------+-----------------+------------+---------------------------------------------------------------+
 ; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
 +------------+-----------------+------------+---------------------------------------------------------------+
-; 21.69 MHz  ; 21.69 MHz       ; CLK        ;                                                               ;
-; 29.93 MHz  ; 29.93 MHz       ; TCK        ;                                                               ;
-; 321.54 MHz ; 250.0 MHz       ; CLK50      ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 22.33 MHz  ; 22.33 MHz       ; CLK        ;                                                               ;
+; 38.21 MHz  ; 38.21 MHz       ; TCK        ;                                                               ;
+; 254.58 MHz ; 250.0 MHz       ; CLK50      ; limit due to minimum period restriction (max I/O toggle rate) ;
 +------------+-----------------+------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -138,9 +138,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+--------+--------------------+
 ; Clock ; Slack  ; End Point TNS      ;
 +-------+--------+--------------------+
-; CLK   ; 2.497  ; 0.000              ;
-; CLK50 ; 16.890 ; 0.000              ;
-; TCK   ; 33.297 ; 0.000              ;
+; CLK   ; 2.777  ; 0.000              ;
+; CLK50 ; 16.072 ; 0.000              ;
+; TCK   ; 36.916 ; 0.000              ;
 +-------+--------+--------------------+
 
 
@@ -149,21 +149,21 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+-------+--------------------+
 ; Clock ; Slack ; End Point TNS      ;
 +-------+-------+--------------------+
-; CLK   ; 0.321 ; 0.000              ;
-; TCK   ; 0.323 ; 0.000              ;
-; CLK50 ; 0.362 ; 0.000              ;
+; CLK   ; 0.294 ; 0.000              ;
+; CLK50 ; 0.356 ; 0.000              ;
+; TCK   ; 0.378 ; 0.000              ;
 +-------+-------+--------------------+
 
 
 +----------------------------------------+
 ; Slow 1200mV 85C Model Recovery Summary ;
-+-------+--------+-----------------------+
-; Clock ; Slack  ; End Point TNS         ;
-+-------+--------+-----------------------+
-; CLK   ; 1.340  ; 0.000                 ;
-; TCK   ; 3.138  ; 0.000                 ;
-; LOCK  ; 11.388 ; 0.000                 ;
-+-------+--------+-----------------------+
++-------+-------+------------------------+
+; Clock ; Slack ; End Point TNS          ;
++-------+-------+------------------------+
+; TCK   ; 1.533 ; 0.000                  ;
+; CLK   ; 3.182 ; 0.000                  ;
+; LOCK  ; 9.996 ; 0.000                  ;
++-------+-------+------------------------+
 
 
 +---------------------------------------+
@@ -171,9 +171,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+-------+-----------------------+
 ; Clock ; Slack ; End Point TNS         ;
 +-------+-------+-----------------------+
-; CLK   ; 0.972 ; 0.000                 ;
-; TCK   ; 1.740 ; 0.000                 ;
-; LOCK  ; 5.371 ; 0.000                 ;
+; CLK   ; 0.927 ; 0.000                 ;
+; TCK   ; 1.797 ; 0.000                 ;
+; LOCK  ; 7.367 ; 0.000                 ;
 +-------+-------+-----------------------+
 
 
@@ -182,10 +182,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+--------+----------------------------------+
 ; Clock ; Slack  ; End Point TNS                    ;
 +-------+--------+----------------------------------+
-; CLK50 ; 9.675  ; 0.000                            ;
+; CLK50 ; 9.677  ; 0.000                            ;
 ; CLK   ; 24.663 ; 0.000                            ;
-; TCK   ; 49.547 ; 0.000                            ;
-; LOCK  ; 49.763 ; 0.000                            ;
+; TCK   ; 49.650 ; 0.000                            ;
+; LOCK  ; 49.772 ; 0.000                            ;
 +-------+--------+----------------------------------+
 
 
@@ -196,7 +196,7 @@ The design MTBF is not calculated because there are no specified synchronizers i
 Number of Synchronizer Chains Found: 5
 Shortest Synchronizer Chain: 2 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-Worst Case Available Settling Time: 91.810 ns
+Worst Case Available Settling Time: 90.871 ns
 
 
 
@@ -206,9 +206,9 @@ Worst Case Available Settling Time: 91.810 ns
 +------------+-----------------+------------+---------------------------------------------------------------+
 ; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
 +------------+-----------------+------------+---------------------------------------------------------------+
-; 23.63 MHz  ; 23.63 MHz       ; CLK        ;                                                               ;
-; 32.15 MHz  ; 32.15 MHz       ; TCK        ;                                                               ;
-; 354.86 MHz ; 250.0 MHz       ; CLK50      ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 24.25 MHz  ; 24.25 MHz       ; CLK        ;                                                               ;
+; 40.59 MHz  ; 40.59 MHz       ; TCK        ;                                                               ;
+; 275.79 MHz ; 250.0 MHz       ; CLK50      ; limit due to minimum period restriction (max I/O toggle rate) ;
 +------------+-----------------+------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -218,9 +218,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+--------+-------------------+
 ; Clock ; Slack  ; End Point TNS     ;
 +-------+--------+-------------------+
-; CLK   ; 2.657  ; 0.000             ;
-; CLK50 ; 17.182 ; 0.000             ;
-; TCK   ; 34.450 ; 0.000             ;
+; CLK   ; 2.863  ; 0.000             ;
+; CLK50 ; 16.374 ; 0.000             ;
+; TCK   ; 37.681 ; 0.000             ;
 +-------+--------+-------------------+
 
 
@@ -229,9 +229,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+-------+-------------------+
 ; Clock ; Slack ; End Point TNS     ;
 +-------+-------+-------------------+
-; CLK   ; 0.288 ; 0.000             ;
-; TCK   ; 0.294 ; 0.000             ;
-; CLK50 ; 0.327 ; 0.000             ;
+; CLK   ; 0.285 ; 0.000             ;
+; CLK50 ; 0.322 ; 0.000             ;
+; TCK   ; 0.339 ; 0.000             ;
 +-------+-------+-------------------+
 
 
@@ -240,9 +240,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+--------+----------------------+
 ; Clock ; Slack  ; End Point TNS        ;
 +-------+--------+----------------------+
-; CLK   ; 1.600  ; 0.000                ;
-; TCK   ; 3.206  ; 0.000                ;
-; LOCK  ; 11.622 ; 0.000                ;
+; TCK   ; 1.788  ; 0.000                ;
+; CLK   ; 3.270  ; 0.000                ;
+; LOCK  ; 10.370 ; 0.000                ;
 +-------+--------+----------------------+
 
 
@@ -251,9 +251,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+-------+----------------------+
 ; Clock ; Slack ; End Point TNS        ;
 +-------+-------+----------------------+
-; CLK   ; 0.895 ; 0.000                ;
-; TCK   ; 1.591 ; 0.000                ;
-; LOCK  ; 4.881 ; 0.000                ;
+; CLK   ; 0.854 ; 0.000                ;
+; TCK   ; 1.646 ; 0.000                ;
+; LOCK  ; 6.775 ; 0.000                ;
 +-------+-------+----------------------+
 
 
@@ -262,10 +262,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+--------+---------------------------------+
 ; Clock ; Slack  ; End Point TNS                   ;
 +-------+--------+---------------------------------+
-; CLK50 ; 9.712  ; 0.000                           ;
+; CLK50 ; 9.723  ; 0.000                           ;
 ; CLK   ; 24.683 ; 0.000                           ;
-; TCK   ; 49.681 ; 0.000                           ;
-; LOCK  ; 49.756 ; 0.000                           ;
+; TCK   ; 49.635 ; 0.000                           ;
+; LOCK  ; 49.760 ; 0.000                           ;
 +-------+--------+---------------------------------+
 
 
@@ -276,7 +276,7 @@ The design MTBF is not calculated because there are no specified synchronizers i
 Number of Synchronizer Chains Found: 5
 Shortest Synchronizer Chain: 2 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-Worst Case Available Settling Time: 92.381 ns
+Worst Case Available Settling Time: 91.526 ns
 
 
 
@@ -286,9 +286,9 @@ Worst Case Available Settling Time: 92.381 ns
 +-------+--------+-------------------+
 ; Clock ; Slack  ; End Point TNS     ;
 +-------+--------+-------------------+
-; CLK   ; 4.113  ; 0.000             ;
-; CLK50 ; 18.635 ; 0.000             ;
-; TCK   ; 38.243 ; 0.000             ;
+; CLK   ; 4.154  ; 0.000             ;
+; CLK50 ; 18.154 ; 0.000             ;
+; TCK   ; 40.097 ; 0.000             ;
 +-------+--------+-------------------+
 
 
@@ -297,9 +297,9 @@ Worst Case Available Settling Time: 92.381 ns
 +-------+-------+-------------------+
 ; Clock ; Slack ; End Point TNS     ;
 +-------+-------+-------------------+
-; TCK   ; 0.110 ; 0.000             ;
-; CLK   ; 0.139 ; 0.000             ;
-; CLK50 ; 0.155 ; 0.000             ;
+; CLK   ; 0.119 ; 0.000             ;
+; TCK   ; 0.141 ; 0.000             ;
+; CLK50 ; 0.152 ; 0.000             ;
 +-------+-------+-------------------+
 
 
@@ -308,9 +308,9 @@ Worst Case Available Settling Time: 92.381 ns
 +-------+--------+----------------------+
 ; Clock ; Slack  ; End Point TNS        ;
 +-------+--------+----------------------+
-; CLK   ; 3.362  ; 0.000                ;
-; TCK   ; 4.330  ; 0.000                ;
-; LOCK  ; 13.224 ; 0.000                ;
+; TCK   ; 3.509  ; 0.000                ;
+; CLK   ; 4.178  ; 0.000                ;
+; LOCK  ; 12.492 ; 0.000                ;
 +-------+--------+----------------------+
 
 
@@ -319,9 +319,9 @@ Worst Case Available Settling Time: 92.381 ns
 +-------+-------+----------------------+
 ; Clock ; Slack ; End Point TNS        ;
 +-------+-------+----------------------+
-; CLK   ; 0.423 ; 0.000                ;
-; TCK   ; 0.749 ; 0.000                ;
-; LOCK  ; 2.498 ; 0.000                ;
+; CLK   ; 0.404 ; 0.000                ;
+; TCK   ; 0.766 ; 0.000                ;
+; LOCK  ; 3.498 ; 0.000                ;
 +-------+-------+----------------------+
 
 
@@ -332,8 +332,8 @@ Worst Case Available Settling Time: 92.381 ns
 +-------+--------+---------------------------------+
 ; CLK50 ; 9.441  ; 0.000                           ;
 ; CLK   ; 24.710 ; 0.000                           ;
-; TCK   ; 49.262 ; 0.000                           ;
-; LOCK  ; 49.774 ; 0.000                           ;
+; TCK   ; 49.321 ; 0.000                           ;
+; LOCK  ; 49.769 ; 0.000                           ;
 +-------+--------+---------------------------------+
 
 
@@ -344,7 +344,7 @@ The design MTBF is not calculated because there are no specified synchronizers i
 Number of Synchronizer Chains Found: 5
 Shortest Synchronizer Chain: 2 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-Worst Case Available Settling Time: 96.229 ns
+Worst Case Available Settling Time: 95.855 ns
 
 
 
@@ -354,11 +354,11 @@ Worst Case Available Settling Time: 96.229 ns
 +------------------+--------+-------+----------+---------+---------------------+
 ; Clock            ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +------------------+--------+-------+----------+---------+---------------------+
-; Worst-case Slack ; 2.497  ; 0.110 ; 1.340    ; 0.423   ; 9.441               ;
-;  CLK             ; 2.497  ; 0.139 ; 1.340    ; 0.423   ; 24.663              ;
-;  CLK50           ; 16.890 ; 0.155 ; N/A      ; N/A     ; 9.441               ;
-;  LOCK            ; N/A    ; N/A   ; 11.388   ; 2.498   ; 49.756              ;
-;  TCK             ; 33.297 ; 0.110 ; 3.138    ; 0.749   ; 49.262              ;
+; Worst-case Slack ; 2.777  ; 0.119 ; 1.533    ; 0.404   ; 9.441               ;
+;  CLK             ; 2.777  ; 0.119 ; 3.182    ; 0.404   ; 24.663              ;
+;  CLK50           ; 16.072 ; 0.152 ; N/A      ; N/A     ; 9.441               ;
+;  LOCK            ; N/A    ; N/A   ; 9.996    ; 3.498   ; 49.760              ;
+;  TCK             ; 36.916 ; 0.141 ; 1.533    ; 0.766   ; 49.321              ;
 ; Design-wide TNS  ; 0.0    ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
 ;  CLK             ; 0.000  ; 0.000 ; 0.000    ; 0.000   ; 0.000               ;
 ;  CLK50           ; 0.000  ; 0.000 ; N/A      ; N/A     ; 0.000               ;
@@ -372,10 +372,17 @@ Worst Case Available Settling Time: 96.229 ns
 +----------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
 ; Pin            ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
 +----------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; RESOUT_N       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; TDO            ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; TXD            ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
-; I2C_ENA        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
-; I2C_ADR        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; I2C0_ENA       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; I2C0_ADR       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; SPI_CSN[0]     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; SPI_CSN[1]     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; SPI_CSN[2]     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; SPI_CSN[3]     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; SPI_SCK        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; SPI_MOSI       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; SDRAM_CLK      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; SDRAM_CKE      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; SDRAM_CSn      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
@@ -495,8 +502,10 @@ Worst Case Available Settling Time: 96.229 ns
 ; GPIO2[29]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; GPIO2[30]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; GPIO2[31]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
-; I2C_SCL        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
-; I2C_SDA        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; I2C0_SCL       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; I2C0_SDA       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; I2C1_SCL       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; I2C1_SDA       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; SDRAM_DQ[0]    ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; SDRAM_DQ[1]    ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; SDRAM_DQ[2]    ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
@@ -618,8 +627,10 @@ Worst Case Available Settling Time: 96.229 ns
 ; GPIO2[29]           ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; GPIO2[30]           ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; GPIO2[31]           ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
-; I2C_SCL             ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
-; I2C_SDA             ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; I2C0_SCL            ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; I2C0_SDA            ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; I2C1_SCL            ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; I2C1_SDA            ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; SDRAM_DQ[0]         ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; SDRAM_DQ[1]         ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; SDRAM_DQ[2]         ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
@@ -640,10 +651,11 @@ Worst Case Available Settling Time: 96.229 ns
 ; CLK50               ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; TCK                 ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; TRSTn               ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
-; TDI                 ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; TMS                 ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
-; I2C_INT1            ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
-; I2C_INT2            ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; TDI                 ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; I2C0_INT1           ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; I2C0_INT2           ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; SPI_MISO            ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; RXD                 ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_TMS~        ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_TCK~        ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
@@ -660,10 +672,17 @@ Worst Case Available Settling Time: 96.229 ns
 +----------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 ; Pin            ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
 +----------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; RESOUT_N       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.0059 V           ; 0.18 V                               ; 0.031 V                              ; 6.58e-10 s                  ; 8.63e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.0059 V          ; 0.18 V                              ; 0.031 V                             ; 6.58e-10 s                 ; 8.63e-10 s                 ; No                        ; Yes                       ;
 ; TDO            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.00581 V          ; 0.181 V                              ; 0.03 V                               ; 6.58e-10 s                  ; 8.65e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.00581 V         ; 0.181 V                             ; 0.03 V                              ; 6.58e-10 s                 ; 8.65e-10 s                 ; No                        ; Yes                       ;
 ; TXD            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.37 V              ; -0.00683 V          ; 0.235 V                              ; 0.051 V                              ; 6.88e-10 s                  ; 9.9e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.37 V             ; -0.00683 V         ; 0.235 V                             ; 0.051 V                             ; 6.88e-10 s                 ; 9.9e-10 s                  ; No                        ; Yes                       ;
-; I2C_ENA        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.00581 V          ; 0.181 V                              ; 0.03 V                               ; 6.58e-10 s                  ; 8.65e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.00581 V         ; 0.181 V                             ; 0.03 V                              ; 6.58e-10 s                 ; 8.65e-10 s                 ; No                        ; Yes                       ;
-; I2C_ADR        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.37 V              ; -0.00683 V          ; 0.235 V                              ; 0.051 V                              ; 6.88e-10 s                  ; 9.9e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.37 V             ; -0.00683 V         ; 0.235 V                             ; 0.051 V                             ; 6.88e-10 s                 ; 9.9e-10 s                  ; No                        ; Yes                       ;
+; I2C0_ENA       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.00581 V          ; 0.181 V                              ; 0.03 V                               ; 6.58e-10 s                  ; 8.65e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.00581 V         ; 0.181 V                             ; 0.03 V                              ; 6.58e-10 s                 ; 8.65e-10 s                 ; No                        ; Yes                       ;
+; I2C0_ADR       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.37 V              ; -0.00683 V          ; 0.235 V                              ; 0.051 V                              ; 6.88e-10 s                  ; 9.9e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.37 V             ; -0.00683 V         ; 0.235 V                             ; 0.051 V                             ; 6.88e-10 s                 ; 9.9e-10 s                  ; No                        ; Yes                       ;
+; SPI_CSN[0]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.00581 V          ; 0.181 V                              ; 0.03 V                               ; 6.58e-10 s                  ; 8.65e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.00581 V         ; 0.181 V                             ; 0.03 V                              ; 6.58e-10 s                 ; 8.65e-10 s                 ; No                        ; Yes                       ;
+; SPI_CSN[1]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.00618 V          ; 0.236 V                              ; 0.052 V                              ; 6.89e-10 s                  ; 9.91e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.00618 V         ; 0.236 V                             ; 0.052 V                             ; 6.89e-10 s                 ; 9.91e-10 s                 ; No                        ; Yes                       ;
+; SPI_CSN[2]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.00581 V          ; 0.181 V                              ; 0.03 V                               ; 6.58e-10 s                  ; 8.65e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.00581 V         ; 0.181 V                             ; 0.03 V                              ; 6.58e-10 s                 ; 8.65e-10 s                 ; No                        ; Yes                       ;
+; SPI_CSN[3]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.0059 V           ; 0.18 V                               ; 0.031 V                              ; 6.58e-10 s                  ; 8.63e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.0059 V          ; 0.18 V                              ; 0.031 V                             ; 6.58e-10 s                 ; 8.63e-10 s                 ; No                        ; Yes                       ;
+; SPI_SCK        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.0059 V           ; 0.18 V                               ; 0.031 V                              ; 6.58e-10 s                  ; 8.63e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.0059 V          ; 0.18 V                              ; 0.031 V                             ; 6.58e-10 s                 ; 8.63e-10 s                 ; No                        ; Yes                       ;
+; SPI_MOSI       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.00581 V          ; 0.181 V                              ; 0.03 V                               ; 6.58e-10 s                  ; 8.65e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.00581 V         ; 0.181 V                             ; 0.03 V                              ; 6.58e-10 s                 ; 8.65e-10 s                 ; No                        ; Yes                       ;
 ; SDRAM_CLK      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.0059 V           ; 0.18 V                               ; 0.031 V                              ; 6.58e-10 s                  ; 8.63e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.0059 V          ; 0.18 V                              ; 0.031 V                             ; 6.58e-10 s                 ; 8.63e-10 s                 ; No                        ; Yes                       ;
 ; SDRAM_CKE      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.00581 V          ; 0.181 V                              ; 0.03 V                               ; 6.58e-10 s                  ; 8.65e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.00581 V         ; 0.181 V                             ; 0.03 V                              ; 6.58e-10 s                 ; 8.65e-10 s                 ; No                        ; Yes                       ;
 ; SDRAM_CSn      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.00581 V          ; 0.181 V                              ; 0.03 V                               ; 6.58e-10 s                  ; 8.65e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.00581 V         ; 0.181 V                             ; 0.03 V                              ; 6.58e-10 s                 ; 8.65e-10 s                 ; No                        ; Yes                       ;
@@ -783,8 +802,10 @@ Worst Case Available Settling Time: 96.229 ns
 ; GPIO2[29]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.37 V              ; -0.00683 V          ; 0.235 V                              ; 0.051 V                              ; 6.88e-10 s                  ; 9.9e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.37 V             ; -0.00683 V         ; 0.235 V                             ; 0.051 V                             ; 6.88e-10 s                 ; 9.9e-10 s                  ; No                        ; Yes                       ;
 ; GPIO2[30]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.00618 V          ; 0.236 V                              ; 0.052 V                              ; 6.89e-10 s                  ; 9.91e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.00618 V         ; 0.236 V                             ; 0.052 V                             ; 6.89e-10 s                 ; 9.91e-10 s                 ; No                        ; Yes                       ;
 ; GPIO2[31]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.00581 V          ; 0.181 V                              ; 0.03 V                               ; 6.58e-10 s                  ; 8.65e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.00581 V         ; 0.181 V                             ; 0.03 V                              ; 6.58e-10 s                 ; 8.65e-10 s                 ; No                        ; Yes                       ;
-; I2C_SCL        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.0059 V           ; 0.18 V                               ; 0.031 V                              ; 6.58e-10 s                  ; 8.63e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.0059 V          ; 0.18 V                              ; 0.031 V                             ; 6.58e-10 s                 ; 8.63e-10 s                 ; No                        ; Yes                       ;
-; I2C_SDA        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.00618 V          ; 0.236 V                              ; 0.052 V                              ; 6.89e-10 s                  ; 9.91e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.00618 V         ; 0.236 V                             ; 0.052 V                             ; 6.89e-10 s                 ; 9.91e-10 s                 ; No                        ; Yes                       ;
+; I2C0_SCL       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.0059 V           ; 0.18 V                               ; 0.031 V                              ; 6.58e-10 s                  ; 8.63e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.0059 V          ; 0.18 V                              ; 0.031 V                             ; 6.58e-10 s                 ; 8.63e-10 s                 ; No                        ; Yes                       ;
+; I2C0_SDA       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.00618 V          ; 0.236 V                              ; 0.052 V                              ; 6.89e-10 s                  ; 9.91e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.00618 V         ; 0.236 V                             ; 0.052 V                             ; 6.89e-10 s                 ; 9.91e-10 s                 ; No                        ; Yes                       ;
+; I2C1_SCL       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.0059 V           ; 0.18 V                               ; 0.031 V                              ; 6.58e-10 s                  ; 8.63e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.0059 V          ; 0.18 V                              ; 0.031 V                             ; 6.58e-10 s                 ; 8.63e-10 s                 ; No                        ; Yes                       ;
+; I2C1_SDA       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.00581 V          ; 0.181 V                              ; 0.03 V                               ; 6.58e-10 s                  ; 8.65e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.00581 V         ; 0.181 V                             ; 0.03 V                              ; 6.58e-10 s                 ; 8.65e-10 s                 ; No                        ; Yes                       ;
 ; SDRAM_DQ[0]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.00581 V          ; 0.181 V                              ; 0.03 V                               ; 6.58e-10 s                  ; 8.65e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.00581 V         ; 0.181 V                             ; 0.03 V                              ; 6.58e-10 s                 ; 8.65e-10 s                 ; No                        ; Yes                       ;
 ; SDRAM_DQ[1]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.0059 V           ; 0.18 V                               ; 0.031 V                              ; 6.58e-10 s                  ; 8.63e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.0059 V          ; 0.18 V                              ; 0.031 V                             ; 6.58e-10 s                 ; 8.63e-10 s                 ; No                        ; Yes                       ;
 ; SDRAM_DQ[2]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.95e-08 V                   ; 2.38 V              ; -0.00581 V          ; 0.181 V                              ; 0.03 V                               ; 6.58e-10 s                  ; 8.65e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.95e-08 V                  ; 2.38 V             ; -0.00581 V         ; 0.181 V                             ; 0.03 V                              ; 6.58e-10 s                 ; 8.65e-10 s                 ; No                        ; Yes                       ;
@@ -810,10 +831,17 @@ Worst Case Available Settling Time: 96.229 ns
 +----------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 ; Pin            ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
 +----------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; RESOUT_N       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00279 V          ; 0.143 V                              ; 0.015 V                              ; 8.42e-10 s                  ; 1.06e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00279 V         ; 0.143 V                             ; 0.015 V                             ; 8.42e-10 s                 ; 1.06e-09 s                 ; No                        ; Yes                       ;
 ; TDO            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00222 V          ; 0.143 V                              ; 0.015 V                              ; 8.41e-10 s                  ; 1.06e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00222 V         ; 0.143 V                             ; 0.015 V                             ; 8.41e-10 s                 ; 1.06e-09 s                 ; No                        ; Yes                       ;
 ; TXD            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.35 V              ; -0.00325 V          ; 0.194 V                              ; 0.03 V                               ; 8.84e-10 s                  ; 1.2e-09 s                   ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.35 V             ; -0.00325 V         ; 0.194 V                             ; 0.03 V                              ; 8.84e-10 s                 ; 1.2e-09 s                  ; No                        ; Yes                       ;
-; I2C_ENA        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00222 V          ; 0.143 V                              ; 0.015 V                              ; 8.41e-10 s                  ; 1.06e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00222 V         ; 0.143 V                             ; 0.015 V                             ; 8.41e-10 s                 ; 1.06e-09 s                 ; No                        ; Yes                       ;
-; I2C_ADR        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.35 V              ; -0.00325 V          ; 0.194 V                              ; 0.03 V                               ; 8.84e-10 s                  ; 1.2e-09 s                   ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.35 V             ; -0.00325 V         ; 0.194 V                             ; 0.03 V                              ; 8.84e-10 s                 ; 1.2e-09 s                  ; No                        ; Yes                       ;
+; I2C0_ENA       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00222 V          ; 0.143 V                              ; 0.015 V                              ; 8.41e-10 s                  ; 1.06e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00222 V         ; 0.143 V                             ; 0.015 V                             ; 8.41e-10 s                 ; 1.06e-09 s                 ; No                        ; Yes                       ;
+; I2C0_ADR       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.35 V              ; -0.00325 V          ; 0.194 V                              ; 0.03 V                               ; 8.84e-10 s                  ; 1.2e-09 s                   ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.35 V             ; -0.00325 V         ; 0.194 V                             ; 0.03 V                              ; 8.84e-10 s                 ; 1.2e-09 s                  ; No                        ; Yes                       ;
+; SPI_CSN[0]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00222 V          ; 0.143 V                              ; 0.015 V                              ; 8.41e-10 s                  ; 1.06e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00222 V         ; 0.143 V                             ; 0.015 V                             ; 8.41e-10 s                 ; 1.06e-09 s                 ; No                        ; Yes                       ;
+; SPI_CSN[1]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00306 V          ; 0.194 V                              ; 0.031 V                              ; 8.84e-10 s                  ; 1.2e-09 s                   ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00306 V         ; 0.194 V                             ; 0.031 V                             ; 8.84e-10 s                 ; 1.2e-09 s                  ; No                        ; Yes                       ;
+; SPI_CSN[2]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00222 V          ; 0.143 V                              ; 0.015 V                              ; 8.41e-10 s                  ; 1.06e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00222 V         ; 0.143 V                             ; 0.015 V                             ; 8.41e-10 s                 ; 1.06e-09 s                 ; No                        ; Yes                       ;
+; SPI_CSN[3]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00279 V          ; 0.143 V                              ; 0.015 V                              ; 8.42e-10 s                  ; 1.06e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00279 V         ; 0.143 V                             ; 0.015 V                             ; 8.42e-10 s                 ; 1.06e-09 s                 ; No                        ; Yes                       ;
+; SPI_SCK        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00279 V          ; 0.143 V                              ; 0.015 V                              ; 8.42e-10 s                  ; 1.06e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00279 V         ; 0.143 V                             ; 0.015 V                             ; 8.42e-10 s                 ; 1.06e-09 s                 ; No                        ; Yes                       ;
+; SPI_MOSI       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00222 V          ; 0.143 V                              ; 0.015 V                              ; 8.41e-10 s                  ; 1.06e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00222 V         ; 0.143 V                             ; 0.015 V                             ; 8.41e-10 s                 ; 1.06e-09 s                 ; No                        ; Yes                       ;
 ; SDRAM_CLK      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00279 V          ; 0.143 V                              ; 0.015 V                              ; 8.42e-10 s                  ; 1.06e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00279 V         ; 0.143 V                             ; 0.015 V                             ; 8.42e-10 s                 ; 1.06e-09 s                 ; No                        ; Yes                       ;
 ; SDRAM_CKE      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00222 V          ; 0.143 V                              ; 0.015 V                              ; 8.41e-10 s                  ; 1.06e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00222 V         ; 0.143 V                             ; 0.015 V                             ; 8.41e-10 s                 ; 1.06e-09 s                 ; No                        ; Yes                       ;
 ; SDRAM_CSn      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00222 V          ; 0.143 V                              ; 0.015 V                              ; 8.41e-10 s                  ; 1.06e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00222 V         ; 0.143 V                             ; 0.015 V                             ; 8.41e-10 s                 ; 1.06e-09 s                 ; No                        ; Yes                       ;
@@ -933,8 +961,10 @@ Worst Case Available Settling Time: 96.229 ns
 ; GPIO2[29]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.35 V              ; -0.00325 V          ; 0.194 V                              ; 0.03 V                               ; 8.84e-10 s                  ; 1.2e-09 s                   ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.35 V             ; -0.00325 V         ; 0.194 V                             ; 0.03 V                              ; 8.84e-10 s                 ; 1.2e-09 s                  ; No                        ; Yes                       ;
 ; GPIO2[30]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00306 V          ; 0.194 V                              ; 0.031 V                              ; 8.84e-10 s                  ; 1.2e-09 s                   ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00306 V         ; 0.194 V                             ; 0.031 V                             ; 8.84e-10 s                 ; 1.2e-09 s                  ; No                        ; Yes                       ;
 ; GPIO2[31]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00222 V          ; 0.143 V                              ; 0.015 V                              ; 8.41e-10 s                  ; 1.06e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00222 V         ; 0.143 V                             ; 0.015 V                             ; 8.41e-10 s                 ; 1.06e-09 s                 ; No                        ; Yes                       ;
-; I2C_SCL        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00279 V          ; 0.143 V                              ; 0.015 V                              ; 8.42e-10 s                  ; 1.06e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00279 V         ; 0.143 V                             ; 0.015 V                             ; 8.42e-10 s                 ; 1.06e-09 s                 ; No                        ; Yes                       ;
-; I2C_SDA        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00306 V          ; 0.194 V                              ; 0.031 V                              ; 8.84e-10 s                  ; 1.2e-09 s                   ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00306 V         ; 0.194 V                             ; 0.031 V                             ; 8.84e-10 s                 ; 1.2e-09 s                  ; No                        ; Yes                       ;
+; I2C0_SCL       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00279 V          ; 0.143 V                              ; 0.015 V                              ; 8.42e-10 s                  ; 1.06e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00279 V         ; 0.143 V                             ; 0.015 V                             ; 8.42e-10 s                 ; 1.06e-09 s                 ; No                        ; Yes                       ;
+; I2C0_SDA       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00306 V          ; 0.194 V                              ; 0.031 V                              ; 8.84e-10 s                  ; 1.2e-09 s                   ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00306 V         ; 0.194 V                             ; 0.031 V                             ; 8.84e-10 s                 ; 1.2e-09 s                  ; No                        ; Yes                       ;
+; I2C1_SCL       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00279 V          ; 0.143 V                              ; 0.015 V                              ; 8.42e-10 s                  ; 1.06e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00279 V         ; 0.143 V                             ; 0.015 V                             ; 8.42e-10 s                 ; 1.06e-09 s                 ; No                        ; Yes                       ;
+; I2C1_SDA       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00222 V          ; 0.143 V                              ; 0.015 V                              ; 8.41e-10 s                  ; 1.06e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00222 V         ; 0.143 V                             ; 0.015 V                             ; 8.41e-10 s                 ; 1.06e-09 s                 ; No                        ; Yes                       ;
 ; SDRAM_DQ[0]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00222 V          ; 0.143 V                              ; 0.015 V                              ; 8.41e-10 s                  ; 1.06e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00222 V         ; 0.143 V                             ; 0.015 V                             ; 8.41e-10 s                 ; 1.06e-09 s                 ; No                        ; Yes                       ;
 ; SDRAM_DQ[1]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00279 V          ; 0.143 V                              ; 0.015 V                              ; 8.42e-10 s                  ; 1.06e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00279 V         ; 0.143 V                             ; 0.015 V                             ; 8.42e-10 s                 ; 1.06e-09 s                 ; No                        ; Yes                       ;
 ; SDRAM_DQ[2]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.76e-06 V                   ; 2.36 V              ; -0.00222 V          ; 0.143 V                              ; 0.015 V                              ; 8.41e-10 s                  ; 1.06e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.76e-06 V                  ; 2.36 V             ; -0.00222 V         ; 0.143 V                             ; 0.015 V                             ; 8.41e-10 s                 ; 1.06e-09 s                 ; No                        ; Yes                       ;
@@ -960,10 +990,17 @@ Worst Case Available Settling Time: 96.229 ns
 +----------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 ; Pin            ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
 +----------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; RESOUT_N       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.72 V              ; -0.036 V            ; 0.26 V                               ; 0.2 V                                ; 4.68e-10 s                  ; 6.71e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.35e-07 V                  ; 2.72 V             ; -0.036 V           ; 0.26 V                              ; 0.2 V                               ; 4.68e-10 s                 ; 6.71e-10 s                 ; No                        ; Yes                       ;
 ; TDO            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.72 V              ; -0.037 V            ; 0.262 V                              ; 0.199 V                              ; 4.69e-10 s                  ; 6.73e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.35e-07 V                  ; 2.72 V             ; -0.037 V           ; 0.262 V                             ; 0.199 V                             ; 4.69e-10 s                 ; 6.73e-10 s                 ; No                        ; Yes                       ;
 ; TXD            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.71 V              ; -0.034 V            ; 0.324 V                              ; 0.132 V                              ; 4.92e-10 s                  ; 8.3e-10 s                   ; No                         ; No                         ; 2.62 V                      ; 2.35e-07 V                  ; 2.71 V             ; -0.034 V           ; 0.324 V                             ; 0.132 V                             ; 4.92e-10 s                 ; 8.3e-10 s                  ; No                        ; No                        ;
-; I2C_ENA        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.72 V              ; -0.037 V            ; 0.262 V                              ; 0.199 V                              ; 4.69e-10 s                  ; 6.73e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.35e-07 V                  ; 2.72 V             ; -0.037 V           ; 0.262 V                             ; 0.199 V                             ; 4.69e-10 s                 ; 6.73e-10 s                 ; No                        ; Yes                       ;
-; I2C_ADR        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.71 V              ; -0.034 V            ; 0.324 V                              ; 0.132 V                              ; 4.92e-10 s                  ; 8.3e-10 s                   ; No                         ; No                         ; 2.62 V                      ; 2.35e-07 V                  ; 2.71 V             ; -0.034 V           ; 0.324 V                             ; 0.132 V                             ; 4.92e-10 s                 ; 8.3e-10 s                  ; No                        ; No                        ;
+; I2C0_ENA       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.72 V              ; -0.037 V            ; 0.262 V                              ; 0.199 V                              ; 4.69e-10 s                  ; 6.73e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.35e-07 V                  ; 2.72 V             ; -0.037 V           ; 0.262 V                             ; 0.199 V                             ; 4.69e-10 s                 ; 6.73e-10 s                 ; No                        ; Yes                       ;
+; I2C0_ADR       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.71 V              ; -0.034 V            ; 0.324 V                              ; 0.132 V                              ; 4.92e-10 s                  ; 8.3e-10 s                   ; No                         ; No                         ; 2.62 V                      ; 2.35e-07 V                  ; 2.71 V             ; -0.034 V           ; 0.324 V                             ; 0.132 V                             ; 4.92e-10 s                 ; 8.3e-10 s                  ; No                        ; No                        ;
+; SPI_CSN[0]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.72 V              ; -0.037 V            ; 0.262 V                              ; 0.199 V                              ; 4.69e-10 s                  ; 6.73e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.35e-07 V                  ; 2.72 V             ; -0.037 V           ; 0.262 V                             ; 0.199 V                             ; 4.69e-10 s                 ; 6.73e-10 s                 ; No                        ; Yes                       ;
+; SPI_CSN[1]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.71 V              ; -0.0343 V           ; 0.325 V                              ; 0.133 V                              ; 4.93e-10 s                  ; 8.31e-10 s                  ; No                         ; No                         ; 2.62 V                      ; 2.35e-07 V                  ; 2.71 V             ; -0.0343 V          ; 0.325 V                             ; 0.133 V                             ; 4.93e-10 s                 ; 8.31e-10 s                 ; No                        ; No                        ;
+; SPI_CSN[2]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.72 V              ; -0.037 V            ; 0.262 V                              ; 0.199 V                              ; 4.69e-10 s                  ; 6.73e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.35e-07 V                  ; 2.72 V             ; -0.037 V           ; 0.262 V                             ; 0.199 V                             ; 4.69e-10 s                 ; 6.73e-10 s                 ; No                        ; Yes                       ;
+; SPI_CSN[3]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.72 V              ; -0.036 V            ; 0.26 V                               ; 0.2 V                                ; 4.68e-10 s                  ; 6.71e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.35e-07 V                  ; 2.72 V             ; -0.036 V           ; 0.26 V                              ; 0.2 V                               ; 4.68e-10 s                 ; 6.71e-10 s                 ; No                        ; Yes                       ;
+; SPI_SCK        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.72 V              ; -0.036 V            ; 0.26 V                               ; 0.2 V                                ; 4.68e-10 s                  ; 6.71e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.35e-07 V                  ; 2.72 V             ; -0.036 V           ; 0.26 V                              ; 0.2 V                               ; 4.68e-10 s                 ; 6.71e-10 s                 ; No                        ; Yes                       ;
+; SPI_MOSI       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.72 V              ; -0.037 V            ; 0.262 V                              ; 0.199 V                              ; 4.69e-10 s                  ; 6.73e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.35e-07 V                  ; 2.72 V             ; -0.037 V           ; 0.262 V                             ; 0.199 V                             ; 4.69e-10 s                 ; 6.73e-10 s                 ; No                        ; Yes                       ;
 ; SDRAM_CLK      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.72 V              ; -0.036 V            ; 0.26 V                               ; 0.2 V                                ; 4.68e-10 s                  ; 6.71e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.35e-07 V                  ; 2.72 V             ; -0.036 V           ; 0.26 V                              ; 0.2 V                               ; 4.68e-10 s                 ; 6.71e-10 s                 ; No                        ; Yes                       ;
 ; SDRAM_CKE      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.72 V              ; -0.037 V            ; 0.262 V                              ; 0.199 V                              ; 4.69e-10 s                  ; 6.73e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.35e-07 V                  ; 2.72 V             ; -0.037 V           ; 0.262 V                             ; 0.199 V                             ; 4.69e-10 s                 ; 6.73e-10 s                 ; No                        ; Yes                       ;
 ; SDRAM_CSn      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.72 V              ; -0.037 V            ; 0.262 V                              ; 0.199 V                              ; 4.69e-10 s                  ; 6.73e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.35e-07 V                  ; 2.72 V             ; -0.037 V           ; 0.262 V                             ; 0.199 V                             ; 4.69e-10 s                 ; 6.73e-10 s                 ; No                        ; Yes                       ;
@@ -1083,8 +1120,10 @@ Worst Case Available Settling Time: 96.229 ns
 ; GPIO2[29]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.71 V              ; -0.034 V            ; 0.324 V                              ; 0.132 V                              ; 4.92e-10 s                  ; 8.3e-10 s                   ; No                         ; No                         ; 2.62 V                      ; 2.35e-07 V                  ; 2.71 V             ; -0.034 V           ; 0.324 V                             ; 0.132 V                             ; 4.92e-10 s                 ; 8.3e-10 s                  ; No                        ; No                        ;
 ; GPIO2[30]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.71 V              ; -0.0343 V           ; 0.325 V                              ; 0.133 V                              ; 4.93e-10 s                  ; 8.31e-10 s                  ; No                         ; No                         ; 2.62 V                      ; 2.35e-07 V                  ; 2.71 V             ; -0.0343 V          ; 0.325 V                             ; 0.133 V                             ; 4.93e-10 s                 ; 8.31e-10 s                 ; No                        ; No                        ;
 ; GPIO2[31]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.72 V              ; -0.037 V            ; 0.262 V                              ; 0.199 V                              ; 4.69e-10 s                  ; 6.73e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.35e-07 V                  ; 2.72 V             ; -0.037 V           ; 0.262 V                             ; 0.199 V                             ; 4.69e-10 s                 ; 6.73e-10 s                 ; No                        ; Yes                       ;
-; I2C_SCL        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.72 V              ; -0.036 V            ; 0.26 V                               ; 0.2 V                                ; 4.68e-10 s                  ; 6.71e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.35e-07 V                  ; 2.72 V             ; -0.036 V           ; 0.26 V                              ; 0.2 V                               ; 4.68e-10 s                 ; 6.71e-10 s                 ; No                        ; Yes                       ;
-; I2C_SDA        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.71 V              ; -0.0343 V           ; 0.325 V                              ; 0.133 V                              ; 4.93e-10 s                  ; 8.31e-10 s                  ; No                         ; No                         ; 2.62 V                      ; 2.35e-07 V                  ; 2.71 V             ; -0.0343 V          ; 0.325 V                             ; 0.133 V                             ; 4.93e-10 s                 ; 8.31e-10 s                 ; No                        ; No                        ;
+; I2C0_SCL       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.72 V              ; -0.036 V            ; 0.26 V                               ; 0.2 V                                ; 4.68e-10 s                  ; 6.71e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.35e-07 V                  ; 2.72 V             ; -0.036 V           ; 0.26 V                              ; 0.2 V                               ; 4.68e-10 s                 ; 6.71e-10 s                 ; No                        ; Yes                       ;
+; I2C0_SDA       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.71 V              ; -0.0343 V           ; 0.325 V                              ; 0.133 V                              ; 4.93e-10 s                  ; 8.31e-10 s                  ; No                         ; No                         ; 2.62 V                      ; 2.35e-07 V                  ; 2.71 V             ; -0.0343 V          ; 0.325 V                             ; 0.133 V                             ; 4.93e-10 s                 ; 8.31e-10 s                 ; No                        ; No                        ;
+; I2C1_SCL       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.72 V              ; -0.036 V            ; 0.26 V                               ; 0.2 V                                ; 4.68e-10 s                  ; 6.71e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.35e-07 V                  ; 2.72 V             ; -0.036 V           ; 0.26 V                              ; 0.2 V                               ; 4.68e-10 s                 ; 6.71e-10 s                 ; No                        ; Yes                       ;
+; I2C1_SDA       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.72 V              ; -0.037 V            ; 0.262 V                              ; 0.199 V                              ; 4.69e-10 s                  ; 6.73e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.35e-07 V                  ; 2.72 V             ; -0.037 V           ; 0.262 V                             ; 0.199 V                             ; 4.69e-10 s                 ; 6.73e-10 s                 ; No                        ; Yes                       ;
 ; SDRAM_DQ[0]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.72 V              ; -0.037 V            ; 0.262 V                              ; 0.199 V                              ; 4.69e-10 s                  ; 6.73e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.35e-07 V                  ; 2.72 V             ; -0.037 V           ; 0.262 V                             ; 0.199 V                             ; 4.69e-10 s                 ; 6.73e-10 s                 ; No                        ; Yes                       ;
 ; SDRAM_DQ[1]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.72 V              ; -0.036 V            ; 0.26 V                               ; 0.2 V                                ; 4.68e-10 s                  ; 6.71e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.35e-07 V                  ; 2.72 V             ; -0.036 V           ; 0.26 V                              ; 0.2 V                               ; 4.68e-10 s                 ; 6.71e-10 s                 ; No                        ; Yes                       ;
 ; SDRAM_DQ[2]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.35e-07 V                   ; 2.72 V              ; -0.037 V            ; 0.262 V                              ; 0.199 V                              ; 4.69e-10 s                  ; 6.73e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.35e-07 V                  ; 2.72 V             ; -0.037 V           ; 0.262 V                             ; 0.199 V                             ; 4.69e-10 s                 ; 6.73e-10 s                 ; No                        ; Yes                       ;
@@ -1111,8 +1150,8 @@ Worst Case Available Settling Time: 96.229 ns
 ; From Clock ; To Clock ; RR Paths     ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+--------------+----------+----------+----------+
 ; CLK        ; CLK      ; > 2147483647 ; 1        ; 0        ; 0        ;
-; CLK50      ; CLK      ; 434          ; 0        ; 0        ; 0        ;
-; LOCK       ; CLK      ; 434          ; 217      ; 0        ; 0        ;
+; CLK50      ; CLK      ; 778          ; 0        ; 0        ; 0        ;
+; LOCK       ; CLK      ; 778          ; 389      ; 0        ; 0        ;
 ; TCK        ; CLK      ; 261          ; 1        ; 0        ; 0        ;
 ; CLK50      ; CLK50    ; 408          ; 0        ; 0        ; 0        ;
 ; CLK        ; TCK      ; 80           ; 0        ; 0        ; 0        ;
@@ -1127,8 +1166,8 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 ; From Clock ; To Clock ; RR Paths     ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+--------------+----------+----------+----------+
 ; CLK        ; CLK      ; > 2147483647 ; 1        ; 0        ; 0        ;
-; CLK50      ; CLK      ; 434          ; 0        ; 0        ; 0        ;
-; LOCK       ; CLK      ; 434          ; 217      ; 0        ; 0        ;
+; CLK50      ; CLK      ; 778          ; 0        ; 0        ; 0        ;
+; LOCK       ; CLK      ; 778          ; 389      ; 0        ; 0        ;
 ; TCK        ; CLK      ; 261          ; 1        ; 0        ; 0        ;
 ; CLK50      ; CLK50    ; 408          ; 0        ; 0        ; 0        ;
 ; CLK        ; TCK      ; 80           ; 0        ; 0        ; 0        ;
@@ -1142,9 +1181,9 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; CLK        ; CLK      ; 9731     ; 0        ; 0        ; 0        ;
-; CLK50      ; CLK      ; 11478    ; 0        ; 0        ; 0        ;
-; LOCK       ; CLK      ; 11478    ; 5739     ; 0        ; 0        ;
+; CLK        ; CLK      ; 9929     ; 0        ; 0        ; 0        ;
+; CLK50      ; CLK      ; 11874    ; 0        ; 0        ; 0        ;
+; LOCK       ; CLK      ; 11874    ; 5937     ; 0        ; 0        ;
 ; TCK        ; CLK      ; 2296     ; 0        ; 0        ; 0        ;
 ; CLK50      ; LOCK     ; 2        ; 0        ; 0        ; 0        ;
 ; CLK50      ; TCK      ; 412      ; 0        ; 4        ; 0        ;
@@ -1159,9 +1198,9 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; CLK        ; CLK      ; 9731     ; 0        ; 0        ; 0        ;
-; CLK50      ; CLK      ; 11478    ; 0        ; 0        ; 0        ;
-; LOCK       ; CLK      ; 11478    ; 5739     ; 0        ; 0        ;
+; CLK        ; CLK      ; 9929     ; 0        ; 0        ; 0        ;
+; CLK50      ; CLK      ; 11874    ; 0        ; 0        ; 0        ;
+; LOCK       ; CLK      ; 11874    ; 5937     ; 0        ; 0        ;
 ; TCK        ; CLK      ; 2296     ; 0        ; 0        ; 0        ;
 ; CLK50      ; LOCK     ; 2        ; 0        ; 0        ; 0        ;
 ; CLK50      ; TCK      ; 412      ; 0        ; 4        ; 0        ;
@@ -1215,7 +1254,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Sun Mar 20 01:15:45 2022
+    Info: Processing started: Sun May  1 13:32:14 2022
 Info: Command: quartus_sta mmRISC -c mmRISC
 Info: qsta_default_script.tcl version: #1
 Info (20032): Parallel compilation is enabled and will use up to 2 processors
@@ -1233,43 +1272,43 @@ Warning (332056): PLL cross checking found inconsistent PLL clock settings:
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
-Info (332146): Worst-case setup slack is 2.497
+Info (332146): Worst-case setup slack is 2.777
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     2.497               0.000 CLK 
-    Info (332119):    16.890               0.000 CLK50 
-    Info (332119):    33.297               0.000 TCK 
-Info (332146): Worst-case hold slack is 0.321
+    Info (332119):     2.777               0.000 CLK 
+    Info (332119):    16.072               0.000 CLK50 
+    Info (332119):    36.916               0.000 TCK 
+Info (332146): Worst-case hold slack is 0.294
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.321               0.000 CLK 
-    Info (332119):     0.323               0.000 TCK 
-    Info (332119):     0.362               0.000 CLK50 
-Info (332146): Worst-case recovery slack is 1.340
+    Info (332119):     0.294               0.000 CLK 
+    Info (332119):     0.356               0.000 CLK50 
+    Info (332119):     0.378               0.000 TCK 
+Info (332146): Worst-case recovery slack is 1.533
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     1.340               0.000 CLK 
-    Info (332119):     3.138               0.000 TCK 
-    Info (332119):    11.388               0.000 LOCK 
-Info (332146): Worst-case removal slack is 0.972
+    Info (332119):     1.533               0.000 TCK 
+    Info (332119):     3.182               0.000 CLK 
+    Info (332119):     9.996               0.000 LOCK 
+Info (332146): Worst-case removal slack is 0.927
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.972               0.000 CLK 
-    Info (332119):     1.740               0.000 TCK 
-    Info (332119):     5.371               0.000 LOCK 
-Info (332146): Worst-case minimum pulse width slack is 9.675
+    Info (332119):     0.927               0.000 CLK 
+    Info (332119):     1.797               0.000 TCK 
+    Info (332119):     7.367               0.000 LOCK 
+Info (332146): Worst-case minimum pulse width slack is 9.677
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     9.675               0.000 CLK50 
+    Info (332119):     9.677               0.000 CLK50 
     Info (332119):    24.663               0.000 CLK 
-    Info (332119):    49.547               0.000 TCK 
-    Info (332119):    49.763               0.000 LOCK 
+    Info (332119):    49.650               0.000 TCK 
+    Info (332119):    49.772               0.000 LOCK 
 Info (332114): Report Metastability: Found 5 synchronizer chains.
     Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
     Info (332114): Number of Synchronizer Chains Found: 5
     Info (332114): Shortest Synchronizer Chain: 2 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-    Info (332114): Worst Case Available Settling Time: 91.810 ns
+    Info (332114): Worst Case Available Settling Time: 90.871 ns
     Info (332114): 
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
@@ -1277,92 +1316,92 @@ Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Warning (332056): PLL cross checking found inconsistent PLL clock settings:
     Warning (332056): Clock: CLK with period: 50.000 found on PLL node: U_PLL|altpll_component|auto_generated|pll1|clk[0] does not match the period requirement: 20.000
-Info (332146): Worst-case setup slack is 2.657
+Info (332146): Worst-case setup slack is 2.863
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     2.657               0.000 CLK 
-    Info (332119):    17.182               0.000 CLK50 
-    Info (332119):    34.450               0.000 TCK 
-Info (332146): Worst-case hold slack is 0.288
+    Info (332119):     2.863               0.000 CLK 
+    Info (332119):    16.374               0.000 CLK50 
+    Info (332119):    37.681               0.000 TCK 
+Info (332146): Worst-case hold slack is 0.285
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.288               0.000 CLK 
-    Info (332119):     0.294               0.000 TCK 
-    Info (332119):     0.327               0.000 CLK50 
-Info (332146): Worst-case recovery slack is 1.600
+    Info (332119):     0.285               0.000 CLK 
+    Info (332119):     0.322               0.000 CLK50 
+    Info (332119):     0.339               0.000 TCK 
+Info (332146): Worst-case recovery slack is 1.788
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     1.600               0.000 CLK 
-    Info (332119):     3.206               0.000 TCK 
-    Info (332119):    11.622               0.000 LOCK 
-Info (332146): Worst-case removal slack is 0.895
+    Info (332119):     1.788               0.000 TCK 
+    Info (332119):     3.270               0.000 CLK 
+    Info (332119):    10.370               0.000 LOCK 
+Info (332146): Worst-case removal slack is 0.854
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.895               0.000 CLK 
-    Info (332119):     1.591               0.000 TCK 
-    Info (332119):     4.881               0.000 LOCK 
-Info (332146): Worst-case minimum pulse width slack is 9.712
+    Info (332119):     0.854               0.000 CLK 
+    Info (332119):     1.646               0.000 TCK 
+    Info (332119):     6.775               0.000 LOCK 
+Info (332146): Worst-case minimum pulse width slack is 9.723
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     9.712               0.000 CLK50 
+    Info (332119):     9.723               0.000 CLK50 
     Info (332119):    24.683               0.000 CLK 
-    Info (332119):    49.681               0.000 TCK 
-    Info (332119):    49.756               0.000 LOCK 
+    Info (332119):    49.635               0.000 TCK 
+    Info (332119):    49.760               0.000 LOCK 
 Info (332114): Report Metastability: Found 5 synchronizer chains.
     Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
     Info (332114): Number of Synchronizer Chains Found: 5
     Info (332114): Shortest Synchronizer Chain: 2 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-    Info (332114): Worst Case Available Settling Time: 92.381 ns
+    Info (332114): Worst Case Available Settling Time: 91.526 ns
     Info (332114): 
 Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Warning (332056): PLL cross checking found inconsistent PLL clock settings:
     Warning (332056): Clock: CLK with period: 50.000 found on PLL node: U_PLL|altpll_component|auto_generated|pll1|clk[0] does not match the period requirement: 20.000
-Info (332146): Worst-case setup slack is 4.113
+Info (332146): Worst-case setup slack is 4.154
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     4.113               0.000 CLK 
-    Info (332119):    18.635               0.000 CLK50 
-    Info (332119):    38.243               0.000 TCK 
-Info (332146): Worst-case hold slack is 0.110
+    Info (332119):     4.154               0.000 CLK 
+    Info (332119):    18.154               0.000 CLK50 
+    Info (332119):    40.097               0.000 TCK 
+Info (332146): Worst-case hold slack is 0.119
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.110               0.000 TCK 
-    Info (332119):     0.139               0.000 CLK 
-    Info (332119):     0.155               0.000 CLK50 
-Info (332146): Worst-case recovery slack is 3.362
+    Info (332119):     0.119               0.000 CLK 
+    Info (332119):     0.141               0.000 TCK 
+    Info (332119):     0.152               0.000 CLK50 
+Info (332146): Worst-case recovery slack is 3.509
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     3.362               0.000 CLK 
-    Info (332119):     4.330               0.000 TCK 
-    Info (332119):    13.224               0.000 LOCK 
-Info (332146): Worst-case removal slack is 0.423
+    Info (332119):     3.509               0.000 TCK 
+    Info (332119):     4.178               0.000 CLK 
+    Info (332119):    12.492               0.000 LOCK 
+Info (332146): Worst-case removal slack is 0.404
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.423               0.000 CLK 
-    Info (332119):     0.749               0.000 TCK 
-    Info (332119):     2.498               0.000 LOCK 
+    Info (332119):     0.404               0.000 CLK 
+    Info (332119):     0.766               0.000 TCK 
+    Info (332119):     3.498               0.000 LOCK 
 Info (332146): Worst-case minimum pulse width slack is 9.441
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     9.441               0.000 CLK50 
     Info (332119):    24.710               0.000 CLK 
-    Info (332119):    49.262               0.000 TCK 
-    Info (332119):    49.774               0.000 LOCK 
+    Info (332119):    49.321               0.000 TCK 
+    Info (332119):    49.769               0.000 LOCK 
 Info (332114): Report Metastability: Found 5 synchronizer chains.
     Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
     Info (332114): Number of Synchronizer Chains Found: 5
     Info (332114): Shortest Synchronizer Chain: 2 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-    Info (332114): Worst Case Available Settling Time: 96.229 ns
+    Info (332114): Worst Case Available Settling Time: 95.855 ns
     Info (332114): 
 Info (332101): Design is fully constrained for setup requirements
 Info (332101): Design is fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 8 warnings
-    Info: Peak virtual memory: 743 megabytes
-    Info: Processing ended: Sun Mar 20 01:16:28 2022
-    Info: Elapsed time: 00:00:43
-    Info: Total CPU time (on all processors): 00:00:41
+    Info: Peak virtual memory: 748 megabytes
+    Info: Processing ended: Sun May  1 13:33:00 2022
+    Info: Elapsed time: 00:00:46
+    Info: Total CPU time (on all processors): 00:00:45
 
 
