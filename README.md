@@ -54,6 +54,10 @@ Followings are updated. Main RTL Body of mmRISC is not modified due to no bugs f
 (4) Added new application mmRISC_TouchLCD which handles Adafruit-2-8-tft-touch-shield-v2 with Resistive Touch Panel or Capacitive Touch Panel for Arduino.<br>
 (5) In each sample program, baud rate of UART is unified to 115200bps.<br>
 
+### 2022.05.03 Correct Test Banch Codes
+ (1) In simulation/modelsim/mmRISC_Simulation, simulation/modelsim/riscv-tests and simulation/modelsim/riscv-arch-test, correct test banch top (tb_TOP.v) and simulation script (sim_TOP.do) in each directory.<br>
+ (2) Correct minor comment typo in uart.v.<br>
+
 ## ISA
 RV32IM[A][F]C (configurable)
 
