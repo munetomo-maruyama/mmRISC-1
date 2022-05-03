@@ -1,6 +1,6 @@
 # Convert hex to memh
-#exec ../../../tools/hex2v ../../../workspace/mmRISC_SampleCPU/Debug/mmRISC_SampleCPU.hex > rom.memh
-exec ../../../tools/hex2v ../../../workspace/mmRISC_SampleFPU/Debug/mmRISC_SampleFPU.hex > rom.memh
+exec ../../../tools/hex2v ../../../workspace/mmRISC_SampleCPU/Debug/mmRISC_SampleCPU.hex > rom.memh
+#exec ../../../tools/hex2v ../../../workspace/mmRISC_SampleFPU/Debug/mmRISC_SampleFPU.hex > rom.memh
 
 # Directory
 set DIR_RTL ../../../verilog
@@ -1338,37 +1338,37 @@ add wave -hex -position end  sim:/tb_TOP/sdram_ba
 add wave -hex -position end  sim:/tb_TOP/sdram_addr
 add wave -hex -position end  sim:/tb_TOP/sdram_dq
 
-add wave -divider I2C
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/CLK
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/RES
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HSEL
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HTRANS
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HWRITE
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HMASTLOCK
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HSIZE
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HBURST
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HPROT
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HADDR
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HWDATA
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HREADY
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HREADYOUT
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HRDATA
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/S_HRESP
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/I2C_SCL_I
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/I2C_SCL_O
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/I2C_SCL_OEN
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/I2C_SDA_I
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/I2C_SDA_O
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/I2C_SDA_OEN
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/IRQ_I2C
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/wb_stb_o
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/wb_cyc_o
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/wb_we_o
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/wb_adr_o
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/wb_dat_o
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/wb_dat_i
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/wb_ack_i
-add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C/U_I2C_CORE/tip
+add wave -divider I2C0
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/CLK
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/RES
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/S_HSEL
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/S_HTRANS
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/S_HWRITE
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/S_HMASTLOCK
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/S_HSIZE
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/S_HBURST
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/S_HPROT
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/S_HADDR
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/S_HWDATA
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/S_HREADY
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/S_HREADYOUT
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/S_HRDATA
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/S_HRESP
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/I2C_SCL_I
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/I2C_SCL_O
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/I2C_SCL_OEN
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/I2C_SDA_I
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/I2C_SDA_O
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/I2C_SDA_OEN
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/IRQ_I2C
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/wb_stb_o
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/wb_cyc_o
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/wb_we_o
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/wb_adr_o
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/wb_dat_o
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/wb_dat_i
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/wb_ack_i
+add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_I2C0/U_I2C_CORE/tip
 
 add wave -divider SPI
 add wave -position end  sim:/tb_TOP/U_CHIP_TOP/U_SPI/CLK

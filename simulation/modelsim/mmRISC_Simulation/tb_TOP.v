@@ -263,12 +263,14 @@ wire [31:0] gpio1;
 wire [31:0] gpio2;
 wire rxd;
 wire txd;
-wire i2c_scl;  // I2C SCL
-wire i2c_sda;  // I2C SDA
-wire i2c_ena;  // I2C Enable (Fixed to 1)
-wire i2c_adr;  // I2C ALTADDR (Fixed to 0)
-wire i2c_int1; // I2C Device Interrupt Request 1
-wire i2c_int2; // I2C Device Interrupt Request 2
+wire i2c0_scl;  // I2C0 SCL
+wire i2c0_sda;  // I2C0 SDA
+wire i2c0_ena;  // I2C0 Enable (Fixed to 1)
+wire i2c0_adr;  // I2C0 ALTADDR (Fixed to 0)
+wire i2c0_int1; // I2C0 Device Interrupt Request 1
+wire i2c0_int2; // I2C0 Device Interrupt Request 2
+wire i2c1_scl;  // I2C1 SCL
+wire i2c1_sda;  // I2C1 SDA
 wire [ 3:0] spi_csn;  // SPI Chip Select
 wire        spi_sck;  // SPI Clock
 wire        spi_mosi; // SPI MOSI
@@ -287,10 +289,12 @@ wire [15:0] sdram_dq;   // SDRAM Data
 //
 assign srst_n = tb_srst_n;
 pullup(txd);
-pullup(i2c_scl);
-pullup(i2c_sda);
-assign i2c_int1 = 1'b0;
-assign i2c_int2 = 1'b0;
+pullup(i2c0_scl);
+pullup(i2c0_sda);
+pullup(i2c1_scl);
+pullup(i2c1_sda);
+assign i2c0_int1 = 1'b0;
+assign i2c0_int2 = 1'b0;
 assign spi_miso = ~spi_mosi; // reversed loop back
 //
 generate
@@ -308,6 +312,8 @@ CHIP_TOP U_CHIP_TOP
     .RES_N (~tb_res),
     .CLK50 (tb_clk),
     //
+    .RESOUT_N (),
+    //
     .TRSTn (tb_trst_n),
     .SRSTn (srst_n),
     //
@@ -324,12 +330,15 @@ CHIP_TOP U_CHIP_TOP
     .RXD (txd),
     .TXD (rxd),
     //
-    .I2C_SCL  (i2c_scl),  // I2C SCL
-    .I2C_SDA  (i2c_sda),  // I2C SDA
-    .I2C_ENA  (i2c_ena),  // I2C Enable (Fixed to 1)
-    .I2C_ADR  (i2c_adr),  // I2C ALTADDR (Fixed to 0)
-    .I2C_INT1 (i2c_int1), // I2C Device Interrupt Request 1
-    .I2C_INT2 (i2c_int2), // I2C Device Interrupt Request 2
+    .I2C0_SCL  (i2c0_scl),  // I2C0 SCL
+    .I2C0_SDA  (i2c0_sda),  // I2C0 SDA
+    .I2C0_ENA  (i2c0_ena),  // I2C0 Enable (Fixed to 1)
+    .I2C0_ADR  (i2c0_adr),  // I2C0 ALTADDR (Fixed to 0)
+    .I2C0_INT1 (i2c0_int1), // I2C0 Device Interrupt Request 1
+    .I2C0_INT2 (i2c0_int2), // I2C0 Device Interrupt Request 2
+    //
+    .I2C1_SCL  (i2c1_scl),  // I2C1 SCL
+    .I2C1_SDA  (i2c1_sda),  // I2C1 SDA
     //
     .SPI_CSN  (spi_csn),  // SPI Chip Select
     .SPI_SCK  (spi_sck),  // SPI Clock
@@ -351,10 +360,15 @@ CHIP_TOP U_CHIP_TOP
 //--------------------
 // I2C Model
 //--------------------
-i2c_slave_model U_I2C_SLAVE
+i2c_slave_model U_I2C_SLAVE0
 (
-    .scl (i2c_scl),
-    .sda (i2c_sda)
+    .scl (i2c_scl0),
+    .sda (i2c_sda0)
+);
+i2c_slave_model U_I2C_SLAVE1
+(
+    .scl (i2c_scl1),
+    .sda (i2c_sda1)
 );
 
 //--------------------

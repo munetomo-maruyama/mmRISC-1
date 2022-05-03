@@ -4,7 +4,7 @@
 // File Name   : uart.v
 // Description : Top of UART
 //-----------------------------------------------------------
-// S_S_History :
+// History :
 // Rev.01 2021.02.22 M.Maruyama First Release
 //-----------------------------------------------------------
 // Copyright (C) 2017-2021 M.Maruyama
