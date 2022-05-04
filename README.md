@@ -55,9 +55,12 @@ Followings are updated. Main RTL Body of mmRISC is not modified due to no bugs f
 (5) In each sample program, baud rate of UART is unified to 115200bps.<br>
 
 ### 2022.05.03 Corrected Test Banch Codes
- (1) In simulation/modelsim/mmRISC_Simulation, simulation/modelsim/riscv-tests and simulation/modelsim/riscv-arch-test, corrected test banch top RTL (tb_TOP.v) and simulation script (sim_TOP.do) in each directory.<br>
- (2) Correct minor typo in comment of uart.v.<br>
- (3) Body RTL codes of mmRISC and its SOC(FPGA) do not have any bugs.<br> 
+(1) In simulation/modelsim/mmRISC_Simulation, simulation/modelsim/riscv-tests and simulation/modelsim/riscv-arch-test, corrected test banch top RTL (tb_TOP.v) and simulation script (sim_TOP.do) in each directory.<br>
+(2) Correct minor typo in comment of uart.v.<br>
+(3) Body RTL codes of mmRISC and its SOC(FPGA) do not have any bugs.<br> 
+ 
+### 2022.05.04 Repaired directory contentes in riscv-arch-test and riscv-tests
+Some files and directories were lacked in riscv-arch-test and riscv-tests. Repaired them.<br>
 
 ## ISA
 RV32IM[A][F]C (configurable)
