@@ -1,0 +1,422 @@
+
+/home/taka/RISCV/mmRISC/simulation/modelsim/riscv-arch-test/riscv-arch-test/work/rv32i_m/C/clui-01.elf:     file format elf32-littleriscv
+
+
+Disassembly of section .text.init:
+
+90000000 <rvtest_entry_point>:
+
+.section .text.init
+.globl rvtest_entry_point
+rvtest_entry_point:
+RVMODEL_BOOT
+RVTEST_CODE_BEGIN
+90000000:	feedc0b7          	lui	ra,0xfeedc
+90000004:	ead08093          	addi	ra,ra,-339 # feedbead <_end+0x6eed9ca9>
+90000008:	ff76e137          	lui	sp,0xff76e
+9000000c:	f5610113          	addi	sp,sp,-170 # ff76df56 <_end+0x6f76bd52>
+90000010:	7fbb71b7          	lui	gp,0x7fbb7
+90000014:	fab18193          	addi	gp,gp,-85 # 7fbb6fab <offset+0x7fbb6fa3>
+90000018:	bfddb237          	lui	tp,0xbfddb
+9000001c:	7d520213          	addi	tp,tp,2005 # bfddb7d5 <_end+0x2fdd95d1>
+90000020:	00000297          	auipc	t0,0x0
+90000024:	0d828293          	addi	t0,t0,216 # 900000f8 <rvtest_code_begin>
+90000028:	00002317          	auipc	t1,0x2
+9000002c:	fd830313          	addi	t1,t1,-40 # 90002000 <rvtest_data_begin>
+90000030:	b7fbb3b7          	lui	t2,0xb7fbb
+90000034:	6fa38393          	addi	t2,t2,1786 # b7fbb6fa <_end+0x27fb94f6>
+90000038:	5bfde437          	lui	s0,0x5bfde
+9000003c:	b7d40413          	addi	s0,s0,-1155 # 5bfddb7d <offset+0x5bfddb75>
+90000040:	adfef4b7          	lui	s1,0xadfef
+90000044:	dbe48493          	addi	s1,s1,-578 # adfeedbe <_end+0x1dfecbba>
+90000048:	56ff7537          	lui	a0,0x56ff7
+9000004c:	6df50513          	addi	a0,a0,1759 # 56ff76df <offset+0x56ff76d7>
+90000050:	ab7fc5b7          	lui	a1,0xab7fc
+90000054:	b6f58593          	addi	a1,a1,-1169 # ab7fbb6f <_end+0x1b7f996b>
+90000058:	d5bfe637          	lui	a2,0xd5bfe
+9000005c:	db760613          	addi	a2,a2,-585 # d5bfddb7 <_end+0x45bfbbb3>
+90000060:	eadff6b7          	lui	a3,0xeadff
+90000064:	edb68693          	addi	a3,a3,-293 # eadfeedb <_end+0x5adfccd7>
+90000068:	f56ff737          	lui	a4,0xf56ff
+9000006c:	76d70713          	addi	a4,a4,1901 # f56ff76d <_end+0x656fd569>
+90000070:	fab807b7          	lui	a5,0xfab80
+90000074:	bb678793          	addi	a5,a5,-1098 # fab7fbb6 <_end+0x6ab7d9b2>
+90000078:	7d5c0837          	lui	a6,0x7d5c0
+9000007c:	ddb80813          	addi	a6,a6,-549 # 7d5bfddb <offset+0x7d5bfdd3>
+90000080:	beae08b7          	lui	a7,0xbeae0
+90000084:	eed88893          	addi	a7,a7,-275 # beadfeed <_end+0x2eaddce9>
+90000088:	df570937          	lui	s2,0xdf570
+9000008c:	f7690913          	addi	s2,s2,-138 # df56ff76 <_end+0x4f56dd72>
+90000090:	6fab89b7          	lui	s3,0x6fab8
+90000094:	fbb98993          	addi	s3,s3,-69 # 6fab7fbb <offset+0x6fab7fb3>
+90000098:	b7d5ca37          	lui	s4,0xb7d5c
+9000009c:	fdda0a13          	addi	s4,s4,-35 # b7d5bfdd <_end+0x27d59dd9>
+900000a0:	dbeaeab7          	lui	s5,0xdbeae
+900000a4:	feea8a93          	addi	s5,s5,-18 # dbeadfee <_end+0x4beabdea>
+900000a8:	6df57b37          	lui	s6,0x6df57
+900000ac:	ff7b0b13          	addi	s6,s6,-9 # 6df56ff7 <offset+0x6df56fef>
+900000b0:	b6fabbb7          	lui	s7,0xb6fab
+900000b4:	7fbb8b93          	addi	s7,s7,2043 # b6fab7fb <_end+0x26fa95f7>
+900000b8:	db7d6c37          	lui	s8,0xdb7d6
+900000bc:	bfdc0c13          	addi	s8,s8,-1027 # db7d5bfd <_end+0x4b7d39f9>
+900000c0:	edbebcb7          	lui	s9,0xedbeb
+900000c4:	dfec8c93          	addi	s9,s9,-514 # edbeadfe <_end+0x5dbe8bfa>
+900000c8:	76df5d37          	lui	s10,0x76df5
+900000cc:	6ffd0d13          	addi	s10,s10,1791 # 76df56ff <offset+0x76df56f7>
+900000d0:	bb6fbdb7          	lui	s11,0xbb6fb
+900000d4:	b7fd8d93          	addi	s11,s11,-1153 # bb6fab7f <_end+0x2b6f897b>
+900000d8:	ddb7de37          	lui	t3,0xddb7d
+900000dc:	5bfe0e13          	addi	t3,t3,1471 # ddb7d5bf <_end+0x4db7b3bb>
+900000e0:	eedbfeb7          	lui	t4,0xeedbf
+900000e4:	adfe8e93          	addi	t4,t4,-1313 # eedbeadf <_end+0x5edbc8db>
+900000e8:	f76dff37          	lui	t5,0xf76df
+900000ec:	56ff0f13          	addi	t5,t5,1391 # f76df56f <_end+0x676dd36b>
+900000f0:	fbb70fb7          	lui	t6,0xfbb70
+900000f4:	ab7f8f93          	addi	t6,t6,-1353 # fbb6fab7 <_end+0x6bb6d8b3>
+
+900000f8 <rvtest_code_begin>:
+
+#ifdef TEST_CASE_1
+
+RVTEST_CASE(0,"//check ISA:=regex(.*32.*);check ISA:=regex(.*I.*C.*);def TEST_CASE_1=True;",clui)
+
+RVTEST_SIGBASE( x2,signature_x2_1)
+900000f8:	00002117          	auipc	sp,0x2
+900000fc:	f1810113          	addi	sp,sp,-232 # 90002010 <begin_signature>
+
+90000100 <inst_0>:
+
+inst_0:
+// rd==x12, rs1_val > 0 and imm_val > 32, imm_val == 42
+// opcode:c.lui; op1:x12; dest:x12 op1val:0x80; immval:0xfffea
+TEST_CI_OP( c.lui, x12, 0xfffea000, 0x80, 0xfffea, x2, 0, x13)
+90000100:	08000613          	li	a2,128
+90000104:	7629                	lui	a2,0xfffea
+90000106:	c032                	sw	a2,0(sp)
+
+90000108 <inst_1>:
+
+inst_1:
+// rd==x21, rs1_val > 0 and imm_val < 32 and imm_val !=0 , 
+// opcode:c.lui; op1:x21; dest:x21 op1val:0x20; immval:0xc
+TEST_CI_OP( c.lui, x21, 0xc000, 0x20, 0xc, x2, 4, x13)
+90000108:	02000a93          	li	s5,32
+9000010c:	6ab1                	lui	s5,0xc
+9000010e:	c256                	sw	s5,4(sp)
+
+90000110 <inst_2>:
+
+inst_2:
+// rd==x27, rs1_val < 0 and imm_val > 32, 
+// opcode:c.lui; op1:x27; dest:x27 op1val:-0x11; immval:0xfffff
+TEST_CI_OP( c.lui, x27, 0xfffff000, -0x11, 0xfffff, x2, 8, x13)
+90000110:	fef00d93          	li	s11,-17
+90000114:	7dfd                	lui	s11,0xfffff
+90000116:	c46e                	sw	s11,8(sp)
+
+90000118 <inst_3>:
+
+inst_3:
+// rd==x23, rs1_val < 0 and imm_val < 32 and imm_val !=0 , 
+// opcode:c.lui; op1:x23; dest:x23 op1val:-0x2; immval:0xf
+TEST_CI_OP( c.lui, x23, 0xf000, -0x2, 0xf, x2, 12, x13)
+90000118:	ffe00b93          	li	s7,-2
+9000011c:	6bbd                	lui	s7,0xf
+9000011e:	c65e                	sw	s7,12(sp)
+
+90000120 <inst_4>:
+
+inst_4:
+// rd==x19, imm_val == 1, 
+// opcode:c.lui; op1:x19; dest:x19 op1val:-0x8000001; immval:0x1
+TEST_CI_OP( c.lui, x19, 0x1000, -0x8000001, 0x1, x2, 16, x13)
+90000120:	f80009b7          	lui	s3,0xf8000
+90000124:	fff98993          	addi	s3,s3,-1 # f7ffffff <_end+0x67ffddfb>
+90000128:	6985                	lui	s3,0x1
+9000012a:	c84e                	sw	s3,16(sp)
+
+9000012c <inst_5>:
+
+inst_5:
+// rd==x20, imm_val == 2, 
+// opcode:c.lui; op1:x20; dest:x20 op1val:-0x10001; immval:0x2
+TEST_CI_OP( c.lui, x20, 0x2000, -0x10001, 0x2, x2, 20, x13)
+9000012c:	ffff0a37          	lui	s4,0xffff0
+90000130:	fffa0a13          	addi	s4,s4,-1 # fffeffff <_end+0x6ffeddfb>
+90000134:	6a09                	lui	s4,0x2
+90000136:	ca52                	sw	s4,20(sp)
+
+90000138 <inst_6>:
+
+inst_6:
+// rd==x8, imm_val == 4, 
+// opcode:c.lui; op1:x8; dest:x8 op1val:0x1000; immval:0x4
+TEST_CI_OP( c.lui, x8, 0x4000, 0x1000, 0x4, x2, 24, x13)
+90000138:	00001437          	lui	s0,0x1
+9000013c:	6411                	lui	s0,0x4
+9000013e:	cc22                	sw	s0,24(sp)
+
+90000140 <inst_7>:
+
+inst_7:
+// rd==x29, imm_val == 8, 
+// opcode:c.lui; op1:x29; dest:x29 op1val:0x7fffffff; immval:0x8
+TEST_CI_OP( c.lui, x29, 0x8000, 0x7fffffff, 0x8, x2, 28, x13)
+90000140:	80000eb7          	lui	t4,0x80000
+90000144:	fffe8e93          	addi	t4,t4,-1 # 7fffffff <_end+0xefffddfb>
+90000148:	6ea1                	lui	t4,0x8
+9000014a:	ce76                	sw	t4,28(sp)
+
+9000014c <inst_8>:
+
+inst_8:
+// rd==x31, imm_val == 16, 
+// opcode:c.lui; op1:x31; dest:x31 op1val:-0x5; immval:0x10
+TEST_CI_OP( c.lui, x31, 0x10000, -0x5, 0x10, x2, 32, x13)
+9000014c:	ffb00f93          	li	t6,-5
+90000150:	6fc1                	lui	t6,0x10
+90000152:	d07e                	sw	t6,32(sp)
+
+90000154 <inst_9>:
+
+inst_9:
+// rd==x14, imm_val == 32, 
+// opcode:c.lui; op1:x14; dest:x14 op1val:0x400000; immval:0xfffe0
+TEST_CI_OP( c.lui, x14, 0xfffe0000, 0x400000, 0xfffe0, x2, 36, x13)
+90000154:	00400737          	lui	a4,0x400
+90000158:	7701                	lui	a4,0xfffe0
+9000015a:	d23a                	sw	a4,36(sp)
+
+9000015c <inst_10>:
+
+inst_10:
+// rd==x3, imm_val == 21, 
+// opcode:c.lui; op1:x3; dest:x3 op1val:-0x2000001; immval:0x15
+TEST_CI_OP( c.lui, x3, 0x15000, -0x2000001, 0x15, x2, 40, x13)
+9000015c:	fe0001b7          	lui	gp,0xfe000
+90000160:	fff18193          	addi	gp,gp,-1 # fdffffff <_end+0x6dffddfb>
+90000164:	61d5                	lui	gp,0x15
+90000166:	d40e                	sw	gp,40(sp)
+
+90000168 <inst_11>:
+
+inst_11:
+// rd==x4, imm_val == 62, 
+// opcode:c.lui; op1:x4; dest:x4 op1val:-0x7; immval:0xffffe
+TEST_CI_OP( c.lui, x4, 0xffffe000, -0x7, 0xffffe, x2, 44, x13)
+90000168:	ff900213          	li	tp,-7
+9000016c:	7279                	lui	tp,0xffffe
+9000016e:	d612                	sw	tp,44(sp)
+
+90000170 <inst_12>:
+
+inst_12:
+// rd==x17, imm_val == 61, 
+// opcode:c.lui; op1:x17; dest:x17 op1val:0x4000; immval:0xffffd
+TEST_CI_OP( c.lui, x17, 0xffffd000, 0x4000, 0xffffd, x2, 48, x13)
+90000170:	000048b7          	lui	a7,0x4
+90000174:	78f5                	lui	a7,0xffffd
+90000176:	d846                	sw	a7,48(sp)
+
+90000178 <inst_13>:
+
+inst_13:
+// rd==x10, imm_val == 59, 
+// opcode:c.lui; op1:x10; dest:x10 op1val:0x40000; immval:0xffffb
+TEST_CI_OP( c.lui, x10, 0xffffb000, 0x40000, 0xffffb, x2, 52, x13)
+90000178:	00040537          	lui	a0,0x40
+9000017c:	756d                	lui	a0,0xffffb
+9000017e:	da2a                	sw	a0,52(sp)
+
+90000180 <inst_14>:
+
+inst_14:
+// rd==x7, imm_val == 55, 
+// opcode:c.lui; op1:x7; dest:x7 op1val:-0x201; immval:0xffff7
+TEST_CI_OP( c.lui, x7, 0xffff7000, -0x201, 0xffff7, x2, 56, x13)
+90000180:	dff00393          	li	t2,-513
+90000184:	73dd                	lui	t2,0xffff7
+90000186:	dc1e                	sw	t2,56(sp)
+
+90000188 <inst_15>:
+
+inst_15:
+// rd==x22, imm_val == 47, 
+// opcode:c.lui; op1:x22; dest:x22 op1val:0x5; immval:0xfffef
+TEST_CI_OP( c.lui, x22, 0xfffef000, 0x5, 0xfffef, x2, 60, x13)
+90000188:	00500b13          	li	s6,5
+9000018c:	7b3d                	lui	s6,0xfffef
+9000018e:	de5a                	sw	s6,60(sp)
+
+90000190 <inst_16>:
+
+inst_16:
+// rd==x5, imm_val == 31, 
+// opcode:c.lui; op1:x5; dest:x5 op1val:0x20; immval:0x1f
+TEST_CI_OP( c.lui, x5, 0x1f000, 0x20, 0x1f, x2, 64, x13)
+90000190:	02000293          	li	t0,32
+90000194:	62fd                	lui	t0,0x1f
+90000196:	c096                	sw	t0,64(sp)
+
+90000198 <inst_17>:
+
+inst_17:
+// rd==x25, 
+// opcode:c.lui; op1:x25; dest:x25 op1val:-0x80000000; immval:0x1
+TEST_CI_OP( c.lui, x25, 0x1000, -0x80000000, 0x1, x2, 68, x13)
+90000198:	80000cb7          	lui	s9,0x80000
+9000019c:	6c85                	lui	s9,0x1
+9000019e:	c2e6                	sw	s9,68(sp)
+
+900001a0 <inst_18>:
+
+inst_18:
+// rd==x28, 
+// opcode:c.lui; op1:x28; dest:x28 op1val:-0x80000000; immval:0x1
+TEST_CI_OP( c.lui, x28, 0x1000, -0x80000000, 0x1, x2, 72, x13)
+900001a0:	80000e37          	lui	t3,0x80000
+900001a4:	6e05                	lui	t3,0x1
+900001a6:	c4f2                	sw	t3,72(sp)
+
+900001a8 <inst_19>:
+
+inst_19:
+// rd==x0, 
+// opcode:c.lui; op1:x0; dest:x0 op1val:-0x80000000; immval:0x1
+TEST_CI_OP( c.lui, x0, 0, -0x80000000, 0x1, x2, 76, x13)
+900001a8:	80000037          	lui	zero,0x80000
+900001ac:	00000013          	nop
+900001b0:	6005                	c.lui	zero,0x1
+900001b2:	c682                	sw	zero,76(sp)
+
+900001b4 <inst_20>:
+
+inst_20:
+// rd==x11, 
+// opcode:c.lui; op1:x11; dest:x11 op1val:-0x80000000; immval:0x1
+TEST_CI_OP( c.lui, x11, 0x1000, -0x80000000, 0x1, x2, 80, x13)
+900001b4:	800005b7          	lui	a1,0x80000
+900001b8:	6585                	lui	a1,0x1
+900001ba:	c8ae                	sw	a1,80(sp)
+
+900001bc <inst_21>:
+
+inst_21:
+// rd==x1, 
+// opcode:c.lui; op1:x1; dest:x1 op1val:-0x80000000; immval:0x1
+TEST_CI_OP( c.lui, x1, 0x1000, -0x80000000, 0x1, x2, 84, x13)
+900001bc:	800000b7          	lui	ra,0x80000
+900001c0:	6085                	lui	ra,0x1
+900001c2:	ca86                	sw	ra,84(sp)
+
+900001c4 <inst_22>:
+
+inst_22:
+// rd==x18, 
+// opcode:c.lui; op1:x18; dest:x18 op1val:-0x80000000; immval:0x1
+TEST_CI_OP( c.lui, x18, 0x1000, -0x80000000, 0x1, x2, 88, x13)
+900001c4:	80000937          	lui	s2,0x80000
+900001c8:	6905                	lui	s2,0x1
+900001ca:	ccca                	sw	s2,88(sp)
+
+900001cc <inst_23>:
+
+inst_23:
+// rd==x9, 
+// opcode:c.lui; op1:x9; dest:x9 op1val:-0x80000000; immval:0x1
+TEST_CI_OP( c.lui, x9, 0x1000, -0x80000000, 0x1, x2, 92, x13)
+900001cc:	800004b7          	lui	s1,0x80000
+900001d0:	6485                	lui	s1,0x1
+900001d2:	cea6                	sw	s1,92(sp)
+
+900001d4 <inst_24>:
+
+inst_24:
+// rd==x26, 
+// opcode:c.lui; op1:x26; dest:x26 op1val:-0x80000000; immval:0x1
+TEST_CI_OP( c.lui, x26, 0x1000, -0x80000000, 0x1, x2, 96, x13)
+900001d4:	80000d37          	lui	s10,0x80000
+900001d8:	6d05                	lui	s10,0x1
+900001da:	d0ea                	sw	s10,96(sp)
+
+900001dc <inst_25>:
+
+inst_25:
+// rd==x30, 
+// opcode:c.lui; op1:x30; dest:x30 op1val:-0x80000000; immval:0x1
+TEST_CI_OP( c.lui, x30, 0x1000, -0x80000000, 0x1, x2, 100, x13)
+900001dc:	80000f37          	lui	t5,0x80000
+900001e0:	6f05                	lui	t5,0x1
+900001e2:	d2fa                	sw	t5,100(sp)
+
+900001e4 <inst_26>:
+
+inst_26:
+// rd==x16, 
+// opcode:c.lui; op1:x16; dest:x16 op1val:-0x80000000; immval:0x1
+TEST_CI_OP( c.lui, x16, 0x1000, -0x80000000, 0x1, x2, 104, x13)
+900001e4:	80000837          	lui	a6,0x80000
+900001e8:	6805                	lui	a6,0x1
+900001ea:	d4c2                	sw	a6,104(sp)
+
+900001ec <inst_27>:
+
+inst_27:
+// rd==x6, 
+// opcode:c.lui; op1:x6; dest:x6 op1val:-0x80000000; immval:0x1
+TEST_CI_OP( c.lui, x6, 0x1000, -0x80000000, 0x1, x2, 108, x13)
+900001ec:	80000337          	lui	t1,0x80000
+900001f0:	6305                	lui	t1,0x1
+900001f2:	d69a                	sw	t1,108(sp)
+
+900001f4 <inst_28>:
+
+inst_28:
+// rd==x15, 
+// opcode:c.lui; op1:x15; dest:x15 op1val:-0x80000000; immval:0x1
+TEST_CI_OP( c.lui, x15, 0x1000, -0x80000000, 0x1, x2, 112, x3)
+900001f4:	800007b7          	lui	a5,0x80000
+900001f8:	6785                	lui	a5,0x1
+900001fa:	d8be                	sw	a5,112(sp)
+RVTEST_SIGBASE( x1,signature_x1_0)
+900001fc:	00002097          	auipc	ra,0x2
+90000200:	e8808093          	addi	ra,ra,-376 # 90002084 <signature_x1_0>
+
+90000204 <inst_29>:
+
+inst_29:
+// rd==x24, 
+// opcode:c.lui; op1:x24; dest:x24 op1val:-0x80000000; immval:0x1
+TEST_CI_OP( c.lui, x24, 0x1000, -0x80000000, 0x1, x1, 0, x3)
+90000204:	80000c37          	lui	s8,0x80000
+90000208:	6c05                	lui	s8,0x1
+9000020a:	0180a023          	sw	s8,0(ra)
+
+9000020e <inst_30>:
+
+inst_30:
+// rd==x13, 
+// opcode:c.lui; op1:x13; dest:x13 op1val:-0x80000000; immval:0x1
+TEST_CI_OP( c.lui, x13, 0x1000, -0x80000000, 0x1, x1, 4, x3)
+9000020e:	800006b7          	lui	a3,0x80000
+90000212:	6685                	lui	a3,0x1
+90000214:	00d0a223          	sw	a3,4(ra)
+90000218:	00000013          	nop
+9000021c:	00000013          	nop
+
+90000220 <rvtest_code_end>:
+#endif
+
+
+RVTEST_CODE_END
+RVMODEL_HALT
+90000220:	0091                	addi	ra,ra,4
+90000222:	4085                	li	ra,1
+
+90000224 <write_tohost>:
+90000224:	00001f17          	auipc	t5,0x1
+90000228:	dc1f2e23          	sw	ra,-548(t5) # 90001000 <tohost>
+
+9000022c <self_loop>:
+9000022c:	a001                	j	9000022c <self_loop>
+	...

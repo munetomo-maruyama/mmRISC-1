@@ -1,0 +1,414 @@
+
+rv32mi-p-illegal:     file format elf32-littleriscv
+
+
+Disassembly of section .text.init:
+
+90000000 <_start>:
+90000000:	04c0006f          	j	9000004c <reset_vector>
+
+90000004 <trap_vector>:
+90000004:	34202f73          	csrr	t5,mcause
+90000008:	00800f93          	li	t6,8
+9000000c:	03ff0a63          	beq	t5,t6,90000040 <write_tohost>
+90000010:	00900f93          	li	t6,9
+90000014:	03ff0663          	beq	t5,t6,90000040 <write_tohost>
+90000018:	00b00f93          	li	t6,11
+9000001c:	03ff0263          	beq	t5,t6,90000040 <write_tohost>
+90000020:	00000f17          	auipc	t5,0x0
+90000024:	2e0f0f13          	addi	t5,t5,736 # 90000300 <mtvec_handler>
+90000028:	000f0463          	beqz	t5,90000030 <trap_vector+0x2c>
+9000002c:	000f0067          	jr	t5
+90000030:	34202f73          	csrr	t5,mcause
+90000034:	000f5463          	bgez	t5,9000003c <handle_exception>
+90000038:	0040006f          	j	9000003c <handle_exception>
+
+9000003c <handle_exception>:
+9000003c:	5391e193          	ori	gp,gp,1337
+
+90000040 <write_tohost>:
+90000040:	00001f17          	auipc	t5,0x1
+90000044:	fc3f2023          	sw	gp,-64(t5) # 90001000 <tohost>
+90000048:	ff9ff06f          	j	90000040 <write_tohost>
+
+9000004c <reset_vector>:
+9000004c:	00000093          	li	ra,0
+90000050:	00000113          	li	sp,0
+90000054:	00000193          	li	gp,0
+90000058:	00000213          	li	tp,0
+9000005c:	00000293          	li	t0,0
+90000060:	00000313          	li	t1,0
+90000064:	00000393          	li	t2,0
+90000068:	00000413          	li	s0,0
+9000006c:	00000493          	li	s1,0
+90000070:	00000513          	li	a0,0
+90000074:	00000593          	li	a1,0
+90000078:	00000613          	li	a2,0
+9000007c:	00000693          	li	a3,0
+90000080:	00000713          	li	a4,0
+90000084:	00000793          	li	a5,0
+90000088:	00000813          	li	a6,0
+9000008c:	00000893          	li	a7,0
+90000090:	00000913          	li	s2,0
+90000094:	00000993          	li	s3,0
+90000098:	00000a13          	li	s4,0
+9000009c:	00000a93          	li	s5,0
+900000a0:	00000b13          	li	s6,0
+900000a4:	00000b93          	li	s7,0
+900000a8:	00000c13          	li	s8,0
+900000ac:	00000c93          	li	s9,0
+900000b0:	00000d13          	li	s10,0
+900000b4:	00000d93          	li	s11,0
+900000b8:	00000e13          	li	t3,0
+900000bc:	00000e93          	li	t4,0
+900000c0:	00000f13          	li	t5,0
+900000c4:	00000f93          	li	t6,0
+900000c8:	f1402573          	csrr	a0,mhartid
+900000cc:	00051063          	bnez	a0,900000cc <reset_vector+0x80>
+900000d0:	00000297          	auipc	t0,0x0
+900000d4:	01028293          	addi	t0,t0,16 # 900000e0 <reset_vector+0x94>
+900000d8:	30529073          	csrw	mtvec,t0
+900000dc:	18005073          	csrwi	satp,0
+900000e0:	00000297          	auipc	t0,0x0
+900000e4:	02028293          	addi	t0,t0,32 # 90000100 <reset_vector+0xb4>
+900000e8:	30529073          	csrw	mtvec,t0
+900000ec:	800002b7          	lui	t0,0x80000
+900000f0:	fff28293          	addi	t0,t0,-1 # 7fffffff <_end+0xefffdfff>
+900000f4:	3b029073          	csrw	pmpaddr0,t0
+900000f8:	01f00293          	li	t0,31
+900000fc:	3a029073          	csrw	pmpcfg0,t0
+90000100:	30405073          	csrwi	mie,0
+90000104:	00000297          	auipc	t0,0x0
+90000108:	01428293          	addi	t0,t0,20 # 90000118 <reset_vector+0xcc>
+9000010c:	30529073          	csrw	mtvec,t0
+90000110:	30205073          	csrwi	medeleg,0
+90000114:	30305073          	csrwi	mideleg,0
+90000118:	00000193          	li	gp,0
+9000011c:	00000297          	auipc	t0,0x0
+90000120:	ee828293          	addi	t0,t0,-280 # 90000004 <trap_vector>
+90000124:	30529073          	csrw	mtvec,t0
+90000128:	00100513          	li	a0,1
+9000012c:	01f51513          	slli	a0,a0,0x1f
+90000130:	00054c63          	bltz	a0,90000148 <reset_vector+0xfc>
+90000134:	0ff0000f          	fence
+90000138:	00100193          	li	gp,1
+9000013c:	05d00893          	li	a7,93
+90000140:	00000513          	li	a0,0
+90000144:	00000073          	ecall
+90000148:	00000293          	li	t0,0
+9000014c:	00028a63          	beqz	t0,90000160 <reset_vector+0x114>
+90000150:	10529073          	csrw	stvec,t0
+90000154:	0000b2b7          	lui	t0,0xb
+90000158:	10928293          	addi	t0,t0,265 # b109 <_start-0x8fff4ef7>
+9000015c:	30229073          	csrw	medeleg,t0
+90000160:	30005073          	csrwi	mstatus,0
+90000164:	00002537          	lui	a0,0x2
+90000168:	80050513          	addi	a0,a0,-2048 # 1800 <_start-0x8fffe800>
+9000016c:	30052073          	csrs	mstatus,a0
+90000170:	00000297          	auipc	t0,0x0
+90000174:	01428293          	addi	t0,t0,20 # 90000184 <reset_vector+0x138>
+90000178:	34129073          	csrw	mepc,t0
+9000017c:	f1402573          	csrr	a0,mhartid
+90000180:	30200073          	mret
+90000184:	00200193          	li	gp,2
+
+90000188 <bad2>:
+90000188:	0000                	unimp
+9000018a:	0000                	unimp
+9000018c:	1300006f          	j	900002bc <fail>
+90000190:	000022b7          	lui	t0,0x2
+90000194:	80028293          	addi	t0,t0,-2048 # 1800 <_start-0x8fffe800>
+90000198:	3002b073          	csrc	mstatus,t0
+9000019c:	00001337          	lui	t1,0x1
+900001a0:	80030313          	addi	t1,t1,-2048 # 800 <_start-0x8ffff800>
+900001a4:	30032073          	csrs	mstatus,t1
+900001a8:	300023f3          	csrr	t2,mstatus
+900001ac:	0053f3b3          	and	t2,t2,t0
+900001b0:	12731463          	bne	t1,t2,900002d8 <pass>
+
+900001b4 <test_vectored_interrupts>:
+900001b4:	34415073          	csrwi	mip,2
+900001b8:	30415073          	csrwi	mie,2
+900001bc:	00000297          	auipc	t0,0x0
+900001c0:	14528293          	addi	t0,t0,325 # 90000301 <mtvec_handler+0x1>
+900001c4:	30529473          	csrrw	s0,mtvec,t0
+900001c8:	305022f3          	csrr	t0,mtvec
+900001cc:	0012f293          	andi	t0,t0,1
+900001d0:	00028663          	beqz	t0,900001dc <msip>
+900001d4:	30046073          	csrsi	mstatus,8
+900001d8:	0000006f          	j	900001d8 <test_vectored_interrupts+0x24>
+
+900001dc <msip>:
+900001dc:	30541073          	csrw	mtvec,s0
+900001e0:	30315073          	csrwi	mideleg,2
+900001e4:	00000297          	auipc	t0,0x0
+900001e8:	02828293          	addi	t0,t0,40 # 9000020c <msip+0x30>
+900001ec:	34129073          	csrw	mepc,t0
+900001f0:	000022b7          	lui	t0,0x2
+900001f4:	80028293          	addi	t0,t0,-2048 # 1800 <_start-0x8fffe800>
+900001f8:	3002b073          	csrc	mstatus,t0
+900001fc:	00001337          	lui	t1,0x1
+90000200:	80030313          	addi	t1,t1,-2048 # 800 <_start-0x8ffff800>
+90000204:	30032073          	csrs	mstatus,t1
+90000208:	30200073          	mret
+9000020c:	10500073          	wfi
+90000210:	0002f2b3          	and	t0,t0,zero
+90000214:	000c02b7          	lui	t0,0xc0
+90000218:	1002b073          	csrc	sstatus,t0
+9000021c:	00037333          	and	t1,t1,zero
+90000220:	000c0337          	lui	t1,0xc0
+90000224:	10032073          	csrs	sstatus,t1
+90000228:	100023f3          	csrr	t2,sstatus
+9000022c:	0053f3b3          	and	t2,t2,t0
+90000230:	06038463          	beqz	t2,90000298 <bare_s_1>
+90000234:	1002b073          	csrc	sstatus,t0
+90000238:	12000073          	sfence.vma
+9000023c:	180022f3          	csrr	t0,satp
+
+90000240 <bad5>:
+90000240:	0000                	unimp
+90000242:	0000                	unimp
+90000244:	0780006f          	j	900002bc <fail>
+
+90000248 <bad6>:
+90000248:	12000073          	sfence.vma
+9000024c:	0700006f          	j	900002bc <fail>
+
+90000250 <bad7>:
+90000250:	180022f3          	csrr	t0,satp
+90000254:	0680006f          	j	900002bc <fail>
+
+90000258 <test_tsr>:
+90000258:	00000297          	auipc	t0,0x0
+9000025c:	02028293          	addi	t0,t0,32 # 90000278 <bad8>
+90000260:	14129073          	csrw	sepc,t0
+90000264:	10000293          	li	t0,256
+90000268:	1002a073          	csrs	sstatus,t0
+9000026c:	02000293          	li	t0,32
+90000270:	1002b073          	csrc	sstatus,t0
+90000274:	10200073          	sret
+
+90000278 <bad8>:
+90000278:	0000                	unimp
+9000027a:	0000                	unimp
+9000027c:	0400006f          	j	900002bc <fail>
+90000280:	00000297          	auipc	t0,0x0
+90000284:	01028293          	addi	t0,t0,16 # 90000290 <bad9+0x4>
+90000288:	14129073          	csrw	sepc,t0
+
+9000028c <bad9>:
+9000028c:	10200073          	sret
+90000290:	02c0006f          	j	900002bc <fail>
+90000294:	0240006f          	j	900002b8 <skip_bare_s>
+
+90000298 <bare_s_1>:
+90000298:	12000073          	sfence.vma
+9000029c:	0200006f          	j	900002bc <fail>
+
+900002a0 <bare_s_2>:
+900002a0:	12000073          	sfence.vma
+900002a4:	0180006f          	j	900002bc <fail>
+900002a8:	180022f3          	csrr	t0,satp
+
+900002ac <bare_s_3>:
+900002ac:	0000                	unimp
+900002ae:	0000                	unimp
+900002b0:	00c0006f          	j	900002bc <fail>
+900002b4:	fa5ff06f          	j	90000258 <test_tsr>
+
+900002b8 <skip_bare_s>:
+900002b8:	02301063          	bne	zero,gp,900002d8 <pass>
+
+900002bc <fail>:
+900002bc:	0ff0000f          	fence
+900002c0:	00018063          	beqz	gp,900002c0 <fail+0x4>
+900002c4:	00119193          	slli	gp,gp,0x1
+900002c8:	0011e193          	ori	gp,gp,1
+900002cc:	05d00893          	li	a7,93
+900002d0:	00018513          	mv	a0,gp
+900002d4:	00000073          	ecall
+
+900002d8 <pass>:
+900002d8:	0ff0000f          	fence
+900002dc:	00100193          	li	gp,1
+900002e0:	05d00893          	li	a7,93
+900002e4:	00000513          	li	a0,0
+900002e8:	00000073          	ecall
+900002ec:	00000013          	nop
+900002f0:	00000013          	nop
+900002f4:	00000013          	nop
+900002f8:	00000013          	nop
+900002fc:	00000013          	nop
+
+90000300 <mtvec_handler>:
+90000300:	0400006f          	j	90000340 <synchronous_exception>
+90000304:	ed9ff06f          	j	900001dc <msip>
+90000308:	fb5ff06f          	j	900002bc <fail>
+9000030c:	fb1ff06f          	j	900002bc <fail>
+90000310:	fadff06f          	j	900002bc <fail>
+90000314:	fa9ff06f          	j	900002bc <fail>
+90000318:	fa5ff06f          	j	900002bc <fail>
+9000031c:	fa1ff06f          	j	900002bc <fail>
+90000320:	f9dff06f          	j	900002bc <fail>
+90000324:	f99ff06f          	j	900002bc <fail>
+90000328:	f95ff06f          	j	900002bc <fail>
+9000032c:	f91ff06f          	j	900002bc <fail>
+90000330:	f8dff06f          	j	900002bc <fail>
+90000334:	f89ff06f          	j	900002bc <fail>
+90000338:	f85ff06f          	j	900002bc <fail>
+9000033c:	f81ff06f          	j	900002bc <fail>
+
+90000340 <synchronous_exception>:
+90000340:	00200313          	li	t1,2
+90000344:	342022f3          	csrr	t0,mcause
+90000348:	f6629ae3          	bne	t0,t1,900002bc <fail>
+9000034c:	341022f3          	csrr	t0,mepc
+90000350:	343023f3          	csrr	t2,mtval
+90000354:	00038e63          	beqz	t2,90000370 <synchronous_exception+0x30>
+90000358:	0002d303          	lhu	t1,0(t0)
+9000035c:	0063c3b3          	xor	t2,t2,t1
+90000360:	0022d303          	lhu	t1,2(t0)
+90000364:	01031313          	slli	t1,t1,0x10
+90000368:	0063c3b3          	xor	t2,t2,t1
+9000036c:	f40398e3          	bnez	t2,900002bc <fail>
+90000370:	00000317          	auipc	t1,0x0
+90000374:	e1830313          	addi	t1,t1,-488 # 90000188 <bad2>
+90000378:	06628463          	beq	t0,t1,900003e0 <synchronous_exception+0xa0>
+9000037c:	00000317          	auipc	t1,0x0
+90000380:	ec430313          	addi	t1,t1,-316 # 90000240 <bad5>
+90000384:	06628463          	beq	t0,t1,900003ec <synchronous_exception+0xac>
+90000388:	00000317          	auipc	t1,0x0
+9000038c:	ec030313          	addi	t1,t1,-320 # 90000248 <bad6>
+90000390:	04628863          	beq	t0,t1,900003e0 <synchronous_exception+0xa0>
+90000394:	00000317          	auipc	t1,0x0
+90000398:	ebc30313          	addi	t1,t1,-324 # 90000250 <bad7>
+9000039c:	04628263          	beq	t0,t1,900003e0 <synchronous_exception+0xa0>
+900003a0:	00000317          	auipc	t1,0x0
+900003a4:	ed830313          	addi	t1,t1,-296 # 90000278 <bad8>
+900003a8:	04628863          	beq	t0,t1,900003f8 <synchronous_exception+0xb8>
+900003ac:	00000317          	auipc	t1,0x0
+900003b0:	ee030313          	addi	t1,t1,-288 # 9000028c <bad9>
+900003b4:	04628863          	beq	t0,t1,90000404 <synchronous_exception+0xc4>
+900003b8:	00000317          	auipc	t1,0x0
+900003bc:	ee030313          	addi	t1,t1,-288 # 90000298 <bare_s_1>
+900003c0:	02628663          	beq	t0,t1,900003ec <synchronous_exception+0xac>
+900003c4:	00000317          	auipc	t1,0x0
+900003c8:	edc30313          	addi	t1,t1,-292 # 900002a0 <bare_s_2>
+900003cc:	00628a63          	beq	t0,t1,900003e0 <synchronous_exception+0xa0>
+900003d0:	00000317          	auipc	t1,0x0
+900003d4:	edc30313          	addi	t1,t1,-292 # 900002ac <bare_s_3>
+900003d8:	00628463          	beq	t0,t1,900003e0 <synchronous_exception+0xa0>
+900003dc:	ee1ff06f          	j	900002bc <fail>
+900003e0:	00828293          	addi	t0,t0,8
+900003e4:	34129073          	csrw	mepc,t0
+900003e8:	30200073          	mret
+900003ec:	00100337          	lui	t1,0x100
+900003f0:	30032073          	csrs	mstatus,t1
+900003f4:	fedff06f          	j	900003e0 <synchronous_exception+0xa0>
+900003f8:	00400337          	lui	t1,0x400
+900003fc:	30032073          	csrs	mstatus,t1
+90000400:	fe1ff06f          	j	900003e0 <synchronous_exception+0xa0>
+90000404:	fddff06f          	j	900003e0 <synchronous_exception+0xa0>
+90000408:	c0001073          	unimp
+9000040c:	0000                	unimp
+9000040e:	0000                	unimp
+90000410:	0000                	unimp
+90000412:	0000                	unimp
+90000414:	0000                	unimp
+90000416:	0000                	unimp
+90000418:	0000                	unimp
+9000041a:	0000                	unimp
+9000041c:	0000                	unimp
+9000041e:	0000                	unimp
+90000420:	0000                	unimp
+90000422:	0000                	unimp
+90000424:	0000                	unimp
+90000426:	0000                	unimp
+90000428:	0000                	unimp
+9000042a:	0000                	unimp
+9000042c:	0000                	unimp
+9000042e:	0000                	unimp
+90000430:	0000                	unimp
+90000432:	0000                	unimp
+90000434:	0000                	unimp
+90000436:	0000                	unimp
+90000438:	0000                	unimp
+9000043a:	0000                	unimp
+9000043c:	0000                	unimp
+9000043e:	0000                	unimp
+90000440:	0000                	unimp
+90000442:	0000                	unimp
+90000444:	0000                	unimp
+90000446:	0000                	unimp
+90000448:	0000                	unimp
+9000044a:	0000                	unimp
+9000044c:	0000                	unimp
+9000044e:	0000                	unimp
+90000450:	0000                	unimp
+90000452:	0000                	unimp
+90000454:	0000                	unimp
+90000456:	0000                	unimp
+90000458:	0000                	unimp
+9000045a:	0000                	unimp
+9000045c:	0000                	unimp
+9000045e:	0000                	unimp
+90000460:	0000                	unimp
+90000462:	0000                	unimp
+90000464:	0000                	unimp
+90000466:	0000                	unimp
+90000468:	0000                	unimp
+9000046a:	0000                	unimp
+9000046c:	0000                	unimp
+9000046e:	0000                	unimp
+90000470:	0000                	unimp
+90000472:	0000                	unimp
+90000474:	0000                	unimp
+90000476:	0000                	unimp
+90000478:	0000                	unimp
+9000047a:	0000                	unimp
+9000047c:	0000                	unimp
+9000047e:	0000                	unimp
+90000480:	0000                	unimp
+90000482:	0000                	unimp
+90000484:	0000                	unimp
+90000486:	0000                	unimp
+90000488:	0000                	unimp
+9000048a:	0000                	unimp
+9000048c:	0000                	unimp
+9000048e:	0000                	unimp
+90000490:	0000                	unimp
+90000492:	0000                	unimp
+90000494:	0000                	unimp
+90000496:	0000                	unimp
+90000498:	0000                	unimp
+9000049a:	0000                	unimp
+9000049c:	0000                	unimp
+9000049e:	0000                	unimp
+900004a0:	0000                	unimp
+900004a2:	0000                	unimp
+900004a4:	0000                	unimp
+900004a6:	0000                	unimp
+900004a8:	0000                	unimp
+900004aa:	0000                	unimp
+900004ac:	0000                	unimp
+900004ae:	0000                	unimp
+900004b0:	0000                	unimp
+900004b2:	0000                	unimp
+900004b4:	0000                	unimp
+900004b6:	0000                	unimp
+900004b8:	0000                	unimp
+900004ba:	0000                	unimp
+900004bc:	0000                	unimp
+900004be:	0000                	unimp
+900004c0:	0000                	unimp
+900004c2:	0000                	unimp
+900004c4:	0000                	unimp
+900004c6:	0000                	unimp
+900004c8:	0000                	unimp
+900004ca:	0000                	unimp
+900004cc:	0000                	unimp
+900004ce:	0000                	unimp
+900004d0:	0000                	unimp
+900004d2:	0000                	unimp
+900004d4:	0000                	unimp
+900004d6:	0000                	unimp

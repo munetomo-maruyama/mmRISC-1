@@ -1,0 +1,4110 @@
+
+/home/taka/RISCV/mmRISC/simulation/modelsim/riscv-arch-test/riscv-arch-test/work/rv32i_m/C/candi-01.elf:     file format elf32-littleriscv
+
+
+Disassembly of section .text.init:
+
+90000000 <rvtest_entry_point>:
+
+.section .text.init
+.globl rvtest_entry_point
+rvtest_entry_point:
+RVMODEL_BOOT
+RVTEST_CODE_BEGIN
+90000000:	feedc0b7          	lui	ra,0xfeedc
+90000004:	ead08093          	addi	ra,ra,-339 # feedbead <_end+0x6eed87a9>
+90000008:	ff76e137          	lui	sp,0xff76e
+9000000c:	f5610113          	addi	sp,sp,-170 # ff76df56 <_end+0x6f76a852>
+90000010:	7fbb71b7          	lui	gp,0x7fbb7
+90000014:	fab18193          	addi	gp,gp,-85 # 7fbb6fab <offset+0x7fbb69cb>
+90000018:	bfddb237          	lui	tp,0xbfddb
+9000001c:	7d520213          	addi	tp,tp,2005 # bfddb7d5 <_end+0x2fdd80d1>
+90000020:	00000297          	auipc	t0,0x0
+90000024:	0d828293          	addi	t0,t0,216 # 900000f8 <rvtest_code_begin>
+90000028:	00003317          	auipc	t1,0x3
+9000002c:	fd830313          	addi	t1,t1,-40 # 90003000 <rvtest_data_begin>
+90000030:	b7fbb3b7          	lui	t2,0xb7fbb
+90000034:	6fa38393          	addi	t2,t2,1786 # b7fbb6fa <_end+0x27fb7ff6>
+90000038:	5bfde437          	lui	s0,0x5bfde
+9000003c:	b7d40413          	addi	s0,s0,-1155 # 5bfddb7d <offset+0x5bfdd59d>
+90000040:	adfef4b7          	lui	s1,0xadfef
+90000044:	dbe48493          	addi	s1,s1,-578 # adfeedbe <_end+0x1dfeb6ba>
+90000048:	56ff7537          	lui	a0,0x56ff7
+9000004c:	6df50513          	addi	a0,a0,1759 # 56ff76df <offset+0x56ff70ff>
+90000050:	ab7fc5b7          	lui	a1,0xab7fc
+90000054:	b6f58593          	addi	a1,a1,-1169 # ab7fbb6f <_end+0x1b7f846b>
+90000058:	d5bfe637          	lui	a2,0xd5bfe
+9000005c:	db760613          	addi	a2,a2,-585 # d5bfddb7 <_end+0x45bfa6b3>
+90000060:	eadff6b7          	lui	a3,0xeadff
+90000064:	edb68693          	addi	a3,a3,-293 # eadfeedb <_end+0x5adfb7d7>
+90000068:	f56ff737          	lui	a4,0xf56ff
+9000006c:	76d70713          	addi	a4,a4,1901 # f56ff76d <_end+0x656fc069>
+90000070:	fab807b7          	lui	a5,0xfab80
+90000074:	bb678793          	addi	a5,a5,-1098 # fab7fbb6 <_end+0x6ab7c4b2>
+90000078:	7d5c0837          	lui	a6,0x7d5c0
+9000007c:	ddb80813          	addi	a6,a6,-549 # 7d5bfddb <offset+0x7d5bf7fb>
+90000080:	beae08b7          	lui	a7,0xbeae0
+90000084:	eed88893          	addi	a7,a7,-275 # beadfeed <_end+0x2eadc7e9>
+90000088:	df570937          	lui	s2,0xdf570
+9000008c:	f7690913          	addi	s2,s2,-138 # df56ff76 <_end+0x4f56c872>
+90000090:	6fab89b7          	lui	s3,0x6fab8
+90000094:	fbb98993          	addi	s3,s3,-69 # 6fab7fbb <offset+0x6fab79db>
+90000098:	b7d5ca37          	lui	s4,0xb7d5c
+9000009c:	fdda0a13          	addi	s4,s4,-35 # b7d5bfdd <_end+0x27d588d9>
+900000a0:	dbeaeab7          	lui	s5,0xdbeae
+900000a4:	feea8a93          	addi	s5,s5,-18 # dbeadfee <_end+0x4beaa8ea>
+900000a8:	6df57b37          	lui	s6,0x6df57
+900000ac:	ff7b0b13          	addi	s6,s6,-9 # 6df56ff7 <offset+0x6df56a17>
+900000b0:	b6fabbb7          	lui	s7,0xb6fab
+900000b4:	7fbb8b93          	addi	s7,s7,2043 # b6fab7fb <_end+0x26fa80f7>
+900000b8:	db7d6c37          	lui	s8,0xdb7d6
+900000bc:	bfdc0c13          	addi	s8,s8,-1027 # db7d5bfd <_end+0x4b7d24f9>
+900000c0:	edbebcb7          	lui	s9,0xedbeb
+900000c4:	dfec8c93          	addi	s9,s9,-514 # edbeadfe <_end+0x5dbe76fa>
+900000c8:	76df5d37          	lui	s10,0x76df5
+900000cc:	6ffd0d13          	addi	s10,s10,1791 # 76df56ff <offset+0x76df511f>
+900000d0:	bb6fbdb7          	lui	s11,0xbb6fb
+900000d4:	b7fd8d93          	addi	s11,s11,-1153 # bb6fab7f <_end+0x2b6f747b>
+900000d8:	ddb7de37          	lui	t3,0xddb7d
+900000dc:	5bfe0e13          	addi	t3,t3,1471 # ddb7d5bf <_end+0x4db79ebb>
+900000e0:	eedbfeb7          	lui	t4,0xeedbf
+900000e4:	adfe8e93          	addi	t4,t4,-1313 # eedbeadf <_end+0x5edbb3db>
+900000e8:	f76dff37          	lui	t5,0xf76df
+900000ec:	56ff0f13          	addi	t5,t5,1391 # f76df56f <_end+0x676dbe6b>
+900000f0:	fbb70fb7          	lui	t6,0xfbb70
+900000f4:	ab7f8f93          	addi	t6,t6,-1353 # fbb6fab7 <_end+0x6bb6c3b3>
+
+900000f8 <rvtest_code_begin>:
+
+#ifdef TEST_CASE_1
+
+RVTEST_CASE(0,"//check ISA:=regex(.*32.*);check ISA:=regex(.*I.*C.*);def TEST_CASE_1=True;",candi)
+
+RVTEST_SIGBASE( x1,signature_x1_1)
+900000f8:	00003097          	auipc	ra,0x3
+900000fc:	f1808093          	addi	ra,ra,-232 # 90003010 <begin_signature>
+
+90000100 <inst_0>:
+
+inst_0:
+// rs1==x14, rs1_val == imm_val, rs1_val < 0 and imm_val < 0
+// opcode: c.andi; op1:x14; immval:-0x6
+TEST_CI_OP( c.andi, x14, 0xfffffffa, -0x6, -0x6, x1, 0, x2)
+90000100:	ffa00713          	li	a4,-6
+90000104:	9b69                	andi	a4,a4,-6
+90000106:	00e0a023          	sw	a4,0(ra)
+
+9000010a <inst_1>:
+
+inst_1:
+// rs1==x10, rs1_val != imm_val, rs1_val == -32769, rs1_val < 0 and imm_val > 0
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0xa, -0x8001, 0xa, x1, 4, x2)
+9000010a:	ffff8537          	lui	a0,0xffff8
+9000010e:	fff50513          	addi	a0,a0,-1 # ffff7fff <_end+0x6fff48fb>
+90000112:	8929                	andi	a0,a0,10
+90000114:	00a0a223          	sw	a0,4(ra)
+
+90000118 <inst_2>:
+
+inst_2:
+// rs1==x13, rs1_val > 0 and imm_val > 0, rs1_val == 8192
+// opcode: c.andi; op1:x13; immval:0x5
+TEST_CI_OP( c.andi, x13, 0x0, 0x2000, 0x5, x1, 8, x2)
+90000118:	000026b7          	lui	a3,0x2
+9000011c:	8a95                	andi	a3,a3,5
+9000011e:	00d0a423          	sw	a3,8(ra)
+
+90000122 <inst_3>:
+
+inst_3:
+// rs1==x15, rs1_val > 0 and imm_val < 0, rs1_val == 256
+// opcode: c.andi; op1:x15; immval:-0x1
+TEST_CI_OP( c.andi, x15, 0x100, 0x100, -0x1, x1, 12, x2)
+90000122:	10000793          	li	a5,256
+90000126:	9bfd                	andi	a5,a5,-1
+90000128:	00f0a623          	sw	a5,12(ra)
+
+9000012c <inst_4>:
+
+inst_4:
+// rs1==x12, imm_val == (-2**(6-1)), imm_val == -32, rs1_val == 8
+// opcode: c.andi; op1:x12; immval:-0x20
+TEST_CI_OP( c.andi, x12, 0x0, 0x8, -0x20, x1, 16, x2)
+9000012c:	00800613          	li	a2,8
+90000130:	9a01                	andi	a2,a2,-32
+90000132:	00c0a823          	sw	a2,16(ra)
+
+90000136 <inst_5>:
+
+inst_5:
+// rs1==x11, imm_val == 0, rs1_val==-46340 and imm_val==0
+// opcode: c.andi; op1:x11; immval:0x0
+TEST_CI_OP( c.andi, x11, 0x0, -0xb504, 0x0, x1, 20, x2)
+90000136:	ffff55b7          	lui	a1,0xffff5
+9000013a:	afc58593          	addi	a1,a1,-1284 # ffff4afc <_end+0x6fff13f8>
+9000013e:	8981                	andi	a1,a1,0
+90000140:	00b0aa23          	sw	a1,20(ra)
+
+90000144 <inst_6>:
+
+inst_6:
+// rs1==x9, imm_val == (2**(6-1)-1), imm_val == 31, rs1_val == -33
+// opcode: c.andi; op1:x9; immval:0x1f
+TEST_CI_OP( c.andi, x9, 0x1f, -0x21, 0x1f, x1, 24, x2)
+90000144:	fdf00493          	li	s1,-33
+90000148:	88fd                	andi	s1,s1,31
+9000014a:	0090ac23          	sw	s1,24(ra)
+
+9000014e <inst_7>:
+
+inst_7:
+// rs1==x8, imm_val == 1, 
+// opcode: c.andi; op1:x8; immval:0x1
+TEST_CI_OP( c.andi, x8, 0x0, 0x2000, 0x1, x1, 28, x2)
+9000014e:	00002437          	lui	s0,0x2
+90000152:	8805                	andi	s0,s0,1
+90000154:	0080ae23          	sw	s0,28(ra)
+
+90000158 <inst_8>:
+
+inst_8:
+// rs1_val == (-2**(xlen-1)), rs1_val == -2147483648
+// opcode: c.andi; op1:x10; immval:0x1
+TEST_CI_OP( c.andi, x10, 0x0, -0x80000000, 0x1, x1, 32, x2)
+90000158:	80000537          	lui	a0,0x80000
+9000015c:	8905                	andi	a0,a0,1
+9000015e:	02a0a023          	sw	a0,32(ra)
+
+90000162 <inst_9>:
+
+inst_9:
+// rs1_val == 0, rs1_val==0 and imm_val==4, imm_val == 4
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x0, 0x0, 0x4, x1, 36, x2)
+90000162:	00000513          	li	a0,0
+90000166:	8911                	andi	a0,a0,4
+90000168:	02a0a223          	sw	a0,36(ra)
+
+9000016c <inst_10>:
+
+inst_10:
+// rs1_val == (2**(xlen-1)-1), rs1_val == 2147483647
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, 0x7fffffff, 0x0, x1, 40, x2)
+9000016c:	80000537          	lui	a0,0x80000
+90000170:	fff50513          	addi	a0,a0,-1 # 7fffffff <_end+0xefffc8fb>
+90000174:	8901                	andi	a0,a0,0
+90000176:	02a0a423          	sw	a0,40(ra)
+
+9000017a <inst_11>:
+
+inst_11:
+// rs1_val == 1, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x1, 0x1, 0x3, x1, 44, x2)
+9000017a:	00100513          	li	a0,1
+9000017e:	890d                	andi	a0,a0,3
+90000180:	02a0a623          	sw	a0,44(ra)
+
+90000184 <inst_12>:
+
+inst_12:
+// imm_val == 2, rs1_val==5 and imm_val==2
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x0, 0x5, 0x2, x1, 48, x2)
+90000184:	00500513          	li	a0,5
+90000188:	8909                	andi	a0,a0,2
+9000018a:	02a0a823          	sw	a0,48(ra)
+
+9000018e <inst_13>:
+
+inst_13:
+// imm_val == 8, rs1_val == -2
+// opcode: c.andi; op1:x10; immval:0x8
+TEST_CI_OP( c.andi, x10, 0x8, -0x2, 0x8, x1, 52, x2)
+9000018e:	ffe00513          	li	a0,-2
+90000192:	8921                	andi	a0,a0,8
+90000194:	02a0aa23          	sw	a0,52(ra)
+
+90000198 <inst_14>:
+
+inst_14:
+// imm_val == 16, rs1_val == -1048577
+// opcode: c.andi; op1:x10; immval:0x10
+TEST_CI_OP( c.andi, x10, 0x10, -0x100001, 0x10, x1, 56, x2)
+90000198:	fff00537          	lui	a0,0xfff00
+9000019c:	fff50513          	addi	a0,a0,-1 # ffefffff <_end+0x6fefc8fb>
+900001a0:	8941                	andi	a0,a0,16
+900001a2:	02a0ac23          	sw	a0,56(ra)
+
+900001a6 <inst_15>:
+
+inst_15:
+// imm_val == -2, rs1_val==3 and imm_val==-2
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0x2, 0x3, -0x2, x1, 60, x2)
+900001a6:	00300513          	li	a0,3
+900001aa:	9979                	andi	a0,a0,-2
+900001ac:	02a0ae23          	sw	a0,60(ra)
+
+900001b0 <inst_16>:
+
+inst_16:
+// imm_val == -3, rs1_val == 1048576
+// opcode: c.andi; op1:x10; immval:-0x3
+TEST_CI_OP( c.andi, x10, 0x100000, 0x100000, -0x3, x1, 64, x2)
+900001b0:	00100537          	lui	a0,0x100
+900001b4:	9975                	andi	a0,a0,-3
+900001b6:	04a0a023          	sw	a0,64(ra)
+
+900001ba <inst_17>:
+
+inst_17:
+// imm_val == -5, rs1_val==1717986919 and imm_val==-5
+// opcode: c.andi; op1:x10; immval:-0x5
+TEST_CI_OP( c.andi, x10, 0x66666663, 0x66666667, -0x5, x1, 68, x2)
+900001ba:	66666537          	lui	a0,0x66666
+900001be:	66750513          	addi	a0,a0,1639 # 66666667 <offset+0x66666087>
+900001c2:	996d                	andi	a0,a0,-5
+900001c4:	04a0a223          	sw	a0,68(ra)
+
+900001c8 <inst_18>:
+
+inst_18:
+// imm_val == -9, 
+// opcode: c.andi; op1:x10; immval:-0x9
+TEST_CI_OP( c.andi, x10, 0x66666665, 0x66666665, -0x9, x1, 72, x2)
+900001c8:	66666537          	lui	a0,0x66666
+900001cc:	66550513          	addi	a0,a0,1637 # 66666665 <offset+0x66666085>
+900001d0:	995d                	andi	a0,a0,-9
+900001d2:	04a0a423          	sw	a0,72(ra)
+
+900001d6 <inst_19>:
+
+inst_19:
+// imm_val == -17, 
+// opcode: c.andi; op1:x10; immval:-0x11
+TEST_CI_OP( c.andi, x10, 0x3, 0x3, -0x11, x1, 76, x2)
+900001d6:	00300513          	li	a0,3
+900001da:	993d                	andi	a0,a0,-17
+900001dc:	04a0a623          	sw	a0,76(ra)
+
+900001e0 <inst_20>:
+
+inst_20:
+// imm_val == 21, rs1_val == 268435456
+// opcode: c.andi; op1:x10; immval:0x15
+TEST_CI_OP( c.andi, x10, 0x0, 0x10000000, 0x15, x1, 80, x2)
+900001e0:	10000537          	lui	a0,0x10000
+900001e4:	8955                	andi	a0,a0,21
+900001e6:	04a0a823          	sw	a0,80(ra)
+
+900001ea <inst_21>:
+
+inst_21:
+// imm_val == -22, 
+// opcode: c.andi; op1:x10; immval:-0x16
+TEST_CI_OP( c.andi, x10, 0x0, 0x5, -0x16, x1, 84, x2)
+900001ea:	00500513          	li	a0,5
+900001ee:	9929                	andi	a0,a0,-22
+900001f0:	04a0aa23          	sw	a0,84(ra)
+
+900001f4 <inst_22>:
+
+inst_22:
+// rs1_val == 2, rs1_val==2 and imm_val==5
+// opcode: c.andi; op1:x10; immval:0x5
+TEST_CI_OP( c.andi, x10, 0x0, 0x2, 0x5, x1, 88, x2)
+900001f4:	00200513          	li	a0,2
+900001f8:	8915                	andi	a0,a0,5
+900001fa:	04a0ac23          	sw	a0,88(ra)
+
+900001fe <inst_23>:
+
+inst_23:
+// rs1_val == 4, rs1_val==4 and imm_val==10
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0x0, 0x4, 0xa, x1, 92, x2)
+900001fe:	00400513          	li	a0,4
+90000202:	8929                	andi	a0,a0,10
+90000204:	04a0ae23          	sw	a0,92(ra)
+
+90000208 <inst_24>:
+
+inst_24:
+// rs1_val == 16, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x0, 0x10, 0x2, x1, 96, x2)
+90000208:	01000513          	li	a0,16
+9000020c:	8909                	andi	a0,a0,2
+9000020e:	06a0a023          	sw	a0,96(ra)
+
+90000212 <inst_25>:
+
+inst_25:
+// rs1_val == 32, 
+// opcode: c.andi; op1:x10; immval:-0x10
+TEST_CI_OP( c.andi, x10, 0x20, 0x20, -0x10, x1, 100, x2)
+90000212:	02000513          	li	a0,32
+90000216:	9941                	andi	a0,a0,-16
+90000218:	06a0a223          	sw	a0,100(ra)
+
+9000021c <inst_26>:
+
+inst_26:
+// rs1_val == 64, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, 0x40, 0x0, x1, 104, x2)
+9000021c:	04000513          	li	a0,64
+90000220:	8901                	andi	a0,a0,0
+90000222:	06a0a423          	sw	a0,104(ra)
+
+90000226 <inst_27>:
+
+inst_27:
+// rs1_val == 128, 
+// opcode: c.andi; op1:x10; immval:0x1f
+TEST_CI_OP( c.andi, x10, 0x0, 0x80, 0x1f, x1, 108, x2)
+90000226:	08000513          	li	a0,128
+9000022a:	897d                	andi	a0,a0,31
+9000022c:	06a0a623          	sw	a0,108(ra)
+
+90000230 <inst_28>:
+
+inst_28:
+// rs1_val == 512, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x0, 0x200, 0x4, x1, 112, x2)
+90000230:	20000513          	li	a0,512
+90000234:	8911                	andi	a0,a0,4
+90000236:	06a0a823          	sw	a0,112(ra)
+
+9000023a <inst_29>:
+
+inst_29:
+// rs1_val == 1024, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x0, 0x400, 0x4, x1, 116, x2)
+9000023a:	40000513          	li	a0,1024
+9000023e:	8911                	andi	a0,a0,4
+90000240:	06a0aa23          	sw	a0,116(ra)
+
+90000244 <inst_30>:
+
+inst_30:
+// rs1_val == 2048, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0x800, 0x800, -0x2, x1, 120, x2)
+90000244:	00001537          	lui	a0,0x1
+90000248:	80050513          	addi	a0,a0,-2048 # 800 <offset+0x220>
+9000024c:	9979                	andi	a0,a0,-2
+9000024e:	06a0ac23          	sw	a0,120(ra)
+
+90000252 <inst_31>:
+
+inst_31:
+// rs1_val == 4096, 
+// opcode: c.andi; op1:x10; immval:0x15
+TEST_CI_OP( c.andi, x10, 0x0, 0x1000, 0x15, x1, 124, x2)
+90000252:	00001537          	lui	a0,0x1
+90000256:	8955                	andi	a0,a0,21
+90000258:	06a0ae23          	sw	a0,124(ra)
+
+9000025c <inst_32>:
+
+inst_32:
+// rs1_val == 16384, 
+// opcode: c.andi; op1:x10; immval:-0x20
+TEST_CI_OP( c.andi, x10, 0x4000, 0x4000, -0x20, x1, 128, x2)
+9000025c:	00004537          	lui	a0,0x4
+90000260:	9901                	andi	a0,a0,-32
+90000262:	08a0a023          	sw	a0,128(ra)
+
+90000266 <inst_33>:
+
+inst_33:
+// rs1_val == 32768, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x0, 0x8000, 0x3, x1, 132, x2)
+90000266:	00008537          	lui	a0,0x8
+9000026a:	890d                	andi	a0,a0,3
+9000026c:	08a0a223          	sw	a0,132(ra)
+
+90000270 <inst_34>:
+
+inst_34:
+// rs1_val == 65536, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x0, 0x10000, 0x2, x1, 136, x2)
+90000270:	00010537          	lui	a0,0x10
+90000274:	8909                	andi	a0,a0,2
+90000276:	08a0a423          	sw	a0,136(ra)
+
+9000027a <inst_35>:
+
+inst_35:
+// rs1_val == 131072, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x0, 0x20000, 0x6, x1, 140, x2)
+9000027a:	00020537          	lui	a0,0x20
+9000027e:	8919                	andi	a0,a0,6
+90000280:	08a0a623          	sw	a0,140(ra)
+
+90000284 <inst_36>:
+
+inst_36:
+// rs1_val == 262144, 
+// opcode: c.andi; op1:x10; immval:-0x6
+TEST_CI_OP( c.andi, x10, 0x40000, 0x40000, -0x6, x1, 144, x2)
+90000284:	00040537          	lui	a0,0x40
+90000288:	9969                	andi	a0,a0,-6
+9000028a:	08a0a823          	sw	a0,144(ra)
+
+9000028e <inst_37>:
+
+inst_37:
+// rs1_val == 524288, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0x80000, 0x80000, -0x1, x1, 148, x2)
+9000028e:	00080537          	lui	a0,0x80
+90000292:	997d                	andi	a0,a0,-1
+90000294:	08a0aa23          	sw	a0,148(ra)
+
+90000298 <inst_38>:
+
+inst_38:
+// rs1_val == 2097152, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, 0x200000, 0x0, x1, 152, x2)
+90000298:	00200537          	lui	a0,0x200
+9000029c:	8901                	andi	a0,a0,0
+9000029e:	08a0ac23          	sw	a0,152(ra)
+
+900002a2 <inst_39>:
+
+inst_39:
+// rs1_val == 4194304, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0x400000, 0x400000, -0x2, x1, 156, x2)
+900002a2:	00400537          	lui	a0,0x400
+900002a6:	9979                	andi	a0,a0,-2
+900002a8:	08a0ae23          	sw	a0,156(ra)
+
+900002ac <inst_40>:
+
+inst_40:
+// rs1_val == 8388608, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0x0, 0x800000, 0xb, x1, 160, x2)
+900002ac:	00800537          	lui	a0,0x800
+900002b0:	892d                	andi	a0,a0,11
+900002b2:	0aa0a023          	sw	a0,160(ra)
+
+900002b6 <inst_41>:
+
+inst_41:
+// rs1_val == 16777216, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, 0x1000000, 0x0, x1, 164, x2)
+900002b6:	01000537          	lui	a0,0x1000
+900002ba:	8901                	andi	a0,a0,0
+900002bc:	0aa0a223          	sw	a0,164(ra)
+
+900002c0 <inst_42>:
+
+inst_42:
+// rs1_val == 33554432, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x0, 0x2000000, 0x6, x1, 168, x2)
+900002c0:	02000537          	lui	a0,0x2000
+900002c4:	8919                	andi	a0,a0,6
+900002c6:	0aa0a423          	sw	a0,168(ra)
+
+900002ca <inst_43>:
+
+inst_43:
+// rs1_val == 67108864, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x0, 0x4000000, 0x4, x1, 172, x2)
+900002ca:	04000537          	lui	a0,0x4000
+900002ce:	8911                	andi	a0,a0,4
+900002d0:	0aa0a623          	sw	a0,172(ra)
+
+900002d4 <inst_44>:
+
+inst_44:
+// rs1_val == 134217728, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, 0x8000000, 0x0, x1, 176, x2)
+900002d4:	08000537          	lui	a0,0x8000
+900002d8:	8901                	andi	a0,a0,0
+900002da:	0aa0a823          	sw	a0,176(ra)
+
+900002de <inst_45>:
+
+inst_45:
+// rs1_val == 536870912, 
+// opcode: c.andi; op1:x10; immval:-0x3
+TEST_CI_OP( c.andi, x10, 0x20000000, 0x20000000, -0x3, x1, 180, x2)
+900002de:	20000537          	lui	a0,0x20000
+900002e2:	9975                	andi	a0,a0,-3
+900002e4:	0aa0aa23          	sw	a0,180(ra)
+
+900002e8 <inst_46>:
+
+inst_46:
+// rs1_val == 1073741824, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x0, 0x40000000, 0x4, x1, 184, x2)
+900002e8:	40000537          	lui	a0,0x40000
+900002ec:	8911                	andi	a0,a0,4
+900002ee:	0aa0ac23          	sw	a0,184(ra)
+
+900002f2 <inst_47>:
+
+inst_47:
+// rs1_val == -3, 
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0x8, -0x3, 0xa, x1, 188, x2)
+900002f2:	ffd00513          	li	a0,-3
+900002f6:	8929                	andi	a0,a0,10
+900002f8:	0aa0ae23          	sw	a0,188(ra)
+
+900002fc <inst_48>:
+
+inst_48:
+// rs1_val == -5, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0xfffffffb, -0x5, -0x1, x1, 192, x2)
+900002fc:	ffb00513          	li	a0,-5
+90000300:	997d                	andi	a0,a0,-1
+90000302:	0ca0a023          	sw	a0,192(ra)
+
+90000306 <inst_49>:
+
+inst_49:
+// rs1_val == -9, 
+// opcode: c.andi; op1:x10; immval:0x10
+TEST_CI_OP( c.andi, x10, 0x10, -0x9, 0x10, x1, 196, x2)
+90000306:	ff700513          	li	a0,-9
+9000030a:	8941                	andi	a0,a0,16
+9000030c:	0ca0a223          	sw	a0,196(ra)
+
+90000310 <inst_50>:
+
+inst_50:
+// rs1_val == -17, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0xffffffee, -0x11, -0x2, x1, 200, x2)
+90000310:	fef00513          	li	a0,-17
+90000314:	9979                	andi	a0,a0,-2
+90000316:	0ca0a423          	sw	a0,200(ra)
+
+9000031a <inst_51>:
+
+inst_51:
+// rs1_val == -65, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x7, -0x41, 0x7, x1, 204, x2)
+9000031a:	fbf00513          	li	a0,-65
+9000031e:	891d                	andi	a0,a0,7
+90000320:	0ca0a623          	sw	a0,204(ra)
+
+90000324 <inst_52>:
+
+inst_52:
+// rs1_val == -129, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x4, -0x81, 0x4, x1, 208, x2)
+90000324:	f7f00513          	li	a0,-129
+90000328:	8911                	andi	a0,a0,4
+9000032a:	0ca0a823          	sw	a0,208(ra)
+
+9000032e <inst_53>:
+
+inst_53:
+// rs1_val == -257, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x6, -0x101, 0x6, x1, 212, x2)
+9000032e:	eff00513          	li	a0,-257
+90000332:	8919                	andi	a0,a0,6
+90000334:	0ca0aa23          	sw	a0,212(ra)
+
+90000338 <inst_54>:
+
+inst_54:
+// rs1_val == -513, 
+// opcode: c.andi; op1:x10; immval:0x10
+TEST_CI_OP( c.andi, x10, 0x10, -0x201, 0x10, x1, 216, x2)
+90000338:	dff00513          	li	a0,-513
+9000033c:	8941                	andi	a0,a0,16
+9000033e:	0ca0ac23          	sw	a0,216(ra)
+
+90000342 <inst_55>:
+
+inst_55:
+// rs1_val == -1025, 
+// opcode: c.andi; op1:x10; immval:0x1
+TEST_CI_OP( c.andi, x10, 0x1, -0x401, 0x1, x1, 220, x2)
+90000342:	bff00513          	li	a0,-1025
+90000346:	8905                	andi	a0,a0,1
+90000348:	0ca0ae23          	sw	a0,220(ra)
+
+9000034c <inst_56>:
+
+inst_56:
+// rs1_val == -2049, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x2, -0x801, 0x2, x1, 224, x2)
+9000034c:	fffff537          	lui	a0,0xfffff
+90000350:	7ff50513          	addi	a0,a0,2047 # fffff7ff <_end+0x6fffc0fb>
+90000354:	8909                	andi	a0,a0,2
+90000356:	0ea0a023          	sw	a0,224(ra)
+
+9000035a <inst_57>:
+
+inst_57:
+// rs1_val == -4097, 
+// opcode: c.andi; op1:x10; immval:0x9
+TEST_CI_OP( c.andi, x10, 0x9, -0x1001, 0x9, x1, 228, x2)
+9000035a:	fffff537          	lui	a0,0xfffff
+9000035e:	fff50513          	addi	a0,a0,-1 # ffffefff <_end+0x6fffb8fb>
+90000362:	8925                	andi	a0,a0,9
+90000364:	0ea0a223          	sw	a0,228(ra)
+
+90000368 <inst_58>:
+
+inst_58:
+// rs1_val == -8193, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x7, -0x2001, 0x7, x1, 232, x2)
+90000368:	ffffe537          	lui	a0,0xffffe
+9000036c:	fff50513          	addi	a0,a0,-1 # ffffdfff <_end+0x6fffa8fb>
+90000370:	891d                	andi	a0,a0,7
+90000372:	0ea0a423          	sw	a0,232(ra)
+
+90000376 <inst_59>:
+
+inst_59:
+// rs1_val == -16385, 
+// opcode: c.andi; op1:x10; immval:-0xa
+TEST_CI_OP( c.andi, x10, 0xffffbff6, -0x4001, -0xa, x1, 236, x2)
+90000376:	ffffc537          	lui	a0,0xffffc
+9000037a:	fff50513          	addi	a0,a0,-1 # ffffbfff <_end+0x6fff88fb>
+9000037e:	9959                	andi	a0,a0,-10
+90000380:	0ea0a623          	sw	a0,236(ra)
+
+90000384 <inst_60>:
+
+inst_60:
+// rs1_val == -65537, 
+// opcode: c.andi; op1:x10; immval:-0x3
+TEST_CI_OP( c.andi, x10, 0xfffefffd, -0x10001, -0x3, x1, 240, x2)
+90000384:	ffff0537          	lui	a0,0xffff0
+90000388:	fff50513          	addi	a0,a0,-1 # fffeffff <_end+0x6ffec8fb>
+9000038c:	9975                	andi	a0,a0,-3
+9000038e:	0ea0a823          	sw	a0,240(ra)
+
+90000392 <inst_61>:
+
+inst_61:
+// rs1_val == -131073, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x2, -0x20001, 0x2, x1, 244, x2)
+90000392:	fffe0537          	lui	a0,0xfffe0
+90000396:	fff50513          	addi	a0,a0,-1 # fffdffff <_end+0x6ffdc8fb>
+9000039a:	8909                	andi	a0,a0,2
+9000039c:	0ea0aa23          	sw	a0,244(ra)
+
+900003a0 <inst_62>:
+
+inst_62:
+// rs1_val == -262145, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0xfffbffff, -0x40001, -0x1, x1, 248, x2)
+900003a0:	fffc0537          	lui	a0,0xfffc0
+900003a4:	fff50513          	addi	a0,a0,-1 # fffbffff <_end+0x6ffbc8fb>
+900003a8:	997d                	andi	a0,a0,-1
+900003aa:	0ea0ac23          	sw	a0,248(ra)
+
+900003ae <inst_63>:
+
+inst_63:
+// rs1_val == -524289, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x3, -0x80001, 0x3, x1, 252, x2)
+900003ae:	fff80537          	lui	a0,0xfff80
+900003b2:	fff50513          	addi	a0,a0,-1 # fff7ffff <_end+0x6ff7c8fb>
+900003b6:	890d                	andi	a0,a0,3
+900003b8:	0ea0ae23          	sw	a0,252(ra)
+
+900003bc <inst_64>:
+
+inst_64:
+// rs1_val == -2097153, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0xb, -0x200001, 0xb, x1, 256, x2)
+900003bc:	ffe00537          	lui	a0,0xffe00
+900003c0:	fff50513          	addi	a0,a0,-1 # ffdfffff <_end+0x6fdfc8fb>
+900003c4:	892d                	andi	a0,a0,11
+900003c6:	10a0a023          	sw	a0,256(ra)
+
+900003ca <inst_65>:
+
+inst_65:
+// rs1_val == -4194305, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x4, -0x400001, 0x4, x1, 260, x2)
+900003ca:	ffc00537          	lui	a0,0xffc00
+900003ce:	fff50513          	addi	a0,a0,-1 # ffbfffff <_end+0x6fbfc8fb>
+900003d2:	8911                	andi	a0,a0,4
+900003d4:	10a0a223          	sw	a0,260(ra)
+
+900003d8 <inst_66>:
+
+inst_66:
+// rs1_val == -8388609, 
+// opcode: c.andi; op1:x10; immval:-0x3
+TEST_CI_OP( c.andi, x10, 0xff7ffffd, -0x800001, -0x3, x1, 264, x2)
+900003d8:	ff800537          	lui	a0,0xff800
+900003dc:	fff50513          	addi	a0,a0,-1 # ff7fffff <_end+0x6f7fc8fb>
+900003e0:	9975                	andi	a0,a0,-3
+900003e2:	10a0a423          	sw	a0,264(ra)
+
+900003e6 <inst_67>:
+
+inst_67:
+// rs1_val == -16777217, 
+// opcode: c.andi; op1:x10; immval:-0x11
+TEST_CI_OP( c.andi, x10, 0xfeffffef, -0x1000001, -0x11, x1, 268, x2)
+900003e6:	ff000537          	lui	a0,0xff000
+900003ea:	fff50513          	addi	a0,a0,-1 # feffffff <_end+0x6effc8fb>
+900003ee:	993d                	andi	a0,a0,-17
+900003f0:	10a0a623          	sw	a0,268(ra)
+
+900003f4 <inst_68>:
+
+inst_68:
+// rs1_val == -33554433, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, -0x2000001, 0x0, x1, 272, x2)
+900003f4:	fe000537          	lui	a0,0xfe000
+900003f8:	fff50513          	addi	a0,a0,-1 # fdffffff <_end+0x6dffc8fb>
+900003fc:	8901                	andi	a0,a0,0
+900003fe:	10a0a823          	sw	a0,272(ra)
+
+90000402 <inst_69>:
+
+inst_69:
+// rs1_val == -67108865, 
+// opcode: c.andi; op1:x10; immval:0x10
+TEST_CI_OP( c.andi, x10, 0x10, -0x4000001, 0x10, x1, 276, x2)
+90000402:	fc000537          	lui	a0,0xfc000
+90000406:	fff50513          	addi	a0,a0,-1 # fbffffff <_end+0x6bffc8fb>
+9000040a:	8941                	andi	a0,a0,16
+9000040c:	10a0aa23          	sw	a0,276(ra)
+
+90000410 <inst_70>:
+
+inst_70:
+// rs1_val == -134217729, 
+// opcode: c.andi; op1:x10; immval:0xf
+TEST_CI_OP( c.andi, x10, 0xf, -0x8000001, 0xf, x1, 280, x2)
+90000410:	f8000537          	lui	a0,0xf8000
+90000414:	fff50513          	addi	a0,a0,-1 # f7ffffff <_end+0x67ffc8fb>
+90000418:	893d                	andi	a0,a0,15
+9000041a:	10a0ac23          	sw	a0,280(ra)
+
+9000041e <inst_71>:
+
+inst_71:
+// rs1_val == -268435457, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x6, -0x10000001, 0x6, x1, 284, x2)
+9000041e:	f0000537          	lui	a0,0xf0000
+90000422:	fff50513          	addi	a0,a0,-1 # efffffff <_end+0x5fffc8fb>
+90000426:	8919                	andi	a0,a0,6
+90000428:	10a0ae23          	sw	a0,284(ra)
+
+9000042c <inst_72>:
+
+inst_72:
+// rs1_val == -536870913, 
+// opcode: c.andi; op1:x10; immval:0x5
+TEST_CI_OP( c.andi, x10, 0x5, -0x20000001, 0x5, x1, 288, x2)
+9000042c:	e0000537          	lui	a0,0xe0000
+90000430:	fff50513          	addi	a0,a0,-1 # dfffffff <_end+0x4fffc8fb>
+90000434:	8915                	andi	a0,a0,5
+90000436:	12a0a023          	sw	a0,288(ra)
+
+9000043a <inst_73>:
+
+inst_73:
+// rs1_val == -1073741825, 
+// opcode: c.andi; op1:x10; immval:-0x8
+TEST_CI_OP( c.andi, x10, 0xbffffff8, -0x40000001, -0x8, x1, 292, x2)
+9000043a:	c0000537          	lui	a0,0xc0000
+9000043e:	fff50513          	addi	a0,a0,-1 # bfffffff <_end+0x2fffc8fb>
+90000442:	9961                	andi	a0,a0,-8
+90000444:	12a0a223          	sw	a0,292(ra)
+
+90000448 <inst_74>:
+
+inst_74:
+// rs1_val == 1431655765, rs1_val==1431655765 and imm_val==4
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x4, 0x55555555, 0x4, x1, 296, x2)
+90000448:	55555537          	lui	a0,0x55555
+9000044c:	55550513          	addi	a0,a0,1365 # 55555555 <offset+0x55554f75>
+90000450:	8911                	andi	a0,a0,4
+90000452:	12a0a423          	sw	a0,296(ra)
+
+90000456 <inst_75>:
+
+inst_75:
+// rs1_val == -1431655766, 
+// opcode: c.andi; op1:x10; immval:-0xa
+TEST_CI_OP( c.andi, x10, 0xaaaaaaa2, -0x55555556, -0xa, x1, 300, x2)
+90000456:	aaaab537          	lui	a0,0xaaaab
+9000045a:	aaa50513          	addi	a0,a0,-1366 # aaaaaaaa <_end+0x1aaa73a6>
+9000045e:	9959                	andi	a0,a0,-10
+90000460:	12a0a623          	sw	a0,300(ra)
+
+90000464 <inst_76>:
+
+inst_76:
+// rs1_val==3 and imm_val==3, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x3, 0x3, 0x3, x1, 304, x2)
+90000464:	00300513          	li	a0,3
+90000468:	890d                	andi	a0,a0,3
+9000046a:	12a0a823          	sw	a0,304(ra)
+
+9000046e <inst_77>:
+
+inst_77:
+// rs1_val==3 and imm_val==5, 
+// opcode: c.andi; op1:x10; immval:0x5
+TEST_CI_OP( c.andi, x10, 0x1, 0x3, 0x5, x1, 308, x2)
+9000046e:	00300513          	li	a0,3
+90000472:	8915                	andi	a0,a0,5
+90000474:	12a0aa23          	sw	a0,308(ra)
+
+90000478 <inst_78>:
+
+inst_78:
+// rs1_val==3 and imm_val==10, 
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0x2, 0x3, 0xa, x1, 312, x2)
+90000478:	00300513          	li	a0,3
+9000047c:	8929                	andi	a0,a0,10
+9000047e:	12a0ac23          	sw	a0,312(ra)
+
+90000482 <inst_79>:
+
+inst_79:
+// rs1_val==3 and imm_val==6, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x2, 0x3, 0x6, x1, 316, x2)
+90000482:	00300513          	li	a0,3
+90000486:	8919                	andi	a0,a0,6
+90000488:	12a0ae23          	sw	a0,316(ra)
+
+9000048c <inst_80>:
+
+inst_80:
+// rs1_val==3 and imm_val==-5, 
+// opcode: c.andi; op1:x10; immval:-0x5
+TEST_CI_OP( c.andi, x10, 0x3, 0x3, -0x5, x1, 320, x2)
+9000048c:	00300513          	li	a0,3
+90000490:	996d                	andi	a0,a0,-5
+90000492:	14a0a023          	sw	a0,320(ra)
+
+90000496 <inst_81>:
+
+inst_81:
+// rs1_val==3 and imm_val==2, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x2, 0x3, 0x2, x1, 324, x2)
+90000496:	00300513          	li	a0,3
+9000049a:	8909                	andi	a0,a0,2
+9000049c:	14a0a223          	sw	a0,324(ra)
+
+900004a0 <inst_82>:
+
+inst_82:
+// rs1_val==3 and imm_val==4, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x0, 0x3, 0x4, x1, 328, x2)
+900004a0:	00300513          	li	a0,3
+900004a4:	8911                	andi	a0,a0,4
+900004a6:	14a0a423          	sw	a0,328(ra)
+
+900004aa <inst_83>:
+
+inst_83:
+// rs1_val==3 and imm_val==9, 
+// opcode: c.andi; op1:x10; immval:0x9
+TEST_CI_OP( c.andi, x10, 0x1, 0x3, 0x9, x1, 332, x2)
+900004aa:	00300513          	li	a0,3
+900004ae:	8925                	andi	a0,a0,9
+900004b0:	14a0a623          	sw	a0,332(ra)
+
+900004b4 <inst_84>:
+
+inst_84:
+// rs1_val==3 and imm_val==0, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, 0x3, 0x0, x1, 336, x2)
+900004b4:	00300513          	li	a0,3
+900004b8:	8901                	andi	a0,a0,0
+900004ba:	14a0a823          	sw	a0,336(ra)
+
+900004be <inst_85>:
+
+inst_85:
+// rs1_val==3 and imm_val==11, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0x3, 0x3, 0xb, x1, 340, x2)
+900004be:	00300513          	li	a0,3
+900004c2:	892d                	andi	a0,a0,11
+900004c4:	14a0aa23          	sw	a0,340(ra)
+
+900004c8 <inst_86>:
+
+inst_86:
+// rs1_val==3 and imm_val==7, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x3, 0x3, 0x7, x1, 344, x2)
+900004c8:	00300513          	li	a0,3
+900004cc:	891d                	andi	a0,a0,7
+900004ce:	14a0ac23          	sw	a0,344(ra)
+
+900004d2 <inst_87>:
+
+inst_87:
+// rs1_val==3 and imm_val==-1, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0x3, 0x3, -0x1, x1, 348, x2)
+900004d2:	00300513          	li	a0,3
+900004d6:	997d                	andi	a0,a0,-1
+900004d8:	14a0ae23          	sw	a0,348(ra)
+
+900004dc <inst_88>:
+
+inst_88:
+// rs1_val==3 and imm_val==-4, 
+// opcode: c.andi; op1:x10; immval:-0x4
+TEST_CI_OP( c.andi, x10, 0x0, 0x3, -0x4, x1, 352, x2)
+900004dc:	00300513          	li	a0,3
+900004e0:	9971                	andi	a0,a0,-4
+900004e2:	16a0a023          	sw	a0,352(ra)
+
+900004e6 <inst_89>:
+
+inst_89:
+// rs1_val==1431655765 and imm_val==3, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x1, 0x55555555, 0x3, x1, 356, x2)
+900004e6:	55555537          	lui	a0,0x55555
+900004ea:	55550513          	addi	a0,a0,1365 # 55555555 <offset+0x55554f75>
+900004ee:	890d                	andi	a0,a0,3
+900004f0:	16a0a223          	sw	a0,356(ra)
+
+900004f4 <inst_90>:
+
+inst_90:
+// rs1_val==1431655765 and imm_val==5, 
+// opcode: c.andi; op1:x10; immval:0x5
+TEST_CI_OP( c.andi, x10, 0x5, 0x55555555, 0x5, x1, 360, x2)
+900004f4:	55555537          	lui	a0,0x55555
+900004f8:	55550513          	addi	a0,a0,1365 # 55555555 <offset+0x55554f75>
+900004fc:	8915                	andi	a0,a0,5
+900004fe:	16a0a423          	sw	a0,360(ra)
+
+90000502 <inst_91>:
+
+inst_91:
+// rs1_val==1431655765 and imm_val==10, 
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0x0, 0x55555555, 0xa, x1, 364, x2)
+90000502:	55555537          	lui	a0,0x55555
+90000506:	55550513          	addi	a0,a0,1365 # 55555555 <offset+0x55554f75>
+9000050a:	8929                	andi	a0,a0,10
+9000050c:	16a0a623          	sw	a0,364(ra)
+
+90000510 <inst_92>:
+
+inst_92:
+// rs1_val==1431655765 and imm_val==6, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x4, 0x55555555, 0x6, x1, 368, x2)
+90000510:	55555537          	lui	a0,0x55555
+90000514:	55550513          	addi	a0,a0,1365 # 55555555 <offset+0x55554f75>
+90000518:	8919                	andi	a0,a0,6
+9000051a:	16a0a823          	sw	a0,368(ra)
+
+9000051e <inst_93>:
+
+inst_93:
+// rs1_val==1431655765 and imm_val==-2, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0x55555554, 0x55555555, -0x2, x1, 372, x2)
+9000051e:	55555537          	lui	a0,0x55555
+90000522:	55550513          	addi	a0,a0,1365 # 55555555 <offset+0x55554f75>
+90000526:	9979                	andi	a0,a0,-2
+90000528:	16a0aa23          	sw	a0,372(ra)
+
+9000052c <inst_94>:
+
+inst_94:
+// rs1_val==1431655765 and imm_val==-5, 
+// opcode: c.andi; op1:x10; immval:-0x5
+TEST_CI_OP( c.andi, x10, 0x55555551, 0x55555555, -0x5, x1, 376, x2)
+9000052c:	55555537          	lui	a0,0x55555
+90000530:	55550513          	addi	a0,a0,1365 # 55555555 <offset+0x55554f75>
+90000534:	996d                	andi	a0,a0,-5
+90000536:	16a0ac23          	sw	a0,376(ra)
+
+9000053a <inst_95>:
+
+inst_95:
+// rs1_val==1431655765 and imm_val==2, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x0, 0x55555555, 0x2, x1, 380, x2)
+9000053a:	55555537          	lui	a0,0x55555
+9000053e:	55550513          	addi	a0,a0,1365 # 55555555 <offset+0x55554f75>
+90000542:	8909                	andi	a0,a0,2
+90000544:	16a0ae23          	sw	a0,380(ra)
+
+90000548 <inst_96>:
+
+inst_96:
+// rs1_val==1431655765 and imm_val==9, 
+// opcode: c.andi; op1:x10; immval:0x9
+TEST_CI_OP( c.andi, x10, 0x1, 0x55555555, 0x9, x1, 384, x2)
+90000548:	55555537          	lui	a0,0x55555
+9000054c:	55550513          	addi	a0,a0,1365 # 55555555 <offset+0x55554f75>
+90000550:	8925                	andi	a0,a0,9
+90000552:	18a0a023          	sw	a0,384(ra)
+
+90000556 <inst_97>:
+
+inst_97:
+// rs1_val==1431655765 and imm_val==0, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, 0x55555555, 0x0, x1, 388, x2)
+90000556:	55555537          	lui	a0,0x55555
+9000055a:	55550513          	addi	a0,a0,1365 # 55555555 <offset+0x55554f75>
+9000055e:	8901                	andi	a0,a0,0
+90000560:	18a0a223          	sw	a0,388(ra)
+
+90000564 <inst_98>:
+
+inst_98:
+// rs1_val==1431655765 and imm_val==11, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0x1, 0x55555555, 0xb, x1, 392, x2)
+90000564:	55555537          	lui	a0,0x55555
+90000568:	55550513          	addi	a0,a0,1365 # 55555555 <offset+0x55554f75>
+9000056c:	892d                	andi	a0,a0,11
+9000056e:	18a0a423          	sw	a0,392(ra)
+
+90000572 <inst_99>:
+
+inst_99:
+// rs1_val==1431655765 and imm_val==7, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x5, 0x55555555, 0x7, x1, 396, x2)
+90000572:	55555537          	lui	a0,0x55555
+90000576:	55550513          	addi	a0,a0,1365 # 55555555 <offset+0x55554f75>
+9000057a:	891d                	andi	a0,a0,7
+9000057c:	18a0a623          	sw	a0,396(ra)
+
+90000580 <inst_100>:
+
+inst_100:
+// rs1_val==1431655765 and imm_val==-1, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0x55555555, 0x55555555, -0x1, x1, 400, x2)
+90000580:	55555537          	lui	a0,0x55555
+90000584:	55550513          	addi	a0,a0,1365 # 55555555 <offset+0x55554f75>
+90000588:	997d                	andi	a0,a0,-1
+9000058a:	18a0a823          	sw	a0,400(ra)
+
+9000058e <inst_101>:
+
+inst_101:
+// rs1_val==1431655765 and imm_val==-4, 
+// opcode: c.andi; op1:x10; immval:-0x4
+TEST_CI_OP( c.andi, x10, 0x55555554, 0x55555555, -0x4, x1, 404, x2)
+9000058e:	55555537          	lui	a0,0x55555
+90000592:	55550513          	addi	a0,a0,1365 # 55555555 <offset+0x55554f75>
+90000596:	9971                	andi	a0,a0,-4
+90000598:	18a0aa23          	sw	a0,404(ra)
+
+9000059c <inst_102>:
+
+inst_102:
+// rs1_val==-1431655766 and imm_val==3, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x2, -0x55555556, 0x3, x1, 408, x2)
+9000059c:	aaaab537          	lui	a0,0xaaaab
+900005a0:	aaa50513          	addi	a0,a0,-1366 # aaaaaaaa <_end+0x1aaa73a6>
+900005a4:	890d                	andi	a0,a0,3
+900005a6:	18a0ac23          	sw	a0,408(ra)
+
+900005aa <inst_103>:
+
+inst_103:
+// rs1_val==-1431655766 and imm_val==5, 
+// opcode: c.andi; op1:x10; immval:0x5
+TEST_CI_OP( c.andi, x10, 0x0, -0x55555556, 0x5, x1, 412, x2)
+900005aa:	aaaab537          	lui	a0,0xaaaab
+900005ae:	aaa50513          	addi	a0,a0,-1366 # aaaaaaaa <_end+0x1aaa73a6>
+900005b2:	8915                	andi	a0,a0,5
+900005b4:	18a0ae23          	sw	a0,412(ra)
+
+900005b8 <inst_104>:
+
+inst_104:
+// rs1_val==-1431655766 and imm_val==10, 
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0xa, -0x55555556, 0xa, x1, 416, x2)
+900005b8:	aaaab537          	lui	a0,0xaaaab
+900005bc:	aaa50513          	addi	a0,a0,-1366 # aaaaaaaa <_end+0x1aaa73a6>
+900005c0:	8929                	andi	a0,a0,10
+900005c2:	1aa0a023          	sw	a0,416(ra)
+
+900005c6 <inst_105>:
+
+inst_105:
+// rs1_val==-1431655766 and imm_val==6, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x2, -0x55555556, 0x6, x1, 420, x2)
+900005c6:	aaaab537          	lui	a0,0xaaaab
+900005ca:	aaa50513          	addi	a0,a0,-1366 # aaaaaaaa <_end+0x1aaa73a6>
+900005ce:	8919                	andi	a0,a0,6
+900005d0:	1aa0a223          	sw	a0,420(ra)
+
+900005d4 <inst_106>:
+
+inst_106:
+// rs1_val==-1431655766 and imm_val==-2, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0xaaaaaaaa, -0x55555556, -0x2, x1, 424, x2)
+900005d4:	aaaab537          	lui	a0,0xaaaab
+900005d8:	aaa50513          	addi	a0,a0,-1366 # aaaaaaaa <_end+0x1aaa73a6>
+900005dc:	9979                	andi	a0,a0,-2
+900005de:	1aa0a423          	sw	a0,424(ra)
+
+900005e2 <inst_107>:
+
+inst_107:
+// rs1_val==-1431655766 and imm_val==-5, 
+// opcode: c.andi; op1:x10; immval:-0x5
+TEST_CI_OP( c.andi, x10, 0xaaaaaaaa, -0x55555556, -0x5, x1, 428, x2)
+900005e2:	aaaab537          	lui	a0,0xaaaab
+900005e6:	aaa50513          	addi	a0,a0,-1366 # aaaaaaaa <_end+0x1aaa73a6>
+900005ea:	996d                	andi	a0,a0,-5
+900005ec:	1aa0a623          	sw	a0,428(ra)
+
+900005f0 <inst_108>:
+
+inst_108:
+// rs1_val==-1431655766 and imm_val==2, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x2, -0x55555556, 0x2, x1, 432, x2)
+900005f0:	aaaab537          	lui	a0,0xaaaab
+900005f4:	aaa50513          	addi	a0,a0,-1366 # aaaaaaaa <_end+0x1aaa73a6>
+900005f8:	8909                	andi	a0,a0,2
+900005fa:	1aa0a823          	sw	a0,432(ra)
+
+900005fe <inst_109>:
+
+inst_109:
+// rs1_val==-1431655766 and imm_val==4, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x0, -0x55555556, 0x4, x1, 436, x2)
+900005fe:	aaaab537          	lui	a0,0xaaaab
+90000602:	aaa50513          	addi	a0,a0,-1366 # aaaaaaaa <_end+0x1aaa73a6>
+90000606:	8911                	andi	a0,a0,4
+90000608:	1aa0aa23          	sw	a0,436(ra)
+
+9000060c <inst_110>:
+
+inst_110:
+// rs1_val==-1431655766 and imm_val==9, 
+// opcode: c.andi; op1:x10; immval:0x9
+TEST_CI_OP( c.andi, x10, 0x8, -0x55555556, 0x9, x1, 440, x2)
+9000060c:	aaaab537          	lui	a0,0xaaaab
+90000610:	aaa50513          	addi	a0,a0,-1366 # aaaaaaaa <_end+0x1aaa73a6>
+90000614:	8925                	andi	a0,a0,9
+90000616:	1aa0ac23          	sw	a0,440(ra)
+
+9000061a <inst_111>:
+
+inst_111:
+// rs1_val==-1431655766 and imm_val==0, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, -0x55555556, 0x0, x1, 444, x2)
+9000061a:	aaaab537          	lui	a0,0xaaaab
+9000061e:	aaa50513          	addi	a0,a0,-1366 # aaaaaaaa <_end+0x1aaa73a6>
+90000622:	8901                	andi	a0,a0,0
+90000624:	1aa0ae23          	sw	a0,444(ra)
+
+90000628 <inst_112>:
+
+inst_112:
+// rs1_val==-1431655766 and imm_val==11, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0xa, -0x55555556, 0xb, x1, 448, x2)
+90000628:	aaaab537          	lui	a0,0xaaaab
+9000062c:	aaa50513          	addi	a0,a0,-1366 # aaaaaaaa <_end+0x1aaa73a6>
+90000630:	892d                	andi	a0,a0,11
+90000632:	1ca0a023          	sw	a0,448(ra)
+
+90000636 <inst_113>:
+
+inst_113:
+// rs1_val==-1431655766 and imm_val==7, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x2, -0x55555556, 0x7, x1, 452, x2)
+90000636:	aaaab537          	lui	a0,0xaaaab
+9000063a:	aaa50513          	addi	a0,a0,-1366 # aaaaaaaa <_end+0x1aaa73a6>
+9000063e:	891d                	andi	a0,a0,7
+90000640:	1ca0a223          	sw	a0,452(ra)
+
+90000644 <inst_114>:
+
+inst_114:
+// rs1_val==-1431655766 and imm_val==-1, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0xaaaaaaaa, -0x55555556, -0x1, x1, 456, x2)
+90000644:	aaaab537          	lui	a0,0xaaaab
+90000648:	aaa50513          	addi	a0,a0,-1366 # aaaaaaaa <_end+0x1aaa73a6>
+9000064c:	997d                	andi	a0,a0,-1
+9000064e:	1ca0a423          	sw	a0,456(ra)
+
+90000652 <inst_115>:
+
+inst_115:
+// rs1_val==-1431655766 and imm_val==-4, 
+// opcode: c.andi; op1:x10; immval:-0x4
+TEST_CI_OP( c.andi, x10, 0xaaaaaaa8, -0x55555556, -0x4, x1, 460, x2)
+90000652:	aaaab537          	lui	a0,0xaaaab
+90000656:	aaa50513          	addi	a0,a0,-1366 # aaaaaaaa <_end+0x1aaa73a6>
+9000065a:	9971                	andi	a0,a0,-4
+9000065c:	1ca0a623          	sw	a0,460(ra)
+
+90000660 <inst_116>:
+
+inst_116:
+// rs1_val==5 and imm_val==3, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x1, 0x5, 0x3, x1, 464, x2)
+90000660:	00500513          	li	a0,5
+90000664:	890d                	andi	a0,a0,3
+90000666:	1ca0a823          	sw	a0,464(ra)
+
+9000066a <inst_117>:
+
+inst_117:
+// rs1_val==5 and imm_val==5, 
+// opcode: c.andi; op1:x10; immval:0x5
+TEST_CI_OP( c.andi, x10, 0x5, 0x5, 0x5, x1, 468, x2)
+9000066a:	00500513          	li	a0,5
+9000066e:	8915                	andi	a0,a0,5
+90000670:	1ca0aa23          	sw	a0,468(ra)
+
+90000674 <inst_118>:
+
+inst_118:
+// rs1_val==5 and imm_val==10, 
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0x0, 0x5, 0xa, x1, 472, x2)
+90000674:	00500513          	li	a0,5
+90000678:	8929                	andi	a0,a0,10
+9000067a:	1ca0ac23          	sw	a0,472(ra)
+
+9000067e <inst_119>:
+
+inst_119:
+// rs1_val==5 and imm_val==6, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x4, 0x5, 0x6, x1, 476, x2)
+9000067e:	00500513          	li	a0,5
+90000682:	8919                	andi	a0,a0,6
+90000684:	1ca0ae23          	sw	a0,476(ra)
+
+90000688 <inst_120>:
+
+inst_120:
+// rs1_val==5 and imm_val==-2, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0x4, 0x5, -0x2, x1, 480, x2)
+90000688:	00500513          	li	a0,5
+9000068c:	9979                	andi	a0,a0,-2
+9000068e:	1ea0a023          	sw	a0,480(ra)
+
+90000692 <inst_121>:
+
+inst_121:
+// rs1_val==5 and imm_val==-5, 
+// opcode: c.andi; op1:x10; immval:-0x5
+TEST_CI_OP( c.andi, x10, 0x1, 0x5, -0x5, x1, 484, x2)
+90000692:	00500513          	li	a0,5
+90000696:	996d                	andi	a0,a0,-5
+90000698:	1ea0a223          	sw	a0,484(ra)
+
+9000069c <inst_122>:
+
+inst_122:
+// rs1_val==5 and imm_val==4, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x4, 0x5, 0x4, x1, 488, x2)
+9000069c:	00500513          	li	a0,5
+900006a0:	8911                	andi	a0,a0,4
+900006a2:	1ea0a423          	sw	a0,488(ra)
+
+900006a6 <inst_123>:
+
+inst_123:
+// rs1_val==5 and imm_val==9, 
+// opcode: c.andi; op1:x10; immval:0x9
+TEST_CI_OP( c.andi, x10, 0x1, 0x5, 0x9, x1, 492, x2)
+900006a6:	00500513          	li	a0,5
+900006aa:	8925                	andi	a0,a0,9
+900006ac:	1ea0a623          	sw	a0,492(ra)
+
+900006b0 <inst_124>:
+
+inst_124:
+// rs1_val==5 and imm_val==0, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, 0x5, 0x0, x1, 496, x2)
+900006b0:	00500513          	li	a0,5
+900006b4:	8901                	andi	a0,a0,0
+900006b6:	1ea0a823          	sw	a0,496(ra)
+
+900006ba <inst_125>:
+
+inst_125:
+// rs1_val==5 and imm_val==11, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0x1, 0x5, 0xb, x1, 500, x2)
+900006ba:	00500513          	li	a0,5
+900006be:	892d                	andi	a0,a0,11
+900006c0:	1ea0aa23          	sw	a0,500(ra)
+
+900006c4 <inst_126>:
+
+inst_126:
+// rs1_val==5 and imm_val==7, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x5, 0x5, 0x7, x1, 504, x2)
+900006c4:	00500513          	li	a0,5
+900006c8:	891d                	andi	a0,a0,7
+900006ca:	1ea0ac23          	sw	a0,504(ra)
+
+900006ce <inst_127>:
+
+inst_127:
+// rs1_val==5 and imm_val==-1, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0x5, 0x5, -0x1, x1, 508, x2)
+900006ce:	00500513          	li	a0,5
+900006d2:	997d                	andi	a0,a0,-1
+900006d4:	1ea0ae23          	sw	a0,508(ra)
+
+900006d8 <inst_128>:
+
+inst_128:
+// rs1_val==5 and imm_val==-4, 
+// opcode: c.andi; op1:x10; immval:-0x4
+TEST_CI_OP( c.andi, x10, 0x4, 0x5, -0x4, x1, 512, x2)
+900006d8:	00500513          	li	a0,5
+900006dc:	9971                	andi	a0,a0,-4
+900006de:	20a0a023          	sw	a0,512(ra)
+
+900006e2 <inst_129>:
+
+inst_129:
+// rs1_val==858993459 and imm_val==3, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x3, 0x33333333, 0x3, x1, 516, x2)
+900006e2:	33333537          	lui	a0,0x33333
+900006e6:	33350513          	addi	a0,a0,819 # 33333333 <offset+0x33332d53>
+900006ea:	890d                	andi	a0,a0,3
+900006ec:	20a0a223          	sw	a0,516(ra)
+
+900006f0 <inst_130>:
+
+inst_130:
+// rs1_val==858993459 and imm_val==5, 
+// opcode: c.andi; op1:x10; immval:0x5
+TEST_CI_OP( c.andi, x10, 0x1, 0x33333333, 0x5, x1, 520, x2)
+900006f0:	33333537          	lui	a0,0x33333
+900006f4:	33350513          	addi	a0,a0,819 # 33333333 <offset+0x33332d53>
+900006f8:	8915                	andi	a0,a0,5
+900006fa:	20a0a423          	sw	a0,520(ra)
+
+900006fe <inst_131>:
+
+inst_131:
+// rs1_val==858993459 and imm_val==10, 
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0x2, 0x33333333, 0xa, x1, 524, x2)
+900006fe:	33333537          	lui	a0,0x33333
+90000702:	33350513          	addi	a0,a0,819 # 33333333 <offset+0x33332d53>
+90000706:	8929                	andi	a0,a0,10
+90000708:	20a0a623          	sw	a0,524(ra)
+
+9000070c <inst_132>:
+
+inst_132:
+// rs1_val==858993459 and imm_val==6, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x2, 0x33333333, 0x6, x1, 528, x2)
+9000070c:	33333537          	lui	a0,0x33333
+90000710:	33350513          	addi	a0,a0,819 # 33333333 <offset+0x33332d53>
+90000714:	8919                	andi	a0,a0,6
+90000716:	20a0a823          	sw	a0,528(ra)
+
+9000071a <inst_133>:
+
+inst_133:
+// rs1_val==858993459 and imm_val==-2, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0x33333332, 0x33333333, -0x2, x1, 532, x2)
+9000071a:	33333537          	lui	a0,0x33333
+9000071e:	33350513          	addi	a0,a0,819 # 33333333 <offset+0x33332d53>
+90000722:	9979                	andi	a0,a0,-2
+90000724:	20a0aa23          	sw	a0,532(ra)
+
+90000728 <inst_134>:
+
+inst_134:
+// rs1_val==858993459 and imm_val==-5, 
+// opcode: c.andi; op1:x10; immval:-0x5
+TEST_CI_OP( c.andi, x10, 0x33333333, 0x33333333, -0x5, x1, 536, x2)
+90000728:	33333537          	lui	a0,0x33333
+9000072c:	33350513          	addi	a0,a0,819 # 33333333 <offset+0x33332d53>
+90000730:	996d                	andi	a0,a0,-5
+90000732:	20a0ac23          	sw	a0,536(ra)
+
+90000736 <inst_135>:
+
+inst_135:
+// rs1_val==858993459 and imm_val==2, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x2, 0x33333333, 0x2, x1, 540, x2)
+90000736:	33333537          	lui	a0,0x33333
+9000073a:	33350513          	addi	a0,a0,819 # 33333333 <offset+0x33332d53>
+9000073e:	8909                	andi	a0,a0,2
+90000740:	20a0ae23          	sw	a0,540(ra)
+
+90000744 <inst_136>:
+
+inst_136:
+// rs1_val==858993459 and imm_val==4, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x0, 0x33333333, 0x4, x1, 544, x2)
+90000744:	33333537          	lui	a0,0x33333
+90000748:	33350513          	addi	a0,a0,819 # 33333333 <offset+0x33332d53>
+9000074c:	8911                	andi	a0,a0,4
+9000074e:	22a0a023          	sw	a0,544(ra)
+
+90000752 <inst_137>:
+
+inst_137:
+// rs1_val==858993459 and imm_val==9, 
+// opcode: c.andi; op1:x10; immval:0x9
+TEST_CI_OP( c.andi, x10, 0x1, 0x33333333, 0x9, x1, 548, x2)
+90000752:	33333537          	lui	a0,0x33333
+90000756:	33350513          	addi	a0,a0,819 # 33333333 <offset+0x33332d53>
+9000075a:	8925                	andi	a0,a0,9
+9000075c:	22a0a223          	sw	a0,548(ra)
+
+90000760 <inst_138>:
+
+inst_138:
+// rs1_val==858993459 and imm_val==0, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, 0x33333333, 0x0, x1, 552, x2)
+90000760:	33333537          	lui	a0,0x33333
+90000764:	33350513          	addi	a0,a0,819 # 33333333 <offset+0x33332d53>
+90000768:	8901                	andi	a0,a0,0
+9000076a:	22a0a423          	sw	a0,552(ra)
+
+9000076e <inst_139>:
+
+inst_139:
+// rs1_val==858993459 and imm_val==11, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0x3, 0x33333333, 0xb, x1, 556, x2)
+9000076e:	33333537          	lui	a0,0x33333
+90000772:	33350513          	addi	a0,a0,819 # 33333333 <offset+0x33332d53>
+90000776:	892d                	andi	a0,a0,11
+90000778:	22a0a623          	sw	a0,556(ra)
+
+9000077c <inst_140>:
+
+inst_140:
+// rs1_val==858993459 and imm_val==7, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x3, 0x33333333, 0x7, x1, 560, x2)
+9000077c:	33333537          	lui	a0,0x33333
+90000780:	33350513          	addi	a0,a0,819 # 33333333 <offset+0x33332d53>
+90000784:	891d                	andi	a0,a0,7
+90000786:	22a0a823          	sw	a0,560(ra)
+
+9000078a <inst_141>:
+
+inst_141:
+// rs1_val==858993459 and imm_val==-1, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0x33333333, 0x33333333, -0x1, x1, 564, x2)
+9000078a:	33333537          	lui	a0,0x33333
+9000078e:	33350513          	addi	a0,a0,819 # 33333333 <offset+0x33332d53>
+90000792:	997d                	andi	a0,a0,-1
+90000794:	22a0aa23          	sw	a0,564(ra)
+
+90000798 <inst_142>:
+
+inst_142:
+// rs1_val==858993459 and imm_val==-4, 
+// opcode: c.andi; op1:x10; immval:-0x4
+TEST_CI_OP( c.andi, x10, 0x33333330, 0x33333333, -0x4, x1, 568, x2)
+90000798:	33333537          	lui	a0,0x33333
+9000079c:	33350513          	addi	a0,a0,819 # 33333333 <offset+0x33332d53>
+900007a0:	9971                	andi	a0,a0,-4
+900007a2:	22a0ac23          	sw	a0,568(ra)
+
+900007a6 <inst_143>:
+
+inst_143:
+// rs1_val==1717986918 and imm_val==3, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x2, 0x66666666, 0x3, x1, 572, x2)
+900007a6:	66666537          	lui	a0,0x66666
+900007aa:	66650513          	addi	a0,a0,1638 # 66666666 <offset+0x66666086>
+900007ae:	890d                	andi	a0,a0,3
+900007b0:	22a0ae23          	sw	a0,572(ra)
+
+900007b4 <inst_144>:
+
+inst_144:
+// rs1_val==1717986918 and imm_val==5, 
+// opcode: c.andi; op1:x10; immval:0x5
+TEST_CI_OP( c.andi, x10, 0x4, 0x66666666, 0x5, x1, 576, x2)
+900007b4:	66666537          	lui	a0,0x66666
+900007b8:	66650513          	addi	a0,a0,1638 # 66666666 <offset+0x66666086>
+900007bc:	8915                	andi	a0,a0,5
+900007be:	24a0a023          	sw	a0,576(ra)
+
+900007c2 <inst_145>:
+
+inst_145:
+// rs1_val==1717986918 and imm_val==10, 
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0x2, 0x66666666, 0xa, x1, 580, x2)
+900007c2:	66666537          	lui	a0,0x66666
+900007c6:	66650513          	addi	a0,a0,1638 # 66666666 <offset+0x66666086>
+900007ca:	8929                	andi	a0,a0,10
+900007cc:	24a0a223          	sw	a0,580(ra)
+
+900007d0 <inst_146>:
+
+inst_146:
+// rs1_val==1717986918 and imm_val==6, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x6, 0x66666666, 0x6, x1, 584, x2)
+900007d0:	66666537          	lui	a0,0x66666
+900007d4:	66650513          	addi	a0,a0,1638 # 66666666 <offset+0x66666086>
+900007d8:	8919                	andi	a0,a0,6
+900007da:	24a0a423          	sw	a0,584(ra)
+
+900007de <inst_147>:
+
+inst_147:
+// rs1_val==1717986918 and imm_val==-2, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0x66666666, 0x66666666, -0x2, x1, 588, x2)
+900007de:	66666537          	lui	a0,0x66666
+900007e2:	66650513          	addi	a0,a0,1638 # 66666666 <offset+0x66666086>
+900007e6:	9979                	andi	a0,a0,-2
+900007e8:	24a0a623          	sw	a0,588(ra)
+
+900007ec <inst_148>:
+
+inst_148:
+// rs1_val==1717986918 and imm_val==-5, 
+// opcode: c.andi; op1:x10; immval:-0x5
+TEST_CI_OP( c.andi, x10, 0x66666662, 0x66666666, -0x5, x1, 592, x2)
+900007ec:	66666537          	lui	a0,0x66666
+900007f0:	66650513          	addi	a0,a0,1638 # 66666666 <offset+0x66666086>
+900007f4:	996d                	andi	a0,a0,-5
+900007f6:	24a0a823          	sw	a0,592(ra)
+
+900007fa <inst_149>:
+
+inst_149:
+// rs1_val==1717986918 and imm_val==2, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x2, 0x66666666, 0x2, x1, 596, x2)
+900007fa:	66666537          	lui	a0,0x66666
+900007fe:	66650513          	addi	a0,a0,1638 # 66666666 <offset+0x66666086>
+90000802:	8909                	andi	a0,a0,2
+90000804:	24a0aa23          	sw	a0,596(ra)
+
+90000808 <inst_150>:
+
+inst_150:
+// rs1_val==1717986918 and imm_val==4, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x4, 0x66666666, 0x4, x1, 600, x2)
+90000808:	66666537          	lui	a0,0x66666
+9000080c:	66650513          	addi	a0,a0,1638 # 66666666 <offset+0x66666086>
+90000810:	8911                	andi	a0,a0,4
+90000812:	24a0ac23          	sw	a0,600(ra)
+
+90000816 <inst_151>:
+
+inst_151:
+// rs1_val==1717986918 and imm_val==9, 
+// opcode: c.andi; op1:x10; immval:0x9
+TEST_CI_OP( c.andi, x10, 0x0, 0x66666666, 0x9, x1, 604, x2)
+90000816:	66666537          	lui	a0,0x66666
+9000081a:	66650513          	addi	a0,a0,1638 # 66666666 <offset+0x66666086>
+9000081e:	8925                	andi	a0,a0,9
+90000820:	24a0ae23          	sw	a0,604(ra)
+
+90000824 <inst_152>:
+
+inst_152:
+// rs1_val==1717986918 and imm_val==0, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, 0x66666666, 0x0, x1, 608, x2)
+90000824:	66666537          	lui	a0,0x66666
+90000828:	66650513          	addi	a0,a0,1638 # 66666666 <offset+0x66666086>
+9000082c:	8901                	andi	a0,a0,0
+9000082e:	26a0a023          	sw	a0,608(ra)
+
+90000832 <inst_153>:
+
+inst_153:
+// rs1_val==1717986918 and imm_val==11, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0x2, 0x66666666, 0xb, x1, 612, x2)
+90000832:	66666537          	lui	a0,0x66666
+90000836:	66650513          	addi	a0,a0,1638 # 66666666 <offset+0x66666086>
+9000083a:	892d                	andi	a0,a0,11
+9000083c:	26a0a223          	sw	a0,612(ra)
+
+90000840 <inst_154>:
+
+inst_154:
+// rs1_val==1717986918 and imm_val==7, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x6, 0x66666666, 0x7, x1, 616, x2)
+90000840:	66666537          	lui	a0,0x66666
+90000844:	66650513          	addi	a0,a0,1638 # 66666666 <offset+0x66666086>
+90000848:	891d                	andi	a0,a0,7
+9000084a:	26a0a423          	sw	a0,616(ra)
+
+9000084e <inst_155>:
+
+inst_155:
+// rs1_val==1717986918 and imm_val==-1, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0x66666666, 0x66666666, -0x1, x1, 620, x2)
+9000084e:	66666537          	lui	a0,0x66666
+90000852:	66650513          	addi	a0,a0,1638 # 66666666 <offset+0x66666086>
+90000856:	997d                	andi	a0,a0,-1
+90000858:	26a0a623          	sw	a0,620(ra)
+
+9000085c <inst_156>:
+
+inst_156:
+// rs1_val==1717986918 and imm_val==-4, 
+// opcode: c.andi; op1:x10; immval:-0x4
+TEST_CI_OP( c.andi, x10, 0x66666664, 0x66666666, -0x4, x1, 624, x2)
+9000085c:	66666537          	lui	a0,0x66666
+90000860:	66650513          	addi	a0,a0,1638 # 66666666 <offset+0x66666086>
+90000864:	9971                	andi	a0,a0,-4
+90000866:	26a0a823          	sw	a0,624(ra)
+
+9000086a <inst_157>:
+
+inst_157:
+// rs1_val==-46340 and imm_val==3, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x0, -0xb504, 0x3, x1, 628, x2)
+9000086a:	ffff5537          	lui	a0,0xffff5
+9000086e:	afc50513          	addi	a0,a0,-1284 # ffff4afc <_end+0x6fff13f8>
+90000872:	890d                	andi	a0,a0,3
+90000874:	26a0aa23          	sw	a0,628(ra)
+
+90000878 <inst_158>:
+
+inst_158:
+// rs1_val==-46340 and imm_val==5, 
+// opcode: c.andi; op1:x10; immval:0x5
+TEST_CI_OP( c.andi, x10, 0x4, -0xb504, 0x5, x1, 632, x2)
+90000878:	ffff5537          	lui	a0,0xffff5
+9000087c:	afc50513          	addi	a0,a0,-1284 # ffff4afc <_end+0x6fff13f8>
+90000880:	8915                	andi	a0,a0,5
+90000882:	26a0ac23          	sw	a0,632(ra)
+
+90000886 <inst_159>:
+
+inst_159:
+// rs1_val==-46340 and imm_val==10, 
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0x8, -0xb504, 0xa, x1, 636, x2)
+90000886:	ffff5537          	lui	a0,0xffff5
+9000088a:	afc50513          	addi	a0,a0,-1284 # ffff4afc <_end+0x6fff13f8>
+9000088e:	8929                	andi	a0,a0,10
+90000890:	26a0ae23          	sw	a0,636(ra)
+
+90000894 <inst_160>:
+
+inst_160:
+// rs1_val==-46340 and imm_val==6, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x4, -0xb504, 0x6, x1, 640, x2)
+90000894:	ffff5537          	lui	a0,0xffff5
+90000898:	afc50513          	addi	a0,a0,-1284 # ffff4afc <_end+0x6fff13f8>
+9000089c:	8919                	andi	a0,a0,6
+9000089e:	28a0a023          	sw	a0,640(ra)
+
+900008a2 <inst_161>:
+
+inst_161:
+// rs1_val==-46340 and imm_val==-2, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0xffff4afc, -0xb504, -0x2, x1, 644, x2)
+900008a2:	ffff5537          	lui	a0,0xffff5
+900008a6:	afc50513          	addi	a0,a0,-1284 # ffff4afc <_end+0x6fff13f8>
+900008aa:	9979                	andi	a0,a0,-2
+900008ac:	28a0a223          	sw	a0,644(ra)
+
+900008b0 <inst_162>:
+
+inst_162:
+// rs1_val==-46340 and imm_val==-5, 
+// opcode: c.andi; op1:x10; immval:-0x5
+TEST_CI_OP( c.andi, x10, 0xffff4af8, -0xb504, -0x5, x1, 648, x2)
+900008b0:	ffff5537          	lui	a0,0xffff5
+900008b4:	afc50513          	addi	a0,a0,-1284 # ffff4afc <_end+0x6fff13f8>
+900008b8:	996d                	andi	a0,a0,-5
+900008ba:	28a0a423          	sw	a0,648(ra)
+
+900008be <inst_163>:
+
+inst_163:
+// rs1_val==-46340 and imm_val==2, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x0, -0xb504, 0x2, x1, 652, x2)
+900008be:	ffff5537          	lui	a0,0xffff5
+900008c2:	afc50513          	addi	a0,a0,-1284 # ffff4afc <_end+0x6fff13f8>
+900008c6:	8909                	andi	a0,a0,2
+900008c8:	28a0a623          	sw	a0,652(ra)
+
+900008cc <inst_164>:
+
+inst_164:
+// rs1_val==-46340 and imm_val==4, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x4, -0xb504, 0x4, x1, 656, x2)
+900008cc:	ffff5537          	lui	a0,0xffff5
+900008d0:	afc50513          	addi	a0,a0,-1284 # ffff4afc <_end+0x6fff13f8>
+900008d4:	8911                	andi	a0,a0,4
+900008d6:	28a0a823          	sw	a0,656(ra)
+
+900008da <inst_165>:
+
+inst_165:
+// rs1_val==-46340 and imm_val==9, 
+// opcode: c.andi; op1:x10; immval:0x9
+TEST_CI_OP( c.andi, x10, 0x8, -0xb504, 0x9, x1, 660, x2)
+900008da:	ffff5537          	lui	a0,0xffff5
+900008de:	afc50513          	addi	a0,a0,-1284 # ffff4afc <_end+0x6fff13f8>
+900008e2:	8925                	andi	a0,a0,9
+900008e4:	28a0aa23          	sw	a0,660(ra)
+
+900008e8 <inst_166>:
+
+inst_166:
+// rs1_val==-46340 and imm_val==11, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0x8, -0xb504, 0xb, x1, 664, x2)
+900008e8:	ffff5537          	lui	a0,0xffff5
+900008ec:	afc50513          	addi	a0,a0,-1284 # ffff4afc <_end+0x6fff13f8>
+900008f0:	892d                	andi	a0,a0,11
+900008f2:	28a0ac23          	sw	a0,664(ra)
+
+900008f6 <inst_167>:
+
+inst_167:
+// rs1_val==-46340 and imm_val==7, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x4, -0xb504, 0x7, x1, 668, x2)
+900008f6:	ffff5537          	lui	a0,0xffff5
+900008fa:	afc50513          	addi	a0,a0,-1284 # ffff4afc <_end+0x6fff13f8>
+900008fe:	891d                	andi	a0,a0,7
+90000900:	28a0ae23          	sw	a0,668(ra)
+
+90000904 <inst_168>:
+
+inst_168:
+// rs1_val==-46340 and imm_val==-1, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0xffff4afc, -0xb504, -0x1, x1, 672, x2)
+90000904:	ffff5537          	lui	a0,0xffff5
+90000908:	afc50513          	addi	a0,a0,-1284 # ffff4afc <_end+0x6fff13f8>
+9000090c:	997d                	andi	a0,a0,-1
+9000090e:	2aa0a023          	sw	a0,672(ra)
+
+90000912 <inst_169>:
+
+inst_169:
+// rs1_val==-46340 and imm_val==-4, 
+// opcode: c.andi; op1:x10; immval:-0x4
+TEST_CI_OP( c.andi, x10, 0xffff4afc, -0xb504, -0x4, x1, 676, x2)
+90000912:	ffff5537          	lui	a0,0xffff5
+90000916:	afc50513          	addi	a0,a0,-1284 # ffff4afc <_end+0x6fff13f8>
+9000091a:	9971                	andi	a0,a0,-4
+9000091c:	2aa0a223          	sw	a0,676(ra)
+
+90000920 <inst_170>:
+
+inst_170:
+// rs1_val==46340 and imm_val==3, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x0, 0xb504, 0x3, x1, 680, x2)
+90000920:	0000b537          	lui	a0,0xb
+90000924:	50450513          	addi	a0,a0,1284 # b504 <offset+0xaf24>
+90000928:	890d                	andi	a0,a0,3
+9000092a:	2aa0a423          	sw	a0,680(ra)
+
+9000092e <inst_171>:
+
+inst_171:
+// rs1_val==46340 and imm_val==5, 
+// opcode: c.andi; op1:x10; immval:0x5
+TEST_CI_OP( c.andi, x10, 0x4, 0xb504, 0x5, x1, 684, x2)
+9000092e:	0000b537          	lui	a0,0xb
+90000932:	50450513          	addi	a0,a0,1284 # b504 <offset+0xaf24>
+90000936:	8915                	andi	a0,a0,5
+90000938:	2aa0a623          	sw	a0,684(ra)
+
+9000093c <inst_172>:
+
+inst_172:
+// rs1_val==46340 and imm_val==10, 
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0x0, 0xb504, 0xa, x1, 688, x2)
+9000093c:	0000b537          	lui	a0,0xb
+90000940:	50450513          	addi	a0,a0,1284 # b504 <offset+0xaf24>
+90000944:	8929                	andi	a0,a0,10
+90000946:	2aa0a823          	sw	a0,688(ra)
+
+9000094a <inst_173>:
+
+inst_173:
+// rs1_val==46340 and imm_val==6, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x4, 0xb504, 0x6, x1, 692, x2)
+9000094a:	0000b537          	lui	a0,0xb
+9000094e:	50450513          	addi	a0,a0,1284 # b504 <offset+0xaf24>
+90000952:	8919                	andi	a0,a0,6
+90000954:	2aa0aa23          	sw	a0,692(ra)
+
+90000958 <inst_174>:
+
+inst_174:
+// rs1_val==46340 and imm_val==-2, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0xb504, 0xb504, -0x2, x1, 696, x2)
+90000958:	0000b537          	lui	a0,0xb
+9000095c:	50450513          	addi	a0,a0,1284 # b504 <offset+0xaf24>
+90000960:	9979                	andi	a0,a0,-2
+90000962:	2aa0ac23          	sw	a0,696(ra)
+
+90000966 <inst_175>:
+
+inst_175:
+// rs1_val==46340 and imm_val==-5, 
+// opcode: c.andi; op1:x10; immval:-0x5
+TEST_CI_OP( c.andi, x10, 0xb500, 0xb504, -0x5, x1, 700, x2)
+90000966:	0000b537          	lui	a0,0xb
+9000096a:	50450513          	addi	a0,a0,1284 # b504 <offset+0xaf24>
+9000096e:	996d                	andi	a0,a0,-5
+90000970:	2aa0ae23          	sw	a0,700(ra)
+
+90000974 <inst_176>:
+
+inst_176:
+// rs1_val==46340 and imm_val==2, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x0, 0xb504, 0x2, x1, 704, x2)
+90000974:	0000b537          	lui	a0,0xb
+90000978:	50450513          	addi	a0,a0,1284 # b504 <offset+0xaf24>
+9000097c:	8909                	andi	a0,a0,2
+9000097e:	2ca0a023          	sw	a0,704(ra)
+
+90000982 <inst_177>:
+
+inst_177:
+// rs1_val==46340 and imm_val==4, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x4, 0xb504, 0x4, x1, 708, x2)
+90000982:	0000b537          	lui	a0,0xb
+90000986:	50450513          	addi	a0,a0,1284 # b504 <offset+0xaf24>
+9000098a:	8911                	andi	a0,a0,4
+9000098c:	2ca0a223          	sw	a0,708(ra)
+
+90000990 <inst_178>:
+
+inst_178:
+// rs1_val==46340 and imm_val==9, 
+// opcode: c.andi; op1:x10; immval:0x9
+TEST_CI_OP( c.andi, x10, 0x0, 0xb504, 0x9, x1, 712, x2)
+90000990:	0000b537          	lui	a0,0xb
+90000994:	50450513          	addi	a0,a0,1284 # b504 <offset+0xaf24>
+90000998:	8925                	andi	a0,a0,9
+9000099a:	2ca0a423          	sw	a0,712(ra)
+
+9000099e <inst_179>:
+
+inst_179:
+// rs1_val==46340 and imm_val==0, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, 0xb504, 0x0, x1, 716, x2)
+9000099e:	0000b537          	lui	a0,0xb
+900009a2:	50450513          	addi	a0,a0,1284 # b504 <offset+0xaf24>
+900009a6:	8901                	andi	a0,a0,0
+900009a8:	2ca0a623          	sw	a0,716(ra)
+
+900009ac <inst_180>:
+
+inst_180:
+// rs1_val==46340 and imm_val==11, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0x0, 0xb504, 0xb, x1, 720, x2)
+900009ac:	0000b537          	lui	a0,0xb
+900009b0:	50450513          	addi	a0,a0,1284 # b504 <offset+0xaf24>
+900009b4:	892d                	andi	a0,a0,11
+900009b6:	2ca0a823          	sw	a0,720(ra)
+
+900009ba <inst_181>:
+
+inst_181:
+// rs1_val==46340 and imm_val==7, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x4, 0xb504, 0x7, x1, 724, x2)
+900009ba:	0000b537          	lui	a0,0xb
+900009be:	50450513          	addi	a0,a0,1284 # b504 <offset+0xaf24>
+900009c2:	891d                	andi	a0,a0,7
+900009c4:	2ca0aa23          	sw	a0,724(ra)
+
+900009c8 <inst_182>:
+
+inst_182:
+// rs1_val==46340 and imm_val==-1, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0xb504, 0xb504, -0x1, x1, 728, x2)
+900009c8:	0000b537          	lui	a0,0xb
+900009cc:	50450513          	addi	a0,a0,1284 # b504 <offset+0xaf24>
+900009d0:	997d                	andi	a0,a0,-1
+900009d2:	2ca0ac23          	sw	a0,728(ra)
+
+900009d6 <inst_183>:
+
+inst_183:
+// rs1_val==46340 and imm_val==-4, 
+// opcode: c.andi; op1:x10; immval:-0x4
+TEST_CI_OP( c.andi, x10, 0xb504, 0xb504, -0x4, x1, 732, x2)
+900009d6:	0000b537          	lui	a0,0xb
+900009da:	50450513          	addi	a0,a0,1284 # b504 <offset+0xaf24>
+900009de:	9971                	andi	a0,a0,-4
+900009e0:	2ca0ae23          	sw	a0,732(ra)
+
+900009e4 <inst_184>:
+
+inst_184:
+// rs1_val==2 and imm_val==3, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x2, 0x2, 0x3, x1, 736, x2)
+900009e4:	00200513          	li	a0,2
+900009e8:	890d                	andi	a0,a0,3
+900009ea:	2ea0a023          	sw	a0,736(ra)
+
+900009ee <inst_185>:
+
+inst_185:
+// rs1_val==2 and imm_val==10, 
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0x2, 0x2, 0xa, x1, 740, x2)
+900009ee:	00200513          	li	a0,2
+900009f2:	8929                	andi	a0,a0,10
+900009f4:	2ea0a223          	sw	a0,740(ra)
+
+900009f8 <inst_186>:
+
+inst_186:
+// rs1_val==2 and imm_val==6, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x2, 0x2, 0x6, x1, 744, x2)
+900009f8:	00200513          	li	a0,2
+900009fc:	8919                	andi	a0,a0,6
+900009fe:	2ea0a423          	sw	a0,744(ra)
+
+90000a02 <inst_187>:
+
+inst_187:
+// rs1_val==2 and imm_val==-2, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0x2, 0x2, -0x2, x1, 748, x2)
+90000a02:	00200513          	li	a0,2
+90000a06:	9979                	andi	a0,a0,-2
+90000a08:	2ea0a623          	sw	a0,748(ra)
+
+90000a0c <inst_188>:
+
+inst_188:
+// rs1_val==2 and imm_val==-5, 
+// opcode: c.andi; op1:x10; immval:-0x5
+TEST_CI_OP( c.andi, x10, 0x2, 0x2, -0x5, x1, 752, x2)
+90000a0c:	00200513          	li	a0,2
+90000a10:	996d                	andi	a0,a0,-5
+90000a12:	2ea0a823          	sw	a0,752(ra)
+
+90000a16 <inst_189>:
+
+inst_189:
+// rs1_val==2 and imm_val==2, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x2, 0x2, 0x2, x1, 756, x2)
+90000a16:	00200513          	li	a0,2
+90000a1a:	8909                	andi	a0,a0,2
+90000a1c:	2ea0aa23          	sw	a0,756(ra)
+
+90000a20 <inst_190>:
+
+inst_190:
+// rs1_val==2 and imm_val==4, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x0, 0x2, 0x4, x1, 760, x2)
+90000a20:	00200513          	li	a0,2
+90000a24:	8911                	andi	a0,a0,4
+90000a26:	2ea0ac23          	sw	a0,760(ra)
+
+90000a2a <inst_191>:
+
+inst_191:
+// rs1_val==2 and imm_val==9, 
+// opcode: c.andi; op1:x10; immval:0x9
+TEST_CI_OP( c.andi, x10, 0x0, 0x2, 0x9, x1, 764, x2)
+90000a2a:	00200513          	li	a0,2
+90000a2e:	8925                	andi	a0,a0,9
+90000a30:	2ea0ae23          	sw	a0,764(ra)
+
+90000a34 <inst_192>:
+
+inst_192:
+// rs1_val==2 and imm_val==0, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, 0x2, 0x0, x1, 768, x2)
+90000a34:	00200513          	li	a0,2
+90000a38:	8901                	andi	a0,a0,0
+90000a3a:	30a0a023          	sw	a0,768(ra)
+
+90000a3e <inst_193>:
+
+inst_193:
+// rs1_val==2 and imm_val==11, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0x2, 0x2, 0xb, x1, 772, x2)
+90000a3e:	00200513          	li	a0,2
+90000a42:	892d                	andi	a0,a0,11
+90000a44:	30a0a223          	sw	a0,772(ra)
+
+90000a48 <inst_194>:
+
+inst_194:
+// rs1_val==2 and imm_val==7, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x2, 0x2, 0x7, x1, 776, x2)
+90000a48:	00200513          	li	a0,2
+90000a4c:	891d                	andi	a0,a0,7
+90000a4e:	30a0a423          	sw	a0,776(ra)
+
+90000a52 <inst_195>:
+
+inst_195:
+// rs1_val==2 and imm_val==-1, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0x2, 0x2, -0x1, x1, 780, x2)
+90000a52:	00200513          	li	a0,2
+90000a56:	997d                	andi	a0,a0,-1
+90000a58:	30a0a623          	sw	a0,780(ra)
+
+90000a5c <inst_196>:
+
+inst_196:
+// rs1_val==2 and imm_val==-4, 
+// opcode: c.andi; op1:x10; immval:-0x4
+TEST_CI_OP( c.andi, x10, 0x0, 0x2, -0x4, x1, 784, x2)
+90000a5c:	00200513          	li	a0,2
+90000a60:	9971                	andi	a0,a0,-4
+90000a62:	30a0a823          	sw	a0,784(ra)
+
+90000a66 <inst_197>:
+
+inst_197:
+// rs1_val==1431655764 and imm_val==3, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x0, 0x55555554, 0x3, x1, 788, x2)
+90000a66:	55555537          	lui	a0,0x55555
+90000a6a:	55450513          	addi	a0,a0,1364 # 55555554 <offset+0x55554f74>
+90000a6e:	890d                	andi	a0,a0,3
+90000a70:	30a0aa23          	sw	a0,788(ra)
+
+90000a74 <inst_198>:
+
+inst_198:
+// rs1_val==1431655764 and imm_val==5, 
+// opcode: c.andi; op1:x10; immval:0x5
+TEST_CI_OP( c.andi, x10, 0x4, 0x55555554, 0x5, x1, 792, x2)
+90000a74:	55555537          	lui	a0,0x55555
+90000a78:	55450513          	addi	a0,a0,1364 # 55555554 <offset+0x55554f74>
+90000a7c:	8915                	andi	a0,a0,5
+90000a7e:	30a0ac23          	sw	a0,792(ra)
+
+90000a82 <inst_199>:
+
+inst_199:
+// rs1_val==1431655764 and imm_val==10, 
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0x0, 0x55555554, 0xa, x1, 796, x2)
+90000a82:	55555537          	lui	a0,0x55555
+90000a86:	55450513          	addi	a0,a0,1364 # 55555554 <offset+0x55554f74>
+90000a8a:	8929                	andi	a0,a0,10
+90000a8c:	30a0ae23          	sw	a0,796(ra)
+
+90000a90 <inst_200>:
+
+inst_200:
+// rs1_val==1431655764 and imm_val==6, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x4, 0x55555554, 0x6, x1, 800, x2)
+90000a90:	55555537          	lui	a0,0x55555
+90000a94:	55450513          	addi	a0,a0,1364 # 55555554 <offset+0x55554f74>
+90000a98:	8919                	andi	a0,a0,6
+90000a9a:	32a0a023          	sw	a0,800(ra)
+
+90000a9e <inst_201>:
+
+inst_201:
+// rs1_val==1431655764 and imm_val==-2, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0x55555554, 0x55555554, -0x2, x1, 804, x2)
+90000a9e:	55555537          	lui	a0,0x55555
+90000aa2:	55450513          	addi	a0,a0,1364 # 55555554 <offset+0x55554f74>
+90000aa6:	9979                	andi	a0,a0,-2
+90000aa8:	32a0a223          	sw	a0,804(ra)
+
+90000aac <inst_202>:
+
+inst_202:
+// rs1_val==1431655764 and imm_val==-5, 
+// opcode: c.andi; op1:x10; immval:-0x5
+TEST_CI_OP( c.andi, x10, 0x55555550, 0x55555554, -0x5, x1, 808, x2)
+90000aac:	55555537          	lui	a0,0x55555
+90000ab0:	55450513          	addi	a0,a0,1364 # 55555554 <offset+0x55554f74>
+90000ab4:	996d                	andi	a0,a0,-5
+90000ab6:	32a0a423          	sw	a0,808(ra)
+
+90000aba <inst_203>:
+
+inst_203:
+// rs1_val==1431655764 and imm_val==2, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x0, 0x55555554, 0x2, x1, 812, x2)
+90000aba:	55555537          	lui	a0,0x55555
+90000abe:	55450513          	addi	a0,a0,1364 # 55555554 <offset+0x55554f74>
+90000ac2:	8909                	andi	a0,a0,2
+90000ac4:	32a0a623          	sw	a0,812(ra)
+
+90000ac8 <inst_204>:
+
+inst_204:
+// rs1_val==1431655764 and imm_val==4, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x4, 0x55555554, 0x4, x1, 816, x2)
+90000ac8:	55555537          	lui	a0,0x55555
+90000acc:	55450513          	addi	a0,a0,1364 # 55555554 <offset+0x55554f74>
+90000ad0:	8911                	andi	a0,a0,4
+90000ad2:	32a0a823          	sw	a0,816(ra)
+
+90000ad6 <inst_205>:
+
+inst_205:
+// rs1_val==1431655764 and imm_val==9, 
+// opcode: c.andi; op1:x10; immval:0x9
+TEST_CI_OP( c.andi, x10, 0x0, 0x55555554, 0x9, x1, 820, x2)
+90000ad6:	55555537          	lui	a0,0x55555
+90000ada:	55450513          	addi	a0,a0,1364 # 55555554 <offset+0x55554f74>
+90000ade:	8925                	andi	a0,a0,9
+90000ae0:	32a0aa23          	sw	a0,820(ra)
+
+90000ae4 <inst_206>:
+
+inst_206:
+// rs1_val==1431655764 and imm_val==0, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, 0x55555554, 0x0, x1, 824, x2)
+90000ae4:	55555537          	lui	a0,0x55555
+90000ae8:	55450513          	addi	a0,a0,1364 # 55555554 <offset+0x55554f74>
+90000aec:	8901                	andi	a0,a0,0
+90000aee:	32a0ac23          	sw	a0,824(ra)
+
+90000af2 <inst_207>:
+
+inst_207:
+// rs1_val==1431655764 and imm_val==11, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0x0, 0x55555554, 0xb, x1, 828, x2)
+90000af2:	55555537          	lui	a0,0x55555
+90000af6:	55450513          	addi	a0,a0,1364 # 55555554 <offset+0x55554f74>
+90000afa:	892d                	andi	a0,a0,11
+90000afc:	32a0ae23          	sw	a0,828(ra)
+
+90000b00 <inst_208>:
+
+inst_208:
+// rs1_val==1431655764 and imm_val==7, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x4, 0x55555554, 0x7, x1, 832, x2)
+90000b00:	55555537          	lui	a0,0x55555
+90000b04:	55450513          	addi	a0,a0,1364 # 55555554 <offset+0x55554f74>
+90000b08:	891d                	andi	a0,a0,7
+90000b0a:	34a0a023          	sw	a0,832(ra)
+
+90000b0e <inst_209>:
+
+inst_209:
+// rs1_val==1431655764 and imm_val==-1, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0x55555554, 0x55555554, -0x1, x1, 836, x2)
+90000b0e:	55555537          	lui	a0,0x55555
+90000b12:	55450513          	addi	a0,a0,1364 # 55555554 <offset+0x55554f74>
+90000b16:	997d                	andi	a0,a0,-1
+90000b18:	34a0a223          	sw	a0,836(ra)
+
+90000b1c <inst_210>:
+
+inst_210:
+// rs1_val==1431655764 and imm_val==-4, 
+// opcode: c.andi; op1:x10; immval:-0x4
+TEST_CI_OP( c.andi, x10, 0x55555554, 0x55555554, -0x4, x1, 840, x2)
+90000b1c:	55555537          	lui	a0,0x55555
+90000b20:	55450513          	addi	a0,a0,1364 # 55555554 <offset+0x55554f74>
+90000b24:	9971                	andi	a0,a0,-4
+90000b26:	34a0a423          	sw	a0,840(ra)
+
+90000b2a <inst_211>:
+
+inst_211:
+// rs1_val==0 and imm_val==3, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x0, 0x0, 0x3, x1, 844, x2)
+90000b2a:	00000513          	li	a0,0
+90000b2e:	890d                	andi	a0,a0,3
+90000b30:	34a0a623          	sw	a0,844(ra)
+
+90000b34 <inst_212>:
+
+inst_212:
+// rs1_val==0 and imm_val==5, 
+// opcode: c.andi; op1:x10; immval:0x5
+TEST_CI_OP( c.andi, x10, 0x0, 0x0, 0x5, x1, 848, x2)
+90000b34:	00000513          	li	a0,0
+90000b38:	8915                	andi	a0,a0,5
+90000b3a:	34a0a823          	sw	a0,848(ra)
+
+90000b3e <inst_213>:
+
+inst_213:
+// rs1_val==0 and imm_val==10, 
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0x0, 0x0, 0xa, x1, 852, x2)
+90000b3e:	00000513          	li	a0,0
+90000b42:	8929                	andi	a0,a0,10
+90000b44:	34a0aa23          	sw	a0,852(ra)
+
+90000b48 <inst_214>:
+
+inst_214:
+// rs1_val==0 and imm_val==6, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x0, 0x0, 0x6, x1, 856, x2)
+90000b48:	00000513          	li	a0,0
+90000b4c:	8919                	andi	a0,a0,6
+90000b4e:	34a0ac23          	sw	a0,856(ra)
+
+90000b52 <inst_215>:
+
+inst_215:
+// rs1_val==0 and imm_val==-2, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0x0, 0x0, -0x2, x1, 860, x2)
+90000b52:	00000513          	li	a0,0
+90000b56:	9979                	andi	a0,a0,-2
+90000b58:	34a0ae23          	sw	a0,860(ra)
+
+90000b5c <inst_216>:
+
+inst_216:
+// rs1_val==0 and imm_val==-5, 
+// opcode: c.andi; op1:x10; immval:-0x5
+TEST_CI_OP( c.andi, x10, 0x0, 0x0, -0x5, x1, 864, x2)
+90000b5c:	00000513          	li	a0,0
+90000b60:	996d                	andi	a0,a0,-5
+90000b62:	36a0a023          	sw	a0,864(ra)
+
+90000b66 <inst_217>:
+
+inst_217:
+// rs1_val==0 and imm_val==2, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x0, 0x0, 0x2, x1, 868, x2)
+90000b66:	00000513          	li	a0,0
+90000b6a:	8909                	andi	a0,a0,2
+90000b6c:	36a0a223          	sw	a0,868(ra)
+
+90000b70 <inst_218>:
+
+inst_218:
+// rs1_val==0 and imm_val==9, 
+// opcode: c.andi; op1:x10; immval:0x9
+TEST_CI_OP( c.andi, x10, 0x0, 0x0, 0x9, x1, 872, x2)
+90000b70:	00000513          	li	a0,0
+90000b74:	8925                	andi	a0,a0,9
+90000b76:	36a0a423          	sw	a0,872(ra)
+
+90000b7a <inst_219>:
+
+inst_219:
+// rs1_val==0 and imm_val==0, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, 0x0, 0x0, x1, 876, x2)
+90000b7a:	00000513          	li	a0,0
+90000b7e:	8901                	andi	a0,a0,0
+90000b80:	36a0a623          	sw	a0,876(ra)
+
+90000b84 <inst_220>:
+
+inst_220:
+// rs1_val==0 and imm_val==11, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0x0, 0x0, 0xb, x1, 880, x2)
+90000b84:	00000513          	li	a0,0
+90000b88:	892d                	andi	a0,a0,11
+90000b8a:	36a0a823          	sw	a0,880(ra)
+
+90000b8e <inst_221>:
+
+inst_221:
+// rs1_val==0 and imm_val==7, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x0, 0x0, 0x7, x1, 884, x2)
+90000b8e:	00000513          	li	a0,0
+90000b92:	891d                	andi	a0,a0,7
+90000b94:	36a0aa23          	sw	a0,884(ra)
+
+90000b98 <inst_222>:
+
+inst_222:
+// rs1_val==0 and imm_val==-1, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0x0, 0x0, -0x1, x1, 888, x2)
+90000b98:	00000513          	li	a0,0
+90000b9c:	997d                	andi	a0,a0,-1
+90000b9e:	36a0ac23          	sw	a0,888(ra)
+
+90000ba2 <inst_223>:
+
+inst_223:
+// rs1_val==0 and imm_val==-4, 
+// opcode: c.andi; op1:x10; immval:-0x4
+TEST_CI_OP( c.andi, x10, 0x0, 0x0, -0x4, x1, 892, x2)
+90000ba2:	00000513          	li	a0,0
+90000ba6:	9971                	andi	a0,a0,-4
+90000ba8:	36a0ae23          	sw	a0,892(ra)
+
+90000bac <inst_224>:
+
+inst_224:
+// rs1_val==4 and imm_val==3, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x0, 0x4, 0x3, x1, 896, x2)
+90000bac:	00400513          	li	a0,4
+90000bb0:	890d                	andi	a0,a0,3
+90000bb2:	38a0a023          	sw	a0,896(ra)
+
+90000bb6 <inst_225>:
+
+inst_225:
+// rs1_val==4 and imm_val==5, 
+// opcode: c.andi; op1:x10; immval:0x5
+TEST_CI_OP( c.andi, x10, 0x4, 0x4, 0x5, x1, 900, x2)
+90000bb6:	00400513          	li	a0,4
+90000bba:	8915                	andi	a0,a0,5
+90000bbc:	38a0a223          	sw	a0,900(ra)
+
+90000bc0 <inst_226>:
+
+inst_226:
+// rs1_val==4 and imm_val==6, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x4, 0x4, 0x6, x1, 904, x2)
+90000bc0:	00400513          	li	a0,4
+90000bc4:	8919                	andi	a0,a0,6
+90000bc6:	38a0a423          	sw	a0,904(ra)
+
+90000bca <inst_227>:
+
+inst_227:
+// rs1_val==4 and imm_val==-2, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0x4, 0x4, -0x2, x1, 908, x2)
+90000bca:	00400513          	li	a0,4
+90000bce:	9979                	andi	a0,a0,-2
+90000bd0:	38a0a623          	sw	a0,908(ra)
+
+90000bd4 <inst_228>:
+
+inst_228:
+// rs1_val==4 and imm_val==-5, 
+// opcode: c.andi; op1:x10; immval:-0x5
+TEST_CI_OP( c.andi, x10, 0x0, 0x4, -0x5, x1, 912, x2)
+90000bd4:	00400513          	li	a0,4
+90000bd8:	996d                	andi	a0,a0,-5
+90000bda:	38a0a823          	sw	a0,912(ra)
+
+90000bde <inst_229>:
+
+inst_229:
+// rs1_val==4 and imm_val==2, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x0, 0x4, 0x2, x1, 916, x2)
+90000bde:	00400513          	li	a0,4
+90000be2:	8909                	andi	a0,a0,2
+90000be4:	38a0aa23          	sw	a0,916(ra)
+
+90000be8 <inst_230>:
+
+inst_230:
+// rs1_val==4 and imm_val==4, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x4, 0x4, 0x4, x1, 920, x2)
+90000be8:	00400513          	li	a0,4
+90000bec:	8911                	andi	a0,a0,4
+90000bee:	38a0ac23          	sw	a0,920(ra)
+
+90000bf2 <inst_231>:
+
+inst_231:
+// rs1_val==4 and imm_val==9, 
+// opcode: c.andi; op1:x10; immval:0x9
+TEST_CI_OP( c.andi, x10, 0x0, 0x4, 0x9, x1, 924, x2)
+90000bf2:	00400513          	li	a0,4
+90000bf6:	8925                	andi	a0,a0,9
+90000bf8:	38a0ae23          	sw	a0,924(ra)
+
+90000bfc <inst_232>:
+
+inst_232:
+// rs1_val==4 and imm_val==0, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, 0x4, 0x0, x1, 928, x2)
+90000bfc:	00400513          	li	a0,4
+90000c00:	8901                	andi	a0,a0,0
+90000c02:	3aa0a023          	sw	a0,928(ra)
+
+90000c06 <inst_233>:
+
+inst_233:
+// rs1_val==4 and imm_val==11, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0x0, 0x4, 0xb, x1, 932, x2)
+90000c06:	00400513          	li	a0,4
+90000c0a:	892d                	andi	a0,a0,11
+90000c0c:	3aa0a223          	sw	a0,932(ra)
+
+90000c10 <inst_234>:
+
+inst_234:
+// rs1_val==4 and imm_val==7, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x4, 0x4, 0x7, x1, 936, x2)
+90000c10:	00400513          	li	a0,4
+90000c14:	891d                	andi	a0,a0,7
+90000c16:	3aa0a423          	sw	a0,936(ra)
+
+90000c1a <inst_235>:
+
+inst_235:
+// rs1_val==4 and imm_val==-1, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0x4, 0x4, -0x1, x1, 940, x2)
+90000c1a:	00400513          	li	a0,4
+90000c1e:	997d                	andi	a0,a0,-1
+90000c20:	3aa0a623          	sw	a0,940(ra)
+
+90000c24 <inst_236>:
+
+inst_236:
+// rs1_val==4 and imm_val==-4, 
+// opcode: c.andi; op1:x10; immval:-0x4
+TEST_CI_OP( c.andi, x10, 0x4, 0x4, -0x4, x1, 944, x2)
+90000c24:	00400513          	li	a0,4
+90000c28:	9971                	andi	a0,a0,-4
+90000c2a:	3aa0a823          	sw	a0,944(ra)
+
+90000c2e <inst_237>:
+
+inst_237:
+// rs1_val==858993458 and imm_val==3, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x2, 0x33333332, 0x3, x1, 948, x2)
+90000c2e:	33333537          	lui	a0,0x33333
+90000c32:	33250513          	addi	a0,a0,818 # 33333332 <offset+0x33332d52>
+90000c36:	890d                	andi	a0,a0,3
+90000c38:	3aa0aa23          	sw	a0,948(ra)
+
+90000c3c <inst_238>:
+
+inst_238:
+// rs1_val==858993458 and imm_val==5, 
+// opcode: c.andi; op1:x10; immval:0x5
+TEST_CI_OP( c.andi, x10, 0x0, 0x33333332, 0x5, x1, 952, x2)
+90000c3c:	33333537          	lui	a0,0x33333
+90000c40:	33250513          	addi	a0,a0,818 # 33333332 <offset+0x33332d52>
+90000c44:	8915                	andi	a0,a0,5
+90000c46:	3aa0ac23          	sw	a0,952(ra)
+
+90000c4a <inst_239>:
+
+inst_239:
+// rs1_val==858993458 and imm_val==10, 
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0x2, 0x33333332, 0xa, x1, 956, x2)
+90000c4a:	33333537          	lui	a0,0x33333
+90000c4e:	33250513          	addi	a0,a0,818 # 33333332 <offset+0x33332d52>
+90000c52:	8929                	andi	a0,a0,10
+90000c54:	3aa0ae23          	sw	a0,956(ra)
+
+90000c58 <inst_240>:
+
+inst_240:
+// rs1_val==858993458 and imm_val==6, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x2, 0x33333332, 0x6, x1, 960, x2)
+90000c58:	33333537          	lui	a0,0x33333
+90000c5c:	33250513          	addi	a0,a0,818 # 33333332 <offset+0x33332d52>
+90000c60:	8919                	andi	a0,a0,6
+90000c62:	3ca0a023          	sw	a0,960(ra)
+
+90000c66 <inst_241>:
+
+inst_241:
+// rs1_val==858993458 and imm_val==-2, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0x33333332, 0x33333332, -0x2, x1, 964, x2)
+90000c66:	33333537          	lui	a0,0x33333
+90000c6a:	33250513          	addi	a0,a0,818 # 33333332 <offset+0x33332d52>
+90000c6e:	9979                	andi	a0,a0,-2
+90000c70:	3ca0a223          	sw	a0,964(ra)
+
+90000c74 <inst_242>:
+
+inst_242:
+// rs1_val==858993458 and imm_val==-5, 
+// opcode: c.andi; op1:x10; immval:-0x5
+TEST_CI_OP( c.andi, x10, 0x33333332, 0x33333332, -0x5, x1, 968, x2)
+90000c74:	33333537          	lui	a0,0x33333
+90000c78:	33250513          	addi	a0,a0,818 # 33333332 <offset+0x33332d52>
+90000c7c:	996d                	andi	a0,a0,-5
+90000c7e:	3ca0a423          	sw	a0,968(ra)
+
+90000c82 <inst_243>:
+
+inst_243:
+// rs1_val==858993458 and imm_val==2, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x2, 0x33333332, 0x2, x1, 972, x2)
+90000c82:	33333537          	lui	a0,0x33333
+90000c86:	33250513          	addi	a0,a0,818 # 33333332 <offset+0x33332d52>
+90000c8a:	8909                	andi	a0,a0,2
+90000c8c:	3ca0a623          	sw	a0,972(ra)
+
+90000c90 <inst_244>:
+
+inst_244:
+// rs1_val==858993458 and imm_val==4, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x0, 0x33333332, 0x4, x1, 976, x2)
+90000c90:	33333537          	lui	a0,0x33333
+90000c94:	33250513          	addi	a0,a0,818 # 33333332 <offset+0x33332d52>
+90000c98:	8911                	andi	a0,a0,4
+90000c9a:	3ca0a823          	sw	a0,976(ra)
+
+90000c9e <inst_245>:
+
+inst_245:
+// rs1_val==858993458 and imm_val==9, 
+// opcode: c.andi; op1:x10; immval:0x9
+TEST_CI_OP( c.andi, x10, 0x0, 0x33333332, 0x9, x1, 980, x2)
+90000c9e:	33333537          	lui	a0,0x33333
+90000ca2:	33250513          	addi	a0,a0,818 # 33333332 <offset+0x33332d52>
+90000ca6:	8925                	andi	a0,a0,9
+90000ca8:	3ca0aa23          	sw	a0,980(ra)
+
+90000cac <inst_246>:
+
+inst_246:
+// rs1_val==858993458 and imm_val==0, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, 0x33333332, 0x0, x1, 984, x2)
+90000cac:	33333537          	lui	a0,0x33333
+90000cb0:	33250513          	addi	a0,a0,818 # 33333332 <offset+0x33332d52>
+90000cb4:	8901                	andi	a0,a0,0
+90000cb6:	3ca0ac23          	sw	a0,984(ra)
+
+90000cba <inst_247>:
+
+inst_247:
+// rs1_val==858993458 and imm_val==11, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0x2, 0x33333332, 0xb, x1, 988, x2)
+90000cba:	33333537          	lui	a0,0x33333
+90000cbe:	33250513          	addi	a0,a0,818 # 33333332 <offset+0x33332d52>
+90000cc2:	892d                	andi	a0,a0,11
+90000cc4:	3ca0ae23          	sw	a0,988(ra)
+
+90000cc8 <inst_248>:
+
+inst_248:
+// rs1_val==858993458 and imm_val==7, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x2, 0x33333332, 0x7, x1, 992, x2)
+90000cc8:	33333537          	lui	a0,0x33333
+90000ccc:	33250513          	addi	a0,a0,818 # 33333332 <offset+0x33332d52>
+90000cd0:	891d                	andi	a0,a0,7
+90000cd2:	3ea0a023          	sw	a0,992(ra)
+
+90000cd6 <inst_249>:
+
+inst_249:
+// rs1_val==858993458 and imm_val==-1, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0x33333332, 0x33333332, -0x1, x1, 996, x2)
+90000cd6:	33333537          	lui	a0,0x33333
+90000cda:	33250513          	addi	a0,a0,818 # 33333332 <offset+0x33332d52>
+90000cde:	997d                	andi	a0,a0,-1
+90000ce0:	3ea0a223          	sw	a0,996(ra)
+
+90000ce4 <inst_250>:
+
+inst_250:
+// rs1_val==858993458 and imm_val==-4, 
+// opcode: c.andi; op1:x10; immval:-0x4
+TEST_CI_OP( c.andi, x10, 0x33333330, 0x33333332, -0x4, x1, 1000, x2)
+90000ce4:	33333537          	lui	a0,0x33333
+90000ce8:	33250513          	addi	a0,a0,818 # 33333332 <offset+0x33332d52>
+90000cec:	9971                	andi	a0,a0,-4
+90000cee:	3ea0a423          	sw	a0,1000(ra)
+
+90000cf2 <inst_251>:
+
+inst_251:
+// rs1_val==1717986917 and imm_val==3, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x1, 0x66666665, 0x3, x1, 1004, x2)
+90000cf2:	66666537          	lui	a0,0x66666
+90000cf6:	66550513          	addi	a0,a0,1637 # 66666665 <offset+0x66666085>
+90000cfa:	890d                	andi	a0,a0,3
+90000cfc:	3ea0a623          	sw	a0,1004(ra)
+
+90000d00 <inst_252>:
+
+inst_252:
+// rs1_val==1717986917 and imm_val==5, 
+// opcode: c.andi; op1:x10; immval:0x5
+TEST_CI_OP( c.andi, x10, 0x5, 0x66666665, 0x5, x1, 1008, x2)
+90000d00:	66666537          	lui	a0,0x66666
+90000d04:	66550513          	addi	a0,a0,1637 # 66666665 <offset+0x66666085>
+90000d08:	8915                	andi	a0,a0,5
+90000d0a:	3ea0a823          	sw	a0,1008(ra)
+
+90000d0e <inst_253>:
+
+inst_253:
+// rs1_val==1717986917 and imm_val==10, 
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0x0, 0x66666665, 0xa, x1, 1012, x2)
+90000d0e:	66666537          	lui	a0,0x66666
+90000d12:	66550513          	addi	a0,a0,1637 # 66666665 <offset+0x66666085>
+90000d16:	8929                	andi	a0,a0,10
+90000d18:	3ea0aa23          	sw	a0,1012(ra)
+
+90000d1c <inst_254>:
+
+inst_254:
+// rs1_val==1717986917 and imm_val==6, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x4, 0x66666665, 0x6, x1, 1016, x2)
+90000d1c:	66666537          	lui	a0,0x66666
+90000d20:	66550513          	addi	a0,a0,1637 # 66666665 <offset+0x66666085>
+90000d24:	8919                	andi	a0,a0,6
+90000d26:	3ea0ac23          	sw	a0,1016(ra)
+
+90000d2a <inst_255>:
+
+inst_255:
+// rs1_val==1717986917 and imm_val==-2, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0x66666664, 0x66666665, -0x2, x1, 1020, x2)
+90000d2a:	66666537          	lui	a0,0x66666
+90000d2e:	66550513          	addi	a0,a0,1637 # 66666665 <offset+0x66666085>
+90000d32:	9979                	andi	a0,a0,-2
+90000d34:	3ea0ae23          	sw	a0,1020(ra)
+
+90000d38 <inst_256>:
+
+inst_256:
+// rs1_val==1717986917 and imm_val==-5, 
+// opcode: c.andi; op1:x10; immval:-0x5
+TEST_CI_OP( c.andi, x10, 0x66666661, 0x66666665, -0x5, x1, 1024, x2)
+90000d38:	66666537          	lui	a0,0x66666
+90000d3c:	66550513          	addi	a0,a0,1637 # 66666665 <offset+0x66666085>
+90000d40:	996d                	andi	a0,a0,-5
+90000d42:	40a0a023          	sw	a0,1024(ra)
+
+90000d46 <inst_257>:
+
+inst_257:
+// rs1_val==1717986917 and imm_val==2, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x0, 0x66666665, 0x2, x1, 1028, x2)
+90000d46:	66666537          	lui	a0,0x66666
+90000d4a:	66550513          	addi	a0,a0,1637 # 66666665 <offset+0x66666085>
+90000d4e:	8909                	andi	a0,a0,2
+90000d50:	40a0a223          	sw	a0,1028(ra)
+
+90000d54 <inst_258>:
+
+inst_258:
+// rs1_val==1717986917 and imm_val==4, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x4, 0x66666665, 0x4, x1, 1032, x2)
+90000d54:	66666537          	lui	a0,0x66666
+90000d58:	66550513          	addi	a0,a0,1637 # 66666665 <offset+0x66666085>
+90000d5c:	8911                	andi	a0,a0,4
+90000d5e:	40a0a423          	sw	a0,1032(ra)
+
+90000d62 <inst_259>:
+
+inst_259:
+// rs1_val==1717986917 and imm_val==9, 
+// opcode: c.andi; op1:x10; immval:0x9
+TEST_CI_OP( c.andi, x10, 0x1, 0x66666665, 0x9, x1, 1036, x2)
+90000d62:	66666537          	lui	a0,0x66666
+90000d66:	66550513          	addi	a0,a0,1637 # 66666665 <offset+0x66666085>
+90000d6a:	8925                	andi	a0,a0,9
+90000d6c:	40a0a623          	sw	a0,1036(ra)
+
+90000d70 <inst_260>:
+
+inst_260:
+// rs1_val==1717986917 and imm_val==0, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, 0x66666665, 0x0, x1, 1040, x2)
+90000d70:	66666537          	lui	a0,0x66666
+90000d74:	66550513          	addi	a0,a0,1637 # 66666665 <offset+0x66666085>
+90000d78:	8901                	andi	a0,a0,0
+90000d7a:	40a0a823          	sw	a0,1040(ra)
+
+90000d7e <inst_261>:
+
+inst_261:
+// rs1_val==1717986917 and imm_val==11, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0x1, 0x66666665, 0xb, x1, 1044, x2)
+90000d7e:	66666537          	lui	a0,0x66666
+90000d82:	66550513          	addi	a0,a0,1637 # 66666665 <offset+0x66666085>
+90000d86:	892d                	andi	a0,a0,11
+90000d88:	40a0aa23          	sw	a0,1044(ra)
+
+90000d8c <inst_262>:
+
+inst_262:
+// rs1_val==1717986917 and imm_val==7, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x5, 0x66666665, 0x7, x1, 1048, x2)
+90000d8c:	66666537          	lui	a0,0x66666
+90000d90:	66550513          	addi	a0,a0,1637 # 66666665 <offset+0x66666085>
+90000d94:	891d                	andi	a0,a0,7
+90000d96:	40a0ac23          	sw	a0,1048(ra)
+
+90000d9a <inst_263>:
+
+inst_263:
+// rs1_val==1717986917 and imm_val==-1, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0x66666665, 0x66666665, -0x1, x1, 1052, x2)
+90000d9a:	66666537          	lui	a0,0x66666
+90000d9e:	66550513          	addi	a0,a0,1637 # 66666665 <offset+0x66666085>
+90000da2:	997d                	andi	a0,a0,-1
+90000da4:	40a0ae23          	sw	a0,1052(ra)
+
+90000da8 <inst_264>:
+
+inst_264:
+// rs1_val==1717986917 and imm_val==-4, 
+// opcode: c.andi; op1:x10; immval:-0x4
+TEST_CI_OP( c.andi, x10, 0x66666664, 0x66666665, -0x4, x1, 1056, x2)
+90000da8:	66666537          	lui	a0,0x66666
+90000dac:	66550513          	addi	a0,a0,1637 # 66666665 <offset+0x66666085>
+90000db0:	9971                	andi	a0,a0,-4
+90000db2:	42a0a023          	sw	a0,1056(ra)
+
+90000db6 <inst_265>:
+
+inst_265:
+// rs1_val==46339 and imm_val==3, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x3, 0xb503, 0x3, x1, 1060, x2)
+90000db6:	0000b537          	lui	a0,0xb
+90000dba:	50350513          	addi	a0,a0,1283 # b503 <offset+0xaf23>
+90000dbe:	890d                	andi	a0,a0,3
+90000dc0:	42a0a223          	sw	a0,1060(ra)
+
+90000dc4 <inst_266>:
+
+inst_266:
+// rs1_val==46339 and imm_val==5, 
+// opcode: c.andi; op1:x10; immval:0x5
+TEST_CI_OP( c.andi, x10, 0x1, 0xb503, 0x5, x1, 1064, x2)
+90000dc4:	0000b537          	lui	a0,0xb
+90000dc8:	50350513          	addi	a0,a0,1283 # b503 <offset+0xaf23>
+90000dcc:	8915                	andi	a0,a0,5
+90000dce:	42a0a423          	sw	a0,1064(ra)
+
+90000dd2 <inst_267>:
+
+inst_267:
+// rs1_val==46339 and imm_val==10, 
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0x2, 0xb503, 0xa, x1, 1068, x2)
+90000dd2:	0000b537          	lui	a0,0xb
+90000dd6:	50350513          	addi	a0,a0,1283 # b503 <offset+0xaf23>
+90000dda:	8929                	andi	a0,a0,10
+90000ddc:	42a0a623          	sw	a0,1068(ra)
+
+90000de0 <inst_268>:
+
+inst_268:
+// rs1_val==46339 and imm_val==6, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x2, 0xb503, 0x6, x1, 1072, x2)
+90000de0:	0000b537          	lui	a0,0xb
+90000de4:	50350513          	addi	a0,a0,1283 # b503 <offset+0xaf23>
+90000de8:	8919                	andi	a0,a0,6
+90000dea:	42a0a823          	sw	a0,1072(ra)
+
+90000dee <inst_269>:
+
+inst_269:
+// rs1_val==46339 and imm_val==-2, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0xb502, 0xb503, -0x2, x1, 1076, x2)
+90000dee:	0000b537          	lui	a0,0xb
+90000df2:	50350513          	addi	a0,a0,1283 # b503 <offset+0xaf23>
+90000df6:	9979                	andi	a0,a0,-2
+90000df8:	42a0aa23          	sw	a0,1076(ra)
+
+90000dfc <inst_270>:
+
+inst_270:
+// rs1_val==46339 and imm_val==-5, 
+// opcode: c.andi; op1:x10; immval:-0x5
+TEST_CI_OP( c.andi, x10, 0xb503, 0xb503, -0x5, x1, 1080, x2)
+90000dfc:	0000b537          	lui	a0,0xb
+90000e00:	50350513          	addi	a0,a0,1283 # b503 <offset+0xaf23>
+90000e04:	996d                	andi	a0,a0,-5
+90000e06:	42a0ac23          	sw	a0,1080(ra)
+
+90000e0a <inst_271>:
+
+inst_271:
+// rs1_val==46339 and imm_val==2, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x2, 0xb503, 0x2, x1, 1084, x2)
+90000e0a:	0000b537          	lui	a0,0xb
+90000e0e:	50350513          	addi	a0,a0,1283 # b503 <offset+0xaf23>
+90000e12:	8909                	andi	a0,a0,2
+90000e14:	42a0ae23          	sw	a0,1084(ra)
+
+90000e18 <inst_272>:
+
+inst_272:
+// rs1_val==46339 and imm_val==4, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x0, 0xb503, 0x4, x1, 1088, x2)
+90000e18:	0000b537          	lui	a0,0xb
+90000e1c:	50350513          	addi	a0,a0,1283 # b503 <offset+0xaf23>
+90000e20:	8911                	andi	a0,a0,4
+90000e22:	44a0a023          	sw	a0,1088(ra)
+
+90000e26 <inst_273>:
+
+inst_273:
+// rs1_val==46339 and imm_val==9, 
+// opcode: c.andi; op1:x10; immval:0x9
+TEST_CI_OP( c.andi, x10, 0x1, 0xb503, 0x9, x1, 1092, x2)
+90000e26:	0000b537          	lui	a0,0xb
+90000e2a:	50350513          	addi	a0,a0,1283 # b503 <offset+0xaf23>
+90000e2e:	8925                	andi	a0,a0,9
+90000e30:	44a0a223          	sw	a0,1092(ra)
+
+90000e34 <inst_274>:
+
+inst_274:
+// rs1_val==46339 and imm_val==0, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, 0xb503, 0x0, x1, 1096, x2)
+90000e34:	0000b537          	lui	a0,0xb
+90000e38:	50350513          	addi	a0,a0,1283 # b503 <offset+0xaf23>
+90000e3c:	8901                	andi	a0,a0,0
+90000e3e:	44a0a423          	sw	a0,1096(ra)
+
+90000e42 <inst_275>:
+
+inst_275:
+// rs1_val==46339 and imm_val==11, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0x3, 0xb503, 0xb, x1, 1100, x2)
+90000e42:	0000b537          	lui	a0,0xb
+90000e46:	50350513          	addi	a0,a0,1283 # b503 <offset+0xaf23>
+90000e4a:	892d                	andi	a0,a0,11
+90000e4c:	44a0a623          	sw	a0,1100(ra)
+
+90000e50 <inst_276>:
+
+inst_276:
+// rs1_val==46339 and imm_val==7, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x3, 0xb503, 0x7, x1, 1104, x2)
+90000e50:	0000b537          	lui	a0,0xb
+90000e54:	50350513          	addi	a0,a0,1283 # b503 <offset+0xaf23>
+90000e58:	891d                	andi	a0,a0,7
+90000e5a:	44a0a823          	sw	a0,1104(ra)
+
+90000e5e <inst_277>:
+
+inst_277:
+// rs1_val==46339 and imm_val==-1, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0xb503, 0xb503, -0x1, x1, 1108, x2)
+90000e5e:	0000b537          	lui	a0,0xb
+90000e62:	50350513          	addi	a0,a0,1283 # b503 <offset+0xaf23>
+90000e66:	997d                	andi	a0,a0,-1
+90000e68:	44a0aa23          	sw	a0,1108(ra)
+
+90000e6c <inst_278>:
+
+inst_278:
+// rs1_val==46339 and imm_val==-4, 
+// opcode: c.andi; op1:x10; immval:-0x4
+TEST_CI_OP( c.andi, x10, 0xb500, 0xb503, -0x4, x1, 1112, x2)
+90000e6c:	0000b537          	lui	a0,0xb
+90000e70:	50350513          	addi	a0,a0,1283 # b503 <offset+0xaf23>
+90000e74:	9971                	andi	a0,a0,-4
+90000e76:	44a0ac23          	sw	a0,1112(ra)
+
+90000e7a <inst_279>:
+
+inst_279:
+// rs1_val==1431655766 and imm_val==3, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x2, 0x55555556, 0x3, x1, 1116, x2)
+90000e7a:	55555537          	lui	a0,0x55555
+90000e7e:	55650513          	addi	a0,a0,1366 # 55555556 <offset+0x55554f76>
+90000e82:	890d                	andi	a0,a0,3
+90000e84:	44a0ae23          	sw	a0,1116(ra)
+
+90000e88 <inst_280>:
+
+inst_280:
+// rs1_val==1431655766 and imm_val==5, 
+// opcode: c.andi; op1:x10; immval:0x5
+TEST_CI_OP( c.andi, x10, 0x4, 0x55555556, 0x5, x1, 1120, x2)
+90000e88:	55555537          	lui	a0,0x55555
+90000e8c:	55650513          	addi	a0,a0,1366 # 55555556 <offset+0x55554f76>
+90000e90:	8915                	andi	a0,a0,5
+90000e92:	46a0a023          	sw	a0,1120(ra)
+
+90000e96 <inst_281>:
+
+inst_281:
+// rs1_val==1431655766 and imm_val==10, 
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0x2, 0x55555556, 0xa, x1, 1124, x2)
+90000e96:	55555537          	lui	a0,0x55555
+90000e9a:	55650513          	addi	a0,a0,1366 # 55555556 <offset+0x55554f76>
+90000e9e:	8929                	andi	a0,a0,10
+90000ea0:	46a0a223          	sw	a0,1124(ra)
+
+90000ea4 <inst_282>:
+
+inst_282:
+// rs1_val==1431655766 and imm_val==6, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x6, 0x55555556, 0x6, x1, 1128, x2)
+90000ea4:	55555537          	lui	a0,0x55555
+90000ea8:	55650513          	addi	a0,a0,1366 # 55555556 <offset+0x55554f76>
+90000eac:	8919                	andi	a0,a0,6
+90000eae:	46a0a423          	sw	a0,1128(ra)
+
+90000eb2 <inst_283>:
+
+inst_283:
+// rs1_val==1431655766 and imm_val==-2, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0x55555556, 0x55555556, -0x2, x1, 1132, x2)
+90000eb2:	55555537          	lui	a0,0x55555
+90000eb6:	55650513          	addi	a0,a0,1366 # 55555556 <offset+0x55554f76>
+90000eba:	9979                	andi	a0,a0,-2
+90000ebc:	46a0a623          	sw	a0,1132(ra)
+
+90000ec0 <inst_284>:
+
+inst_284:
+// rs1_val==1431655766 and imm_val==-5, 
+// opcode: c.andi; op1:x10; immval:-0x5
+TEST_CI_OP( c.andi, x10, 0x55555552, 0x55555556, -0x5, x1, 1136, x2)
+90000ec0:	55555537          	lui	a0,0x55555
+90000ec4:	55650513          	addi	a0,a0,1366 # 55555556 <offset+0x55554f76>
+90000ec8:	996d                	andi	a0,a0,-5
+90000eca:	46a0a823          	sw	a0,1136(ra)
+
+90000ece <inst_285>:
+
+inst_285:
+// rs1_val==1431655766 and imm_val==2, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x2, 0x55555556, 0x2, x1, 1140, x2)
+90000ece:	55555537          	lui	a0,0x55555
+90000ed2:	55650513          	addi	a0,a0,1366 # 55555556 <offset+0x55554f76>
+90000ed6:	8909                	andi	a0,a0,2
+90000ed8:	46a0aa23          	sw	a0,1140(ra)
+
+90000edc <inst_286>:
+
+inst_286:
+// rs1_val==1431655766 and imm_val==4, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x4, 0x55555556, 0x4, x1, 1144, x2)
+90000edc:	55555537          	lui	a0,0x55555
+90000ee0:	55650513          	addi	a0,a0,1366 # 55555556 <offset+0x55554f76>
+90000ee4:	8911                	andi	a0,a0,4
+90000ee6:	46a0ac23          	sw	a0,1144(ra)
+
+90000eea <inst_287>:
+
+inst_287:
+// rs1_val==1431655766 and imm_val==9, 
+// opcode: c.andi; op1:x10; immval:0x9
+TEST_CI_OP( c.andi, x10, 0x0, 0x55555556, 0x9, x1, 1148, x2)
+90000eea:	55555537          	lui	a0,0x55555
+90000eee:	55650513          	addi	a0,a0,1366 # 55555556 <offset+0x55554f76>
+90000ef2:	8925                	andi	a0,a0,9
+90000ef4:	46a0ae23          	sw	a0,1148(ra)
+
+90000ef8 <inst_288>:
+
+inst_288:
+// rs1_val==1431655766 and imm_val==0, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, 0x55555556, 0x0, x1, 1152, x2)
+90000ef8:	55555537          	lui	a0,0x55555
+90000efc:	55650513          	addi	a0,a0,1366 # 55555556 <offset+0x55554f76>
+90000f00:	8901                	andi	a0,a0,0
+90000f02:	48a0a023          	sw	a0,1152(ra)
+
+90000f06 <inst_289>:
+
+inst_289:
+// rs1_val==1431655766 and imm_val==11, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0x2, 0x55555556, 0xb, x1, 1156, x2)
+90000f06:	55555537          	lui	a0,0x55555
+90000f0a:	55650513          	addi	a0,a0,1366 # 55555556 <offset+0x55554f76>
+90000f0e:	892d                	andi	a0,a0,11
+90000f10:	48a0a223          	sw	a0,1156(ra)
+
+90000f14 <inst_290>:
+
+inst_290:
+// rs1_val==1431655766 and imm_val==7, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x6, 0x55555556, 0x7, x1, 1160, x2)
+90000f14:	55555537          	lui	a0,0x55555
+90000f18:	55650513          	addi	a0,a0,1366 # 55555556 <offset+0x55554f76>
+90000f1c:	891d                	andi	a0,a0,7
+90000f1e:	48a0a423          	sw	a0,1160(ra)
+
+90000f22 <inst_291>:
+
+inst_291:
+// rs1_val==1431655766 and imm_val==-1, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0x55555556, 0x55555556, -0x1, x1, 1164, x2)
+90000f22:	55555537          	lui	a0,0x55555
+90000f26:	55650513          	addi	a0,a0,1366 # 55555556 <offset+0x55554f76>
+90000f2a:	997d                	andi	a0,a0,-1
+90000f2c:	48a0a623          	sw	a0,1164(ra)
+
+90000f30 <inst_292>:
+
+inst_292:
+// rs1_val==1431655766 and imm_val==-4, 
+// opcode: c.andi; op1:x10; immval:-0x4
+TEST_CI_OP( c.andi, x10, 0x55555554, 0x55555556, -0x4, x1, 1168, x2)
+90000f30:	55555537          	lui	a0,0x55555
+90000f34:	55650513          	addi	a0,a0,1366 # 55555556 <offset+0x55554f76>
+90000f38:	9971                	andi	a0,a0,-4
+90000f3a:	48a0a823          	sw	a0,1168(ra)
+
+90000f3e <inst_293>:
+
+inst_293:
+// rs1_val==-1431655765 and imm_val==3, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x3, -0x55555555, 0x3, x1, 1172, x2)
+90000f3e:	aaaab537          	lui	a0,0xaaaab
+90000f42:	aab50513          	addi	a0,a0,-1365 # aaaaaaab <_end+0x1aaa73a7>
+90000f46:	890d                	andi	a0,a0,3
+90000f48:	48a0aa23          	sw	a0,1172(ra)
+
+90000f4c <inst_294>:
+
+inst_294:
+// rs1_val==-1431655765 and imm_val==5, 
+// opcode: c.andi; op1:x10; immval:0x5
+TEST_CI_OP( c.andi, x10, 0x1, -0x55555555, 0x5, x1, 1176, x2)
+90000f4c:	aaaab537          	lui	a0,0xaaaab
+90000f50:	aab50513          	addi	a0,a0,-1365 # aaaaaaab <_end+0x1aaa73a7>
+90000f54:	8915                	andi	a0,a0,5
+90000f56:	48a0ac23          	sw	a0,1176(ra)
+
+90000f5a <inst_295>:
+
+inst_295:
+// rs1_val==-1431655765 and imm_val==10, 
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0xa, -0x55555555, 0xa, x1, 1180, x2)
+90000f5a:	aaaab537          	lui	a0,0xaaaab
+90000f5e:	aab50513          	addi	a0,a0,-1365 # aaaaaaab <_end+0x1aaa73a7>
+90000f62:	8929                	andi	a0,a0,10
+90000f64:	48a0ae23          	sw	a0,1180(ra)
+
+90000f68 <inst_296>:
+
+inst_296:
+// rs1_val==-1431655765 and imm_val==6, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x2, -0x55555555, 0x6, x1, 1184, x2)
+90000f68:	aaaab537          	lui	a0,0xaaaab
+90000f6c:	aab50513          	addi	a0,a0,-1365 # aaaaaaab <_end+0x1aaa73a7>
+90000f70:	8919                	andi	a0,a0,6
+90000f72:	4aa0a023          	sw	a0,1184(ra)
+
+90000f76 <inst_297>:
+
+inst_297:
+// rs1_val==-1431655765 and imm_val==-2, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0xaaaaaaaa, -0x55555555, -0x2, x1, 1188, x2)
+90000f76:	aaaab537          	lui	a0,0xaaaab
+90000f7a:	aab50513          	addi	a0,a0,-1365 # aaaaaaab <_end+0x1aaa73a7>
+90000f7e:	9979                	andi	a0,a0,-2
+90000f80:	4aa0a223          	sw	a0,1188(ra)
+
+90000f84 <inst_298>:
+
+inst_298:
+// rs1_val==-1431655765 and imm_val==-5, 
+// opcode: c.andi; op1:x10; immval:-0x5
+TEST_CI_OP( c.andi, x10, 0xaaaaaaab, -0x55555555, -0x5, x1, 1192, x2)
+90000f84:	aaaab537          	lui	a0,0xaaaab
+90000f88:	aab50513          	addi	a0,a0,-1365 # aaaaaaab <_end+0x1aaa73a7>
+90000f8c:	996d                	andi	a0,a0,-5
+90000f8e:	4aa0a423          	sw	a0,1192(ra)
+
+90000f92 <inst_299>:
+
+inst_299:
+// rs1_val==-1431655765 and imm_val==2, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x2, -0x55555555, 0x2, x1, 1196, x2)
+90000f92:	aaaab537          	lui	a0,0xaaaab
+90000f96:	aab50513          	addi	a0,a0,-1365 # aaaaaaab <_end+0x1aaa73a7>
+90000f9a:	8909                	andi	a0,a0,2
+90000f9c:	4aa0a623          	sw	a0,1196(ra)
+
+90000fa0 <inst_300>:
+
+inst_300:
+// rs1_val==-1431655765 and imm_val==4, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x0, -0x55555555, 0x4, x1, 1200, x2)
+90000fa0:	aaaab537          	lui	a0,0xaaaab
+90000fa4:	aab50513          	addi	a0,a0,-1365 # aaaaaaab <_end+0x1aaa73a7>
+90000fa8:	8911                	andi	a0,a0,4
+90000faa:	4aa0a823          	sw	a0,1200(ra)
+
+90000fae <inst_301>:
+
+inst_301:
+// rs1_val==-1431655765 and imm_val==9, 
+// opcode: c.andi; op1:x10; immval:0x9
+TEST_CI_OP( c.andi, x10, 0x9, -0x55555555, 0x9, x1, 1204, x2)
+90000fae:	aaaab537          	lui	a0,0xaaaab
+90000fb2:	aab50513          	addi	a0,a0,-1365 # aaaaaaab <_end+0x1aaa73a7>
+90000fb6:	8925                	andi	a0,a0,9
+90000fb8:	4aa0aa23          	sw	a0,1204(ra)
+
+90000fbc <inst_302>:
+
+inst_302:
+// rs1_val==-1431655765 and imm_val==0, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, -0x55555555, 0x0, x1, 1208, x2)
+90000fbc:	aaaab537          	lui	a0,0xaaaab
+90000fc0:	aab50513          	addi	a0,a0,-1365 # aaaaaaab <_end+0x1aaa73a7>
+90000fc4:	8901                	andi	a0,a0,0
+90000fc6:	4aa0ac23          	sw	a0,1208(ra)
+
+90000fca <inst_303>:
+
+inst_303:
+// rs1_val==-1431655765 and imm_val==11, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0xb, -0x55555555, 0xb, x1, 1212, x2)
+90000fca:	aaaab537          	lui	a0,0xaaaab
+90000fce:	aab50513          	addi	a0,a0,-1365 # aaaaaaab <_end+0x1aaa73a7>
+90000fd2:	892d                	andi	a0,a0,11
+90000fd4:	4aa0ae23          	sw	a0,1212(ra)
+
+90000fd8 <inst_304>:
+
+inst_304:
+// rs1_val==-1431655765 and imm_val==7, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x3, -0x55555555, 0x7, x1, 1216, x2)
+90000fd8:	aaaab537          	lui	a0,0xaaaab
+90000fdc:	aab50513          	addi	a0,a0,-1365 # aaaaaaab <_end+0x1aaa73a7>
+90000fe0:	891d                	andi	a0,a0,7
+90000fe2:	4ca0a023          	sw	a0,1216(ra)
+
+90000fe6 <inst_305>:
+
+inst_305:
+// rs1_val==-1431655765 and imm_val==-1, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0xaaaaaaab, -0x55555555, -0x1, x1, 1220, x2)
+90000fe6:	aaaab537          	lui	a0,0xaaaab
+90000fea:	aab50513          	addi	a0,a0,-1365 # aaaaaaab <_end+0x1aaa73a7>
+90000fee:	997d                	andi	a0,a0,-1
+90000ff0:	4ca0a223          	sw	a0,1220(ra)
+
+90000ff4 <inst_306>:
+
+inst_306:
+// rs1_val==-1431655765 and imm_val==-4, 
+// opcode: c.andi; op1:x10; immval:-0x4
+TEST_CI_OP( c.andi, x10, 0xaaaaaaa8, -0x55555555, -0x4, x1, 1224, x2)
+90000ff4:	aaaab537          	lui	a0,0xaaaab
+90000ff8:	aab50513          	addi	a0,a0,-1365 # aaaaaaab <_end+0x1aaa73a7>
+90000ffc:	9971                	andi	a0,a0,-4
+90000ffe:	4ca0a423          	sw	a0,1224(ra)
+
+90001002 <inst_307>:
+
+inst_307:
+// rs1_val==6 and imm_val==3, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x2, 0x6, 0x3, x1, 1228, x2)
+90001002:	00600513          	li	a0,6
+90001006:	890d                	andi	a0,a0,3
+90001008:	4ca0a623          	sw	a0,1228(ra)
+
+9000100c <inst_308>:
+
+inst_308:
+// rs1_val==6 and imm_val==5, 
+// opcode: c.andi; op1:x10; immval:0x5
+TEST_CI_OP( c.andi, x10, 0x4, 0x6, 0x5, x1, 1232, x2)
+9000100c:	00600513          	li	a0,6
+90001010:	8915                	andi	a0,a0,5
+90001012:	4ca0a823          	sw	a0,1232(ra)
+
+90001016 <inst_309>:
+
+inst_309:
+// rs1_val==6 and imm_val==10, 
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0x2, 0x6, 0xa, x1, 1236, x2)
+90001016:	00600513          	li	a0,6
+9000101a:	8929                	andi	a0,a0,10
+9000101c:	4ca0aa23          	sw	a0,1236(ra)
+
+90001020 <inst_310>:
+
+inst_310:
+// rs1_val==6 and imm_val==6, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x6, 0x6, 0x6, x1, 1240, x2)
+90001020:	00600513          	li	a0,6
+90001024:	8919                	andi	a0,a0,6
+90001026:	4ca0ac23          	sw	a0,1240(ra)
+
+9000102a <inst_311>:
+
+inst_311:
+// rs1_val==6 and imm_val==-2, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0x6, 0x6, -0x2, x1, 1244, x2)
+9000102a:	00600513          	li	a0,6
+9000102e:	9979                	andi	a0,a0,-2
+90001030:	4ca0ae23          	sw	a0,1244(ra)
+
+90001034 <inst_312>:
+
+inst_312:
+// rs1_val==6 and imm_val==-5, 
+// opcode: c.andi; op1:x10; immval:-0x5
+TEST_CI_OP( c.andi, x10, 0x2, 0x6, -0x5, x1, 1248, x2)
+90001034:	00600513          	li	a0,6
+90001038:	996d                	andi	a0,a0,-5
+9000103a:	4ea0a023          	sw	a0,1248(ra)
+
+9000103e <inst_313>:
+
+inst_313:
+// rs1_val==-46339 and imm_val==-1, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0xffff4afd, -0xb503, -0x1, x1, 1252, x2)
+9000103e:	ffff5537          	lui	a0,0xffff5
+90001042:	afd50513          	addi	a0,a0,-1283 # ffff4afd <_end+0x6fff13f9>
+90001046:	997d                	andi	a0,a0,-1
+90001048:	4ea0a223          	sw	a0,1252(ra)
+
+9000104c <inst_314>:
+
+inst_314:
+// rs1_val==-46339 and imm_val==-4, 
+// opcode: c.andi; op1:x10; immval:-0x4
+TEST_CI_OP( c.andi, x10, 0xffff4afc, -0xb503, -0x4, x1, 1256, x2)
+9000104c:	ffff5537          	lui	a0,0xffff5
+90001050:	afd50513          	addi	a0,a0,-1283 # ffff4afd <_end+0x6fff13f9>
+90001054:	9971                	andi	a0,a0,-4
+90001056:	4ea0a423          	sw	a0,1256(ra)
+
+9000105a <inst_315>:
+
+inst_315:
+// rs1_val==46341 and imm_val==3, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x1, 0xb505, 0x3, x1, 1260, x2)
+9000105a:	0000b537          	lui	a0,0xb
+9000105e:	50550513          	addi	a0,a0,1285 # b505 <offset+0xaf25>
+90001062:	890d                	andi	a0,a0,3
+90001064:	4ea0a623          	sw	a0,1260(ra)
+
+90001068 <inst_316>:
+
+inst_316:
+// rs1_val==46341 and imm_val==5, 
+// opcode: c.andi; op1:x10; immval:0x5
+TEST_CI_OP( c.andi, x10, 0x5, 0xb505, 0x5, x1, 1264, x2)
+90001068:	0000b537          	lui	a0,0xb
+9000106c:	50550513          	addi	a0,a0,1285 # b505 <offset+0xaf25>
+90001070:	8915                	andi	a0,a0,5
+90001072:	4ea0a823          	sw	a0,1264(ra)
+
+90001076 <inst_317>:
+
+inst_317:
+// rs1_val==46341 and imm_val==10, 
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0x0, 0xb505, 0xa, x1, 1268, x2)
+90001076:	0000b537          	lui	a0,0xb
+9000107a:	50550513          	addi	a0,a0,1285 # b505 <offset+0xaf25>
+9000107e:	8929                	andi	a0,a0,10
+90001080:	4ea0aa23          	sw	a0,1268(ra)
+
+90001084 <inst_318>:
+
+inst_318:
+// rs1_val==46341 and imm_val==6, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x4, 0xb505, 0x6, x1, 1272, x2)
+90001084:	0000b537          	lui	a0,0xb
+90001088:	50550513          	addi	a0,a0,1285 # b505 <offset+0xaf25>
+9000108c:	8919                	andi	a0,a0,6
+9000108e:	4ea0ac23          	sw	a0,1272(ra)
+
+90001092 <inst_319>:
+
+inst_319:
+// rs1_val==46341 and imm_val==-2, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0xb504, 0xb505, -0x2, x1, 1276, x2)
+90001092:	0000b537          	lui	a0,0xb
+90001096:	50550513          	addi	a0,a0,1285 # b505 <offset+0xaf25>
+9000109a:	9979                	andi	a0,a0,-2
+9000109c:	4ea0ae23          	sw	a0,1276(ra)
+
+900010a0 <inst_320>:
+
+inst_320:
+// rs1_val==46341 and imm_val==-5, 
+// opcode: c.andi; op1:x10; immval:-0x5
+TEST_CI_OP( c.andi, x10, 0xb501, 0xb505, -0x5, x1, 1280, x2)
+900010a0:	0000b537          	lui	a0,0xb
+900010a4:	50550513          	addi	a0,a0,1285 # b505 <offset+0xaf25>
+900010a8:	996d                	andi	a0,a0,-5
+900010aa:	50a0a023          	sw	a0,1280(ra)
+
+900010ae <inst_321>:
+
+inst_321:
+// rs1_val==46341 and imm_val==2, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x0, 0xb505, 0x2, x1, 1284, x2)
+900010ae:	0000b537          	lui	a0,0xb
+900010b2:	50550513          	addi	a0,a0,1285 # b505 <offset+0xaf25>
+900010b6:	8909                	andi	a0,a0,2
+900010b8:	50a0a223          	sw	a0,1284(ra)
+
+900010bc <inst_322>:
+
+inst_322:
+// rs1_val==46341 and imm_val==4, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x4, 0xb505, 0x4, x1, 1288, x2)
+900010bc:	0000b537          	lui	a0,0xb
+900010c0:	50550513          	addi	a0,a0,1285 # b505 <offset+0xaf25>
+900010c4:	8911                	andi	a0,a0,4
+900010c6:	50a0a423          	sw	a0,1288(ra)
+
+900010ca <inst_323>:
+
+inst_323:
+// rs1_val==46341 and imm_val==9, 
+// opcode: c.andi; op1:x10; immval:0x9
+TEST_CI_OP( c.andi, x10, 0x1, 0xb505, 0x9, x1, 1292, x2)
+900010ca:	0000b537          	lui	a0,0xb
+900010ce:	50550513          	addi	a0,a0,1285 # b505 <offset+0xaf25>
+900010d2:	8925                	andi	a0,a0,9
+900010d4:	50a0a623          	sw	a0,1292(ra)
+
+900010d8 <inst_324>:
+
+inst_324:
+// rs1_val==46341 and imm_val==0, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, 0xb505, 0x0, x1, 1296, x2)
+900010d8:	0000b537          	lui	a0,0xb
+900010dc:	50550513          	addi	a0,a0,1285 # b505 <offset+0xaf25>
+900010e0:	8901                	andi	a0,a0,0
+900010e2:	50a0a823          	sw	a0,1296(ra)
+
+900010e6 <inst_325>:
+
+inst_325:
+// rs1_val==46341 and imm_val==11, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0x1, 0xb505, 0xb, x1, 1300, x2)
+900010e6:	0000b537          	lui	a0,0xb
+900010ea:	50550513          	addi	a0,a0,1285 # b505 <offset+0xaf25>
+900010ee:	892d                	andi	a0,a0,11
+900010f0:	50a0aa23          	sw	a0,1300(ra)
+
+900010f4 <inst_326>:
+
+inst_326:
+// rs1_val==46341 and imm_val==7, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x5, 0xb505, 0x7, x1, 1304, x2)
+900010f4:	0000b537          	lui	a0,0xb
+900010f8:	50550513          	addi	a0,a0,1285 # b505 <offset+0xaf25>
+900010fc:	891d                	andi	a0,a0,7
+900010fe:	50a0ac23          	sw	a0,1304(ra)
+
+90001102 <inst_327>:
+
+inst_327:
+// rs1_val==46341 and imm_val==-1, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0xb505, 0xb505, -0x1, x1, 1308, x2)
+90001102:	0000b537          	lui	a0,0xb
+90001106:	50550513          	addi	a0,a0,1285 # b505 <offset+0xaf25>
+9000110a:	997d                	andi	a0,a0,-1
+9000110c:	50a0ae23          	sw	a0,1308(ra)
+
+90001110 <inst_328>:
+
+inst_328:
+// rs1_val==46341 and imm_val==-4, 
+// opcode: c.andi; op1:x10; immval:-0x4
+TEST_CI_OP( c.andi, x10, 0xb504, 0xb505, -0x4, x1, 1312, x2)
+90001110:	0000b537          	lui	a0,0xb
+90001114:	50550513          	addi	a0,a0,1285 # b505 <offset+0xaf25>
+90001118:	9971                	andi	a0,a0,-4
+9000111a:	52a0a023          	sw	a0,1312(ra)
+
+9000111e <inst_329>:
+
+inst_329:
+// rs1_val==6 and imm_val==2, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x2, 0x6, 0x2, x1, 1316, x2)
+9000111e:	00600513          	li	a0,6
+90001122:	8909                	andi	a0,a0,2
+90001124:	52a0a223          	sw	a0,1316(ra)
+
+90001128 <inst_330>:
+
+inst_330:
+// rs1_val==6 and imm_val==4, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x4, 0x6, 0x4, x1, 1320, x2)
+90001128:	00600513          	li	a0,6
+9000112c:	8911                	andi	a0,a0,4
+9000112e:	52a0a423          	sw	a0,1320(ra)
+
+90001132 <inst_331>:
+
+inst_331:
+// rs1_val==6 and imm_val==9, 
+// opcode: c.andi; op1:x10; immval:0x9
+TEST_CI_OP( c.andi, x10, 0x0, 0x6, 0x9, x1, 1324, x2)
+90001132:	00600513          	li	a0,6
+90001136:	8925                	andi	a0,a0,9
+90001138:	52a0a623          	sw	a0,1324(ra)
+
+9000113c <inst_332>:
+
+inst_332:
+// rs1_val==6 and imm_val==0, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, 0x6, 0x0, x1, 1328, x2)
+9000113c:	00600513          	li	a0,6
+90001140:	8901                	andi	a0,a0,0
+90001142:	52a0a823          	sw	a0,1328(ra)
+
+90001146 <inst_333>:
+
+inst_333:
+// rs1_val==6 and imm_val==11, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0x2, 0x6, 0xb, x1, 1332, x2)
+90001146:	00600513          	li	a0,6
+9000114a:	892d                	andi	a0,a0,11
+9000114c:	52a0aa23          	sw	a0,1332(ra)
+
+90001150 <inst_334>:
+
+inst_334:
+// rs1_val==6 and imm_val==7, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x6, 0x6, 0x7, x1, 1336, x2)
+90001150:	00600513          	li	a0,6
+90001154:	891d                	andi	a0,a0,7
+90001156:	52a0ac23          	sw	a0,1336(ra)
+
+9000115a <inst_335>:
+
+inst_335:
+// rs1_val==6 and imm_val==-1, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0x6, 0x6, -0x1, x1, 1340, x2)
+9000115a:	00600513          	li	a0,6
+9000115e:	997d                	andi	a0,a0,-1
+90001160:	52a0ae23          	sw	a0,1340(ra)
+
+90001164 <inst_336>:
+
+inst_336:
+// rs1_val==6 and imm_val==-4, 
+// opcode: c.andi; op1:x10; immval:-0x4
+TEST_CI_OP( c.andi, x10, 0x4, 0x6, -0x4, x1, 1344, x2)
+90001164:	00600513          	li	a0,6
+90001168:	9971                	andi	a0,a0,-4
+9000116a:	54a0a023          	sw	a0,1344(ra)
+
+9000116e <inst_337>:
+
+inst_337:
+// rs1_val==858993460 and imm_val==3, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x0, 0x33333334, 0x3, x1, 1348, x2)
+9000116e:	33333537          	lui	a0,0x33333
+90001172:	33450513          	addi	a0,a0,820 # 33333334 <offset+0x33332d54>
+90001176:	890d                	andi	a0,a0,3
+90001178:	54a0a223          	sw	a0,1348(ra)
+
+9000117c <inst_338>:
+
+inst_338:
+// rs1_val==858993460 and imm_val==5, 
+// opcode: c.andi; op1:x10; immval:0x5
+TEST_CI_OP( c.andi, x10, 0x4, 0x33333334, 0x5, x1, 1352, x2)
+9000117c:	33333537          	lui	a0,0x33333
+90001180:	33450513          	addi	a0,a0,820 # 33333334 <offset+0x33332d54>
+90001184:	8915                	andi	a0,a0,5
+90001186:	54a0a423          	sw	a0,1352(ra)
+
+9000118a <inst_339>:
+
+inst_339:
+// rs1_val==858993460 and imm_val==10, 
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0x0, 0x33333334, 0xa, x1, 1356, x2)
+9000118a:	33333537          	lui	a0,0x33333
+9000118e:	33450513          	addi	a0,a0,820 # 33333334 <offset+0x33332d54>
+90001192:	8929                	andi	a0,a0,10
+90001194:	54a0a623          	sw	a0,1356(ra)
+
+90001198 <inst_340>:
+
+inst_340:
+// rs1_val==858993460 and imm_val==6, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x4, 0x33333334, 0x6, x1, 1360, x2)
+90001198:	33333537          	lui	a0,0x33333
+9000119c:	33450513          	addi	a0,a0,820 # 33333334 <offset+0x33332d54>
+900011a0:	8919                	andi	a0,a0,6
+900011a2:	54a0a823          	sw	a0,1360(ra)
+
+900011a6 <inst_341>:
+
+inst_341:
+// rs1_val==858993460 and imm_val==-2, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0x33333334, 0x33333334, -0x2, x1, 1364, x2)
+900011a6:	33333537          	lui	a0,0x33333
+900011aa:	33450513          	addi	a0,a0,820 # 33333334 <offset+0x33332d54>
+900011ae:	9979                	andi	a0,a0,-2
+900011b0:	54a0aa23          	sw	a0,1364(ra)
+
+900011b4 <inst_342>:
+
+inst_342:
+// rs1_val==858993460 and imm_val==-5, 
+// opcode: c.andi; op1:x10; immval:-0x5
+TEST_CI_OP( c.andi, x10, 0x33333330, 0x33333334, -0x5, x1, 1368, x2)
+900011b4:	33333537          	lui	a0,0x33333
+900011b8:	33450513          	addi	a0,a0,820 # 33333334 <offset+0x33332d54>
+900011bc:	996d                	andi	a0,a0,-5
+900011be:	54a0ac23          	sw	a0,1368(ra)
+
+900011c2 <inst_343>:
+
+inst_343:
+// rs1_val==858993460 and imm_val==2, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x0, 0x33333334, 0x2, x1, 1372, x2)
+900011c2:	33333537          	lui	a0,0x33333
+900011c6:	33450513          	addi	a0,a0,820 # 33333334 <offset+0x33332d54>
+900011ca:	8909                	andi	a0,a0,2
+900011cc:	54a0ae23          	sw	a0,1372(ra)
+
+900011d0 <inst_344>:
+
+inst_344:
+// rs1_val==858993460 and imm_val==4, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x4, 0x33333334, 0x4, x1, 1376, x2)
+900011d0:	33333537          	lui	a0,0x33333
+900011d4:	33450513          	addi	a0,a0,820 # 33333334 <offset+0x33332d54>
+900011d8:	8911                	andi	a0,a0,4
+900011da:	56a0a023          	sw	a0,1376(ra)
+
+900011de <inst_345>:
+
+inst_345:
+// rs1_val==858993460 and imm_val==9, 
+// opcode: c.andi; op1:x10; immval:0x9
+TEST_CI_OP( c.andi, x10, 0x0, 0x33333334, 0x9, x1, 1380, x2)
+900011de:	33333537          	lui	a0,0x33333
+900011e2:	33450513          	addi	a0,a0,820 # 33333334 <offset+0x33332d54>
+900011e6:	8925                	andi	a0,a0,9
+900011e8:	56a0a223          	sw	a0,1380(ra)
+
+900011ec <inst_346>:
+
+inst_346:
+// rs1_val==858993460 and imm_val==0, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, 0x33333334, 0x0, x1, 1384, x2)
+900011ec:	33333537          	lui	a0,0x33333
+900011f0:	33450513          	addi	a0,a0,820 # 33333334 <offset+0x33332d54>
+900011f4:	8901                	andi	a0,a0,0
+900011f6:	56a0a423          	sw	a0,1384(ra)
+
+900011fa <inst_347>:
+
+inst_347:
+// rs1_val==858993460 and imm_val==11, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0x0, 0x33333334, 0xb, x1, 1388, x2)
+900011fa:	33333537          	lui	a0,0x33333
+900011fe:	33450513          	addi	a0,a0,820 # 33333334 <offset+0x33332d54>
+90001202:	892d                	andi	a0,a0,11
+90001204:	56a0a623          	sw	a0,1388(ra)
+
+90001208 <inst_348>:
+
+inst_348:
+// rs1_val==858993460 and imm_val==7, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x4, 0x33333334, 0x7, x1, 1392, x2)
+90001208:	33333537          	lui	a0,0x33333
+9000120c:	33450513          	addi	a0,a0,820 # 33333334 <offset+0x33332d54>
+90001210:	891d                	andi	a0,a0,7
+90001212:	56a0a823          	sw	a0,1392(ra)
+
+90001216 <inst_349>:
+
+inst_349:
+// rs1_val==858993460 and imm_val==-1, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0x33333334, 0x33333334, -0x1, x1, 1396, x2)
+90001216:	33333537          	lui	a0,0x33333
+9000121a:	33450513          	addi	a0,a0,820 # 33333334 <offset+0x33332d54>
+9000121e:	997d                	andi	a0,a0,-1
+90001220:	56a0aa23          	sw	a0,1396(ra)
+
+90001224 <inst_350>:
+
+inst_350:
+// rs1_val==858993460 and imm_val==-4, 
+// opcode: c.andi; op1:x10; immval:-0x4
+TEST_CI_OP( c.andi, x10, 0x33333334, 0x33333334, -0x4, x1, 1400, x2)
+90001224:	33333537          	lui	a0,0x33333
+90001228:	33450513          	addi	a0,a0,820 # 33333334 <offset+0x33332d54>
+9000122c:	9971                	andi	a0,a0,-4
+9000122e:	56a0ac23          	sw	a0,1400(ra)
+
+90001232 <inst_351>:
+
+inst_351:
+// rs1_val==1717986919 and imm_val==3, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x3, 0x66666667, 0x3, x1, 1404, x2)
+90001232:	66666537          	lui	a0,0x66666
+90001236:	66750513          	addi	a0,a0,1639 # 66666667 <offset+0x66666087>
+9000123a:	890d                	andi	a0,a0,3
+9000123c:	56a0ae23          	sw	a0,1404(ra)
+
+90001240 <inst_352>:
+
+inst_352:
+// rs1_val==1717986919 and imm_val==5, 
+// opcode: c.andi; op1:x10; immval:0x5
+TEST_CI_OP( c.andi, x10, 0x5, 0x66666667, 0x5, x1, 1408, x2)
+90001240:	66666537          	lui	a0,0x66666
+90001244:	66750513          	addi	a0,a0,1639 # 66666667 <offset+0x66666087>
+90001248:	8915                	andi	a0,a0,5
+9000124a:	58a0a023          	sw	a0,1408(ra)
+
+9000124e <inst_353>:
+
+inst_353:
+// rs1_val==1717986919 and imm_val==10, 
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0x2, 0x66666667, 0xa, x1, 1412, x2)
+9000124e:	66666537          	lui	a0,0x66666
+90001252:	66750513          	addi	a0,a0,1639 # 66666667 <offset+0x66666087>
+90001256:	8929                	andi	a0,a0,10
+90001258:	58a0a223          	sw	a0,1412(ra)
+
+9000125c <inst_354>:
+
+inst_354:
+// rs1_val==1717986919 and imm_val==6, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x6, 0x66666667, 0x6, x1, 1416, x2)
+9000125c:	66666537          	lui	a0,0x66666
+90001260:	66750513          	addi	a0,a0,1639 # 66666667 <offset+0x66666087>
+90001264:	8919                	andi	a0,a0,6
+90001266:	58a0a423          	sw	a0,1416(ra)
+
+9000126a <inst_355>:
+
+inst_355:
+// rs1_val==1717986919 and imm_val==-2, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0x66666666, 0x66666667, -0x2, x1, 1420, x2)
+9000126a:	66666537          	lui	a0,0x66666
+9000126e:	66750513          	addi	a0,a0,1639 # 66666667 <offset+0x66666087>
+90001272:	9979                	andi	a0,a0,-2
+90001274:	58a0a623          	sw	a0,1420(ra)
+
+90001278 <inst_356>:
+
+inst_356:
+// rs1_val==1717986919 and imm_val==2, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x2, 0x66666667, 0x2, x1, 1424, x2)
+90001278:	66666537          	lui	a0,0x66666
+9000127c:	66750513          	addi	a0,a0,1639 # 66666667 <offset+0x66666087>
+90001280:	8909                	andi	a0,a0,2
+90001282:	58a0a823          	sw	a0,1424(ra)
+
+90001286 <inst_357>:
+
+inst_357:
+// rs1_val==1717986919 and imm_val==4, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x4, 0x66666667, 0x4, x1, 1428, x2)
+90001286:	66666537          	lui	a0,0x66666
+9000128a:	66750513          	addi	a0,a0,1639 # 66666667 <offset+0x66666087>
+9000128e:	8911                	andi	a0,a0,4
+90001290:	58a0aa23          	sw	a0,1428(ra)
+
+90001294 <inst_358>:
+
+inst_358:
+// rs1_val==1717986919 and imm_val==9, 
+// opcode: c.andi; op1:x10; immval:0x9
+TEST_CI_OP( c.andi, x10, 0x1, 0x66666667, 0x9, x1, 1432, x2)
+90001294:	66666537          	lui	a0,0x66666
+90001298:	66750513          	addi	a0,a0,1639 # 66666667 <offset+0x66666087>
+9000129c:	8925                	andi	a0,a0,9
+9000129e:	58a0ac23          	sw	a0,1432(ra)
+
+900012a2 <inst_359>:
+
+inst_359:
+// rs1_val==1717986919 and imm_val==0, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, 0x66666667, 0x0, x1, 1436, x2)
+900012a2:	66666537          	lui	a0,0x66666
+900012a6:	66750513          	addi	a0,a0,1639 # 66666667 <offset+0x66666087>
+900012aa:	8901                	andi	a0,a0,0
+900012ac:	58a0ae23          	sw	a0,1436(ra)
+
+900012b0 <inst_360>:
+
+inst_360:
+// rs1_val==1717986919 and imm_val==11, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0x3, 0x66666667, 0xb, x1, 1440, x2)
+900012b0:	66666537          	lui	a0,0x66666
+900012b4:	66750513          	addi	a0,a0,1639 # 66666667 <offset+0x66666087>
+900012b8:	892d                	andi	a0,a0,11
+900012ba:	5aa0a023          	sw	a0,1440(ra)
+
+900012be <inst_361>:
+
+inst_361:
+// rs1_val==1717986919 and imm_val==7, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x7, 0x66666667, 0x7, x1, 1444, x2)
+900012be:	66666537          	lui	a0,0x66666
+900012c2:	66750513          	addi	a0,a0,1639 # 66666667 <offset+0x66666087>
+900012c6:	891d                	andi	a0,a0,7
+900012c8:	5aa0a223          	sw	a0,1444(ra)
+
+900012cc <inst_362>:
+
+inst_362:
+// rs1_val==1717986919 and imm_val==-1, 
+// opcode: c.andi; op1:x10; immval:-0x1
+TEST_CI_OP( c.andi, x10, 0x66666667, 0x66666667, -0x1, x1, 1448, x2)
+900012cc:	66666537          	lui	a0,0x66666
+900012d0:	66750513          	addi	a0,a0,1639 # 66666667 <offset+0x66666087>
+900012d4:	997d                	andi	a0,a0,-1
+900012d6:	5aa0a423          	sw	a0,1448(ra)
+
+900012da <inst_363>:
+
+inst_363:
+// rs1_val==1717986919 and imm_val==-4, 
+// opcode: c.andi; op1:x10; immval:-0x4
+TEST_CI_OP( c.andi, x10, 0x66666664, 0x66666667, -0x4, x1, 1452, x2)
+900012da:	66666537          	lui	a0,0x66666
+900012de:	66750513          	addi	a0,a0,1639 # 66666667 <offset+0x66666087>
+900012e2:	9971                	andi	a0,a0,-4
+900012e4:	5aa0a623          	sw	a0,1452(ra)
+
+900012e8 <inst_364>:
+
+inst_364:
+// rs1_val==-46339 and imm_val==3, 
+// opcode: c.andi; op1:x10; immval:0x3
+TEST_CI_OP( c.andi, x10, 0x1, -0xb503, 0x3, x1, 1456, x2)
+900012e8:	ffff5537          	lui	a0,0xffff5
+900012ec:	afd50513          	addi	a0,a0,-1283 # ffff4afd <_end+0x6fff13f9>
+900012f0:	890d                	andi	a0,a0,3
+900012f2:	5aa0a823          	sw	a0,1456(ra)
+
+900012f6 <inst_365>:
+
+inst_365:
+// rs1_val==-46339 and imm_val==5, 
+// opcode: c.andi; op1:x10; immval:0x5
+TEST_CI_OP( c.andi, x10, 0x5, -0xb503, 0x5, x1, 1460, x2)
+900012f6:	ffff5537          	lui	a0,0xffff5
+900012fa:	afd50513          	addi	a0,a0,-1283 # ffff4afd <_end+0x6fff13f9>
+900012fe:	8915                	andi	a0,a0,5
+90001300:	5aa0aa23          	sw	a0,1460(ra)
+
+90001304 <inst_366>:
+
+inst_366:
+// rs1_val==-46339 and imm_val==10, 
+// opcode: c.andi; op1:x10; immval:0xa
+TEST_CI_OP( c.andi, x10, 0x8, -0xb503, 0xa, x1, 1464, x2)
+90001304:	ffff5537          	lui	a0,0xffff5
+90001308:	afd50513          	addi	a0,a0,-1283 # ffff4afd <_end+0x6fff13f9>
+9000130c:	8929                	andi	a0,a0,10
+9000130e:	5aa0ac23          	sw	a0,1464(ra)
+
+90001312 <inst_367>:
+
+inst_367:
+// rs1_val==-46339 and imm_val==6, 
+// opcode: c.andi; op1:x10; immval:0x6
+TEST_CI_OP( c.andi, x10, 0x4, -0xb503, 0x6, x1, 1468, x2)
+90001312:	ffff5537          	lui	a0,0xffff5
+90001316:	afd50513          	addi	a0,a0,-1283 # ffff4afd <_end+0x6fff13f9>
+9000131a:	8919                	andi	a0,a0,6
+9000131c:	5aa0ae23          	sw	a0,1468(ra)
+
+90001320 <inst_368>:
+
+inst_368:
+// rs1_val==-46339 and imm_val==-2, 
+// opcode: c.andi; op1:x10; immval:-0x2
+TEST_CI_OP( c.andi, x10, 0xffff4afc, -0xb503, -0x2, x1, 1472, x2)
+90001320:	ffff5537          	lui	a0,0xffff5
+90001324:	afd50513          	addi	a0,a0,-1283 # ffff4afd <_end+0x6fff13f9>
+90001328:	9979                	andi	a0,a0,-2
+9000132a:	5ca0a023          	sw	a0,1472(ra)
+
+9000132e <inst_369>:
+
+inst_369:
+// rs1_val==-46339 and imm_val==-5, 
+// opcode: c.andi; op1:x10; immval:-0x5
+TEST_CI_OP( c.andi, x10, 0xffff4af9, -0xb503, -0x5, x1, 1476, x2)
+9000132e:	ffff5537          	lui	a0,0xffff5
+90001332:	afd50513          	addi	a0,a0,-1283 # ffff4afd <_end+0x6fff13f9>
+90001336:	996d                	andi	a0,a0,-5
+90001338:	5ca0a223          	sw	a0,1476(ra)
+
+9000133c <inst_370>:
+
+inst_370:
+// rs1_val==-46339 and imm_val==2, 
+// opcode: c.andi; op1:x10; immval:0x2
+TEST_CI_OP( c.andi, x10, 0x0, -0xb503, 0x2, x1, 1480, x2)
+9000133c:	ffff5537          	lui	a0,0xffff5
+90001340:	afd50513          	addi	a0,a0,-1283 # ffff4afd <_end+0x6fff13f9>
+90001344:	8909                	andi	a0,a0,2
+90001346:	5ca0a423          	sw	a0,1480(ra)
+
+9000134a <inst_371>:
+
+inst_371:
+// rs1_val==-46339 and imm_val==4, 
+// opcode: c.andi; op1:x10; immval:0x4
+TEST_CI_OP( c.andi, x10, 0x4, -0xb503, 0x4, x1, 1484, x2)
+9000134a:	ffff5537          	lui	a0,0xffff5
+9000134e:	afd50513          	addi	a0,a0,-1283 # ffff4afd <_end+0x6fff13f9>
+90001352:	8911                	andi	a0,a0,4
+90001354:	5ca0a623          	sw	a0,1484(ra)
+
+90001358 <inst_372>:
+
+inst_372:
+// rs1_val==-46339 and imm_val==9, 
+// opcode: c.andi; op1:x10; immval:0x9
+TEST_CI_OP( c.andi, x10, 0x9, -0xb503, 0x9, x1, 1488, x2)
+90001358:	ffff5537          	lui	a0,0xffff5
+9000135c:	afd50513          	addi	a0,a0,-1283 # ffff4afd <_end+0x6fff13f9>
+90001360:	8925                	andi	a0,a0,9
+90001362:	5ca0a823          	sw	a0,1488(ra)
+
+90001366 <inst_373>:
+
+inst_373:
+// rs1_val==-46339 and imm_val==0, 
+// opcode: c.andi; op1:x10; immval:0x0
+TEST_CI_OP( c.andi, x10, 0x0, -0xb503, 0x0, x1, 1492, x2)
+90001366:	ffff5537          	lui	a0,0xffff5
+9000136a:	afd50513          	addi	a0,a0,-1283 # ffff4afd <_end+0x6fff13f9>
+9000136e:	8901                	andi	a0,a0,0
+90001370:	5ca0aa23          	sw	a0,1492(ra)
+
+90001374 <inst_374>:
+
+inst_374:
+// rs1_val==-46339 and imm_val==11, 
+// opcode: c.andi; op1:x10; immval:0xb
+TEST_CI_OP( c.andi, x10, 0x9, -0xb503, 0xb, x1, 1496, x2)
+90001374:	ffff5537          	lui	a0,0xffff5
+90001378:	afd50513          	addi	a0,a0,-1283 # ffff4afd <_end+0x6fff13f9>
+9000137c:	892d                	andi	a0,a0,11
+9000137e:	5ca0ac23          	sw	a0,1496(ra)
+
+90001382 <inst_375>:
+
+inst_375:
+// rs1_val==-46339 and imm_val==7, 
+// opcode: c.andi; op1:x10; immval:0x7
+TEST_CI_OP( c.andi, x10, 0x5, -0xb503, 0x7, x1, 1500, x2)
+90001382:	ffff5537          	lui	a0,0xffff5
+90001386:	afd50513          	addi	a0,a0,-1283 # ffff4afd <_end+0x6fff13f9>
+9000138a:	891d                	andi	a0,a0,7
+9000138c:	5ca0ae23          	sw	a0,1500(ra)
+
+90001390 <rvtest_code_end>:
+#endif
+
+
+RVTEST_CODE_END
+RVMODEL_HALT
+90001390:	0091                	addi	ra,ra,4
+90001392:	4085                	li	ra,1
+
+90001394 <write_tohost>:
+90001394:	00001f17          	auipc	t5,0x1
+90001398:	c61f2623          	sw	ra,-916(t5) # 90002000 <tohost>
+
+9000139c <self_loop>:
+9000139c:	a001                	j	9000139c <self_loop>
+	...

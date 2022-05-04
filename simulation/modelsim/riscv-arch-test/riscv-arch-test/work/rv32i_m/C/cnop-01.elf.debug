@@ -1,0 +1,231 @@
+
+/home/taka/RISCV/mmRISC/simulation/modelsim/riscv-arch-test/riscv-arch-test/work/rv32i_m/C/cnop-01.elf:     file format elf32-littleriscv
+
+
+Disassembly of section .text.init:
+
+90000000 <rvtest_entry_point>:
+
+.section .text.init
+.globl rvtest_entry_point
+rvtest_entry_point:
+RVMODEL_BOOT
+RVTEST_CODE_BEGIN
+90000000:	feedc0b7          	lui	ra,0xfeedc
+90000004:	ead08093          	addi	ra,ra,-339 # feedbead <_end+0x6eed9ca9>
+90000008:	ff76e137          	lui	sp,0xff76e
+9000000c:	f5610113          	addi	sp,sp,-170 # ff76df56 <_end+0x6f76bd52>
+90000010:	7fbb71b7          	lui	gp,0x7fbb7
+90000014:	fab18193          	addi	gp,gp,-85 # 7fbb6fab <offset+0x7fbb6f73>
+90000018:	bfddb237          	lui	tp,0xbfddb
+9000001c:	7d520213          	addi	tp,tp,2005 # bfddb7d5 <_end+0x2fdd95d1>
+90000020:	00000297          	auipc	t0,0x0
+90000024:	0d828293          	addi	t0,t0,216 # 900000f8 <rvtest_code_begin>
+90000028:	00002317          	auipc	t1,0x2
+9000002c:	fd830313          	addi	t1,t1,-40 # 90002000 <rvtest_data_begin>
+90000030:	b7fbb3b7          	lui	t2,0xb7fbb
+90000034:	6fa38393          	addi	t2,t2,1786 # b7fbb6fa <_end+0x27fb94f6>
+90000038:	5bfde437          	lui	s0,0x5bfde
+9000003c:	b7d40413          	addi	s0,s0,-1155 # 5bfddb7d <offset+0x5bfddb45>
+90000040:	adfef4b7          	lui	s1,0xadfef
+90000044:	dbe48493          	addi	s1,s1,-578 # adfeedbe <_end+0x1dfecbba>
+90000048:	56ff7537          	lui	a0,0x56ff7
+9000004c:	6df50513          	addi	a0,a0,1759 # 56ff76df <offset+0x56ff76a7>
+90000050:	ab7fc5b7          	lui	a1,0xab7fc
+90000054:	b6f58593          	addi	a1,a1,-1169 # ab7fbb6f <_end+0x1b7f996b>
+90000058:	d5bfe637          	lui	a2,0xd5bfe
+9000005c:	db760613          	addi	a2,a2,-585 # d5bfddb7 <_end+0x45bfbbb3>
+90000060:	eadff6b7          	lui	a3,0xeadff
+90000064:	edb68693          	addi	a3,a3,-293 # eadfeedb <_end+0x5adfccd7>
+90000068:	f56ff737          	lui	a4,0xf56ff
+9000006c:	76d70713          	addi	a4,a4,1901 # f56ff76d <_end+0x656fd569>
+90000070:	fab807b7          	lui	a5,0xfab80
+90000074:	bb678793          	addi	a5,a5,-1098 # fab7fbb6 <_end+0x6ab7d9b2>
+90000078:	7d5c0837          	lui	a6,0x7d5c0
+9000007c:	ddb80813          	addi	a6,a6,-549 # 7d5bfddb <offset+0x7d5bfda3>
+90000080:	beae08b7          	lui	a7,0xbeae0
+90000084:	eed88893          	addi	a7,a7,-275 # beadfeed <_end+0x2eaddce9>
+90000088:	df570937          	lui	s2,0xdf570
+9000008c:	f7690913          	addi	s2,s2,-138 # df56ff76 <_end+0x4f56dd72>
+90000090:	6fab89b7          	lui	s3,0x6fab8
+90000094:	fbb98993          	addi	s3,s3,-69 # 6fab7fbb <offset+0x6fab7f83>
+90000098:	b7d5ca37          	lui	s4,0xb7d5c
+9000009c:	fdda0a13          	addi	s4,s4,-35 # b7d5bfdd <_end+0x27d59dd9>
+900000a0:	dbeaeab7          	lui	s5,0xdbeae
+900000a4:	feea8a93          	addi	s5,s5,-18 # dbeadfee <_end+0x4beabdea>
+900000a8:	6df57b37          	lui	s6,0x6df57
+900000ac:	ff7b0b13          	addi	s6,s6,-9 # 6df56ff7 <offset+0x6df56fbf>
+900000b0:	b6fabbb7          	lui	s7,0xb6fab
+900000b4:	7fbb8b93          	addi	s7,s7,2043 # b6fab7fb <_end+0x26fa95f7>
+900000b8:	db7d6c37          	lui	s8,0xdb7d6
+900000bc:	bfdc0c13          	addi	s8,s8,-1027 # db7d5bfd <_end+0x4b7d39f9>
+900000c0:	edbebcb7          	lui	s9,0xedbeb
+900000c4:	dfec8c93          	addi	s9,s9,-514 # edbeadfe <_end+0x5dbe8bfa>
+900000c8:	76df5d37          	lui	s10,0x76df5
+900000cc:	6ffd0d13          	addi	s10,s10,1791 # 76df56ff <offset+0x76df56c7>
+900000d0:	bb6fbdb7          	lui	s11,0xbb6fb
+900000d4:	b7fd8d93          	addi	s11,s11,-1153 # bb6fab7f <_end+0x2b6f897b>
+900000d8:	ddb7de37          	lui	t3,0xddb7d
+900000dc:	5bfe0e13          	addi	t3,t3,1471 # ddb7d5bf <_end+0x4db7b3bb>
+900000e0:	eedbfeb7          	lui	t4,0xeedbf
+900000e4:	adfe8e93          	addi	t4,t4,-1313 # eedbeadf <_end+0x5edbc8db>
+900000e8:	f76dff37          	lui	t5,0xf76df
+900000ec:	56ff0f13          	addi	t5,t5,1391 # f76df56f <_end+0x676dd36b>
+900000f0:	fbb70fb7          	lui	t6,0xfbb70
+900000f4:	ab7f8f93          	addi	t6,t6,-1353 # fbb6fab7 <_end+0x6bb6d8b3>
+
+900000f8 <rvtest_code_begin>:
+
+#ifdef TEST_CASE_1
+
+RVTEST_CASE(0,"//check ISA:=regex(.*32.*);check ISA:=regex(.*I.*C.*);def TEST_CASE_1=True;",cnop)
+
+RVTEST_SIGBASE( x1,signature_x1_1)
+900000f8:	00002097          	auipc	ra,0x2
+900000fc:	f1808093          	addi	ra,ra,-232 # 90002010 <begin_signature>
+
+90000100 <inst_0>:
+
+inst_0:
+// imm_val == 1, 
+// opcode:c.nop; immval:0x1
+TEST_CNOP_OP(c.nop, x2, 0x1, x1, 0)
+90000100:	0005                	c.nop	1
+90000102:	0000a023          	sw	zero,0(ra)
+
+90000106 <inst_1>:
+
+inst_1:
+// imm_val == 2, 
+// opcode:c.nop; immval:0x2
+TEST_CNOP_OP(c.nop, x2, 0x2, x1, 4)
+90000106:	0009                	c.nop	2
+90000108:	0000a223          	sw	zero,4(ra)
+
+9000010c <inst_2>:
+
+inst_2:
+// imm_val == 4, 
+// opcode:c.nop; immval:0x4
+TEST_CNOP_OP(c.nop, x2, 0x4, x1, 8)
+9000010c:	0011                	c.nop	4
+9000010e:	0000a423          	sw	zero,8(ra)
+
+90000112 <inst_3>:
+
+inst_3:
+// imm_val == 8, 
+// opcode:c.nop; immval:0x8
+TEST_CNOP_OP(c.nop, x2, 0x8, x1, 12)
+90000112:	0021                	c.nop	8
+90000114:	0000a623          	sw	zero,12(ra)
+
+90000118 <inst_4>:
+
+inst_4:
+// imm_val == 16, 
+// opcode:c.nop; immval:0x10
+TEST_CNOP_OP(c.nop, x2, 0x10, x1, 16)
+90000118:	0041                	c.nop	16
+9000011a:	0000a823          	sw	zero,16(ra)
+
+9000011e <inst_5>:
+
+inst_5:
+// imm_val == -32, 
+// opcode:c.nop; immval:-0x20
+TEST_CNOP_OP(c.nop, x2, -0x20, x1, 20)
+9000011e:	1001                	c.nop	-32
+90000120:	0000aa23          	sw	zero,20(ra)
+
+90000124 <inst_6>:
+
+inst_6:
+// imm_val == -2, 
+// opcode:c.nop; immval:-0x2
+TEST_CNOP_OP(c.nop, x2, -0x2, x1, 24)
+90000124:	1079                	c.nop	-2
+90000126:	0000ac23          	sw	zero,24(ra)
+
+9000012a <inst_7>:
+
+inst_7:
+// imm_val == -3, 
+// opcode:c.nop; immval:-0x3
+TEST_CNOP_OP(c.nop, x2, -0x3, x1, 28)
+9000012a:	1075                	c.nop	-3
+9000012c:	0000ae23          	sw	zero,28(ra)
+
+90000130 <inst_8>:
+
+inst_8:
+// imm_val == -5, 
+// opcode:c.nop; immval:-0x5
+TEST_CNOP_OP(c.nop, x2, -0x5, x1, 32)
+90000130:	106d                	c.nop	-5
+90000132:	0200a023          	sw	zero,32(ra)
+
+90000136 <inst_9>:
+
+inst_9:
+// imm_val == -9, 
+// opcode:c.nop; immval:-0x9
+TEST_CNOP_OP(c.nop, x2, -0x9, x1, 36)
+90000136:	105d                	c.nop	-9
+90000138:	0200a223          	sw	zero,36(ra)
+
+9000013c <inst_10>:
+
+inst_10:
+// imm_val == -17, 
+// opcode:c.nop; immval:-0x11
+TEST_CNOP_OP(c.nop, x2, -0x11, x1, 40)
+9000013c:	103d                	c.nop	-17
+9000013e:	0200a423          	sw	zero,40(ra)
+
+90000142 <inst_11>:
+
+inst_11:
+// imm_val == 31, 
+// opcode:c.nop; immval:0x1f
+TEST_CNOP_OP(c.nop, x2, 0x1f, x1, 44)
+90000142:	007d                	c.nop	31
+90000144:	0200a623          	sw	zero,44(ra)
+
+90000148 <inst_12>:
+
+inst_12:
+// imm_val == 21, 
+// opcode:c.nop; immval:0x15
+TEST_CNOP_OP(c.nop, x2, 0x15, x1, 48)
+90000148:	0055                	c.nop	21
+9000014a:	0200a823          	sw	zero,48(ra)
+
+9000014e <inst_13>:
+
+inst_13:
+// imm_val == -22, 
+// opcode:c.nop; immval:-0x16
+TEST_CNOP_OP(c.nop, x2, -0x16, x1, 52)
+9000014e:	1029                	c.nop	-22
+90000150:	0200aa23          	sw	zero,52(ra)
+90000154:	00000013          	nop
+90000158:	00000013          	nop
+9000015c:	00000013          	nop
+
+90000160 <rvtest_code_end>:
+#endif
+
+
+RVTEST_CODE_END
+RVMODEL_HALT
+90000160:	0091                	addi	ra,ra,4
+90000162:	4085                	li	ra,1
+
+90000164 <write_tohost>:
+90000164:	00001f17          	auipc	t5,0x1
+90000168:	e81f2e23          	sw	ra,-356(t5) # 90001000 <tohost>
+
+9000016c <self_loop>:
+9000016c:	a001                	j	9000016c <self_loop>
+	...

@@ -1,0 +1,866 @@
+
+/home/taka/RISCV/mmRISC/simulation/modelsim/riscv-arch-test/riscv-arch-test/work/rv32i_m/I/jalr-01.elf:     file format elf32-littleriscv
+
+
+Disassembly of section .text.init:
+
+90000000 <rvtest_entry_point>:
+
+.section .text.init
+.globl rvtest_entry_point
+rvtest_entry_point:
+RVMODEL_BOOT
+RVTEST_CODE_BEGIN
+90000000:	feedc0b7          	lui	ra,0xfeedc
+90000004:	ead08093          	addi	ra,ra,-339 # feedbead <_end+0x6eed9ca9>
+90000008:	ff76e137          	lui	sp,0xff76e
+9000000c:	f5610113          	addi	sp,sp,-170 # ff76df56 <_end+0x6f76bd52>
+90000010:	7fbb71b7          	lui	gp,0x7fbb7
+90000014:	fab18193          	addi	gp,gp,-85 # 7fbb6fab <offset+0x7fbb6f77>
+90000018:	bfddb237          	lui	tp,0xbfddb
+9000001c:	7d520213          	addi	tp,tp,2005 # bfddb7d5 <_end+0x2fdd95d1>
+90000020:	00000297          	auipc	t0,0x0
+90000024:	0d828293          	addi	t0,t0,216 # 900000f8 <rvtest_code_begin>
+90000028:	00002317          	auipc	t1,0x2
+9000002c:	fd830313          	addi	t1,t1,-40 # 90002000 <rvtest_data_begin>
+90000030:	b7fbb3b7          	lui	t2,0xb7fbb
+90000034:	6fa38393          	addi	t2,t2,1786 # b7fbb6fa <_end+0x27fb94f6>
+90000038:	5bfde437          	lui	s0,0x5bfde
+9000003c:	b7d40413          	addi	s0,s0,-1155 # 5bfddb7d <offset+0x5bfddb49>
+90000040:	adfef4b7          	lui	s1,0xadfef
+90000044:	dbe48493          	addi	s1,s1,-578 # adfeedbe <_end+0x1dfecbba>
+90000048:	56ff7537          	lui	a0,0x56ff7
+9000004c:	6df50513          	addi	a0,a0,1759 # 56ff76df <offset+0x56ff76ab>
+90000050:	ab7fc5b7          	lui	a1,0xab7fc
+90000054:	b6f58593          	addi	a1,a1,-1169 # ab7fbb6f <_end+0x1b7f996b>
+90000058:	d5bfe637          	lui	a2,0xd5bfe
+9000005c:	db760613          	addi	a2,a2,-585 # d5bfddb7 <_end+0x45bfbbb3>
+90000060:	eadff6b7          	lui	a3,0xeadff
+90000064:	edb68693          	addi	a3,a3,-293 # eadfeedb <_end+0x5adfccd7>
+90000068:	f56ff737          	lui	a4,0xf56ff
+9000006c:	76d70713          	addi	a4,a4,1901 # f56ff76d <_end+0x656fd569>
+90000070:	fab807b7          	lui	a5,0xfab80
+90000074:	bb678793          	addi	a5,a5,-1098 # fab7fbb6 <_end+0x6ab7d9b2>
+90000078:	7d5c0837          	lui	a6,0x7d5c0
+9000007c:	ddb80813          	addi	a6,a6,-549 # 7d5bfddb <offset+0x7d5bfda7>
+90000080:	beae08b7          	lui	a7,0xbeae0
+90000084:	eed88893          	addi	a7,a7,-275 # beadfeed <_end+0x2eaddce9>
+90000088:	df570937          	lui	s2,0xdf570
+9000008c:	f7690913          	addi	s2,s2,-138 # df56ff76 <_end+0x4f56dd72>
+90000090:	6fab89b7          	lui	s3,0x6fab8
+90000094:	fbb98993          	addi	s3,s3,-69 # 6fab7fbb <offset+0x6fab7f87>
+90000098:	b7d5ca37          	lui	s4,0xb7d5c
+9000009c:	fdda0a13          	addi	s4,s4,-35 # b7d5bfdd <_end+0x27d59dd9>
+900000a0:	dbeaeab7          	lui	s5,0xdbeae
+900000a4:	feea8a93          	addi	s5,s5,-18 # dbeadfee <_end+0x4beabdea>
+900000a8:	6df57b37          	lui	s6,0x6df57
+900000ac:	ff7b0b13          	addi	s6,s6,-9 # 6df56ff7 <offset+0x6df56fc3>
+900000b0:	b6fabbb7          	lui	s7,0xb6fab
+900000b4:	7fbb8b93          	addi	s7,s7,2043 # b6fab7fb <_end+0x26fa95f7>
+900000b8:	db7d6c37          	lui	s8,0xdb7d6
+900000bc:	bfdc0c13          	addi	s8,s8,-1027 # db7d5bfd <_end+0x4b7d39f9>
+900000c0:	edbebcb7          	lui	s9,0xedbeb
+900000c4:	dfec8c93          	addi	s9,s9,-514 # edbeadfe <_end+0x5dbe8bfa>
+900000c8:	76df5d37          	lui	s10,0x76df5
+900000cc:	6ffd0d13          	addi	s10,s10,1791 # 76df56ff <offset+0x76df56cb>
+900000d0:	bb6fbdb7          	lui	s11,0xbb6fb
+900000d4:	b7fd8d93          	addi	s11,s11,-1153 # bb6fab7f <_end+0x2b6f897b>
+900000d8:	ddb7de37          	lui	t3,0xddb7d
+900000dc:	5bfe0e13          	addi	t3,t3,1471 # ddb7d5bf <_end+0x4db7b3bb>
+900000e0:	eedbfeb7          	lui	t4,0xeedbf
+900000e4:	adfe8e93          	addi	t4,t4,-1313 # eedbeadf <_end+0x5edbc8db>
+900000e8:	f76dff37          	lui	t5,0xf76df
+900000ec:	56ff0f13          	addi	t5,t5,1391 # f76df56f <_end+0x676dd36b>
+900000f0:	fbb70fb7          	lui	t6,0xfbb70
+900000f4:	ab7f8f93          	addi	t6,t6,-1353 # fbb6fab7 <_end+0x6bb6d8b3>
+
+900000f8 <rvtest_code_begin>:
+
+#ifdef TEST_CASE_1
+
+RVTEST_CASE(0,"//check ISA:=regex(.*32.*);check ISA:=regex(.*I.*);def TEST_CASE_1=True;",jalr)
+
+RVTEST_SIGBASE( x10,signature_x10_1)
+900000f8:	00002517          	auipc	a0,0x2
+900000fc:	f1850513          	addi	a0,a0,-232 # 90002010 <begin_signature>
+
+90000100 <inst_0>:
+
+inst_0:
+// rs1 != rd, rs1==x4, rd==x25, imm_val > 0, imm_val == 64
+// opcode: jalr; op1:x4; dest:x25; immval:0x40; align:0 
+TEST_JALR_OP(x15, x25, x4, 0x40, x10, 0,0)
+90000100:	00000c97          	auipc	s9,0x0
+90000104:	000c8c93          	mv	s9,s9
+90000108:	00000217          	auipc	tp,0x0
+9000010c:	fdc20213          	addi	tp,tp,-36 # 900000e4 <rvtest_entry_point+0xe4>
+90000110:	04020ce7          	jalr	s9,64(tp) # 0 <offset-0x34>
+90000114:	00000013          	nop
+90000118:	00000013          	nop
+9000011c:	002ccc93          	xori	s9,s9,2
+90000120:	00c0006f          	j	9000012c <inst_0+0x2c>
+90000124:	003ccc93          	xori	s9,s9,3
+90000128:	0040006f          	j	9000012c <inst_0+0x2c>
+9000012c:	00000797          	auipc	a5,0x0
+90000130:	fd478793          	addi	a5,a5,-44 # 90000100 <inst_0>
+90000134:	ffc7f793          	andi	a5,a5,-4
+90000138:	40fc8cb3          	sub	s9,s9,a5
+9000013c:	01952023          	sw	s9,0(a0)
+
+90000140 <inst_1>:
+
+inst_1:
+// rs1 == rd, rs1==x17, rd==x17, imm_val < 0, imm_val == -257
+// opcode: jalr; op1:x17; dest:x17; immval:-0x101; align:0 
+TEST_JALR_OP(x15, x17, x17, -0x101, x10, 4,0)
+90000140:	00000897          	auipc	a7,0x0
+90000144:	00088893          	mv	a7,a7
+90000148:	00000897          	auipc	a7,0x0
+9000014c:	11d88893          	addi	a7,a7,285 # 90000265 <inst_5+0x25>
+90000150:	eff888e7          	jalr	a7,-257(a7)
+90000154:	00000013          	nop
+90000158:	00000013          	nop
+9000015c:	0028c893          	xori	a7,a7,2
+90000160:	00c0006f          	j	9000016c <inst_1+0x2c>
+90000164:	0038c893          	xori	a7,a7,3
+90000168:	0040006f          	j	9000016c <inst_1+0x2c>
+9000016c:	00000797          	auipc	a5,0x0
+90000170:	fd478793          	addi	a5,a5,-44 # 90000140 <inst_1>
+90000174:	ffc7f793          	andi	a5,a5,-4
+90000178:	40f888b3          	sub	a7,a7,a5
+9000017c:	01152223          	sw	a7,4(a0)
+
+90000180 <inst_2>:
+
+inst_2:
+// rs1==x3, rd==x16, imm_val == 1, 
+// opcode: jalr; op1:x3; dest:x16; immval:0x1; align:0 
+TEST_JALR_OP(x15, x16, x3, 0x1, x10, 8,0)
+90000180:	00000817          	auipc	a6,0x0
+90000184:	00080813          	mv	a6,a6
+90000188:	00000197          	auipc	gp,0x0
+9000018c:	01b18193          	addi	gp,gp,27 # 900001a3 <inst_2+0x23>
+90000190:	00118867          	jalr	a6,1(gp)
+90000194:	00000013          	nop
+90000198:	00000013          	nop
+9000019c:	00284813          	xori	a6,a6,2
+900001a0:	00c0006f          	j	900001ac <inst_2+0x2c>
+900001a4:	00384813          	xori	a6,a6,3
+900001a8:	0040006f          	j	900001ac <inst_2+0x2c>
+900001ac:	00000797          	auipc	a5,0x0
+900001b0:	fd478793          	addi	a5,a5,-44 # 90000180 <inst_2>
+900001b4:	ffc7f793          	andi	a5,a5,-4
+900001b8:	40f80833          	sub	a6,a6,a5
+900001bc:	01052423          	sw	a6,8(a0)
+
+900001c0 <inst_3>:
+
+inst_3:
+// rs1==x23, rd==x12, imm_val == 2, 
+// opcode: jalr; op1:x23; dest:x12; immval:0x2; align:0 
+TEST_JALR_OP(x15, x12, x23, 0x2, x10, 12,0)
+900001c0:	00000617          	auipc	a2,0x0
+900001c4:	00060613          	mv	a2,a2
+900001c8:	00000b97          	auipc	s7,0x0
+900001cc:	01ab8b93          	addi	s7,s7,26 # 900001e2 <inst_3+0x22>
+900001d0:	002b8667          	jalr	a2,2(s7)
+900001d4:	00000013          	nop
+900001d8:	00000013          	nop
+900001dc:	00264613          	xori	a2,a2,2
+900001e0:	00c0006f          	j	900001ec <inst_3+0x2c>
+900001e4:	00364613          	xori	a2,a2,3
+900001e8:	0040006f          	j	900001ec <inst_3+0x2c>
+900001ec:	00000797          	auipc	a5,0x0
+900001f0:	fd478793          	addi	a5,a5,-44 # 900001c0 <inst_3>
+900001f4:	ffc7f793          	andi	a5,a5,-4
+900001f8:	40f60633          	sub	a2,a2,a5
+900001fc:	00c52623          	sw	a2,12(a0)
+
+90000200 <inst_4>:
+
+inst_4:
+// rs1==x27, rd==x13, imm_val == 4, 
+// opcode: jalr; op1:x27; dest:x13; immval:0x4; align:0 
+TEST_JALR_OP(x15, x13, x27, 0x4, x10, 16,0)
+90000200:	00000697          	auipc	a3,0x0
+90000204:	00068693          	mv	a3,a3
+90000208:	00000d97          	auipc	s11,0x0
+9000020c:	018d8d93          	addi	s11,s11,24 # 90000220 <inst_4+0x20>
+90000210:	004d86e7          	jalr	a3,4(s11)
+90000214:	00000013          	nop
+90000218:	00000013          	nop
+9000021c:	0026c693          	xori	a3,a3,2
+90000220:	00c0006f          	j	9000022c <inst_4+0x2c>
+90000224:	0036c693          	xori	a3,a3,3
+90000228:	0040006f          	j	9000022c <inst_4+0x2c>
+9000022c:	00000797          	auipc	a5,0x0
+90000230:	fd478793          	addi	a5,a5,-44 # 90000200 <inst_4>
+90000234:	ffc7f793          	andi	a5,a5,-4
+90000238:	40f686b3          	sub	a3,a3,a5
+9000023c:	00d52823          	sw	a3,16(a0)
+
+90000240 <inst_5>:
+
+inst_5:
+// rs1==x6, rd==x8, imm_val == 8, 
+// opcode: jalr; op1:x6; dest:x8; immval:0x8; align:0 
+TEST_JALR_OP(x15, x8, x6, 0x8, x10, 20,0)
+90000240:	00000417          	auipc	s0,0x0
+90000244:	00040413          	mv	s0,s0
+90000248:	00000317          	auipc	t1,0x0
+9000024c:	01430313          	addi	t1,t1,20 # 9000025c <inst_5+0x1c>
+90000250:	00830467          	jalr	s0,8(t1)
+90000254:	00000013          	nop
+90000258:	00000013          	nop
+9000025c:	00244413          	xori	s0,s0,2
+90000260:	00c0006f          	j	9000026c <inst_5+0x2c>
+90000264:	00344413          	xori	s0,s0,3
+90000268:	0040006f          	j	9000026c <inst_5+0x2c>
+9000026c:	00000797          	auipc	a5,0x0
+90000270:	fd478793          	addi	a5,a5,-44 # 90000240 <inst_5>
+90000274:	ffc7f793          	andi	a5,a5,-4
+90000278:	40f40433          	sub	s0,s0,a5
+9000027c:	00852a23          	sw	s0,20(a0)
+
+90000280 <inst_6>:
+
+inst_6:
+// rs1==x12, rd==x30, imm_val == 16, 
+// opcode: jalr; op1:x12; dest:x30; immval:0x10; align:0 
+TEST_JALR_OP(x15, x30, x12, 0x10, x10, 24,0)
+90000280:	00000f17          	auipc	t5,0x0
+90000284:	000f0f13          	mv	t5,t5
+90000288:	00000617          	auipc	a2,0x0
+9000028c:	00c60613          	addi	a2,a2,12 # 90000294 <inst_6+0x14>
+90000290:	01060f67          	jalr	t5,16(a2)
+90000294:	00000013          	nop
+90000298:	00000013          	nop
+9000029c:	002f4f13          	xori	t5,t5,2
+900002a0:	00c0006f          	j	900002ac <inst_6+0x2c>
+900002a4:	003f4f13          	xori	t5,t5,3
+900002a8:	0040006f          	j	900002ac <inst_6+0x2c>
+900002ac:	00000797          	auipc	a5,0x0
+900002b0:	fd478793          	addi	a5,a5,-44 # 90000280 <inst_6>
+900002b4:	ffc7f793          	andi	a5,a5,-4
+900002b8:	40ff0f33          	sub	t5,t5,a5
+900002bc:	01e52c23          	sw	t5,24(a0)
+
+900002c0 <inst_7>:
+
+inst_7:
+// rs1==x31, rd==x0, imm_val == 32, 
+// opcode: jalr; op1:x31; dest:x0; immval:0x20; align:0 
+TEST_JALR_OP(x15, x0, x31, 0x20, x10, 28,0)
+900002c0:	00000017          	auipc	zero,0x0
+900002c4:	00000013          	nop
+900002c8:	00000f97          	auipc	t6,0x0
+900002cc:	ffcf8f93          	addi	t6,t6,-4 # 900002c4 <inst_7+0x4>
+900002d0:	020f8067          	jr	32(t6)
+900002d4:	00000013          	nop
+900002d8:	00000013          	nop
+900002dc:	00204013          	xori	zero,zero,2
+900002e0:	00c0006f          	j	900002ec <inst_7+0x2c>
+900002e4:	00304013          	xori	zero,zero,3
+900002e8:	0040006f          	j	900002ec <inst_7+0x2c>
+900002ec:	00000797          	auipc	a5,0x0
+900002f0:	fd478793          	addi	a5,a5,-44 # 900002c0 <inst_7>
+900002f4:	ffc7f793          	andi	a5,a5,-4
+900002f8:	40f00033          	neg	zero,a5
+900002fc:	00052e23          	sw	zero,28(a0)
+
+90000300 <inst_8>:
+
+inst_8:
+// rs1==x20, rd==x3, imm_val == 128, 
+// opcode: jalr; op1:x20; dest:x3; immval:0x80; align:0 
+TEST_JALR_OP(x15, x3, x20, 0x80, x10, 32,0)
+90000300:	00000197          	auipc	gp,0x0
+90000304:	00018193          	mv	gp,gp
+90000308:	00000a17          	auipc	s4,0x0
+9000030c:	f9ca0a13          	addi	s4,s4,-100 # 900002a4 <inst_6+0x24>
+90000310:	080a01e7          	jalr	gp,128(s4)
+90000314:	00000013          	nop
+90000318:	00000013          	nop
+9000031c:	0021c193          	xori	gp,gp,2
+90000320:	00c0006f          	j	9000032c <inst_8+0x2c>
+90000324:	0031c193          	xori	gp,gp,3
+90000328:	0040006f          	j	9000032c <inst_8+0x2c>
+9000032c:	00000797          	auipc	a5,0x0
+90000330:	fd478793          	addi	a5,a5,-44 # 90000300 <inst_8>
+90000334:	ffc7f793          	andi	a5,a5,-4
+90000338:	40f181b3          	sub	gp,gp,a5
+9000033c:	02352023          	sw	gp,32(a0)
+
+90000340 <inst_9>:
+
+inst_9:
+// rs1==x13, rd==x19, imm_val == 256, 
+// opcode: jalr; op1:x13; dest:x19; immval:0x100; align:0 
+TEST_JALR_OP(x15, x19, x13, 0x100, x10, 36,0)
+90000340:	00000997          	auipc	s3,0x0
+90000344:	00098993          	mv	s3,s3
+90000348:	00000697          	auipc	a3,0x0
+9000034c:	f1c68693          	addi	a3,a3,-228 # 90000264 <inst_5+0x24>
+90000350:	100689e7          	jalr	s3,256(a3)
+90000354:	00000013          	nop
+90000358:	00000013          	nop
+9000035c:	0029c993          	xori	s3,s3,2
+90000360:	00c0006f          	j	9000036c <inst_9+0x2c>
+90000364:	0039c993          	xori	s3,s3,3
+90000368:	0040006f          	j	9000036c <inst_9+0x2c>
+9000036c:	00000797          	auipc	a5,0x0
+90000370:	fd478793          	addi	a5,a5,-44 # 90000340 <inst_9>
+90000374:	ffc7f793          	andi	a5,a5,-4
+90000378:	40f989b3          	sub	s3,s3,a5
+9000037c:	03352223          	sw	s3,36(a0)
+
+90000380 <inst_10>:
+
+inst_10:
+// rs1==x8, rd==x29, imm_val == 512, 
+// opcode: jalr; op1:x8; dest:x29; immval:0x200; align:0 
+TEST_JALR_OP(x15, x29, x8, 0x200, x10, 40,0)
+90000380:	00000e97          	auipc	t4,0x0
+90000384:	000e8e93          	mv	t4,t4
+90000388:	00000417          	auipc	s0,0x0
+9000038c:	e1c40413          	addi	s0,s0,-484 # 900001a4 <inst_2+0x24>
+90000390:	20040ee7          	jalr	t4,512(s0)
+90000394:	00000013          	nop
+90000398:	00000013          	nop
+9000039c:	002ece93          	xori	t4,t4,2
+900003a0:	00c0006f          	j	900003ac <inst_10+0x2c>
+900003a4:	003ece93          	xori	t4,t4,3
+900003a8:	0040006f          	j	900003ac <inst_10+0x2c>
+900003ac:	00000797          	auipc	a5,0x0
+900003b0:	fd478793          	addi	a5,a5,-44 # 90000380 <inst_10>
+900003b4:	ffc7f793          	andi	a5,a5,-4
+900003b8:	40fe8eb3          	sub	t4,t4,a5
+900003bc:	03d52423          	sw	t4,40(a0)
+
+900003c0 <inst_11>:
+
+inst_11:
+// rs1==x30, rd==x22, imm_val == 1024, 
+// opcode: jalr; op1:x30; dest:x22; immval:0x400; align:0 
+TEST_JALR_OP(x15, x22, x30, 0x400, x10, 44,0)
+900003c0:	00000b17          	auipc	s6,0x0
+900003c4:	000b0b13          	mv	s6,s6
+900003c8:	00000f17          	auipc	t5,0x0
+900003cc:	c1cf0f13          	addi	t5,t5,-996 # 8fffffe4 <offset+0x8fffffb0>
+900003d0:	400f0b67          	jalr	s6,1024(t5)
+900003d4:	00000013          	nop
+900003d8:	00000013          	nop
+900003dc:	002b4b13          	xori	s6,s6,2
+900003e0:	00c0006f          	j	900003ec <inst_11+0x2c>
+900003e4:	003b4b13          	xori	s6,s6,3
+900003e8:	0040006f          	j	900003ec <inst_11+0x2c>
+900003ec:	00000797          	auipc	a5,0x0
+900003f0:	fd478793          	addi	a5,a5,-44 # 900003c0 <inst_11>
+900003f4:	ffc7f793          	andi	a5,a5,-4
+900003f8:	40fb0b33          	sub	s6,s6,a5
+900003fc:	03652623          	sw	s6,44(a0)
+
+90000400 <inst_12>:
+
+inst_12:
+// rs1==x29, rd==x21, imm_val == -2048, 
+// opcode: jalr; op1:x29; dest:x21; immval:-0x800; align:0 
+TEST_JALR_OP(x15, x21, x29, -0x800, x10, 48,0)
+90000400:	00000a97          	auipc	s5,0x0
+90000404:	000a8a93          	mv	s5,s5
+90000408:	00001e97          	auipc	t4,0x1
+9000040c:	81ce8e93          	addi	t4,t4,-2020 # 90000c24 <self_loop+0x2c4>
+90000410:	800e8ae7          	jalr	s5,-2048(t4)
+90000414:	00000013          	nop
+90000418:	00000013          	nop
+9000041c:	002aca93          	xori	s5,s5,2
+90000420:	00c0006f          	j	9000042c <inst_12+0x2c>
+90000424:	003aca93          	xori	s5,s5,3
+90000428:	0040006f          	j	9000042c <inst_12+0x2c>
+9000042c:	00000797          	auipc	a5,0x0
+90000430:	fd478793          	addi	a5,a5,-44 # 90000400 <inst_12>
+90000434:	ffc7f793          	andi	a5,a5,-4
+90000438:	40fa8ab3          	sub	s5,s5,a5
+9000043c:	03552823          	sw	s5,48(a0)
+
+90000440 <inst_13>:
+
+inst_13:
+// rs1==x18, rd==x11, imm_val == -2, 
+// opcode: jalr; op1:x18; dest:x11; immval:-0x2; align:0 
+TEST_JALR_OP(x15, x11, x18, -0x2, x10, 52,0)
+90000440:	00000597          	auipc	a1,0x0
+90000444:	00058593          	mv	a1,a1
+90000448:	00000917          	auipc	s2,0x0
+9000044c:	01e90913          	addi	s2,s2,30 # 90000466 <inst_13+0x26>
+90000450:	ffe905e7          	jalr	a1,-2(s2)
+90000454:	00000013          	nop
+90000458:	00000013          	nop
+9000045c:	0025c593          	xori	a1,a1,2
+90000460:	00c0006f          	j	9000046c <inst_13+0x2c>
+90000464:	0035c593          	xori	a1,a1,3
+90000468:	0040006f          	j	9000046c <inst_13+0x2c>
+9000046c:	00000797          	auipc	a5,0x0
+90000470:	fd478793          	addi	a5,a5,-44 # 90000440 <inst_13>
+90000474:	ffc7f793          	andi	a5,a5,-4
+90000478:	40f585b3          	sub	a1,a1,a5
+9000047c:	02b52a23          	sw	a1,52(a0)
+
+90000480 <inst_14>:
+
+inst_14:
+// rs1==x21, rd==x28, imm_val == -3, 
+// opcode: jalr; op1:x21; dest:x28; immval:-0x3; align:0 
+TEST_JALR_OP(x15, x28, x21, -0x3, x10, 56,0)
+90000480:	00000e17          	auipc	t3,0x0
+90000484:	000e0e13          	mv	t3,t3
+90000488:	00000a97          	auipc	s5,0x0
+9000048c:	01fa8a93          	addi	s5,s5,31 # 900004a7 <inst_14+0x27>
+90000490:	ffda8e67          	jalr	t3,-3(s5)
+90000494:	00000013          	nop
+90000498:	00000013          	nop
+9000049c:	002e4e13          	xori	t3,t3,2
+900004a0:	00c0006f          	j	900004ac <inst_14+0x2c>
+900004a4:	003e4e13          	xori	t3,t3,3
+900004a8:	0040006f          	j	900004ac <inst_14+0x2c>
+900004ac:	00000797          	auipc	a5,0x0
+900004b0:	fd478793          	addi	a5,a5,-44 # 90000480 <inst_14>
+900004b4:	ffc7f793          	andi	a5,a5,-4
+900004b8:	40fe0e33          	sub	t3,t3,a5
+900004bc:	03c52c23          	sw	t3,56(a0)
+
+900004c0 <inst_15>:
+
+inst_15:
+// rs1==x24, rd==x14, imm_val == -5, 
+// opcode: jalr; op1:x24; dest:x14; immval:-0x5; align:0 
+TEST_JALR_OP(x15, x14, x24, -0x5, x10, 60,0)
+900004c0:	00000717          	auipc	a4,0x0
+900004c4:	00070713          	mv	a4,a4
+900004c8:	00000c17          	auipc	s8,0x0
+900004cc:	021c0c13          	addi	s8,s8,33 # 900004e9 <inst_15+0x29>
+900004d0:	ffbc0767          	jalr	a4,-5(s8)
+900004d4:	00000013          	nop
+900004d8:	00000013          	nop
+900004dc:	00274713          	xori	a4,a4,2
+900004e0:	00c0006f          	j	900004ec <inst_15+0x2c>
+900004e4:	00374713          	xori	a4,a4,3
+900004e8:	0040006f          	j	900004ec <inst_15+0x2c>
+900004ec:	00000797          	auipc	a5,0x0
+900004f0:	fd478793          	addi	a5,a5,-44 # 900004c0 <inst_15>
+900004f4:	ffc7f793          	andi	a5,a5,-4
+900004f8:	40f70733          	sub	a4,a4,a5
+900004fc:	02e52e23          	sw	a4,60(a0)
+
+90000500 <inst_16>:
+
+inst_16:
+// rs1==x2, rd==x6, imm_val == -9, 
+// opcode: jalr; op1:x2; dest:x6; immval:-0x9; align:0 
+TEST_JALR_OP(x15, x6, x2, -0x9, x10, 64,0)
+90000500:	00000317          	auipc	t1,0x0
+90000504:	00030313          	mv	t1,t1
+90000508:	00000117          	auipc	sp,0x0
+9000050c:	02510113          	addi	sp,sp,37 # 9000052d <inst_16+0x2d>
+90000510:	ff710367          	jalr	t1,-9(sp)
+90000514:	00000013          	nop
+90000518:	00000013          	nop
+9000051c:	00234313          	xori	t1,t1,2
+90000520:	00c0006f          	j	9000052c <inst_16+0x2c>
+90000524:	00334313          	xori	t1,t1,3
+90000528:	0040006f          	j	9000052c <inst_16+0x2c>
+9000052c:	00000797          	auipc	a5,0x0
+90000530:	fd478793          	addi	a5,a5,-44 # 90000500 <inst_16>
+90000534:	ffc7f793          	andi	a5,a5,-4
+90000538:	40f30333          	sub	t1,t1,a5
+9000053c:	04652023          	sw	t1,64(a0)
+
+90000540 <inst_17>:
+
+inst_17:
+// rs1==x1, rd==x5, imm_val == -17, 
+// opcode: jalr; op1:x1; dest:x5; immval:-0x11; align:0 
+TEST_JALR_OP(x15, x5, x1, -0x11, x10, 68,0)
+90000540:	00000297          	auipc	t0,0x0
+90000544:	00028293          	mv	t0,t0
+90000548:	00000097          	auipc	ra,0x0
+9000054c:	02d08093          	addi	ra,ra,45 # 90000575 <inst_17+0x35>
+90000550:	fef082e7          	jalr	t0,-17(ra)
+90000554:	00000013          	nop
+90000558:	00000013          	nop
+9000055c:	0022c293          	xori	t0,t0,2
+90000560:	00c0006f          	j	9000056c <inst_17+0x2c>
+90000564:	0032c293          	xori	t0,t0,3
+90000568:	0040006f          	j	9000056c <inst_17+0x2c>
+9000056c:	00000797          	auipc	a5,0x0
+90000570:	fd478793          	addi	a5,a5,-44 # 90000540 <inst_17>
+90000574:	ffc7f793          	andi	a5,a5,-4
+90000578:	40f282b3          	sub	t0,t0,a5
+9000057c:	04552223          	sw	t0,68(a0)
+
+90000580 <inst_18>:
+
+inst_18:
+// rs1==x5, rd==x18, imm_val == -33, 
+// opcode: jalr; op1:x5; dest:x18; immval:-0x21; align:0 
+TEST_JALR_OP(x15, x18, x5, -0x21, x10, 72,0)
+90000580:	00000917          	auipc	s2,0x0
+90000584:	00090913          	mv	s2,s2
+90000588:	00000297          	auipc	t0,0x0
+9000058c:	03d28293          	addi	t0,t0,61 # 900005c5 <inst_19+0x5>
+90000590:	fdf28967          	jalr	s2,-33(t0)
+90000594:	00000013          	nop
+90000598:	00000013          	nop
+9000059c:	00294913          	xori	s2,s2,2
+900005a0:	00c0006f          	j	900005ac <inst_18+0x2c>
+900005a4:	00394913          	xori	s2,s2,3
+900005a8:	0040006f          	j	900005ac <inst_18+0x2c>
+900005ac:	00000797          	auipc	a5,0x0
+900005b0:	fd478793          	addi	a5,a5,-44 # 90000580 <inst_18>
+900005b4:	ffc7f793          	andi	a5,a5,-4
+900005b8:	40f90933          	sub	s2,s2,a5
+900005bc:	05252423          	sw	s2,72(a0)
+
+900005c0 <inst_19>:
+
+inst_19:
+// rs1==x9, rd==x7, imm_val == -65, 
+// opcode: jalr; op1:x9; dest:x7; immval:-0x41; align:0 
+TEST_JALR_OP(x15, x7, x9, -0x41, x10, 76,0)
+900005c0:	00000397          	auipc	t2,0x0
+900005c4:	00038393          	mv	t2,t2
+900005c8:	00000497          	auipc	s1,0x0
+900005cc:	05d48493          	addi	s1,s1,93 # 90000625 <inst_20+0x1d>
+900005d0:	fbf483e7          	jalr	t2,-65(s1)
+900005d4:	00000013          	nop
+900005d8:	00000013          	nop
+900005dc:	0023c393          	xori	t2,t2,2
+900005e0:	00c0006f          	j	900005ec <inst_19+0x2c>
+900005e4:	0033c393          	xori	t2,t2,3
+900005e8:	0040006f          	j	900005ec <inst_19+0x2c>
+900005ec:	00000797          	auipc	a5,0x0
+900005f0:	fd478793          	addi	a5,a5,-44 # 900005c0 <inst_19>
+900005f4:	ffc7f793          	andi	a5,a5,-4
+900005f8:	40f383b3          	sub	t2,t2,a5
+900005fc:	04752623          	sw	t2,76(a0)
+RVTEST_SIGBASE( x3,signature_x3_0)
+90000600:	00002197          	auipc	gp,0x2
+90000604:	a6018193          	addi	gp,gp,-1440 # 90002060 <signature_x3_0>
+
+90000608 <inst_20>:
+
+inst_20:
+// rs1==x25, rd==x10, imm_val == -129, 
+// opcode: jalr; op1:x25; dest:x10; immval:-0x81; align:0 
+TEST_JALR_OP(x5, x10, x25, -0x81, x3, 0,0)
+90000608:	00000517          	auipc	a0,0x0
+9000060c:	00050513          	mv	a0,a0
+90000610:	00000c97          	auipc	s9,0x0
+90000614:	09dc8c93          	addi	s9,s9,157 # 900006ad <inst_22+0x25>
+90000618:	f7fc8567          	jalr	a0,-129(s9)
+9000061c:	00000013          	nop
+90000620:	00000013          	nop
+90000624:	00254513          	xori	a0,a0,2
+90000628:	00c0006f          	j	90000634 <inst_20+0x2c>
+9000062c:	00354513          	xori	a0,a0,3
+90000630:	0040006f          	j	90000634 <inst_20+0x2c>
+90000634:	00000297          	auipc	t0,0x0
+90000638:	fd428293          	addi	t0,t0,-44 # 90000608 <inst_20>
+9000063c:	ffc2f293          	andi	t0,t0,-4
+90000640:	40550533          	sub	a0,a0,t0
+90000644:	00a1a023          	sw	a0,0(gp)
+
+90000648 <inst_21>:
+
+inst_21:
+// rs1==x11, rd==x15, imm_val == -513, 
+// opcode: jalr; op1:x11; dest:x15; immval:-0x201; align:0 
+TEST_JALR_OP(x5, x15, x11, -0x201, x3, 4,0)
+90000648:	00000797          	auipc	a5,0x0
+9000064c:	00078793          	mv	a5,a5
+90000650:	00000597          	auipc	a1,0x0
+90000654:	21d58593          	addi	a1,a1,541 # 9000086d <inst_29+0x25>
+90000658:	dff587e7          	jalr	a5,-513(a1)
+9000065c:	00000013          	nop
+90000660:	00000013          	nop
+90000664:	0027c793          	xori	a5,a5,2
+90000668:	00c0006f          	j	90000674 <inst_21+0x2c>
+9000066c:	0037c793          	xori	a5,a5,3
+90000670:	0040006f          	j	90000674 <inst_21+0x2c>
+90000674:	00000297          	auipc	t0,0x0
+90000678:	fd428293          	addi	t0,t0,-44 # 90000648 <inst_21>
+9000067c:	ffc2f293          	andi	t0,t0,-4
+90000680:	405787b3          	sub	a5,a5,t0
+90000684:	00f1a223          	sw	a5,4(gp)
+
+90000688 <inst_22>:
+
+inst_22:
+// rs1==x19, rd==x9, imm_val == -1025, 
+// opcode: jalr; op1:x19; dest:x9; immval:-0x401; align:0 
+TEST_JALR_OP(x5, x9, x19, -0x401, x3, 8,0)
+90000688:	00000497          	auipc	s1,0x0
+9000068c:	00048493          	mv	s1,s1
+90000690:	00000997          	auipc	s3,0x0
+90000694:	41d98993          	addi	s3,s3,1053 # 90000aad <self_loop+0x14d>
+90000698:	bff984e7          	jalr	s1,-1025(s3)
+9000069c:	00000013          	nop
+900006a0:	00000013          	nop
+900006a4:	0024c493          	xori	s1,s1,2
+900006a8:	00c0006f          	j	900006b4 <inst_22+0x2c>
+900006ac:	0034c493          	xori	s1,s1,3
+900006b0:	0040006f          	j	900006b4 <inst_22+0x2c>
+900006b4:	00000297          	auipc	t0,0x0
+900006b8:	fd428293          	addi	t0,t0,-44 # 90000688 <inst_22>
+900006bc:	ffc2f293          	andi	t0,t0,-4
+900006c0:	405484b3          	sub	s1,s1,t0
+900006c4:	0091a423          	sw	s1,8(gp)
+
+900006c8 <inst_23>:
+
+inst_23:
+// rs1==x7, rd==x20, imm_val == 2047, 
+// opcode: jalr; op1:x7; dest:x20; immval:0x7ff; align:0 
+TEST_JALR_OP(x5, x20, x7, 0x7ff, x3, 12,0)
+900006c8:	00000a17          	auipc	s4,0x0
+900006cc:	000a0a13          	mv	s4,s4
+900006d0:	00000397          	auipc	t2,0x0
+900006d4:	81d38393          	addi	t2,t2,-2019 # 8ffffeed <offset+0x8ffffeb9>
+900006d8:	7ff38a67          	jalr	s4,2047(t2)
+900006dc:	00000013          	nop
+900006e0:	00000013          	nop
+900006e4:	002a4a13          	xori	s4,s4,2
+900006e8:	00c0006f          	j	900006f4 <inst_23+0x2c>
+900006ec:	003a4a13          	xori	s4,s4,3
+900006f0:	0040006f          	j	900006f4 <inst_23+0x2c>
+900006f4:	00000297          	auipc	t0,0x0
+900006f8:	fd428293          	addi	t0,t0,-44 # 900006c8 <inst_23>
+900006fc:	ffc2f293          	andi	t0,t0,-4
+90000700:	405a0a33          	sub	s4,s4,t0
+90000704:	0141a623          	sw	s4,12(gp)
+
+90000708 <inst_24>:
+
+inst_24:
+// rs1==x14, rd==x26, imm_val == 1365, 
+// opcode: jalr; op1:x14; dest:x26; immval:0x555; align:0 
+TEST_JALR_OP(x5, x26, x14, 0x555, x3, 16,0)
+90000708:	00000d17          	auipc	s10,0x0
+9000070c:	000d0d13          	mv	s10,s10
+90000710:	00000717          	auipc	a4,0x0
+90000714:	ac770713          	addi	a4,a4,-1337 # 900001d7 <inst_3+0x17>
+90000718:	55570d67          	jalr	s10,1365(a4)
+9000071c:	00000013          	nop
+90000720:	00000013          	nop
+90000724:	002d4d13          	xori	s10,s10,2
+90000728:	00c0006f          	j	90000734 <inst_24+0x2c>
+9000072c:	003d4d13          	xori	s10,s10,3
+90000730:	0040006f          	j	90000734 <inst_24+0x2c>
+90000734:	00000297          	auipc	t0,0x0
+90000738:	fd428293          	addi	t0,t0,-44 # 90000708 <inst_24>
+9000073c:	ffc2f293          	andi	t0,t0,-4
+90000740:	405d0d33          	sub	s10,s10,t0
+90000744:	01a1a823          	sw	s10,16(gp)
+
+90000748 <inst_25>:
+
+inst_25:
+// rs1==x15, rd==x4, imm_val == -1366, 
+// opcode: jalr; op1:x15; dest:x4; immval:-0x556; align:0 
+TEST_JALR_OP(x5, x4, x15, -0x556, x3, 20,0)
+90000748:	00000217          	auipc	tp,0x0
+9000074c:	00020213          	mv	tp,tp
+90000750:	00000797          	auipc	a5,0x0
+90000754:	57278793          	addi	a5,a5,1394 # 90000cc2 <self_loop+0x362>
+90000758:	aaa78267          	jalr	tp,-1366(a5)
+9000075c:	00000013          	nop
+90000760:	00000013          	nop
+90000764:	00224213          	xori	tp,tp,2
+90000768:	00c0006f          	j	90000774 <inst_25+0x2c>
+9000076c:	00324213          	xori	tp,tp,3
+90000770:	0040006f          	j	90000774 <inst_25+0x2c>
+90000774:	00000297          	auipc	t0,0x0
+90000778:	fd428293          	addi	t0,t0,-44 # 90000748 <inst_25>
+9000077c:	ffc2f293          	andi	t0,t0,-4
+90000780:	40520233          	sub	tp,tp,t0
+90000784:	0041aa23          	sw	tp,20(gp)
+
+90000788 <inst_26>:
+
+inst_26:
+// rs1==x22, rd==x24, 
+// opcode: jalr; op1:x22; dest:x24; immval:-0x800; align:0 
+TEST_JALR_OP(x5, x24, x22, -0x800, x3, 24,0)
+90000788:	00000c17          	auipc	s8,0x0
+9000078c:	000c0c13          	mv	s8,s8
+90000790:	00001b17          	auipc	s6,0x1
+90000794:	81cb0b13          	addi	s6,s6,-2020 # 90000fac <self_loop+0x64c>
+90000798:	800b0c67          	jalr	s8,-2048(s6)
+9000079c:	00000013          	nop
+900007a0:	00000013          	nop
+900007a4:	002c4c13          	xori	s8,s8,2
+900007a8:	00c0006f          	j	900007b4 <inst_26+0x2c>
+900007ac:	003c4c13          	xori	s8,s8,3
+900007b0:	0040006f          	j	900007b4 <inst_26+0x2c>
+900007b4:	00000297          	auipc	t0,0x0
+900007b8:	fd428293          	addi	t0,t0,-44 # 90000788 <inst_26>
+900007bc:	ffc2f293          	andi	t0,t0,-4
+900007c0:	405c0c33          	sub	s8,s8,t0
+900007c4:	0181ac23          	sw	s8,24(gp)
+
+900007c8 <inst_27>:
+
+inst_27:
+// rs1==x26, rd==x23, 
+// opcode: jalr; op1:x26; dest:x23; immval:-0x800; align:0 
+TEST_JALR_OP(x5, x23, x26, -0x800, x3, 28,0)
+900007c8:	00000b97          	auipc	s7,0x0
+900007cc:	000b8b93          	mv	s7,s7
+900007d0:	00001d17          	auipc	s10,0x1
+900007d4:	81cd0d13          	addi	s10,s10,-2020 # 90000fec <self_loop+0x68c>
+900007d8:	800d0be7          	jalr	s7,-2048(s10)
+900007dc:	00000013          	nop
+900007e0:	00000013          	nop
+900007e4:	002bcb93          	xori	s7,s7,2
+900007e8:	00c0006f          	j	900007f4 <inst_27+0x2c>
+900007ec:	003bcb93          	xori	s7,s7,3
+900007f0:	0040006f          	j	900007f4 <inst_27+0x2c>
+900007f4:	00000297          	auipc	t0,0x0
+900007f8:	fd428293          	addi	t0,t0,-44 # 900007c8 <inst_27>
+900007fc:	ffc2f293          	andi	t0,t0,-4
+90000800:	405b8bb3          	sub	s7,s7,t0
+90000804:	0171ae23          	sw	s7,28(gp)
+
+90000808 <inst_28>:
+
+inst_28:
+// rs1==x28, rd==x2, 
+// opcode: jalr; op1:x28; dest:x2; immval:-0x800; align:0 
+TEST_JALR_OP(x5, x2, x28, -0x800, x3, 32,0)
+90000808:	00000117          	auipc	sp,0x0
+9000080c:	00010113          	mv	sp,sp
+90000810:	00001e17          	auipc	t3,0x1
+90000814:	81ce0e13          	addi	t3,t3,-2020 # 9000102c <tohost+0x2c>
+90000818:	800e0167          	jalr	sp,-2048(t3)
+9000081c:	00000013          	nop
+90000820:	00000013          	nop
+90000824:	00214113          	xori	sp,sp,2
+90000828:	00c0006f          	j	90000834 <inst_28+0x2c>
+9000082c:	00314113          	xori	sp,sp,3
+90000830:	0040006f          	j	90000834 <inst_28+0x2c>
+90000834:	00000297          	auipc	t0,0x0
+90000838:	fd428293          	addi	t0,t0,-44 # 90000808 <inst_28>
+9000083c:	ffc2f293          	andi	t0,t0,-4
+90000840:	40510133          	sub	sp,sp,t0
+90000844:	0221a023          	sw	sp,32(gp)
+
+90000848 <inst_29>:
+
+inst_29:
+// rs1==x10, rd==x1, 
+// opcode: jalr; op1:x10; dest:x1; immval:-0x800; align:0 
+TEST_JALR_OP(x5, x1, x10, -0x800, x3, 36,0)
+90000848:	00000097          	auipc	ra,0x0
+9000084c:	00008093          	mv	ra,ra
+90000850:	00001517          	auipc	a0,0x1
+90000854:	81c50513          	addi	a0,a0,-2020 # 9000106c <tohost+0x6c>
+90000858:	800500e7          	jalr	-2048(a0)
+9000085c:	00000013          	nop
+90000860:	00000013          	nop
+90000864:	0020c093          	xori	ra,ra,2
+90000868:	00c0006f          	j	90000874 <inst_29+0x2c>
+9000086c:	0030c093          	xori	ra,ra,3
+90000870:	0040006f          	j	90000874 <inst_29+0x2c>
+90000874:	00000297          	auipc	t0,0x0
+90000878:	fd428293          	addi	t0,t0,-44 # 90000848 <inst_29>
+9000087c:	ffc2f293          	andi	t0,t0,-4
+90000880:	405080b3          	sub	ra,ra,t0
+90000884:	0211a223          	sw	ra,36(gp)
+
+90000888 <inst_30>:
+
+inst_30:
+// rs1==x16, rd==x31, 
+// opcode: jalr; op1:x16; dest:x31; immval:-0x800; align:0 
+TEST_JALR_OP(x5, x31, x16, -0x800, x3, 40,0)
+90000888:	00000f97          	auipc	t6,0x0
+9000088c:	000f8f93          	mv	t6,t6
+90000890:	00001817          	auipc	a6,0x1
+90000894:	81c80813          	addi	a6,a6,-2020 # 900010ac <tohost+0xac>
+90000898:	80080fe7          	jalr	t6,-2048(a6)
+9000089c:	00000013          	nop
+900008a0:	00000013          	nop
+900008a4:	002fcf93          	xori	t6,t6,2
+900008a8:	00c0006f          	j	900008b4 <inst_30+0x2c>
+900008ac:	003fcf93          	xori	t6,t6,3
+900008b0:	0040006f          	j	900008b4 <inst_30+0x2c>
+900008b4:	00000297          	auipc	t0,0x0
+900008b8:	fd428293          	addi	t0,t0,-44 # 90000888 <inst_30>
+900008bc:	ffc2f293          	andi	t0,t0,-4
+900008c0:	405f8fb3          	sub	t6,t6,t0
+900008c4:	03f1a423          	sw	t6,40(gp)
+
+900008c8 <inst_31>:
+
+inst_31:
+// rd==x27, 
+// opcode: jalr; op1:x16; dest:x27; immval:-0x800; align:0 
+TEST_JALR_OP(x5, x27, x16, -0x800, x3, 44,0)
+900008c8:	00000d97          	auipc	s11,0x0
+900008cc:	000d8d93          	mv	s11,s11
+900008d0:	00001817          	auipc	a6,0x1
+900008d4:	81c80813          	addi	a6,a6,-2020 # 900010ec <tohost+0xec>
+900008d8:	80080de7          	jalr	s11,-2048(a6)
+900008dc:	00000013          	nop
+900008e0:	00000013          	nop
+900008e4:	002dcd93          	xori	s11,s11,2
+900008e8:	00c0006f          	j	900008f4 <inst_31+0x2c>
+900008ec:	003dcd93          	xori	s11,s11,3
+900008f0:	0040006f          	j	900008f4 <inst_31+0x2c>
+900008f4:	00000297          	auipc	t0,0x0
+900008f8:	fd428293          	addi	t0,t0,-44 # 900008c8 <inst_31>
+900008fc:	ffc2f293          	andi	t0,t0,-4
+90000900:	405d8db3          	sub	s11,s11,t0
+90000904:	03b1a623          	sw	s11,44(gp)
+
+90000908 <inst_32>:
+
+inst_32:
+// imm_val == 32, 
+// opcode: jalr; op1:x10; dest:x11; immval:0x20; align:0 
+TEST_JALR_OP(x5, x11, x10, 0x20, x3, 48,0)
+90000908:	00000597          	auipc	a1,0x0
+9000090c:	00058593          	mv	a1,a1
+90000910:	00000517          	auipc	a0,0x0
+90000914:	ffc50513          	addi	a0,a0,-4 # 9000090c <inst_32+0x4>
+90000918:	020505e7          	jalr	a1,32(a0)
+9000091c:	00000013          	nop
+90000920:	00000013          	nop
+90000924:	0025c593          	xori	a1,a1,2
+90000928:	00c0006f          	j	90000934 <inst_32+0x2c>
+9000092c:	0035c593          	xori	a1,a1,3
+90000930:	0040006f          	j	90000934 <inst_32+0x2c>
+90000934:	00000297          	auipc	t0,0x0
+90000938:	fd428293          	addi	t0,t0,-44 # 90000908 <inst_32>
+9000093c:	ffc2f293          	andi	t0,t0,-4
+90000940:	405585b3          	sub	a1,a1,t0
+90000944:	02b1a823          	sw	a1,48(gp)
+90000948:	00000013          	nop
+9000094c:	00000013          	nop
+
+90000950 <rvtest_code_end>:
+#endif
+
+
+RVTEST_CODE_END
+RVMODEL_HALT
+90000950:	00408093          	addi	ra,ra,4 # 9000084c <inst_29+0x4>
+90000954:	00100093          	li	ra,1
+
+90000958 <write_tohost>:
+90000958:	00000f17          	auipc	t5,0x0
+9000095c:	6a1f2423          	sw	ra,1704(t5) # 90001000 <tohost>
+
+90000960 <self_loop>:
+90000960:	0000006f          	j	90000960 <self_loop>
+	...

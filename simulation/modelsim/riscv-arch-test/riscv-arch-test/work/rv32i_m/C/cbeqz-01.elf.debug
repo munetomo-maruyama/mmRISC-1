@@ -1,0 +1,2693 @@
+
+/home/taka/RISCV/mmRISC/simulation/modelsim/riscv-arch-test/riscv-arch-test/work/rv32i_m/C/cbeqz-01.elf:     file format elf32-littleriscv
+
+
+Disassembly of section .text.init:
+
+90000000 <rvtest_entry_point>:
+
+.section .text.init
+.globl rvtest_entry_point
+rvtest_entry_point:
+RVMODEL_BOOT
+RVTEST_CODE_BEGIN
+90000000:	feedc0b7          	lui	ra,0xfeedc
+90000004:	ead08093          	addi	ra,ra,-339 # feedbead <_end+0x6eed8ba9>
+90000008:	ff76e137          	lui	sp,0xff76e
+9000000c:	f5610113          	addi	sp,sp,-170 # ff76df56 <_end+0x6f76ac52>
+90000010:	7fbb71b7          	lui	gp,0x7fbb7
+90000014:	fab18193          	addi	gp,gp,-85 # 7fbb6fab <offset+0x7fbb6e57>
+90000018:	bfddb237          	lui	tp,0xbfddb
+9000001c:	7d520213          	addi	tp,tp,2005 # bfddb7d5 <_end+0x2fdd84d1>
+90000020:	00000297          	auipc	t0,0x0
+90000024:	0d828293          	addi	t0,t0,216 # 900000f8 <rvtest_code_begin>
+90000028:	00003317          	auipc	t1,0x3
+9000002c:	fd830313          	addi	t1,t1,-40 # 90003000 <rvtest_data_begin>
+90000030:	b7fbb3b7          	lui	t2,0xb7fbb
+90000034:	6fa38393          	addi	t2,t2,1786 # b7fbb6fa <_end+0x27fb83f6>
+90000038:	5bfde437          	lui	s0,0x5bfde
+9000003c:	b7d40413          	addi	s0,s0,-1155 # 5bfddb7d <offset+0x5bfdda29>
+90000040:	adfef4b7          	lui	s1,0xadfef
+90000044:	dbe48493          	addi	s1,s1,-578 # adfeedbe <_end+0x1dfebaba>
+90000048:	56ff7537          	lui	a0,0x56ff7
+9000004c:	6df50513          	addi	a0,a0,1759 # 56ff76df <offset+0x56ff758b>
+90000050:	ab7fc5b7          	lui	a1,0xab7fc
+90000054:	b6f58593          	addi	a1,a1,-1169 # ab7fbb6f <_end+0x1b7f886b>
+90000058:	d5bfe637          	lui	a2,0xd5bfe
+9000005c:	db760613          	addi	a2,a2,-585 # d5bfddb7 <_end+0x45bfaab3>
+90000060:	eadff6b7          	lui	a3,0xeadff
+90000064:	edb68693          	addi	a3,a3,-293 # eadfeedb <_end+0x5adfbbd7>
+90000068:	f56ff737          	lui	a4,0xf56ff
+9000006c:	76d70713          	addi	a4,a4,1901 # f56ff76d <_end+0x656fc469>
+90000070:	fab807b7          	lui	a5,0xfab80
+90000074:	bb678793          	addi	a5,a5,-1098 # fab7fbb6 <_end+0x6ab7c8b2>
+90000078:	7d5c0837          	lui	a6,0x7d5c0
+9000007c:	ddb80813          	addi	a6,a6,-549 # 7d5bfddb <offset+0x7d5bfc87>
+90000080:	beae08b7          	lui	a7,0xbeae0
+90000084:	eed88893          	addi	a7,a7,-275 # beadfeed <_end+0x2eadcbe9>
+90000088:	df570937          	lui	s2,0xdf570
+9000008c:	f7690913          	addi	s2,s2,-138 # df56ff76 <_end+0x4f56cc72>
+90000090:	6fab89b7          	lui	s3,0x6fab8
+90000094:	fbb98993          	addi	s3,s3,-69 # 6fab7fbb <offset+0x6fab7e67>
+90000098:	b7d5ca37          	lui	s4,0xb7d5c
+9000009c:	fdda0a13          	addi	s4,s4,-35 # b7d5bfdd <_end+0x27d58cd9>
+900000a0:	dbeaeab7          	lui	s5,0xdbeae
+900000a4:	feea8a93          	addi	s5,s5,-18 # dbeadfee <_end+0x4beaacea>
+900000a8:	6df57b37          	lui	s6,0x6df57
+900000ac:	ff7b0b13          	addi	s6,s6,-9 # 6df56ff7 <offset+0x6df56ea3>
+900000b0:	b6fabbb7          	lui	s7,0xb6fab
+900000b4:	7fbb8b93          	addi	s7,s7,2043 # b6fab7fb <_end+0x26fa84f7>
+900000b8:	db7d6c37          	lui	s8,0xdb7d6
+900000bc:	bfdc0c13          	addi	s8,s8,-1027 # db7d5bfd <_end+0x4b7d28f9>
+900000c0:	edbebcb7          	lui	s9,0xedbeb
+900000c4:	dfec8c93          	addi	s9,s9,-514 # edbeadfe <_end+0x5dbe7afa>
+900000c8:	76df5d37          	lui	s10,0x76df5
+900000cc:	6ffd0d13          	addi	s10,s10,1791 # 76df56ff <offset+0x76df55ab>
+900000d0:	bb6fbdb7          	lui	s11,0xbb6fb
+900000d4:	b7fd8d93          	addi	s11,s11,-1153 # bb6fab7f <_end+0x2b6f787b>
+900000d8:	ddb7de37          	lui	t3,0xddb7d
+900000dc:	5bfe0e13          	addi	t3,t3,1471 # ddb7d5bf <_end+0x4db7a2bb>
+900000e0:	eedbfeb7          	lui	t4,0xeedbf
+900000e4:	adfe8e93          	addi	t4,t4,-1313 # eedbeadf <_end+0x5edbb7db>
+900000e8:	f76dff37          	lui	t5,0xf76df
+900000ec:	56ff0f13          	addi	t5,t5,1391 # f76df56f <_end+0x676dc26b>
+900000f0:	fbb70fb7          	lui	t6,0xfbb70
+900000f4:	ab7f8f93          	addi	t6,t6,-1353 # fbb6fab7 <_end+0x6bb6c7b3>
+
+900000f8 <rvtest_code_begin>:
+
+#ifdef TEST_CASE_1
+
+RVTEST_CASE(0,"//check ISA:=regex(.*32.*);check ISA:=regex(.*I.*C.*);def TEST_CASE_1=True;",cbeqz)
+
+RVTEST_SIGBASE( x1,signature_x1_1)
+900000f8:	00003097          	auipc	ra,0x3
+900000fc:	f1808093          	addi	ra,ra,-232 # 90003010 <begin_signature>
+
+90000100 <inst_0>:
+
+inst_0:
+// rs1==x9, rs1_val == (-2**(xlen-1)), rs1_val < 0 and imm_val < 0, rs1_val == -2147483648
+// opcode:c.beqz; op1:x9; op1val:-0x80000000; immval:0x10
+TEST_CBRANCH_OP(c.beqz, x2, x9, -0x80000000, 0x10, 1b, x1, 0)
+90000100:	800004b7          	lui	s1,0x80000
+90000104:	a811                	j	90000118 <inst_0+0x18>
+90000106:	4101                	li	sp,0
+90000108:	00110113          	addi	sp,sp,1
+9000010c:	0180006f          	j	90000124 <inst_0+0x24>
+90000110:	0001                	nop
+90000112:	0001                	nop
+90000114:	0001                	nop
+90000116:	0001                	nop
+90000118:	d8e5                	beqz	s1,90000108 <inst_0+0x8>
+9000011a:	00210113          	addi	sp,sp,2
+9000011e:	0060006f          	j	90000124 <inst_0+0x24>
+90000122:	010d                	addi	sp,sp,3
+90000124:	0020a023          	sw	sp,0(ra)
+
+90000128 <inst_1>:
+
+inst_1:
+// rs1==x10, rs1_val == 0, rs1_val == 0 and imm_val < 0, rs1_val==0
+// opcode:c.beqz; op1:x10; op1val:0x0; immval:0xa
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x0, 0xa, 1b, x1, 4)
+90000128:	00000513          	li	a0,0
+9000012c:	a039                	j	9000013a <inst_1+0x12>
+9000012e:	4101                	li	sp,0
+90000130:	00110113          	addi	sp,sp,1
+90000134:	0120006f          	j	90000146 <inst_1+0x1e>
+90000138:	0001                	nop
+9000013a:	d97d                	beqz	a0,90000130 <inst_1+0x8>
+9000013c:	00210113          	addi	sp,sp,2
+90000140:	0060006f          	j	90000146 <inst_1+0x1e>
+90000144:	010d                	addi	sp,sp,3
+90000146:	0020a223          	sw	sp,4(ra)
+
+9000014a <inst_2>:
+
+inst_2:
+// rs1==x13, rs1_val == (2**(xlen-1)-1), rs1_val == 2147483647, rs1_val > 0 and imm_val > 0
+// opcode:c.beqz; op1:x13; op1val:0x7fffffff; immval:0x20
+TEST_CBRANCH_OP(c.beqz, x2, x13, 0x7fffffff, 0x20, 3f, x1, 8)
+9000014a:	800006b7          	lui	a3,0x80000
+9000014e:	fff68693          	addi	a3,a3,-1 # 7fffffff <_end+0xefffccfb>
+90000152:	a031                	j	9000015e <inst_2+0x14>
+90000154:	4101                	li	sp,0
+90000156:	00110113          	addi	sp,sp,1
+9000015a:	0260006f          	j	90000180 <inst_2+0x36>
+9000015e:	c285                	beqz	a3,9000017e <inst_2+0x34>
+90000160:	00210113          	addi	sp,sp,2
+90000164:	01c0006f          	j	90000180 <inst_2+0x36>
+90000168:	0001                	nop
+9000016a:	0001                	nop
+9000016c:	0001                	nop
+9000016e:	0001                	nop
+90000170:	0001                	nop
+90000172:	0001                	nop
+90000174:	0001                	nop
+90000176:	0001                	nop
+90000178:	0001                	nop
+9000017a:	0001                	nop
+9000017c:	0001                	nop
+9000017e:	010d                	addi	sp,sp,3
+90000180:	0020a423          	sw	sp,8(ra)
+
+90000184 <inst_3>:
+
+inst_3:
+// rs1==x8, rs1_val == 1, rs1_val > 0 and imm_val < 0
+// opcode:c.beqz; op1:x8; op1val:0x1; immval:0x12
+TEST_CBRANCH_OP(c.beqz, x2, x8, 0x1, 0x12, 1b, x1, 12)
+90000184:	00100413          	li	s0,1
+90000188:	a819                	j	9000019e <inst_3+0x1a>
+9000018a:	4101                	li	sp,0
+9000018c:	00110113          	addi	sp,sp,1
+90000190:	01a0006f          	j	900001aa <inst_3+0x26>
+90000194:	0001                	nop
+90000196:	0001                	nop
+90000198:	0001                	nop
+9000019a:	0001                	nop
+9000019c:	0001                	nop
+9000019e:	d47d                	beqz	s0,9000018c <inst_3+0x8>
+900001a0:	00210113          	addi	sp,sp,2
+900001a4:	0060006f          	j	900001aa <inst_3+0x26>
+900001a8:	010d                	addi	sp,sp,3
+900001aa:	0020a623          	sw	sp,12(ra)
+
+900001ae <inst_4>:
+
+inst_4:
+// rs1==x11, rs1_val < 0 and imm_val > 0, rs1_val == -131073
+// opcode:c.beqz; op1:x11; op1val:-0x20001; immval:0x7e
+TEST_CBRANCH_OP(c.beqz, x2, x11, -0x20001, 0x7e, 3f, x1, 16)
+900001ae:	fffe05b7          	lui	a1,0xfffe0
+900001b2:	fff58593          	addi	a1,a1,-1 # fffdffff <_end+0x6ffdccfb>
+900001b6:	a031                	j	900001c2 <inst_4+0x14>
+900001b8:	4101                	li	sp,0
+900001ba:	00110113          	addi	sp,sp,1
+900001be:	0840006f          	j	90000242 <inst_4+0x94>
+900001c2:	cdbd                	beqz	a1,90000240 <inst_4+0x92>
+900001c4:	00210113          	addi	sp,sp,2
+900001c8:	07a0006f          	j	90000242 <inst_4+0x94>
+900001cc:	0001                	nop
+900001ce:	0001                	nop
+900001d0:	0001                	nop
+900001d2:	0001                	nop
+900001d4:	0001                	nop
+900001d6:	0001                	nop
+900001d8:	0001                	nop
+900001da:	0001                	nop
+900001dc:	0001                	nop
+900001de:	0001                	nop
+900001e0:	0001                	nop
+900001e2:	0001                	nop
+900001e4:	0001                	nop
+900001e6:	0001                	nop
+900001e8:	0001                	nop
+900001ea:	0001                	nop
+900001ec:	0001                	nop
+900001ee:	0001                	nop
+900001f0:	0001                	nop
+900001f2:	0001                	nop
+900001f4:	0001                	nop
+900001f6:	0001                	nop
+900001f8:	0001                	nop
+900001fa:	0001                	nop
+900001fc:	0001                	nop
+900001fe:	0001                	nop
+90000200:	0001                	nop
+90000202:	0001                	nop
+90000204:	0001                	nop
+90000206:	0001                	nop
+90000208:	0001                	nop
+9000020a:	0001                	nop
+9000020c:	0001                	nop
+9000020e:	0001                	nop
+90000210:	0001                	nop
+90000212:	0001                	nop
+90000214:	0001                	nop
+90000216:	0001                	nop
+90000218:	0001                	nop
+9000021a:	0001                	nop
+9000021c:	0001                	nop
+9000021e:	0001                	nop
+90000220:	0001                	nop
+90000222:	0001                	nop
+90000224:	0001                	nop
+90000226:	0001                	nop
+90000228:	0001                	nop
+9000022a:	0001                	nop
+9000022c:	0001                	nop
+9000022e:	0001                	nop
+90000230:	0001                	nop
+90000232:	0001                	nop
+90000234:	0001                	nop
+90000236:	0001                	nop
+90000238:	0001                	nop
+9000023a:	0001                	nop
+9000023c:	0001                	nop
+9000023e:	0001                	nop
+90000240:	010d                	addi	sp,sp,3
+90000242:	0020a823          	sw	sp,16(ra)
+
+90000246 <inst_5>:
+
+inst_5:
+// rs1==x12, rs1_val == 0 and imm_val > 0, 
+// opcode:c.beqz; op1:x12; op1val:0x0; immval:0x20
+TEST_CBRANCH_OP(c.beqz, x2, x12, 0x0, 0x20, 3f, x1, 20)
+90000246:	00000613          	li	a2,0
+9000024a:	a031                	j	90000256 <inst_5+0x10>
+9000024c:	4101                	li	sp,0
+9000024e:	00110113          	addi	sp,sp,1
+90000252:	0260006f          	j	90000278 <inst_5+0x32>
+90000256:	c205                	beqz	a2,90000276 <inst_5+0x30>
+90000258:	00210113          	addi	sp,sp,2
+9000025c:	01c0006f          	j	90000278 <inst_5+0x32>
+90000260:	0001                	nop
+90000262:	0001                	nop
+90000264:	0001                	nop
+90000266:	0001                	nop
+90000268:	0001                	nop
+9000026a:	0001                	nop
+9000026c:	0001                	nop
+9000026e:	0001                	nop
+90000270:	0001                	nop
+90000272:	0001                	nop
+90000274:	0001                	nop
+90000276:	010d                	addi	sp,sp,3
+90000278:	0020aa23          	sw	sp,20(ra)
+
+9000027c <inst_6>:
+
+inst_6:
+// rs1==x15, rs1_val == 2, rs1_val==2
+// opcode:c.beqz; op1:x15; op1val:0x2; immval:0x6
+TEST_CBRANCH_OP(c.beqz, x2, x15, 0x2, 0x6, 3f, x1, 24)
+9000027c:	00200793          	li	a5,2
+90000280:	a031                	j	9000028c <inst_6+0x10>
+90000282:	4101                	li	sp,0
+90000284:	00110113          	addi	sp,sp,1
+90000288:	0100006f          	j	90000298 <inst_6+0x1c>
+9000028c:	c789                	beqz	a5,90000296 <inst_6+0x1a>
+9000028e:	00210113          	addi	sp,sp,2
+90000292:	0060006f          	j	90000298 <inst_6+0x1c>
+90000296:	010d                	addi	sp,sp,3
+90000298:	0020ac23          	sw	sp,24(ra)
+
+9000029c <inst_7>:
+
+inst_7:
+// rs1==x14, rs1_val == 4, rs1_val==4
+// opcode:c.beqz; op1:x14; op1val:0x4; immval:0xa
+TEST_CBRANCH_OP(c.beqz, x2, x14, 0x4, 0xa, 3f, x1, 28)
+9000029c:	00400713          	li	a4,4
+900002a0:	a031                	j	900002ac <inst_7+0x10>
+900002a2:	4101                	li	sp,0
+900002a4:	00110113          	addi	sp,sp,1
+900002a8:	0100006f          	j	900002b8 <inst_7+0x1c>
+900002ac:	c709                	beqz	a4,900002b6 <inst_7+0x1a>
+900002ae:	00210113          	addi	sp,sp,2
+900002b2:	0060006f          	j	900002b8 <inst_7+0x1c>
+900002b6:	010d                	addi	sp,sp,3
+900002b8:	0020ae23          	sw	sp,28(ra)
+
+900002bc <inst_8>:
+
+inst_8:
+// rs1_val == 8, 
+// opcode:c.beqz; op1:x10; op1val:0x8; immval:0x12
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x8, 0x12, 1b, x1, 32)
+900002bc:	00800513          	li	a0,8
+900002c0:	a819                	j	900002d6 <inst_8+0x1a>
+900002c2:	4101                	li	sp,0
+900002c4:	00110113          	addi	sp,sp,1
+900002c8:	01a0006f          	j	900002e2 <inst_8+0x26>
+900002cc:	0001                	nop
+900002ce:	0001                	nop
+900002d0:	0001                	nop
+900002d2:	0001                	nop
+900002d4:	0001                	nop
+900002d6:	d57d                	beqz	a0,900002c4 <inst_8+0x8>
+900002d8:	00210113          	addi	sp,sp,2
+900002dc:	0060006f          	j	900002e2 <inst_8+0x26>
+900002e0:	010d                	addi	sp,sp,3
+900002e2:	0220a023          	sw	sp,32(ra)
+
+900002e6 <inst_9>:
+
+inst_9:
+// rs1_val == 16, 
+// opcode:c.beqz; op1:x10; op1val:0x10; immval:0xe
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x10, 0xe, 1b, x1, 36)
+900002e6:	01000513          	li	a0,16
+900002ea:	a809                	j	900002fc <inst_9+0x16>
+900002ec:	4101                	li	sp,0
+900002ee:	00110113          	addi	sp,sp,1
+900002f2:	0160006f          	j	90000308 <inst_9+0x22>
+900002f6:	0001                	nop
+900002f8:	0001                	nop
+900002fa:	0001                	nop
+900002fc:	d96d                	beqz	a0,900002ee <inst_9+0x8>
+900002fe:	00210113          	addi	sp,sp,2
+90000302:	0060006f          	j	90000308 <inst_9+0x22>
+90000306:	010d                	addi	sp,sp,3
+90000308:	0220a223          	sw	sp,36(ra)
+
+9000030c <inst_10>:
+
+inst_10:
+// rs1_val == 32, 
+// opcode:c.beqz; op1:x10; op1val:0x20; immval:0x40
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x20, 0x40, 3f, x1, 40)
+9000030c:	02000513          	li	a0,32
+90000310:	a031                	j	9000031c <inst_10+0x10>
+90000312:	4101                	li	sp,0
+90000314:	00110113          	addi	sp,sp,1
+90000318:	0460006f          	j	9000035e <inst_10+0x52>
+9000031c:	c121                	beqz	a0,9000035c <inst_10+0x50>
+9000031e:	00210113          	addi	sp,sp,2
+90000322:	03c0006f          	j	9000035e <inst_10+0x52>
+90000326:	0001                	nop
+90000328:	0001                	nop
+9000032a:	0001                	nop
+9000032c:	0001                	nop
+9000032e:	0001                	nop
+90000330:	0001                	nop
+90000332:	0001                	nop
+90000334:	0001                	nop
+90000336:	0001                	nop
+90000338:	0001                	nop
+9000033a:	0001                	nop
+9000033c:	0001                	nop
+9000033e:	0001                	nop
+90000340:	0001                	nop
+90000342:	0001                	nop
+90000344:	0001                	nop
+90000346:	0001                	nop
+90000348:	0001                	nop
+9000034a:	0001                	nop
+9000034c:	0001                	nop
+9000034e:	0001                	nop
+90000350:	0001                	nop
+90000352:	0001                	nop
+90000354:	0001                	nop
+90000356:	0001                	nop
+90000358:	0001                	nop
+9000035a:	0001                	nop
+9000035c:	010d                	addi	sp,sp,3
+9000035e:	0220a423          	sw	sp,40(ra)
+
+90000362 <inst_11>:
+
+inst_11:
+// rs1_val == 64, 
+// opcode:c.beqz; op1:x10; op1val:0x40; immval:0xc
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x40, 0xc, 3f, x1, 44)
+90000362:	04000513          	li	a0,64
+90000366:	a031                	j	90000372 <inst_11+0x10>
+90000368:	4101                	li	sp,0
+9000036a:	00110113          	addi	sp,sp,1
+9000036e:	0120006f          	j	90000380 <inst_11+0x1e>
+90000372:	c511                	beqz	a0,9000037e <inst_11+0x1c>
+90000374:	00210113          	addi	sp,sp,2
+90000378:	0080006f          	j	90000380 <inst_11+0x1e>
+9000037c:	0001                	nop
+9000037e:	010d                	addi	sp,sp,3
+90000380:	0220a623          	sw	sp,44(ra)
+
+90000384 <inst_12>:
+
+inst_12:
+// rs1_val == 128, 
+// opcode:c.beqz; op1:x10; op1val:0x80; immval:0x14
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x80, 0x14, 1b, x1, 48)
+90000384:	08000513          	li	a0,128
+90000388:	a821                	j	900003a0 <inst_12+0x1c>
+9000038a:	4101                	li	sp,0
+9000038c:	00110113          	addi	sp,sp,1
+90000390:	01c0006f          	j	900003ac <inst_12+0x28>
+90000394:	0001                	nop
+90000396:	0001                	nop
+90000398:	0001                	nop
+9000039a:	0001                	nop
+9000039c:	0001                	nop
+9000039e:	0001                	nop
+900003a0:	d575                	beqz	a0,9000038c <inst_12+0x8>
+900003a2:	00210113          	addi	sp,sp,2
+900003a6:	0060006f          	j	900003ac <inst_12+0x28>
+900003aa:	010d                	addi	sp,sp,3
+900003ac:	0220a823          	sw	sp,48(ra)
+
+900003b0 <inst_13>:
+
+inst_13:
+// rs1_val == 256, 
+// opcode:c.beqz; op1:x10; op1val:0x100; immval:0xa
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x100, 0xa, 1b, x1, 52)
+900003b0:	10000513          	li	a0,256
+900003b4:	a039                	j	900003c2 <inst_13+0x12>
+900003b6:	4101                	li	sp,0
+900003b8:	00110113          	addi	sp,sp,1
+900003bc:	0120006f          	j	900003ce <inst_13+0x1e>
+900003c0:	0001                	nop
+900003c2:	d97d                	beqz	a0,900003b8 <inst_13+0x8>
+900003c4:	00210113          	addi	sp,sp,2
+900003c8:	0060006f          	j	900003ce <inst_13+0x1e>
+900003cc:	010d                	addi	sp,sp,3
+900003ce:	0220aa23          	sw	sp,52(ra)
+
+900003d2 <inst_14>:
+
+inst_14:
+// rs1_val == 512, 
+// opcode:c.beqz; op1:x10; op1val:0x200; immval:0x7e
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x200, 0x7e, 3f, x1, 56)
+900003d2:	20000513          	li	a0,512
+900003d6:	a031                	j	900003e2 <inst_14+0x10>
+900003d8:	4101                	li	sp,0
+900003da:	00110113          	addi	sp,sp,1
+900003de:	0840006f          	j	90000462 <inst_14+0x90>
+900003e2:	cd3d                	beqz	a0,90000460 <inst_14+0x8e>
+900003e4:	00210113          	addi	sp,sp,2
+900003e8:	07a0006f          	j	90000462 <inst_14+0x90>
+900003ec:	0001                	nop
+900003ee:	0001                	nop
+900003f0:	0001                	nop
+900003f2:	0001                	nop
+900003f4:	0001                	nop
+900003f6:	0001                	nop
+900003f8:	0001                	nop
+900003fa:	0001                	nop
+900003fc:	0001                	nop
+900003fe:	0001                	nop
+90000400:	0001                	nop
+90000402:	0001                	nop
+90000404:	0001                	nop
+90000406:	0001                	nop
+90000408:	0001                	nop
+9000040a:	0001                	nop
+9000040c:	0001                	nop
+9000040e:	0001                	nop
+90000410:	0001                	nop
+90000412:	0001                	nop
+90000414:	0001                	nop
+90000416:	0001                	nop
+90000418:	0001                	nop
+9000041a:	0001                	nop
+9000041c:	0001                	nop
+9000041e:	0001                	nop
+90000420:	0001                	nop
+90000422:	0001                	nop
+90000424:	0001                	nop
+90000426:	0001                	nop
+90000428:	0001                	nop
+9000042a:	0001                	nop
+9000042c:	0001                	nop
+9000042e:	0001                	nop
+90000430:	0001                	nop
+90000432:	0001                	nop
+90000434:	0001                	nop
+90000436:	0001                	nop
+90000438:	0001                	nop
+9000043a:	0001                	nop
+9000043c:	0001                	nop
+9000043e:	0001                	nop
+90000440:	0001                	nop
+90000442:	0001                	nop
+90000444:	0001                	nop
+90000446:	0001                	nop
+90000448:	0001                	nop
+9000044a:	0001                	nop
+9000044c:	0001                	nop
+9000044e:	0001                	nop
+90000450:	0001                	nop
+90000452:	0001                	nop
+90000454:	0001                	nop
+90000456:	0001                	nop
+90000458:	0001                	nop
+9000045a:	0001                	nop
+9000045c:	0001                	nop
+9000045e:	0001                	nop
+90000460:	010d                	addi	sp,sp,3
+90000462:	0220ac23          	sw	sp,56(ra)
+
+90000466 <inst_15>:
+
+inst_15:
+// rs1_val == 1024, 
+// opcode:c.beqz; op1:x10; op1val:0x400; immval:0x10
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x400, 0x10, 1b, x1, 60)
+90000466:	40000513          	li	a0,1024
+9000046a:	a811                	j	9000047e <inst_15+0x18>
+9000046c:	4101                	li	sp,0
+9000046e:	00110113          	addi	sp,sp,1
+90000472:	0180006f          	j	9000048a <inst_15+0x24>
+90000476:	0001                	nop
+90000478:	0001                	nop
+9000047a:	0001                	nop
+9000047c:	0001                	nop
+9000047e:	d965                	beqz	a0,9000046e <inst_15+0x8>
+90000480:	00210113          	addi	sp,sp,2
+90000484:	0060006f          	j	9000048a <inst_15+0x24>
+90000488:	010d                	addi	sp,sp,3
+9000048a:	0220ae23          	sw	sp,60(ra)
+
+9000048e <inst_16>:
+
+inst_16:
+// rs1_val == 2048, 
+// opcode:c.beqz; op1:x10; op1val:0x800; immval:0xac
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x800, 0xac, 1b, x1, 64)
+9000048e:	00001537          	lui	a0,0x1
+90000492:	80050513          	addi	a0,a0,-2048 # 800 <offset+0x6ac>
+90000496:	a845                	j	90000546 <inst_16+0xb8>
+90000498:	4101                	li	sp,0
+9000049a:	00110113          	addi	sp,sp,1
+9000049e:	0b40006f          	j	90000552 <inst_16+0xc4>
+900004a2:	0001                	nop
+900004a4:	0001                	nop
+900004a6:	0001                	nop
+900004a8:	0001                	nop
+900004aa:	0001                	nop
+900004ac:	0001                	nop
+900004ae:	0001                	nop
+900004b0:	0001                	nop
+900004b2:	0001                	nop
+900004b4:	0001                	nop
+900004b6:	0001                	nop
+900004b8:	0001                	nop
+900004ba:	0001                	nop
+900004bc:	0001                	nop
+900004be:	0001                	nop
+900004c0:	0001                	nop
+900004c2:	0001                	nop
+900004c4:	0001                	nop
+900004c6:	0001                	nop
+900004c8:	0001                	nop
+900004ca:	0001                	nop
+900004cc:	0001                	nop
+900004ce:	0001                	nop
+900004d0:	0001                	nop
+900004d2:	0001                	nop
+900004d4:	0001                	nop
+900004d6:	0001                	nop
+900004d8:	0001                	nop
+900004da:	0001                	nop
+900004dc:	0001                	nop
+900004de:	0001                	nop
+900004e0:	0001                	nop
+900004e2:	0001                	nop
+900004e4:	0001                	nop
+900004e6:	0001                	nop
+900004e8:	0001                	nop
+900004ea:	0001                	nop
+900004ec:	0001                	nop
+900004ee:	0001                	nop
+900004f0:	0001                	nop
+900004f2:	0001                	nop
+900004f4:	0001                	nop
+900004f6:	0001                	nop
+900004f8:	0001                	nop
+900004fa:	0001                	nop
+900004fc:	0001                	nop
+900004fe:	0001                	nop
+90000500:	0001                	nop
+90000502:	0001                	nop
+90000504:	0001                	nop
+90000506:	0001                	nop
+90000508:	0001                	nop
+9000050a:	0001                	nop
+9000050c:	0001                	nop
+9000050e:	0001                	nop
+90000510:	0001                	nop
+90000512:	0001                	nop
+90000514:	0001                	nop
+90000516:	0001                	nop
+90000518:	0001                	nop
+9000051a:	0001                	nop
+9000051c:	0001                	nop
+9000051e:	0001                	nop
+90000520:	0001                	nop
+90000522:	0001                	nop
+90000524:	0001                	nop
+90000526:	0001                	nop
+90000528:	0001                	nop
+9000052a:	0001                	nop
+9000052c:	0001                	nop
+9000052e:	0001                	nop
+90000530:	0001                	nop
+90000532:	0001                	nop
+90000534:	0001                	nop
+90000536:	0001                	nop
+90000538:	0001                	nop
+9000053a:	0001                	nop
+9000053c:	0001                	nop
+9000053e:	0001                	nop
+90000540:	0001                	nop
+90000542:	0001                	nop
+90000544:	0001                	nop
+90000546:	d931                	beqz	a0,9000049a <inst_16+0xc>
+90000548:	00210113          	addi	sp,sp,2
+9000054c:	0060006f          	j	90000552 <inst_16+0xc4>
+90000550:	010d                	addi	sp,sp,3
+90000552:	0420a023          	sw	sp,64(ra)
+
+90000556 <inst_17>:
+
+inst_17:
+// rs1_val == 4096, 
+// opcode:c.beqz; op1:x10; op1val:0x1000; immval:0x6
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x1000, 0x6, 3f, x1, 68)
+90000556:	00001537          	lui	a0,0x1
+9000055a:	a031                	j	90000566 <inst_17+0x10>
+9000055c:	4101                	li	sp,0
+9000055e:	00110113          	addi	sp,sp,1
+90000562:	0100006f          	j	90000572 <inst_17+0x1c>
+90000566:	c509                	beqz	a0,90000570 <inst_17+0x1a>
+90000568:	00210113          	addi	sp,sp,2
+9000056c:	0060006f          	j	90000572 <inst_17+0x1c>
+90000570:	010d                	addi	sp,sp,3
+90000572:	0420a223          	sw	sp,68(ra)
+
+90000576 <inst_18>:
+
+inst_18:
+// rs1_val == 8192, 
+// opcode:c.beqz; op1:x10; op1val:0x2000; immval:0xe
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x2000, 0xe, 3f, x1, 72)
+90000576:	00002537          	lui	a0,0x2
+9000057a:	a031                	j	90000586 <inst_18+0x10>
+9000057c:	4101                	li	sp,0
+9000057e:	00110113          	addi	sp,sp,1
+90000582:	0140006f          	j	90000596 <inst_18+0x20>
+90000586:	c519                	beqz	a0,90000594 <inst_18+0x1e>
+90000588:	00210113          	addi	sp,sp,2
+9000058c:	00a0006f          	j	90000596 <inst_18+0x20>
+90000590:	0001                	nop
+90000592:	0001                	nop
+90000594:	010d                	addi	sp,sp,3
+90000596:	0420a423          	sw	sp,72(ra)
+
+9000059a <inst_19>:
+
+inst_19:
+// rs1_val == 16384, 
+// opcode:c.beqz; op1:x10; op1val:0x4000; immval:0x4
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x4000, 0x4, 1b, x1, 76)
+9000059a:	00004537          	lui	a0,0x4
+9000059e:	a031                	j	900005aa <inst_19+0x10>
+900005a0:	4101                	li	sp,0
+900005a2:	00110113          	addi	sp,sp,1
+900005a6:	0100006f          	j	900005b6 <inst_19+0x1c>
+900005aa:	dd65                	beqz	a0,900005a2 <inst_19+0x8>
+900005ac:	00210113          	addi	sp,sp,2
+900005b0:	0060006f          	j	900005b6 <inst_19+0x1c>
+900005b4:	010d                	addi	sp,sp,3
+900005b6:	0420a623          	sw	sp,76(ra)
+
+900005ba <inst_20>:
+
+inst_20:
+// rs1_val == 32768, 
+// opcode:c.beqz; op1:x10; op1val:0x8000; immval:0x40
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x8000, 0x40, 3f, x1, 80)
+900005ba:	00008537          	lui	a0,0x8
+900005be:	a031                	j	900005ca <inst_20+0x10>
+900005c0:	4101                	li	sp,0
+900005c2:	00110113          	addi	sp,sp,1
+900005c6:	0460006f          	j	9000060c <inst_20+0x52>
+900005ca:	c121                	beqz	a0,9000060a <inst_20+0x50>
+900005cc:	00210113          	addi	sp,sp,2
+900005d0:	03c0006f          	j	9000060c <inst_20+0x52>
+900005d4:	0001                	nop
+900005d6:	0001                	nop
+900005d8:	0001                	nop
+900005da:	0001                	nop
+900005dc:	0001                	nop
+900005de:	0001                	nop
+900005e0:	0001                	nop
+900005e2:	0001                	nop
+900005e4:	0001                	nop
+900005e6:	0001                	nop
+900005e8:	0001                	nop
+900005ea:	0001                	nop
+900005ec:	0001                	nop
+900005ee:	0001                	nop
+900005f0:	0001                	nop
+900005f2:	0001                	nop
+900005f4:	0001                	nop
+900005f6:	0001                	nop
+900005f8:	0001                	nop
+900005fa:	0001                	nop
+900005fc:	0001                	nop
+900005fe:	0001                	nop
+90000600:	0001                	nop
+90000602:	0001                	nop
+90000604:	0001                	nop
+90000606:	0001                	nop
+90000608:	0001                	nop
+9000060a:	010d                	addi	sp,sp,3
+9000060c:	0420a823          	sw	sp,80(ra)
+
+90000610 <inst_21>:
+
+inst_21:
+// rs1_val == 65536, 
+// opcode:c.beqz; op1:x10; op1val:0x10000; immval:0x8
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x10000, 0x8, 3f, x1, 84)
+90000610:	00010537          	lui	a0,0x10
+90000614:	a031                	j	90000620 <inst_21+0x10>
+90000616:	4101                	li	sp,0
+90000618:	00110113          	addi	sp,sp,1
+9000061c:	0100006f          	j	9000062c <inst_21+0x1c>
+90000620:	c509                	beqz	a0,9000062a <inst_21+0x1a>
+90000622:	00210113          	addi	sp,sp,2
+90000626:	0060006f          	j	9000062c <inst_21+0x1c>
+9000062a:	010d                	addi	sp,sp,3
+9000062c:	0420aa23          	sw	sp,84(ra)
+
+90000630 <inst_22>:
+
+inst_22:
+// rs1_val == 131072, 
+// opcode:c.beqz; op1:x10; op1val:0x20000; immval:0x6
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x20000, 0x6, 3f, x1, 88)
+90000630:	00020537          	lui	a0,0x20
+90000634:	a031                	j	90000640 <inst_22+0x10>
+90000636:	4101                	li	sp,0
+90000638:	00110113          	addi	sp,sp,1
+9000063c:	0100006f          	j	9000064c <inst_22+0x1c>
+90000640:	c509                	beqz	a0,9000064a <inst_22+0x1a>
+90000642:	00210113          	addi	sp,sp,2
+90000646:	0060006f          	j	9000064c <inst_22+0x1c>
+9000064a:	010d                	addi	sp,sp,3
+9000064c:	0420ac23          	sw	sp,88(ra)
+
+90000650 <inst_23>:
+
+inst_23:
+// rs1_val == 262144, 
+// opcode:c.beqz; op1:x10; op1val:0x40000; immval:0x4
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x40000, 0x4, 1b, x1, 92)
+90000650:	00040537          	lui	a0,0x40
+90000654:	a031                	j	90000660 <inst_23+0x10>
+90000656:	4101                	li	sp,0
+90000658:	00110113          	addi	sp,sp,1
+9000065c:	0100006f          	j	9000066c <inst_23+0x1c>
+90000660:	dd65                	beqz	a0,90000658 <inst_23+0x8>
+90000662:	00210113          	addi	sp,sp,2
+90000666:	0060006f          	j	9000066c <inst_23+0x1c>
+9000066a:	010d                	addi	sp,sp,3
+9000066c:	0420ae23          	sw	sp,92(ra)
+
+90000670 <inst_24>:
+
+inst_24:
+// rs1_val == 524288, 
+// opcode:c.beqz; op1:x10; op1val:0x80000; immval:0xe
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x80000, 0xe, 3f, x1, 96)
+90000670:	00080537          	lui	a0,0x80
+90000674:	a031                	j	90000680 <inst_24+0x10>
+90000676:	4101                	li	sp,0
+90000678:	00110113          	addi	sp,sp,1
+9000067c:	0140006f          	j	90000690 <inst_24+0x20>
+90000680:	c519                	beqz	a0,9000068e <inst_24+0x1e>
+90000682:	00210113          	addi	sp,sp,2
+90000686:	00a0006f          	j	90000690 <inst_24+0x20>
+9000068a:	0001                	nop
+9000068c:	0001                	nop
+9000068e:	010d                	addi	sp,sp,3
+90000690:	0620a023          	sw	sp,96(ra)
+
+90000694 <inst_25>:
+
+inst_25:
+// rs1_val == 1048576, 
+// opcode:c.beqz; op1:x10; op1val:0x100000; immval:0x22
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x100000, 0x22, 1b, x1, 100)
+90000694:	00100537          	lui	a0,0x100
+90000698:	a01d                	j	900006be <inst_25+0x2a>
+9000069a:	4101                	li	sp,0
+9000069c:	00110113          	addi	sp,sp,1
+900006a0:	02a0006f          	j	900006ca <inst_25+0x36>
+900006a4:	0001                	nop
+900006a6:	0001                	nop
+900006a8:	0001                	nop
+900006aa:	0001                	nop
+900006ac:	0001                	nop
+900006ae:	0001                	nop
+900006b0:	0001                	nop
+900006b2:	0001                	nop
+900006b4:	0001                	nop
+900006b6:	0001                	nop
+900006b8:	0001                	nop
+900006ba:	0001                	nop
+900006bc:	0001                	nop
+900006be:	dd79                	beqz	a0,9000069c <inst_25+0x8>
+900006c0:	00210113          	addi	sp,sp,2
+900006c4:	0060006f          	j	900006ca <inst_25+0x36>
+900006c8:	010d                	addi	sp,sp,3
+900006ca:	0620a223          	sw	sp,100(ra)
+
+900006ce <inst_26>:
+
+inst_26:
+// rs1_val == 2097152, 
+// opcode:c.beqz; op1:x10; op1val:0x200000; immval:0x6
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x200000, 0x6, 3f, x1, 104)
+900006ce:	00200537          	lui	a0,0x200
+900006d2:	a031                	j	900006de <inst_26+0x10>
+900006d4:	4101                	li	sp,0
+900006d6:	00110113          	addi	sp,sp,1
+900006da:	0100006f          	j	900006ea <inst_26+0x1c>
+900006de:	c509                	beqz	a0,900006e8 <inst_26+0x1a>
+900006e0:	00210113          	addi	sp,sp,2
+900006e4:	0060006f          	j	900006ea <inst_26+0x1c>
+900006e8:	010d                	addi	sp,sp,3
+900006ea:	0620a423          	sw	sp,104(ra)
+
+900006ee <inst_27>:
+
+inst_27:
+// rs1_val == 4194304, 
+// opcode:c.beqz; op1:x10; op1val:0x400000; immval:0x40
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x400000, 0x40, 3f, x1, 108)
+900006ee:	00400537          	lui	a0,0x400
+900006f2:	a031                	j	900006fe <inst_27+0x10>
+900006f4:	4101                	li	sp,0
+900006f6:	00110113          	addi	sp,sp,1
+900006fa:	0460006f          	j	90000740 <inst_27+0x52>
+900006fe:	c121                	beqz	a0,9000073e <inst_27+0x50>
+90000700:	00210113          	addi	sp,sp,2
+90000704:	03c0006f          	j	90000740 <inst_27+0x52>
+90000708:	0001                	nop
+9000070a:	0001                	nop
+9000070c:	0001                	nop
+9000070e:	0001                	nop
+90000710:	0001                	nop
+90000712:	0001                	nop
+90000714:	0001                	nop
+90000716:	0001                	nop
+90000718:	0001                	nop
+9000071a:	0001                	nop
+9000071c:	0001                	nop
+9000071e:	0001                	nop
+90000720:	0001                	nop
+90000722:	0001                	nop
+90000724:	0001                	nop
+90000726:	0001                	nop
+90000728:	0001                	nop
+9000072a:	0001                	nop
+9000072c:	0001                	nop
+9000072e:	0001                	nop
+90000730:	0001                	nop
+90000732:	0001                	nop
+90000734:	0001                	nop
+90000736:	0001                	nop
+90000738:	0001                	nop
+9000073a:	0001                	nop
+9000073c:	0001                	nop
+9000073e:	010d                	addi	sp,sp,3
+90000740:	0620a623          	sw	sp,108(ra)
+
+90000744 <inst_28>:
+
+inst_28:
+// rs1_val == 8388608, 
+// opcode:c.beqz; op1:x10; op1val:0x800000; immval:0x6
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x800000, 0x6, 3f, x1, 112)
+90000744:	00800537          	lui	a0,0x800
+90000748:	a031                	j	90000754 <inst_28+0x10>
+9000074a:	4101                	li	sp,0
+9000074c:	00110113          	addi	sp,sp,1
+90000750:	0100006f          	j	90000760 <inst_28+0x1c>
+90000754:	c509                	beqz	a0,9000075e <inst_28+0x1a>
+90000756:	00210113          	addi	sp,sp,2
+9000075a:	0060006f          	j	90000760 <inst_28+0x1c>
+9000075e:	010d                	addi	sp,sp,3
+90000760:	0620a823          	sw	sp,112(ra)
+
+90000764 <inst_29>:
+
+inst_29:
+// rs1_val == 16777216, 
+// opcode:c.beqz; op1:x10; op1val:0x1000000; immval:0xa
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x1000000, 0xa, 3f, x1, 116)
+90000764:	01000537          	lui	a0,0x1000
+90000768:	a031                	j	90000774 <inst_29+0x10>
+9000076a:	4101                	li	sp,0
+9000076c:	00110113          	addi	sp,sp,1
+90000770:	0100006f          	j	90000780 <inst_29+0x1c>
+90000774:	c509                	beqz	a0,9000077e <inst_29+0x1a>
+90000776:	00210113          	addi	sp,sp,2
+9000077a:	0060006f          	j	90000780 <inst_29+0x1c>
+9000077e:	010d                	addi	sp,sp,3
+90000780:	0620aa23          	sw	sp,116(ra)
+
+90000784 <inst_30>:
+
+inst_30:
+// rs1_val == 33554432, 
+// opcode:c.beqz; op1:x10; op1val:0x2000000; immval:0xa
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x2000000, 0xa, 3f, x1, 120)
+90000784:	02000537          	lui	a0,0x2000
+90000788:	a031                	j	90000794 <inst_30+0x10>
+9000078a:	4101                	li	sp,0
+9000078c:	00110113          	addi	sp,sp,1
+90000790:	0100006f          	j	900007a0 <inst_30+0x1c>
+90000794:	c509                	beqz	a0,9000079e <inst_30+0x1a>
+90000796:	00210113          	addi	sp,sp,2
+9000079a:	0060006f          	j	900007a0 <inst_30+0x1c>
+9000079e:	010d                	addi	sp,sp,3
+900007a0:	0620ac23          	sw	sp,120(ra)
+
+900007a4 <inst_31>:
+
+inst_31:
+// rs1_val == 67108864, 
+// opcode:c.beqz; op1:x10; op1val:0x4000000; immval:0xa
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x4000000, 0xa, 1b, x1, 124)
+900007a4:	04000537          	lui	a0,0x4000
+900007a8:	a039                	j	900007b6 <inst_31+0x12>
+900007aa:	4101                	li	sp,0
+900007ac:	00110113          	addi	sp,sp,1
+900007b0:	0120006f          	j	900007c2 <inst_31+0x1e>
+900007b4:	0001                	nop
+900007b6:	d97d                	beqz	a0,900007ac <inst_31+0x8>
+900007b8:	00210113          	addi	sp,sp,2
+900007bc:	0060006f          	j	900007c2 <inst_31+0x1e>
+900007c0:	010d                	addi	sp,sp,3
+900007c2:	0620ae23          	sw	sp,124(ra)
+
+900007c6 <inst_32>:
+
+inst_32:
+// rs1_val == 134217728, 
+// opcode:c.beqz; op1:x10; op1val:0x8000000; immval:0xa
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x8000000, 0xa, 1b, x1, 128)
+900007c6:	08000537          	lui	a0,0x8000
+900007ca:	a039                	j	900007d8 <inst_32+0x12>
+900007cc:	4101                	li	sp,0
+900007ce:	00110113          	addi	sp,sp,1
+900007d2:	0120006f          	j	900007e4 <inst_32+0x1e>
+900007d6:	0001                	nop
+900007d8:	d97d                	beqz	a0,900007ce <inst_32+0x8>
+900007da:	00210113          	addi	sp,sp,2
+900007de:	0060006f          	j	900007e4 <inst_32+0x1e>
+900007e2:	010d                	addi	sp,sp,3
+900007e4:	0820a023          	sw	sp,128(ra)
+
+900007e8 <inst_33>:
+
+inst_33:
+// rs1_val == 268435456, 
+// opcode:c.beqz; op1:x10; op1val:0x10000000; immval:0xe
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x10000000, 0xe, 3f, x1, 132)
+900007e8:	10000537          	lui	a0,0x10000
+900007ec:	a031                	j	900007f8 <inst_33+0x10>
+900007ee:	4101                	li	sp,0
+900007f0:	00110113          	addi	sp,sp,1
+900007f4:	0140006f          	j	90000808 <inst_33+0x20>
+900007f8:	c519                	beqz	a0,90000806 <inst_33+0x1e>
+900007fa:	00210113          	addi	sp,sp,2
+900007fe:	00a0006f          	j	90000808 <inst_33+0x20>
+90000802:	0001                	nop
+90000804:	0001                	nop
+90000806:	010d                	addi	sp,sp,3
+90000808:	0820a223          	sw	sp,132(ra)
+
+9000080c <inst_34>:
+
+inst_34:
+// rs1_val == 536870912, 
+// opcode:c.beqz; op1:x10; op1val:0x20000000; immval:0x80
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x20000000, 0x80, 3f, x1, 136)
+9000080c:	20000537          	lui	a0,0x20000
+90000810:	a031                	j	9000081c <inst_34+0x10>
+90000812:	4101                	li	sp,0
+90000814:	00110113          	addi	sp,sp,1
+90000818:	0860006f          	j	9000089e <inst_34+0x92>
+9000081c:	c141                	beqz	a0,9000089c <inst_34+0x90>
+9000081e:	00210113          	addi	sp,sp,2
+90000822:	07c0006f          	j	9000089e <inst_34+0x92>
+90000826:	0001                	nop
+90000828:	0001                	nop
+9000082a:	0001                	nop
+9000082c:	0001                	nop
+9000082e:	0001                	nop
+90000830:	0001                	nop
+90000832:	0001                	nop
+90000834:	0001                	nop
+90000836:	0001                	nop
+90000838:	0001                	nop
+9000083a:	0001                	nop
+9000083c:	0001                	nop
+9000083e:	0001                	nop
+90000840:	0001                	nop
+90000842:	0001                	nop
+90000844:	0001                	nop
+90000846:	0001                	nop
+90000848:	0001                	nop
+9000084a:	0001                	nop
+9000084c:	0001                	nop
+9000084e:	0001                	nop
+90000850:	0001                	nop
+90000852:	0001                	nop
+90000854:	0001                	nop
+90000856:	0001                	nop
+90000858:	0001                	nop
+9000085a:	0001                	nop
+9000085c:	0001                	nop
+9000085e:	0001                	nop
+90000860:	0001                	nop
+90000862:	0001                	nop
+90000864:	0001                	nop
+90000866:	0001                	nop
+90000868:	0001                	nop
+9000086a:	0001                	nop
+9000086c:	0001                	nop
+9000086e:	0001                	nop
+90000870:	0001                	nop
+90000872:	0001                	nop
+90000874:	0001                	nop
+90000876:	0001                	nop
+90000878:	0001                	nop
+9000087a:	0001                	nop
+9000087c:	0001                	nop
+9000087e:	0001                	nop
+90000880:	0001                	nop
+90000882:	0001                	nop
+90000884:	0001                	nop
+90000886:	0001                	nop
+90000888:	0001                	nop
+9000088a:	0001                	nop
+9000088c:	0001                	nop
+9000088e:	0001                	nop
+90000890:	0001                	nop
+90000892:	0001                	nop
+90000894:	0001                	nop
+90000896:	0001                	nop
+90000898:	0001                	nop
+9000089a:	0001                	nop
+9000089c:	010d                	addi	sp,sp,3
+9000089e:	0820a423          	sw	sp,136(ra)
+
+900008a2 <inst_35>:
+
+inst_35:
+// rs1_val == 1073741824, 
+// opcode:c.beqz; op1:x10; op1val:0x40000000; immval:0xc
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x40000000, 0xc, 1b, x1, 140)
+900008a2:	40000537          	lui	a0,0x40000
+900008a6:	a801                	j	900008b6 <inst_35+0x14>
+900008a8:	4101                	li	sp,0
+900008aa:	00110113          	addi	sp,sp,1
+900008ae:	0140006f          	j	900008c2 <inst_35+0x20>
+900008b2:	0001                	nop
+900008b4:	0001                	nop
+900008b6:	d975                	beqz	a0,900008aa <inst_35+0x8>
+900008b8:	00210113          	addi	sp,sp,2
+900008bc:	0060006f          	j	900008c2 <inst_35+0x20>
+900008c0:	010d                	addi	sp,sp,3
+900008c2:	0820a623          	sw	sp,140(ra)
+
+900008c6 <inst_36>:
+
+inst_36:
+// rs1_val == -2, 
+// opcode:c.beqz; op1:x10; op1val:-0x2; immval:0xe
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x2, 0xe, 3f, x1, 144)
+900008c6:	ffe00513          	li	a0,-2
+900008ca:	a031                	j	900008d6 <inst_36+0x10>
+900008cc:	4101                	li	sp,0
+900008ce:	00110113          	addi	sp,sp,1
+900008d2:	0140006f          	j	900008e6 <inst_36+0x20>
+900008d6:	c519                	beqz	a0,900008e4 <inst_36+0x1e>
+900008d8:	00210113          	addi	sp,sp,2
+900008dc:	00a0006f          	j	900008e6 <inst_36+0x20>
+900008e0:	0001                	nop
+900008e2:	0001                	nop
+900008e4:	010d                	addi	sp,sp,3
+900008e6:	0820a823          	sw	sp,144(ra)
+
+900008ea <inst_37>:
+
+inst_37:
+// rs1_val == -3, 
+// opcode:c.beqz; op1:x10; op1val:-0x3; immval:0x10
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x3, 0x10, 1b, x1, 148)
+900008ea:	ffd00513          	li	a0,-3
+900008ee:	a811                	j	90000902 <inst_37+0x18>
+900008f0:	4101                	li	sp,0
+900008f2:	00110113          	addi	sp,sp,1
+900008f6:	0180006f          	j	9000090e <inst_37+0x24>
+900008fa:	0001                	nop
+900008fc:	0001                	nop
+900008fe:	0001                	nop
+90000900:	0001                	nop
+90000902:	d965                	beqz	a0,900008f2 <inst_37+0x8>
+90000904:	00210113          	addi	sp,sp,2
+90000908:	0060006f          	j	9000090e <inst_37+0x24>
+9000090c:	010d                	addi	sp,sp,3
+9000090e:	0820aa23          	sw	sp,148(ra)
+
+90000912 <inst_38>:
+
+inst_38:
+// rs1_val == -5, 
+// opcode:c.beqz; op1:x10; op1val:-0x5; immval:0x6
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x5, 0x6, 3f, x1, 152)
+90000912:	ffb00513          	li	a0,-5
+90000916:	a031                	j	90000922 <inst_38+0x10>
+90000918:	4101                	li	sp,0
+9000091a:	00110113          	addi	sp,sp,1
+9000091e:	0100006f          	j	9000092e <inst_38+0x1c>
+90000922:	c509                	beqz	a0,9000092c <inst_38+0x1a>
+90000924:	00210113          	addi	sp,sp,2
+90000928:	0060006f          	j	9000092e <inst_38+0x1c>
+9000092c:	010d                	addi	sp,sp,3
+9000092e:	0820ac23          	sw	sp,152(ra)
+
+90000932 <inst_39>:
+
+inst_39:
+// rs1_val == -9, 
+// opcode:c.beqz; op1:x10; op1val:-0x9; immval:0x10
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x9, 0x10, 3f, x1, 156)
+90000932:	ff700513          	li	a0,-9
+90000936:	a031                	j	90000942 <inst_39+0x10>
+90000938:	4101                	li	sp,0
+9000093a:	00110113          	addi	sp,sp,1
+9000093e:	0160006f          	j	90000954 <inst_39+0x22>
+90000942:	c901                	beqz	a0,90000952 <inst_39+0x20>
+90000944:	00210113          	addi	sp,sp,2
+90000948:	00c0006f          	j	90000954 <inst_39+0x22>
+9000094c:	0001                	nop
+9000094e:	0001                	nop
+90000950:	0001                	nop
+90000952:	010d                	addi	sp,sp,3
+90000954:	0820ae23          	sw	sp,156(ra)
+
+90000958 <inst_40>:
+
+inst_40:
+// rs1_val == -17, 
+// opcode:c.beqz; op1:x10; op1val:-0x11; immval:0x4
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x11, 0x4, 1b, x1, 160)
+90000958:	fef00513          	li	a0,-17
+9000095c:	a031                	j	90000968 <inst_40+0x10>
+9000095e:	4101                	li	sp,0
+90000960:	00110113          	addi	sp,sp,1
+90000964:	0100006f          	j	90000974 <inst_40+0x1c>
+90000968:	dd65                	beqz	a0,90000960 <inst_40+0x8>
+9000096a:	00210113          	addi	sp,sp,2
+9000096e:	0060006f          	j	90000974 <inst_40+0x1c>
+90000972:	010d                	addi	sp,sp,3
+90000974:	0a20a023          	sw	sp,160(ra)
+
+90000978 <inst_41>:
+
+inst_41:
+// rs1_val == -33, 
+// opcode:c.beqz; op1:x10; op1val:-0x21; immval:0x6
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x21, 0x6, 1b, x1, 164)
+90000978:	fdf00513          	li	a0,-33
+9000097c:	a031                	j	90000988 <inst_41+0x10>
+9000097e:	4101                	li	sp,0
+90000980:	00110113          	addi	sp,sp,1
+90000984:	0100006f          	j	90000994 <inst_41+0x1c>
+90000988:	dd65                	beqz	a0,90000980 <inst_41+0x8>
+9000098a:	00210113          	addi	sp,sp,2
+9000098e:	0060006f          	j	90000994 <inst_41+0x1c>
+90000992:	010d                	addi	sp,sp,3
+90000994:	0a20a223          	sw	sp,164(ra)
+
+90000998 <inst_42>:
+
+inst_42:
+// rs1_val == -65, 
+// opcode:c.beqz; op1:x10; op1val:-0x41; immval:0x6
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x41, 0x6, 3f, x1, 168)
+90000998:	fbf00513          	li	a0,-65
+9000099c:	a031                	j	900009a8 <inst_42+0x10>
+9000099e:	4101                	li	sp,0
+900009a0:	00110113          	addi	sp,sp,1
+900009a4:	0100006f          	j	900009b4 <inst_42+0x1c>
+900009a8:	c509                	beqz	a0,900009b2 <inst_42+0x1a>
+900009aa:	00210113          	addi	sp,sp,2
+900009ae:	0060006f          	j	900009b4 <inst_42+0x1c>
+900009b2:	010d                	addi	sp,sp,3
+900009b4:	0a20a423          	sw	sp,168(ra)
+
+900009b8 <inst_43>:
+
+inst_43:
+// rs1_val == -129, 
+// opcode:c.beqz; op1:x10; op1val:-0x81; immval:0x10
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x81, 0x10, 1b, x1, 172)
+900009b8:	f7f00513          	li	a0,-129
+900009bc:	a811                	j	900009d0 <inst_43+0x18>
+900009be:	4101                	li	sp,0
+900009c0:	00110113          	addi	sp,sp,1
+900009c4:	0180006f          	j	900009dc <inst_43+0x24>
+900009c8:	0001                	nop
+900009ca:	0001                	nop
+900009cc:	0001                	nop
+900009ce:	0001                	nop
+900009d0:	d965                	beqz	a0,900009c0 <inst_43+0x8>
+900009d2:	00210113          	addi	sp,sp,2
+900009d6:	0060006f          	j	900009dc <inst_43+0x24>
+900009da:	010d                	addi	sp,sp,3
+900009dc:	0a20a623          	sw	sp,172(ra)
+
+900009e0 <inst_44>:
+
+inst_44:
+// rs1_val == -257, 
+// opcode:c.beqz; op1:x10; op1val:-0x101; immval:0xa
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x101, 0xa, 1b, x1, 176)
+900009e0:	eff00513          	li	a0,-257
+900009e4:	a039                	j	900009f2 <inst_44+0x12>
+900009e6:	4101                	li	sp,0
+900009e8:	00110113          	addi	sp,sp,1
+900009ec:	0120006f          	j	900009fe <inst_44+0x1e>
+900009f0:	0001                	nop
+900009f2:	d97d                	beqz	a0,900009e8 <inst_44+0x8>
+900009f4:	00210113          	addi	sp,sp,2
+900009f8:	0060006f          	j	900009fe <inst_44+0x1e>
+900009fc:	010d                	addi	sp,sp,3
+900009fe:	0a20a823          	sw	sp,176(ra)
+
+90000a02 <inst_45>:
+
+inst_45:
+// rs1_val == -513, 
+// opcode:c.beqz; op1:x10; op1val:-0x201; immval:0x6
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x201, 0x6, 3f, x1, 180)
+90000a02:	dff00513          	li	a0,-513
+90000a06:	a031                	j	90000a12 <inst_45+0x10>
+90000a08:	4101                	li	sp,0
+90000a0a:	00110113          	addi	sp,sp,1
+90000a0e:	0100006f          	j	90000a1e <inst_45+0x1c>
+90000a12:	c509                	beqz	a0,90000a1c <inst_45+0x1a>
+90000a14:	00210113          	addi	sp,sp,2
+90000a18:	0060006f          	j	90000a1e <inst_45+0x1c>
+90000a1c:	010d                	addi	sp,sp,3
+90000a1e:	0a20aa23          	sw	sp,180(ra)
+
+90000a22 <inst_46>:
+
+inst_46:
+// rs1_val == -1025, 
+// opcode:c.beqz; op1:x10; op1val:-0x401; immval:0x20
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x401, 0x20, 3f, x1, 184)
+90000a22:	bff00513          	li	a0,-1025
+90000a26:	a031                	j	90000a32 <inst_46+0x10>
+90000a28:	4101                	li	sp,0
+90000a2a:	00110113          	addi	sp,sp,1
+90000a2e:	0260006f          	j	90000a54 <inst_46+0x32>
+90000a32:	c105                	beqz	a0,90000a52 <inst_46+0x30>
+90000a34:	00210113          	addi	sp,sp,2
+90000a38:	01c0006f          	j	90000a54 <inst_46+0x32>
+90000a3c:	0001                	nop
+90000a3e:	0001                	nop
+90000a40:	0001                	nop
+90000a42:	0001                	nop
+90000a44:	0001                	nop
+90000a46:	0001                	nop
+90000a48:	0001                	nop
+90000a4a:	0001                	nop
+90000a4c:	0001                	nop
+90000a4e:	0001                	nop
+90000a50:	0001                	nop
+90000a52:	010d                	addi	sp,sp,3
+90000a54:	0a20ac23          	sw	sp,184(ra)
+
+90000a58 <inst_47>:
+
+inst_47:
+// rs1_val == -2049, 
+// opcode:c.beqz; op1:x10; op1val:-0x801; immval:0xe
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x801, 0xe, 3f, x1, 188)
+90000a58:	fffff537          	lui	a0,0xfffff
+90000a5c:	7ff50513          	addi	a0,a0,2047 # fffff7ff <_end+0x6fffc4fb>
+90000a60:	a031                	j	90000a6c <inst_47+0x14>
+90000a62:	4101                	li	sp,0
+90000a64:	00110113          	addi	sp,sp,1
+90000a68:	0140006f          	j	90000a7c <inst_47+0x24>
+90000a6c:	c519                	beqz	a0,90000a7a <inst_47+0x22>
+90000a6e:	00210113          	addi	sp,sp,2
+90000a72:	00a0006f          	j	90000a7c <inst_47+0x24>
+90000a76:	0001                	nop
+90000a78:	0001                	nop
+90000a7a:	010d                	addi	sp,sp,3
+90000a7c:	0a20ae23          	sw	sp,188(ra)
+
+90000a80 <inst_48>:
+
+inst_48:
+// rs1_val == -4097, 
+// opcode:c.beqz; op1:x10; op1val:-0x1001; immval:0x10
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x1001, 0x10, 3f, x1, 192)
+90000a80:	fffff537          	lui	a0,0xfffff
+90000a84:	fff50513          	addi	a0,a0,-1 # ffffefff <_end+0x6fffbcfb>
+90000a88:	a031                	j	90000a94 <inst_48+0x14>
+90000a8a:	4101                	li	sp,0
+90000a8c:	00110113          	addi	sp,sp,1
+90000a90:	0160006f          	j	90000aa6 <inst_48+0x26>
+90000a94:	c901                	beqz	a0,90000aa4 <inst_48+0x24>
+90000a96:	00210113          	addi	sp,sp,2
+90000a9a:	00c0006f          	j	90000aa6 <inst_48+0x26>
+90000a9e:	0001                	nop
+90000aa0:	0001                	nop
+90000aa2:	0001                	nop
+90000aa4:	010d                	addi	sp,sp,3
+90000aa6:	0c20a023          	sw	sp,192(ra)
+
+90000aaa <inst_49>:
+
+inst_49:
+// rs1_val == -8193, 
+// opcode:c.beqz; op1:x10; op1val:-0x2001; immval:0x22
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x2001, 0x22, 1b, x1, 196)
+90000aaa:	ffffe537          	lui	a0,0xffffe
+90000aae:	fff50513          	addi	a0,a0,-1 # ffffdfff <_end+0x6fffacfb>
+90000ab2:	a01d                	j	90000ad8 <inst_49+0x2e>
+90000ab4:	4101                	li	sp,0
+90000ab6:	00110113          	addi	sp,sp,1
+90000aba:	02a0006f          	j	90000ae4 <inst_49+0x3a>
+90000abe:	0001                	nop
+90000ac0:	0001                	nop
+90000ac2:	0001                	nop
+90000ac4:	0001                	nop
+90000ac6:	0001                	nop
+90000ac8:	0001                	nop
+90000aca:	0001                	nop
+90000acc:	0001                	nop
+90000ace:	0001                	nop
+90000ad0:	0001                	nop
+90000ad2:	0001                	nop
+90000ad4:	0001                	nop
+90000ad6:	0001                	nop
+90000ad8:	dd79                	beqz	a0,90000ab6 <inst_49+0xc>
+90000ada:	00210113          	addi	sp,sp,2
+90000ade:	0060006f          	j	90000ae4 <inst_49+0x3a>
+90000ae2:	010d                	addi	sp,sp,3
+90000ae4:	0c20a223          	sw	sp,196(ra)
+
+90000ae8 <inst_50>:
+
+inst_50:
+// rs1_val == -16385, 
+// opcode:c.beqz; op1:x10; op1val:-0x4001; immval:0x7e
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x4001, 0x7e, 3f, x1, 200)
+90000ae8:	ffffc537          	lui	a0,0xffffc
+90000aec:	fff50513          	addi	a0,a0,-1 # ffffbfff <_end+0x6fff8cfb>
+90000af0:	a031                	j	90000afc <inst_50+0x14>
+90000af2:	4101                	li	sp,0
+90000af4:	00110113          	addi	sp,sp,1
+90000af8:	0840006f          	j	90000b7c <inst_50+0x94>
+90000afc:	cd3d                	beqz	a0,90000b7a <inst_50+0x92>
+90000afe:	00210113          	addi	sp,sp,2
+90000b02:	07a0006f          	j	90000b7c <inst_50+0x94>
+90000b06:	0001                	nop
+90000b08:	0001                	nop
+90000b0a:	0001                	nop
+90000b0c:	0001                	nop
+90000b0e:	0001                	nop
+90000b10:	0001                	nop
+90000b12:	0001                	nop
+90000b14:	0001                	nop
+90000b16:	0001                	nop
+90000b18:	0001                	nop
+90000b1a:	0001                	nop
+90000b1c:	0001                	nop
+90000b1e:	0001                	nop
+90000b20:	0001                	nop
+90000b22:	0001                	nop
+90000b24:	0001                	nop
+90000b26:	0001                	nop
+90000b28:	0001                	nop
+90000b2a:	0001                	nop
+90000b2c:	0001                	nop
+90000b2e:	0001                	nop
+90000b30:	0001                	nop
+90000b32:	0001                	nop
+90000b34:	0001                	nop
+90000b36:	0001                	nop
+90000b38:	0001                	nop
+90000b3a:	0001                	nop
+90000b3c:	0001                	nop
+90000b3e:	0001                	nop
+90000b40:	0001                	nop
+90000b42:	0001                	nop
+90000b44:	0001                	nop
+90000b46:	0001                	nop
+90000b48:	0001                	nop
+90000b4a:	0001                	nop
+90000b4c:	0001                	nop
+90000b4e:	0001                	nop
+90000b50:	0001                	nop
+90000b52:	0001                	nop
+90000b54:	0001                	nop
+90000b56:	0001                	nop
+90000b58:	0001                	nop
+90000b5a:	0001                	nop
+90000b5c:	0001                	nop
+90000b5e:	0001                	nop
+90000b60:	0001                	nop
+90000b62:	0001                	nop
+90000b64:	0001                	nop
+90000b66:	0001                	nop
+90000b68:	0001                	nop
+90000b6a:	0001                	nop
+90000b6c:	0001                	nop
+90000b6e:	0001                	nop
+90000b70:	0001                	nop
+90000b72:	0001                	nop
+90000b74:	0001                	nop
+90000b76:	0001                	nop
+90000b78:	0001                	nop
+90000b7a:	010d                	addi	sp,sp,3
+90000b7c:	0c20a423          	sw	sp,200(ra)
+
+90000b80 <inst_51>:
+
+inst_51:
+// rs1_val == -32769, 
+// opcode:c.beqz; op1:x10; op1val:-0x8001; immval:0x6
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x8001, 0x6, 1b, x1, 204)
+90000b80:	ffff8537          	lui	a0,0xffff8
+90000b84:	fff50513          	addi	a0,a0,-1 # ffff7fff <_end+0x6fff4cfb>
+90000b88:	a031                	j	90000b94 <inst_51+0x14>
+90000b8a:	4101                	li	sp,0
+90000b8c:	00110113          	addi	sp,sp,1
+90000b90:	0100006f          	j	90000ba0 <inst_51+0x20>
+90000b94:	dd65                	beqz	a0,90000b8c <inst_51+0xc>
+90000b96:	00210113          	addi	sp,sp,2
+90000b9a:	0060006f          	j	90000ba0 <inst_51+0x20>
+90000b9e:	010d                	addi	sp,sp,3
+90000ba0:	0c20a623          	sw	sp,204(ra)
+
+90000ba4 <inst_52>:
+
+inst_52:
+// rs1_val == -65537, 
+// opcode:c.beqz; op1:x10; op1val:-0x10001; immval:0x80
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x10001, 0x80, 3f, x1, 208)
+90000ba4:	ffff0537          	lui	a0,0xffff0
+90000ba8:	fff50513          	addi	a0,a0,-1 # fffeffff <_end+0x6ffeccfb>
+90000bac:	a031                	j	90000bb8 <inst_52+0x14>
+90000bae:	4101                	li	sp,0
+90000bb0:	00110113          	addi	sp,sp,1
+90000bb4:	0860006f          	j	90000c3a <inst_52+0x96>
+90000bb8:	c141                	beqz	a0,90000c38 <inst_52+0x94>
+90000bba:	00210113          	addi	sp,sp,2
+90000bbe:	07c0006f          	j	90000c3a <inst_52+0x96>
+90000bc2:	0001                	nop
+90000bc4:	0001                	nop
+90000bc6:	0001                	nop
+90000bc8:	0001                	nop
+90000bca:	0001                	nop
+90000bcc:	0001                	nop
+90000bce:	0001                	nop
+90000bd0:	0001                	nop
+90000bd2:	0001                	nop
+90000bd4:	0001                	nop
+90000bd6:	0001                	nop
+90000bd8:	0001                	nop
+90000bda:	0001                	nop
+90000bdc:	0001                	nop
+90000bde:	0001                	nop
+90000be0:	0001                	nop
+90000be2:	0001                	nop
+90000be4:	0001                	nop
+90000be6:	0001                	nop
+90000be8:	0001                	nop
+90000bea:	0001                	nop
+90000bec:	0001                	nop
+90000bee:	0001                	nop
+90000bf0:	0001                	nop
+90000bf2:	0001                	nop
+90000bf4:	0001                	nop
+90000bf6:	0001                	nop
+90000bf8:	0001                	nop
+90000bfa:	0001                	nop
+90000bfc:	0001                	nop
+90000bfe:	0001                	nop
+90000c00:	0001                	nop
+90000c02:	0001                	nop
+90000c04:	0001                	nop
+90000c06:	0001                	nop
+90000c08:	0001                	nop
+90000c0a:	0001                	nop
+90000c0c:	0001                	nop
+90000c0e:	0001                	nop
+90000c10:	0001                	nop
+90000c12:	0001                	nop
+90000c14:	0001                	nop
+90000c16:	0001                	nop
+90000c18:	0001                	nop
+90000c1a:	0001                	nop
+90000c1c:	0001                	nop
+90000c1e:	0001                	nop
+90000c20:	0001                	nop
+90000c22:	0001                	nop
+90000c24:	0001                	nop
+90000c26:	0001                	nop
+90000c28:	0001                	nop
+90000c2a:	0001                	nop
+90000c2c:	0001                	nop
+90000c2e:	0001                	nop
+90000c30:	0001                	nop
+90000c32:	0001                	nop
+90000c34:	0001                	nop
+90000c36:	0001                	nop
+90000c38:	010d                	addi	sp,sp,3
+90000c3a:	0c20a823          	sw	sp,208(ra)
+
+90000c3e <inst_53>:
+
+inst_53:
+// rs1_val == -262145, 
+// opcode:c.beqz; op1:x10; op1val:-0x40001; immval:0x12
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x40001, 0x12, 3f, x1, 212)
+90000c3e:	fffc0537          	lui	a0,0xfffc0
+90000c42:	fff50513          	addi	a0,a0,-1 # fffbffff <_end+0x6ffbccfb>
+90000c46:	a031                	j	90000c52 <inst_53+0x14>
+90000c48:	4101                	li	sp,0
+90000c4a:	00110113          	addi	sp,sp,1
+90000c4e:	0180006f          	j	90000c66 <inst_53+0x28>
+90000c52:	c909                	beqz	a0,90000c64 <inst_53+0x26>
+90000c54:	00210113          	addi	sp,sp,2
+90000c58:	00e0006f          	j	90000c66 <inst_53+0x28>
+90000c5c:	0001                	nop
+90000c5e:	0001                	nop
+90000c60:	0001                	nop
+90000c62:	0001                	nop
+90000c64:	010d                	addi	sp,sp,3
+90000c66:	0c20aa23          	sw	sp,212(ra)
+
+90000c6a <inst_54>:
+
+inst_54:
+// rs1_val == -524289, 
+// opcode:c.beqz; op1:x10; op1val:-0x80001; immval:0x10
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x80001, 0x10, 1b, x1, 216)
+90000c6a:	fff80537          	lui	a0,0xfff80
+90000c6e:	fff50513          	addi	a0,a0,-1 # fff7ffff <_end+0x6ff7ccfb>
+90000c72:	a811                	j	90000c86 <inst_54+0x1c>
+90000c74:	4101                	li	sp,0
+90000c76:	00110113          	addi	sp,sp,1
+90000c7a:	0180006f          	j	90000c92 <inst_54+0x28>
+90000c7e:	0001                	nop
+90000c80:	0001                	nop
+90000c82:	0001                	nop
+90000c84:	0001                	nop
+90000c86:	d965                	beqz	a0,90000c76 <inst_54+0xc>
+90000c88:	00210113          	addi	sp,sp,2
+90000c8c:	0060006f          	j	90000c92 <inst_54+0x28>
+90000c90:	010d                	addi	sp,sp,3
+90000c92:	0c20ac23          	sw	sp,216(ra)
+
+90000c96 <inst_55>:
+
+inst_55:
+// rs1_val == -1048577, 
+// opcode:c.beqz; op1:x10; op1val:-0x100001; immval:0x10
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x100001, 0x10, 3f, x1, 220)
+90000c96:	fff00537          	lui	a0,0xfff00
+90000c9a:	fff50513          	addi	a0,a0,-1 # ffefffff <_end+0x6fefccfb>
+90000c9e:	a031                	j	90000caa <inst_55+0x14>
+90000ca0:	4101                	li	sp,0
+90000ca2:	00110113          	addi	sp,sp,1
+90000ca6:	0160006f          	j	90000cbc <inst_55+0x26>
+90000caa:	c901                	beqz	a0,90000cba <inst_55+0x24>
+90000cac:	00210113          	addi	sp,sp,2
+90000cb0:	00c0006f          	j	90000cbc <inst_55+0x26>
+90000cb4:	0001                	nop
+90000cb6:	0001                	nop
+90000cb8:	0001                	nop
+90000cba:	010d                	addi	sp,sp,3
+90000cbc:	0c20ae23          	sw	sp,220(ra)
+
+90000cc0 <inst_56>:
+
+inst_56:
+// rs1_val == -8388609, 
+// opcode:c.beqz; op1:x10; op1val:-0x800001; immval:0xaa
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x800001, 0xaa, 3f, x1, 224)
+90000cc0:	ff800537          	lui	a0,0xff800
+90000cc4:	fff50513          	addi	a0,a0,-1 # ff7fffff <_end+0x6f7fccfb>
+90000cc8:	a031                	j	90000cd4 <inst_56+0x14>
+90000cca:	4101                	li	sp,0
+90000ccc:	00110113          	addi	sp,sp,1
+90000cd0:	0b00006f          	j	90000d80 <inst_56+0xc0>
+90000cd4:	c54d                	beqz	a0,90000d7e <inst_56+0xbe>
+90000cd6:	00210113          	addi	sp,sp,2
+90000cda:	0a60006f          	j	90000d80 <inst_56+0xc0>
+90000cde:	0001                	nop
+90000ce0:	0001                	nop
+90000ce2:	0001                	nop
+90000ce4:	0001                	nop
+90000ce6:	0001                	nop
+90000ce8:	0001                	nop
+90000cea:	0001                	nop
+90000cec:	0001                	nop
+90000cee:	0001                	nop
+90000cf0:	0001                	nop
+90000cf2:	0001                	nop
+90000cf4:	0001                	nop
+90000cf6:	0001                	nop
+90000cf8:	0001                	nop
+90000cfa:	0001                	nop
+90000cfc:	0001                	nop
+90000cfe:	0001                	nop
+90000d00:	0001                	nop
+90000d02:	0001                	nop
+90000d04:	0001                	nop
+90000d06:	0001                	nop
+90000d08:	0001                	nop
+90000d0a:	0001                	nop
+90000d0c:	0001                	nop
+90000d0e:	0001                	nop
+90000d10:	0001                	nop
+90000d12:	0001                	nop
+90000d14:	0001                	nop
+90000d16:	0001                	nop
+90000d18:	0001                	nop
+90000d1a:	0001                	nop
+90000d1c:	0001                	nop
+90000d1e:	0001                	nop
+90000d20:	0001                	nop
+90000d22:	0001                	nop
+90000d24:	0001                	nop
+90000d26:	0001                	nop
+90000d28:	0001                	nop
+90000d2a:	0001                	nop
+90000d2c:	0001                	nop
+90000d2e:	0001                	nop
+90000d30:	0001                	nop
+90000d32:	0001                	nop
+90000d34:	0001                	nop
+90000d36:	0001                	nop
+90000d38:	0001                	nop
+90000d3a:	0001                	nop
+90000d3c:	0001                	nop
+90000d3e:	0001                	nop
+90000d40:	0001                	nop
+90000d42:	0001                	nop
+90000d44:	0001                	nop
+90000d46:	0001                	nop
+90000d48:	0001                	nop
+90000d4a:	0001                	nop
+90000d4c:	0001                	nop
+90000d4e:	0001                	nop
+90000d50:	0001                	nop
+90000d52:	0001                	nop
+90000d54:	0001                	nop
+90000d56:	0001                	nop
+90000d58:	0001                	nop
+90000d5a:	0001                	nop
+90000d5c:	0001                	nop
+90000d5e:	0001                	nop
+90000d60:	0001                	nop
+90000d62:	0001                	nop
+90000d64:	0001                	nop
+90000d66:	0001                	nop
+90000d68:	0001                	nop
+90000d6a:	0001                	nop
+90000d6c:	0001                	nop
+90000d6e:	0001                	nop
+90000d70:	0001                	nop
+90000d72:	0001                	nop
+90000d74:	0001                	nop
+90000d76:	0001                	nop
+90000d78:	0001                	nop
+90000d7a:	0001                	nop
+90000d7c:	0001                	nop
+90000d7e:	010d                	addi	sp,sp,3
+90000d80:	0e20a023          	sw	sp,224(ra)
+
+90000d84 <inst_57>:
+
+inst_57:
+// rs1_val == -16777217, 
+// opcode:c.beqz; op1:x10; op1val:-0x1000001; immval:0x10
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x1000001, 0x10, 3f, x1, 228)
+90000d84:	ff000537          	lui	a0,0xff000
+90000d88:	fff50513          	addi	a0,a0,-1 # feffffff <_end+0x6effccfb>
+90000d8c:	a031                	j	90000d98 <inst_57+0x14>
+90000d8e:	4101                	li	sp,0
+90000d90:	00110113          	addi	sp,sp,1
+90000d94:	0160006f          	j	90000daa <inst_57+0x26>
+90000d98:	c901                	beqz	a0,90000da8 <inst_57+0x24>
+90000d9a:	00210113          	addi	sp,sp,2
+90000d9e:	00c0006f          	j	90000daa <inst_57+0x26>
+90000da2:	0001                	nop
+90000da4:	0001                	nop
+90000da6:	0001                	nop
+90000da8:	010d                	addi	sp,sp,3
+90000daa:	0e20a223          	sw	sp,228(ra)
+
+90000dae <inst_58>:
+
+inst_58:
+// rs1_val == -33554433, 
+// opcode:c.beqz; op1:x10; op1val:-0x2000001; immval:0x10
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x2000001, 0x10, 3f, x1, 232)
+90000dae:	fe000537          	lui	a0,0xfe000
+90000db2:	fff50513          	addi	a0,a0,-1 # fdffffff <_end+0x6dffccfb>
+90000db6:	a031                	j	90000dc2 <inst_58+0x14>
+90000db8:	4101                	li	sp,0
+90000dba:	00110113          	addi	sp,sp,1
+90000dbe:	0160006f          	j	90000dd4 <inst_58+0x26>
+90000dc2:	c901                	beqz	a0,90000dd2 <inst_58+0x24>
+90000dc4:	00210113          	addi	sp,sp,2
+90000dc8:	00c0006f          	j	90000dd4 <inst_58+0x26>
+90000dcc:	0001                	nop
+90000dce:	0001                	nop
+90000dd0:	0001                	nop
+90000dd2:	010d                	addi	sp,sp,3
+90000dd4:	0e20a423          	sw	sp,232(ra)
+
+90000dd8 <inst_59>:
+
+inst_59:
+// rs1_val == -67108865, 
+// opcode:c.beqz; op1:x10; op1val:-0x4000001; immval:0xc
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x4000001, 0xc, 1b, x1, 236)
+90000dd8:	fc000537          	lui	a0,0xfc000
+90000ddc:	fff50513          	addi	a0,a0,-1 # fbffffff <_end+0x6bffccfb>
+90000de0:	a801                	j	90000df0 <inst_59+0x18>
+90000de2:	4101                	li	sp,0
+90000de4:	00110113          	addi	sp,sp,1
+90000de8:	0140006f          	j	90000dfc <inst_59+0x24>
+90000dec:	0001                	nop
+90000dee:	0001                	nop
+90000df0:	d975                	beqz	a0,90000de4 <inst_59+0xc>
+90000df2:	00210113          	addi	sp,sp,2
+90000df6:	0060006f          	j	90000dfc <inst_59+0x24>
+90000dfa:	010d                	addi	sp,sp,3
+90000dfc:	0e20a623          	sw	sp,236(ra)
+
+90000e00 <inst_60>:
+
+inst_60:
+// rs1_val == -134217729, 
+// opcode:c.beqz; op1:x10; op1val:-0x8000001; immval:0x8
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x8000001, 0x8, 1b, x1, 240)
+90000e00:	f8000537          	lui	a0,0xf8000
+90000e04:	fff50513          	addi	a0,a0,-1 # f7ffffff <_end+0x67ffccfb>
+90000e08:	a031                	j	90000e14 <inst_60+0x14>
+90000e0a:	4101                	li	sp,0
+90000e0c:	00110113          	addi	sp,sp,1
+90000e10:	0100006f          	j	90000e20 <inst_60+0x20>
+90000e14:	dd65                	beqz	a0,90000e0c <inst_60+0xc>
+90000e16:	00210113          	addi	sp,sp,2
+90000e1a:	0060006f          	j	90000e20 <inst_60+0x20>
+90000e1e:	010d                	addi	sp,sp,3
+90000e20:	0e20a823          	sw	sp,240(ra)
+
+90000e24 <inst_61>:
+
+inst_61:
+// rs1_val == -268435457, 
+// opcode:c.beqz; op1:x10; op1val:-0x10000001; immval:0x8
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x10000001, 0x8, 1b, x1, 244)
+90000e24:	f0000537          	lui	a0,0xf0000
+90000e28:	fff50513          	addi	a0,a0,-1 # efffffff <_end+0x5fffccfb>
+90000e2c:	a031                	j	90000e38 <inst_61+0x14>
+90000e2e:	4101                	li	sp,0
+90000e30:	00110113          	addi	sp,sp,1
+90000e34:	0100006f          	j	90000e44 <inst_61+0x20>
+90000e38:	dd65                	beqz	a0,90000e30 <inst_61+0xc>
+90000e3a:	00210113          	addi	sp,sp,2
+90000e3e:	0060006f          	j	90000e44 <inst_61+0x20>
+90000e42:	010d                	addi	sp,sp,3
+90000e44:	0e20aa23          	sw	sp,244(ra)
+
+90000e48 <inst_62>:
+
+inst_62:
+// rs1_val == -536870913, 
+// opcode:c.beqz; op1:x10; op1val:-0x20000001; immval:0x80
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x20000001, 0x80, 1b, x1, 248)
+90000e48:	e0000537          	lui	a0,0xe0000
+90000e4c:	fff50513          	addi	a0,a0,-1 # dfffffff <_end+0x4fffccfb>
+90000e50:	a051                	j	90000ed4 <inst_62+0x8c>
+90000e52:	4101                	li	sp,0
+90000e54:	00110113          	addi	sp,sp,1
+90000e58:	0880006f          	j	90000ee0 <inst_62+0x98>
+90000e5c:	0001                	nop
+90000e5e:	0001                	nop
+90000e60:	0001                	nop
+90000e62:	0001                	nop
+90000e64:	0001                	nop
+90000e66:	0001                	nop
+90000e68:	0001                	nop
+90000e6a:	0001                	nop
+90000e6c:	0001                	nop
+90000e6e:	0001                	nop
+90000e70:	0001                	nop
+90000e72:	0001                	nop
+90000e74:	0001                	nop
+90000e76:	0001                	nop
+90000e78:	0001                	nop
+90000e7a:	0001                	nop
+90000e7c:	0001                	nop
+90000e7e:	0001                	nop
+90000e80:	0001                	nop
+90000e82:	0001                	nop
+90000e84:	0001                	nop
+90000e86:	0001                	nop
+90000e88:	0001                	nop
+90000e8a:	0001                	nop
+90000e8c:	0001                	nop
+90000e8e:	0001                	nop
+90000e90:	0001                	nop
+90000e92:	0001                	nop
+90000e94:	0001                	nop
+90000e96:	0001                	nop
+90000e98:	0001                	nop
+90000e9a:	0001                	nop
+90000e9c:	0001                	nop
+90000e9e:	0001                	nop
+90000ea0:	0001                	nop
+90000ea2:	0001                	nop
+90000ea4:	0001                	nop
+90000ea6:	0001                	nop
+90000ea8:	0001                	nop
+90000eaa:	0001                	nop
+90000eac:	0001                	nop
+90000eae:	0001                	nop
+90000eb0:	0001                	nop
+90000eb2:	0001                	nop
+90000eb4:	0001                	nop
+90000eb6:	0001                	nop
+90000eb8:	0001                	nop
+90000eba:	0001                	nop
+90000ebc:	0001                	nop
+90000ebe:	0001                	nop
+90000ec0:	0001                	nop
+90000ec2:	0001                	nop
+90000ec4:	0001                	nop
+90000ec6:	0001                	nop
+90000ec8:	0001                	nop
+90000eca:	0001                	nop
+90000ecc:	0001                	nop
+90000ece:	0001                	nop
+90000ed0:	0001                	nop
+90000ed2:	0001                	nop
+90000ed4:	d141                	beqz	a0,90000e54 <inst_62+0xc>
+90000ed6:	00210113          	addi	sp,sp,2
+90000eda:	0060006f          	j	90000ee0 <inst_62+0x98>
+90000ede:	010d                	addi	sp,sp,3
+90000ee0:	0e20ac23          	sw	sp,248(ra)
+
+90000ee4 <inst_63>:
+
+inst_63:
+// rs1_val == -1073741825, 
+// opcode:c.beqz; op1:x10; op1val:-0x40000001; immval:0x20
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x40000001, 0x20, 3f, x1, 252)
+90000ee4:	c0000537          	lui	a0,0xc0000
+90000ee8:	fff50513          	addi	a0,a0,-1 # bfffffff <_end+0x2fffccfb>
+90000eec:	a031                	j	90000ef8 <inst_63+0x14>
+90000eee:	4101                	li	sp,0
+90000ef0:	00110113          	addi	sp,sp,1
+90000ef4:	0260006f          	j	90000f1a <inst_63+0x36>
+90000ef8:	c105                	beqz	a0,90000f18 <inst_63+0x34>
+90000efa:	00210113          	addi	sp,sp,2
+90000efe:	01c0006f          	j	90000f1a <inst_63+0x36>
+90000f02:	0001                	nop
+90000f04:	0001                	nop
+90000f06:	0001                	nop
+90000f08:	0001                	nop
+90000f0a:	0001                	nop
+90000f0c:	0001                	nop
+90000f0e:	0001                	nop
+90000f10:	0001                	nop
+90000f12:	0001                	nop
+90000f14:	0001                	nop
+90000f16:	0001                	nop
+90000f18:	010d                	addi	sp,sp,3
+90000f1a:	0e20ae23          	sw	sp,252(ra)
+
+90000f1e <inst_64>:
+
+inst_64:
+// rs1_val == 1431655765, rs1_val==1431655765
+// opcode:c.beqz; op1:x10; op1val:0x55555555; immval:0x6
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x55555555, 0x6, 1b, x1, 256)
+90000f1e:	55555537          	lui	a0,0x55555
+90000f22:	55550513          	addi	a0,a0,1365 # 55555555 <offset+0x55555401>
+90000f26:	a031                	j	90000f32 <inst_64+0x14>
+90000f28:	4101                	li	sp,0
+90000f2a:	00110113          	addi	sp,sp,1
+90000f2e:	0100006f          	j	90000f3e <inst_64+0x20>
+90000f32:	dd65                	beqz	a0,90000f2a <inst_64+0xc>
+90000f34:	00210113          	addi	sp,sp,2
+90000f38:	0060006f          	j	90000f3e <inst_64+0x20>
+90000f3c:	010d                	addi	sp,sp,3
+90000f3e:	1020a023          	sw	sp,256(ra)
+
+90000f42 <inst_65>:
+
+inst_65:
+// rs1_val == -1431655766, rs1_val==-1431655766
+// opcode:c.beqz; op1:x10; op1val:-0x55555556; immval:0x22
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x55555556, 0x22, 1b, x1, 260)
+90000f42:	aaaab537          	lui	a0,0xaaaab
+90000f46:	aaa50513          	addi	a0,a0,-1366 # aaaaaaaa <_end+0x1aaa77a6>
+90000f4a:	a01d                	j	90000f70 <inst_65+0x2e>
+90000f4c:	4101                	li	sp,0
+90000f4e:	00110113          	addi	sp,sp,1
+90000f52:	02a0006f          	j	90000f7c <inst_65+0x3a>
+90000f56:	0001                	nop
+90000f58:	0001                	nop
+90000f5a:	0001                	nop
+90000f5c:	0001                	nop
+90000f5e:	0001                	nop
+90000f60:	0001                	nop
+90000f62:	0001                	nop
+90000f64:	0001                	nop
+90000f66:	0001                	nop
+90000f68:	0001                	nop
+90000f6a:	0001                	nop
+90000f6c:	0001                	nop
+90000f6e:	0001                	nop
+90000f70:	dd79                	beqz	a0,90000f4e <inst_65+0xc>
+90000f72:	00210113          	addi	sp,sp,2
+90000f76:	0060006f          	j	90000f7c <inst_65+0x3a>
+90000f7a:	010d                	addi	sp,sp,3
+90000f7c:	1020a223          	sw	sp,260(ra)
+
+90000f80 <inst_66>:
+
+inst_66:
+// rs1_val==3, 
+// opcode:c.beqz; op1:x10; op1val:0x3; immval:0x4
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x3, 0x4, 3f, x1, 264)
+90000f80:	00300513          	li	a0,3
+90000f84:	a031                	j	90000f90 <inst_66+0x10>
+90000f86:	4101                	li	sp,0
+90000f88:	00110113          	addi	sp,sp,1
+90000f8c:	0100006f          	j	90000f9c <inst_66+0x1c>
+90000f90:	c509                	beqz	a0,90000f9a <inst_66+0x1a>
+90000f92:	00210113          	addi	sp,sp,2
+90000f96:	0060006f          	j	90000f9c <inst_66+0x1c>
+90000f9a:	010d                	addi	sp,sp,3
+90000f9c:	1020a423          	sw	sp,264(ra)
+
+90000fa0 <inst_67>:
+
+inst_67:
+// rs1_val==5, 
+// opcode:c.beqz; op1:x10; op1val:0x5; immval:0x6
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x5, 0x6, 3f, x1, 268)
+90000fa0:	00500513          	li	a0,5
+90000fa4:	a031                	j	90000fb0 <inst_67+0x10>
+90000fa6:	4101                	li	sp,0
+90000fa8:	00110113          	addi	sp,sp,1
+90000fac:	0100006f          	j	90000fbc <inst_67+0x1c>
+90000fb0:	c509                	beqz	a0,90000fba <inst_67+0x1a>
+90000fb2:	00210113          	addi	sp,sp,2
+90000fb6:	0060006f          	j	90000fbc <inst_67+0x1c>
+90000fba:	010d                	addi	sp,sp,3
+90000fbc:	1020a623          	sw	sp,268(ra)
+
+90000fc0 <inst_68>:
+
+inst_68:
+// rs1_val==858993459, 
+// opcode:c.beqz; op1:x10; op1val:0x33333333; immval:0xe
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x33333333, 0xe, 3f, x1, 272)
+90000fc0:	33333537          	lui	a0,0x33333
+90000fc4:	33350513          	addi	a0,a0,819 # 33333333 <offset+0x333331df>
+90000fc8:	a031                	j	90000fd4 <inst_68+0x14>
+90000fca:	4101                	li	sp,0
+90000fcc:	00110113          	addi	sp,sp,1
+90000fd0:	0140006f          	j	90000fe4 <inst_68+0x24>
+90000fd4:	c519                	beqz	a0,90000fe2 <inst_68+0x22>
+90000fd6:	00210113          	addi	sp,sp,2
+90000fda:	00a0006f          	j	90000fe4 <inst_68+0x24>
+90000fde:	0001                	nop
+90000fe0:	0001                	nop
+90000fe2:	010d                	addi	sp,sp,3
+90000fe4:	1020a823          	sw	sp,272(ra)
+
+90000fe8 <inst_69>:
+
+inst_69:
+// rs1_val==1717986918, 
+// opcode:c.beqz; op1:x10; op1val:0x66666666; immval:0xa
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x66666666, 0xa, 1b, x1, 276)
+90000fe8:	66666537          	lui	a0,0x66666
+90000fec:	66650513          	addi	a0,a0,1638 # 66666666 <offset+0x66666512>
+90000ff0:	a039                	j	90000ffe <inst_69+0x16>
+90000ff2:	4101                	li	sp,0
+90000ff4:	00110113          	addi	sp,sp,1
+90000ff8:	0120006f          	j	9000100a <inst_69+0x22>
+90000ffc:	0001                	nop
+90000ffe:	d97d                	beqz	a0,90000ff4 <inst_69+0xc>
+90001000:	00210113          	addi	sp,sp,2
+90001004:	0060006f          	j	9000100a <inst_69+0x22>
+90001008:	010d                	addi	sp,sp,3
+9000100a:	1020aa23          	sw	sp,276(ra)
+
+9000100e <inst_70>:
+
+inst_70:
+// rs1_val==46341, 
+// opcode:c.beqz; op1:x10; op1val:0xb505; immval:0x12
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0xb505, 0x12, 1b, x1, 280)
+9000100e:	0000b537          	lui	a0,0xb
+90001012:	50550513          	addi	a0,a0,1285 # b505 <offset+0xb3b1>
+90001016:	a819                	j	9000102c <inst_70+0x1e>
+90001018:	4101                	li	sp,0
+9000101a:	00110113          	addi	sp,sp,1
+9000101e:	01a0006f          	j	90001038 <inst_70+0x2a>
+90001022:	0001                	nop
+90001024:	0001                	nop
+90001026:	0001                	nop
+90001028:	0001                	nop
+9000102a:	0001                	nop
+9000102c:	d57d                	beqz	a0,9000101a <inst_70+0xc>
+9000102e:	00210113          	addi	sp,sp,2
+90001032:	0060006f          	j	90001038 <inst_70+0x2a>
+90001036:	010d                	addi	sp,sp,3
+90001038:	1020ac23          	sw	sp,280(ra)
+
+9000103c <inst_71>:
+
+inst_71:
+// rs1_val==-46340, 
+// opcode:c.beqz; op1:x10; op1val:-0xb504; immval:0x22
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0xb504, 0x22, 1b, x1, 284)
+9000103c:	ffff5537          	lui	a0,0xffff5
+90001040:	afc50513          	addi	a0,a0,-1284 # ffff4afc <_end+0x6fff17f8>
+90001044:	a01d                	j	9000106a <inst_71+0x2e>
+90001046:	4101                	li	sp,0
+90001048:	00110113          	addi	sp,sp,1
+9000104c:	02a0006f          	j	90001076 <inst_71+0x3a>
+90001050:	0001                	nop
+90001052:	0001                	nop
+90001054:	0001                	nop
+90001056:	0001                	nop
+90001058:	0001                	nop
+9000105a:	0001                	nop
+9000105c:	0001                	nop
+9000105e:	0001                	nop
+90001060:	0001                	nop
+90001062:	0001                	nop
+90001064:	0001                	nop
+90001066:	0001                	nop
+90001068:	0001                	nop
+9000106a:	dd79                	beqz	a0,90001048 <inst_71+0xc>
+9000106c:	00210113          	addi	sp,sp,2
+90001070:	0060006f          	j	90001076 <inst_71+0x3a>
+90001074:	010d                	addi	sp,sp,3
+90001076:	1020ae23          	sw	sp,284(ra)
+
+9000107a <inst_72>:
+
+inst_72:
+// rs1_val==46340, 
+// opcode:c.beqz; op1:x10; op1val:0xb504; immval:0xaa
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0xb504, 0xaa, 3f, x1, 288)
+9000107a:	0000b537          	lui	a0,0xb
+9000107e:	50450513          	addi	a0,a0,1284 # b504 <offset+0xb3b0>
+90001082:	a031                	j	9000108e <inst_72+0x14>
+90001084:	4101                	li	sp,0
+90001086:	00110113          	addi	sp,sp,1
+9000108a:	0b00006f          	j	9000113a <inst_72+0xc0>
+9000108e:	c54d                	beqz	a0,90001138 <inst_72+0xbe>
+90001090:	00210113          	addi	sp,sp,2
+90001094:	0a60006f          	j	9000113a <inst_72+0xc0>
+90001098:	0001                	nop
+9000109a:	0001                	nop
+9000109c:	0001                	nop
+9000109e:	0001                	nop
+900010a0:	0001                	nop
+900010a2:	0001                	nop
+900010a4:	0001                	nop
+900010a6:	0001                	nop
+900010a8:	0001                	nop
+900010aa:	0001                	nop
+900010ac:	0001                	nop
+900010ae:	0001                	nop
+900010b0:	0001                	nop
+900010b2:	0001                	nop
+900010b4:	0001                	nop
+900010b6:	0001                	nop
+900010b8:	0001                	nop
+900010ba:	0001                	nop
+900010bc:	0001                	nop
+900010be:	0001                	nop
+900010c0:	0001                	nop
+900010c2:	0001                	nop
+900010c4:	0001                	nop
+900010c6:	0001                	nop
+900010c8:	0001                	nop
+900010ca:	0001                	nop
+900010cc:	0001                	nop
+900010ce:	0001                	nop
+900010d0:	0001                	nop
+900010d2:	0001                	nop
+900010d4:	0001                	nop
+900010d6:	0001                	nop
+900010d8:	0001                	nop
+900010da:	0001                	nop
+900010dc:	0001                	nop
+900010de:	0001                	nop
+900010e0:	0001                	nop
+900010e2:	0001                	nop
+900010e4:	0001                	nop
+900010e6:	0001                	nop
+900010e8:	0001                	nop
+900010ea:	0001                	nop
+900010ec:	0001                	nop
+900010ee:	0001                	nop
+900010f0:	0001                	nop
+900010f2:	0001                	nop
+900010f4:	0001                	nop
+900010f6:	0001                	nop
+900010f8:	0001                	nop
+900010fa:	0001                	nop
+900010fc:	0001                	nop
+900010fe:	0001                	nop
+90001100:	0001                	nop
+90001102:	0001                	nop
+90001104:	0001                	nop
+90001106:	0001                	nop
+90001108:	0001                	nop
+9000110a:	0001                	nop
+9000110c:	0001                	nop
+9000110e:	0001                	nop
+90001110:	0001                	nop
+90001112:	0001                	nop
+90001114:	0001                	nop
+90001116:	0001                	nop
+90001118:	0001                	nop
+9000111a:	0001                	nop
+9000111c:	0001                	nop
+9000111e:	0001                	nop
+90001120:	0001                	nop
+90001122:	0001                	nop
+90001124:	0001                	nop
+90001126:	0001                	nop
+90001128:	0001                	nop
+9000112a:	0001                	nop
+9000112c:	0001                	nop
+9000112e:	0001                	nop
+90001130:	0001                	nop
+90001132:	0001                	nop
+90001134:	0001                	nop
+90001136:	0001                	nop
+90001138:	010d                	addi	sp,sp,3
+9000113a:	1220a023          	sw	sp,288(ra)
+
+9000113e <inst_73>:
+
+inst_73:
+// rs1_val==1431655764, 
+// opcode:c.beqz; op1:x10; op1val:0x55555554; immval:0xc
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x55555554, 0xc, 1b, x1, 292)
+9000113e:	55555537          	lui	a0,0x55555
+90001142:	55450513          	addi	a0,a0,1364 # 55555554 <offset+0x55555400>
+90001146:	a801                	j	90001156 <inst_73+0x18>
+90001148:	4101                	li	sp,0
+9000114a:	00110113          	addi	sp,sp,1
+9000114e:	0140006f          	j	90001162 <inst_73+0x24>
+90001152:	0001                	nop
+90001154:	0001                	nop
+90001156:	d975                	beqz	a0,9000114a <inst_73+0xc>
+90001158:	00210113          	addi	sp,sp,2
+9000115c:	0060006f          	j	90001162 <inst_73+0x24>
+90001160:	010d                	addi	sp,sp,3
+90001162:	1220a223          	sw	sp,292(ra)
+
+90001166 <inst_74>:
+
+inst_74:
+// rs1_val == -4194305, 
+// opcode:c.beqz; op1:x10; op1val:-0x400001; immval:0x42
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x400001, 0x42, 1b, x1, 296)
+90001166:	ffc00537          	lui	a0,0xffc00
+9000116a:	fff50513          	addi	a0,a0,-1 # ffbfffff <_end+0x6fbfccfb>
+9000116e:	a099                	j	900011b4 <inst_74+0x4e>
+90001170:	4101                	li	sp,0
+90001172:	00110113          	addi	sp,sp,1
+90001176:	04a0006f          	j	900011c0 <inst_74+0x5a>
+9000117a:	0001                	nop
+9000117c:	0001                	nop
+9000117e:	0001                	nop
+90001180:	0001                	nop
+90001182:	0001                	nop
+90001184:	0001                	nop
+90001186:	0001                	nop
+90001188:	0001                	nop
+9000118a:	0001                	nop
+9000118c:	0001                	nop
+9000118e:	0001                	nop
+90001190:	0001                	nop
+90001192:	0001                	nop
+90001194:	0001                	nop
+90001196:	0001                	nop
+90001198:	0001                	nop
+9000119a:	0001                	nop
+9000119c:	0001                	nop
+9000119e:	0001                	nop
+900011a0:	0001                	nop
+900011a2:	0001                	nop
+900011a4:	0001                	nop
+900011a6:	0001                	nop
+900011a8:	0001                	nop
+900011aa:	0001                	nop
+900011ac:	0001                	nop
+900011ae:	0001                	nop
+900011b0:	0001                	nop
+900011b2:	0001                	nop
+900011b4:	dd5d                	beqz	a0,90001172 <inst_74+0xc>
+900011b6:	00210113          	addi	sp,sp,2
+900011ba:	0060006f          	j	900011c0 <inst_74+0x5a>
+900011be:	010d                	addi	sp,sp,3
+900011c0:	1220a423          	sw	sp,296(ra)
+
+900011c4 <inst_75>:
+
+inst_75:
+// rs1_val==1717986919, 
+// opcode:c.beqz; op1:x10; op1val:0x66666667; immval:0x4
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x66666667, 0x4, 1b, x1, 300)
+900011c4:	66666537          	lui	a0,0x66666
+900011c8:	66750513          	addi	a0,a0,1639 # 66666667 <offset+0x66666513>
+900011cc:	a031                	j	900011d8 <inst_75+0x14>
+900011ce:	4101                	li	sp,0
+900011d0:	00110113          	addi	sp,sp,1
+900011d4:	0100006f          	j	900011e4 <inst_75+0x20>
+900011d8:	dd65                	beqz	a0,900011d0 <inst_75+0xc>
+900011da:	00210113          	addi	sp,sp,2
+900011de:	0060006f          	j	900011e4 <inst_75+0x20>
+900011e2:	010d                	addi	sp,sp,3
+900011e4:	1220a623          	sw	sp,300(ra)
+
+900011e8 <inst_76>:
+
+inst_76:
+// rs1_val==858993458, 
+// opcode:c.beqz; op1:x10; op1val:0x33333332; immval:0x4
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x33333332, 0x4, 1b, x1, 304)
+900011e8:	33333537          	lui	a0,0x33333
+900011ec:	33250513          	addi	a0,a0,818 # 33333332 <offset+0x333331de>
+900011f0:	a031                	j	900011fc <inst_76+0x14>
+900011f2:	4101                	li	sp,0
+900011f4:	00110113          	addi	sp,sp,1
+900011f8:	0100006f          	j	90001208 <inst_76+0x20>
+900011fc:	dd65                	beqz	a0,900011f4 <inst_76+0xc>
+900011fe:	00210113          	addi	sp,sp,2
+90001202:	0060006f          	j	90001208 <inst_76+0x20>
+90001206:	010d                	addi	sp,sp,3
+90001208:	1220a823          	sw	sp,304(ra)
+
+9000120c <inst_77>:
+
+inst_77:
+// rs1_val==1717986917, 
+// opcode:c.beqz; op1:x10; op1val:0x66666665; immval:0x80
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x66666665, 0x80, 1b, x1, 308)
+9000120c:	66666537          	lui	a0,0x66666
+90001210:	66550513          	addi	a0,a0,1637 # 66666665 <offset+0x66666511>
+90001214:	a051                	j	90001298 <inst_77+0x8c>
+90001216:	4101                	li	sp,0
+90001218:	00110113          	addi	sp,sp,1
+9000121c:	0880006f          	j	900012a4 <inst_77+0x98>
+90001220:	0001                	nop
+90001222:	0001                	nop
+90001224:	0001                	nop
+90001226:	0001                	nop
+90001228:	0001                	nop
+9000122a:	0001                	nop
+9000122c:	0001                	nop
+9000122e:	0001                	nop
+90001230:	0001                	nop
+90001232:	0001                	nop
+90001234:	0001                	nop
+90001236:	0001                	nop
+90001238:	0001                	nop
+9000123a:	0001                	nop
+9000123c:	0001                	nop
+9000123e:	0001                	nop
+90001240:	0001                	nop
+90001242:	0001                	nop
+90001244:	0001                	nop
+90001246:	0001                	nop
+90001248:	0001                	nop
+9000124a:	0001                	nop
+9000124c:	0001                	nop
+9000124e:	0001                	nop
+90001250:	0001                	nop
+90001252:	0001                	nop
+90001254:	0001                	nop
+90001256:	0001                	nop
+90001258:	0001                	nop
+9000125a:	0001                	nop
+9000125c:	0001                	nop
+9000125e:	0001                	nop
+90001260:	0001                	nop
+90001262:	0001                	nop
+90001264:	0001                	nop
+90001266:	0001                	nop
+90001268:	0001                	nop
+9000126a:	0001                	nop
+9000126c:	0001                	nop
+9000126e:	0001                	nop
+90001270:	0001                	nop
+90001272:	0001                	nop
+90001274:	0001                	nop
+90001276:	0001                	nop
+90001278:	0001                	nop
+9000127a:	0001                	nop
+9000127c:	0001                	nop
+9000127e:	0001                	nop
+90001280:	0001                	nop
+90001282:	0001                	nop
+90001284:	0001                	nop
+90001286:	0001                	nop
+90001288:	0001                	nop
+9000128a:	0001                	nop
+9000128c:	0001                	nop
+9000128e:	0001                	nop
+90001290:	0001                	nop
+90001292:	0001                	nop
+90001294:	0001                	nop
+90001296:	0001                	nop
+90001298:	d141                	beqz	a0,90001218 <inst_77+0xc>
+9000129a:	00210113          	addi	sp,sp,2
+9000129e:	0060006f          	j	900012a4 <inst_77+0x98>
+900012a2:	010d                	addi	sp,sp,3
+900012a4:	1220aa23          	sw	sp,308(ra)
+
+900012a8 <inst_78>:
+
+inst_78:
+// rs1_val==46339, 
+// opcode:c.beqz; op1:x10; op1val:0xb503; immval:0x7e
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0xb503, 0x7e, 3f, x1, 312)
+900012a8:	0000b537          	lui	a0,0xb
+900012ac:	50350513          	addi	a0,a0,1283 # b503 <offset+0xb3af>
+900012b0:	a031                	j	900012bc <inst_78+0x14>
+900012b2:	4101                	li	sp,0
+900012b4:	00110113          	addi	sp,sp,1
+900012b8:	0840006f          	j	9000133c <inst_78+0x94>
+900012bc:	cd3d                	beqz	a0,9000133a <inst_78+0x92>
+900012be:	00210113          	addi	sp,sp,2
+900012c2:	07a0006f          	j	9000133c <inst_78+0x94>
+900012c6:	0001                	nop
+900012c8:	0001                	nop
+900012ca:	0001                	nop
+900012cc:	0001                	nop
+900012ce:	0001                	nop
+900012d0:	0001                	nop
+900012d2:	0001                	nop
+900012d4:	0001                	nop
+900012d6:	0001                	nop
+900012d8:	0001                	nop
+900012da:	0001                	nop
+900012dc:	0001                	nop
+900012de:	0001                	nop
+900012e0:	0001                	nop
+900012e2:	0001                	nop
+900012e4:	0001                	nop
+900012e6:	0001                	nop
+900012e8:	0001                	nop
+900012ea:	0001                	nop
+900012ec:	0001                	nop
+900012ee:	0001                	nop
+900012f0:	0001                	nop
+900012f2:	0001                	nop
+900012f4:	0001                	nop
+900012f6:	0001                	nop
+900012f8:	0001                	nop
+900012fa:	0001                	nop
+900012fc:	0001                	nop
+900012fe:	0001                	nop
+90001300:	0001                	nop
+90001302:	0001                	nop
+90001304:	0001                	nop
+90001306:	0001                	nop
+90001308:	0001                	nop
+9000130a:	0001                	nop
+9000130c:	0001                	nop
+9000130e:	0001                	nop
+90001310:	0001                	nop
+90001312:	0001                	nop
+90001314:	0001                	nop
+90001316:	0001                	nop
+90001318:	0001                	nop
+9000131a:	0001                	nop
+9000131c:	0001                	nop
+9000131e:	0001                	nop
+90001320:	0001                	nop
+90001322:	0001                	nop
+90001324:	0001                	nop
+90001326:	0001                	nop
+90001328:	0001                	nop
+9000132a:	0001                	nop
+9000132c:	0001                	nop
+9000132e:	0001                	nop
+90001330:	0001                	nop
+90001332:	0001                	nop
+90001334:	0001                	nop
+90001336:	0001                	nop
+90001338:	0001                	nop
+9000133a:	010d                	addi	sp,sp,3
+9000133c:	1220ac23          	sw	sp,312(ra)
+
+90001340 <inst_79>:
+
+inst_79:
+// rs1_val==1431655766, 
+// opcode:c.beqz; op1:x10; op1val:0x55555556; immval:0x12
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x55555556, 0x12, 3f, x1, 316)
+90001340:	55555537          	lui	a0,0x55555
+90001344:	55650513          	addi	a0,a0,1366 # 55555556 <offset+0x55555402>
+90001348:	a031                	j	90001354 <inst_79+0x14>
+9000134a:	4101                	li	sp,0
+9000134c:	00110113          	addi	sp,sp,1
+90001350:	0180006f          	j	90001368 <inst_79+0x28>
+90001354:	c909                	beqz	a0,90001366 <inst_79+0x26>
+90001356:	00210113          	addi	sp,sp,2
+9000135a:	00e0006f          	j	90001368 <inst_79+0x28>
+9000135e:	0001                	nop
+90001360:	0001                	nop
+90001362:	0001                	nop
+90001364:	0001                	nop
+90001366:	010d                	addi	sp,sp,3
+90001368:	1220ae23          	sw	sp,316(ra)
+
+9000136c <inst_80>:
+
+inst_80:
+// rs1_val==-1431655765, 
+// opcode:c.beqz; op1:x10; op1val:-0x55555555; immval:0xaa
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x55555555, 0xaa, 3f, x1, 320)
+9000136c:	aaaab537          	lui	a0,0xaaaab
+90001370:	aab50513          	addi	a0,a0,-1365 # aaaaaaab <_end+0x1aaa77a7>
+90001374:	a031                	j	90001380 <inst_80+0x14>
+90001376:	4101                	li	sp,0
+90001378:	00110113          	addi	sp,sp,1
+9000137c:	0b00006f          	j	9000142c <inst_80+0xc0>
+90001380:	c54d                	beqz	a0,9000142a <inst_80+0xbe>
+90001382:	00210113          	addi	sp,sp,2
+90001386:	0a60006f          	j	9000142c <inst_80+0xc0>
+9000138a:	0001                	nop
+9000138c:	0001                	nop
+9000138e:	0001                	nop
+90001390:	0001                	nop
+90001392:	0001                	nop
+90001394:	0001                	nop
+90001396:	0001                	nop
+90001398:	0001                	nop
+9000139a:	0001                	nop
+9000139c:	0001                	nop
+9000139e:	0001                	nop
+900013a0:	0001                	nop
+900013a2:	0001                	nop
+900013a4:	0001                	nop
+900013a6:	0001                	nop
+900013a8:	0001                	nop
+900013aa:	0001                	nop
+900013ac:	0001                	nop
+900013ae:	0001                	nop
+900013b0:	0001                	nop
+900013b2:	0001                	nop
+900013b4:	0001                	nop
+900013b6:	0001                	nop
+900013b8:	0001                	nop
+900013ba:	0001                	nop
+900013bc:	0001                	nop
+900013be:	0001                	nop
+900013c0:	0001                	nop
+900013c2:	0001                	nop
+900013c4:	0001                	nop
+900013c6:	0001                	nop
+900013c8:	0001                	nop
+900013ca:	0001                	nop
+900013cc:	0001                	nop
+900013ce:	0001                	nop
+900013d0:	0001                	nop
+900013d2:	0001                	nop
+900013d4:	0001                	nop
+900013d6:	0001                	nop
+900013d8:	0001                	nop
+900013da:	0001                	nop
+900013dc:	0001                	nop
+900013de:	0001                	nop
+900013e0:	0001                	nop
+900013e2:	0001                	nop
+900013e4:	0001                	nop
+900013e6:	0001                	nop
+900013e8:	0001                	nop
+900013ea:	0001                	nop
+900013ec:	0001                	nop
+900013ee:	0001                	nop
+900013f0:	0001                	nop
+900013f2:	0001                	nop
+900013f4:	0001                	nop
+900013f6:	0001                	nop
+900013f8:	0001                	nop
+900013fa:	0001                	nop
+900013fc:	0001                	nop
+900013fe:	0001                	nop
+90001400:	0001                	nop
+90001402:	0001                	nop
+90001404:	0001                	nop
+90001406:	0001                	nop
+90001408:	0001                	nop
+9000140a:	0001                	nop
+9000140c:	0001                	nop
+9000140e:	0001                	nop
+90001410:	0001                	nop
+90001412:	0001                	nop
+90001414:	0001                	nop
+90001416:	0001                	nop
+90001418:	0001                	nop
+9000141a:	0001                	nop
+9000141c:	0001                	nop
+9000141e:	0001                	nop
+90001420:	0001                	nop
+90001422:	0001                	nop
+90001424:	0001                	nop
+90001426:	0001                	nop
+90001428:	0001                	nop
+9000142a:	010d                	addi	sp,sp,3
+9000142c:	1420a023          	sw	sp,320(ra)
+
+90001430 <inst_81>:
+
+inst_81:
+// rs1_val==6, 
+// opcode:c.beqz; op1:x10; op1val:0x6; immval:0xc
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x6, 0xc, 1b, x1, 324)
+90001430:	00600513          	li	a0,6
+90001434:	a801                	j	90001444 <inst_81+0x14>
+90001436:	4101                	li	sp,0
+90001438:	00110113          	addi	sp,sp,1
+9000143c:	0140006f          	j	90001450 <inst_81+0x20>
+90001440:	0001                	nop
+90001442:	0001                	nop
+90001444:	d975                	beqz	a0,90001438 <inst_81+0x8>
+90001446:	00210113          	addi	sp,sp,2
+9000144a:	0060006f          	j	90001450 <inst_81+0x20>
+9000144e:	010d                	addi	sp,sp,3
+90001450:	1420a223          	sw	sp,324(ra)
+
+90001454 <inst_82>:
+
+inst_82:
+// rs1_val==858993460, 
+// opcode:c.beqz; op1:x10; op1val:0x33333334; immval:0x8
+TEST_CBRANCH_OP(c.beqz, x2, x10, 0x33333334, 0x8, 1b, x1, 328)
+90001454:	33333537          	lui	a0,0x33333
+90001458:	33450513          	addi	a0,a0,820 # 33333334 <offset+0x333331e0>
+9000145c:	a031                	j	90001468 <inst_82+0x14>
+9000145e:	4101                	li	sp,0
+90001460:	00110113          	addi	sp,sp,1
+90001464:	0100006f          	j	90001474 <inst_82+0x20>
+90001468:	dd65                	beqz	a0,90001460 <inst_82+0xc>
+9000146a:	00210113          	addi	sp,sp,2
+9000146e:	0060006f          	j	90001474 <inst_82+0x20>
+90001472:	010d                	addi	sp,sp,3
+90001474:	1420a423          	sw	sp,328(ra)
+
+90001478 <inst_83>:
+
+inst_83:
+// rs1_val == -2097153, 
+// opcode:c.beqz; op1:x10; op1val:-0x200001; immval:0x20
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0x200001, 0x20, 3f, x1, 332)
+90001478:	ffe00537          	lui	a0,0xffe00
+9000147c:	fff50513          	addi	a0,a0,-1 # ffdfffff <_end+0x6fdfccfb>
+90001480:	a031                	j	9000148c <inst_83+0x14>
+90001482:	4101                	li	sp,0
+90001484:	00110113          	addi	sp,sp,1
+90001488:	0260006f          	j	900014ae <inst_83+0x36>
+9000148c:	c105                	beqz	a0,900014ac <inst_83+0x34>
+9000148e:	00210113          	addi	sp,sp,2
+90001492:	01c0006f          	j	900014ae <inst_83+0x36>
+90001496:	0001                	nop
+90001498:	0001                	nop
+9000149a:	0001                	nop
+9000149c:	0001                	nop
+9000149e:	0001                	nop
+900014a0:	0001                	nop
+900014a2:	0001                	nop
+900014a4:	0001                	nop
+900014a6:	0001                	nop
+900014a8:	0001                	nop
+900014aa:	0001                	nop
+900014ac:	010d                	addi	sp,sp,3
+900014ae:	1420a623          	sw	sp,332(ra)
+
+900014b2 <inst_84>:
+
+inst_84:
+// rs1_val==-46339, 
+// opcode:c.beqz; op1:x10; op1val:-0xb503; immval:0x12
+TEST_CBRANCH_OP(c.beqz, x2, x10, -0xb503, 0x12, 3f, x1, 336)
+900014b2:	ffff5537          	lui	a0,0xffff5
+900014b6:	afd50513          	addi	a0,a0,-1283 # ffff4afd <_end+0x6fff17f9>
+900014ba:	a031                	j	900014c6 <inst_84+0x14>
+900014bc:	4101                	li	sp,0
+900014be:	00110113          	addi	sp,sp,1
+900014c2:	0180006f          	j	900014da <inst_84+0x28>
+900014c6:	c909                	beqz	a0,900014d8 <inst_84+0x26>
+900014c8:	00210113          	addi	sp,sp,2
+900014cc:	00e0006f          	j	900014da <inst_84+0x28>
+900014d0:	0001                	nop
+900014d2:	0001                	nop
+900014d4:	0001                	nop
+900014d6:	0001                	nop
+900014d8:	010d                	addi	sp,sp,3
+900014da:	1420a823          	sw	sp,336(ra)
+900014de:	0001                	nop
+
+900014e0 <rvtest_code_end>:
+#endif
+
+
+RVTEST_CODE_END
+RVMODEL_HALT
+900014e0:	0091                	addi	ra,ra,4
+900014e2:	4085                	li	ra,1
+
+900014e4 <write_tohost>:
+900014e4:	00001f17          	auipc	t5,0x1
+900014e8:	b01f2e23          	sw	ra,-1252(t5) # 90002000 <tohost>
+
+900014ec <self_loop>:
+900014ec:	a001                	j	900014ec <self_loop>
+	...
