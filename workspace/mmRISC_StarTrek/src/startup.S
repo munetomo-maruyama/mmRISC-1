@@ -47,7 +47,7 @@ _vector_base:
     .align 4
 //
 _trap_exception:
-    csrrw x1, mscratch, x1  // swap ra and macratch
+    csrrw x1, mscratch, x1  // swap ra and mscratch
     jal   _trap_handler_save
     //
     // mepc = mepc + 4
@@ -56,34 +56,34 @@ _trap_exception:
     csrw mepc, ra
     //
     jal   _trap_handler_load
-    csrrw ra, mscratch, ra  // swap ra and macratch
+    csrrw ra, mscratch, ra  // swap ra and mscratch
     mret
 //
 _trap_int_timer:
-    csrrw ra, mscratch, ra  // swap ra and macratch
+    csrrw ra, mscratch, ra  // swap ra and mscratch
     jal   _trap_handler_save
     //
     call  INT_TIM_Handler
     //
     jal   _trap_handler_load
-    csrrw ra, mscratch, ra  // swap ra and macratch
+    csrrw ra, mscratch, ra  // swap ra and mscratch
     mret
 //
 _trap_int_ext:
-    csrrw ra, mscratch, ra  // swap ra and macratch
+    csrrw ra, mscratch, ra  // swap ra and mscratch
     jal   _trap_handler_save
     //
     call  INT_EXT_Handler
     //
     jal   _trap_handler_load
-    csrrw ra, mscratch, ra  // swap ra and macratch
+    csrrw ra, mscratch, ra  // swap ra and mscratch
     mret
 //
 _trap_illegal:
    j     .
 
 _trap_handler_save:
-    csrrw ra, mscratch, ra  // swap ra and macratch
+    csrrw ra, mscratch, ra  // swap ra and mscratch
     addi  sp, sp, -124
     sw    x1,    0(sp) // ra
     sw    x2,    4(sp) // sp
@@ -116,11 +116,11 @@ _trap_handler_save:
     sw    x29, 112(sp)
     sw    x30, 116(sp)
     sw    x31, 120(sp)
-    csrrw ra, mscratch, ra  // swap ra and macratch
+    csrrw ra, mscratch, ra  // swap ra and mscratch
     ret
 
 _trap_handler_load:
-    csrrw ra, mscratch, ra  // swap ra and macratch
+    csrrw ra, mscratch, ra  // swap ra and mscratch
     lw    x1,    0(sp) // ra
     lw    x2,    4(sp) // sp
     lw    x3,    8(sp)
@@ -153,7 +153,7 @@ _trap_handler_load:
     lw    x30, 116(sp)
     lw    x31, 120(sp)
     addi  sp, sp, 124
-    csrrw ra, mscratch, ra  // swap ra and macratch
+    csrrw ra, mscratch, ra  // swap ra and mscratch
     ret
 
 //--------------------------------

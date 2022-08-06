@@ -302,14 +302,14 @@
 `define ALUFUNC_ADD  5'b00000
 `define ALUFUNC_SUB  5'b01000
 `define ALUFUNC_SLL  5'b00001 // shift left logical
-`define ALUFUNC_SLLI 5'b10001 // shift left logical by shmnt
+`define ALUFUNC_SLLI 5'b10001 // shift left logical by shamnt
 `define ALUFUNC_SLT  5'b00010 // set less than signed
 `define ALUFUNC_SLTU 5'b00011 // set less than unsigned
 `define ALUFUNC_XOR  5'b00100
 `define ALUFUNC_SRL  5'b00101 // shift right logical
-`define ALUFUNC_SRLI 5'b10101 // shift right logical by shmnt
+`define ALUFUNC_SRLI 5'b10101 // shift right logical by shamnt
 `define ALUFUNC_SRA  5'b01101 // shift right arithmetic
-`define ALUFUNC_SRAI 5'b11101 // shift right arithmetic by shmnt
+`define ALUFUNC_SRAI 5'b11101 // shift right arithmetic by shamnt
 `define ALUFUNC_OR   5'b00110
 `define ALUFUNC_AND  5'b00111
 `define ALUFUNC_SWAP 5'b11001 // Swap for CSRRW/CSRRWI
