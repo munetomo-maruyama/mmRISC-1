@@ -1,0 +1,109 @@
+%=========================================================
+% Overview of SoC
+%=========================================================
+\section{Overview of SoC}
+
+The “mmRISC\_1 Tiny SoC for FPGA” is a sample design of the mmRISC-1 application. The overview is shown in Table \ref{tb:OverviewSoC}. Target FPGA is the Intel MAX 10, and target board is Terasic DE10-Lite Board.
+
+\begin{table}[H]
+    \begin{adjustbox}{scale={0.9}{1.0}}
+    \textsf{
+    \begin{tabular}{|L{6cm}{4cm}{t}|L{14cm}{12cm}{t}|}
+        \hline
+        \rowcolor{LightPurple}
+        \textbf{Item} & \textbf{Description}
+        %-------------------------------------
+        \nextRow \hline
+        CPU Core &
+        mmRISC-1 (1 hart) with RV32IMAC or RV32IMAFC
+        %-------------------------------------
+        \nextRow \hline
+        Debug Interface &
+        RISC-V standard JTAG Debug (Rev.0.13.2)\lb
+        Interface : 4-wire JTAG or 2-wire cJTAG
+        %-------------------------------------
+        \nextRow \hline
+        Internal System Bus &
+        Multi Layer Bus Matrix, AHB-Lite
+        %-------------------------------------
+        \nextRow \hline
+        Instruction Memory &
+        128KB RAM,1 cyc Read
+        %-------------------------------------
+        \nextRow \hline
+        Data Memory &
+        48KB RAM, 1 cyc Read, 1cyc Write
+        %-------------------------------------
+        \nextRow \hline
+        External SDRAM &
+        Simple Interface to 64MB (32MB x 16bit) SDRAM
+        %-------------------------------------
+        \nextRow \hline
+        MTIME (Timer) &
+        Memory mapped MTIME which generates periodic IRQ\_MTIME \lb
+        and software interrupt IRQ\_MSOFT
+        %-------------------------------------
+        \nextRow \hline
+        INT\_GEN \lb
+        (Interrupt Generator) &
+        Interrupt Generator which generates 64 IRQ[63:0] \lb
+        and external interrupt IRQ\_EXT
+        %-------------------------------------
+        \nextRow \hline
+        UART &
+        Simple UART with Baud Rate Generator, 1ch
+        %-------------------------------------
+        \nextRow \hline
+        I2C &
+        Simple Master I2C, 2ch
+        %-------------------------------------
+        \nextRow \hline
+        SPI &
+        Simple Master SPI, 1ch with multiple Chip Select Signals
+        %-------------------------------------
+        \nextRow \hline
+        GPIO &
+        General Purpose Input Output Port, 32bits x 3 ports
+        %-------------------------------------
+        \nextRow \hline
+        Reset &
+        Power on Rest and External Input
+        %-------------------------------------
+        \nextRow \hline
+        Clock &
+        External Clock Input + PLL
+        %-------------------------------------
+        \nextRow \hline
+        Target FPGA &
+        Intel MAX 10 10M50DAF484C7G
+        %-------------------------------------
+        \nextRow \hline
+        Target FPGA Board &
+        Terasic DE10-Lite Board
+        %-------------------------------------
+        \nextRow \hline
+        JTAG Interface &
+        FTDI FT2232D (Olimex ARM-USB-OCD(H) Compatible)
+        %-------------------------------------
+        \nextRow \hline
+        Supported \lb
+        Special Function &
+        (1) Both 4-wire JTAG and 2-wire cJTAG \lb
+        (2) Authentication for Debugger \lb
+        (3) Halt on Rest \lb
+        (4) Low Power Mode (STBY)
+        %-------------------------------------
+        \nextRow \hline
+        RTL &
+        Verilog-2001 / System Verilog
+        %-------------------------------------
+        \nextRow \hline
+    \end{tabular}
+    }
+    \end{adjustbox}
+  \caption{Overview of mmRISC-1 Tiny SoC for FPGA}
+  \label{tb:OverviewSoC}
+\end{table}
+
+
+

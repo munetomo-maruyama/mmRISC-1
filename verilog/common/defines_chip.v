@@ -8,9 +8,16 @@
 // Rev.01 2017.07.16 M.Maruyama First Release
 // Rev.02 2020.01.01 M.Maruyama Debug Spec Version 0.13.2
 // Rev.03 2021.02.05 M.Maruyama Divided into for Core and for Chip
+// Rev.04 2023.05.14 M.Maruyama cJTAG Support and Halt-on-Reset
 //-----------------------------------------------------------
-// Copyright (C) 2017-2020 M.Maruyama
+// Copyright (C) 2017-2023 M.Maruyama
 //===========================================================
+
+//------------------------------
+// JTAG or CJTAG
+//------------------------------
+`define ENABLE_CJTAG            // If you use cJTAG (not JTAG)
+`define USE_FORCE_HALT_ON_RESET // If you use input signal FORCE_HALT_ON_RESET
 
 //-------------------------------------
 // Configuration only for Simulation
@@ -65,12 +72,17 @@
 `endif
 
 //---------------------
+// cJTAG
+//---------------------
+//`define ENABLE_CJTAG // Comment out if cJTAG is not used
+
+//---------------------
 // RAM Size
 //---------------------
 `ifdef SIMULATION
     `define RAMD_SIZE (16*1024*1024)
     `define RAMI_SIZE (16*1024*1024)
-`elsif
+`else
     `define RAMD_SIZE ( 48*1024) // RAM
     `define RAMI_SIZE (128*1024) // ROM
 `endif
@@ -81,15 +93,15 @@
 `define MASTERS (`HART_COUNT * 2 + 1)
 `define MASTERS_BIT $clog2(`MASTERS)
 //
-`define M_PRIORITY_0 1 // CPUD
-`define M_PRIORITY_1 1 // CPUD
-`define M_PRIORITY_2 1 // CPUD
-`define M_PRIORITY_3 1 // CPUD
-`define M_PRIORITY_4 2 // CPUI
-`define M_PRIORITY_5 2 // CPUI
-`define M_PRIORITY_6 2 // CPUI
-`define M_PRIORITY_7 2 // CPUI
-`define M_PRIORITY_8 0 // DBGD
+//`define M_PRIORITY_0 1 // CPUD
+//`define M_PRIORITY_1 1 // CPUD
+//`define M_PRIORITY_2 1 // CPUD
+//`define M_PRIORITY_3 1 // CPUD
+//`define M_PRIORITY_4 2 // CPUI
+//`define M_PRIORITY_5 2 // CPUI
+//`define M_PRIORITY_6 2 // CPUI
+//`define M_PRIORITY_7 2 // CPUI
+//`define M_PRIORITY_8 0 // DBGD
 //
 `define SLAVES 10
 `define SLAVE_MTIME   0
@@ -148,8 +160,9 @@
 //-----------------------------
 // Debug Security
 //-----------------------------
-`define DEBUG_SECURE_ENBL 1'b0         // no Debug Authentification
-`define DEBUG_SECURE_CODE 32'h12345678 // Debug Authentification Code
+//`define DEBUG_SECURE_ENBL  1'b0         // Set 1 if Enable Debug Authentification
+`define DEBUG_SECURE_CODE_0 32'h12345678 // Debug Authentification Code 0
+`define DEBUG_SECURE_CODE_1 32'hbeefcafe // Debug Authentification Code 1
 
 //===========================================================
 // End of File

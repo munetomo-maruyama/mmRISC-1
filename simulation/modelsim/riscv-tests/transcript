@@ -1,8 +1,5 @@
-# vsim -c -onfinish exit work.tb_TOP -do "run -all" 
-# Start time: 22:36:56 on May 03,2022
-# ** Note: (vsim-8009) Loading existing optimized design _opt
 # //  Questa Intel Starter FPGA Edition-64
-# //  Version 2021.2 linux_x86_64 Apr 14 2021
+# //  Version 2021.2 win64 Apr 14 2021
 # //
 # //  Copyright 1991-2021 Mentor Graphics Corporation
 # //  All Rights Reserved.
@@ -15,12 +12,166 @@
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
+do sim_TOP.do
+# ../../../verilog
+# ../../../fpga
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# Questa Intel Starter FPGA Edition-64 vmap 2021.2 Lib Mapping Utility 2021.04 Apr 14 2021
+# vmap work work 
+# Modifying modelsim.ini
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 11:27:00 on Oct 23,2023
+# vlog -reportprogress 300 -work work -sv "+incdir+../../../verilog/common" "+incdir+../../../verilog/ahb_sdram/model" "+incdir+../../../verilog/i2c/i2c/trunk/rtl/verilog" -timescale=1ns/100ps "+define+RISCV_TESTS" "+define+SIMULATION" "+define+den512Mb" "+define+sg75" "+define+x16" "+define+BUS_INTERVENTION_01" "+define+TOHOST=32'h90001000" ../../../verilog/chip/chip_top_wrap.v ../../../verilog/chip/chip_top.v ../../../verilog/cjtag/cjtag_2_jtag.v ../../../verilog/cjtag/cjtag_adapter.v ../../../verilog/ram/ram.v ../../../verilog/port/port.v ../../../verilog/uart/uart.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v ../../../verilog/i2c/i2c.v ../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_top.v ../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_bit_ctrl.v ../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_byte_ctrl.v ../../../verilog/i2c/i2c_slave_model.v ../../../verilog/spi/spi.v ../../../verilog/spi/simple_spi/trunk/rtl/verilog/simple_spi_top.v ../../../verilog/spi/simple_spi/trunk/rtl/verilog/fifo4.v ../../../verilog/int_gen/int_gen.v ../../../verilog/mmRISC/mmRISC.v ../../../verilog/mmRISC/bus_m_ahb.v ../../../verilog/mmRISC/csr_mtime.v ../../../verilog/cpu/cpu_top.v ../../../verilog/cpu/cpu_fetch.v ../../../verilog/cpu/cpu_datapath.v ../../../verilog/cpu/cpu_fpu32.v ../../../verilog/cpu/cpu_pipeline.v ../../../verilog/cpu/cpu_csr.v ../../../verilog/cpu/cpu_csr_int.v ../../../verilog/cpu/cpu_csr_dbg.v ../../../verilog/cpu/cpu_debug.v ../../../verilog/debug/debug_top.v ../../../verilog/debug/debug_dtm_jtag.v ../../../verilog/debug/debug_cdc.v ../../../verilog/debug/debug_dm.v ../../../verilog/ahb_matrix/ahb_top.v ../../../verilog/ahb_matrix/ahb_master_port.v ../../../verilog/ahb_matrix/ahb_slave_port.v ../../../verilog/ahb_matrix/ahb_interconnect.v ../../../verilog/ahb_matrix/ahb_arb.v ../../../verilog/ahb_sdram/logic/ahb_lite_sdram.v ../../../verilog/ahb_sdram/model/sdr.v ./tb_TOP.v 
+# -- Compiling module CHIP_TOP_WRAP
+# -- Compiling module CHIP_TOP
+# -- Compiling module CJTAG_2_JTAG
+# -- Compiling module BEFF
+# -- Compiling module CJTAG_ADAPTER
+# -- Compiling module RAM
+# -- Compiling module PORT
+# -- Compiling module UART
+# -- Compiling module sasc_top
+# -- Compiling module sasc_fifo4
+# -- Compiling module sasc_brg
+# -- Compiling module I2C
+# -- Compiling module i2c_master_top
+# -- Compiling module i2c_master_bit_ctrl
+# -- Compiling module i2c_master_byte_ctrl
+# -- Compiling module i2c_slave_model
+# -- Compiling module SPI
+# -- Compiling module simple_spi_top
+# -- Compiling module fifo4
+# -- Compiling module INT_GEN
+# -- Compiling module mmRISC
+# -- Compiling module BUS_M_AHB
+# -- Compiling module CSR_MTIME
+# -- Compiling module CPU_TOP
+# -- Compiling module CPU_FETCH
+# -- Compiling module CPU_DATAPATH
+# -- Compiling module CPU_FPU32
+# -- Compiling module CHECK_FTYPE
+# -- Compiling module FADD_SPECIAL_NUMBER
+# -- Compiling module FMUL_SPECIAL_NUMBER
+# -- Compiling module FMADD_SPECIAL_NUMBER
+# -- Compiling module FDIV_SPECIAL_NUMBER
+# -- Compiling module FSQRT_SPECIAL_NUMBER
+# -- Compiling module FIND_1ST_ONE_IN_FRAC27
+# -- Compiling module FIND_1ST_ONE_IN_FRAC66
+# -- Compiling module FIND_1ST_ONE_IN_FRAC70
+# -- Compiling module SHIFT_RIGHT_FRAC27
+# -- Compiling module SHIFT_RIGHT_FRAC66
+# -- Compiling module SHIFT_RIGHT_FRAC70
+# -- Compiling module ROUND_JUDGMENT
+# -- Compiling module FRAC27_ROUND_FRAC66
+# -- Compiling module FRAC70_ROUND_FRAC132
+# -- Compiling module INNER79_FROM_FLOAT32
+# -- Compiling module FLOAT32_FROM_INNER79
+# -- Compiling module FADD_CORE
+# -- Compiling module FMUL_CORE
+# -- Compiling module FCVT_F2I
+# -- Compiling module FCVT_I2F
+# -- Compiling module CPU_PIPELINE
+# -- Compiling module CPU_CSR
+# -- Compiling module CPU_CSR_INT
+# -- Compiling module CPU_CSR_DBG
+# -- Compiling module CPU_DEBUG
+# -- Compiling module DEBUG_TOP
+# -- Compiling module DEBUG_DTM_JTAG
+# -- Compiling module DEBUG_CDC
+# -- Compiling module DEBUG_DM
+# -- Compiling module AHB_MATRIX
+# -- Compiling module AHB_MASTER_PORT
+# -- Compiling module AHB_SLAVE_PORT
+# -- Compiling module AHB_INTERCONNECT
+# -- Compiling module AHB_ARB
+# -- Compiling module AHB_ARB_RB
+# -- Compiling module ahb_lite_sdram
+# -- Compiling module sdr
+# -- Compiling module tb_TOP
+# 
+# Top level modules:
+# 	tb_TOP
+# End time: 11:27:00 on Oct 23,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -c -voptargs=""+acc"" -L altera_mf_ver work.tb_TOP 
+# Start time: 11:27:00 on Oct 23,2023
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Note: (vopt-143) Recognized 2 FSMs in module "CPU_FPU32(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "i2c_master_bit_ctrl(fast)".
+# ** Note: (vopt-143) Recognized 2 FSMs in module "DEBUG_DTM_JTAG(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "ahb_lite_sdram(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "simple_spi_top(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "sasc_top(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "i2c_master_byte_ctrl(fast)".
 # Loading sv_std.std
 # Loading work.tb_TOP(fast)
+# Loading work.CHIP_TOP_WRAP(fast)
+# Loading work.CJTAG_ADAPTER(fast)
+# Loading work.CHIP_TOP(fast)
+# Loading work.CJTAG_2_JTAG(fast)
+# Loading work.BEFF(fast)
+# Loading work.mmRISC(fast)
+# Loading work.DEBUG_TOP(fast)
+# Loading work.DEBUG_DTM_JTAG(fast)
+# Loading work.DEBUG_CDC(fast)
+# Loading work.DEBUG_CDC(fast__1)
+# Loading work.DEBUG_DM(fast)
 # Loading work.CPU_TOP(fast)
+# Loading work.CPU_FETCH(fast)
+# Loading work.CPU_DATAPATH(fast)
+# Loading work.CPU_PIPELINE(fast)
+# Loading work.CPU_CSR(fast)
+# Loading work.CPU_CSR_INT(fast)
+# Loading work.CPU_CSR_DBG(fast)
+# Loading work.CPU_DEBUG(fast)
+# Loading work.CPU_FPU32(fast)
+# Loading work.FMUL_SPECIAL_NUMBER(fast)
+# Loading work.CHECK_FTYPE(fast)
+# Loading work.FADD_SPECIAL_NUMBER(fast)
+# Loading work.FMADD_SPECIAL_NUMBER(fast)
+# Loading work.FDIV_SPECIAL_NUMBER(fast)
+# Loading work.FSQRT_SPECIAL_NUMBER(fast)
+# Loading work.INNER79_FROM_FLOAT32(fast)
+# Loading work.FIND_1ST_ONE_IN_FRAC66(fast)
+# Loading work.FMUL_CORE(fast)
+# Loading work.FRAC70_ROUND_FRAC132(fast)
+# Loading work.ROUND_JUDGMENT(fast)
+# Loading work.FIND_1ST_ONE_IN_FRAC70(fast)
+# Loading work.SHIFT_RIGHT_FRAC70(fast)
+# Loading work.FADD_CORE(fast)
+# Loading work.SHIFT_RIGHT_FRAC66(fast)
+# Loading work.FLOAT32_FROM_INNER79(fast)
+# Loading work.FRAC27_ROUND_FRAC66(fast)
+# Loading work.FIND_1ST_ONE_IN_FRAC27(fast)
+# Loading work.SHIFT_RIGHT_FRAC27(fast)
+# Loading work.FCVT_F2I(fast)
+# Loading work.FCVT_I2F(fast)
+# Loading work.BUS_M_AHB(fast)
+# Loading work.AHB_MATRIX(fast)
+# Loading work.AHB_MASTER_PORT(fast)
+# Loading work.AHB_INTERCONNECT(fast)
+# Loading work.AHB_ARB(fast)
+# Loading work.AHB_ARB_RB(fast)
+# Loading work.AHB_SLAVE_PORT(fast)
+# Loading work.CSR_MTIME(fast)
+# Loading work.ahb_lite_sdram(fast)
+# Loading work.RAM(fast)
+# Loading work.PORT(fast)
+# Loading work.UART(fast)
+# Loading work.sasc_top(fast)
+# Loading work.sasc_fifo4(fast)
+# Loading work.sasc_brg(fast)
+# Loading work.INT_GEN(fast)
+# Loading work.I2C(fast)
+# Loading work.i2c_master_top(fast)
+# Loading work.i2c_master_byte_ctrl(fast)
+# Loading work.i2c_master_bit_ctrl(fast)
+# Loading work.SPI(fast)
+# Loading work.simple_spi_top(fast)
+# Loading work.fifo4(fast)
 # Loading work.i2c_slave_model(fast)
 # Loading work.sdr(fast)
-# run -all
 # tb_TOP.U_SDRAM : at time     840.0 ns AREF : Auto Refresh
 # tb_TOP.U_SDRAM : at time     920.0 ns AREF : Auto Refresh
 # tb_TOP.U_SDRAM : at time    1000.0 ns LMR  : Load Mode Register
@@ -28,9 +179,10 @@
 # tb_TOP.U_SDRAM :                             Burst Length     = 2
 # tb_TOP.U_SDRAM :                             Burst Type       = Sequential
 # tb_TOP.U_SDRAM :                             Write Burst Mode = Programmed Burst Length
-# tb_TOP.U_SDRAM : at time    8760.0 ns AREF : Auto Refresh
 # ***** DETECT TOHOST ***** at 90001000
-# ** Note: $finish    : ./tb_TOP.v(181)
-#    Time: 13750 ns  Iteration: 1  Instance: /tb_TOP
-# End time: 22:37:00 on May 03,2022, Elapsed time: 0:00:04
+# ** Note: $finish    : ./tb_TOP.v(182)
+#    Time: 7590 ns  Iteration: 1  Instance: /tb_TOP
+# 1
+# Break in Module tb_TOP at ./tb_TOP.v line 182
+# End time: 11:31:03 on Oct 23,2023, Elapsed time: 0:04:03
 # Errors: 0, Warnings: 0

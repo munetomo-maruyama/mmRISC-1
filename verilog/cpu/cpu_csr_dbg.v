@@ -81,10 +81,10 @@
 //----------------------
 module CPU_CSR_DBG
 (
-    input  wire RES_SYS, // System Reset
-    output wire RES_CPU, // CPU Reset
-    input  wire CLK,     // System Clock
-    input  wire STBY,    // System Standby
+    input  wire RES_SYS,  // System Reset
+    output wire RES_CPU,  // CPU Reset
+    input  wire CLK,      // System Clock
+    input  wire STBY_ACK, // System Stand-by Acknowledge
     //
     input  wire HART_HALT_REQ,      // HART Halt Command
     output reg  HART_STATUS,        // HART Status (0:Run, 1:Halt) 
@@ -158,7 +158,11 @@ begin
     end
 end
 //
-assign HART_AVAILABLE = ~STBY;
+`ifdef UNAVAILABLE_WHEN_STBY
+assign HART_AVAILABLE = ~STBY_ACK;
+`else
+assign HART_AVAILABLE = 1'b1;
+`endif
 //
 always @(posedge CLK, posedge RES_CPU)
 begin
@@ -753,6 +757,26 @@ end
 //
 reg  [`TRG_CH_BUS-1:0] trg_cnd_bus_chain_temp[0:`TRG_CH_BUS-1];
 //
+//always @*
+//begin
+//    integer c, b;
+//    for (c = 0;  c < `TRG_CH_BUS; c = c + 1)
+//    begin
+//        trg_cnd_bus_chain_temp[c] = 0; // 00000000
+//    end
+//    //
+//    for (b = 0;  b < `TRG_CH_BUS; b = b + 1)
+//    begin: LOOP_TRG_CND_BUS_CHAIN
+//        for (c = b;  c < `TRG_CH_BUS; c = c + 1)
+//         begin 
+//             if (csr_mcontrol[c][11] == 1'b0) // chain=0
+//             begin
+//                 trg_cnd_bus_chain_temp[c][b] = 1'b1;
+//                 disable LOOP_TRG_CND_BUS_CHAIN; // break for c loop
+//             end
+//         end    
+//    end
+//end
 always @*
 begin
     integer c, b;
@@ -763,14 +787,19 @@ begin
     //
     for (b = 0;  b < `TRG_CH_BUS; b = b + 1)
     begin: LOOP_TRG_CND_BUS_CHAIN
+        reg disable_LOOP_TRG_CND_BUS_CHAIN;
+        disable_LOOP_TRG_CND_BUS_CHAIN = 1'b0;
         for (c = b;  c < `TRG_CH_BUS; c = c + 1)
-         begin 
-             if (csr_mcontrol[c][11] == 1'b0) // chain=0
-             begin
-                 trg_cnd_bus_chain_temp[c][b] = 1'b1;
-                 disable LOOP_TRG_CND_BUS_CHAIN; // break for c loop
-             end
-         end    
+        begin
+            if (!disable_LOOP_TRG_CND_BUS_CHAIN)
+            begin
+                if (csr_mcontrol[c][11] == 1'b0) // chain=0
+                begin
+                    trg_cnd_bus_chain_temp[c][b] = 1'b1;
+                    disable_LOOP_TRG_CND_BUS_CHAIN = 1'b1; // break for c loop
+                end
+            end
+        end    
     end
 end
 //
@@ -860,7 +889,7 @@ begin
     begin
         for (i = 0;  i < `TRG_CH_BUS; i = i + 1)
         begin
-            TRG_CND_BUS_MATCH[i] = 0; //0000
+            TRG_CND_BUS_MATCH[i] <= 0; //0000
         end
     end
     else

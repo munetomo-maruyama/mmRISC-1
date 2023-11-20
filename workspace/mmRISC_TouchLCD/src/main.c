@@ -151,10 +151,10 @@ void main(void)
         LCD_Fill_Rect( 30, 150,  30,  30, COLOR_MAGENTA);
         LCD_Fill_Rect( 30, 180,  30,  30, COLOR_YELLOW);
         LCD_Fill_Rect( 30, 210,  30,  30, COLOR_WHITE);
-        LCD_Draw_Rect(  0, 120,  60, 118, COLOR_LIGHTGREY, 2);
+        LCD_Draw_Rect(  0, 120,  60, 118, COLOR_LIGHTGRAY, 2);
         //
         // Paint Campus
-        LCD_Draw_Rect( 60, 120, 128, 118, COLOR_LIGHTGREY, 2);
+        LCD_Draw_Rect( 60, 120, 128, 118, COLOR_LIGHTGRAY, 2);
         first_touch = 1;
         color = COLOR_WHITE;
         //
@@ -177,7 +177,7 @@ void main(void)
         LCD_Draw_Circle(160, 120, 50, COLOR_CYAN, 2);
         LCD_Fill_Rect(160-20, 120-20, 40, 40, COLOR_BLUE);
         LCD_Draw_Rect(160-20, 120-20, 40, 40, COLOR_WHITE, 4);
-        LCD_Fill_Round_Rect(160, 10, 80, 40, 20, COLOR_LIGHTGREY);
+        LCD_Fill_Round_Rect(160, 10, 80, 40, 20, COLOR_LIGHTGRAY);
         LCD_Draw_Round_Rect(160, 10, 80, 40, 20, COLOR_GREENYELLOW, 2);
         LCD_Fill_Triangle(50, 50, 70, 10, 80, 60, COLOR_GREENYELLOW);
         LCD_Draw_Triangle(50, 50, 70, 10, 80, 60, COLOR_RED, 4);
@@ -222,7 +222,7 @@ void main(void)
                      && (point.y >= 120) && (point.y < 150))
                     {
                         LCD_Fill_Rect( 62, 122, 126, 116, COLOR_BLACK);
-                        LCD_Draw_Rect( 60, 120, 128, 118, COLOR_LIGHTGREY, 2);
+                        LCD_Draw_Rect( 60, 120, 128, 118, COLOR_LIGHTGRAY, 2);
                         first_touch = 1;
                         TOUCH_Buffer_Clear(touch_dev);
                     }

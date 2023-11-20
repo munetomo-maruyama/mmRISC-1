@@ -1,0 +1,172 @@
+#CC/testfloat_gen -help
+#testfloat_gen [<option>...] <type>|<function>
+#  <option>:  (* is default)
+#    -help            --Write this message and exit.
+#    -prefix <text>   --Write <text> as a line of output before any test cases.
+#    -seed <num>      --Set pseudo-random number generator seed to <num>.
+# *  -seed 1
+#    -level <num>     --Testing level <num> (1 or 2).
+# *  -level 1
+#    -n <num>         --Generate <num> test cases.
+#    -forever         --Generate test cases indefinitely (implies '-level 2').
+#    -precision32     --For extF80, rounding precision is 32 bits.
+#    -precision64     --For extF80, rounding precision is 64 bits.
+# *  -precision80     --For extF80, rounding precision is 80 bits.
+# *  -rnear_even      --Round to nearest/even.
+#    -rminMag         --Round to minimum magnitude (toward zero).
+#    -rmin            --Round to minimum (down).
+#    -rmax            --Round to maximum (up).
+#    -rnear_maxMag    --Round to nearest/maximum magnitude (nearest/away).
+#    -rodd            --Round to odd (jamming).  (For rounding to an integer
+#                         value, rounds to minimum magnitude instead.)
+#    -tininessbefore  --Detect underflow tininess before rounding.
+# *  -tininessafter   --Detect underflow tininess after rounding.
+# *  -notexact        --Rounding to integer is not exact (no inexact
+#                         exceptions).
+#    -exact           --Rounding to integer is exact (raising inexact
+#                         exceptions).
+#  <type>:
+#    <int>            --Generate test cases with one integer operand.
+#    <float>          --Generate test cases with one floating-point operand.
+#    <float> <num>    --Generate test cases with <num> (1, 2, or 3)
+#                         floating-point operands.
+#  <function>:
+#    <int>_to_<float>     <float>_add      <float>_eq
+#    <float>_to_<int>     <float>_sub      <float>_le
+#    <float>_to_<float>   <float>_mul      <float>_lt
+#    <float>_roundToInt   <float>_mulAdd   <float>_eq_signaling
+#                         <float>_div      <float>_le_quiet
+#                         <float>_rem      <float>_lt_quiet
+#                         <float>_sqrt
+#  <int>:
+#    ui32             --Unsigned 32-bit integer.
+#    ui64             --Unsigned 64-bit integer.
+#    i32              --Signed 32-bit integer.
+#    i64              --Signed 64-bit integer.
+#  <float>:
+#    f16              --Binary 16-bit floating-point (half-precision).
+#    f32              --Binary 32-bit floating-point (single-precision).
+#    f64              --Binary 64-bit floating-point (double-precision).
+#    extF80           --Binary 80-bit extended floating-point.
+#    f128             --Binary 128-bit floating-point (quadruple-precision).
+
+#-------------------------------
+#S: F32(1) to SI32(e)
+#-------------------------------
+#N:RNE Round to Nearest, tied to even; 
+echo "#SN" > testfloat_F2S
+echo "be804000 00000000 00" >> testfloat_F2S  # -0.25048828125
+echo "be804080 00000000 00" >> testfloat_F2S  # -0.250492095947
+echo "be000000 00000000 00" >> testfloat_F2S  # -0.125
+echo "bc800000 00000000 00" >> testfloat_F2S  # -0.015625
+echo "bd800000 00000000 00" >> testfloat_F2S  # -0.0625
+echo "bd000000 00000000 00" >> testfloat_F2S  # -0.03125
+echo "3e620010 00000000 00" >> testfloat_F2S  #  0.220703363419
+echo "0f000000 00000000 00" >> testfloat_F2S  #  6.31088724177e-30
+echo "0f800000 00000000 00" >> testfloat_F2S  #  1.26217744835e-29
+echo "3e800000 00000000 00" >> testfloat_F2S  #  0.25
+echo "03800000 00000000 00" >> testfloat_F2S  #  7.52316384526e-37
+echo "3d2daba0 00000000 00" >> testfloat_F2S  #  0.0424000024796
+echo "3effffff 00000000 00" >> testfloat_F2S  #  0.499999970198
+echo "3f000000 00000000 00" >> testfloat_F2S  #  0.5
+echo "3f000001 00000000 00" >> testfloat_F2S  #  0.500000059605
+echo "beffffff 00000000 00" >> testfloat_F2S  # -0.499999970198
+echo "bf000000 00000000 00" >> testfloat_F2S  # -0.5
+echo "bf000001 00000000 00" >> testfloat_F2S  # -0.500000059605
+echo "" >> testfloat_F2S
+../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rnear_even -notexact f32 1 f32_to_i32 >> testfloat_F2S
+
+#Z:RTZ Round to Zero;
+echo "#SZ" >> testfloat_F2S
+echo "be804000 00000000 00" >> testfloat_F2S  # -0.25048828125
+echo "be804080 00000000 00" >> testfloat_F2S  # -0.250492095947
+echo "be000000 00000000 00" >> testfloat_F2S  # -0.125
+echo "bc800000 00000000 00" >> testfloat_F2S  # -0.015625
+echo "bd800000 00000000 00" >> testfloat_F2S  # -0.0625
+echo "bd000000 00000000 00" >> testfloat_F2S  # -0.03125
+echo "3e620010 00000000 00" >> testfloat_F2S  #  0.220703363419
+echo "0f000000 00000000 00" >> testfloat_F2S  #  6.31088724177e-30
+echo "0f800000 00000000 00" >> testfloat_F2S  #  1.26217744835e-29
+echo "3e800000 00000000 00" >> testfloat_F2S  #  0.25
+echo "03800000 00000000 00" >> testfloat_F2S  #  7.52316384526e-37
+echo "3d2daba0 00000000 00" >> testfloat_F2S  #  0.0424000024796
+echo "3effffff 00000000 00" >> testfloat_F2S  #  0.499999970198
+echo "3f000000 00000000 00" >> testfloat_F2S  #  0.5
+echo "3f000001 00000000 00" >> testfloat_F2S  #  0.500000059605
+echo "beffffff 00000000 00" >> testfloat_F2S  # -0.499999970198
+echo "bf000000 00000000 00" >> testfloat_F2S  # -0.5
+echo "bf000001 00000000 00" >> testfloat_F2S  # -0.500000059605
+echo "" >> testfloat_F2S
+../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rminMag -notexact f32 1 f32_to_i32 >> testfloat_F2S
+
+#D:RDN Round Down towards minus infinite
+echo "#SD" >> testfloat_F2S
+echo "be804000 ffffffff 00" >> testfloat_F2S  # -0.25048828125
+echo "be804080 ffffffff 00" >> testfloat_F2S  # -0.250492095947
+echo "be000000 ffffffff 00" >> testfloat_F2S  # -0.125
+echo "bc800000 ffffffff 00" >> testfloat_F2S  # -0.015625
+echo "bd800000 ffffffff 00" >> testfloat_F2S  # -0.0625
+echo "bd000000 ffffffff 00" >> testfloat_F2S  # -0.03125
+echo "3e620010 00000000 00" >> testfloat_F2S  #  0.220703363419
+echo "0f000000 00000000 00" >> testfloat_F2S  #  6.31088724177e-30
+echo "0f800000 00000000 00" >> testfloat_F2S  #  1.26217744835e-29
+echo "3e800000 00000000 00" >> testfloat_F2S  #  0.25
+echo "03800000 00000000 00" >> testfloat_F2S  #  7.52316384526e-37
+echo "3d2daba0 00000000 00" >> testfloat_F2S  #  0.0424000024796
+echo "3effffff 00000000 00" >> testfloat_F2S  #  0.499999970198
+echo "3f000000 00000000 00" >> testfloat_F2S  #  0.5
+echo "3f000001 00000000 00" >> testfloat_F2S  #  0.500000059605
+echo "beffffff ffffffff 00" >> testfloat_F2S  # -0.499999970198
+echo "bf000000 ffffffff 00" >> testfloat_F2S  # -0.5
+echo "bf000001 ffffffff 00" >> testfloat_F2S  # -0.500000059605
+echo "" >> testfloat_F2S
+../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rmin -notexact f32 1 f32_to_i32 >> testfloat_F2S
+
+#U:RUP Round Up towards plus infinite
+echo "#SU" >> testfloat_F2S
+echo "be804000 00000000 00" >> testfloat_F2S  # -0.25048828125
+echo "be804080 00000000 00" >> testfloat_F2S  # -0.250492095947
+echo "be000000 00000000 00" >> testfloat_F2S  # -0.125
+echo "bc800000 00000000 00" >> testfloat_F2S  # -0.015625
+echo "bd800000 00000000 00" >> testfloat_F2S  # -0.0625
+echo "bd000000 00000000 00" >> testfloat_F2S  # -0.03125
+echo "3e620010 00000001 00" >> testfloat_F2S  #  0.220703363419
+echo "0f000000 00000001 00" >> testfloat_F2S  #  6.31088724177e-30
+echo "0f800000 00000001 00" >> testfloat_F2S  #  1.26217744835e-29
+echo "3e800000 00000001 00" >> testfloat_F2S  #  0.25
+echo "03800000 00000001 00" >> testfloat_F2S  #  7.52316384526e-37
+echo "3d2daba0 00000001 00" >> testfloat_F2S  #  0.0424000024796
+echo "3effffff 00000001 00" >> testfloat_F2S  #  0.499999970198
+echo "3f000000 00000001 00" >> testfloat_F2S  #  0.5
+echo "3f000001 00000001 00" >> testfloat_F2S  #  0.500000059605
+echo "beffffff 00000000 00" >> testfloat_F2S  # -0.499999970198
+echo "bf000000 00000000 00" >> testfloat_F2S  # -0.5
+echo "bf000001 00000000 00" >> testfloat_F2S  # -0.500000059605
+echo "" >> testfloat_F2S
+../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rmax -notexact f32 1 f32_to_i32 >> testfloat_F2S
+
+#M:RMM Round to Nearest, ties to Max Magnitude
+echo "#SM" >> testfloat_F2S
+echo "be804000 00000000 00" >> testfloat_F2S  # -0.25048828125
+echo "be804080 00000000 00" >> testfloat_F2S  # -0.250492095947
+echo "be000000 00000000 00" >> testfloat_F2S  # -0.125
+echo "bc800000 00000000 00" >> testfloat_F2S  # -0.015625
+echo "bd800000 00000000 00" >> testfloat_F2S  # -0.0625
+echo "bd000000 00000000 00" >> testfloat_F2S  # -0.03125
+echo "3e620010 00000000 00" >> testfloat_F2S  #  0.220703363419
+echo "0f000000 00000000 00" >> testfloat_F2S  #  6.31088724177e-30
+echo "0f800000 00000000 00" >> testfloat_F2S  #  1.26217744835e-29
+echo "3e800000 00000000 00" >> testfloat_F2S  #  0.25
+echo "03800000 00000000 00" >> testfloat_F2S  #  7.52316384526e-37
+echo "3d2daba0 00000000 00" >> testfloat_F2S  #  0.0424000024796
+echo "3effffff 00000000 00" >> testfloat_F2S  #  0.499999970198
+echo "3f000000 00000001 00" >> testfloat_F2S  #  0.5
+echo "3f000001 00000001 00" >> testfloat_F2S  #  0.500000059605
+echo "beffffff 00000000 00" >> testfloat_F2S  # -0.499999970198
+echo "bf000000 ffffffff 00" >> testfloat_F2S  # -0.5
+echo "bf000001 ffffffff 00" >> testfloat_F2S  # -0.500000059605
+echo "" >> testfloat_F2S
+../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rnear_maxMag -notexact f32 1 f32_to_i32 >> testfloat_F2S
+
+
+

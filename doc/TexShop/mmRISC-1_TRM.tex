@@ -1,0 +1,172 @@
+%==============================================================
+% mmRISC-1 Technical Reference Manual
+%==============================================================
+\documentclass[a4paper,12pt]{book}
+\usepackage[T1]{fontenc}
+\usepackage{comment}
+\usepackage{inputenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage{vtable}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{layout}
+\usepackage[twoside,top=20truemm,bottom=20truemm,inner=25truemm,outer=25truemm]{geometry}
+\usepackage{import}
+\usepackage{tabularx}
+\usepackage{adjustbox}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{seqsplit}
+\usepackage[bookmarks=true,bookmarksnumbered=true]{hyperref}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{midpage}
+\usepackage{upquote}
+%\usepackage{odsfile}
+
+\renewcommand{\figurename}{Figure}
+\renewcommand{\tablename}{Table}
+\captionsetup[figure]{format=plain, labelformat=simple, labelsep=colon, font={bf,it,normalsize}, justification=raggedright, singlelinecheck=off}
+\captionsetup[table]{format=plain, labelformat=simple, labelsep=colon, font={bf,it,normalsize}, justification=raggedright, singlelinecheck=off}
+\captionsetup[lstlisting]{format=plain, labelformat=simple, labelsep=colon, font={bf,it,normalsize}, justification=raggedright, singlelinecheck=off}
+
+\definecolor{LightPurple}{rgb}{0.90,0.90,1}
+
+%==============================================================
+% Start Document
+%==============================================================
+\begin{document}
+%\layout{}
+\frontmatter
+
+%==============================================================
+% Title Page
+%==============================================================
+\import{./Front/}{Title.tex}
+
+%==============================================================
+% History
+%==============================================================
+\import{./Front/}{History.tex}
+
+%==============================================================
+% Table Contents
+%==============================================================
+\setcounter{tocdepth}{1}
+\tableofcontents
+\listoffigures
+\listoftables
+\lstlistoflistings
+
+%==============================================================
+% Start Main Pages
+%==============================================================
+\mainmatter
+
+%\begin{comment}
+
+%==============================================================
+% Chapter 1 mmRISC-1 CPU Core
+%==============================================================
+\newpage\chapter{mmRISC-1 CPU Core}
+This chapter describes technical information of mmRISC-1 CPU Core.
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/Overview/}{Overview.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/BlockDiagram/}{BlockDiagram.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/ProgrammersModel/}{ProgrammersModel.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/ConfigurableOptions/}{ConfigurableOptions.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/RTLFiles/}{RTLFiles.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/IOSignals/}{IOSignals.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/ClockReset/}{ClockReset.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/Exceptions/}{Exceptions.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/Interrupts/}{Interrupts.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/MemoryModel/}{MemoryModel.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/CSRMap/}{CSRMap.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/OtherRegisterMap/}{OtherRegisterMap.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/MachineModeCSR/}{MachineModeCSR.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/MachineModeMTIME/}{MachineModeMTIME.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/InterruptControllerCSR/}{InterruptControllerCSR.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/FloatingPointCSR/}{FloatingPointCSR.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/DebugCSR/}{DebugCSR.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/DebugTriggerModuleCSR/}{DebugTriggerModuleCSR.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/DTMJTAGRegister/}{DTMJTAGRegister.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/DMRegister/}{DMRegister.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/DMRegisterAbstractCommand/}{DMRegisterAbstractCommand.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/DMRegisterSystemBusAccess/}{DMRegisterSystemBusAccess.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/CPUPipelineStructure/}{CPUPipelineStructure.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/FPUPipelineStructure/}{FPUPipelineStructure.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/ISASpec32bit/}{ISASpec32bit.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/ISASpec16bit/}{ISASpec16bit.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/ISACode32bit/}{ISACode32bit.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/ISACode16bit/}{ISACode16bit.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/JTAGDataForUser/}{JTAGDataForUser.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/HaltOnReset/}{HaltOnReset.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/cJTAG/}{cJTAG.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/Security/}{Security.tex}
+\newpage\import{./mmRISC-1_Chapter_CPU_Core/LowPowerMode/}{LowPowerMode.tex}
+
+%==============================================================
+% Chapter 2 mmRISC-1 Tiny SoC for FPGA
+%==============================================================
+\newpage\chapter{mmRISC-1 Tiny SoC for FPGA}
+This chapter describes an example implementation of mmRISC-1 SoC.
+\newpage\import{./mmRISC-1_Chapter_SoC/Overview/}{Overview.tex}
+\newpage\import{./mmRISC-1_Chapter_SoC/BlockDiagram/}{BlockDiagram.tex}
+\newpage\import{./mmRISC-1_Chapter_SoC/RTLFiles/}{RTLFiles.tex}
+\newpage\import{./mmRISC-1_Chapter_SoC/IOSignals/}{IOSignals.tex}
+\newpage\import{./mmRISC-1_Chapter_SoC/ClockReset/}{ClockReset.tex}
+\newpage\import{./mmRISC-1_Chapter_SoC/MemoryMap/}{MemoryMap.tex}
+\newpage\import{./mmRISC-1_Chapter_SoC/InterruptAssignment/}{InterruptAssignment.tex}
+\newpage\import{./mmRISC-1_Chapter_SoC/BusMatrixAHB/}{BusMatrixAHB.tex}
+\newpage\import{./mmRISC-1_Chapter_SoC/RAM/}{RAM.tex}
+\newpage\import{./mmRISC-1_Chapter_SoC/SDRAM/}{SDRAM.tex}
+\newpage\import{./mmRISC-1_Chapter_SoC/INTGEN/}{INTGEN.tex}
+\newpage\import{./mmRISC-1_Chapter_SoC/UART/}{UART.tex}
+\newpage\import{./mmRISC-1_Chapter_SoC/I2C/}{I2C.tex}
+\newpage\import{./mmRISC-1_Chapter_SoC/SPI/}{SPI.tex}
+\newpage\import{./mmRISC-1_Chapter_SoC/GPIO/}{GPIO.tex}
+\newpage\import{./mmRISC-1_Chapter_SoC/Miscellaneous/}{Miscellaneous.tex}
+
+%==============================================================
+% Chapter 3 mmRISC-1 Simulations and Verifications
+%==============================================================
+\newpage\chapter{mmRISC-1 Simulations and Verifications}
+This chapter describes several simulation and verification methods of mmRISC-1 SoC.
+\newpage\import{./mmRISC-1_Chapter_Verification/DevTools/}{DevTools.tex}
+\newpage\import{./mmRISC-1_Chapter_Verification/GitHubFiles/}{GitHubFiles.tex}
+\newpage\import{./mmRISC-1_Chapter_Verification/VerifyMethods/}{VerifyMethods.tex}
+\newpage\import{./mmRISC-1_Chapter_Verification/FloatingPoint/}{FloatingPoint.tex}
+
+%\end{comment}
+
+%==============================================================
+% Chapter 4 mmRISC-1 FPGA Implementation
+%==============================================================
+\newpage\chapter{mmRISC-1 FPGA Implementation}
+This chapter describes implementation of mmRISC-1 in FPGA.
+\newpage\import{./mmRISC-1_Chapter_FPGA/FPGAImplementation/}{FPGAImplementation.tex}
+\newpage\import{./mmRISC-1_Chapter_FPGA/JTAGDebugger/}{JTAGDebugger.tex}
+\newpage\import{./mmRISC-1_Chapter_FPGA/SamplePrograms/}{SamplePrograms.tex}
+
+%==============================================================
+% Chapter 5 Referenced Documents
+%==============================================================
+\newpage\chapter{Referenced Documents}
+\newpage\import{./mmRISC-1_References}{References.tex}
+
+%==============================================================
+% Back Page
+%==============================================================
+\backmatter
+\newpage\chapter{}
+\newpage\import{./Back/}{Back.tex}
+
+%==============================================================
+% End of Document
+%==============================================================
+\end{document}
+\end
+%==============================================================

@@ -88,6 +88,16 @@ void main(void)
 // Dhrystones per Second:                      104088
 // DMIPS = 104088/1757 = 59MIPS
 // DMIPS/MHz = 104088/1757/16.67 = 3.55DMIPS
+//
+//
+// 2023.07.23 : RV32IMAFC
+// GCC 12.2.0
+// GCC -O3 -funroll-loops -fpeel-loops -fgcse-sm -fgcse-las -flto
+// Time: begin= 85922504, end= 86010050, diff= 87546
+// Microseconds for one run through Dhrystone: 10.505
+// Dhrystones per Second:                      95188
+// DMIPS = 95188/1757 = 54.2MIPS
+// DMIPS/MHz = 95188/1757/16.67 = 3.25DMIPS
 
 //===========================================================
 // End of Program

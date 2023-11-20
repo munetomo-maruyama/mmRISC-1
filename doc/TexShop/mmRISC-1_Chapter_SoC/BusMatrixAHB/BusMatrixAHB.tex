@@ -1,0 +1,199 @@
+%=========================================================
+% Multi-Layer AHB Bus Matrix
+%=========================================================
+\section{Multi-Layer AHB Bus Matrix}
+
+\begin{description}
+
+    \item[Overview]\mbox{}\\
+        Provided Multi-Layer AHB Bus Matrix is originally designed for mmRISC-1 Tiny SoC. Both master port counts and slave port counts can be specified by any number using module parameters (MASTERS, SLAVES) defined at instantiation of this module in the upper layer, respectively. The Bus Matrix supports the priority of master access on each slave port from either fixed or round-robin. 
+        
+    \item[Input / Output Signals]\mbox{}\\
+        Input / Output signals of Multi-Layer AHB Bus Matrix are shown in Table \ref{tb:IOSIGNALS_AHB}. Each Master port signal and Slave port signal is defined as an array with element counts which are the same as the port counts (MASTERS and SLAVES). 
+
+\end{description}
+
+
+\begin{table}[H]
+    \begin{adjustbox}{scale={0.65}{0.8}}
+    \textsf{
+    \begin{tabular}{|L{4cm}{2cm}{t}|L{4cm}{2cm}{t}|L{2cm}{1cm}{t}|L{7cm}{6cm}{t}|L{10cm}{6cm}{t}|L{3cm}{2cm}{t}|}
+        \hline
+        %-------------------------------------
+        \rowcolor{LightPurple}
+        \textbf{Group} &
+        \textbf{Direction} &
+        \textbf{Width} &
+        \textbf{Name} &
+        \textbf{Description} &
+        \textbf{Note}
+        \nextRow \hline
+        %-------------------------------------
+        Config & Parameter & ~ & MASTERS  & Counts of Master Port & ~
+        \nextRow \hline
+        %-------------------------------------
+        Config & Parameter & ~ & SLAVES   & Counts of Slave Port & ~
+        \nextRow \hline
+        %-------------------------------------
+        System & input  & ~ & HCLK       & System Clock & ~
+        \nextRow \hline
+        %-------------------------------------
+        System & input  & ~ & M\_HRESETn & System Reset & ~
+        \nextRow \hline
+        %-------------------------------------
+        Master & input  & ~                   & M\_HSEL\lbrack 0:MASTERS-1\rbrack      & AHB Lite Master Select & ~
+        \nextRow \hline
+        %-------------------------------------
+        Master & input  & \lbrack  1:0\rbrack & M\_HTRANS\lbrack 0:MASTERS-1\rbrack    & AHB Lite Master Transfer Type & ~
+        \nextRow \hline
+        %-------------------------------------
+        Master & input  & ~                   & M\_HWRITE\lbrack 0:MASTERS-1\rbrack    & AHB Lite Master Write & ~
+        \nextRow \hline
+        %-------------------------------------
+        Master & input  &                     & M\_HMASTLOCK\lbrack 0:MASTERS-1\rbrack & AHB Lite Master Locked Transfer & ~
+        \nextRow \hline
+        %-------------------------------------
+        Master & input  & \lbrack  2:0\rbrack & M\_HSIZE\lbrack 0:MASTERS-1\rbrack     & AHB Lite Master Access Size & ~
+        \nextRow \hline
+        %-------------------------------------
+        Master & input  & \lbrack  2:0\rbrack & M\_HBURST\lbrack 0:MASTERS-1\rbrack    & AHB Lite Master Burst Access & ~
+        \nextRow \hline
+        %-------------------------------------
+        Master & input  & \lbrack  3:0\rbrack & M\_HPROT\lbrack 0:MASTERS-1\rbrack     & AHB Lite Master Protection & ~
+        \nextRow \hline
+        %-------------------------------------
+        Master & input  & \lbrack 31:0\rbrack & M\_HADDR\lbrack 0:MASTERS-1\rbrack     & AHB Lite Master Address & ~
+        \nextRow \hline
+        %-------------------------------------
+        Master & input  & \lbrack 31:0\rbrack & M\_HWDATA\lbrack 0:MASTERS-1\rbrack    & AHB Lite Master Write Data & ~
+        \nextRow \hline
+        %-------------------------------------
+        Master & input  & ~                   & M\_HREADY\lbrack 0:MASTERS-1\rbrack    & AHB Lite Master Ready Input & ~
+        \nextRow \hline
+        %-------------------------------------
+        Master & output & ~                   & M\_HREADYOUT\lbrack 0:MASTERS-1\rbrack & AHB Lite Master Ready Output & ~
+        \nextRow \hline
+        %-------------------------------------
+        Master & output & \lbrack 31:0\rbrack & M\_HRDATA\lbrack 0:MASTERS-1\rbrack    & AHB Lite Master Read Data & ~
+        \nextRow \hline
+        %-------------------------------------
+        Master & output & ~                   & M\_HRESP\lbrack 0:MASTERS-1\rbrack     & AHB Lite Master Response & ~
+        \nextRow \hline
+        %-------------------------------------
+        Master & input  & (*)                 & M\_PRIORITY\lbrack 0:MASTERS-1\rbrack  & Master Priority & ~
+        \nextRow \hline
+        %-------------------------------------
+        Slave  & output & ~                   & S\_HSEL\lbrack 0:SLAVES-1\rbrack       & AHB Lite Slave Select & ~
+        \nextRow \hline
+        %-------------------------------------
+        Slave  & output & \lbrack  1:0\rbrack & S\_HTRANS\lbrack 0:SLAVES-1\rbrack     & AHB Lite Slave Transfer Type & ~
+        \nextRow \hline
+        %-------------------------------------
+        Slave  & output & ~                   & S\_HWRITE\lbrack 0:SLAVES-1\rbrack     & AHB Lite Slave Write & ~
+        \nextRow \hline
+        %-------------------------------------
+        Slave  & output & ~                   & S\_HMASTLOCK\lbrack 0:SLAVES-1\rbrack  & AHB Lite Slave Locked Transfer & ~
+        \nextRow \hline
+        %-------------------------------------
+        Slave  & output & \lbrack  2:0\rbrack & S\_HSIZE\lbrack 0:SLAVES-1\rbrack      & AHB Lite Slave Access Size & ~
+        \nextRow \hline
+        %-------------------------------------
+        Slave  & output & \lbrack  2:0\rbrack & S\_HBURST\lbrack 0:SLAVES-1\rbrack     & AHB Lite Slave Burst Access & ~
+        \nextRow \hline
+        %-------------------------------------
+        Slave  & output & \lbrack  3:0\rbrack & S\_HPROT\lbrack 0:SLAVES-1\rbrack      & AHB Lite Slave Protection & ~
+        \nextRow \hline
+        %-------------------------------------
+        Slave  & output & \lbrack 31:0\rbrack & S\_HADDR\lbrack 0:SLAVES-1\rbrack      & AHB Lite Slave Address & ~
+        \nextRow \hline
+        %-------------------------------------
+        Slave  & output & \lbrack 31:0\rbrack & S\_HWDATA\lbrack 0:SLAVES-1\rbrack     & AHB Lite Slave Write Data & ~
+        \nextRow \hline
+        %-------------------------------------
+        Slave  & output & ~                   & S\_HREADY\lbrack 0:SLAVES-1\rbrack     & AHB Lite Slave Ready Input & ~
+        \nextRow \hline
+        %-------------------------------------
+        Slave  & input  & ~                   & S\_HREADYOUT\lbrack 0:SLAVES-1\rbrack  & AHB Lite Slave Ready Output & ~
+        \nextRow \hline
+        %-------------------------------------
+        Slave  & input  & \lbrack 31:0\rbrack & S\_HRDATA\lbrack 0:SLAVES-1\rbrack     & AHB Lite Slave Read Data & ~
+        \nextRow \hline
+        %-------------------------------------
+        Slave  & input  & ~                   & S\_HRESP\lbrack 0:SLAVES-1\rbrack      & AHB Lite Slave Response & ~
+        \nextRow \hline
+        %-------------------------------------
+        Slave  & input  & \lbrack 31:0\rbrack & S\_HADDR\_BASE\lbrack 0:SLAVES-1\rbrack & Slave Address Base & ~
+        \nextRow \hline
+        %-------------------------------------
+        Slave  & input  & \lbrack 31:0\rbrack & S\_HADDR\_MASK\lbrack 0:SLAVES-1\rbrack & Slave Address Mask & ~
+        \nextRow \hline
+        %-------------------------------------
+        \setMultiColumn{5}{31cm}{20cm}{l}{t}{|}{|}{(*) \lbrack MASTERS\_BIT-1:0\rbrack (MASTERS\_BIT=\$clog2(MASTERS) )} & ~
+        \nextRow \hline
+        %-------------------------------------
+    \end{tabular}
+    }
+    \end{adjustbox}
+    \caption{Input / Output Signals of Multi-Layer AHB Bus Matrix)}
+    \label{tb:IOSIGNALS_AHB}
+\end{table}
+
+
+\begin{description}
+    
+    \item[Master access priority on each Slave port]\mbox{}\\
+        Priority of master access on each slave port is specified by input signal M\_PRIORITY[0:MASTERS-1]. For example, if the master port count MASTERS = 8, and M\_PRIORITY[0:7] (each element has a 3bit width) are specified as shown in Listing \ref{list:BUSPRIORITY}, master Port 0 is the highest priority group (level 0) with a single port. The next highest priority is a group (level 1) in which masters ports 1 to 3 rotate their priority in round-robin manner. The next highest priority is a group (level 2) in which master ports 4 to 5 rotate their priority in round-robin manner. The next priority group (level 3) is single master port 6. The lowest priority group (level 4) is single master port 7.\\
+Note that round-robin groups need to be consolidated by the adjacent bus master number. A settings shown in Listing \ref{list:BUSPRIORITYNG} is not guaranteed.
+
+\end{description}
+
+    %--------------------------
+    \begin{lstlisting}[caption=An Example of Priority Configuration, label=list:BUSPRIORITY, captionpos=b, language=, frame=single, basicstyle=\ttfamily\scriptsize]
+M_PRIORITY[0]=0 : Level0 Single Group Highest
+M_PRIORITY[1]=1 : Level1 Round-Robin Group among [1][2][3]
+M_PRIORITY[2]=1 : Level1 Round-Robin Group among [1][2][3]
+M_PRIORITY[3]=1 : Level1 Round-Robin Group among [1][2][3]
+M_PRIORITY[4]=2 : Level2 Round-Robin Group among [4][5]
+M_PRIORITY[5]=2 : Level2 Round-Robin Group among [4][5]
+M_PRIORITY[6]=3 : Level3 Single Group
+M_PRIORITY[7]=4 : Level4 Single Group Lowest
+    \end{lstlisting}
+    %--------------------------
+
+    %--------------------------
+    \begin{lstlisting}[caption=An Example of Unacceptable Priority Configuration, label=list:BUSPRIORITYNG, captionpos=b, language=, frame=single, basicstyle=\ttfamily\scriptsize]
+(NG) M_PRIORITY[0]=0 : Level0 Single Group Highest
+(NG) M_PRIORITY[1]=1 : Level1 Round-Robin Group among [1][3][5]
+(NG) M_PRIORITY[2]=2 : Level2 Round-Robin Group among [2][4]
+(NG) M_PRIORITY[3]=1 : Level1 Round-Robin Group among [1][3][5]
+(NG) M_PRIORITY[4]=2 : Level2 Round-Robin Group among [2][4]
+(NG) M_PRIORITY[5]=1 : Level1 Round-Robin Group among [1][3][5]
+(NG) M_PRIORITY[6]=3 : Level3 Single Group
+(NG) M_PRIORITY[7]=4 : Level4 Single Group Lowest
+    \end{lstlisting}
+    %--------------------------
+
+\begin{description}
+
+    \item[Address Range Definition on each Slave port]\mbox{}\\
+        Address range of each slave port is specified by input signals of S\_HADDR\_BASE and S\_HADDR\_MASK. For example, for slave port 0, if the input signals are configured as shown in Listing \ref{list:BUSADDRRANGE}, address range of Slave port 0 becomes 0x01000000 – 0x010fffff. At all bit positions where the bit of S\_HADDR\_MASK is set to 1, the address issued by the master and each bit of S\_HADDR\_BASE are compared, and if they match, the slave port is accessed. However, make sure that there are no duplicate addresses among slave ports.
+
+\end{description}
+
+    %--------------------------
+    \begin{lstlisting}[caption=An Example of Address Range Definition, label=list:BUSADDRRANGE, captionpos=b, language=, frame=single, basicstyle=\ttfamily\scriptsize]
+S_HADDR_BASE[0] = 32'h01000000
+S_HADDR_MASK[0] = 32'hfff00000
+    \end{lstlisting}
+    %--------------------------
+
+\begin{description}
+
+    \item[About HMASTLOCK]\mbox{}\\
+         On a slave port, if an access from the same master continues immediately after the access that the master sets HMASTLOCK to a slave, another bus master with any priority is not inserted. In other words, on a slave port, once a master access with HMASTLOCK=1 happens, other master which accesses to the slave port is stalled until the same master access with HMASTLOCK=0 finishes. This feature supports atomic memory access.
+
+    \item[Functional Limitation]\mbox{}\\
+        While a master is making burst access to a slave port, if another higher-priority bus master interrupts the burst access, the bus master on the slave port is switched even during burst. Even in that case, output values of access commands related to burst information such as HTRANS (IDLE, BUSY, NOSEQ, SEQ), HBURST and HSIZE on the slave port are completely same as the ones that master outputs . Therefore burst information combined with HTRANS, HBURST and HSIZE on slave port is meaningless, and only HTRANS[1] and HSIZE indicate meaningful information as single access.
+
+\end{description}
+

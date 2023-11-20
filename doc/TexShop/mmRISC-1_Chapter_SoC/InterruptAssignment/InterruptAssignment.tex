@@ -1,0 +1,103 @@
+%=========================================================
+% Interrupt Assignment
+%=========================================================
+\section{Interrupt Assignment}
+
+Interrupt assignment in the Tiny SoC is shown in Table \ref{tb:INTERRUPTSOC}. The IRQ[5:0] are made by a logical OR between interrupt requests from peripherals (UART, I2C and SPI) and interrupt requests from INT\_GEN.
+
+\begin{table}[H]
+    \begin{adjustbox}{scale={0.9}{1}}
+    \textsf{
+    \begin{tabular}{|L{4cm}{3cm}{t}|L{6cm}{5cm}{t}|L{4cm}{3cm}{t}|L{4cm}{3.5cm}{t}|}
+        \hline
+        %-------------------------------------
+        \rowcolor{LightPurple}
+        \textbf{Interrupt Name} &
+        \textbf{Source Module} &
+        \textbf{Exception Code \lb (MCAUSE)} &
+        \textbf{Vector Address \lb (Vectored Mode)}
+        %-------------------------------------
+        \nextRow \hline
+        IRQ\_MSOFT &
+        MTIME &
+        0x03 &
+        base + 0x0000000c
+        %-------------------------------------
+        \nextRow \hline
+        IRQ\_MTIME &
+        MTIME &
+        0x07 &
+        base + 0x0000001c
+        %-------------------------------------
+        \nextRow \hline
+        IRQ\_EXT &
+        INT\_GEN &
+        0x0b &
+        base + 0x0000002c
+        %-------------------------------------
+        \nextRow \hline
+        IRQ0 &
+        INT\_GEN | UART &
+        0x10 &
+        base + 0x00000040
+        %-------------------------------------
+        \nextRow \hline
+        IRQ1 &
+        INT\_GEN | I2C0 &
+        0x11 &
+        base + 0x00000044
+        %-------------------------------------
+        \nextRow \cline{1-4}
+        IRQ2 &
+        INT\_GEN | I2C1 &
+        0x12 &
+        base + 0x00000048
+        %-------------------------------------
+        \nextRow \hline
+        IRQ3 &
+        INT\_GEN | SPI &
+        0x13 &
+        base + 0x0000004c
+        %-------------------------------------
+        \nextRow \hline
+        IRQ4 &
+        INT\_GEN \lb
+        | I2C\_INT1 (external) &
+        0x14 &
+        base + 0x00000050
+        %-------------------------------------
+        \nextRow \hline
+        IRQ5 &
+        INT\_GEN \lb
+        | I2C\_INT2 (external) &
+        0x15 &
+        base + 0x00000054
+        %-------------------------------------
+        \nextRow \hline
+        IRQ6 &
+        INT\_GEN &
+        0x16 &
+        base + 0x00000058
+        %-------------------------------------
+        \nextRow \hline
+        ... &
+        ... &
+        ... &
+        ...
+        %-------------------------------------
+        \nextRow \hline
+        IRQ63 &
+        INT\_GEN &
+        0x4f &
+        base + 0x0000013c
+        %-------------------------------------
+        \nextRow \hline
+    \end{tabular}
+    }
+    \end{adjustbox}
+  \caption{Interrupt Assignment in Tiny SoC}
+  \label{tb:INTERRUPTSOC}
+\end{table}
+
+
+

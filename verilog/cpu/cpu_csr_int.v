@@ -228,24 +228,111 @@ end
 //--------------------------
 // Priority Tournament
 //--------------------------
-reg [3:0] bit_max;
+//reg [3:0] bit_max;
+////
+//reg [1:0] irq3_tour[0:63]; // 00:kill, 10:draw, 11:won
+//reg [1:0] irq2_tour[0:63]; // 00:kill, 10:draw, 11:won
+//reg [1:0] irq1_tour[0:63]; // 00:kill, 10:draw, 11:won
+//reg [1:0] irq0_tour[0:63]; // 00:kill, 10:draw, 11:won
+////
+//always @*
+//begin
+//    bit_max[3] = 1'b0;
+//    for (y = 0; y < 8; y = y + 1)
+//        for (x = 0; x < 8; x = x + 1)
+//            bit_max[3] = bit_max[3]
+//                       | mintcfgpriority[y][x*4+3] & irq_pend[y*8+x];
+//end
+////
+//always @*
+//begin
+//    bit_max[2] = 1'b0;
+//    for (y = 0; y < 8; y = y + 1)
+//        for (x = 0; x < 8; x = x + 1)
+//            bit_max[2] = bit_max[2]
+//                       | (mintcfgpriority[y][x*4+2] & irq_pend[y*8+x]
+//                       & irq3_tour[y*8+x][1]); // only bit3 survivals are used
+//end
+////
+//always @*
+//begin
+//    bit_max[1] = 1'b0;
+//    for (y = 0; y < 8; y = y + 1)
+//        for (x = 0; x < 8; x = x + 1)
+//            bit_max[1] = bit_max[1]
+//                       | (mintcfgpriority[y][x*4+1] & irq_pend[y*8+x]
+//                       & irq2_tour[y*8+x][1]); // only bit2 survivals are used
+//end
+////
+//always @*
+//begin
+//    bit_max[0] = 1'b0;
+//    for (y = 0; y < 8; y = y + 1)
+//        for (x = 0; x < 8; x = x + 1)
+//            bit_max[0] = bit_max[0]
+//                       | (mintcfgpriority[y][x*4+0] & irq_pend[y*8+x]
+//                       & irq1_tour[y*8+x][1]); // only bit1 survivals are used
+//end
+////
+//always @*
+//begin
+//    for (y = 0; y < 8; y = y + 1)
+//        for (x = 0; x < 8; x = x + 1)
+//        begin
+//            irq3_tour[y*8+x] = (irq_pend[y*8+x] == 1'b0)? 2'b00
+////              : (mintcfgpriority[y][x*4+3] >  bit_max[3])? 2'b11
+//                : (mintcfgpriority[y][x*4+3] & ~bit_max[3])? 2'b11
+//                : (mintcfgpriority[y][x*4+3] == bit_max[3])? 2'b10
+//                : 2'b00;
+//        end
+//end
+////
+//always @*
+//begin
+//    for (y = 0; y < 8; y = y + 1)
+//        for (x = 0; x < 8; x = x + 1)
+//        begin
+//            irq2_tour[y*8+x] = (irq3_tour[y*8+x] == 2'b00)? 2'b00
+//                : (irq3_tour[y*8+x] == 2'b11)? 2'b11
+////              : (mintcfgpriority[y][x*4+2] >  bit_max[2])? 2'b11
+//                : (mintcfgpriority[y][x*4+2] & ~bit_max[2])? 2'b11
+//                : (mintcfgpriority[y][x*4+2] == bit_max[2])? 2'b10
+//                : 2'b00;
+//        end
+//end
+////
+//always @*
+//begin
+//    for (y = 0; y < 8; y = y + 1)
+//        for (x = 0; x < 8; x = x + 1)
+//        begin
+//            irq1_tour[y*8+x] = (irq2_tour[y*8+x] == 2'b00)? 2'b00
+//                : (irq2_tour[y*8+x] == 2'b11)? 2'b11
+////              : (mintcfgpriority[y][x*4+1] >  bit_max[1])? 2'b11
+//                : (mintcfgpriority[y][x*4+1] & ~bit_max[1])? 2'b11
+//                : (mintcfgpriority[y][x*4+1] == bit_max[1])? 2'b10
+//                : 2'b00;
+//        end
+//end
+////
+//always @*
+//begin
+//    for (y = 0; y < 8; y = y + 1)
+//        for (x = 0; x < 8; x = x + 1)
+//        begin
+//            irq0_tour[y*8+x] = (irq1_tour[y*8+x] == 2'b00)? 2'b00
+//                : (irq1_tour[y*8+x] == 2'b11)? 2'b11
+////              : (mintcfgpriority[y][x*4+0] >  bit_max[0])? 2'b11
+//                : (mintcfgpriority[y][x*4+0] & ~bit_max[0])? 2'b11
+//                : (mintcfgpriority[y][x*4+0] == bit_max[0])? 2'b10
+//                : 2'b00;
+//        end
+//end
 //
-always @*
-begin
-    bit_max = 4'b0000;
-    for (y = 0; y < 8; y = y + 1)
-        for (x = 0; x < 8; x = x + 1)
-        begin
-            bit_max[3] = bit_max[3]
-                       | mintcfgpriority[y][x*4+3] & irq_pend[y*8+x];
-            bit_max[2] = bit_max[2]
-                       | mintcfgpriority[y][x*4+2] & irq_pend[y*8+x];
-            bit_max[1] = bit_max[1]
-                       | mintcfgpriority[y][x*4+1] & irq_pend[y*8+x];
-            bit_max[0] = bit_max[0]
-                       | mintcfgpriority[y][x*4+0] & irq_pend[y*8+x];
-        end
-end
+reg       bit3_max;
+reg       bit2_max;
+reg       bit1_max;
+reg       bit0_max;
 //
 reg [1:0] irq3_tour[0:63]; // 00:kill, 10:draw, 11:won
 reg [1:0] irq2_tour[0:63]; // 00:kill, 10:draw, 11:won
@@ -254,12 +341,52 @@ reg [1:0] irq0_tour[0:63]; // 00:kill, 10:draw, 11:won
 //
 always @*
 begin
+    bit3_max = 1'b0;
+    for (y = 0; y < 8; y = y + 1)
+        for (x = 0; x < 8; x = x + 1)
+            bit3_max = bit3_max
+                     | mintcfgpriority[y][x*4+3] & irq_pend[y*8+x];
+end
+//
+always @*
+begin
+    bit2_max = 1'b0;
+    for (y = 0; y < 8; y = y + 1)
+        for (x = 0; x < 8; x = x + 1)
+            bit2_max = bit2_max
+                     | (mintcfgpriority[y][x*4+2] & irq_pend[y*8+x]
+                        & irq3_tour[y*8+x][1]); // only bit3 survivals are used
+end
+//
+always @*
+begin
+    bit1_max = 1'b0;
+    for (y = 0; y < 8; y = y + 1)
+        for (x = 0; x < 8; x = x + 1)
+            bit1_max = bit1_max
+                     | (mintcfgpriority[y][x*4+1] & irq_pend[y*8+x]
+                        & irq2_tour[y*8+x][1]); // only bit2 survivals are used
+end
+//
+always @*
+begin
+    bit0_max = 1'b0;
+    for (y = 0; y < 8; y = y + 1)
+        for (x = 0; x < 8; x = x + 1)
+            bit0_max = bit0_max
+                     | (mintcfgpriority[y][x*4+0] & irq_pend[y*8+x]
+                        & irq1_tour[y*8+x][1]); // only bit1 survivals are used
+end
+//
+always @*
+begin
     for (y = 0; y < 8; y = y + 1)
         for (x = 0; x < 8; x = x + 1)
         begin
             irq3_tour[y*8+x] = (irq_pend[y*8+x] == 1'b0)? 2'b00
-                : (mintcfgpriority[y][x*4+3] >  bit_max[3])? 2'b11
-                : (mintcfgpriority[y][x*4+3] == bit_max[3])? 2'b10
+//              : (mintcfgpriority[y][x*4+3] >  bit3_max)? 2'b11
+                : (mintcfgpriority[y][x*4+3] & ~bit3_max)? 2'b11
+                : (mintcfgpriority[y][x*4+3] == bit3_max)? 2'b10
                 : 2'b00;
         end
 end
@@ -271,8 +398,9 @@ begin
         begin
             irq2_tour[y*8+x] = (irq3_tour[y*8+x] == 2'b00)? 2'b00
                 : (irq3_tour[y*8+x] == 2'b11)? 2'b11
-                : (mintcfgpriority[y][x*4+2] >  bit_max[2])? 2'b11
-                : (mintcfgpriority[y][x*4+2] == bit_max[2])? 2'b10
+//              : (mintcfgpriority[y][x*4+2] >  bit2_max)? 2'b11
+                : (mintcfgpriority[y][x*4+2] & ~bit2_max)? 2'b11
+                : (mintcfgpriority[y][x*4+2] == bit2_max)? 2'b10
                 : 2'b00;
         end
 end
@@ -284,8 +412,9 @@ begin
         begin
             irq1_tour[y*8+x] = (irq2_tour[y*8+x] == 2'b00)? 2'b00
                 : (irq2_tour[y*8+x] == 2'b11)? 2'b11
-                : (mintcfgpriority[y][x*4+1] >  bit_max[1])? 2'b11
-                : (mintcfgpriority[y][x*4+1] == bit_max[1])? 2'b10
+//              : (mintcfgpriority[y][x*4+1] >  bit1_max)? 2'b11
+                : (mintcfgpriority[y][x*4+1] & ~bit1_max)? 2'b11
+                : (mintcfgpriority[y][x*4+1] == bit1_max)? 2'b10
                 : 2'b00;
         end
 end
@@ -297,8 +426,9 @@ begin
         begin
             irq0_tour[y*8+x] = (irq1_tour[y*8+x] == 2'b00)? 2'b00
                 : (irq1_tour[y*8+x] == 2'b11)? 2'b11
-                : (mintcfgpriority[y][x*4+0] >  bit_max[0])? 2'b11
-                : (mintcfgpriority[y][x*4+0] == bit_max[0])? 2'b10
+//              : (mintcfgpriority[y][x*4+0] >  bit0_max)? 2'b11
+                : (mintcfgpriority[y][x*4+0] & ~bit0_max)? 2'b11
+                : (mintcfgpriority[y][x*4+0] == bit0_max)? 2'b10
                 : 2'b00;
         end
 end
@@ -310,6 +440,30 @@ reg       intctrl_req;
 reg [5:0] intctrl_num;
 reg [3:0] intctrl_lvl;
 //
+//always @*
+//begin
+//    intctrl_req = 1'b0;
+//    intctrl_num = 6'h0;
+//    intctrl_lvl = 4'b0000;
+//    //
+//    begin : loop_irq_tournament
+//        for (y = 0; y < 8; y = y + 1)
+//            for (x = 0; x < 8; x = x + 1)
+//            begin
+//                if (irq0_tour[y*8+x][1] == 1'b1)
+//                begin
+//                    intctrl_req = 1'b1;
+//                    intctrl_num = y*8+x;
+//                    intctrl_lvl = {mintcfgpriority[y][x*4+3],
+//                                   mintcfgpriority[y][x*4+2],
+//                                   mintcfgpriority[y][x*4+1],
+//                                   mintcfgpriority[y][x*4+0]};
+//                    disable loop_irq_tournament;
+//                end
+//            end
+//    end
+//end
+//
 always @*
 begin
     intctrl_req = 1'b0;
@@ -317,18 +471,23 @@ begin
     intctrl_lvl = 4'b0000;
     //
     begin : loop_irq_tournament
+        reg disable_loop_irq_tournament;
+        disable_loop_irq_tournament = 1'b0;
         for (y = 0; y < 8; y = y + 1)
             for (x = 0; x < 8; x = x + 1)
             begin
-                if (irq0_tour[y*8+x][1] == 1'b1)
+                if (!disable_loop_irq_tournament)
                 begin
-                    intctrl_req = 1'b1;
-                    intctrl_num = y*8+x;
-                    intctrl_lvl = {mintcfgpriority[y][x*4+3],
-                                   mintcfgpriority[y][x*4+2],
-                                   mintcfgpriority[y][x*4+1],
-                                   mintcfgpriority[y][x*4+0]};
-                    disable loop_irq_tournament;
+                    if (irq0_tour[y*8+x][1] == 1'b1)
+                    begin
+                        intctrl_req = 1'b1;
+                        intctrl_num = y*8+x;
+                        intctrl_lvl = {mintcfgpriority[y][x*4+3],
+                                       mintcfgpriority[y][x*4+2],
+                                       mintcfgpriority[y][x*4+1],
+                                       mintcfgpriority[y][x*4+0]};
+                        disable_loop_irq_tournament = 1'b1;
+                    end
                 end
             end
     end

@@ -162,7 +162,7 @@ assign BUSA_M_SEQ       = 1'b0;
 assign BUSA_M_CONT      = 1'b0;
 assign BUSA_M_BURST     = 3'b000;
 assign BUSA_M_LOCK      = 1'b0;
-assign BUSA_M_PROT      = 4'b0000;
+assign BUSA_M_PROT      = 4'b0011; // Privileded, Data
 assign BUSA_M_WRITE     = DBGABS_WRITE;
 assign BUSA_M_SIZE      = DBGABS_SIZE;
 assign BUSA_M_ADDR      = DBGABS_ADDR;
@@ -231,25 +231,53 @@ begin
     end
 end
 //
+//always @(posedge CLK, posedge RES_CPU)
+//begin
+//    integer i;
+//    for (i = 0; i < `TRG_CH_BUS; i = i + 1)
+//    begin
+//        if (RES_CPU)
+//        begin
+//            trg_inst_hit_16b_addr_keep[i] <= 1'b0;
+//            trg_inst_hit_16b_code_keep[i] <= 1'b0;
+//            trg_inst_hit_32b_addr_keep[i] <= 1'b0;
+//            trg_inst_hit_32b_code_keep[i] <= 1'b0;
+//        end
+//        else if (INSTR_EXEC)
+//        begin
+//            trg_inst_hit_16b_addr_keep[i] <= trg_inst_hit_16b_addr_before[i];
+//            trg_inst_hit_16b_code_keep[i] <= trg_inst_hit_16b_code_before[i];
+//            trg_inst_hit_32b_addr_keep[i] <= trg_inst_hit_32b_addr_before[i];
+//            trg_inst_hit_32b_code_keep[i] <= trg_inst_hit_32b_code_before[i];
+//        end
+//    end
+//end
+//
 always @(posedge CLK, posedge RES_CPU)
 begin
     integer i;
-    for (i = 0; i < `TRG_CH_BUS; i = i + 1)
+    if (RES_CPU)
     begin
-        if (RES_CPU)
+        for (i = 0; i < `TRG_CH_BUS; i = i + 1)
         begin
             trg_inst_hit_16b_addr_keep[i] <= 1'b0;
             trg_inst_hit_16b_code_keep[i] <= 1'b0;
             trg_inst_hit_32b_addr_keep[i] <= 1'b0;
             trg_inst_hit_32b_code_keep[i] <= 1'b0;
         end
-        else if (INSTR_EXEC)
+    end
+    else
+    begin
+        for (i = 0; i < `TRG_CH_BUS; i = i + 1)
         begin
-            trg_inst_hit_16b_addr_keep[i] <= trg_inst_hit_16b_addr_before[i];
-            trg_inst_hit_16b_code_keep[i] <= trg_inst_hit_16b_code_before[i];
-            trg_inst_hit_32b_addr_keep[i] <= trg_inst_hit_32b_addr_before[i];
-            trg_inst_hit_32b_code_keep[i] <= trg_inst_hit_32b_code_before[i];
-        end
+            if (INSTR_EXEC)
+            begin
+                trg_inst_hit_16b_addr_keep[i] <= trg_inst_hit_16b_addr_before[i];
+                trg_inst_hit_16b_code_keep[i] <= trg_inst_hit_16b_code_before[i];
+                trg_inst_hit_32b_addr_keep[i] <= trg_inst_hit_32b_addr_before[i];
+                trg_inst_hit_32b_code_keep[i] <= trg_inst_hit_32b_code_before[i];
+            end
+        end    
     end
 end
 //
@@ -483,6 +511,39 @@ reg trg_cnd_bus_hit_data[0:`TRG_CH_BUS-1];
 reg [1:0] trg_req_inst; // bit1:action, bit0:hit
 reg [1:0] trg_req_data; // bit1:action, bit0:hit
 //
+//always @*
+//begin
+//    integer c, b;
+//    trg_req_inst = 2'b00;
+//    //
+//    for (c = 0; c < `TRG_CH_BUS; c = c + 1) trg_cnd_bus_hit_inst[c] = 1'b0;
+//    //
+//    begin: LOOP_TRG_REQ_INST_BREAK
+//        for (c = 0; c < `TRG_CH_BUS; c = c + 1)
+//        begin
+//            trg_cnd_bus_hit_inst[c] = |(TRG_CND_BUS_CHAIN[c]);
+//            for (b = 0; b < `TRG_CH_BUS; b = b + 1)
+//            begin
+//                if (TRG_CND_BUS_CHAIN[c][b])
+//                begin
+//                    trg_cnd_bus_hit_inst[c]
+//                    = trg_cnd_bus_hit_inst[c] & trg_inst_hit[b];
+//                end
+//            end
+//            //
+//            if (trg_cnd_bus_hit_inst[c])
+//            begin
+//                if (trg_inst_hit[c] & ~trg_req_inst[0])
+//                begin
+//                    trg_req_inst[0] = 1'b1;
+//                    trg_req_inst[1] = TRG_CND_BUS_ACTION[c];
+//                end
+//                //
+//                disable LOOP_TRG_REQ_INST_BREAK;
+//            end
+//        end
+//    end
+//end
 always @*
 begin
     integer c, b;
@@ -491,32 +552,70 @@ begin
     for (c = 0; c < `TRG_CH_BUS; c = c + 1) trg_cnd_bus_hit_inst[c] = 1'b0;
     //
     begin: LOOP_TRG_REQ_INST_BREAK
+        reg disable_LOOP_TRG_REQ_INST_BREAK;
+        disable_LOOP_TRG_REQ_INST_BREAK = 1'b0;
         for (c = 0; c < `TRG_CH_BUS; c = c + 1)
         begin
-            trg_cnd_bus_hit_inst[c] = |(TRG_CND_BUS_CHAIN[c]);
-            for (b = 0; b < `TRG_CH_BUS; b = b + 1)
-            begin
-                if (TRG_CND_BUS_CHAIN[c][b])
+            if (!disable_LOOP_TRG_REQ_INST_BREAK)
+            begin            
+                trg_cnd_bus_hit_inst[c] = |(TRG_CND_BUS_CHAIN[c]);
+                for (b = 0; b < `TRG_CH_BUS; b = b + 1)
                 begin
-                    trg_cnd_bus_hit_inst[c]
-                    = trg_cnd_bus_hit_inst[c] & trg_inst_hit[b];
-                end
-            end
-            //
-            if (trg_cnd_bus_hit_inst[c])
-            begin
-                if (trg_inst_hit[c] & ~trg_req_inst[0])
-                begin
-                    trg_req_inst[0] = 1'b1;
-                    trg_req_inst[1] = TRG_CND_BUS_ACTION[c];
+                    if (TRG_CND_BUS_CHAIN[c][b])
+                    begin
+                        trg_cnd_bus_hit_inst[c]
+                        = trg_cnd_bus_hit_inst[c] & trg_inst_hit[b];
+                    end
                 end
                 //
-                disable LOOP_TRG_REQ_INST_BREAK;
+                if (trg_cnd_bus_hit_inst[c])
+                begin
+                    if (trg_inst_hit[c] & ~trg_req_inst[0])
+                    begin
+                        trg_req_inst[0] = 1'b1;
+                        trg_req_inst[1] = TRG_CND_BUS_ACTION[c];
+                    end
+                    //
+                    disable_LOOP_TRG_REQ_INST_BREAK = 1'b1;
+                end
             end
         end
     end
 end
 //
+//always @*
+//begin
+//    integer c, b;
+//    trg_req_data = 2'b00;
+//    //
+//    for (c = 0; c < `TRG_CH_BUS; c = c + 1) trg_cnd_bus_hit_data[c] = 1'b0;
+//    //
+//    begin: LOOP_TRG_REQ_DATA_BREAK
+//        for (c = 0; c < `TRG_CH_BUS; c = c + 1)
+//        begin
+//            trg_cnd_bus_hit_data[c] = |(TRG_CND_BUS_CHAIN[c]);
+//            for (b = 0; b < `TRG_CH_BUS; b = b + 1)
+//            begin
+//                if (TRG_CND_BUS_CHAIN[c][b])
+//                begin
+//                    trg_cnd_bus_hit_data[c]
+//                    = trg_cnd_bus_hit_data[c] & trg_data_hit[b];
+//                end
+//            end
+//            //
+//            if (trg_cnd_bus_hit_data[c])
+//            begin
+//                if (trg_data_hit[c] & ~trg_req_data[0])
+//                begin
+//                    trg_req_data[0] = 1'b1;
+//                    trg_req_data[1] = TRG_CND_BUS_ACTION[c];
+//                end
+//                //
+//                disable LOOP_TRG_REQ_DATA_BREAK;
+//            end
+//        end
+//    end
+//end
 always @*
 begin
     integer c, b;
@@ -525,27 +624,32 @@ begin
     for (c = 0; c < `TRG_CH_BUS; c = c + 1) trg_cnd_bus_hit_data[c] = 1'b0;
     //
     begin: LOOP_TRG_REQ_DATA_BREAK
+        reg disable_LOOP_TRG_REQ_DATA_BREAK;
+        disable_LOOP_TRG_REQ_DATA_BREAK = 1'b0;
         for (c = 0; c < `TRG_CH_BUS; c = c + 1)
         begin
-            trg_cnd_bus_hit_data[c] = |(TRG_CND_BUS_CHAIN[c]);
-            for (b = 0; b < `TRG_CH_BUS; b = b + 1)
-            begin
-                if (TRG_CND_BUS_CHAIN[c][b])
+            if (!disable_LOOP_TRG_REQ_DATA_BREAK)
+            begin            
+                trg_cnd_bus_hit_data[c] = |(TRG_CND_BUS_CHAIN[c]);
+                for (b = 0; b < `TRG_CH_BUS; b = b + 1)
                 begin
-                    trg_cnd_bus_hit_data[c]
-                    = trg_cnd_bus_hit_data[c] & trg_data_hit[b];
-                end
-            end
-            //
-            if (trg_cnd_bus_hit_data[c])
-            begin
-                if (trg_data_hit[c] & ~trg_req_data[0])
-                begin
-                    trg_req_data[0] = 1'b1;
-                    trg_req_data[1] = TRG_CND_BUS_ACTION[c];
+                    if (TRG_CND_BUS_CHAIN[c][b])
+                    begin
+                        trg_cnd_bus_hit_data[c]
+                        = trg_cnd_bus_hit_data[c] & trg_data_hit[b];
+                    end
                 end
                 //
-                disable LOOP_TRG_REQ_DATA_BREAK;
+                if (trg_cnd_bus_hit_data[c])
+                begin
+                    if (trg_data_hit[c] & ~trg_req_data[0])
+                    begin
+                        trg_req_data[0] = 1'b1;
+                        trg_req_data[1] = TRG_CND_BUS_ACTION[c];
+                    end
+                    //
+                    disable_LOOP_TRG_REQ_DATA_BREAK = 1'b1;
+                end
             end
         end
     end
@@ -596,19 +700,41 @@ end
 //--------------------------------
 reg [1:0] trg_req_icnt;
 //
+//always @*
+//begin
+//    integer i;
+//    trg_req_icnt = 2'b00;
+//    //
+//    begin: LOOP_TRG_REQ_ICNT_BREAK
+//        for (i = 0; i < `TRG_CH_BUS; i = i + 1)
+//        begin
+//            if (TRG_CND_ICOUNT_HIT)
+//            begin
+//                trg_req_icnt[0] = 1'b1;
+//                trg_req_icnt[1] = TRG_CND_ICOUNT_ACT;
+//                disable LOOP_TRG_REQ_ICNT_BREAK;
+//            end
+//        end
+//    end
+//end
 always @*
 begin
     integer i;
     trg_req_icnt = 2'b00;
     //
     begin: LOOP_TRG_REQ_ICNT_BREAK
+        reg disable_LOOP_TRG_REQ_ICNT_BREAK;
+        disable_LOOP_TRG_REQ_ICNT_BREAK = 1'b0;
         for (i = 0; i < `TRG_CH_BUS; i = i + 1)
         begin
-            if (TRG_CND_ICOUNT_HIT)
-            begin
-                trg_req_icnt[0] = 1'b1;
-                trg_req_icnt[1] = TRG_CND_ICOUNT_ACT;
-                disable LOOP_TRG_REQ_ICNT_BREAK;
+            if (!disable_LOOP_TRG_REQ_ICNT_BREAK)
+            begin            
+                if (TRG_CND_ICOUNT_HIT)
+                begin
+                    trg_req_icnt[0] = 1'b1;
+                    trg_req_icnt[1] = TRG_CND_ICOUNT_ACT;
+                    disable_LOOP_TRG_REQ_ICNT_BREAK = 1'b1;
+                end
             end
         end
     end

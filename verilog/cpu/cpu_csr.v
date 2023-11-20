@@ -221,8 +221,8 @@ module CPU_CSR
     input  wire        IRQ_MTIME,  // Machine Timer Interrupt
     input  wire        IRQ_MSOFT,  // Machine SOftware Interrupt
     //
-    input  reg         INTCTRL_REQ, // Interrupt Controller Request
-    input  reg  [ 5:0] INTCTRL_NUM, // Interrupt Controller Request Number
+    input  wire        INTCTRL_REQ, // Interrupt Controller Request
+    input  wire [ 5:0] INTCTRL_NUM, // Interrupt Controller Request Number
     output wire        INTCTRL_ACK, // Interrupt Controller Acknowledge
     //
     output wire [31:0] MTVEC_INT,    // Trap Vector for Interrupt

@@ -313,6 +313,14 @@ _start:
     ori  t0, t0, 0x01 // vectored
     csrw mtvec, t0
     //
+    // Check FTYPE
+    li       x20, 0x00000000
+    fmv.w.x  f20, x20
+    fclass.s x20, f20
+    li       x21, 0x7fc00000
+    fmv.w.x  f21, x21
+    fclass.s x21, f21
+    //
     // Goto Main
     call main
     //

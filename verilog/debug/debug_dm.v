@@ -114,8 +114,12 @@ module DEBUG_DM
     output wire        DMBUS_ACK,   // DMBUS Access Acknowledge
     output wire        DMBUS_ERR,   // DMBUS Response Error
     //
-    input  wire        DEBUG_SECURE,      // Debug should be secure, or not
-    input  wire [31:0] DEBUG_SECURE_CODE, // Debug Security Pass Code
+    input  wire        DEBUG_SECURE,        // Debug should be secure, or not
+    input  wire [31:0] DEBUG_SECURE_CODE_0, // Debug Security Pass Code 0
+    input  wire [31:0] DEBUG_SECURE_CODE_1, // Debug Security Pass Code 1
+    //
+    input  wire FORCE_HALT_ON_RESET_REQ, // FORCE_HALT_ON_RESET Request
+    output reg  FORCE_HALT_ON_RESET_ACK, // FORCE_HALT_ON_RESET Acknowledge
     //
     output reg  HART_HALT_REQ     [0 : HART_COUNT - 1], // HART Halt Command
     input  wire HART_STATUS       [0 : HART_COUNT - 1], // HART Status (0:Run, 1:Halt) 
@@ -374,7 +378,8 @@ assign err_dm_authdata = 1'b0;
 assign rdata_dm_authdata
     = (ack_dm_authdata & authok)? dm_authdata : 32'h00000000;
 //
-assign authok = ~DEBUG_SECURE | (dm_authdata == DEBUG_SECURE_CODE);
+assign authok = ~DEBUG_SECURE | (dm_authdata == DEBUG_SECURE_CODE_0)
+                              | (dm_authdata == DEBUG_SECURE_CODE_1);
 assign authbusy = 1'b0;
 
 //---------------------------
@@ -729,59 +734,174 @@ end
 //-------------------
 // Hart Control
 //-------------------
+//always @(posedge CLK, posedge res_dm)
+//begin
+//    integer i;
+//    for (i = 0; i < HART_COUNT; i = i + 1)
+//    begin
+//        if (res_dm)
+//            HART_HALT_REQ[i] <= 1'b0;
+//        else if (sethaltreq & ha_sel[i])
+//            HART_HALT_REQ[i] <= 1'b1;
+//        else if (clrhaltreq & ha_sel[i])
+//            HART_HALT_REQ[i] <= 1'b0;    
+//    end
+//end
 always @(posedge CLK, posedge res_dm)
 begin
-    integer i;
-    for (i = 0; i < HART_COUNT; i = i + 1)
+    integer i;    
+    if (res_dm)
     begin
-        if (res_dm)
+        for (i = 0; i < HART_COUNT; i = i + 1)
+        begin
             HART_HALT_REQ[i] <= 1'b0;
-        else if (sethaltreq & ha_sel[i])
-            HART_HALT_REQ[i] <= 1'b1;
-        else if (clrhaltreq & ha_sel[i])
-            HART_HALT_REQ[i] <= 1'b0;    
+        end
+    end
+    else
+    begin
+        for (i = 0; i < HART_COUNT; i = i + 1)
+        begin
+            if (sethaltreq & ha_sel[i])
+            begin
+                HART_HALT_REQ[i] <= 1'b1;
+            end
+            else if (clrhaltreq & ha_sel[i])
+            begin
+                HART_HALT_REQ[i] <= 1'b0;
+            end
+        end
     end
 end
 //
+//always @(posedge CLK, posedge res_dm)
+//begin
+//    integer i;
+//    for (i = 0; i < HART_COUNT; i = i + 1)
+//    begin
+//        if (res_dm)
+//            HART_RESET[i] <= 1'b0;
+//        else if (sethartreset & ha_sel[i])
+//            HART_RESET[i] <= 1'b1;
+//        else if (clrhartreset & ha_sel[i])
+//            HART_RESET[i] <= 1'b0;    
+//    end
+//end
 always @(posedge CLK, posedge res_dm)
 begin
-    integer i;
-    for (i = 0; i < HART_COUNT; i = i + 1)
+    integer i;    
+    if (res_dm)
     begin
-        if (res_dm)
+        for (i = 0; i < HART_COUNT; i = i + 1)
+        begin
             HART_RESET[i] <= 1'b0;
-        else if (sethartreset & ha_sel[i])
-            HART_RESET[i] <= 1'b1;
-        else if (clrhartreset & ha_sel[i])
-            HART_RESET[i] <= 1'b0;    
+        end
+    end
+    else
+    begin
+        for (i = 0; i < HART_COUNT; i = i + 1)
+        begin
+            if (sethartreset & ha_sel[i])
+            begin
+                HART_RESET[i] <= 1'b1;
+            end
+            else if (clrhartreset & ha_sel[i])
+            begin
+                HART_RESET[i] <= 1'b0;    
+            end
+        end
     end
 end
 //
+reg  hart_halt_on_reset[0 : HART_COUNT - 1];
+//always @(posedge CLK, posedge res_dm)
+//begin
+//    integer i;
+//    for (i = 0; i < HART_COUNT; i = i + 1)
+//    begin
+//        if (res_dm)
+//            hart_halt_on_reset[i] <= 1'b0;
+//        else if (setresethaltreq & ha_sel[i])
+//            hart_halt_on_reset[i] <= 1'b1;
+//        else if (clrresethaltreq & ha_sel[i])
+//            hart_halt_on_reset[i] <= 1'b0;    
+//    end
+//end
 always @(posedge CLK, posedge res_dm)
 begin
     integer i;
-    for (i = 0; i < HART_COUNT; i = i + 1)
+    if (res_dm)
     begin
-        if (res_dm)
-            HART_HALT_ON_RESET[i] <= 1'b0;
-        else if (setresethaltreq & ha_sel[i])
-            HART_HALT_ON_RESET[i] <= 1'b1;
-        else if (clrresethaltreq & ha_sel[i])
-            HART_HALT_ON_RESET[i] <= 1'b0;    
+        for (i = 0; i < HART_COUNT; i = i + 1)
+        begin
+            hart_halt_on_reset[i] <= 1'b0;
+        end
+    end
+    else
+    begin
+        for (i = 0; i < HART_COUNT; i = i + 1)
+        begin
+            if (setresethaltreq & ha_sel[i])
+            begin
+                hart_halt_on_reset[i] <= 1'b1;
+            end
+            else if (clrresethaltreq & ha_sel[i])
+            begin
+                hart_halt_on_reset[i] <= 1'b0;    
+            end
+        end
     end
 end
 //
-always @(posedge CLK, posedge res_dm)
+always @*
 begin
     integer i;
+    FORCE_HALT_ON_RESET_ACK = 1'b0;
     for (i = 0; i < HART_COUNT; i = i + 1)
     begin
-        if (res_dm)
+        HART_HALT_ON_RESET[i]
+        = FORCE_HALT_ON_RESET_REQ | hart_halt_on_reset[i];
+        //
+        FORCE_HALT_ON_RESET_ACK
+        = FORCE_HALT_ON_RESET_ACK | HART_RESUME_ACK[i];
+    end
+end
+//
+//always @(posedge CLK, posedge res_dm)
+//begin
+//    integer i;
+//    for (i = 0; i < HART_COUNT; i = i + 1)
+//    begin
+//        if (res_dm)
+//            HART_RESUME_REQ[i] <= 1'b0;
+//        else if (resumereq & ha_sel[i])
+//            HART_RESUME_REQ[i] <= 1'b1;
+//        else if (HART_RESUME_ACK[i])
+//            HART_RESUME_REQ[i] <= 1'b0;    
+//    end
+//end
+always @(posedge CLK, posedge res_dm)
+begin
+    integer i;    
+    if (res_dm)
+    begin
+        for (i = 0; i < HART_COUNT; i = i + 1)
+        begin
             HART_RESUME_REQ[i] <= 1'b0;
-        else if (resumereq & ha_sel[i])
-            HART_RESUME_REQ[i] <= 1'b1;
-        else if (HART_RESUME_ACK[i])
-            HART_RESUME_REQ[i] <= 1'b0;    
+        end
+    end
+    else
+    begin
+        for (i = 0; i < HART_COUNT; i = i + 1)
+        begin        
+            if (resumereq & ha_sel[i])
+            begin
+                HART_RESUME_REQ[i] <= 1'b1;
+            end
+            else if (HART_RESUME_ACK[i])
+            begin
+                HART_RESUME_REQ[i] <= 1'b0;    
+            end
+        end
     end
 end
 
@@ -819,55 +939,67 @@ end
 //
 always @*
 begin
-    integer i, j;
     rdata_dm_haltsum1 = 32'h00000000;
-    if (sel_dm_haltsum1 & authok)
+    //
+    if (HART_COUNT >= 32)
     begin
-        for (i = 0; i < 32; i = i + 1)
+        integer i, j;
+        if (sel_dm_haltsum1 & authok)
         begin
-            for (j = 0; j < 32; j = j + 1)
+            for (i = 0; i < 32; i = i + 1)
             begin
-                if ((hartsel & 20'hffc00) + (i << 5) + j < HART_COUNT)
-                    rdata_dm_haltsum1[i] = rdata_dm_haltsum1[i] 
-                        | HART_STATUS[(hartsel & 20'hffc00) + (i << 5) + j];
-            end
-        end
-    end
-end
-//
-always @*
-begin
-    integer i, j;
-    rdata_dm_haltsum2 = 32'h00000000;
-    if (sel_dm_haltsum2 & authok)
-    begin
-        for (i = 0; i < 32; i = i + 1)
-        begin
-            for (j = 0; j < 1024; j = j + 1)
-            begin
-                if ((hartsel & 20'hf8000) + (i << 10) + j < HART_COUNT)
-                    rdata_dm_haltsum2[i] = rdata_dm_haltsum2[i] 
-                        | HART_STATUS[(hartsel & 20'hf8000) + (i << 10) + j];
-            end
-        end
-    end
-end
-//
-always @*
-begin
-    integer i, j, k;
-    rdata_dm_haltsum3 = 32'h00000000;
-    if (sel_dm_haltsum3 & authok)
-    begin
-        for (i = 0; i < 32; i = i + 1)
-        begin
-            for (j = 0; j < 8; j = j + 1)
-            begin
-                for (k = 0; k < 4096; k = k + 1)
+                for (j = 0; j < 32; j = j + 1)
                 begin
-                    if ((i << 15) + (j * 4096) + k < HART_COUNT)
-                        rdata_dm_haltsum3[i] = rdata_dm_haltsum3[i] 
-                            | HART_STATUS[(i << 15) + j];
+                    if ((hartsel & 20'hffc00) + (i << 5) + j < HART_COUNT)
+                        rdata_dm_haltsum1[i] = rdata_dm_haltsum1[i] 
+                            | HART_STATUS[(hartsel & 20'hffc00) + (i << 5) + j];
+                end
+            end
+        end
+    end
+end
+//
+always @*
+begin
+    rdata_dm_haltsum2 = 32'h00000000;
+    //
+    if (HART_COUNT >= 1024)
+    begin
+        integer i, j;
+        if (sel_dm_haltsum2 & authok)
+        begin
+            for (i = 0; i < 32; i = i + 1)
+            begin
+                for (j = 0; j < 1024; j = j + 1)
+                begin
+                    if ((hartsel & 20'hf8000) + (i << 10) + j < HART_COUNT)
+                        rdata_dm_haltsum2[i] = rdata_dm_haltsum2[i] 
+                            | HART_STATUS[(hartsel & 20'hf8000) + (i << 10) + j];
+                end
+            end
+        end        
+    end
+end
+//
+always @*
+begin
+    rdata_dm_haltsum3 = 32'h00000000;
+    //
+    if (HART_COUNT >= 32768)
+    begin
+        integer i, j, k;
+        if (sel_dm_haltsum3 & authok)
+        begin
+            for (i = 0; i < 32; i = i + 1)
+            begin
+                for (j = 0; j < 8; j = j + 1)
+                begin
+                    for (k = 0; k < 4096; k = k + 1)
+                    begin
+                        if ((i << 15) + (j * 4096) + k < HART_COUNT)
+                            rdata_dm_haltsum3[i] = rdata_dm_haltsum3[i] 
+                                | HART_STATUS[(i << 15) + j];
+                    end
                 end
             end
         end
@@ -1129,17 +1261,42 @@ assign dbgabs_arg1_incr
 assign res_dm  = ~dmactive;
 assign RES_SYS = ndmreset;
 //
+//always @(posedge CLK, posedge RES_ORG)
+//begin
+//    integer i;
+//    for (i = 0; i < HART_COUNT; i = i + 1)
+//    begin
+//        if (RES_ORG)
+//            havereset[i] <= 1'b1;
+//        else if (hartreset & ha_sel[i])
+//            havereset[i] <= 1'b1;
+//        else if (ackhavereset & ha_sel[i])
+//            havereset[i] <= 1'b0;        
+//    end
+//end
 always @(posedge CLK, posedge RES_ORG)
 begin
-    integer i;
-    for (i = 0; i < HART_COUNT; i = i + 1)
+    integer i;    
+    if (RES_ORG)
     begin
-        if (RES_ORG)
+        for (i = 0; i < HART_COUNT; i = i + 1)
+        begin
             havereset[i] <= 1'b1;
-        else if (hartreset & ha_sel[i])
-            havereset[i] <= 1'b1;
-        else if (ackhavereset & ha_sel[i])
-            havereset[i] <= 1'b0;        
+        end
+    end
+    else
+    begin
+        for (i = 0; i < HART_COUNT; i = i + 1)
+        begin        
+            if (hartreset & ha_sel[i])
+            begin
+                havereset[i] <= 1'b1;
+            end
+            else if (ackhavereset & ha_sel[i])
+            begin
+                havereset[i] <= 1'b0;        
+            end
+        end
     end
 end
 
@@ -1330,7 +1487,7 @@ assign BUSS_M_SEQ   = 1'b0;
 assign BUSS_M_CONT  = 1'b0;
 assign BUSS_M_BURST = 3'b000;
 assign BUSS_M_LOCK  = 1'b0;
-assign BUSS_M_PROT  = 4'b0000;
+assign BUSS_M_PROT  = 4'b0011; // Privileded, Data
 assign BUSS_M_WRITE = sb_req_write;
 assign BUSS_M_SIZE  = sbaccess[1:0];
 assign BUSS_M_ADDR  = sbaddr;

@@ -55,6 +55,13 @@
 #define MTIMECMPH  0x49000014
 #define MSOFTIRQ   0x49000018
 
+//-------------------
+// INTGEN
+//-------------------
+#define INTGEN_IRQ_EXT 0xc0000000
+#define INTGEN_IRQ0    0xc0000004
+#define INTGEN_IRQ1    0xc0000008
+
 //---------------
 // Prototype
 //---------------

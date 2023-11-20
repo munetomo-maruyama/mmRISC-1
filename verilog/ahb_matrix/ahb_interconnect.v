@@ -83,20 +83,48 @@ reg  [SLAVES- 1:0] lock_s;
 //------------------------
 // HMASTLOCK Control
 //------------------------
+//always @(posedge HCLK, negedge HRESETn)
+//begin
+//    integer mst, slv;
+//    for (slv = 0; slv < SLAVES; slv = slv + 1)
+//    begin
+//        for (mst = 0; mst < MASTERS; mst = mst + 1)
+//        begin
+//        if (~HRESETn)
+//            lock[slv][mst] <= 1'b0;
+//        else if (m_addr_ack[mst])
+//            lock[slv][mst]
+//            <= m_addr_req[mst] & m_hmastlock[mst]
+//            & ((m_haddr[mst] & S_HADDR_MASK[slv]) == S_HADDR_BASE[slv]);
+//        end
+//    end
+//end
+//
 always @(posedge HCLK, negedge HRESETn)
 begin
     integer mst, slv;
-    for (slv = 0; slv < SLAVES; slv = slv + 1)
+    if (~HRESETn)
     begin
-        for (mst = 0; mst < MASTERS; mst = mst + 1)
+        for (slv = 0; slv < SLAVES; slv = slv + 1)
         begin
-        if (~HRESETn)
-            lock[slv][mst] <= 1'b0;
-        else if (m_addr_ack[mst])
-            lock[slv][mst]
-            <= m_addr_req[mst] & m_hmastlock[mst]
-            & ((m_haddr[mst] & S_HADDR_MASK[slv]) == S_HADDR_BASE[slv]);
+            for (mst = 0; mst < MASTERS; mst = mst + 1)
+            begin
+                lock[slv][mst] <= 1'b0;
+            end
         end
+    end
+    else
+    begin
+        for (slv = 0; slv < SLAVES; slv = slv + 1)
+        begin
+            for (mst = 0; mst < MASTERS; mst = mst + 1)
+            begin
+            if (m_addr_ack[mst])
+                lock[slv][mst]
+                <= m_addr_req[mst] & m_hmastlock[mst]
+                & ((m_haddr[mst] & S_HADDR_MASK[slv]) == S_HADDR_BASE[slv]);
+            end
+        end    
     end
 end
 //
@@ -160,17 +188,39 @@ begin
     end
 end
 //
+//always @(posedge HCLK, negedge HRESETn)
+//begin
+//    integer mst;
+//    for (mst = 0; mst < MASTERS; mst = mst + 1)
+//    begin
+//        if (~HRESETn)
+//            phase_d_default[mst] <= 1'b0;
+//        else if (phase_a_default[mst])
+//            phase_d_default[mst] <= 1'b1;
+//        else
+//            phase_d_default[mst] <= 1'b0;
+//    end
+//end
+//
 always @(posedge HCLK, negedge HRESETn)
 begin
     integer mst;
-    for (mst = 0; mst < MASTERS; mst = mst + 1)
+    if (~HRESETn)
     begin
-        if (~HRESETn)
+        for (mst = 0; mst < MASTERS; mst = mst + 1)
+        begin
             phase_d_default[mst] <= 1'b0;
-        else if (phase_a_default[mst])
-            phase_d_default[mst] <= 1'b1;
-        else
-            phase_d_default[mst] <= 1'b0;
+        end
+    end
+    else
+    begin
+        for (mst = 0; mst < MASTERS; mst = mst + 1)
+        begin
+            if (phase_a_default[mst])
+                phase_d_default[mst] <= 1'b1;
+            else
+                phase_d_default[mst] <= 1'b0;
+        end
     end
 end
 
@@ -249,19 +299,47 @@ endgenerate
 //------------------------
 // Data Phase Timing
 //------------------------
+//always @(posedge HCLK, negedge HRESETn)
+//begin
+//    integer mst, slv;
+//    for (slv = 0; slv < SLAVES; slv = slv + 1)
+//    begin
+//        for (mst = 0; mst < MASTERS; mst = mst + 1)
+//        begin
+//            if (~HRESETn)
+//                phase_d[slv][mst] <= 1'b0;
+//            else if (s_addr_ack[slv])
+//                phase_d[slv][mst] <= phase_a_req_winner[slv][mst];
+//            else if (s_data_ack[slv])
+//                phase_d[slv][mst] <= 1'b0;                    
+//        end
+//    end
+//end
+//
 always @(posedge HCLK, negedge HRESETn)
 begin
     integer mst, slv;
-    for (slv = 0; slv < SLAVES; slv = slv + 1)
+    if (~HRESETn)
     begin
-        for (mst = 0; mst < MASTERS; mst = mst + 1)
+        for (slv = 0; slv < SLAVES; slv = slv + 1)
         begin
-            if (~HRESETn)
+            for (mst = 0; mst < MASTERS; mst = mst + 1)
+            begin
                 phase_d[slv][mst] <= 1'b0;
-            else if (s_addr_ack[slv])
-                phase_d[slv][mst] <= phase_a_req_winner[slv][mst];
-            else if (s_data_ack[slv])
-                phase_d[slv][mst] <= 1'b0;                    
+            end
+        end
+    end
+    else    
+    begin
+        for (slv = 0; slv < SLAVES; slv = slv + 1)
+        begin
+            for (mst = 0; mst < MASTERS; mst = mst + 1)
+            begin
+                if (s_addr_ack[slv])
+                    phase_d[slv][mst] <= phase_a_req_winner[slv][mst];
+                else if (s_data_ack[slv])
+                    phase_d[slv][mst] <= 1'b0;                    
+            end
         end
     end
 end

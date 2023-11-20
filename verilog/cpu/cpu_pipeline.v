@@ -6,8 +6,9 @@
 //-----------------------------------------------------------
 // History :
 // Rev.01 2020.09.12 M.Maruyama First Release
+// Rev.02 2023.05.14 M.Maruyama cJTAG Support and Halt-on-Reset
 //-----------------------------------------------------------
-// Copyright (C) 2017-2020 M.Maruyama
+// Copyright (C) 2017-2023 M.Maruyama
 //===========================================================
 //
 // Pipeline Stage = 3 to 5 stage for Integer Instructions
@@ -80,6 +81,10 @@ module CPU_PIPELINE
 (
     input wire RES_CPU, // CPU Reset
     input wire CLK,     // System Clock
+    //
+    // Stand-by Control
+    input  wire STBY_REQ,  // System Stand-by Request
+    output reg  STBY_ACK,  // System Stand-by Acknowledge
     //
     // Reset Vector
     input  wire [31:0] RESET_VECTOR,  // Reset Vector
@@ -169,16 +174,17 @@ module CPU_PIPELINE
     output wire [31:0] INSTR_ADDR, // Instruction Retired Address
     output wire [31:0] INSTR_CODE, // Instruction Retired Code
     //
-    input  wire        DBG_HALT_REQ,    // HALT Request
-    output wire        DBG_HALT_ACK,    // HALT Acknowledge
-    input  wire        DBG_HALT_RESET,  // HALT when Reset
-    input  wire        DBG_HALT_EBREAK, // HALT when EBREAK
-    input  wire        DBG_RESUME_REQ,  // Resume Request 
-    output wire        DBG_RESUME_ACK,  // Resume Acknowledge 
-    output reg  [31:0] DBG_DPC_SAVE,    // Debug PC to be saved
-    input  wire [31:0] DBG_DPC_LOAD,    // Debug PC to be loaded
-    output reg  [ 2:0] DBG_CAUSE,       // Debug Entry Cause
-    output wire        DEBUG_MODE       // Debug Mode
+    input  wire        DBG_HALT_REQ,     // HALT Request
+    output wire        DBG_HALT_ACK,     // HALT Acknowledge
+    input  wire        DBG_HALT_RESET,   // HALT when Reset
+    input  wire        DBG_HALT_EBREAK,  // HALT when EBREAK
+    input  wire        DBG_RESUME_REQ,   // Resume Request 
+    output wire        DBG_RESUME_ACK,   // Resume Acknowledge 
+    output reg  [31:0] DBG_DPC_SAVE,     // Debug PC to be saved
+    input  wire [31:0] DBG_DPC_LOAD,     // Debug PC to be loaded
+    output reg  [ 2:0] DBG_CAUSE,        // Debug Entry Cause
+    output wire        DEBUG_MODE,       // Debug Mode
+    output wire        DEBUG_MODE_EMPTY  // Debug Mode with Pipeline Empty
     //
     ,
     output wire [13:0] ID_FPU_SRC1,  // FPU Source 1 in ID Stage
@@ -190,6 +196,70 @@ module CPU_PIPELINE
     input  wire        ID_FPU_STALL, // FPU Stall Request in ID Stage    
     input  wire        FPUCSR_DIRTY  // FPU CSR is Dirty
 );
+
+//-------------------------
+// STBY related Control
+//-------------------------
+reg  stby_req;
+//
+always @(posedge CLK, posedge RES_CPU)
+begin
+    if (RES_CPU)
+        stby_req <= 1'b0;
+    else
+        stby_req <= STBY_REQ;
+end
+//
+reg  stby_req_delay;
+wire stby_req_rise;
+wire stby_req_fall;
+//
+always @(posedge CLK, posedge RES_CPU)
+begin
+    if (RES_CPU)
+        stby_req_delay <= 1'b0;
+    else
+        stby_req_delay <= stby_req;
+end
+assign stby_req_rise =  stby_req & ~stby_req_delay;
+assign stby_req_fall = ~stby_req &  stby_req_delay;
+//
+reg  stby_halt_req;
+wire stby_halt_ack;
+reg  stby_halt_ack_0;
+reg  stby_resume_req;
+wire stby_resume_ack;
+reg  stby_resume_ack_0;
+//
+always @(posedge CLK, posedge RES_CPU)
+begin
+    if (RES_CPU)
+        stby_halt_req <= 1'b0;
+    else if (stby_halt_ack)
+        stby_halt_req <= 1'b0;
+    else if (stby_req & INSTR_EXEC)
+        stby_halt_req <= 1'b1;
+end
+//
+always @(posedge CLK, posedge RES_CPU)
+begin
+    if (RES_CPU)
+        stby_resume_req <= 1'b0;
+    else if (stby_req_fall)
+        stby_resume_req <= 1'b1;
+    else if (stby_resume_ack)
+        stby_resume_req <= 1'b0;
+end
+//
+always @(posedge CLK, posedge RES_CPU)
+begin
+    if (RES_CPU)
+        STBY_ACK <= 1'b0;
+    else if (stby_halt_ack)
+        STBY_ACK <= 1'b1;
+    else if (stby_resume_ack)
+        STBY_ACK <= 1'b0;
+end
 
 //-----------------------------
 // Decode Immediate Field
@@ -637,6 +707,7 @@ reg       jump_target_exp;
 reg       jump_target_int;
 reg       jump_target_mret;
 reg       jump_target_resume;
+reg       jump_target_stby_resume;
 reg [2:0] id_cmp_func;       
 //
 assign FETCH_ADDR = (jump_target_reset )? RESET_VECTOR
@@ -651,6 +722,7 @@ assign FETCH_ADDR = (jump_target_reset )? RESET_VECTOR
                   : (jump_target_int   )? MTVEC_INT
                   : (jump_target_mret  )? MEPC_LOAD
                   : (jump_target_resume)? DBG_DPC_LOAD
+                  : (jump_target_stby_resume) ? pipe_id_pc
                   : 32'h00000000;
 
 //------------------------------------------------
@@ -676,8 +748,8 @@ reg  [ 2:0] id_fpu_rmode;    // FPU Round Mode in ID Stage
 //--------------------------
 // HALT and RESUME Control
 //--------------------------
-reg  dbg_halt_ack;   // HALT Acknowledge
-reg  dbg_resume_ack; // RESUME Acknowledge 
+reg  dbg_halt_ack;   // Debug HALT Acknowledge
+reg  dbg_resume_ack; // Debug RESUME Acknowledge 
 
 //-------------------------
 // Datapath Interface
@@ -721,6 +793,9 @@ assign ID_FPU_RMODE = (1'b1             )? id_fpu_rmode :  3'b0;
 //
 assign DBG_HALT_ACK   = (slot & ~stall)? dbg_halt_ack   : 1'b0;
 assign DBG_RESUME_ACK = (slot & ~stall)? dbg_resume_ack : 1'b0;
+//
+assign stby_halt_ack    = (slot & ~stall)? stby_halt_ack_0   : 1'b0;
+assign stby_resume_ack  = (slot & ~stall)? stby_resume_ack_0 : 1'b0;
 
 //------------------------
 // ID Stage State
@@ -799,6 +874,8 @@ assign TRG_ACK_DATA = slot & ~stall & trg_ack_data;
 // Debug Mode
 //----------------------
 assign DEBUG_MODE = (state_id_ope == `STATE_ID_DEBUG_MODE);
+assign DEBUG_MODE_EMPTY = DEBUG_MODE
+                & ~pipe_ex_enable & ~pipe_ma_enable & ~pipe_wb_enable;
 
 //---------------------------------
 // Bus Error Exception Request
@@ -865,6 +942,7 @@ begin
     jump_target_int    = 1'b0;
     jump_target_mret   = 1'b0;
     jump_target_resume = 1'b0;
+    jump_target_stby_resume = 1'b0;
     //
     pipe_id_enable = 1'b0;
     //
@@ -915,6 +993,9 @@ begin
     id_fpu_dst1  = 14'h0000;
     id_fpu_cmd   = 8'h00;
     id_fpu_rmode = 3'b000;
+    //
+    stby_halt_ack_0   = 1'b0;
+    stby_resume_ack_0 = 1'b0;
     //
     // Switch State
     casez (state_id_ope) // FF
@@ -974,6 +1055,23 @@ begin
             end
         end
         //***************************************************
+        // STATE_ID_STBY_MODE
+        //***************************************************
+        `STATE_ID_STBY_MODE: 
+        begin
+            if (stby_resume_req)
+            begin
+                stby_resume_ack_0 = 1'b1;
+                //
+                fetch_start = 1'b1;
+                jump_target_stby_resume = 1'b1;
+                state_id_ope_nxt = `STATE_ID_DECODE_TARGET;
+                state_id_ope_upd = 1'b1;
+                decode_stp   = 1'b1;
+                decode_ack   = 1'b1;
+            end
+        end
+        //***************************************************
         // STATE_ID_DECODE
         //***************************************************
         `STATE_ID_DECODE: // `STATE_ID_DECODE_NORMAL + `STATE_ID_DECODE_TARGET
@@ -996,7 +1094,7 @@ begin
                     decode_ack   = 1'b1;                
                 end
                 //-------------------------------------------------
-                // If HALT requested, Goto Debug Mode
+                // If Debug HALT requested, Goto Debug Mode
                 //-------------------------------------------------
                 else if (DBG_HALT_REQ & (state_id_seq == 4'h0)) // FF
                 begin
@@ -1007,6 +1105,21 @@ begin
                     state_id_ope_nxt = `STATE_ID_DEBUG_MODE;
                     state_id_ope_upd = 1'b1;
                     decode_stp   = 1'b1;                                
+                end
+                //-------------------------------------------------
+                // STBY Request
+                //-------------------------------------------------
+                else if (stby_halt_req & (state_id_seq == 4'h0))
+                begin
+                    pipe_id_enable = 1'b0; // disabled stage
+                    //
+                    if (~pipe_ex_enable & ~pipe_ma_enable & ~pipe_wb_enable)
+                    begin
+                        stby_halt_ack_0 = 1'b1;
+                        state_id_ope_nxt = `STATE_ID_STBY_MODE;
+                        state_id_ope_upd = 1'b1;
+                        decode_stp   = 1'b1;
+                    end
                 end
                 //-------------------------------------------------
                 // Interrupt, WFI waiting for

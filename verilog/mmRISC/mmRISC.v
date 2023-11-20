@@ -7,8 +7,9 @@
 // History :
 // Rev.01 2017.07.16 M.Maruyama First Release
 // Rev.02 2020.01.01 M.Maruyama Debug Spec Version 0.13.2
+// Rev.03 2023.05.14 M.Maruyama cJTAG Support and Halt-on-Reset
 //-----------------------------------------------------------
-// Copyright (C) 2017-2020 M.Maruyama
+// Copyright (C) 2017-2023 M.Maruyama
 //===========================================================
 
 `include "defines_core.v"
@@ -24,11 +25,18 @@ module mmRISC
     input  wire RES_ORG, // Reset Origin (e.g. Power On Reset)
     output wire RES_SYS, // Reset System (including reset from debug)
     input  wire CLK,  // System Clock
-    input  wire STBY, // System Stand-by
+    //
+    input  wire STBY_REQ,  // System Stand-by Request
+    output reg  STBY_ACK,  // System Stand-by Acknowledge
     //
     input  wire TRSTn,     // JTAG TAP Reset
     input  wire SRSTn_IN,  // System Reset Input except for Debug
     output wire SRSTn_OUT, // System Reset Output from Debug
+    //
+    input  wire FORCE_HALT_ON_RESET_REQ, // FORCE_HALT_ON_RESET Request
+    output wire FORCE_HALT_ON_RESET_ACK, // FORCE_HALT_ON_RESET Acknowledge
+    input  wire [31:0] JTAG_DR_USER_IN,  // JTAG DR User Register Input
+    output wire [31:0] JTAG_DR_USER_OUT, // JTAG DR User Register Output
     //
     input  wire TCK,   // JTAG Clock
     input  wire TMS,   // JTAG Mode Select
@@ -38,8 +46,9 @@ module mmRISC
     output wire RTCK,  // JTAG Return Clock
     //
     input  wire [31:0] RESET_VECTOR     [0:HART_COUNT-1], // Reset Vector
-    input  wire        DEBUG_SECURE,      // Debug should be secure, or not
-    input  wire [31:0] DEBUG_SECURE_CODE, // Debug Security Pass Code
+    input  wire        DEBUG_SECURE,        // Debug should be secure, or not
+    input  wire [31:0] DEBUG_SECURE_CODE_0, // Debug Security Pass Code 0
+    input  wire [31:0] DEBUG_SECURE_CODE_1, // Debug Security Pass Code 1
     //
     output wire        CPUI_M_HSEL      [0:HART_COUNT-1], // AHB for CPU Instruction
     output wire [ 1:0] CPUI_M_HTRANS    [0:HART_COUNT-1], // AHB for CPU Instruction
@@ -107,6 +116,17 @@ module mmRISC
 //----------------
 genvar i;
 integer x;
+
+//------------------------
+// Low Power Control
+//------------------------
+wire stby_ack[0 : HART_COUNT - 1]; // Stand-by Acknowledge
+always @*
+begin
+    STBY_ACK = 1'b1;
+    for (x = 0; x < HART_COUNT; x = x + 1)
+        STBY_ACK = STBY_ACK & stby_ack[x];
+end
 
 //------------------------
 // Instruction Fetch Bus
@@ -214,6 +234,11 @@ U_DEBUG_TOP
     .SRSTn_IN  (SRSTn_IN),
     .SRSTn_OUT (SRSTn_OUT),
     //
+    .FORCE_HALT_ON_RESET_REQ (FORCE_HALT_ON_RESET_REQ),
+    .FORCE_HALT_ON_RESET_ACK (FORCE_HALT_ON_RESET_ACK),
+    .JTAG_DR_USER_IN  (JTAG_DR_USER_IN ),
+    .JTAG_DR_USER_OUT (JTAG_DR_USER_OUT),
+    //
     .TCK (TCK),
     .TMS (TMS),
     .TDI (TDI),
@@ -223,8 +248,9 @@ U_DEBUG_TOP
     //
     .DEBUG_MODE (debug_mode),
     //
-    .DEBUG_SECURE      (DEBUG_SECURE),
-    .DEBUG_SECURE_CODE (DEBUG_SECURE_CODE),
+    .DEBUG_SECURE        (DEBUG_SECURE),
+    .DEBUG_SECURE_CODE_0 (DEBUG_SECURE_CODE_0),
+    .DEBUG_SECURE_CODE_1 (DEBUG_SECURE_CODE_1),
     //
     .HART_HALT_REQ      (hart_halt_req),
     .HART_STATUS        (hart_status),
@@ -272,7 +298,9 @@ generate
         (
             .RES_SYS (RES_SYS),
             .CLK     (CLK),
-            .STBY    (STBY),
+            //
+            .STBY_REQ (STBY_REQ),
+            .STBY_ACK (stby_ack[i]),
             //
             .HART_ID      (i),
             .RESET_VECTOR (RESET_VECTOR[i]),

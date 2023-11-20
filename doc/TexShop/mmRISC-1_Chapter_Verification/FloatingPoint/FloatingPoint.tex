@@ -1,0 +1,491 @@
+%=========================================================
+%  Verification of Floating Point Operations
+%=========================================================
+\section{Verification of Floating Point Operations}
+\label{sec:VEFIFYFLOATINGPOINT}
+
+To verify the calculation results of the CPU’s floating-point related instructions, we need a large number of test cases and their expected values. These consist of combinations of calculation types, various formats such as normal/subnormal/zero/infinite/NaN numbers, and multiple rounding methods. For example, mmRISC-1 used the following methods:
+
+
+\begin{itemize}
+    \item Preparation of Test Cases by using Berkeley TestFloat
+    \item Verification of all Test Cases by using FPGA system
+\end{itemize}
+
+\subsection{Preparation of Test Cases by using Berkeley TestFloat}
+\begin{description}
+
+    \item[(a) Installation of Berkley Float]\mbox{}\\
+You need to download and build the Berkeley SoftFloat and the Berkeley TestFloat before proceeding. You can find them in the following links:
+
+\texttt{https://github.com/ucb-bar/berkeley-softfloat-3.git\\
+        https://github.com/ucb-bar/berkeley-testfloat-3.git}\\
+
+You also need to make sure that you have an executable binary file "testfloat\_gen" in the directory "TestFloat-3e/build/.../". This file is a test-case-generator for floating-point operations.\\
+
+
+    \item[(b) Generating Test Case Files]\mbox{}\\
+The directory "mmRISC-1/workspace" contains mmRISC-1 sample Eclipse projects. You can find a directory "mmRISC\_Floating/testcase" in it. In this directory, you can make floating-point test cases by using the given scripts as shown in Table \ref{tb:TESTFLOATGEN}. Each script runs the test-case-generator executable binary "testfloat\_gen", so you need to edit the correct location of the executable binary for your environment. To run each script and generate the corresponding test case text file, you need to enter the following command.    
+    
+\texttt{\$ ./gen\_testfloat\_X \\(X is A, B, D, F2S, F2U, M, N, Q, S2F or U2F)}
+
+    \item[(c) Structure of Test Case Files]\mbox{}\\
+The generated test case files for 1-operand, 2-operand, and 3-operand operations are shown in Listings \ref{list:TESTCASE1}, \ref{list:TESTCASE2}, and \ref{list:TESTCASE3}, respectively. Each file has test cases for five rounding modes, which are:
+
+    
+\begin{itemize}
+    \item RNE: Round to Nearest and tied to even
+    \item RTZ: Round to Zero
+    \item RDN: Round Down towards minus infinite
+    \item RUP: Round Up towards plus infinite
+    \item RMM: Round to Nearest, ties to Max Magnitude
+\end{itemize}
+
+Each test case starts with a 3-letter OPCODE that consists of a \#, an operation indicator, and a rounding mode indicator as shown in Table \ref{tb:TESTCASEOPCODE}. The OPCODE is followed by the test case body. The file has five groups of rounding modes.\\\\
+
+The test case body for the 1-operand type has three columns, as shown in Listing \ref{list:TESTCASE1}. Each column represents a 32-bit or a 5-bit hexadecimal data. The meanings of each column are as follows: (1) The first column is the 32-bit input data, (2) The second column is the expected 32-bit result data, and (3) The third column is the expected 5-bits exception flag, which is explained in Table \ref{tb:TESTCASEFLAG}.\\
+
+The test case body for the 2-operands type has four columns, as shown in Listing \ref{list:TESTCASE2}. Each column represents a 32-bit or a 5-bit hexadecimal data. The meanings of each column are as follows: (1) The first and second columns are the 32-bit input data, (2) The third column is the expected 32-bit result data, (3) The fourth column is the expected 5-bit exception flag, which is explained in Table \ref{tb:TESTCASEFLAG}.\\
+
+The test case body for the 3-operands type has five columns, as shown in Listing \ref{list:TESTCASE3}. Each column represents a 32-bit or a 5-bit hexadecimal data. The meanings of each column are as follows: (1) The first, second, and third columns are the 32-bit input data, (2) The fourth column is the expected 32-bit result data, which is calculated as (first * second + third), (3) The fifth column is the expected 5-bit exception flag, which is explained in Table \ref{tb:TESTCASEFLAG}.\\
+
+
+\it{Note 1 : The test case file for 3-operands type is indeed very large. It contains more than 6,000,000 test cases for each rounding mode. You can reduce it by selecting some test cases at regular intervals using some tool such as sed or awk. For example, you can use the following command to extract every 250th line from the original file and save it as a new file:\\
+\texttt{sed -n '1~250p' original\_file > new\_file}\\
+This will reduce the number of test cases for each rounding mode, which is more manageable. You can also adjust the interval according to your preference.}\rm{}\\
+
+\it{Note 2 : For "testfloat\_N" for multiplication and addition, there should be FMADD.S as well as FMSUB.S, FNMSUB.S and FNMADD.S. In the floating-point logic of mmRISC-1, the only differences among these four instructions are how they apply the sign bit to each input data. Therefore, FMADD can represent the other instructions.}\rm{}\\
+
+\begin{table}[H]
+    \begin{adjustbox}{scale={0.72}{0.8}}
+    \textsf{
+    \begin{tabular}{|L{3.5cm}{3.5cm}{t}|L{5cm}{5cm}{t}|L{1.5cm}{1.5cm}{t}|L{3cm}{3cm}{t}|L{2cm}{2cm}{t}|L{2cm}{2cm}{t}|}
+        \hline
+        %-------------------------------------
+        \rowcolor{LightPurple}
+        \textbf{Script Name} & \textbf{Operation} & \textbf{Operand \lb Counts} &
+        \textbf{Generated \lb Test Case File} & \textbf{Total Test \lb Cases} & \textbf{Note}
+        \nextRow \hline
+        %-------------------------------------
+        gen\_testfloat\_A &
+        F32 = F32 + F32 &
+        2 &
+        testfloat\_A &
+        232,320 &
+        ~
+        \nextRow \hline        
+        %-------------------------------------
+        gen\_testfloat\_B &
+        F32 = F32 - F32 &
+        2 &
+        testfloat\_B &
+        232,320 &
+        ~
+        \nextRow \hline        
+        %-------------------------------------
+        gen\_testfloat\_D &
+        F32 = F32 / F32 &
+        2 &
+        testfloat\_D &
+        232,320 &
+        ~
+        \nextRow \hline        
+        %-------------------------------------
+        gen\_testfloat\_F2S &
+        SI32 = F32 (conversion)&
+        1 &
+        testfloat\_F2S &
+        3,090 &
+        Manually \lb added \lb some cases.
+        \nextRow \hline        
+        %-------------------------------------
+        gen\_testfloat\_F2U &
+        UI32 = F32 (conversion) &
+        1 &
+        testfloat\_F2U &
+        3,000 &
+        ~
+        \nextRow \hline        
+        %-------------------------------------
+        gen\_testfloat\_M &
+        F32 = F32 * F32 & 
+        2 &
+        testfloat\_M &
+        232,320 &
+        ~
+        \nextRow \hline        
+        %-------------------------------------
+        gen\_testfloat\_N &
+        F32 = F32 * F32 + F32 & 
+        3 &
+        testfloat\_N &
+        30,666,250 &
+        Too huge. \lb Need to \lb reduce.
+        \nextRow \hline        
+        %-------------------------------------
+        gen\_testfloat\_Q &
+        F32 = sqrt(F32) & 
+        1 &
+        testfloat\_Q &
+        3,000 &
+        ~
+        \nextRow \hline        
+        %-------------------------------------
+        gen\_testfloat\_S2F &
+        F32 = SI32 (conversion)&
+        1 &
+        testfloat\_S2F &
+        1,860 &
+        ~
+        \nextRow \hline        
+        %-------------------------------------
+        gen\_testfloat\_U2F &
+        F32 = UI32 (conversion)&
+        1 &
+        testfloat\_U2F &
+        1,860 &
+        ~
+        \nextRow \hline        
+        %-------------------------------------
+    \end{tabular}
+    }
+    \end{adjustbox}
+    \caption{Scripts for Generating Floating Point Test Cases}
+    \label{tb:TESTFLOATGEN}
+\end{table}
+
+
+\begin{lstlisting}[caption=Example of Generated 1-Operand Test Case (testfloat\_F2S), label=list:TESTCASE1, captionpos=b,  language=, frame=single, basicstyle=\ttfamily\scriptsize]
+#SN
+be804000 00000000 00
+be804080 00000000 00
+be000000 00000000 00
+bc800000 00000000 00
+...
+#SZ
+be804000 00000000 00
+be804080 00000000 00
+be000000 00000000 00
+bc800000 00000000 00
+...
+#SD
+be804000 ffffffff 00
+be804080 ffffffff 00
+be000000 ffffffff 00
+bc800000 ffffffff 00
+...
+#SU
+be804000 00000000 00
+be804080 00000000 00
+be000000 00000000 00
+bc800000 00000000 00
+...
+#SM
+be804000 00000000 00
+be804080 00000000 00
+be000000 00000000 00
+bc800000 00000000 00
+...
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Example of Generated 2-Operand Test Case (testfloat\_A), label=list:TESTCASE2, captionpos=b,  language=, frame=single, basicstyle=\ttfamily\scriptsize]
+#AN
+8683F7FF C07F3FFF C07F3FFF 01
+00000000 3C072C85 3C072C85 00
+9EDE38F7 3E7F7F7F 3E7F7F7F 01
+DF7EFFFF 00000000 DF7EFFFF 00
+...
+#AZ
+8683F7FF C07F3FFF C07F3FFF 01
+00000000 3C072C85 3C072C85 00
+9EDE38F7 3E7F7F7F 3E7F7F7E 01
+DF7EFFFF 00000000 DF7EFFFF 00
+...
+#AD
+8683F7FF C07F3FFF C07F4000 01
+00000000 3C072C85 3C072C85 00
+9EDE38F7 3E7F7F7F 3E7F7F7E 01
+DF7EFFFF 00000000 DF7EFFFF 00
+...
+#AU
+8683F7FF C07F3FFF C07F3FFF 01
+00000000 3C072C85 3C072C85 00
+9EDE38F7 3E7F7F7F 3E7F7F7F 01
+DF7EFFFF 00000000 DF7EFFFF 00
+...
+#AM
+8683F7FF C07F3FFF C07F3FFF 01
+00000000 3C072C85 3C072C85 00
+9EDE38F7 3E7F7F7F 3E7F7F7F 01
+DF7EFFFF 00000000 DF7EFFFF 00
+...
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Example of Generated 3-Operand Test Case (testfloat\_N), label=list:TESTCASE3, captionpos=b,  language=, frame=single, basicstyle=\ttfamily\scriptsize]
+#NN
+8683F7FF C07F3FFF 00000000 07839504 01
+00000000 00000000 3C072C85 3C072C85 00
+9EDE38F7 3E7F7F7F DF7EFFFF DF7EFFFF 01
+4F951295 00000000 00000000 00000000 00
+...
+#NZ
+8683F7FF C07F3FFF 00000000 07839504 01
+00000000 00000000 3C072C85 3C072C85 00
+9EDE38F7 3E7F7F7F DF7EFFFF DF7EFFFF 01
+4F951295 00000000 00000000 00000000 00
+...
+#ND
+8683F7FF C07F3FFF 00000000 07839504 01
+00000000 00000000 3C072C85 3C072C85 00
+9EDE38F7 3E7F7F7F DF7EFFFF DF7F0000 01
+4F951295 00000000 00000000 00000000 00
+...
+#NU
+8683F7FF C07F3FFF 00000000 07839505 01
+00000000 00000000 3C072C85 3C072C85 00
+9EDE38F7 3E7F7F7F DF7EFFFF DF7EFFFF 01
+4F951295 00000000 00000000 00000000 00
+...
+#NM
+8683F7FF C07F3FFF 00000000 07839504 01
+00000000 00000000 3C072C85 3C072C85 00
+9EDE38F7 3E7F7F7F DF7EFFFF DF7EFFFF 01
+4F951295 00000000 00000000 00000000 00
+...
+\end{lstlisting}
+
+
+\begin{table}[H]
+    \begin{adjustbox}{scale={0.75}{0.9}}
+    \textsf{
+    \begin{tabular}{|L{3cm}{3cm}{t}|L{3cm}{3cm}{t}|L{1.5cm}{1.5cm}{t}|L{1.5cm}{1.5cm}{t}|L{1.5cm}{1.5cm}{t}|L{1.5cm}{1.5cm}{t}|L{1.5cm}{1.5cm}{t}|L{1cm}{1cm}{t}|}
+        \hline
+        %-------------------------------------
+        \rowcolor{LightPurple}
+        \setMultiRow{2}{\textbf{Test Case File}} &
+        \setMultiRow{2}{\textbf{Operation}} &
+        \setMultiColumn{5}{11cm}{11cm}{l}{t}{}{|}{\textbf{OPCODE}} &
+        \textbf{Note}
+        \nextRow \cline{3-7}
+        %-------------------------------------
+        \rowcolor{LightPurple}
+        &
+        &
+        RNE & RTZ & RDN & RUP & RMM &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        testfloat\_A &
+        FADD.S &
+        \#AN & \#AZ & \#AD & \#AU & \#AM &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        testfloat\_B &
+        FSUB.S &
+        \#BN & \#BZ & \#BD & \#BU & \#BM &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        testfloat\_D &
+        FDIV.S &
+        \#DN & \#DZ & \#DD & \#DU & \#DM &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        testfloat\_F2S &
+        FCVT.W.S &
+        \#SN & \#SZ & \#SD & \#SU & \#SM &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        testfloat\_F2U &
+        FCVT.WU.S &
+        \#UN & \#UZ & \#UD & \#UU & \#UM &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        testfloat\_M &
+        FMUL.S &
+        \#MN & \#MZ & \#MD & \#MU & \#MM &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        testfloat\_N &
+        FMADD.S &
+        \#NN & \#NZ & \#ND & \#NU & \#NM &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        testfloat\_Q &
+        FSQRT.S &
+        \#QN & \#QZ & \#QD & \#QU & \#QM &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        testfloat\_S2F &
+        FCVT.S.W &
+        \#sN & \#sZ & \#sD & \#sU & \#sM &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        testfloat\_U2F &
+        FCVT.S.WU &
+        \#uN & \#uZ & \#uD & \#uU & \#uM &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+    \end{tabular}
+    }
+    \end{adjustbox}
+    \caption{OPCODEs in Test Case File}
+    \label{tb:TESTCASEOPCODE}
+\end{table}
+
+\begin{table}[H]
+    \begin{adjustbox}{scale={1}{1}}
+    \textsf{
+    \begin{tabular}{|L{1.5cm}{1.5cm}{t}|L{2cm}{2cm}{t}|L{6cm}{6cm}{t}|L{1cm}{1cm}{t}|}
+        \hline
+        %-------------------------------------
+        \rowcolor{LightPurple}
+        \textbf{Bit} & \textbf{Symbol} & \textbf{Description} & \textbf{Note}
+        \nextRow \hline
+        %-------------------------------------
+        bit4 & NV & Invalid Exception & ~
+        \nextRow \hline
+        %-------------------------------------
+        bit3 & DZ & Infinite Exception (Divide by Zero) & ~
+        \nextRow \hline
+        %-------------------------------------
+        bit2 & OF & Overflow Exception & ~
+        \nextRow \hline
+        %-------------------------------------
+        bit1 & UF & Underflow Exception & ~
+        \nextRow \hline
+        %-------------------------------------
+        bit0 & NX & Inexact Exception & ~
+        \nextRow \hline
+        %-------------------------------------
+    \end{tabular}
+    }
+    \end{adjustbox}
+    \caption{Exception Flag in Test Case File}
+    \label{tb:TESTCASEFLAG}
+\end{table}
+
+\end{description}
+
+
+
+\subsection{Verification of all Test Cases by using FPGA system}
+There are too many test cases to verify by logic simulation, as it would take a long time. Therefore, we suggest that you prepare the FPGA system of mmRISC-1 as a hardware logic emulator for verification. You can find the details of the FPGA system in the next chapter.\\
+
+You can use the C program in the directory "mmRISC-1/workspace/mmRISC\_Floating/" to verify the test cases. The function "Test\_Float()" in ./src/float.c performs the verification. You need to build and run the project, and send each test case text to UART RXD (8N1, 57600bps) with a terminal application. The function decodes OPCODEs (\#xx) and executes each operation with test case inputs. It also compares the results and exception flags with the expected values. The terminal will receive verification results from UART TXD (8N1, 57600bps), as shown in Tables \ref{list:TESTCASE1OUT}, \ref{list:TESTCASE2OUT}, and \ref{list:TESTCASE3OUT}. You should save the received ASCII data as a text file named "testfloat\_X.out" with the terminal function. Each received line has five columns: the sent test case, the operation result data, the comparison result of the data ("OK" or "NG"), the exception result flag, and the comparison result of the flag ("ok" or "ng"). You need to check the output results to verify the floating-point operations.\\\\
+
+\it{Note 1 : The FDIV and FSQRT instructions use the Goldschmidt algorithm, which requires a convergence loop count. This count is specified in the CSR FCONV (0xbe0) and has a maximum value of 15 (0xf). This value ensures the accuracy of each result.}\rm{}\\
+
+\it{Note 2 : The output data may sometimes show "NG" for the values and "ng" for the flags. This means that there are some differences between the mmRISC-1 and the TestFloat in how they handle NaN and exception flags. For the "NG" values, the bit patterns are slightly different, but they are both valid NaN formats. For the "ng" flags, the exception handling policies are different.}\rm{}\\\\
+
+
+\begin{lstlisting}[caption=Example Result of 1-Operand Test Case (testfloat\_F2S), label=list:TESTCASE1OUT, captionpos=b,  language=, frame=single, basicstyle=\ttfamily\scriptsize]
+#SN
+be804000 00000000 00 00000000 OK 00 ok
+be804080 00000000 00 00000000 OK 00 ok
+be000000 00000000 00 00000000 OK 00 ok
+bc800000 00000000 00 00000000 OK 00 ok
+...
+#SZ
+be804000 00000000 00 00000000 OK 00 ok
+be804080 00000000 00 00000000 OK 00 ok
+be000000 00000000 00 00000000 OK 00 ok
+bc800000 00000000 00 00000000 OK 00 ok
+...
+#SD
+be804000 ffffffff 00 FFFFFFFF OK 00 ok
+be804080 ffffffff 00 FFFFFFFF OK 00 ok
+be000000 ffffffff 00 FFFFFFFF OK 00 ok
+bc800000 ffffffff 00 FFFFFFFF OK 00 ok
+...
+#SU
+be804000 00000000 00 00000000 OK 00 ok
+be804080 00000000 00 00000000 OK 00 ok
+be000000 00000000 00 00000000 OK 00 ok
+bc800000 00000000 00 00000000 OK 00 ok
+...
+#SM
+be804000 00000000 00 00000000 OK 00 ok
+be804080 00000000 00 00000000 OK 00 ok
+be000000 00000000 00 00000000 OK 00 ok
+bc800000 00000000 00 00000000 OK 00 ok
+...
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Example Result of 2-Operand Test Case (testfloat\_A), label=list:TESTCASE2OUT, captionpos=b,  language=, frame=single, basicstyle=\ttfamily\scriptsize]
+#AN
+8683F7FF C07F3FFF C07F3FFF 01 C07F3FFF OK 01 ok
+00000000 3C072C85 3C072C85 00 3C072C85 OK 00 ok
+9EDE38F7 3E7F7F7F 3E7F7F7F 01 3E7F7F7F OK 01 ok
+DF7EFFFF 00000000 DF7EFFFF 00 DF7EFFFF OK 00 ok
+...
+#AZ
+8683F7FF C07F3FFF C07F3FFF 01 C07F3FFF OK 01 ok
+00000000 3C072C85 3C072C85 00 3C072C85 OK 00 ok
+9EDE38F7 3E7F7F7F 3E7F7F7E 01 3E7F7F7E OK 01 ok
+DF7EFFFF 00000000 DF7EFFFF 00 DF7EFFFF OK 00 ok
+...
+#AD
+8683F7FF C07F3FFF C07F4000 01 C07F4000 OK 01 ok
+00000000 3C072C85 3C072C85 00 3C072C85 OK 00 ok
+9EDE38F7 3E7F7F7F 3E7F7F7E 01 3E7F7F7E OK 01 ok
+DF7EFFFF 00000000 DF7EFFFF 00 DF7EFFFF OK 00 ok
+...
+#AU
+8683F7FF C07F3FFF C07F3FFF 01 C07F3FFF OK 01 ok
+00000000 3C072C85 3C072C85 00 3C072C85 OK 00 ok
+9EDE38F7 3E7F7F7F 3E7F7F7F 01 3E7F7F7F OK 01 ok
+DF7EFFFF 00000000 DF7EFFFF 00 DF7EFFFF OK 00 ok
+...
+#AM
+8683F7FF C07F3FFF C07F3FFF 01 C07F3FFF OK 01 ok
+00000000 3C072C85 3C072C85 00 3C072C85 OK 00 ok
+9EDE38F7 3E7F7F7F 3E7F7F7F 01 3E7F7F7F OK 01 ok
+DF7EFFFF 00000000 DF7EFFFF 00 DF7EFFFF OK 00 ok
+...
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Example Result of 3-Operand Test Case (testfloat\_N), label=list:TESTCASE3OUT, captionpos=b,  language=, frame=single, basicstyle=\ttfamily\scriptsize]
+#NN
+00000000 80000004 407FFFFE 407FFFFE 00 407FFFFE OK 00 ok
+00000000 57FFD7FF DA000084 DA000084 00 DA000084 OK 00 ok
+3E1003FF 7F800024 5F7FEFFF 7FC00024 10 7FC00000 NG 10 ok
+7FFFC0FE C59FF7FF 3FFFFFFE 7FFFC0FE 00 7FC00000 NG 10 ng
+...
+#NZ
+00000000 80000004 407FFFFE 407FFFFE 00 407FFFFE OK 00 ok
+00000000 57FFD7FF DA000084 DA000084 00 DA000084 OK 00 ok
+3E1003FF 7F800024 5F7FEFFF 7FC00024 10 7FC00000 NG 10 ok
+7FFFC0FE C59FF7FF 3FFFFFFE 7FFFC0FE 00 7FC00000 NG 10 ng
+...
+#ND
+00000000 80000004 407FFFFE 407FFFFE 00 407FFFFE OK 00 ok
+00000000 57FFD7FF DA000084 DA000084 00 DA000084 OK 00 ok
+3E1003FF 7F800024 5F7FEFFF 7FC00024 10 7FC00000 NG 10 ok
+7FFFC0FE C59FF7FF 3FFFFFFE 7FFFC0FE 00 7FC00000 NG 10 ng
+...
+#NU
+00000000 80000004 407FFFFE 407FFFFE 00 407FFFFE OK 00 ok
+00000000 57FFD7FF DA000084 DA000084 00 DA000084 OK 00 ok
+3E1003FF 7F800024 5F7FEFFF 7FC00024 10 7FC00000 NG 10 ok
+7FFFC0FE C59FF7FF 3FFFFFFE 7FFFC0FE 00 7FC00000 NG 10 ng
+...
+#NM
+00000000 80000004 407FFFFE 407FFFFE 00 407FFFFE OK 00 ok
+00000000 57FFD7FF DA000084 DA000084 00 DA000084 OK 00 ok
+3E1003FF 7F800024 5F7FEFFF 7FC00024 10 7FC00000 NG 10 ok
+7FFFC0FE C59FF7FF 3FFFFFFE 7FFFC0FE 00 7FC00000 NG 10 ng
+...
+\end{lstlisting}
+
+
+

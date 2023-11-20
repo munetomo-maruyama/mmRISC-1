@@ -164,24 +164,54 @@ assign fwd_ex_id4 = EX_ALU_DST2[13] & ID_DEC_SRC2[13] & (EX_ALU_DST2[12:0] == ID
 //-----------------------------------
 reg signed [31:0] regXR[0:31];
 //
+//always @(posedge CLK, posedge RES_CPU)
+//begin
+//    for (i = 0; i < 32; i = i + 1)
+//    begin
+//        if (RES_CPU)
+//            regXR[i] <= 32'h00000000;
+//        else if (i == 0)
+//            regXR[i] <= 32'h00000000;
+//        else
+//        begin
+//            if (DBGABS_GPR_REQ & DBGABS_GPR_WRITE & (DBGABS_GPR_ADDR[4:0] == i))
+//                regXR[i] <= DBGABS_GPR_WDATA;
+//            else if (((EX_ALU_DST1 & `ALU_MSK) == `ALU_GPR) & (EX_ALU_DST1[4:0] == i))
+//                regXR[i] <= ex_busZ; // Writing Conflict Priority EX > WB
+//            else if (((EX_ALU_DST2 & `ALU_MSK) == `ALU_GPR) & (EX_ALU_DST2[4:0] == i) & EX_AMO_SCOND) 
+//                regXR[i] <= ex_busV; // Writing Conflict Priority EX > WB
+//            else if (((WB_LOAD_DST & `ALU_MSK) == `ALU_GPR) & (WB_LOAD_DST[4:0] == i))
+//                regXR[i] <= wb_busW; // Writing Conflict Priority EX > WB        
+//        end
+//    end
+//end
+//
 always @(posedge CLK, posedge RES_CPU)
 begin
-    for (i = 0; i < 32; i = i + 1)
+    if (RES_CPU)
     begin
-        if (RES_CPU)
-            regXR[i] <= 32'h00000000;
-        else if (i == 0)
-            regXR[i] <= 32'h00000000;
-        else
+        for (i = 0; i < 32; i = i + 1)
         begin
-            if (DBGABS_GPR_REQ & DBGABS_GPR_WRITE & (DBGABS_GPR_ADDR[4:0] == i))
-                regXR[i] <= DBGABS_GPR_WDATA;
-            else if (((EX_ALU_DST1 & `ALU_MSK) == `ALU_GPR) & (EX_ALU_DST1[4:0] == i))
-                regXR[i] <= ex_busZ; // Writing Conflict Priority EX > WB
-            else if (((EX_ALU_DST2 & `ALU_MSK) == `ALU_GPR) & (EX_ALU_DST2[4:0] == i) & EX_AMO_SCOND) 
-                regXR[i] <= ex_busV; // Writing Conflict Priority EX > WB
-            else if (((WB_LOAD_DST & `ALU_MSK) == `ALU_GPR) & (WB_LOAD_DST[4:0] == i))
-                regXR[i] <= wb_busW; // Writing Conflict Priority EX > WB        
+            regXR[i] <= 32'h00000000;
+        end    
+    end
+    else
+    begin
+        for (i = 0; i < 32; i = i + 1)
+        begin
+            if (i == 0)
+                regXR[i] <= 32'h00000000;
+            else
+            begin
+                if (DBGABS_GPR_REQ & DBGABS_GPR_WRITE & (DBGABS_GPR_ADDR[4:0] == i))
+                    regXR[i] <= DBGABS_GPR_WDATA;
+                else if (((EX_ALU_DST1 & `ALU_MSK) == `ALU_GPR) & (EX_ALU_DST1[4:0] == i))
+                    regXR[i] <= ex_busZ; // Writing Conflict Priority EX > WB
+                else if (((EX_ALU_DST2 & `ALU_MSK) == `ALU_GPR) & (EX_ALU_DST2[4:0] == i) & EX_AMO_SCOND) 
+                    regXR[i] <= ex_busV; // Writing Conflict Priority EX > WB
+                else if (((WB_LOAD_DST & `ALU_MSK) == `ALU_GPR) & (WB_LOAD_DST[4:0] == i))
+                    regXR[i] <= wb_busW; // Writing Conflict Priority EX > WB        
+            end
         end
     end
 end
@@ -509,7 +539,7 @@ begin
     if (RES_CPU)
         EX_DIV_ZERO <= 1'b0;
     else if (ID_DIV_CHEK)
-        EX_DIV_ZERO = (id_busB == 32'h00000000); // Division by Zero
+        EX_DIV_ZERO <= (id_busB == 32'h00000000); // Division by Zero
 end
 //
 always @(posedge CLK, posedge RES_CPU)
@@ -662,7 +692,7 @@ begin // If misaligned, then Cancel, but if it is locked AMO, do not cancel
     BUSM_M_CONT  = 1'b0;
     BUSM_M_BURST = 3'b000;
     BUSM_M_LOCK  = EX_AMO_1STLD; // NOTE: Need treatment for Atomic Access
-    BUSM_M_PROT  = 4'b0000;
+    BUSM_M_PROT  = 4'b0011; // Privileded, Data
     BUSM_M_WRITE =  EX_MACMD[4] & EX_MACMD[3];
     BUSM_M_SIZE  = (EX_MACMD[4]               )? EX_MACMD[1:0] : 2'b00;
     BUSM_M_ADDR  = (EX_MACMD[4] & EX_AMO_2NDST)? regXR[EX_ALU_SRC1[4:0]]

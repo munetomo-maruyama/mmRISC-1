@@ -207,18 +207,19 @@ reg [31:0] bus_m_rdata_align;
 always @*
 begin
     bus_m_rdata_align = m_hrdata_latched; // Default
+    //
     if (m_hsize_latched == 3'b010) // WORD
     begin
         bus_m_rdata_align = m_hrdata_latched;
     end
-    if (m_hsize_latched == 3'b001) // HWORD
+    else if (m_hsize_latched == 3'b001) // HWORD
     begin
         if (m_haddr_latched[1] == 1'b0) // Addr = 0
             bus_m_rdata_align = {16'h0000, m_hrdata_latched[15: 0]};
         else                           // Addr = 2
             bus_m_rdata_align = {16'h0000, m_hrdata_latched[31:16]};
     end
-    if (m_hsize_latched == 3'b000) // BYTE
+    else if (m_hsize_latched == 3'b000) // BYTE
     begin
         if (m_haddr_latched[1:0] == 2'b00)      // Addr = 0
             bus_m_rdata_align = {24'h000000, m_hrdata_latched[ 7: 0]};

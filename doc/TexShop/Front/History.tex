@@ -1,0 +1,66 @@
+%==============================================================
+% History
+%==============================================================
+\begin{table}[H]
+   %\begin{adjustbox}{width=\textwidth, totalheight=\textheight}
+    \begin{adjustbox}{width=\textwidth}
+    \textsf{
+    \begin{tabular}{|L{5mm}{}{t}|L{10mm}{}{t}|L{10mm}{}{t}|L{150mm}{130mm}{t}|L{10mm}{}{t}|}
+        \hline
+        \setMultiColumn{4}{180mm}{170mm}{l}{t}{|}{|}{\textbf{Revision History}} &
+        \setMultiRow{2}{Note}
+        \nextRow \cline{1-4}
+        %----------------
+        \textbf{Rev} &
+        \textbf{Date} &
+        \textbf{Author} &
+        \textbf{Description} &
+         ~
+        \nextRow \hline
+        %---- Rev.01 ----
+        01 & Nov.19 2021 & MM &
+1st Release. &
+        ~
+        \nextRow \hline
+        %---- Rev.02 ----
+            02 & Dec.31 2021 & MM &
+(1) Added MRET and WFI descriptions.\lb 
+(2) Supported Questa as logic simulator. To do so, add an option -voptargs="+acc" in vsim command.\lb
+(3) Supported Initialization of Instruction RAM in FPGA using .mif file. A conversion tool hex2mif is added in tools directory.\lb
+(4) Updated JTAG interface schematic.\lb
+(5) Changed operation of application mmRISC\_SampleCPU.\lb
+(6) Add a retro text video game StarTrek as an application. &
+        ~
+        \nextRow \hline
+        %---- Rev.03 ----
+        03 & Apr.30 2022 & MM &
+(1) verilog/common/defines.v is divided into defines\_core.v for mmRISC Core and defines\_chip.v for Chip System. (defines.v is not used any more.)\lb
+(2) Added I2C, SPI, and SDRAM interface in Top Layer.\lb
+(3) Added know-hows to use Raspberry Pi as a Development Environment including OpenOCD interface.\lb
+(4) In application mmRISC\_SampleCPU, added access of Acceleration Sensor on MAX10-Lite board through I2C interface.\lb
+(5) Added new application mmRISC\_TouchLCD which handles Adafruit-2-8-tft-touch-shield-v2 with Resistive Touch Panel or Capacitive Touch Panel for Arduino. \lb
+(6) In each sample program, baud rate of UART is unified to 115200bps.  &
+        ~
+        \nextRow \hline
+        %---- Rev.04 ----
+        04 & Nov.20 2023 & MM &
+(1) Added cJTAG (2-wire compact JTAG) as debug interface. You can select the debug interface from JTAG or cJTAG.\lb
+(2) Added alternative Halt-On-Reset controlled by hardware input signal level, instead of the one in standard RISC-V debug function.\lb
+(3) Added a new JTAG DR register for user's multi purposes, for example, to configure the operation modes of the SoC from JTAG/cJTAG interface.\lb
+(4) The number of 32bit secure codes for authentication is expanded from one to two.\lb
+(5) Supported low power mode (STBY).\lb
+(6) Added detailed verification methods for floating point operations. Corrected RTL code in conversion from float to int (cpu\_fpu32.v).\lb
+(7) Added a application program; Tic-Tac-Toe AI Game on Touch LCD panel.\lb
+(8) Re-write this document by using TexShop.&
+        ~
+        \nextRow \hline
+    \end{tabular}
+    }
+    \end{adjustbox}
+\end{table}
+
+\null\vfill
+\centerline{\textbf{Copyright(c) 2023 by Munetomo Maruyama}}
+\centerline{\textbf{X (Twitter) : @Processing\_Unit}}
+
+

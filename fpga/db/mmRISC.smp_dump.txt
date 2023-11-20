@@ -1,5 +1,5 @@
 
-State Machine - |CHIP_TOP|I2C:U_I2C1|i2c_master_top:U_I2C_CORE|i2c_master_byte_ctrl:byte_controller|c_state
+State Machine - |CHIP_TOP_WRAP|CHIP_TOP:U_CHIP_TOP|I2C:U_I2C1|i2c_master_top:U_I2C_CORE|i2c_master_byte_ctrl:byte_controller|c_state
 Name c_state.ST_IDLE c_state.ST_STOP c_state.ST_ACK c_state.ST_WRITE c_state.ST_READ c_state.ST_START 
 c_state.ST_IDLE 0 0 0 0 0 0 
 c_state.ST_START 1 0 0 0 0 1 
@@ -8,7 +8,7 @@ c_state.ST_WRITE 1 0 0 1 0 0
 c_state.ST_ACK 1 0 1 0 0 0 
 c_state.ST_STOP 1 1 0 0 0 0 
 
-State Machine - |CHIP_TOP|I2C:U_I2C0|i2c_master_top:U_I2C_CORE|i2c_master_byte_ctrl:byte_controller|c_state
+State Machine - |CHIP_TOP_WRAP|CHIP_TOP:U_CHIP_TOP|I2C:U_I2C0|i2c_master_top:U_I2C_CORE|i2c_master_byte_ctrl:byte_controller|c_state
 Name c_state.ST_IDLE c_state.ST_STOP c_state.ST_ACK c_state.ST_WRITE c_state.ST_READ c_state.ST_START 
 c_state.ST_IDLE 0 0 0 0 0 0 
 c_state.ST_START 1 0 0 0 0 1 
@@ -17,14 +17,14 @@ c_state.ST_WRITE 1 0 0 1 0 0
 c_state.ST_ACK 1 0 1 0 0 0 
 c_state.ST_STOP 1 1 0 0 0 0 
 
-State Machine - |CHIP_TOP|UART:U_UART|sasc_top:TOP|dpll_state
+State Machine - |CHIP_TOP_WRAP|CHIP_TOP:U_CHIP_TOP|UART:U_UART|sasc_top:TOP|dpll_state
 Name dpll_state.11 dpll_state.10 dpll_state.00 dpll_state.01 
 dpll_state.01 0 0 0 0 
 dpll_state.00 0 0 1 1 
 dpll_state.10 0 1 0 1 
 dpll_state.11 1 0 0 1 
 
-State Machine - |CHIP_TOP|mmRISC:U_MMRISC|CPU_TOP:U_CPU_TOP[0].U_CPU_TOP|CPU_FPU32:U_CPU_FPU32|sqr_seq
+State Machine - |CHIP_TOP_WRAP|CHIP_TOP:U_CHIP_TOP|mmRISC:U_MMRISC|CPU_TOP:U_CPU_TOP[0].U_CPU_TOP|CPU_FPU32:U_CPU_FPU32|sqr_seq
 Name sqr_seq.0111 sqr_seq.0110 sqr_seq.0101 sqr_seq.0100 sqr_seq.0011 sqr_seq.0010 sqr_seq.0001 sqr_seq.0000 
 sqr_seq.0000 0 0 0 0 0 0 0 0 
 sqr_seq.0001 0 0 0 0 0 0 1 1 
@@ -35,7 +35,7 @@ sqr_seq.0101 0 0 1 0 0 0 0 1
 sqr_seq.0110 0 1 0 0 0 0 0 1 
 sqr_seq.0111 1 0 0 0 0 0 0 1 
 
-State Machine - |CHIP_TOP|mmRISC:U_MMRISC|CPU_TOP:U_CPU_TOP[0].U_CPU_TOP|CPU_FPU32:U_CPU_FPU32|div_seq
+State Machine - |CHIP_TOP_WRAP|CHIP_TOP:U_CHIP_TOP|mmRISC:U_MMRISC|CPU_TOP:U_CPU_TOP[0].U_CPU_TOP|CPU_FPU32:U_CPU_FPU32|div_seq
 Name div_seq.0101 div_seq.0100 div_seq.0011 div_seq.0010 div_seq.0001 div_seq.0000 
 div_seq.0000 0 0 0 0 0 0 
 div_seq.0001 0 0 0 0 1 1 
@@ -44,27 +44,8 @@ div_seq.0011 0 0 1 0 0 1
 div_seq.0100 0 1 0 0 0 1 
 div_seq.0101 1 0 0 0 0 1 
 
-State Machine - |CHIP_TOP|mmRISC:U_MMRISC|DEBUG_TOP:U_DEBUG_TOP|DEBUG_DTM_JTAG:U_DEBUG_DTM_JTAG|dmi_state
+State Machine - |CHIP_TOP_WRAP|CHIP_TOP:U_CHIP_TOP|mmRISC:U_MMRISC|DEBUG_TOP:U_DEBUG_TOP|DEBUG_DTM_JTAG:U_DEBUG_DTM_JTAG|dmi_state
 Name dmi_state.10 dmi_state.00 dmi_state.11 
 dmi_state.00 0 0 0 
 dmi_state.10 1 1 0 
 dmi_state.11 0 1 1 
-
-State Machine - |CHIP_TOP|mmRISC:U_MMRISC|DEBUG_TOP:U_DEBUG_TOP|DEBUG_DTM_JTAG:U_DEBUG_DTM_JTAG|state_tap_tck
-Name state_tap_tck.1111 state_tap_tck.1110 state_tap_tck.1101 state_tap_tck.1100 state_tap_tck.1011 state_tap_tck.1010 state_tap_tck.1001 state_tap_tck.1000 state_tap_tck.0111 state_tap_tck.0110 state_tap_tck.0101 state_tap_tck.0100 state_tap_tck.0011 state_tap_tck.0010 state_tap_tck.0001 state_tap_tck.0000 
-state_tap_tck.0000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-state_tap_tck.0001 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
-state_tap_tck.0010 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
-state_tap_tck.0011 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
-state_tap_tck.0100 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
-state_tap_tck.0101 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
-state_tap_tck.0110 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
-state_tap_tck.0111 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
-state_tap_tck.1000 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
-state_tap_tck.1001 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
-state_tap_tck.1010 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
-state_tap_tck.1011 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
-state_tap_tck.1100 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
-state_tap_tck.1101 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
-state_tap_tck.1110 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
-state_tap_tck.1111 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 

@@ -4,11 +4,27 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "STBY_ACK_N",
+					"strict" : false
+				},
+				{
 					"name" : "RESOUT_N",
 					"strict" : false
 				},
 				{
 					"name" : "TDO",
+					"strict" : false
+				},
+				{
+					"name" : "TCKC_pri",
+					"strict" : false
+				},
+				{
+					"name" : "TMSC_PUP_rep",
+					"strict" : false
+				},
+				{
+					"name" : "TMSC_PDN_rep",
 					"strict" : false
 				},
 				{
@@ -37,6 +53,10 @@
 				},
 				{
 					"name" : "SPI_MOSI",
+					"strict" : false
+				},
+				{
+					"name" : "SDRAM_CLK",
 					"strict" : false
 				},
 				{
@@ -121,6 +141,14 @@
 				},
 				{
 					"name" : "SDRAM_ADDR[12]",
+					"strict" : false
+				},
+				{
+					"name" : "TMSC_pri",
+					"strict" : false
+				},
+				{
+					"name" : "TMSC_rep",
 					"strict" : false
 				},
 				{
@@ -592,15 +620,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "CLK50",
-					"strict" : false
-				},
-				{
 					"name" : "TCK",
 					"strict" : false
 				},
 				{
-					"name" : "TRSTn",
+					"name" : "CLK50",
+					"strict" : false
+				},
+				{
+					"name" : "TDI",
 					"strict" : false
 				},
 				{
@@ -608,7 +636,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "TDI",
+					"name" : "TCKC_rep",
 					"strict" : false
 				},
 				{
@@ -621,6 +649,10 @@
 				},
 				{
 					"name" : "SPI_MISO",
+					"strict" : false
+				},
+				{
+					"name" : "STBY_REQ",
 					"strict" : false
 				},
 				{

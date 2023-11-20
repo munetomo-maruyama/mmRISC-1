@@ -105,6 +105,11 @@ module DEBUG_TOP
     input  wire SRSTn_IN,  // System Reset Input except for Debug
     output wire SRSTn_OUT, // System Reset Output from Debug
     //
+    input  wire FORCE_HALT_ON_RESET_REQ, // FORCE_HALT_ON_RESET Request
+    output wire FORCE_HALT_ON_RESET_ACK, // FORCE_HALT_ON_RESET Acknowledge
+    input  wire [31:0] JTAG_DR_USER_IN,  // JTAG DR User Register Input
+    output wire [31:0] JTAG_DR_USER_OUT, // JTAG DR User Register Output
+    //
     input  wire TCK, // JTAG Clock
     input  wire TMS, // JTAG Mode Select
     input  wire TDI, // JTAG Data Input
@@ -114,8 +119,9 @@ module DEBUG_TOP
     //
     input  wire        DEBUG_MODE[0 : HART_COUNT - 1],  // Debug Mode
     //
-    input  wire        DEBUG_SECURE,      // Debug should be secure, or not
-    input  wire [31:0] DEBUG_SECURE_CODE, // Debug Security Pass Code
+    input  wire        DEBUG_SECURE,        // Debug should be secure, or not
+    input  wire [31:0] DEBUG_SECURE_CODE_0, // Debug Security Pass Code 0
+    input  wire [31:0] DEBUG_SECURE_CODE_1, // Debug Security Pass Code 1
     //
     output wire HART_HALT_REQ     [0 : HART_COUNT - 1], // HART Halt Command
     input  wire HART_STATUS       [0 : HART_COUNT - 1], // HART Status (0:Run, 1:Halt) 
@@ -196,6 +202,9 @@ DEBUG_DTM_JTAG U_DEBUG_DTM_JTAG
     .TDO_E (TDO_E),
     .RTCK  (RTCK),
     //
+    .JTAG_DR_USER_IN  (JTAG_DR_USER_IN ),
+    .JTAG_DR_USER_OUT (JTAG_DR_USER_OUT),
+    //
     .RES_ORG (RES_ORG),
     .CLK     (CLK),
     //
@@ -232,8 +241,12 @@ U_DEBUG_DM
     .DMBUS_ACK   (dmbus_ack),
     .DMBUS_ERR   (dmbus_err),
     //
-    .DEBUG_SECURE      (DEBUG_SECURE),
-    .DEBUG_SECURE_CODE (DEBUG_SECURE_CODE),
+    .DEBUG_SECURE        (DEBUG_SECURE),
+    .DEBUG_SECURE_CODE_0 (DEBUG_SECURE_CODE_0),
+    .DEBUG_SECURE_CODE_1 (DEBUG_SECURE_CODE_1),
+    //
+    .FORCE_HALT_ON_RESET_REQ (FORCE_HALT_ON_RESET_REQ),
+    .FORCE_HALT_ON_RESET_ACK (FORCE_HALT_ON_RESET_ACK),
     //
     .HART_HALT_REQ      (HART_HALT_REQ),
     .HART_STATUS        (HART_STATUS),

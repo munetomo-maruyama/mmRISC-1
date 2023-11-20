@@ -7,8 +7,9 @@
 // History :
 // Rev.01 2017.07.16 M.Maruyama First Release
 // Rev.02 2020.01.01 M.Maruyama Debug Spec Version 0.13.2
+// Rev.03 2023.05.14 M.Maruyama cJTAG Support and Halt-on-Reset
 //-----------------------------------------------------------
-// Copyright (C) 2017-2020 M.Maruyama
+// Copyright (C) 2017-2023 M.Maruyama
 //===========================================================
 
 `include "defines_core.v"
@@ -20,7 +21,9 @@ module CPU_TOP
 (
     input wire RES_SYS, // System Reset
     input wire CLK,     // System Clock
-    input wire STBY,    // System Standby
+    //
+    input  wire STBY_REQ,  // System Stand-by Request
+    output wire STBY_ACK,  // System Stand-by Acknowledge
     //
     input  wire [31:0] HART_ID,       // Hart ID
     input  wire [31:0] RESET_VECTOR,  // Reset Vecotr
@@ -99,6 +102,12 @@ module CPU_TOP
 // Reset
 //----------------
 wire res_cpu;
+
+//----------------
+// STBY related
+//----------------
+wire debug_mode_empty;
+
 //------------------
 // Data Bus Signals
 //------------------
@@ -498,6 +507,10 @@ CPU_PIPELINE U_CPU_PIPELINE
     .RES_CPU (res_cpu), // CPU Reset
     .CLK     (CLK),     // System Clock
     //
+    // Stand-by Control
+    .STBY_REQ (STBY_REQ), // System Stand-by Request
+    .STBY_ACK (STBY_ACK), // System Stand-by Acknowledge
+    //
     // Reset Vector
     .RESET_VECTOR (RESET_VECTOR),  // Reset Vector
     //
@@ -586,16 +599,17 @@ CPU_PIPELINE U_CPU_PIPELINE
     .INSTR_ADDR (instr_addr), // Instruction Retired Address
     .INSTR_CODE (instr_code), // Instruction Retired Code
     //
-    .DBG_HALT_REQ   (dbg_halt_req),    // HALT Request
-    .DBG_HALT_ACK   (dbg_halt_ack),    // HALT Acknowledge
-    .DBG_HALT_RESET (dbg_halt_reset),  // HALT when Reset
-    .DBG_HALT_EBREAK(dbg_halt_ebreak), // HALT when EBREAK
-    .DBG_RESUME_REQ (dbg_resume_req),  // Resume Request 
-    .DBG_RESUME_ACK (dbg_resume_ack),  // Resume Acknowledge 
-    .DBG_DPC_SAVE   (dbg_dpc_save),    // Debug PC to be saved
-    .DBG_DPC_LOAD   (dbg_dpc_load),    // Debug PC to be loaded
-    .DBG_CAUSE      (dbg_cause),       // Debug Entry Cause
-    .DEBUG_MODE     (DEBUG_MODE)       // Debug Mode
+    .DBG_HALT_REQ     (dbg_halt_req),    // HALT Request
+    .DBG_HALT_ACK     (dbg_halt_ack),    // HALT Acknowledge
+    .DBG_HALT_RESET   (dbg_halt_reset),  // HALT when Reset
+    .DBG_HALT_EBREAK  (dbg_halt_ebreak), // HALT when EBREAK
+    .DBG_RESUME_REQ   (dbg_resume_req),  // Resume Request 
+    .DBG_RESUME_ACK   (dbg_resume_ack),  // Resume Acknowledge 
+    .DBG_DPC_SAVE     (dbg_dpc_save),    // Debug PC to be saved
+    .DBG_DPC_LOAD     (dbg_dpc_load),    // Debug PC to be loaded
+    .DBG_CAUSE        (dbg_cause),       // Debug Entry Cause
+    .DEBUG_MODE       (DEBUG_MODE),      // Debug Mode
+    .DEBUG_MODE_EMPTY (debug_mode_empty) // Debug Mode with Pipeline Empty
     //
     ,
     .ID_FPU_SRC1    (id_fpu_src1),  // FPU Source 1 in ID Stage
@@ -727,10 +741,10 @@ CPU_CSR_INT U_CPU_CSR_INT
 //--------------------
 CPU_CSR_DBG U_CPU_CSR_DBG
 (
-    .RES_SYS (RES_SYS), // System Reset
-    .RES_CPU (res_cpu), // CPU Reset
-    .CLK     (CLK),     // System Clock
-    .STBY    (STBY),    // System Standby
+    .RES_SYS  (RES_SYS),  // System Reset
+    .RES_CPU  (res_cpu),  // CPU Reset
+    .CLK      (CLK),      // System Clock
+    .STBY_ACK (STBY_ACK), // System Stand-by Acknowledge
     //
     .HART_HALT_REQ      (HART_HALT_REQ),      // HART Halt Command
     .HART_STATUS        (HART_STATUS),        // HART Status (0:Run, 1:Halt) 

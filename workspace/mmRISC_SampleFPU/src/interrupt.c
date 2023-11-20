@@ -66,13 +66,39 @@ void INT_Timer_Handler(void)
 void INT_IRQ_Handler(void)
 {
     uint32_t irq_pend;
-    irq_pend = read_csr(MINTPENDING0);
+    uint32_t irq_level;
     //
-    // IRQ00 (UART)
-    if (irq_pend & 0x00000001)
+    irq_pend  = read_csr(MINTPENDING0);
+    irq_level = read_csr(MINTCURLVL);
+    //
+    // Dispatch
+    switch(irq_level)
     {
-        INT_UART_Handler();
-        write_csr(MINTPENDING0, 0x00000001); // Clear Pending
+        // Group Priority Level 1
+        case 1 :
+        {
+            // IRQ00 (UART)
+            if (irq_pend & 0x00000001)
+            {
+                INT_UART_Handler();
+                write_csr(MINTPENDING0, 0x00000001); // Clear Pending
+            }
+            break;
+        }
+        // Group Priority Level 2
+        case 2 :
+        {
+            // ...
+            break;
+        }
+        // ...
+        // ...
+        // Group Priority Level 15
+        case 15 :
+        {
+            // ...
+            break;
+        }
     }
 }
 

@@ -104,19 +104,43 @@ begin
     end
 end
 //
+//always @(posedge HCLK, negedge HRESETn)
+//begin
+//    integer lvl;
+//    for (lvl = 0; lvl < LEVELS; lvl = lvl + 1)
+//    begin
+//        if (~HRESETn)
+//            rb_pointer[lvl] <= rb_pointer_min[lvl];
+//        else if (ARB_PRIORITY_LOCK)
+//            rb_pointer[lvl] <= rb_pointer[lvl]; // Lock
+//        else if ((level_grant_ack[lvl]) && (rb_pointer[lvl] >= rb_pointer_max[lvl]))
+//            rb_pointer[lvl] <= rb_pointer_min[lvl];            
+//        else if (level_grant_ack[lvl])
+//            rb_pointer[lvl] <= level_grant_mst[lvl] + (MASTERS_BIT)'(1); //rb_pointer[lvl] + 1;            
+//    end
+//end 
+//
 always @(posedge HCLK, negedge HRESETn)
 begin
     integer lvl;
-    for (lvl = 0; lvl < LEVELS; lvl = lvl + 1)
+    if (~HRESETn)
     begin
-        if (~HRESETn)
-            rb_pointer[lvl] <= rb_pointer_min[lvl];
-        else if (ARB_PRIORITY_LOCK)
-            rb_pointer[lvl] <= rb_pointer[lvl]; // Lock
-        else if ((level_grant_ack[lvl]) && (rb_pointer[lvl] >= rb_pointer_max[lvl]))
-            rb_pointer[lvl] <= rb_pointer_min[lvl];            
-        else if (level_grant_ack[lvl])
-            rb_pointer[lvl] <= level_grant_mst[lvl] + (MASTERS_BIT)'(1); //rb_pointer[lvl] + 1;            
+        for (lvl = 0; lvl < LEVELS; lvl = lvl + 1)
+        begin
+            rb_pointer[lvl] <= rb_pointer_min[lvl];        
+        end
+    end
+    else
+    begin
+        for (lvl = 0; lvl < LEVELS; lvl = lvl + 1)
+        begin
+            if (ARB_PRIORITY_LOCK)
+                rb_pointer[lvl] <= rb_pointer[lvl]; // Lock
+            else if ((level_grant_ack[lvl]) && (rb_pointer[lvl] >= rb_pointer_max[lvl]))
+                rb_pointer[lvl] <= rb_pointer_min[lvl];            
+            else if (level_grant_ack[lvl])
+                rb_pointer[lvl] <= level_grant_mst[lvl] + (MASTERS_BIT)'(1); //rb_pointer[lvl] + 1;            
+        end
     end
 end 
 

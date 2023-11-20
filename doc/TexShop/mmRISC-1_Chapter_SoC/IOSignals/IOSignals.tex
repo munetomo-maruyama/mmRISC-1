@@ -1,0 +1,167 @@
+%=========================================================
+% Input / Output Signals of SoC
+%=========================================================
+\section{Input / Output Signals of SoC}
+
+Input / Output Signals of Tiny SoC Top Layer (chip\_top\_wrap.v) are shown in Table \ref{tb:IOSIGNALS_SOC}.
+
+
+\begin{table}[H]
+    \begin{adjustbox}{scale={0.6}{0.7}}
+    \textsf{
+    \begin{tabular}{|L{4cm}{2cm}{t}|L{4cm}{2cm}{t}|L{2cm}{1cm}{t}|L{5cm}{3.5cm}{t}|L{10cm}{7cm}{t}|L{6cm}{4.5cm}{t}|}
+        \hline
+        %-------------------------------------
+        \rowcolor{LightPurple}
+        \textbf{Group} &
+        \textbf{Direction} &
+        \textbf{Width} &
+        \textbf{Name} &
+        \textbf{Description} &
+        \textbf{Note}
+        \nextRow \hline
+        %-------------------------------------
+        System & input  & ~ & RES\_N & External Reset Input (negative) & ~
+        \nextRow \hline
+        %-------------------------------------
+        System & input  & ~ & CLK50 & External Clock Input (50MHz) & ~
+        \nextRow \hline
+        %-------------------------------------
+        System & input  & ~ & STBY\_REQ & Stand-by Request & ~
+        \nextRow \hline
+        %-------------------------------------
+        System & output & ~ & STBY\_ACK\_N & Stand-by Acknowledge (negative) & ~
+        \nextRow \hline
+        %-------------------------------------
+        System & output & ~ & RESOUT\_N & External Reset Output & ~
+        \nextRow \hline
+        %-------------------------------------
+        System & inout  & ~ & SRSTn & System Reset I/O (Open Drain)	& Only for Simulation
+        \nextRow \hline        
+        %-------------------------------------
+        JTAG   & input  & ~ & TRSTn & JTAG Tap Reset &
+        \setMultiRow{5}{Connected to USB-JTAG \lb adapter (FTDI chip) \lb even if you want to \lb use cJTAG interface.}
+        \nextRow \cline{1-5}
+        %-------------------------------------
+        JTAG   & input  & ~ & TCK   & JTAG Clock & ~
+        \nextRow \cline{1-5}
+        %-------------------------------------
+        JTAG   & input  & ~ & TMS   & JTAG Mode Select & ~
+        \nextRow \cline{1-5}
+        %-------------------------------------
+        JTAG   & input  & ~ & TDI   & JTAG Data Input & ~
+        \nextRow \cline{1-5}
+        %-------------------------------------
+        JTAG   & output & ~ & TDO   & JTAG Data Output (3-state) & ~
+        \nextRow \hline
+        %-------------------------------------
+        JTAG   & output & ~ & RTCK  & Return Clock & Only for Simulation
+        \nextRow \hline
+        %-------------------------------------
+        cJTAG  & output & ~ & TCKC\_pri & cJTAG TCKC Loop Primary &
+        \setMultiRow{6}{Exist only when cJTAG \lb is enabled. \lb Each T***\_pri should be \lb connected to T***\_rep \lb at outside of the SoC.}
+        \nextRow \cline{1-5}
+        %-------------------------------------
+        cJTAG  & input  & ~ & TCKC\_rep & cJTAG TCKC Loop Replica & ~
+        \nextRow \cline{1-5}
+        %-------------------------------------
+        cJTAG  & inout  & ~ & TMSC\_pri & cJTAG TMSC Loop Primary & ~
+        \nextRow \cline{1-5}
+        %-------------------------------------
+        cJTAG  & inout  & ~ & TSMC\_rep & cJTAG TMSC Loop Replica & ~
+        \nextRow \cline{1-5}
+        %-------------------------------------
+        cJTAG  & output & ~ & TMSC\_PUP\_rep & cJTAG TMSC should \lb be Pulled Up when 1 & ~
+        \nextRow \cline{1-5}
+        %-------------------------------------
+        cJTAG  & output & ~ & TMSC\_PDN\_rep & cJTAG TMSC should \lb be Pulled Down when 0 & ~
+        \nextRow \hline
+        %-------------------------------------
+        GPIO   & inout  & \lbrack 31:0\rbrack &	GPIO0 & GPIO0 32bit	& ~
+        \nextRow \hline
+        %-------------------------------------
+        GPIO   & inout  & \lbrack 31:0\rbrack & GPIO1 & GPIO1 32bit & ~
+        \nextRow \hline
+        %-------------------------------------
+        GPIO   & inout  & \lbrack 31:0\rbrack & GPIO2 & GPIO2 32bit & ~
+        \nextRow \hline
+        %-------------------------------------
+        UART   & input  & ~ & RXD & UART Receive Data & ~
+        \nextRow \hline
+        %-------------------------------------
+        UART   & output & ~ & TXD & UART Transmit Data & ~
+        \nextRow \hline
+        %-------------------------------------
+        I2C0   & inout  & ~ & I2C0\_SCL  & I2C0 SCL & ~
+        \nextRow \hline
+        %-------------------------------------
+        I2C0   & inout  & ~ & I2C0\_SDA  & I2C0 SDA & ~
+        \nextRow \hline
+        %-------------------------------------
+        I2C0   & output & ~ & I2C0\_ENA  & I2C0 External Device Enable & Fixed to 1
+        \nextRow \hline
+        %-------------------------------------
+        I2C0   & output & ~ & I2C0\_ADR  & I2C0 External Device Address Select & Fixed to 0
+        \nextRow \hline
+        %-------------------------------------
+        I2C0   & input  & ~ & I2C0\_INT1 & I2C0 External Device Interrupt Input 1 & ~
+        \nextRow \hline
+        %-------------------------------------
+        I2C0   & input  & ~ & I2C0\_INT2 & I2C0 External Device Interrupt Input 2 & ~
+        \nextRow \hline
+        %-------------------------------------
+        I2C1   & inout  & ~ & I2C1\_SCL  & I2C1 SCL & ~
+        \nextRow \hline
+        %-------------------------------------
+        I2C1   & inout  & ~ & I2C1\_SDA  & I2C1 SDA & ~
+        \nextRow \hline
+        %-------------------------------------
+        SPI    & output & \lbrack 3:0\rbrack & SPI\_CSN & SPI Chip Select & ~
+        \nextRow \hline
+        %-------------------------------------
+        SPI    & output & ~ & SPI\_SCK  & SPI Clock & ~
+        \nextRow \hline
+        %-------------------------------------
+        SPI    & output & ~ & SPI\_MOSI & SPI Master Output / Slave Input & ~
+        \nextRow \hline
+        %-------------------------------------
+        SPI    & input  & ~ & SPI\_MISO & SPI Master Input / Slave Output & ~
+        \nextRow \hline
+        %-------------------------------------
+        SDRAM  & output & ~ & SDRAM\_CLK  & SDRAM Clock & ~
+        \nextRow \hline
+        %-------------------------------------
+        SDRAM  & output & ~ & SDRAM\_CKE  & SDRAM Clock Enable & ~
+        \nextRow \hline
+        %-------------------------------------
+        SDRAM  & output & ~ & SDRAM\_CSn  & SDRAM Chip Select & ~
+        \nextRow \hline
+        %-------------------------------------
+        SDRAM  & output & \lbrack 1:0\rbrack & SDRAM\_DQM & SDRAM Byte Data Mask & ~
+        \nextRow \hline
+        %-------------------------------------
+        SDRAM  & output & ~ & SDRAM\_RASn & SDRAM Row Address Strobe & ~
+        \nextRow \hline
+        %-------------------------------------
+        SDRAM  & output & ~ & SDRAM\_CASn & SDRAM Column Address Strobe & ~
+        \nextRow \hline
+        %-------------------------------------
+        SDRAM  & output & ~ & SDRAM\_WEn  & SDRAM Write Enable & ~
+        \nextRow \hline
+        %-------------------------------------
+        SDRAM  & output & \lbrack 1:0\rbrack & SDRAM\_BA & SDRAM Bank Address & ~
+        \nextRow \hline
+        %-------------------------------------
+        SDRAM  & output	& \lbrack 12:0\rbrack & SDRAM\_ADDR & SDRAM Address & ~
+        \nextRow \hline
+        %-------------------------------------
+        SDRAM  & inout  & \lbrack 15:0\rbrack & SDRA\_DQ & SDRAM Data & ~
+        \nextRow \hline
+        %-------------------------------------
+    \end{tabular}
+    }
+    \end{adjustbox}
+    \caption{Input / Output Signals of Tiny SoC Top Layer (chip\_top\_wrap.v)}
+    \label{tb:IOSIGNALS_SOC}
+\end{table}
+

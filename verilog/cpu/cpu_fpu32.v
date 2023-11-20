@@ -850,17 +850,38 @@ reg  [ 3:0] sqr_seq;
 wire [ 3:0] sqr_cnt_plus_one;
 //
 // Flag Body
+//always @(posedge CLK, posedge RES_CPU)
+//begin
+//    for (i = 0; i < 32; i = i + 1)
+//    begin
+//        if (RES_CPU)
+//            fpureg_dirty_fpu[i] <= 1'b0;
+//        else if (fpureg_dirty_fpu_set[i])
+//            fpureg_dirty_fpu[i] <= 1'b1;
+//        else if (fpureg_dirty_fpu_clr[i])
+//            fpureg_dirty_fpu[i] <= 1'b0;
+//    end        
+//end
+//
 always @(posedge CLK, posedge RES_CPU)
 begin
-    for (i = 0; i < 32; i = i + 1)
+    if (RES_CPU)
     begin
-        if (RES_CPU)
+        for (i = 0; i < 32; i = i + 1)
+        begin
             fpureg_dirty_fpu[i] <= 1'b0;
-        else if (fpureg_dirty_fpu_set[i])
-            fpureg_dirty_fpu[i] <= 1'b1;
-        else if (fpureg_dirty_fpu_clr[i])
-            fpureg_dirty_fpu[i] <= 1'b0;
-    end        
+        end
+    end
+    else
+    begin
+        for (i = 0; i < 32; i = i + 1)
+        begin
+            if (fpureg_dirty_fpu_set[i])
+                fpureg_dirty_fpu[i] <= 1'b1;
+            else if (fpureg_dirty_fpu_clr[i])
+                fpureg_dirty_fpu[i] <= 1'b0;
+        end
+    end
 end
 //
 // Set Conditions in Stage-ID
@@ -919,17 +940,38 @@ reg  [31:0] fpureg_dirty_alu_set;
 reg  [31:0] fpureg_dirty_alu_clr;
 //
 // Flag Body
+//always @(posedge CLK, posedge RES_CPU)
+//begin
+//    for (i = 0; i < 32; i = i + 1)
+//    begin
+//        if (RES_CPU)
+//            fpureg_dirty_alu[i] <= 1'b0;
+//        else if (fpureg_dirty_alu_set[i])
+//            fpureg_dirty_alu[i] <= 1'b1;
+//        else if (fpureg_dirty_alu_clr[i])
+//            fpureg_dirty_alu[i] <= 1'b0;
+//    end        
+//end
+//
 always @(posedge CLK, posedge RES_CPU)
 begin
-    for (i = 0; i < 32; i = i + 1)
+    if (RES_CPU)
     begin
-        if (RES_CPU)
+        for (i = 0; i < 32; i = i + 1)
+        begin
             fpureg_dirty_alu[i] <= 1'b0;
-        else if (fpureg_dirty_alu_set[i])
-            fpureg_dirty_alu[i] <= 1'b1;
-        else if (fpureg_dirty_alu_clr[i])
-            fpureg_dirty_alu[i] <= 1'b0;
-    end        
+        end    
+    end
+    else
+    begin
+        for (i = 0; i < 32; i = i + 1)
+        begin
+            if (fpureg_dirty_alu_set[i])
+                fpureg_dirty_alu[i] <= 1'b1;
+            else if (fpureg_dirty_alu_clr[i])
+                fpureg_dirty_alu[i] <= 1'b0;
+        end    
+    end
 end
 //
 // Set Conditions in Stage-ID
@@ -990,17 +1032,38 @@ reg  [31:0] fpureg_dirty_flw_set;
 reg  [31:0] fpureg_dirty_flw_clr;
 //
 // Flag Body
+//always @(posedge CLK, posedge RES_CPU)
+//begin
+//    for (i = 0; i < 32; i = i + 1)
+//    begin
+//        if (RES_CPU)
+//            fpureg_dirty_flw[i] <= 1'b0;
+//        else if (fpureg_dirty_flw_set[i])
+//            fpureg_dirty_flw[i] <= 1'b1;
+//        else if (fpureg_dirty_flw_clr[i])
+//            fpureg_dirty_flw[i] <= 1'b0;
+//    end        
+//end
+//
 always @(posedge CLK, posedge RES_CPU)
 begin
-    for (i = 0; i < 32; i = i + 1)
+    if (RES_CPU)
     begin
-        if (RES_CPU)
+        for (i = 0; i < 32; i = i + 1)
+        begin
             fpureg_dirty_flw[i] <= 1'b0;
-        else if (fpureg_dirty_flw_set[i])
-            fpureg_dirty_flw[i] <= 1'b1;
-        else if (fpureg_dirty_flw_clr[i])
-            fpureg_dirty_flw[i] <= 1'b0;
-    end        
+        end
+    end
+    else
+    begin
+        for (i = 0; i < 32; i = i + 1)
+        begin
+            if (fpureg_dirty_flw_set[i])
+                fpureg_dirty_flw[i] <= 1'b1;
+            else if (fpureg_dirty_flw_clr[i])
+                fpureg_dirty_flw[i] <= 1'b0;
+        end    
+    end
 end
 //
 // Set Conditions in Stage-ID
@@ -1442,13 +1505,40 @@ end
 //
 wire [31:0] fdata_float_out_final;
 //
+//always @(posedge CLK, posedge RES_CPU)
+//begin
+//    for (i = 0; i < 32; i = i + 1)
+//    begin
+//        if (RES_CPU)
+//            regFR[i] <= 32'h00000000;
+//        else
+//        begin
+//            if (DBGABS_FPR_REQ & DBGABS_FPR_WRITE & (DBGABS_FPR_ADDR[4:0] == i))
+//                regFR[i] <= DBGABS_FPR_WDATA;
+//            else if (((WB_LOAD_DST & `ALU_MSK) == `ALU_FPR) & (WB_LOAD_DST[4:0] == i))
+//                regFR[i] <= WB_FPU_LD_DATA; // Writing Conflict Priority FPU < WB        
+//            else if (pipe_i_fr_dst & (pipe_i_token[16:12] == i))
+//                regFR[i] <= pipe_i_fr_dst_data;
+//            else if (pipe_f_token[17] & (pipe_f_token[16:12] == i))
+//                regFR[i] <= fdata_float_out_final;
+//            else if ((pipe_c_token[7:1] == 7'b1101000) & (pipe_c_token[16:12] == i))
+//                regFR[i] <= fcvt_i2f_float_out;
+//        end
+//    end
+///end
+//
 always @(posedge CLK, posedge RES_CPU)
 begin
-    for (i = 0; i < 32; i = i + 1)
+    if (RES_CPU)
     begin
-        if (RES_CPU)
+        for (i = 0; i < 32; i = i + 1)
+        begin
             regFR[i] <= 32'h00000000;
-        else
+        end
+    end
+    else
+    begin
+        for (i = 0; i < 32; i = i + 1)
         begin
             if (DBGABS_FPR_REQ & DBGABS_FPR_WRITE & (DBGABS_FPR_ADDR[4:0] == i))
                 regFR[i] <= DBGABS_FPR_WDATA;
@@ -2339,23 +2429,23 @@ assign fmsb = (FDATA[22]);
 always @*
 begin
     casez ({sign, ex00, exFF, fr00, fmsb})
-        6'b0_0_0_0_? : FTYPE = `FPU32_FT_POSZRO;
-        6'b1_0_0_0_? : FTYPE = `FPU32_FT_NEGZRO;
+        5'b0_0_0_0_? : FTYPE = `FPU32_FT_POSZRO;
+        5'b1_0_0_0_? : FTYPE = `FPU32_FT_NEGZRO;
         //
-        6'b0_1_1_0_? : FTYPE = `FPU32_FT_POSINF;
-        6'b1_1_1_0_? : FTYPE = `FPU32_FT_NEGINF;
+        5'b0_1_1_0_? : FTYPE = `FPU32_FT_POSINF;
+        5'b1_1_1_0_? : FTYPE = `FPU32_FT_NEGINF;
         //
-        6'b0_1_1_1_1 : FTYPE = `FPU32_FT_POSQNA;
-        6'b1_1_1_1_1 : FTYPE = `FPU32_FT_NEGQNA;
+        5'b0_1_1_1_1 : FTYPE = `FPU32_FT_POSQNA;
+        5'b1_1_1_1_1 : FTYPE = `FPU32_FT_NEGQNA;
         //
-        6'b0_1_1_1_0 : FTYPE = `FPU32_FT_POSSNA;
-        6'b1_1_1_1_0 : FTYPE = `FPU32_FT_NEGSNA;
+        5'b0_1_1_1_0 : FTYPE = `FPU32_FT_POSSNA;
+        5'b1_1_1_1_0 : FTYPE = `FPU32_FT_NEGSNA;
         //
-        6'b0_0_0_1_? : FTYPE = `FPU32_FT_POSSUB;
-        6'b1_0_0_1_? : FTYPE = `FPU32_FT_NEGSUB;
+        5'b0_0_0_1_? : FTYPE = `FPU32_FT_POSSUB;
+        5'b1_0_0_1_? : FTYPE = `FPU32_FT_NEGSUB;
         //
-        6'b0_1_0_?_? : FTYPE = `FPU32_FT_POSNOR;
-        6'b1_1_0_?_? : FTYPE = `FPU32_FT_NEGNOR;
+        5'b0_1_0_?_? : FTYPE = `FPU32_FT_POSNOR;
+        5'b1_1_0_?_? : FTYPE = `FPU32_FT_NEGNOR;
         //
         default      : FTYPE = `FPU32_FT_ERROR;
     endcase
@@ -2940,12 +3030,25 @@ module FIND_1ST_ONE_IN_FRAC27
     output reg  [11:0] POS
 );
 integer i;
+//always @*
+//begin : BLOCK_TO_BREAK
+//    for (i = 0; i < 27; i = i + 1)
+//    begin
+//        POS = 12'hffd + i;
+//        if (FRAC27[26 - i]) disable BLOCK_TO_BREAK;
+//    end
+//end
 always @*
 begin : BLOCK_TO_BREAK
+    reg disable_BLOCK_TO_BREAK;
+    disable_BLOCK_TO_BREAK = 1'b0;
     for (i = 0; i < 27; i = i + 1)
     begin
-        POS = 12'hffd + i;
-        if (FRAC27[26 - i]) disable BLOCK_TO_BREAK;
+        if (!disable_BLOCK_TO_BREAK)
+        begin
+            POS = 12'hffd + i;
+            if (FRAC27[26 - i]) disable_BLOCK_TO_BREAK = 1'b1;
+        end
     end
 end
 //------------------------
@@ -2963,12 +3066,25 @@ module FIND_1ST_ONE_IN_FRAC66
     output reg  [11:0] POS
 );
 integer i;
+//always @*
+//begin : BLOCK_TO_BREAK
+//    for (i = 0; i < 66; i = i + 1)
+//    begin
+//        POS = 12'hffd + i;
+//        if (FRAC66[65 - i]) disable BLOCK_TO_BREAK;
+//    end
+//end
 always @*
 begin : BLOCK_TO_BREAK
+    reg disable_BLOCK_TO_BREAK;
+    disable_BLOCK_TO_BREAK = 1'b0;
     for (i = 0; i < 66; i = i + 1)
     begin
-        POS = 12'hffd + i;
-        if (FRAC66[65 - i]) disable BLOCK_TO_BREAK;
+        if (!disable_BLOCK_TO_BREAK)
+        begin
+            POS = 12'hffd + i;
+            if (FRAC66[65 - i]) disable_BLOCK_TO_BREAK = 1'b1;
+        end
     end
 end
 //------------------------
@@ -2986,12 +3102,25 @@ module FIND_1ST_ONE_IN_FRAC70
     output reg  [11:0] POS
 );
 integer i;
+//always @*
+//begin : BLOCK_TO_BREAK
+//    for (i = 0; i < 69; i = i + 1)
+//    begin
+//        POS = 12'hff9 + i;
+//        if (FRAC70[69 - i]) disable BLOCK_TO_BREAK;
+//    end
+//end
 always @*
 begin : BLOCK_TO_BREAK
+    reg disable_BLOCK_TO_BREAK;
+    disable_BLOCK_TO_BREAK = 1'b0;
     for (i = 0; i < 69; i = i + 1)
     begin
-        POS = 12'hff9 + i;
-        if (FRAC70[69 - i]) disable BLOCK_TO_BREAK;
+        if (!disable_BLOCK_TO_BREAK)
+        begin
+            POS = 12'hff9 + i;
+            if (FRAC70[69 - i]) disable_BLOCK_TO_BREAK = 1'b1;
+        end
     end
 end
 //------------------------
@@ -3900,6 +4029,8 @@ endmodule
 // 2222 222   000000
 // 6543 210   543210
 // xxxx.xxxxxxxxxxxx
+// 0GRS.xxx...xxxxxx pos= 0 expo=124 sft=-26 --> 0x00000000 + round
+// 00GR.Sxx...xxxxxx pos= 0 expo=125 sft=-25 --> 0x00000000 + round
 // 000G.RSx...xxxxxx pos= 0 expo=126 sft=-24 --> 0x00000000 + round
 // 0001.GRS...xxxxxx pos= 0 expo=127 sft=-23 --> 0x00000001 + round
 // 0001.xxx...xxxGRS pos= 0 expo=147 sft= -3 --> 0x001xxxxx + round
@@ -3908,6 +4039,10 @@ endmodule
 // 0001.xxx...xxxxxx pos= 0 expo=150 sft=  0 --> 0x008xxxxx
 // 0001.xxx...xxxxxx pos= 0 expo=157 sft= +7 --> 0x4xxxxxxx (S)
 // 0001.xxx...xxxxxx pos= 0 expo=158 sft= +8 --> 0x8xxxxxxx (U)
+//
+// 0000.SSS...SSSSSS pos= N expo=  1 sft=-149--> 0x00000000 + round(S)
+//
+// ------------------------------------------------------------------
 //
 // 0000.GRS...xxxxxx pos= 1 expo=127 sft=-23 --> 0x00000000 + round
 // 0000.1GRS..xxxxxx pos= 1 expo=128 sft=-22 --> 0x00000001 + round
@@ -3975,9 +4110,15 @@ wire judge_inf_u;
 wire judge_gen_s;
 wire judge_gen_u;
 //
-assign judge_zro   = expo < (pos + 12'd126);
-assign judge_inf_s = expo > (pos + 12'd157);
+//assign judge_zro   = expo < (pos + 12'd126); //---BUG--- RDN/RUP 
+//assign judge_inf_s = expo > (pos + 12'd157); //---BUG---
+//assign judge_inf_u = expo > (pos + 12'd158); //---BUG---
+assign judge_zro   = 1'b0; // expo < (pos + 12'd124);
+assign judge_inf_s = (~sign)? (expo > (pos + 12'd157))       // pos
+    : ((expo == (pos + 12'd158)) && (frac[22:0] == 0))? 1'b0 // neg
+    :   expo > (pos + 12'd157);                              // neg
 assign judge_inf_u = expo > (pos + 12'd158);
+//
 assign judge_gen_s = ~judge_zro & ~judge_inf_s;
 assign judge_gen_u = ~judge_zro & ~judge_inf_u;
 //
@@ -4005,13 +4146,21 @@ wire [26:0] stick_mask;
 assign lsb   = (bit_lsb   < 12'd27)? frac[bit_lsb  ] : 1'b0;
 assign guard = (bit_guard < 12'd27)? frac[bit_guard] : 1'b0;
 assign round = (bit_round < 12'd27)? frac[bit_round] : 1'b0;
-assign stick_mask = (bit_stick < 12'd27)? 27'h7ffffff >> (12'd26 - bit_stick) : 27'h0;
+assign stick_mask = (bit_stick == 12'hfff)? 27'h0
+                  : (bit_stick <= 12'd26  )? 27'h7ffffff >> (12'd26 - bit_stick)
+                  : 27'h7ffffff;
 assign stick = |(frac & stick_mask);
 //
-wire        inexact;
-wire [26:0] inexact_mask;
-assign inexact_mask = (bit_guard < 12'd27)? 27'h7ffffff >>  (12'd26 - bit_guard) : 27'h0;
-assign inexact = |(frac & inexact_mask);
+//wire        inexact;
+//wire [26:0] inexact_mask;
+//assign inexact_mask = (bit_guard < 12'd27)? 27'h7ffffff >>  (12'd26 - bit_guard) : 27'h0; //---BUG---
+//assign inexact_mask = (bit_guard < 12'd26)? 27'h3ffffff >>  (12'd25 - bit_guard) : 27'h0;
+//assign inexact = |(frac & inexact_mask);
+//
+// Rounding to integer is not exact (no inexact exceptions).
+wire   inexact;
+assign inexact = 1'b0;
+// 
 //
 wire        round_add;
 wire [ 4:0] round_flg;
@@ -4053,9 +4202,9 @@ begin
         else if (ftype == `FPU32_FT_NEGSNA) INT_OUT = 32'h7fffffff;
         else if (ftype == `FPU32_FT_POSZRO) INT_OUT = 32'h00000000;
         else if (ftype == `FPU32_FT_NEGZRO) INT_OUT = 32'h00000000;
-        else if (judge_zro                ) INT_OUT = 32'h00000000;
         else if (judge_inf_s & ~sign      ) INT_OUT = 32'h7fffffff;
         else if (judge_inf_s &  sign      ) INT_OUT = 32'h80000000;
+        else if (judge_zro                ) INT_OUT = 32'h00000000;
         else if (~sign) INT_OUT = uint32_data_round;
         else if ( sign) INT_OUT = 32'h0 - uint32_data_round;
         else INT_OUT = 32'h00000000;
@@ -4070,9 +4219,9 @@ begin
         else if (ftype == `FPU32_FT_NEGSNA) INT_OUT = 32'hffffffff;
         else if (ftype == `FPU32_FT_POSZRO) INT_OUT = 32'h00000000;
         else if (ftype == `FPU32_FT_NEGZRO) INT_OUT = 32'h00000000;
-        else if (judge_zro                ) INT_OUT = 32'h00000000;
         else if (judge_inf_u & ~sign      ) INT_OUT = 32'hffffffff;
         else if (judge_inf_u &  sign      ) INT_OUT = 32'h00000000;
+        else if (judge_zro                ) INT_OUT = 32'h00000000;
         else if (~sign) INT_OUT = uint32_data_round;
         else if ( sign) INT_OUT = 32'h00000000;
         else INT_OUT = 32'h00000000;
@@ -4091,9 +4240,9 @@ begin
         else if (ftype == `FPU32_FT_NEGSNA) FLG_OUT = `FPU32_FLAG_NV;
         else if (ftype == `FPU32_FT_POSZRO) FLG_OUT = `FPU32_FLAG_OK;
         else if (ftype == `FPU32_FT_NEGZRO) FLG_OUT = `FPU32_FLAG_OK;
-        else if (judge_zro                ) FLG_OUT = `FPU32_FLAG_OK;
         else if (judge_inf_s              ) FLG_OUT = `FPU32_FLAG_NV;
         else if (inexact                  ) FLG_OUT = `FPU32_FLAG_NX;
+        else if (judge_zro                ) FLG_OUT = `FPU32_FLAG_OK;
         else FLG_OUT = `FPU32_FLAG_OK;
     end
     else // unsigned
@@ -4106,9 +4255,9 @@ begin
         else if (ftype == `FPU32_FT_NEGSNA) FLG_OUT = `FPU32_FLAG_NV;
         else if (ftype == `FPU32_FT_POSZRO) FLG_OUT = `FPU32_FLAG_OK;
         else if (ftype == `FPU32_FT_NEGZRO) FLG_OUT = `FPU32_FLAG_OK;
-        else if (judge_zro                ) FLG_OUT = `FPU32_FLAG_OK;
         else if (judge_inf_u              ) FLG_OUT = `FPU32_FLAG_NV;
         else if (inexact                  ) FLG_OUT = `FPU32_FLAG_NX;
+        else if (judge_zro                ) FLG_OUT = `FPU32_FLAG_OK;
         else if (sign                     ) FLG_OUT = `FPU32_FLAG_NV;
         else FLG_OUT = `FPU32_FLAG_OK;
     end
@@ -4164,12 +4313,25 @@ assign uint32_data = (SIGNED & sign)? (32'h0 - INT_IN) : INT_IN;
 //
 // Find 1st One
 reg  [4:0] pos;
+//always @*
+//begin : BLOCK_TO_BREAK
+//    for (i = 0; i < 32; i = i + 1)
+//    begin
+//        pos = 5'd31 - i;
+//        if (uint32_data[31 - i]) disable BLOCK_TO_BREAK;
+//    end
+//end
 always @*
 begin : BLOCK_TO_BREAK
+    reg disable_BLOCK_TO_BREAK;
+    disable_BLOCK_TO_BREAK = 1'b0;
     for (i = 0; i < 32; i = i + 1)
     begin
-        pos = 5'd31 - i;
-        if (uint32_data[31 - i]) disable BLOCK_TO_BREAK;
+        if (!disable_BLOCK_TO_BREAK)
+        begin
+            pos = 5'd31 - i;
+            if (uint32_data[31 - i]) disable_BLOCK_TO_BREAK = 1'b1;
+        end
     end
 end
 //
@@ -4188,7 +4350,8 @@ wire lsb;
 wire guard;
 wire round;
 wire stick;
-wire stick_mask;
+//wire stick_mask; // --bug-- 32bit!
+wire [31:0] stick_mask;
 assign lsb   = (pos >= 5'd23)? uint32_data[pos - 5'd23] : 1'b0;
 assign guard = (pos >= 5'd24)? uint32_data[pos - 5'd24] : 1'b0;
 assign round = (pos >= 5'd25)? uint32_data[pos - 5'd25] : 1'b0;

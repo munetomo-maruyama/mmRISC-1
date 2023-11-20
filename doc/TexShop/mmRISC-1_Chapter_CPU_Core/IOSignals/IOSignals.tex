@@ -1,0 +1,435 @@
+\section{Input / Output Signals of mmRISC-1}
+
+Input / Output signals of mmRISC-1 (mmRISC.v) are shown in Table \ref{tb:IOSIGNALS_SYSTEM} to Table \ref{tb:IOSIGNALS_MTIME}.\\
+
+\begin{table}[H]
+    \begin{adjustbox}{scale={0.7}{0.7}}
+    \textsf{
+    \begin{tabular}{|L{1.5cm}{1.5cm}{t}|L{2cm}{2cm}{t}|L{1cm}{1cm}{t}|L{4.5cm}{4.5cm}{t}|L{8cm}{8cm}{t}|L{0.6cm}{0.6cm}{t}|}
+        \hline
+        %-------------------------------------
+        \rowcolor{LightPurple}
+        \textbf{Group} &
+        \textbf{Direction} &
+        \textbf{Width} &
+        \textbf{Name} &
+        \textbf{Description} &
+        \textbf{Note}
+        \nextRow \hline
+        %-------------------------------------
+        System & input  & ~ & RES\_ORG  & Origin of Reset \lb e.g. Power-on-Reset or Reset from External & ~
+        \nextRow \hline
+        %-------------------------------------
+        System & output & ~ & RES\_SYS  & System Reset Output \lb It is logical OR among RES\_ORG, SRSTn and a reset from debugger. & ~
+        \nextRow \hline
+        %-------------------------------------
+        System & input  & ~ & CLK       & System Clock & ~
+        \nextRow \hline
+        %-------------------------------------
+        System & input  & ~ & STBY      & System Stand-by \lb It is used to show harts are available or not. If STBY is asserted, each hart is treated as unavailable. & ~
+        \nextRow \hline
+        %-------------------------------------
+        System & input  & ~ & STBY\_REQ & CPU Stand-By Request \lb It is used to flush pipeline and halt execution before entering system in stand-by low power mode. & ~
+        \nextRow \hline
+        %-------------------------------------
+        System & output & ~ & STBY\_ACK & CPU Stand-By Acknowledge \lb It is used to inform the CPU has halted completely, then the system can stop the system clock. & ~
+        \nextRow \hline
+        %-------------------------------------
+    \end{tabular}
+    }
+    \end{adjustbox}
+    \caption{Input / Output Signals of mmRISC-1 (System)}
+    \label{tb:IOSIGNALS_SYSTEM}
+\end{table}
+
+\begin{table}[H]
+    \begin{adjustbox}{scale={0.7}{0.7}}
+    \textsf{
+    \begin{tabular}{|L{1.5cm}{1.5cm}{t}|L{2cm}{2cm}{t}|L{1cm}{1cm}{t}|L{4.5cm}{4.5cm}{t}|L{8cm}{8cm}{t}|L{0.6cm}{0.6cm}{t}|}
+        \hline
+        %-------------------------------------
+        \rowcolor{LightPurple}
+        \textbf{Group} &
+        \textbf{Direction} &
+        \textbf{Width} &
+        \textbf{Name} &
+        \textbf{Description} &
+        \textbf{Note}
+        \nextRow \hline
+        %-------------------------------------
+        System & input  & ~ & SRSTn\_IN  & System Reset Input except for Debug Block & ~
+        \nextRow \hline
+        %-------------------------------------
+        System & output & ~ & SRSTn\_OUT & System Reset Output from Debug Blocks & ~
+        \nextRow \hline
+        %-------------------------------------
+        JTAG   & input  & ~ & TRSTn      & JTAG Tap Reset & ~
+        \nextRow \hline
+        %-------------------------------------
+        JTAG   & input  & ~ & TCK        & JTAG Clock & ~
+        \nextRow \hline
+        %-------------------------------------
+        JTAG   & input  & ~ & TMS        & JTAG Mode Select & ~
+        \nextRow \hline
+        %-------------------------------------
+        JTAG   & input  & ~ & TDI        & JTAG Data Input & ~
+        \nextRow \hline
+        %-------------------------------------
+        JTAG   & output & ~ & TDO\_E     & JTAG Data Output Enable (for 3-state output) & ~
+        \nextRow \hline
+        %-------------------------------------
+        JTAG   & output & ~ & TDO\_D     & JTAG Data Output Data (for 3-state output) & ~
+        \nextRow \hline
+        %-------------------------------------
+        JTAG   & output & ~ & RTCK       & JTAG Return Clock & ~
+        \nextRow \hline
+        %-------------------------------------
+        JTAG   & input  & \lbrack 31:0\rbrack & JTAG\_DR\_USER\_IN  & JTAG DR User Register Input (to capture) & ~
+        \nextRow \hline
+        %-------------------------------------
+        JTAG   & output & \lbrack 31:0\rbrack & JTAG\_DR\_USER\_OUT & JTAG DR User Register Output (updated) & ~
+        \nextRow \hline
+        %-------------------------------------
+        Debug  & input  & ~ & FORCE\_HALT \lb \_ON\_RESET\_REQ & Request to force CPU in Halt State when Reset & ~
+        \nextRow \hline
+        %-------------------------------------
+        Debug  & output & ~ & FORCE\_HALT \lb \_ON\_RESET\_ACK & Acknowledge of Above Request & ~
+        \nextRow \hline
+        %-------------------------------------
+    \end{tabular}
+    }
+    \end{adjustbox}
+    \caption{Input / Output Signals of mmRISC-1 (JTAG)}
+    \label{tb:IOSIGNALS_JTAG}
+\end{table}
+
+\begin{table}[H]
+    \begin{adjustbox}{scale={0.7}{0.7}}
+    \textsf{
+    \begin{tabular}{|L{1.5cm}{1.5cm}{t}|L{2cm}{2cm}{t}|L{1cm}{1cm}{t}|L{4.5cm}{4.5cm}{t}|L{8cm}{8cm}{t}|L{0.6cm}{0.6cm}{t}|}
+        \hline
+        %-------------------------------------
+        \rowcolor{LightPurple}
+        \textbf{Group} &
+        \textbf{Direction} &
+        \textbf{Width} &
+        \textbf{Name} &
+        \textbf{Description} &
+        \textbf{Note}
+        \nextRow \hline
+        %-------------------------------------
+        Config  & input  & \lbrack 31:0\rbrack & RESET\_VECTOR \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Reset Vector Configuration for each Hart & ~
+        \nextRow \hline
+        %-------------------------------------
+        Config  & input  & ~                   & DEBUG\_SECURE &  Debug is secured or not & ~
+        \nextRow \hline
+        %-------------------------------------
+        Config  & input  & \lbrack 31:0\rbrack & DEBUG\_SECURE \lb \_CODE\_0 & Debug Secure Code 0 \lb to be matched with CSR AUTHDATA & ~
+        \nextRow \hline
+        %-------------------------------------
+        Config  & input  & \lbrack 31:0\rbrack & DEBUG\_SECURE \lb \_CODE\_1 & Debug Secure Code 1 \lb to be matched with CSR AUTHDATA & ~
+        \nextRow \hline
+        %-------------------------------------
+    \end{tabular}
+    }
+    \end{adjustbox}
+    \caption{Input / Output Signals of mmRISC-1 (Configuration)}
+    \label{tb:IOSIGNALS_CONFIG}
+\end{table}
+
+\begin{table}[H]
+    \begin{adjustbox}{scale={0.7}{0.7}}
+    \textsf{
+    \begin{tabular}{|L{1.5cm}{1.5cm}{t}|L{2cm}{2cm}{t}|L{1cm}{1cm}{t}|L{4.5cm}{4.5cm}{t}|L{8cm}{8cm}{t}|L{0.6cm}{0.6cm}{t}|}
+        \hline
+        %-------------------------------------
+        \rowcolor{LightPurple}
+        \textbf{Group} &
+        \textbf{Direction} &
+        \textbf{Width} &
+        \textbf{Name} &
+        \textbf{Description} &
+        \textbf{Note}
+        \nextRow \hline
+        %-------------------------------------
+        Instruction Bus & output & ~                   & CPUI\_M\_SEL       \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Instruction Bus; AHB-Lite Select & ~
+        \nextRow \hline
+        %-------------------------------------
+        Instruction Bus & output & \lbrack  1:0\rbrack & CPUI\_M\_HTRANS    \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Instruction Bus; AHB-Lite Transfer & ~
+        \nextRow \hline
+        %-------------------------------------
+        Instruction Bus & output & ~                   & CPUI\_M\_HWRITE    \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Instruction Bus; AHB-Lite Write & ~
+        \nextRow \hline
+        %-------------------------------------
+        Instruction Bus & output & ~                   & CPUI\_M\_HMASTLOCK \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Instruction Bus; AHB-Lite Master Lock & ~
+        \nextRow \hline
+        %-------------------------------------
+        Instruction Bus & output & \lbrack  2:0\rbrack & CPUI\_M\_HSIZE     \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Instruction Bus; AHB-Lite Size & ~
+        \nextRow \hline
+        %-------------------------------------
+        Instruction Bus & output & \lbrack  2:0\rbrack & CPUI\_M\_HBURST    \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Instruction Bus; AHB-Lite Burst & ~
+        \nextRow \hline
+        %-------------------------------------
+        Instruction Bus & output & \lbrack  3:0\rbrack & CPUI\_M\_HPROT     \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Instruction Bus; AHB-Lite Protection & ~
+        \nextRow \hline
+        %-------------------------------------
+        Instruction Bus & output & \lbrack 31:0\rbrack & CPUI\_M\_HADDR     \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Instruction Bus; AHB-Lite Address & ~
+        \nextRow \hline
+        %-------------------------------------
+        Instruction Bus & output & \lbrack 31:0\rbrack & CPUI\_M\_HWDATA    \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Instruction Bus; AHB-Lite Write Data & ~
+        \nextRow \hline
+        %-------------------------------------
+        Instruction Bus & output & ~                   & CPUI\_M\_HREADY    \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Instruction Bus; AHB-Lite Ready Output & ~
+        \nextRow \hline
+        %-------------------------------------
+        Instruction Bus & input  & ~                   & CPUI\_M\_HREADYOUT \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Instruction Bus; AHB-Lite Ready Input & ~
+        \nextRow \hline
+        %-------------------------------------
+        Instruction Bus & input  & \lbrack 31:0\rbrack & CPUI\_M\_RDATA     \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Instruction Bus; AHB-Lite Read Data & ~
+        \nextRow \hline
+        %-------------------------------------
+        Instruction Bus & input  & ~                   & CPUI\_M\_HRESP     \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Instruction Bus; AHB-Lite Response & ~
+        \nextRow \hline
+        %-------------------------------------
+    \end{tabular}
+    }
+    \end{adjustbox}
+    \caption{Input / Output Signals of mmRISC-1 (Instruction Bus)}
+    \label{tb:IOSIGNALS_IBUS}
+\end{table}
+
+\begin{table}[H]
+    \begin{adjustbox}{scale={0.7}{0.7}}
+    \textsf{
+    \begin{tabular}{|L{1.5cm}{1.5cm}{t}|L{2cm}{2cm}{t}|L{1cm}{1cm}{t}|L{4.5cm}{4.5cm}{t}|L{8cm}{8cm}{t}|L{0.6cm}{0.6cm}{t}|}
+        \hline
+        %-------------------------------------
+        \rowcolor{LightPurple}
+        \textbf{Group} &
+        \textbf{Direction} &
+        \textbf{Width} &
+        \textbf{Name} &
+        \textbf{Description} &
+        \textbf{Note}
+        \nextRow \hline
+        %-------------------------------------
+        Data Bus & output & ~                   & CPUD\_M\_SEL       \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Data Bus; AHB-Lite Select & ~
+        \nextRow \hline
+        %-------------------------------------
+        Data Bus & output & \lbrack  1:0\rbrack & CPUD\_M\_HTRANS    \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Data Bus; AHB-Lite Transfer & ~
+        \nextRow \hline
+        %-------------------------------------
+        Data Bus & output & ~                   & CPUD\_M\_HWRITE    \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Data Bus; AHB-Lite Write & ~
+        \nextRow \hline
+        %-------------------------------------
+        Data Bus & output & ~                   & CPUD\_M\_HMASTLOCK \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Data Bus; AHB-Lite Master Lock & ~
+        \nextRow \hline
+        %-------------------------------------
+        Data Bus & output & \lbrack  2:0\rbrack & CPUD\_M\_HSIZE     \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Data Bus; AHB-Lite Size & ~
+        \nextRow \hline
+        %-------------------------------------
+        Data Bus & output & \lbrack  2:0\rbrack & CPUD\_M\_HBURST    \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Data Bus; AHB-Lite Burst & ~
+        \nextRow \hline
+        %-------------------------------------
+        Data Bus & output & \lbrack  3:0\rbrack & CPUD\_M\_HPROT     \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Data Bus; AHB-Lite Protection & ~
+        \nextRow \hline
+        %-------------------------------------
+        Data Bus & output & \lbrack 31:0\rbrack & CPUD\_M\_HADDR     \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Data Bus; AHB-Lite Address & ~
+        \nextRow \hline
+        %-------------------------------------
+        Data Bus & output & \lbrack 31:0\rbrack & CPUD\_M\_HWDATA    \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Data Bus; AHB-Lite Write Data & ~
+        \nextRow \hline
+        %-------------------------------------
+        Data Bus & output & ~                   & CPUD\_M\_HREADY    \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Data Bus; AHB-Lite Ready Output & ~
+        \nextRow \hline
+        %-------------------------------------
+        Data Bus & input  & ~                   & CPUD\_M\_HREADYOUT \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Data Bus; AHB-Lite Ready Input & ~
+        \nextRow \hline
+        %-------------------------------------
+        Data Bus & input  & \lbrack 31:0\rbrack & CPUD\_M\_RDATA     \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Data Bus; AHB-Lite Read Data & ~
+        \nextRow \hline
+        %-------------------------------------
+        Data Bus & input  & ~                   & CPUD\_M\_HRESP     \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Data Bus; AHB-Lite Response & ~
+        \nextRow \hline
+        %-------------------------------------
+    \end{tabular}
+    }
+    \end{adjustbox}
+    \caption{Input / Output Signals of mmRISC-1 (Data Bus)}
+    \label{tb:IOSIGNALS_DBUS}
+\end{table}
+
+\begin{table}[H]
+    \begin{adjustbox}{scale={0.7}{0.7}}
+    \textsf{
+    \begin{tabular}{|L{1.5cm}{1.5cm}{t}|L{2cm}{2cm}{t}|L{1cm}{1cm}{t}|L{4.5cm}{4.5cm}{t}|L{8cm}{8cm}{t}|L{0.6cm}{0.6cm}{t}|}
+        \hline
+        %-------------------------------------
+        \rowcolor{LightPurple}
+        \textbf{Group} &
+        \textbf{Direction} &
+        \textbf{Width} &
+        \textbf{Name} &
+        \textbf{Description} &
+        \textbf{Note}
+        \nextRow \hline
+        %-------------------------------------
+        Atomic & input  & ~                   & CPUM\_S\_SEL       \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Atomic Monitor Bus; AHB-Lite Select & ~
+        \nextRow \hline
+        %-------------------------------------
+        Atomic & input  & \lbrack  1:0\rbrack & CPUM\_S\_HTRANS    \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Atomic Monitor Bus; AHB-Lite Transfer & ~
+        \nextRow \hline
+        %-------------------------------------
+        Atomic & input  & ~                   & CPUM\_S\_HWRITE    \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Atomic Monitor Bus; AHB-Lite Write & ~
+        \nextRow \hline
+        %-------------------------------------
+        Atomic & input  & \lbrack 31:0\rbrack & CPUM\_S\_HADDR     \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Atomic Monitor Bus; AHB-Lite Address & ~
+        \nextRow \hline
+        %-------------------------------------
+        Atomic & input  & ~                   & CPUM\_S\_HREADY    \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Atomic Monitor Bus; AHB-Lite Ready Output & ~
+        \nextRow \hline
+        %-------------------------------------
+        Atomic & input  & ~                   & CPUM\_S\_HREADYOUT \lb \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack & Atomic Monitor Bus; AHB-Lite Ready Input & ~
+        \nextRow \hline
+        %-------------------------------------
+    \end{tabular}
+    }
+    \end{adjustbox}
+    \caption{Input / Output Signals of mmRISC-1\\(Atomic LR/SC Monitor)\protect\footnotemark[1]}
+    \label{tb:IOSIGNALS_MBUS}
+\end{table}
+
+\footnotetext[1]{Available when \textasciigrave RISCV\_ISA\_RV32A is defined.}
+
+
+\begin{table}[H]
+    \begin{adjustbox}{scale={0.7}{0.7}}
+    \textsf{
+    \begin{tabular}{|L{1.5cm}{1.5cm}{t}|L{2cm}{2cm}{t}|L{1cm}{1cm}{t}|L{4.5cm}{4.5cm}{t}|L{8cm}{8cm}{t}|L{0.6cm}{0.6cm}{t}|}
+        \hline
+        %-------------------------------------
+        \rowcolor{LightPurple}
+        \textbf{Group} &
+        \textbf{Direction} &
+        \textbf{Width} &
+        \textbf{Name} &
+        \textbf{Description} &
+        \textbf{Note}
+        \nextRow \hline
+        %-------------------------------------
+        Sys Bus & output & ~                   & DBGD\_M\_SEL       & Debug System Bus; AHB-Lite Select & ~
+        \nextRow \hline
+        %-------------------------------------
+        Sys Bus & output & \lbrack  1:0\rbrack & DBGD\_M\_HTRANS    & Debug System Bus; AHB-Lite Transfer & ~
+        \nextRow \hline
+        %-------------------------------------
+        Sys Bus & output & ~                   & DBGD\_M\_HWRITE    & Debug System Bus; AHB-Lite Write & ~
+        \nextRow \hline
+        %-------------------------------------
+        Sys Bus & output & ~                   & DBGD\_M\_HMASTLOCK & Debug System Bus; AHB-Lite Master Lock & ~
+        \nextRow \hline
+        %-------------------------------------
+        Sys Bus & output & \lbrack  2:0\rbrack & DBGD\_M\_HSIZE     & Debug System Bus; AHB-Lite Size & ~
+        \nextRow \hline
+        %-------------------------------------
+        Sys Bus & output & \lbrack  2:0\rbrack & DBGD\_M\_HBURST    & Debug System Bus; AHB-Lite Burst & ~
+        \nextRow \hline
+        %-------------------------------------
+        Sys Bus & output & \lbrack  3:0\rbrack & DBGD\_M\_HPROT     & Debug System Bus; AHB-Lite Protection & ~
+        \nextRow \hline
+        %-------------------------------------
+        Sys Bus & output & \lbrack 31:0\rbrack & DBGD\_M\_HADDR     & Debug System Bus; AHB-Lite Address & ~
+        \nextRow \hline
+        %-------------------------------------
+        Sys Bus & output & \lbrack 31:0\rbrack & DBGD\_M\_HWDATA    & Debug System Bus; AHB-Lite Write Data & ~
+        \nextRow \hline
+        %-------------------------------------
+        Sys Bus & output & ~                   & DBGD\_M\_HREADY    & Debug System Bus; AHB-Lite Ready Output & ~
+        \nextRow \hline
+        %-------------------------------------
+        Sys Bus & input  & ~                   & DBGD\_M\_HREADYOUT & Debug System Bus; AHB-Lite Ready Input & ~
+        \nextRow \hline
+        %-------------------------------------
+        Sys Bus & input  & \lbrack 31:0\rbrack & DBGD\_M\_RDATA     & Debug System Bus; AHB-Lite Read Data & ~
+        \nextRow \hline
+        %-------------------------------------
+        Sys Bus & input  & ~                   & DBGD\_M\_HRESP     & Debug System Bus; AHB-Lite Response & ~
+        \nextRow \hline
+        %-------------------------------------
+    \end{tabular}
+    }
+    \end{adjustbox}
+    \caption{Input / Output Signals of mmRISC-1 \\ (Debug System Access Bus)}
+    \label{tb:IOSIGNALS_SBUS}
+\end{table}
+
+\begin{table}[H]
+    \begin{adjustbox}{scale={0.7}{0.7}}
+    \textsf{
+    \begin{tabular}{|L{1.6cm}{1.6cm}{t}|L{2cm}{2cm}{t}|L{1cm}{1cm}{t}|L{4.5cm}{4.5cm}{t}|L{8cm}{8cm}{t}|L{0.5cm}{0.5cm}{t}|}
+        \hline
+        %-------------------------------------
+        \rowcolor{LightPurple}
+        \textbf{Group} &
+        \textbf{Direction} &
+        \textbf{Width} &
+        \textbf{Name} &
+        \textbf{Description} &
+        \textbf{Note}
+        \nextRow \hline
+        %-------------------------------------
+        Interrupt & input  & ~ & IRQ\_EXT   & External Interrupt & ~
+        \nextRow \hline
+        %-------------------------------------
+        Interrupt & input  & ~ & IRQ\_MSOFT & Machine Software Interrupt & ~
+        \nextRow \hline
+        %-------------------------------------
+        Interrupt & input  & ~ & IRQ\_MTIME & Machine Timer Interrupt & ~
+        \nextRow \hline
+        %-------------------------------------
+        Interrupt & input  & \lbrack 63:0\rbrack & IRQ & Interrupt Request \lb (towards Interrupt Controller) & ~
+        \nextRow \hline
+        %-------------------------------------
+    \end{tabular}
+    }
+    \end{adjustbox}
+    \caption{Input / Output Signals of mmRISC-1 (Interrupt)}
+    \label{tb:IOSIGNALS_IRQ}
+\end{table}
+
+A signal called DBG\_STOP\_TIMER in Table \ref{tb:IOSIGNALS_MTIME} can be used to stop the Tick count in the MTIME and to stop the counter of the Watch Dog Timer (WDT) in SoC during debug mode, that is during the halt state according to the break operation. 
+
+
+\begin{table}[H]
+    \begin{adjustbox}{scale={0.7}{0.7}}
+    \textsf{
+    \begin{tabular}{|L{1.6cm}{1.6cm}{t}|L{2cm}{2cm}{t}|L{1cm}{1cm}{t}|L{4.5cm}{4.5cm}{t}|L{8cm}{8cm}{t}|L{0.5cm}{0.5cm}{t}|}
+        \hline
+        %-------------------------------------
+        \rowcolor{LightPurple}
+        \textbf{Group} &
+        \textbf{Direction} &
+        \textbf{Width} &
+        \textbf{Name} &
+        \textbf{Description} &
+        \textbf{Note}
+        \nextRow \hline
+        %-------------------------------------
+        MTIME & input  & \lbrack 31:0\rbrack & MTIME   & Machine Timer Counter LSB & ~
+        \nextRow \hline
+        %-------------------------------------
+        MTIME & input  & \lbrack 31:0\rbrack & MTIMEH  & Machine Timer Counter MSB & ~
+        \nextRow \hline
+        %-------------------------------------
+        MTIME & output & ~                   & DBG\_STOP\_TIMER & Stop Timer due to entering Debug Mode & ~
+        \nextRow \hline
+        %-------------------------------------
+    \end{tabular}
+    }
+    \end{adjustbox}
+    \caption{Input / Output Signals of mmRISC-1 (MTIME)}
+    \label{tb:IOSIGNALS_MTIME}
+\end{table}
+
+
+

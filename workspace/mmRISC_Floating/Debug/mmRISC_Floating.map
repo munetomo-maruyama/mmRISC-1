@@ -1,0 +1,1509 @@
+Archive member included to satisfy reference by file (symbol)
+
+/opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-exit.o)
+                              ./src/float.o (exit)
+/opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-impure.o)
+                              /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-exit.o) (_global_impure_ptr)
+/opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-memcpy.o)
+                              ./src/float.o (memcpy)
+/opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-strlen.o)
+                              ./src/xprintf.o (strlen)
+/opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-__call_atexit.o)
+                              /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-exit.o) (__call_exitprocs)
+/opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-atexit.o)
+                              /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-__call_atexit.o) (atexit)
+/opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-fini.o)
+                              /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-__call_atexit.o) (__libc_fini_array)
+/opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-__atexit.o)
+                              /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-atexit.o) (__register_exitproc)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_udivdi3.o)
+                              ./src/xprintf.o (__udivdi3)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_umoddi3.o)
+                              ./src/xprintf.o (__umoddi3)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(adddf3.o)
+                              ./src/xprintf.o (__adddf3)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(divdf3.o)
+                              ./src/xprintf.o (__divdf3)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(eqdf2.o)
+                              ./src/xprintf.o (__nedf2)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(gedf2.o)
+                              ./src/xprintf.o (__gedf2)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(ledf2.o)
+                              ./src/xprintf.o (__ledf2)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(muldf3.o)
+                              ./src/xprintf.o (__muldf3)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(subdf3.o)
+                              ./src/xprintf.o (__subdf3)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(unorddf2.o)
+                              ./src/xprintf.o (__unorddf2)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(fixdfsi.o)
+                              ./src/xprintf.o (__fixdfsi)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(floatsidf.o)
+                              ./src/xprintf.o (__floatsidf)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(extendsfdf2.o)
+                              ./src/float.o (__extendsfdf2)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clz.o)
+                              /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_udivdi3.o) (__clz_tab)
+/opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clzsi2.o)
+                              /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(adddf3.o) (__clzsi2)
+
+Discarded input sections
+
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .group         0x00000000        0xc ./src/float.o
+ .text          0x00000000        0x0 ./src/float.o
+ .data          0x00000000        0x0 ./src/float.o
+ .bss           0x00000000        0x0 ./src/float.o
+ .text.mem_wr32
+                0x00000000       0x20 ./src/float.o
+ .rodata.LED7SEG
+                0x00000000       0x10 ./src/float.o
+ .text.check_ftype
+                0x00000000      0x1e6 ./src/float.o
+ .text.fmt32_float
+                0x00000000       0x30 ./src/float.o
+ .text.fmt32_element
+                0x00000000       0x5e ./src/float.o
+ .text.print_fmt
+                0x00000000      0x11e ./src/float.o
+ .text.print_float
+                0x00000000      0x1da ./src/float.o
+ .text.qnan_snan
+                0x00000000       0x4a ./src/float.o
+ .text.Test_Loop_Float
+                0x00000000      0x252 ./src/float.o
+ .text.Test_Loop_FSQRT
+                0x00000000      0x1be ./src/float.o
+ .text.Test_Floating_Operation
+                0x00000000       0x9a ./src/float.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .group         0x00000000        0xc ./src/gpio.o
+ .text          0x00000000        0x0 ./src/gpio.o
+ .data          0x00000000        0x0 ./src/gpio.o
+ .bss           0x00000000        0x0 ./src/gpio.o
+ .text.GPIO_SetSEG_SignedDecimal
+                0x00000000      0x296 ./src/gpio.o
+ .debug_macro   0x00000000      0x784 ./src/gpio.o
+ .debug_macro   0x00000000       0x22 ./src/gpio.o
+ .debug_macro   0x00000000      0x103 ./src/gpio.o
+ .debug_macro   0x00000000       0x6a ./src/gpio.o
+ .debug_macro   0x00000000      0x1df ./src/gpio.o
+ .debug_macro   0x00000000       0x20 ./src/gpio.o
+ .debug_macro   0x00000000       0x34 ./src/gpio.o
+ .debug_macro   0x00000000       0x34 ./src/gpio.o
+ .debug_macro   0x00000000       0x16 ./src/gpio.o
+ .debug_macro   0x00000000       0x9e ./src/gpio.o
+ .debug_macro   0x00000000      0x341 ./src/gpio.o
+ .debug_macro   0x00000000      0x10b ./src/gpio.o
+ .debug_macro   0x00000000       0x10 ./src/gpio.o
+ .debug_macro   0x00000000       0x16 ./src/gpio.o
+ .debug_macro   0x00000000       0x43 ./src/gpio.o
+ .debug_macro   0x00000000       0x34 ./src/gpio.o
+ .debug_macro   0x00000000       0x10 ./src/gpio.o
+ .debug_macro   0x00000000       0x52 ./src/gpio.o
+ .debug_macro   0x00000000      0x182 ./src/gpio.o
+ .debug_macro   0x00000000       0x10 ./src/gpio.o
+ .debug_macro   0x00000000       0x1c ./src/gpio.o
+ .debug_macro   0x00000000       0x52 ./src/gpio.o
+ .debug_macro   0x00000000       0x22 ./src/gpio.o
+ .debug_macro   0x00000000       0x10 ./src/gpio.o
+ .debug_macro   0x00000000       0x52 ./src/gpio.o
+ .debug_macro   0x00000000       0xd5 ./src/gpio.o
+ .debug_macro   0x00000000       0x1c ./src/gpio.o
+ .debug_macro   0x00000000       0x3d ./src/gpio.o
+ .debug_macro   0x00000000       0x16 ./src/gpio.o
+ .debug_macro   0x00000000      0x16f ./src/gpio.o
+ .debug_macro   0x00000000       0x46 ./src/gpio.o
+ .debug_macro   0x00000000       0x10 ./src/gpio.o
+ .debug_macro   0x00000000       0xa0 ./src/gpio.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .group         0x00000000        0xc ./src/interrupt.o
+ .text          0x00000000        0x0 ./src/interrupt.o
+ .data          0x00000000        0x0 ./src/interrupt.o
+ .bss           0x00000000        0x0 ./src/interrupt.o
+ .rodata.LED7SEG
+                0x00000000       0x10 ./src/interrupt.o
+ .debug_macro   0x00000000      0x784 ./src/interrupt.o
+ .debug_macro   0x00000000       0x22 ./src/interrupt.o
+ .debug_macro   0x00000000       0x8e ./src/interrupt.o
+ .debug_macro   0x00000000       0x51 ./src/interrupt.o
+ .debug_macro   0x00000000      0x103 ./src/interrupt.o
+ .debug_macro   0x00000000       0x6a ./src/interrupt.o
+ .debug_macro   0x00000000      0x1df ./src/interrupt.o
+ .debug_macro   0x00000000       0x58 ./src/interrupt.o
+ .debug_macro   0x00000000       0x20 ./src/interrupt.o
+ .debug_macro   0x00000000       0x34 ./src/interrupt.o
+ .debug_macro   0x00000000       0x34 ./src/interrupt.o
+ .debug_macro   0x00000000       0x16 ./src/interrupt.o
+ .debug_macro   0x00000000       0x9e ./src/interrupt.o
+ .debug_macro   0x00000000      0x341 ./src/interrupt.o
+ .debug_macro   0x00000000      0x10b ./src/interrupt.o
+ .debug_macro   0x00000000       0x10 ./src/interrupt.o
+ .debug_macro   0x00000000       0x16 ./src/interrupt.o
+ .debug_macro   0x00000000       0x43 ./src/interrupt.o
+ .debug_macro   0x00000000       0x34 ./src/interrupt.o
+ .debug_macro   0x00000000       0x10 ./src/interrupt.o
+ .debug_macro   0x00000000       0x52 ./src/interrupt.o
+ .debug_macro   0x00000000      0x182 ./src/interrupt.o
+ .debug_macro   0x00000000       0x10 ./src/interrupt.o
+ .debug_macro   0x00000000       0x1c ./src/interrupt.o
+ .debug_macro   0x00000000       0x52 ./src/interrupt.o
+ .debug_macro   0x00000000       0x22 ./src/interrupt.o
+ .debug_macro   0x00000000       0x10 ./src/interrupt.o
+ .debug_macro   0x00000000       0x52 ./src/interrupt.o
+ .debug_macro   0x00000000       0xd5 ./src/interrupt.o
+ .debug_macro   0x00000000       0x1c ./src/interrupt.o
+ .debug_macro   0x00000000       0x3d ./src/interrupt.o
+ .debug_macro   0x00000000       0x16 ./src/interrupt.o
+ .debug_macro   0x00000000      0x16f ./src/interrupt.o
+ .debug_macro   0x00000000       0x46 ./src/interrupt.o
+ .debug_macro   0x00000000       0x10 ./src/interrupt.o
+ .debug_macro   0x00000000       0x1c ./src/interrupt.o
+ .debug_macro   0x00000000       0xa0 ./src/interrupt.o
+ .debug_macro   0x00000000       0x28 ./src/interrupt.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/libc-hooks.o
+ .text          0x00000000        0x0 ./src/libc-hooks.o
+ .data          0x00000000        0x0 ./src/libc-hooks.o
+ .bss           0x00000000        0x0 ./src/libc-hooks.o
+ .bss.heap_base
+                0x00000000     0x2000 ./src/libc-hooks.o
+ .sbss.heap_sz  0x00000000        0x4 ./src/libc-hooks.o
+ .text._sbrk    0x00000000       0x5c ./src/libc-hooks.o
+ .text._open    0x00000000       0x18 ./src/libc-hooks.o
+ .text._close   0x00000000       0x14 ./src/libc-hooks.o
+ .text._stdout_hook_default
+                0x00000000       0x14 ./src/libc-hooks.o
+ .sdata._stdout_hook
+                0x00000000        0x4 ./src/libc-hooks.o
+ .text.__stdout_hook_install
+                0x00000000       0x1e ./src/libc-hooks.o
+ .text._stdin_hook_default
+                0x00000000       0x10 ./src/libc-hooks.o
+ .sdata._stdin_hook
+                0x00000000        0x4 ./src/libc-hooks.o
+ .text.__stdin_hook_install
+                0x00000000       0x1e ./src/libc-hooks.o
+ .text._read    0x00000000       0x98 ./src/libc-hooks.o
+ .text._write   0x00000000       0x78 ./src/libc-hooks.o
+ .text._lseek   0x00000000       0x1c ./src/libc-hooks.o
+ .text._exit    0x00000000        0xc ./src/libc-hooks.o
+ .text._isatty  0x00000000       0x14 ./src/libc-hooks.o
+ .text._kill    0x00000000       0x18 ./src/libc-hooks.o
+ .text._getpid  0x00000000       0x10 ./src/libc-hooks.o
+ .text._fstat   0x00000000       0x20 ./src/libc-hooks.o
+ .debug_info    0x00000000      0x5c2 ./src/libc-hooks.o
+ .debug_abbrev  0x00000000      0x1d7 ./src/libc-hooks.o
+ .debug_aranges
+                0x00000000       0x90 ./src/libc-hooks.o
+ .debug_rnglists
+                0x00000000       0x94 ./src/libc-hooks.o
+ .debug_macro   0x00000000      0x1d4 ./src/libc-hooks.o
+ .debug_macro   0x00000000      0x784 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x22 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x52 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x20 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x94 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x34 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x34 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x16 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x57 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x9e ./src/libc-hooks.o
+ .debug_macro   0x00000000      0x341 ./src/libc-hooks.o
+ .debug_macro   0x00000000      0x10b ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x10 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x16 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x43 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x34 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x10 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x52 ./src/libc-hooks.o
+ .debug_macro   0x00000000      0x182 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x10 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x6a ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x1c ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x52 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x22 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x10 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x52 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0xd5 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x1c ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x3d ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x16 ./src/libc-hooks.o
+ .debug_macro   0x00000000      0x16f ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x16 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x35 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x10 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x10 ./src/libc-hooks.o
+ .debug_macro   0x00000000       0x35 ./src/libc-hooks.o
+ .debug_macro   0x00000000      0x12c ./src/libc-hooks.o
+ .debug_line    0x00000000      0x433 ./src/libc-hooks.o
+ .debug_str     0x00000000     0x6d43 ./src/libc-hooks.o
+ .debug_line_str
+                0x00000000      0x2c7 ./src/libc-hooks.o
+ .comment       0x00000000       0x1c ./src/libc-hooks.o
+ .debug_frame   0x00000000      0x22c ./src/libc-hooks.o
+ .riscv.attributes
+                0x00000000       0x42 ./src/libc-hooks.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .group         0x00000000        0xc ./src/main.o
+ .text          0x00000000        0x0 ./src/main.o
+ .data          0x00000000        0x0 ./src/main.o
+ .bss           0x00000000        0x0 ./src/main.o
+ .rodata.LED7SEG
+                0x00000000       0x10 ./src/main.o
+ .debug_macro   0x00000000      0x784 ./src/main.o
+ .debug_macro   0x00000000       0x22 ./src/main.o
+ .debug_macro   0x00000000       0x52 ./src/main.o
+ .debug_macro   0x00000000       0x20 ./src/main.o
+ .debug_macro   0x00000000       0x94 ./src/main.o
+ .debug_macro   0x00000000       0x34 ./src/main.o
+ .debug_macro   0x00000000       0x34 ./src/main.o
+ .debug_macro   0x00000000       0x16 ./src/main.o
+ .debug_macro   0x00000000       0x43 ./src/main.o
+ .debug_macro   0x00000000       0x57 ./src/main.o
+ .debug_macro   0x00000000       0x34 ./src/main.o
+ .debug_macro   0x00000000       0x10 ./src/main.o
+ .debug_macro   0x00000000       0x52 ./src/main.o
+ .debug_macro   0x00000000      0x182 ./src/main.o
+ .debug_macro   0x00000000      0x341 ./src/main.o
+ .debug_macro   0x00000000      0x19b ./src/main.o
+ .debug_macro   0x00000000      0x103 ./src/main.o
+ .debug_macro   0x00000000       0x6a ./src/main.o
+ .debug_macro   0x00000000      0x1df ./src/main.o
+ .debug_macro   0x00000000       0x35 ./src/main.o
+ .debug_macro   0x00000000       0x10 ./src/main.o
+ .debug_macro   0x00000000       0x10 ./src/main.o
+ .debug_macro   0x00000000       0x1c ./src/main.o
+ .debug_macro   0x00000000       0x52 ./src/main.o
+ .debug_macro   0x00000000       0x22 ./src/main.o
+ .debug_macro   0x00000000       0x10 ./src/main.o
+ .debug_macro   0x00000000       0x52 ./src/main.o
+ .debug_macro   0x00000000       0xd5 ./src/main.o
+ .debug_macro   0x00000000       0x1c ./src/main.o
+ .debug_macro   0x00000000       0x3d ./src/main.o
+ .debug_macro   0x00000000       0x16 ./src/main.o
+ .debug_macro   0x00000000      0x16f ./src/main.o
+ .debug_macro   0x00000000       0x16 ./src/main.o
+ .debug_macro   0x00000000       0x16 ./src/main.o
+ .debug_macro   0x00000000       0x29 ./src/main.o
+ .debug_macro   0x00000000       0x46 ./src/main.o
+ .debug_macro   0x00000000       0x10 ./src/main.o
+ .debug_macro   0x00000000       0x16 ./src/main.o
+ .debug_macro   0x00000000       0x4c ./src/main.o
+ .debug_macro   0x00000000       0xa0 ./src/main.o
+ .debug_macro   0x00000000       0xac ./src/main.o
+ .debug_macro   0x00000000       0x28 ./src/main.o
+ .text          0x00000000        0x0 ./src/startup.o
+ .data          0x00000000        0x0 ./src/startup.o
+ .bss           0x00000000        0x0 ./src/startup.o
+ .riscv.attributes
+                0x00000000       0x44 ./src/startup.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .group         0x00000000        0xc ./src/system.o
+ .text          0x00000000        0x0 ./src/system.o
+ .data          0x00000000        0x0 ./src/system.o
+ .bss           0x00000000        0x0 ./src/system.o
+ .debug_macro   0x00000000      0x784 ./src/system.o
+ .debug_macro   0x00000000       0x22 ./src/system.o
+ .debug_macro   0x00000000       0x8e ./src/system.o
+ .debug_macro   0x00000000       0x51 ./src/system.o
+ .debug_macro   0x00000000      0x103 ./src/system.o
+ .debug_macro   0x00000000       0x6a ./src/system.o
+ .debug_macro   0x00000000      0x1df ./src/system.o
+ .debug_macro   0x00000000       0x58 ./src/system.o
+ .debug_macro   0x00000000       0x20 ./src/system.o
+ .debug_macro   0x00000000       0x34 ./src/system.o
+ .debug_macro   0x00000000       0x34 ./src/system.o
+ .debug_macro   0x00000000       0x16 ./src/system.o
+ .debug_macro   0x00000000       0x9e ./src/system.o
+ .debug_macro   0x00000000      0x341 ./src/system.o
+ .debug_macro   0x00000000      0x10b ./src/system.o
+ .debug_macro   0x00000000       0x10 ./src/system.o
+ .debug_macro   0x00000000       0x16 ./src/system.o
+ .debug_macro   0x00000000       0x43 ./src/system.o
+ .debug_macro   0x00000000       0x34 ./src/system.o
+ .debug_macro   0x00000000       0x10 ./src/system.o
+ .debug_macro   0x00000000       0x52 ./src/system.o
+ .debug_macro   0x00000000      0x182 ./src/system.o
+ .debug_macro   0x00000000       0x10 ./src/system.o
+ .debug_macro   0x00000000       0x1c ./src/system.o
+ .debug_macro   0x00000000       0x52 ./src/system.o
+ .debug_macro   0x00000000       0x22 ./src/system.o
+ .debug_macro   0x00000000       0x10 ./src/system.o
+ .debug_macro   0x00000000       0x52 ./src/system.o
+ .debug_macro   0x00000000       0xd5 ./src/system.o
+ .debug_macro   0x00000000       0x1c ./src/system.o
+ .debug_macro   0x00000000       0x3d ./src/system.o
+ .debug_macro   0x00000000       0x16 ./src/system.o
+ .debug_macro   0x00000000      0x16f ./src/system.o
+ .debug_macro   0x00000000       0x46 ./src/system.o
+ .debug_macro   0x00000000       0x10 ./src/system.o
+ .debug_macro   0x00000000       0x1c ./src/system.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .group         0x00000000        0xc ./src/uart.o
+ .text          0x00000000        0x0 ./src/uart.o
+ .data          0x00000000        0x0 ./src/uart.o
+ .bss           0x00000000        0x0 ./src/uart.o
+ .rodata.LED7SEG
+                0x00000000       0x10 ./src/uart.o
+ .text.uart_puts
+                0x00000000       0x42 ./src/uart.o
+ .text.putchar  0x00000000       0x40 ./src/uart.o
+ .debug_macro   0x00000000      0x784 ./src/uart.o
+ .debug_macro   0x00000000       0x22 ./src/uart.o
+ .debug_macro   0x00000000       0x8e ./src/uart.o
+ .debug_macro   0x00000000       0x51 ./src/uart.o
+ .debug_macro   0x00000000      0x103 ./src/uart.o
+ .debug_macro   0x00000000       0x6a ./src/uart.o
+ .debug_macro   0x00000000      0x1df ./src/uart.o
+ .debug_macro   0x00000000       0x58 ./src/uart.o
+ .debug_macro   0x00000000       0x20 ./src/uart.o
+ .debug_macro   0x00000000       0x34 ./src/uart.o
+ .debug_macro   0x00000000       0x34 ./src/uart.o
+ .debug_macro   0x00000000       0x16 ./src/uart.o
+ .debug_macro   0x00000000       0x9e ./src/uart.o
+ .debug_macro   0x00000000      0x341 ./src/uart.o
+ .debug_macro   0x00000000      0x10b ./src/uart.o
+ .debug_macro   0x00000000       0x10 ./src/uart.o
+ .debug_macro   0x00000000       0x16 ./src/uart.o
+ .debug_macro   0x00000000       0x43 ./src/uart.o
+ .debug_macro   0x00000000       0x34 ./src/uart.o
+ .debug_macro   0x00000000       0x10 ./src/uart.o
+ .debug_macro   0x00000000       0x52 ./src/uart.o
+ .debug_macro   0x00000000      0x182 ./src/uart.o
+ .debug_macro   0x00000000       0x10 ./src/uart.o
+ .debug_macro   0x00000000       0x1c ./src/uart.o
+ .debug_macro   0x00000000       0x52 ./src/uart.o
+ .debug_macro   0x00000000       0x22 ./src/uart.o
+ .debug_macro   0x00000000       0x10 ./src/uart.o
+ .debug_macro   0x00000000       0x52 ./src/uart.o
+ .debug_macro   0x00000000       0xd5 ./src/uart.o
+ .debug_macro   0x00000000       0x1c ./src/uart.o
+ .debug_macro   0x00000000       0x3d ./src/uart.o
+ .debug_macro   0x00000000       0x16 ./src/uart.o
+ .debug_macro   0x00000000      0x16f ./src/uart.o
+ .debug_macro   0x00000000       0x46 ./src/uart.o
+ .debug_macro   0x00000000       0x10 ./src/uart.o
+ .debug_macro   0x00000000       0x1c ./src/uart.o
+ .debug_macro   0x00000000       0xa0 ./src/uart.o
+ .debug_macro   0x00000000       0x28 ./src/uart.o
+ .group         0x00000000        0xc ./src/xprintf.o
+ .group         0x00000000        0xc ./src/xprintf.o
+ .group         0x00000000        0xc ./src/xprintf.o
+ .group         0x00000000        0xc ./src/xprintf.o
+ .group         0x00000000        0xc ./src/xprintf.o
+ .group         0x00000000        0xc ./src/xprintf.o
+ .group         0x00000000        0xc ./src/xprintf.o
+ .group         0x00000000        0xc ./src/xprintf.o
+ .group         0x00000000        0xc ./src/xprintf.o
+ .group         0x00000000        0xc ./src/xprintf.o
+ .group         0x00000000        0xc ./src/xprintf.o
+ .group         0x00000000        0xc ./src/xprintf.o
+ .group         0x00000000        0xc ./src/xprintf.o
+ .group         0x00000000        0xc ./src/xprintf.o
+ .group         0x00000000        0xc ./src/xprintf.o
+ .group         0x00000000        0xc ./src/xprintf.o
+ .group         0x00000000        0xc ./src/xprintf.o
+ .group         0x00000000        0xc ./src/xprintf.o
+ .group         0x00000000        0xc ./src/xprintf.o
+ .group         0x00000000        0xc ./src/xprintf.o
+ .group         0x00000000        0xc ./src/xprintf.o
+ .text          0x00000000        0x0 ./src/xprintf.o
+ .data          0x00000000        0x0 ./src/xprintf.o
+ .bss           0x00000000        0x0 ./src/xprintf.o
+ .text.xputc    0x00000000       0x2c ./src/xprintf.o
+ .text.xputs    0x00000000       0x2c ./src/xprintf.o
+ .text.xfputs   0x00000000       0x46 ./src/xprintf.o
+ .text.xfprintf
+                0x00000000       0x52 ./src/xprintf.o
+ .text.xsprintf
+                0x00000000       0x70 ./src/xprintf.o
+ .text.put_dump
+                0x00000000      0x19a ./src/xprintf.o
+ .text.xgets    0x00000000       0xea ./src/xprintf.o
+ .text.xatoi    0x00000000      0x216 ./src/xprintf.o
+ .text.xatof    0x00000000      0x3cc ./src/xprintf.o
+ .debug_macro   0x00000000      0x784 ./src/xprintf.o
+ .debug_macro   0x00000000       0x46 ./src/xprintf.o
+ .debug_macro   0x00000000       0x22 ./src/xprintf.o
+ .debug_macro   0x00000000       0x52 ./src/xprintf.o
+ .debug_macro   0x00000000       0x20 ./src/xprintf.o
+ .debug_macro   0x00000000       0x94 ./src/xprintf.o
+ .debug_macro   0x00000000       0x34 ./src/xprintf.o
+ .debug_macro   0x00000000       0x34 ./src/xprintf.o
+ .debug_macro   0x00000000      0x189 ./src/xprintf.o
+ .debug_macro   0x00000000       0x16 ./src/xprintf.o
+ .debug_macro   0x00000000       0x43 ./src/xprintf.o
+ .debug_macro   0x00000000       0x57 ./src/xprintf.o
+ .debug_macro   0x00000000       0x34 ./src/xprintf.o
+ .debug_macro   0x00000000       0x10 ./src/xprintf.o
+ .debug_macro   0x00000000       0x52 ./src/xprintf.o
+ .debug_macro   0x00000000      0x182 ./src/xprintf.o
+ .debug_macro   0x00000000      0x341 ./src/xprintf.o
+ .debug_macro   0x00000000       0x35 ./src/xprintf.o
+ .debug_macro   0x00000000      0x19b ./src/xprintf.o
+ .text          0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-exit.o)
+ .data          0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-exit.o)
+ .bss           0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-exit.o)
+ .text.exit     0x00000000       0x2a /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-exit.o)
+ .comment       0x00000000       0x13 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-exit.o)
+ .riscv.attributes
+                0x00000000       0x42 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-exit.o)
+ .text          0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-impure.o)
+ .data          0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-impure.o)
+ .bss           0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-impure.o)
+ .srodata._global_impure_ptr
+                0x00000000        0x4 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-impure.o)
+ .sdata._impure_ptr
+                0x00000000        0x4 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-impure.o)
+ .data.impure_data
+                0x00000000      0x428 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-impure.o)
+ .comment       0x00000000       0x13 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-impure.o)
+ .riscv.attributes
+                0x00000000       0x42 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-impure.o)
+ .text          0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-memcpy.o)
+ .data          0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-memcpy.o)
+ .bss           0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-memcpy.o)
+ .text.memcpy   0x00000000      0x146 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-memcpy.o)
+ .comment       0x00000000       0x13 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-memcpy.o)
+ .riscv.attributes
+                0x00000000       0x42 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-memcpy.o)
+ .text          0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-strlen.o)
+ .data          0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-strlen.o)
+ .bss           0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-strlen.o)
+ .text          0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-__call_atexit.o)
+ .data          0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-__call_atexit.o)
+ .bss           0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-__call_atexit.o)
+ .text.startup.register_fini
+                0x00000000       0x1c /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-__call_atexit.o)
+ .init_array.00000
+                0x00000000        0x4 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-__call_atexit.o)
+ .text.__call_exitprocs
+                0x00000000       0xc2 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-__call_atexit.o)
+ .comment       0x00000000       0x13 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-__call_atexit.o)
+ .riscv.attributes
+                0x00000000       0x42 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-__call_atexit.o)
+ .text          0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-atexit.o)
+ .data          0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-atexit.o)
+ .bss           0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-atexit.o)
+ .text.atexit   0x00000000       0x10 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-atexit.o)
+ .comment       0x00000000       0x13 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-atexit.o)
+ .riscv.attributes
+                0x00000000       0x42 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-atexit.o)
+ .text          0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-fini.o)
+ .data          0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-fini.o)
+ .bss           0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-fini.o)
+ .text.__libc_fini_array
+                0x00000000       0x38 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-fini.o)
+ .comment       0x00000000       0x13 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-fini.o)
+ .riscv.attributes
+                0x00000000       0x42 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-fini.o)
+ .text          0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-__atexit.o)
+ .data          0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-__atexit.o)
+ .bss           0x00000000        0x0 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-__atexit.o)
+ .text.__register_exitproc
+                0x00000000       0x70 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-__atexit.o)
+ .comment       0x00000000       0x13 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-__atexit.o)
+ .riscv.attributes
+                0x00000000       0x42 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-__atexit.o)
+ .data          0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_udivdi3.o)
+ .bss           0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_udivdi3.o)
+ .eh_frame      0x00000000       0x28 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_udivdi3.o)
+ .data          0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_umoddi3.o)
+ .bss           0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_umoddi3.o)
+ .eh_frame      0x00000000       0x28 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_umoddi3.o)
+ .data          0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(adddf3.o)
+ .bss           0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(adddf3.o)
+ .data          0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(divdf3.o)
+ .bss           0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(divdf3.o)
+ .data          0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(eqdf2.o)
+ .bss           0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(eqdf2.o)
+ .data          0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(gedf2.o)
+ .bss           0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(gedf2.o)
+ .data          0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(ledf2.o)
+ .bss           0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(ledf2.o)
+ .data          0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(muldf3.o)
+ .bss           0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(muldf3.o)
+ .data          0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(subdf3.o)
+ .bss           0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(subdf3.o)
+ .data          0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(unorddf2.o)
+ .bss           0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(unorddf2.o)
+ .data          0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(fixdfsi.o)
+ .bss           0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(fixdfsi.o)
+ .data          0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(floatsidf.o)
+ .bss           0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(floatsidf.o)
+ .text          0x00000000       0xc4 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(extendsfdf2.o)
+ .data          0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(extendsfdf2.o)
+ .bss           0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(extendsfdf2.o)
+ .debug_info    0x00000000      0x251 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(extendsfdf2.o)
+ .debug_abbrev  0x00000000      0x14a /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(extendsfdf2.o)
+ .debug_loclists
+                0x00000000      0x201 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(extendsfdf2.o)
+ .debug_aranges
+                0x00000000       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(extendsfdf2.o)
+ .debug_rnglists
+                0x00000000       0x32 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(extendsfdf2.o)
+ .debug_line    0x00000000      0x38b /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(extendsfdf2.o)
+ .debug_str     0x00000000      0x1e7 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(extendsfdf2.o)
+ .debug_line_str
+                0x00000000      0x16a /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(extendsfdf2.o)
+ .comment       0x00000000       0x1c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(extendsfdf2.o)
+ .debug_frame   0x00000000       0x3c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(extendsfdf2.o)
+ .riscv.attributes
+                0x00000000       0x46 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(extendsfdf2.o)
+ .text          0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clz.o)
+ .data          0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clz.o)
+ .bss           0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clz.o)
+ .data          0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clzsi2.o)
+ .bss           0x00000000        0x0 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clzsi2.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+ROM              0x90000000         0x00020000         xr
+RAM              0x80000000         0x04000000         rw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD ./src/float.o
+LOAD ./src/gpio.o
+LOAD ./src/interrupt.o
+LOAD ./src/libc-hooks.o
+LOAD ./src/main.o
+LOAD ./src/startup.o
+LOAD ./src/system.o
+LOAD ./src/uart.o
+LOAD ./src/xprintf.o
+LOAD /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libm.a
+LOAD /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a
+LOAD /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a
+                0x00008000                        STACK_SIZE = 0x8000
+
+.vectors        0x90000000      0x148
+                0x90000000                        . = ALIGN (0x100)
+ *(.vectors)
+ .vectors       0x90000000      0x144 ./src/startup.o
+ FILL mask 0x00000000
+                0x90000144        0x4 LONG 0x0
+
+.trap           0x90000150      0x1ec
+                0x90000200                        . = ALIGN (0x100)
+ *fill*         0x90000150       0xb0 
+ *(.trap)
+ .trap          0x90000200      0x138 ./src/startup.o
+ FILL mask 0x00000000
+                0x90000338        0x4 LONG 0x0
+
+.startup        0x9000033c      0x144
+                0x90000400                        . = ALIGN (0x100)
+ *fill*         0x9000033c       0xc4 
+ *(.startup*)
+ .startup       0x90000400       0x7c ./src/startup.o
+                0x90000400                _start
+ *(.startup)
+ FILL mask 0x00000000
+                0x9000047c        0x4 LONG 0x0
+
+.text           0x90000480     0x4c50
+                0x90000500                        . = ALIGN (0x100)
+ *fill*         0x90000480       0x80 
+                [!provide]                        PROVIDE (__TEXT_START__ = .)
+ *(.text.main)
+ .text.main     0x90000500       0x2a ./src/main.o
+                0x90000500                main
+ *(.text)
+ .text          0x9000052a      0x35e /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_udivdi3.o)
+                0x9000052a                __udivdi3
+ .text          0x90000888      0x328 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_umoddi3.o)
+                0x90000888                __umoddi3
+ .text          0x90000bb0      0x978 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(adddf3.o)
+                0x90000bb0                __adddf3
+ .text          0x90001528      0x676 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(divdf3.o)
+                0x90001528                __divdf3
+ .text          0x90001b9e       0x96 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(eqdf2.o)
+                0x90001b9e                __eqdf2
+                0x90001b9e                __nedf2
+ .text          0x90001c34       0xc8 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(gedf2.o)
+                0x90001c34                __gtdf2
+                0x90001c34                __gedf2
+ .text          0x90001cfc       0xc8 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(ledf2.o)
+                0x90001cfc                __ltdf2
+                0x90001cfc                __ledf2
+ .text          0x90001dc4      0x5bc /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(muldf3.o)
+                0x90001dc4                __muldf3
+ .text          0x90002380      0x97c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(subdf3.o)
+                0x90002380                __subdf3
+ .text          0x90002cfc       0x62 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(unorddf2.o)
+                0x90002cfc                __unorddf2
+ .text          0x90002d5e       0xce /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(fixdfsi.o)
+                0x90002d5e                __fixdfsi
+ .text          0x90002e2c       0x66 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(floatsidf.o)
+                0x90002e2c                __floatsidf
+ .text          0x90002e92       0x3c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clzsi2.o)
+                0x90002e92                __clzsi2
+ *(.text.*)
+ .text.float_fmt32
+                0x90002ece       0x32 ./src/float.o
+                0x90002ece                float_fmt32
+ .text.Conv_Ascii2Hex4
+                0x90002f00       0xac ./src/float.o
+                0x90002f00                Conv_Ascii2Hex4
+ .text.Get_Hex  0x90002fac       0x86 ./src/float.o
+                0x90002fac                Get_Hex
+ .text.Test_Float
+                0x90003032      0xa7e ./src/float.o
+                0x90003032                Test_Float
+ .text.main_floating
+                0x90003ab0       0x16 ./src/float.o
+                0x90003ab0                main_floating
+ .text.mem_wr32
+                0x90003ac6       0x20 ./src/gpio.o
+ .text.mem_rd32
+                0x90003ae6       0x18 ./src/gpio.o
+ .text.GPIO_Init
+                0x90003afe       0x64 ./src/gpio.o
+                0x90003afe                GPIO_Init
+ .text.GPIO_SetSEG
+                0x90003b62      0x164 ./src/gpio.o
+                0x90003b62                GPIO_SetSEG
+ .text.GPIO_SetLED
+                0x90003cc6       0x5e ./src/gpio.o
+                0x90003cc6                GPIO_SetLED
+ .text.GPIO_GetKEY
+                0x90003d24       0x34 ./src/gpio.o
+                0x90003d24                GPIO_GetKEY
+ .text.GPIO_GetSW10
+                0x90003d58       0x30 ./src/gpio.o
+                0x90003d58                GPIO_GetSW10
+ .text.mem_wr32
+                0x90003d88       0x20 ./src/interrupt.o
+ .text.mem_rd32
+                0x90003da8       0x18 ./src/interrupt.o
+ .text.INT_Init
+                0x90003dc0       0x9c ./src/interrupt.o
+                0x90003dc0                INT_Init
+ .text.INT_Timer_Handler
+                0x90003e5c       0x68 ./src/interrupt.o
+                0x90003e5c                INT_Timer_Handler
+ .text.INT_IRQ_Handler
+                0x90003ec4       0x6c ./src/interrupt.o
+                0x90003ec4                INT_IRQ_Handler
+ .text.Get_System_Freq
+                0x90003f30       0x42 ./src/system.o
+                0x90003f30                Get_System_Freq
+ .text.mem_wr8  0x90003f72       0x24 ./src/uart.o
+ .text.mem_rd8  0x90003f96       0x1e ./src/uart.o
+ .text.Get_UART_RxD_Buffer_DC
+                0x90003fb4       0x16 ./src/uart.o
+                0x90003fb4                Get_UART_RxD_Buffer_DC
+ .text.Get_UART_RxD_BUffer_Data
+                0x90003fca       0xb6 ./src/uart.o
+                0x90003fca                Get_UART_RxD_BUffer_Data
+ .text.INT_UART_Handler
+                0x90004080       0x7c ./src/uart.o
+                0x90004080                INT_UART_Handler
+ .text.UART_Init
+                0x900040fc       0x88 ./src/uart.o
+                0x900040fc                UART_Init
+ .text.UART_TxD
+                0x90004184       0x36 ./src/uart.o
+                0x90004184                UART_TxD
+ .text.UART_RxD
+                0x900041ba       0x2c ./src/uart.o
+                0x900041ba                UART_RxD
+ .text.ilog10   0x900041e6      0x15a ./src/xprintf.o
+ .text.i10x     0x90004340      0x118 ./src/xprintf.o
+ .text.ftoa     0x90004458      0x47c ./src/xprintf.o
+ .text.xfputc   0x900048d4       0x68 ./src/xprintf.o
+                0x900048d4                xfputc
+ .text.xvfprintf
+                0x9000493c      0x6de ./src/xprintf.o
+ .text.xprintf  0x9000501a       0x52 ./src/xprintf.o
+                0x9000501a                xprintf
+ .text.strlen   0x9000506c       0x64 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-strlen.o)
+                0x9000506c                strlen
+                [!provide]                        PROVIDE (__TEXT_END__ = .)
+
+.rodata         0x900050d0      0x530
+                0x90005100                        . = ALIGN (0x100)
+ *fill*         0x900050d0       0x30 
+ *(.rodata)
+ .rodata        0x90005100      0x1a8 ./src/float.o
+ .rodata        0x900052a8       0x68 ./src/xprintf.o
+ .rodata        0x90005310       0x3c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(divdf3.o)
+ .rodata        0x9000534c      0x100 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clz.o)
+                0x9000534c                __clz_tab
+ *(.rodata.*)
+ .rodata.Test_Float
+                0x9000544c       0xd4 ./src/float.o
+ .rodata.LED7SEG
+                0x90005520       0x10 ./src/gpio.o
+ .rodata.xvfprintf
+                0x90005530       0xd0 ./src/xprintf.o
+                0x90005600                        . = ALIGN (0x4)
+                0x90005600                        PROVIDE (__ROM_INIT_BGN__ = .)
+
+.data           0x80000000        0x0 load address 0x90005600
+                0x80000000                        . = ALIGN (0x100)
+                0x80000000                        PROVIDE (__RAM_INIT_BGN__ = .)
+ *(.data)
+ *(.data*)
+
+.srodata        0x80000000        0x0 load address 0x90005600
+                0x80000800                        PROVIDE (__GLOBAL_PTR__ = (. + 0x800))
+ *(.srodata)
+ *(.srodata*)
+
+.sdata          0x80000000        0x0 load address 0x90005600
+ *(.sdata)
+ *(.sdata.*)
+                0x80000000                        PROVIDE (__RAM_INIT_END__ = .)
+
+.sbss           0x80000000       0x1c load address 0x90005600
+                0x80000000                        PROVIDE (__BSS_BGN__ = .)
+ *(.sbss)
+ *(.sbss.*)
+ .sbss.num.0    0x80000000        0x4 ./src/interrupt.o
+ .sbss.RxD_Buf_WP
+                0x80000004        0x4 ./src/uart.o
+                0x80000004                RxD_Buf_WP
+ .sbss.RxD_Buf_RP
+                0x80000008        0x4 ./src/uart.o
+                0x80000008                RxD_Buf_RP
+ .sbss.RxD_Buf_DC
+                0x8000000c        0x4 ./src/uart.o
+                0x8000000c                RxD_Buf_DC
+ .sbss.xfunc_output
+                0x80000010        0x4 ./src/xprintf.o
+                0x80000010                xfunc_output
+ .sbss.strptr   0x80000014        0x4 ./src/xprintf.o
+ .sbss.xfunc_input
+                0x80000018        0x4 ./src/xprintf.o
+                0x80000018                xfunc_input
+ *(.scommon)
+
+.bss            0x8000001c  0x2000000 load address 0x90005600
+ *(.bss)
+ *(.bss.*)
+ .bss.RxD_Buf   0x8000001c  0x2000000 ./src/uart.o
+                0x8000001c                RxD_Buf
+                0x8200001c                        . = ALIGN (0x4)
+                0x8200001c                        PROVIDE (__BSS_END__ = .)
+
+.stack          0x83ff8000     0x8000
+                [!provide]                        PROVIDE (__STACK_START__ = .)
+                0x84000000                        . = (. + STACK_SIZE)
+ *fill*         0x83ff8000     0x8000 
+                0x84000000                        PROVIDE (__STACK_TOP__ = .)
+                [!provide]                        PROVIDE (__STACK_END__ = .)
+
+/DISCARD/
+ *(.eh_frame .eh_frame.*)
+OUTPUT(mmRISC_Floating.elf elf32-littleriscv)
+
+.debug_info     0x00000000     0x5573
+ .debug_info    0x00000000      0xd74 ./src/float.o
+ .debug_info    0x00000d74      0x368 ./src/gpio.o
+ .debug_info    0x000010dc      0x274 ./src/interrupt.o
+ .debug_info    0x00001350      0x16d ./src/main.o
+ .debug_info    0x000014bd       0xe3 ./src/system.o
+ .debug_info    0x000015a0      0x2d6 ./src/uart.o
+ .debug_info    0x00001876      0x6aa ./src/xprintf.o
+ .debug_info    0x00001f20      0x761 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_udivdi3.o)
+ .debug_info    0x00002681      0x7b4 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_umoddi3.o)
+ .debug_info    0x00002e35      0x53f /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(adddf3.o)
+ .debug_info    0x00003374      0x6ce /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(divdf3.o)
+ .debug_info    0x00003a42      0x239 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(eqdf2.o)
+ .debug_info    0x00003c7b      0x22a /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(gedf2.o)
+ .debug_info    0x00003ea5      0x22a /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(ledf2.o)
+ .debug_info    0x000040cf      0x6e7 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(muldf3.o)
+ .debug_info    0x000047b6      0x53b /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(subdf3.o)
+ .debug_info    0x00004cf1      0x235 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(unorddf2.o)
+ .debug_info    0x00004f26      0x1cb /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(fixdfsi.o)
+ .debug_info    0x000050f1      0x268 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(floatsidf.o)
+ .debug_info    0x00005359       0xd8 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clz.o)
+ .debug_info    0x00005431      0x142 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clzsi2.o)
+
+.debug_abbrev   0x00000000     0x1bff
+ .debug_abbrev  0x00000000      0x22b ./src/float.o
+ .debug_abbrev  0x0000022b      0x122 ./src/gpio.o
+ .debug_abbrev  0x0000034d      0x151 ./src/interrupt.o
+ .debug_abbrev  0x0000049e       0xd6 ./src/main.o
+ .debug_abbrev  0x00000574       0x82 ./src/system.o
+ .debug_abbrev  0x000005f6      0x1a7 ./src/uart.o
+ .debug_abbrev  0x0000079d      0x216 ./src/xprintf.o
+ .debug_abbrev  0x000009b3      0x1a6 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_udivdi3.o)
+ .debug_abbrev  0x00000b59      0x1aa /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_umoddi3.o)
+ .debug_abbrev  0x00000d03      0x17a /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(adddf3.o)
+ .debug_abbrev  0x00000e7d      0x17a /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(divdf3.o)
+ .debug_abbrev  0x00000ff7      0x15a /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(eqdf2.o)
+ .debug_abbrev  0x00001151      0x13e /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(gedf2.o)
+ .debug_abbrev  0x0000128f      0x13e /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(ledf2.o)
+ .debug_abbrev  0x000013cd      0x18c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(muldf3.o)
+ .debug_abbrev  0x00001559      0x17a /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(subdf3.o)
+ .debug_abbrev  0x000016d3      0x14b /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(unorddf2.o)
+ .debug_abbrev  0x0000181e      0x143 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(fixdfsi.o)
+ .debug_abbrev  0x00001961      0x164 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(floatsidf.o)
+ .debug_abbrev  0x00001ac5       0x70 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clz.o)
+ .debug_abbrev  0x00001b35       0xca /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clzsi2.o)
+
+.debug_aranges  0x00000000      0x418
+ .debug_aranges
+                0x00000000       0x90 ./src/float.o
+ .debug_aranges
+                0x00000090       0x58 ./src/gpio.o
+ .debug_aranges
+                0x000000e8       0x40 ./src/interrupt.o
+ .debug_aranges
+                0x00000128       0x20 ./src/main.o
+ .debug_aranges
+                0x00000148       0x20 ./src/system.o
+ .debug_aranges
+                0x00000168       0x68 ./src/uart.o
+ .debug_aranges
+                0x000001d0       0x90 ./src/xprintf.o
+ .debug_aranges
+                0x00000260       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_udivdi3.o)
+ .debug_aranges
+                0x00000280       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_umoddi3.o)
+ .debug_aranges
+                0x000002a0       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(adddf3.o)
+ .debug_aranges
+                0x000002c0       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(divdf3.o)
+ .debug_aranges
+                0x000002e0       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(eqdf2.o)
+ .debug_aranges
+                0x00000300       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(gedf2.o)
+ .debug_aranges
+                0x00000320       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(ledf2.o)
+ .debug_aranges
+                0x00000340       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(muldf3.o)
+ .debug_aranges
+                0x00000360       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(subdf3.o)
+ .debug_aranges
+                0x00000380       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(unorddf2.o)
+ .debug_aranges
+                0x000003a0       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(fixdfsi.o)
+ .debug_aranges
+                0x000003c0       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(floatsidf.o)
+ .debug_aranges
+                0x000003e0       0x18 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clz.o)
+ .debug_aranges
+                0x000003f8       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clzsi2.o)
+
+.debug_rnglists
+                0x00000000     0x115f
+ .debug_rnglists
+                0x00000000       0x94 ./src/float.o
+ .debug_rnglists
+                0x00000094       0x55 ./src/gpio.o
+ .debug_rnglists
+                0x000000e9       0x3a ./src/interrupt.o
+ .debug_rnglists
+                0x00000123       0x16 ./src/main.o
+ .debug_rnglists
+                0x00000139       0x16 ./src/system.o
+ .debug_rnglists
+                0x0000014f       0x67 ./src/uart.o
+ .debug_rnglists
+                0x000001b6       0x94 ./src/xprintf.o
+ .debug_rnglists
+                0x0000024a      0x111 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_udivdi3.o)
+ .debug_rnglists
+                0x0000035b       0xac /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_umoddi3.o)
+ .debug_rnglists
+                0x00000407      0x384 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(adddf3.o)
+ .debug_rnglists
+                0x0000078b      0x12f /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(divdf3.o)
+ .debug_rnglists
+                0x000008ba       0x60 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(eqdf2.o)
+ .debug_rnglists
+                0x0000091a       0x72 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(gedf2.o)
+ .debug_rnglists
+                0x0000098c       0x72 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(ledf2.o)
+ .debug_rnglists
+                0x000009fe      0x228 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(muldf3.o)
+ .debug_rnglists
+                0x00000c26      0x41e /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(subdf3.o)
+ .debug_rnglists
+                0x00001044       0x3b /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(unorddf2.o)
+ .debug_rnglists
+                0x0000107f       0x57 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(fixdfsi.o)
+ .debug_rnglists
+                0x000010d6       0x61 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(floatsidf.o)
+ .debug_rnglists
+                0x00001137       0x28 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clzsi2.o)
+
+.debug_macro    0x00000000     0x2d51
+ .debug_macro   0x00000000      0x290 ./src/float.o
+ .debug_macro   0x00000290      0x784 ./src/float.o
+ .debug_macro   0x00000a14       0x22 ./src/float.o
+ .debug_macro   0x00000a36       0x52 ./src/float.o
+ .debug_macro   0x00000a88       0x20 ./src/float.o
+ .debug_macro   0x00000aa8       0x94 ./src/float.o
+ .debug_macro   0x00000b3c       0x34 ./src/float.o
+ .debug_macro   0x00000b70       0x34 ./src/float.o
+ .debug_macro   0x00000ba4       0x16 ./src/float.o
+ .debug_macro   0x00000bba       0x57 ./src/float.o
+ .debug_macro   0x00000c11       0x9e ./src/float.o
+ .debug_macro   0x00000caf      0x341 ./src/float.o
+ .debug_macro   0x00000ff0      0x10b ./src/float.o
+ .debug_macro   0x000010fb       0x10 ./src/float.o
+ .debug_macro   0x0000110b       0x16 ./src/float.o
+ .debug_macro   0x00001121       0x43 ./src/float.o
+ .debug_macro   0x00001164       0x34 ./src/float.o
+ .debug_macro   0x00001198       0x10 ./src/float.o
+ .debug_macro   0x000011a8       0x52 ./src/float.o
+ .debug_macro   0x000011fa      0x182 ./src/float.o
+ .debug_macro   0x0000137c       0x10 ./src/float.o
+ .debug_macro   0x0000138c       0x6a ./src/float.o
+ .debug_macro   0x000013f6       0x1c ./src/float.o
+ .debug_macro   0x00001412       0x52 ./src/float.o
+ .debug_macro   0x00001464       0x22 ./src/float.o
+ .debug_macro   0x00001486       0x10 ./src/float.o
+ .debug_macro   0x00001496       0x52 ./src/float.o
+ .debug_macro   0x000014e8       0xd5 ./src/float.o
+ .debug_macro   0x000015bd       0x1c ./src/float.o
+ .debug_macro   0x000015d9       0x3d ./src/float.o
+ .debug_macro   0x00001616       0x16 ./src/float.o
+ .debug_macro   0x0000162c      0x16f ./src/float.o
+ .debug_macro   0x0000179b      0x19b ./src/float.o
+ .debug_macro   0x00001936      0x103 ./src/float.o
+ .debug_macro   0x00001a39      0x1df ./src/float.o
+ .debug_macro   0x00001c18       0x46 ./src/float.o
+ .debug_macro   0x00001c5e       0x10 ./src/float.o
+ .debug_macro   0x00001c6e       0x1c ./src/float.o
+ .debug_macro   0x00001c8a       0x16 ./src/float.o
+ .debug_macro   0x00001ca0       0x35 ./src/float.o
+ .debug_macro   0x00001cd5       0x16 ./src/float.o
+ .debug_macro   0x00001ceb       0x29 ./src/float.o
+ .debug_macro   0x00001d14       0x16 ./src/float.o
+ .debug_macro   0x00001d2a       0x4c ./src/float.o
+ .debug_macro   0x00001d76       0xa0 ./src/float.o
+ .debug_macro   0x00001e16       0x28 ./src/float.o
+ .debug_macro   0x00001e3e      0x1d9 ./src/gpio.o
+ .debug_macro   0x00002017       0x8e ./src/gpio.o
+ .debug_macro   0x000020a5       0x51 ./src/gpio.o
+ .debug_macro   0x000020f6       0x58 ./src/gpio.o
+ .debug_macro   0x0000214e      0x1f4 ./src/interrupt.o
+ .debug_macro   0x00002342       0xac ./src/interrupt.o
+ .debug_macro   0x000023ee      0x266 ./src/main.o
+ .debug_macro   0x00002654      0x189 ./src/main.o
+ .debug_macro   0x000027dd       0x1c ./src/main.o
+ .debug_macro   0x000027f9      0x1d9 ./src/system.o
+ .debug_macro   0x000029d2      0x1f5 ./src/uart.o
+ .debug_macro   0x00002bc7      0x122 ./src/xprintf.o
+ .debug_macro   0x00002ce9       0x10 ./src/xprintf.o
+ .debug_macro   0x00002cf9       0x58 ./src/xprintf.o
+
+.debug_line     0x00000000     0xaed7
+ .debug_line    0x00000000     0x1675 ./src/float.o
+ .debug_line    0x00001675      0x7ab ./src/gpio.o
+ .debug_line    0x00001e20      0x2b4 ./src/interrupt.o
+ .debug_line    0x000020d4      0x15f ./src/main.o
+ .debug_line    0x00002233      0x160 ./src/system.o
+ .debug_line    0x00002393      0x443 ./src/uart.o
+ .debug_line    0x000027d6     0x1615 ./src/xprintf.o
+ .debug_line    0x00003deb      0x713 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_udivdi3.o)
+ .debug_line    0x000044fe      0x78d /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_umoddi3.o)
+ .debug_line    0x00004c8b     0x16af /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(adddf3.o)
+ .debug_line    0x0000633a     0x123f /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(divdf3.o)
+ .debug_line    0x00007579      0x271 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(eqdf2.o)
+ .debug_line    0x000077ea      0x35e /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(gedf2.o)
+ .debug_line    0x00007b48      0x35e /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(ledf2.o)
+ .debug_line    0x00007ea6     0x109d /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(muldf3.o)
+ .debug_line    0x00008f43     0x17c7 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(subdf3.o)
+ .debug_line    0x0000a70a      0x20b /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(unorddf2.o)
+ .debug_line    0x0000a915      0x295 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(fixdfsi.o)
+ .debug_line    0x0000abaa      0x223 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(floatsidf.o)
+ .debug_line    0x0000adcd       0x3f /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clz.o)
+ .debug_line    0x0000ae0c       0xcb /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clzsi2.o)
+
+.debug_str      0x00000000     0x8ca4
+ .debug_str     0x00000000     0x800d ./src/float.o
+                               0x8249 (size before relaxing)
+ .debug_str     0x0000800d       0xaf ./src/gpio.o
+                               0x7324 (size before relaxing)
+ .debug_str     0x000080bc      0x27b ./src/interrupt.o
+                               0x765a (size before relaxing)
+ .debug_str     0x00008337       0x1e ./src/main.o
+                               0x7f2b (size before relaxing)
+ .debug_str     0x00008355       0x15 ./src/system.o
+                               0x715e (size before relaxing)
+ .debug_str     0x0000836a       0x92 ./src/uart.o
+                               0x748b (size before relaxing)
+ .debug_str     0x000083fc      0x173 ./src/xprintf.o
+                               0x5f36 (size before relaxing)
+ .debug_str     0x0000856f      0x1a7 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_udivdi3.o)
+                                0x257 (size before relaxing)
+ .debug_str     0x00008716        0xa /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_umoddi3.o)
+                                0x257 (size before relaxing)
+ .debug_str     0x00008720      0x226 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(adddf3.o)
+                                0x2b1 (size before relaxing)
+ .debug_str     0x00008946      0x16b /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(divdf3.o)
+                                0x373 (size before relaxing)
+ .debug_str     0x00008ab1       0x27 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(eqdf2.o)
+                                0x1c3 (size before relaxing)
+ .debug_str     0x00008ad8       0x2c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(gedf2.o)
+                                0x1e7 (size before relaxing)
+ .debug_str     0x00008b04        0x8 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(ledf2.o)
+                                0x1e7 (size before relaxing)
+ .debug_str     0x00008b0c      0x12e /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(muldf3.o)
+                                0x3cb (size before relaxing)
+ .debug_str     0x00008c3a        0x9 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(subdf3.o)
+                                0x2b1 (size before relaxing)
+ .debug_str     0x00008c43        0xb /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(unorddf2.o)
+                                0x1c6 (size before relaxing)
+ .debug_str     0x00008c4e       0x1d /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(fixdfsi.o)
+                                0x1be (size before relaxing)
+ .debug_str     0x00008c6b       0x39 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(floatsidf.o)
+                                0x25b (size before relaxing)
+ .debug_str     0x00008ca4      0x1a4 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clz.o)
+ .debug_str     0x00008ca4      0x1c1 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clzsi2.o)
+
+.debug_line_str
+                0x00000000      0x5a5
+ .debug_line_str
+                0x00000000      0x267 ./src/float.o
+                                0x32c (size before relaxing)
+ .debug_line_str
+                0x00000267        0xe ./src/gpio.o
+                                0x2cc (size before relaxing)
+ .debug_line_str
+                0x00000275       0x1f ./src/interrupt.o
+                                0x2f4 (size before relaxing)
+ .debug_line_str
+                0x00000294        0xe ./src/main.o
+                                0x32f (size before relaxing)
+ .debug_line_str
+                0x000002a2       0x10 ./src/system.o
+                                0x2d1 (size before relaxing)
+ .debug_line_str
+                0x000002b2       0x17 ./src/uart.o
+                                0x2e2 (size before relaxing)
+ .debug_line_str
+                0x000002c9       0x11 ./src/xprintf.o
+                                0x24c (size before relaxing)
+ .debug_line_str
+                0x000002da       0xbf /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_udivdi3.o)
+                                0x146 (size before relaxing)
+ .debug_line_str
+                0x00000399      0x146 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_umoddi3.o)
+ .debug_line_str
+                0x00000399       0x5a /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(adddf3.o)
+                                0x152 (size before relaxing)
+ .debug_line_str
+                0x000003f3       0x37 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(divdf3.o)
+                                0x15c (size before relaxing)
+ .debug_line_str
+                0x0000042a       0x3c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(eqdf2.o)
+                                0x15f (size before relaxing)
+ .debug_line_str
+                0x00000466       0x2c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(gedf2.o)
+                                0x15f (size before relaxing)
+ .debug_line_str
+                0x00000492       0x2c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(ledf2.o)
+                                0x15f (size before relaxing)
+ .debug_line_str
+                0x000004be       0x2d /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(muldf3.o)
+                                0x15c (size before relaxing)
+ .debug_line_str
+                0x000004eb       0x2d /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(subdf3.o)
+                                0x152 (size before relaxing)
+ .debug_line_str
+                0x00000518       0x2f /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(unorddf2.o)
+                                0x168 (size before relaxing)
+ .debug_line_str
+                0x00000547       0x2e /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(fixdfsi.o)
+                                0x15f (size before relaxing)
+ .debug_line_str
+                0x00000575       0x30 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(floatsidf.o)
+                                0x165 (size before relaxing)
+ .debug_line_str
+                0x000005a5      0x146 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clz.o)
+ .debug_line_str
+                0x000005a5      0x146 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clzsi2.o)
+
+.comment        0x00000000       0x2d
+ .comment       0x00000000       0x1b ./src/float.o
+                                 0x1c (size before relaxing)
+ .comment       0x0000001b       0x1c ./src/gpio.o
+ .comment       0x0000001b       0x1c ./src/interrupt.o
+ .comment       0x0000001b       0x1c ./src/main.o
+ .comment       0x0000001b       0x1c ./src/system.o
+ .comment       0x0000001b       0x1c ./src/uart.o
+ .comment       0x0000001b       0x1c ./src/xprintf.o
+ .comment       0x0000001b       0x12 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-strlen.o)
+                                 0x13 (size before relaxing)
+ .comment       0x0000002d       0x1c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_udivdi3.o)
+ .comment       0x0000002d       0x1c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_umoddi3.o)
+ .comment       0x0000002d       0x1c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(adddf3.o)
+ .comment       0x0000002d       0x1c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(divdf3.o)
+ .comment       0x0000002d       0x1c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(eqdf2.o)
+ .comment       0x0000002d       0x1c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(gedf2.o)
+ .comment       0x0000002d       0x1c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(ledf2.o)
+ .comment       0x0000002d       0x1c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(muldf3.o)
+ .comment       0x0000002d       0x1c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(subdf3.o)
+ .comment       0x0000002d       0x1c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(unorddf2.o)
+ .comment       0x0000002d       0x1c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(fixdfsi.o)
+ .comment       0x0000002d       0x1c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(floatsidf.o)
+ .comment       0x0000002d       0x1c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clz.o)
+ .comment       0x0000002d       0x1c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clzsi2.o)
+
+.riscv.attributes
+                0x00000000       0x46
+ .riscv.attributes
+                0x00000000       0x46 ./src/float.o
+ .riscv.attributes
+                0x00000046       0x42 ./src/gpio.o
+ .riscv.attributes
+                0x00000088       0x46 ./src/interrupt.o
+ .riscv.attributes
+                0x000000ce       0x42 ./src/main.o
+ .riscv.attributes
+                0x00000110       0x46 ./src/system.o
+ .riscv.attributes
+                0x00000156       0x42 ./src/uart.o
+ .riscv.attributes
+                0x00000198       0x42 ./src/xprintf.o
+ .riscv.attributes
+                0x000001da       0x42 /opt/riscv/riscv64-unknown-elf/lib/rv32imafc/ilp32f/libc.a(lib_a-strlen.o)
+ .riscv.attributes
+                0x0000021c       0x42 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_udivdi3.o)
+ .riscv.attributes
+                0x0000025e       0x42 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_umoddi3.o)
+ .riscv.attributes
+                0x000002a0       0x46 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(adddf3.o)
+ .riscv.attributes
+                0x000002e6       0x46 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(divdf3.o)
+ .riscv.attributes
+                0x0000032c       0x46 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(eqdf2.o)
+ .riscv.attributes
+                0x00000372       0x46 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(gedf2.o)
+ .riscv.attributes
+                0x000003b8       0x46 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(ledf2.o)
+ .riscv.attributes
+                0x000003fe       0x46 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(muldf3.o)
+ .riscv.attributes
+                0x00000444       0x46 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(subdf3.o)
+ .riscv.attributes
+                0x0000048a       0x46 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(unorddf2.o)
+ .riscv.attributes
+                0x000004d0       0x46 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(fixdfsi.o)
+ .riscv.attributes
+                0x00000516       0x42 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(floatsidf.o)
+ .riscv.attributes
+                0x00000558       0x42 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clz.o)
+ .riscv.attributes
+                0x0000059a       0x42 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clzsi2.o)
+
+.debug_frame    0x00000000      0xb50
+ .debug_frame   0x00000000      0x258 ./src/float.o
+ .debug_frame   0x00000258      0x148 ./src/gpio.o
+ .debug_frame   0x000003a0       0xd4 ./src/interrupt.o
+ .debug_frame   0x00000474       0x38 ./src/main.o
+ .debug_frame   0x000004ac       0x34 ./src/system.o
+ .debug_frame   0x000004e0      0x194 ./src/uart.o
+ .debug_frame   0x00000674      0x2ac ./src/xprintf.o
+ .debug_frame   0x00000920       0x44 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(adddf3.o)
+ .debug_frame   0x00000964       0x58 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(divdf3.o)
+ .debug_frame   0x000009bc       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(eqdf2.o)
+ .debug_frame   0x000009dc       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(gedf2.o)
+ .debug_frame   0x000009fc       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(ledf2.o)
+ .debug_frame   0x00000a1c       0x58 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(muldf3.o)
+ .debug_frame   0x00000a74       0x44 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(subdf3.o)
+ .debug_frame   0x00000ab8       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(unorddf2.o)
+ .debug_frame   0x00000ad8       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(fixdfsi.o)
+ .debug_frame   0x00000af8       0x38 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(floatsidf.o)
+ .debug_frame   0x00000b30       0x20 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clzsi2.o)
+
+.debug_loclists
+                0x00000000     0x7a13
+ .debug_loclists
+                0x00000000      0xa4c /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_udivdi3.o)
+ .debug_loclists
+                0x00000a4c      0x81d /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_umoddi3.o)
+ .debug_loclists
+                0x00001269     0x1cb8 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(adddf3.o)
+ .debug_loclists
+                0x00002f21     0x1317 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(divdf3.o)
+ .debug_loclists
+                0x00004238      0x172 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(eqdf2.o)
+ .debug_loclists
+                0x000043aa      0x306 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(gedf2.o)
+ .debug_loclists
+                0x000046b0      0x306 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(ledf2.o)
+ .debug_loclists
+                0x000049b6      0xe83 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(muldf3.o)
+ .debug_loclists
+                0x00005839     0x1ca2 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(subdf3.o)
+ .debug_loclists
+                0x000074db      0x10f /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(unorddf2.o)
+ .debug_loclists
+                0x000075ea      0x293 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(fixdfsi.o)
+ .debug_loclists
+                0x0000787d      0x134 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(floatsidf.o)
+ .debug_loclists
+                0x000079b1       0x62 /opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imafc/ilp32f/libgcc.a(_clzsi2.o)

@@ -1,17 +1,26 @@
 //===========================================================
 // mmRISC-1 Project
 //-----------------------------------------------------------
-// File Name   : fpga_top.v
-// Description : Top Layer of FPGA
+// File Name   : chip_top.v
+// Description : Top Layer of Chip
 //-----------------------------------------------------------
 // History :
 // Rev.01 2017.07.16 M.Maruyama First Release
 // Rev.02 2020.01.01 M.Maruyama Debug Spec Version 0.13.2
+// Rev.03 2023.05.14 M.Maruyama cJTAG Support and Halt-on-Reset
 //-----------------------------------------------------------
-// Copyright (C) 2017-2021 M.Maruyama
+// Copyright (C) 2017-2023 M.Maruyama
 //===========================================================
 //
 // < FPGA Board Terasic DE10-Lite>
+//
+// TCKC_pri     W13  GPIO_13   Loopback to   TCKC_rep
+// TCKC_rep     AB13 GPIO_15   Loopback from TCKC_pri
+// TMSC_pri     AA14 GPIO_12   Loopback to   TMSC_rep
+// TMSC_rep     W12  GPIO_14   Loopback from TMSC_pri
+// TMSC_PUP_rep Y11  GPIO_17   Pull Up TMSC_rep (12mA Drive)
+// TMSC_PDN_rep AB12 GPIO_16   Pull Dn TMSC_rep (12mA Drive)
+//
 // RES_N     B8  KEY0
 // CLK50     P11
 //
@@ -132,7 +141,7 @@
 // GPIO1[12] M20 HEX54 segE
 // GPIO1[13] N19 HEX55 segF
 // GPIO1[14] N20 HEX56 segG
-// GPIO1[15] L19 HEX57 segDP
+// GPIO1[15] Y1  VGA_R3
 // GPIO1[16] A8  LEDR0
 // GPIO1[17] A9  LEDR1
 // GPIO1[18] A10 LEDR2
@@ -157,34 +166,39 @@
 // GPIO2[ 4] A12  SW4
 // GPIO2[ 5] B12  SW5
 // GPIO2[ 6] A13  SW6
-// GPIO2[ 7] A14  SW7
-// GPIO2[ 8] B14  SW8
-// GPIO2[ 9] F15  SW9
-// GPIO2[10] A7   KEY1
+// GPIO2[ 7] A14  SW7  (Slow Clock)
+// GPIO2[ 8] Y2   VGA_R2
+// GPIO2[ 9] F15  SW9  (DEBUG_SECURE)
+// GPIO2[10] A7   KEY1 (RESET_HALT_N)
 // GPIO2[11] W6   GPIO_8
 // GPIO2[12] V5   GPIO_9
 // GPIO2[13] W5   GPIO_10
 // GPIO2[14] AA15 GPIO_11
-// GPIO2[15] AA14 GPIO_12 
-// GPIO2[16] W13  GPIO_13
-// GPIO2[17] W12  GPIO_14
-// GPIO2[18] AB13 GPIO_15
-// GPIO2[19] AB12 GPIO_16
-// GPIO2[20] Y11  GPIO_17
-// GPIO2[21] AB11 GPIO_18
-// GPIO2[22] W11  GPIO_19
-// GPIO2[23] AB10 GPIO_20
-// GPIO2[24] AA10 GPIO_21
-// GPIO2[25] AA9  GPIO_22
-// GPIO2[26] Y8   GPIO_23
-// GPIO2[27] AA8  GPIO_24
-// GPIO2[28] Y7   GPIO_25
-// GPIO2[29] AA7  GPIO_26
-// GPIO2[30] AA6  GPIO_28
-// GPIO2[31] AA5  GPIO_30
+// GPIO2[15] AB11 GPIO_18
+// GPIO2[16] W11  GPIO_19
+// GPIO2[17] AB10 GPIO_20
+// GPIO2[18] AA10 GPIO_21
+// GPIO2[19] AA9  GPIO_22
+// GPIO2[20] Y8   GPIO_23
+// GPIO2[21] AA8  GPIO_24
+// GPIO2[22] Y7   GPIO_25
+// GPIO2[23] AA7  GPIO_26
+// GPIO2[24] AA6  GPIO_28
+// GPIO2[25] AA5  GPIO_30
+// GPIO2[26] AB3  GPIO32
+// GPIO2[27] AB2  GPIO34
+// GPIO2[28] N1   VGA_VS
+// GPIO2[29] N3   VGA_HS
+// GPIO2[30] AA1  VGA_R0
+// GPIO2[31] V1   VGA_R1
+//
+// STBY_REQ   B14  SW8
+// STBY_ACK_N L19 HEX57 segDP
 
 `include "defines_chip.v"
 `include "defines_core.v"
+
+`define VERIFY_SLOW_CLOCK
 
 //----------------------
 // Define Module
@@ -194,19 +208,30 @@ module CHIP_TOP
     input  wire RES_N, // Reset Input (Negative)
     input  wire CLK50, // Clock Input (50MHz)
     //
+    input  wire STBY_REQ,   // Stand-by Request
+    output wire STBY_ACK_N, // Stand=by Acknowledge (negative)
+    //
     output wire RESOUT_N, // Reset Output (negative) 
     //
-    input  wire TRSTn, // JTAG TAP Reset
 `ifdef SIMULATION
     inout  wire SRSTn, // System Reset In/Out
 `endif
     //
-    input  wire TCK,  // JTAG Clock
-    input  wire TMS,  // JTAG Mode Select
-    input  wire TDI,  // JTAG Data Input
-    output wire TDO,  // JTAG Data Output (3-state)
+`ifdef ENABLE_CJTAG
+    input  wire TCKC,     // cJTAG Clock
+    inout  wire TMSC,     // cJTAG TMS/TDI/TDO
+    output wire TMSC_PUP, // cJTAG TMSC should be Pull Up when 1
+    output wire TMSC_PDN, // cJTAG TMSC should be Pull Dn when 1
+`else
+    input  wire TRSTn, // JTAG TAP Reset
+    input  wire TCK,   // JTAG Clock
+    input  wire TMS,   // JTAG Mode Select
+    input  wire TDI,   // JTAG Data Input
+    output wire TDO,   // JTAG Data Output (3-state)
+`endif
+    //
 `ifdef SIMULATION
-    output wire RTCK, // JTAG Return Clock
+    output wire RTCK,  // JTAG Return Clock
 `endif
     //
     inout  wire [31:0] GPIO0, // GPIO0 Port (should be pulled-up)
@@ -242,11 +267,6 @@ module CHIP_TOP
     output wire [12:0] SDRAM_ADDR, // SDRAM Addess
     inout  wire [15:0] SDRAM_DQ    // SDRAM Data
 );
-
-//------------------
-// Genvar
-//------------------
-genvar i;
 
 //------------------------------
 // Treatment of SRSTn and RTCK
@@ -302,13 +322,17 @@ assign RESOUT_N = ~res_sys;
 //-----------------
 wire clk0;
 wire clk1;
+wire clk01;
 wire clk;
-wire stby;
 //
 `ifdef SIMULATION
-assign clk = CLK50;
+reg  clk2;
+assign clk01 = CLK50;
+initial clk2 = 1'b0;
+always #(10us) clk2 = ~clk2;
 assign locked = 1'b1;
 `else
+wire clk2;
 wire locked_pll;
 reg  locked_reg;
 //
@@ -318,13 +342,14 @@ PLL U_PLL
     .inclk0  (CLK50),
     .c0      (clk0),  // 20.00MHz
     .c1      (clk1),  // 16.66MHz
+    .c2      (clk2),  // 100KHz
     .locked  (locked_pll)
 );
 //
 `ifdef RISCV_ISA_RV32F
-assign clk = clk1; // 16MHz with FPU
+assign clk01 = clk1; // 16MHz with FPU
 `else
-assign clk = clk0; // 20MHz without FPU
+assign clk01 = clk0; // 20MHz without FPU
 `endif
 //
 always @(posedge locked_pll, posedge res_pll)
@@ -338,22 +363,205 @@ end
 assign locked = locked_pll & locked_reg;
 `endif
 //
-assign stby = 1'b0;
-//
 assign SDRAM_CLK = ~clk;
+//
+//-------------------------------------------
+// To vefify whether there is no relationship
+// between fCLK and fTCK(fTCLK) (temporary)..
+//-------------------------------------------
+wire clkA, clkB, clkOUT;
+wire selA, selB;
+//
+reg  clkA_ena0, clkA_ena1, clkA_ena2;
+reg  clkB_ena0, clkB_ena1, clkB_ena2;
+wire clkA_qual, clkB_qual;
+//
+wire clkA_gated, clkB_gated;
+//
+`ifdef VERIFY_SLOW_CLOCK
+//
+// Glitchless Clock Selector
+//
+assign clkA = clk01;
+assign clkB = clk2;
+//
+assign selA = ~GPIO2[7]; // SW7
+assign selB =  GPIO2[7]; // SW7
+//
+assign clkA_qual = selA & ~clkB_ena2;
+assign clkB_qual = selB & ~clkA_ena2;
+//
+`ifdef SIMULATION
+initial clkA_ena0 = 1'b0;
+initial clkA_ena1 = 1'b0;
+initial clkA_ena2 = 1'b0;
+initial clkB_ena0 = 1'b0;
+initial clkB_ena1 = 1'b0;
+initial clkB_ena2 = 1'b0;
+`endif
+//
+always @(posedge clkA)
+begin
+    clkA_ena0 <= clkA_qual;
+    clkA_ena1 <= clkA_ena0;
+end
+always @(negedge clkA)
+begin
+    clkA_ena2 <= clkA_ena1;
+end
+//
+always @(posedge clkB)
+begin
+    clkB_ena0 <= clkB_qual;
+    clkB_ena1 <= clkB_ena0;
+end
+always @(negedge clkB)
+begin
+    clkB_ena2 <= clkB_ena1;
+end
+//
+assign clkA_gated = clkA & clkA_ena2;
+assign clkB_gated = clkB & clkB_ena2;
+assign clkOUT = clkA_gated | clkB_gated;
+assign clk = clkOUT;
+`else
+assign clk = clk01;
+`endif
+
+//--------------------------------------------
+// STBY Control (dummy; it does not stop clk)
+//--------------------------------------------
+reg  [ 1:0] stby_sync;
+reg  [31:0] stby_count;
+wire        stby_count_end;
+reg         stby_req;
+wire        stby_ack;
+//
+// Synchronization
+always @(posedge clk, posedge res_org)
+begin
+    if (res_org)
+        stby_sync <= 2'b00;
+    else
+    begin
+        stby_sync <= {stby_sync[0], STBY_REQ};
+    end
+end
+//
+// De-Bounce
+always @(posedge clk, posedge res_org)
+begin
+    if (res_org)
+        stby_count <= 32'h00000000;
+    else if (stby_count_end)
+        stby_count <= 32'h00000000;
+    else
+        stby_count <= stby_count + 32'h00000001;
+end
+`ifdef SIMULATION
+assign stby_count_end = (stby_count == 32'd10);
+`else
+assign stby_count_end = (stby_count == 32'd1600000);
+`endif
+//
+always @(posedge clk, posedge res_org)
+begin
+    if (res_org)
+        stby_req <= 1'b0;
+    else if (stby_count_end)
+        stby_req <= stby_sync[1];
+end
+//
+assign STBY_ACK_N = ~stby_ack;
+// [Note] 
+// When entering to STBY,  Assert stby_req, and Stop clk after stby_ack is asserted.
+// When exiting from STBY, Start clk and Negate stby_req.
 
 //-----------------
-// JTAG TDO Buffer
+// JTAG Signals
 //-----------------
-wire tdo_e, tdo_d;
-assign TDO = (tdo_e)? tdo_d : 1'bz;
+wire trstn;
+wire tms;
+wire tck;
+wire tdi;
+wire tdo_d;
+wire tdo_e;
+
+//-------------------
+// JTAG and CJTAG
+//-------------------
+wire        force_halt_on_reset_req;
+wire        force_halt_on_reset_ack;
+wire [31:0] jtag_dr_user_in;   // You can put data to JTAG
+wire [31:0] jtag_dr_user_out;  // You can get data from JTAG such as Mode Settings
+assign jtag_dr_user_in = ~jtag_dr_user_out; // So far, Loop back inverted value
+
+//-------------------
+// CJTAG
+//-------------------
+`ifdef ENABLE_CJTAG
+//
+wire   tmsc_i, tmsc_o, tmsc_e;
+//
+assign tmsc_i = TMSC;
+assign TMSC   = (tmsc_e)? tmsc_o : 1'bz;
+//
+CJTAG_2_JTAG U_CJTAG_2_JTAG
+(
+    .RES    (res_org),
+    .CLK    (clk),
+    //
+    .TCKC   (TCKC),
+    .TMSC_I (tmsc_i),
+    .TMSC_O (tmsc_o),
+    .TMSC_E (tmsc_e),
+    .TMSC_PUP (TMSC_PUP), // cJTAG TMSC should be Pull Up when 1
+    .TMSC_PDN (TMSC_PDN), // cJTAG TMSC should be Pull Dn when 1
+    //
+    .TRSTn  (trstn),
+    .TCK    (tck),
+    .TMS    (tms),
+    .TDI    (tdi),
+    .TDO    (tdo_d),
+    //
+    .FORCE_HALT_ON_RESET_REQ (force_halt_on_reset_req),
+    .FORCE_HALT_ON_RESET_ACK (force_halt_on_reset_ack),
+    //
+    .CJTAG_IN_OSCAN1 ()
+);
+
+//-----------------
+// JTAG
+//-----------------
+`else
+assign trstn = TRSTn;
+assign tck   = TCK;
+assign tms   = TMS;
+assign tdi   = TDI;
+assign TDO   = (tdo_e)? tdo_d : 1'bz;
+//
+`ifdef USE_FORCE_HALT_ON_RESET
+reg halt_req;
+always @(posedge clk, posedge res_org)
+begin
+    if (res_org)
+        halt_req <= ~GPIO2[10]; // KEY1
+    else if (force_halt_on_reset_ack)
+        halt_req <= 1'b0;
+end
+assign force_halt_on_reset_req = halt_req;
+`else
+assign force_halt_on_reset_req = 1'b0;
+`endif
+`endif
 
 //---------------
 // mmRISC
 //---------------
 wire [31:0] reset_vector     [0:`HART_COUNT-1]; // Reset Vector
-wire        debug_secure;      // Debug Authentication is available or not
-wire [31:0] debug_secure_code; // Debug Authentication Code
+wire        debug_secure;        // Debug Authentication is available or not
+wire [31:0] debug_secure_code_0; // Debug Authentication Code 0
+wire [31:0] debug_secure_code_1; // Debug Authentication Code 1
 //
 wire        cpui_m_hsel      [0:`HART_COUNT-1]; // AHB for CPU Instruction
 wire [ 1:0] cpui_m_htrans    [0:`HART_COUNT-1]; // AHB for CPU Instruction
@@ -436,6 +644,8 @@ wire        s_hresp    [0:`SLAVES-1];
 //
 // Bus Signals
 generate
+begin
+    genvar i;
     for (i = 0; i < `HART_COUNT; i = i + 1)
     begin : AHB_SIGNALS
         assign m_hsel     [i            ] = cpud_m_hsel[i];
@@ -488,6 +698,7 @@ generate
     assign dbgd_m_hreadyout = m_hreadyout[`HART_COUNT * 2];
     assign dbgd_m_hrdata    = m_hrdata   [`HART_COUNT * 2];
     assign dbgd_m_hresp     = m_hresp    [`HART_COUNT * 2];
+end
 endgenerate
 //
 // Interrupts
@@ -543,15 +754,19 @@ assign I2C1_SDA   = (i2c1_sda_oen)? 1'bz : i2c1_sda_o;
 //-----------------------------------------
 // Reset Vector
 generate
+begin
+    genvar i;
     for (i = 0; i < `HART_COUNT; i = i + 1)
     begin : RESET_VECTOR
         assign reset_vector[i] = (`RESET_VECTOR_BASE) + (`RESET_VECTOR_DISP * i);
     end
+end
 endgenerate
 //
 // Security
-assign debug_secure      = `DEBUG_SECURE_ENBL;
-assign debug_secure_code = `DEBUG_SECURE_CODE;
+assign debug_secure        = GPIO2[9]; //`DEBUG_SECURE_ENBL;
+assign debug_secure_code_0 = `DEBUG_SECURE_CODE_0;
+assign debug_secure_code_1 = `DEBUG_SECURE_CODE_1;
 //
 // mmRISC Body
 mmRISC
@@ -563,22 +778,30 @@ U_MMRISC
     .RES_ORG (res_org),
     .RES_SYS (res_sys),
     .CLK     (clk),
-    .STBY    (stby),
     //
-    .TRSTn     (TRSTn),
+    .STBY_REQ (stby_req),
+    .STBY_ACK (stby_ack),
+    //
     .SRSTn_IN  (srst_n_in),
     .SRSTn_OUT (srst_n_out),
     //
-    .TCK   (TCK),
-    .TMS   (TMS),
-    .TDI   (TDI),
+    .FORCE_HALT_ON_RESET_REQ (force_halt_on_reset_req),
+    .FORCE_HALT_ON_RESET_ACK (force_halt_on_reset_ack),
+    .JTAG_DR_USER_IN  (jtag_dr_user_in ),
+    .JTAG_DR_USER_OUT (jtag_dr_user_out),
+    //
+    .TRSTn (trstn),
+    .TCK   (tck),
+    .TMS   (tms),
+    .TDI   (tdi),
     .TDO_D (tdo_d),
     .TDO_E (tdo_e),
     .RTCK  (RTCK),
     //
-    .RESET_VECTOR      (reset_vector),
-    .DEBUG_SECURE      (debug_secure),
-    .DEBUG_SECURE_CODE (debug_secure_code),
+    .RESET_VECTOR        (reset_vector),
+    .DEBUG_SECURE        (debug_secure),
+    .DEBUG_SECURE_CODE_0 (debug_secure_code_0),
+    .DEBUG_SECURE_CODE_1 (debug_secure_code_1),
     //
     .CPUI_M_HSEL      (cpui_m_hsel),
     .CPUI_M_HTRANS    (cpui_m_htrans),
@@ -649,20 +872,36 @@ wire [31:0] s_haddr_base[0:`SLAVES-1];
 wire [31:0] s_haddr_mask[0:`SLAVES-1];
 //
 generate
-    for (i = 0; i < `MASTERS; i = i + 1)
-    begin : MASTER_PRIORITY
-        if (i == 0)      assign m_priority[i] = `M_PRIORITY_0;
-        else if (i == 1) assign m_priority[i] = `M_PRIORITY_1;
-        else if (i == 2) assign m_priority[i] = `M_PRIORITY_2;
-        else if (i == 3) assign m_priority[i] = `M_PRIORITY_3;
-        else if (i == 4) assign m_priority[i] = `M_PRIORITY_4;
-        else if (i == 5) assign m_priority[i] = `M_PRIORITY_5;
-        else if (i == 6) assign m_priority[i] = `M_PRIORITY_6;
-        else if (i == 7) assign m_priority[i] = `M_PRIORITY_7;
-        else if (i == 8) assign m_priority[i] = `M_PRIORITY_8;
-        else             assign m_priority[i] = ((`MASTERS_BIT)'(i));
+begin
+    genvar i;
+    //
+    // Priorty of Data Port and Instruction Port for Each Hart
+    for (i = 0; i < `HART_COUNT; i = i + 1)
+    begin : MASTER_HART_PRIORITY
+        assign m_priority[i              ] = ((`MASTERS_BIT)'(1)); // Data
+        assign m_priority[i + `HART_COUNT] = ((`MASTERS_BIT)'(2)); // Inst
     end
+    //
+    // Priorty of Other Ports
+    assign m_priority[(`HART_COUNT * 2    )] = ((`MASTERS_BIT)'(0)); // DBGD
+end
 endgenerate
+//
+//generate
+//    for (i = 0; i < `MASTERS; i = i + 1)
+//    begin : MASTER_PRIORITY
+//        if (i == 0)      assign m_priority[i] = `M_PRIORITY_0;
+//        else if (i == 1) assign m_priority[i] = `M_PRIORITY_1;
+//        else if (i == 2) assign m_priority[i] = `M_PRIORITY_2;
+//        else if (i == 3) assign m_priority[i] = `M_PRIORITY_3;
+//        else if (i == 4) assign m_priority[i] = `M_PRIORITY_4;
+//        else if (i == 5) assign m_priority[i] = `M_PRIORITY_5;
+//        else if (i == 6) assign m_priority[i] = `M_PRIORITY_6;
+//        else if (i == 7) assign m_priority[i] = `M_PRIORITY_7;
+//        else if (i == 8) assign m_priority[i] = `M_PRIORITY_8;
+//        else             assign m_priority[i] = ((`MASTERS_BIT)'(i));
+//    end
+//endgenerate
 
 //-----------------------
 // Slave Address

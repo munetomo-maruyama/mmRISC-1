@@ -18,17 +18,22 @@
 //`define JTAG_FAST
 //
 `ifdef JTAG_FAST
-    `define TB_TCYC_CLK  100 //ns (10MHz)
-    `define TB_TCYC_TCLK 20  //ns (50MHz)
+    `define TB_TCYC_CLK   100 //ns (10MHz)
+    `define TB_TCYC_CLK_2  50 //ns (10MHz)
+    `define TB_TCYC_TCK    20 //ns (50MHz)
 `else
-    `define TB_TCYC_CLK  20  //ns (50MHz)
-    `define TB_TCYC_TCLK 100 //ns (10MHz)
+    `define TB_TCYC_CLK    20 //ns (50MHz)
+    `define TB_TCYC_CLK_2  10 //ns (50MHz)
+    `define TB_TCYC_TCK   100 //ns (10MHz)
 `endif
 //
-`define TB_STOP 1000000000 //cyc
-`define TB_RESET_WIDTH 50 //ns
+`define TB_TCYC_TCKC (`TB_TCYC_TCK / 5) // cJTAG TCKC
 //
-//`define JTAG_OPERATION
+`define TB_STOP 1000000000 //cyc
+`define TB_RESET_WIDTH 50  //ns
+//
+//`define JTAG_SBACCESS
+`define JTAG_OPERATION
 `define DUMP_ID_STAGE
 
 //------------------------
@@ -36,15 +41,21 @@
 //------------------------
 module tb_TOP;
 
+//--------
+// Global
+//--------
+reg [ 4:0] IR_OUT; // global
 reg [63:0] DR_OUT; // global
+reg        TDO;    // global
 
 //-------------------------------
 // Generate Clock
 //-------------------------------
 reg tb_clk;
+reg tb_clk_speed;
 //
 initial tb_clk = 1'b0;
-always #(`TB_TCYC_CLK / 2) tb_clk = ~tb_clk;
+always #(`TB_TCYC_CLK_2) tb_clk = ~tb_clk;
 
 //--------------------------
 // Generate Reset
@@ -61,8 +72,8 @@ end
 // Initialize Internal Power on Reset
 initial
 begin
-    U_CHIP_TOP.por_count = 0;
-    U_CHIP_TOP.por_n = 0;
+    U_CHIP_TOP_WRAP.U_CHIP_TOP.por_count = 0;
+    U_CHIP_TOP_WRAP.U_CHIP_TOP.por_n = 0;
 end
 
 //----------------------------
@@ -128,16 +139,16 @@ wire [31:0] watch_hwdata;
 wire        watch_hready;
 wire        watch_hreadyout;
 //
-assign watch_res    = U_CHIP_TOP.U_MMRISC.RES_ORG;
-assign watch_clk    = U_CHIP_TOP.U_MMRISC.CLK;
-assign watch_hsel   = U_CHIP_TOP.U_MMRISC.CPUD_M_HSEL[0];
-assign watch_htrans = U_CHIP_TOP.U_MMRISC.CPUD_M_HTRANS[0];
-assign watch_hsize  = U_CHIP_TOP.U_MMRISC.CPUD_M_HSIZE[0];
-assign watch_hwrite = U_CHIP_TOP.U_MMRISC.CPUD_M_HWRITE[0];
-assign watch_haddr  = U_CHIP_TOP.U_MMRISC.CPUD_M_HADDR[0];
-assign watch_hwdata = U_CHIP_TOP.U_MMRISC.CPUD_M_HWDATA[0];
-assign watch_hready    = U_CHIP_TOP.U_MMRISC.CPUD_M_HREADY[0];
-assign watch_hreadyout = U_CHIP_TOP.U_MMRISC.CPUD_M_HREADYOUT[0];
+assign watch_res    = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.RES_ORG;
+assign watch_clk    = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.CLK;
+assign watch_hsel   = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.CPUD_M_HSEL[0];
+assign watch_htrans = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.CPUD_M_HTRANS[0];
+assign watch_hsize  = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.CPUD_M_HSIZE[0];
+assign watch_hwrite = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.CPUD_M_HWRITE[0];
+assign watch_haddr  = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.CPUD_M_HADDR[0];
+assign watch_hwdata = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.CPUD_M_HWDATA[0];
+assign watch_hready    = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.CPUD_M_HREADY[0];
+assign watch_hreadyout = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.CPUD_M_HREADYOUT[0];
 //
 //-------------------------------------
 // Terminate Simulation by watching Bus
@@ -216,15 +227,15 @@ wire [31:0] watch_pipe_id_code;
 wire [31:0] watch_regxr[0:31];
 wire [31:0] watch_regfr[0:31];
 //
-assign watch_instr_exec = U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_PIPELINE.INSTR_EXEC;
-assign watch_pipe_id_pc = U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_PIPELINE.pipe_id_pc;
-assign watch_pipe_id_code = U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_PIPELINE.pipe_id_code;
+assign watch_instr_exec = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_PIPELINE.INSTR_EXEC;
+assign watch_pipe_id_pc = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_PIPELINE.pipe_id_pc;
+assign watch_pipe_id_code = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_PIPELINE.pipe_id_code;
 generate
     genvar n;
     for (n = 0; n < 32; n = n + 1)
     begin
-        assign watch_regxr[n] = U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_DATAPATH.regXR[n];
-        assign watch_regfr[n] = U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_FPU32.regFR[n];
+        assign watch_regxr[n] = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_DATAPATH.regXR[n];
+        assign watch_regfr[n] = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_FPU32.regFR[n];
     end
 endgenerate
 //
@@ -250,14 +261,28 @@ end
 //--------------------------
 // Device Under Test
 //--------------------------
-reg  tb_trst_n;
 reg  tb_srst_n; // reset except for debug logic
 wire srst_n;
+assign srst_n = tb_srst_n;
+pullup (srst_n);
+//
+reg  tb_trst_n;
 reg  tb_tck;
 reg  tb_tms;
 reg  tb_tdi;
 wire tb_tdo;
 wire tb_rtck;
+pullup(tb_tdo);
+//
+wire tb_tckc;
+wire tb_tmsc;
+wire tb_tmsc_pup;
+wire tb_tmsc_pdn;
+pullup(tb_tckc);
+//pullup(tb_tmsc);
+assign (weak1, weak0) #1 tb_tmsc = (tb_tmsc_pup === 1'b1)? 1'b1 : 1'bz;
+assign (weak1, weak0) #1 tb_tmsc = (tb_tmsc_pdn === 1'b0)? 1'b0 : 1'bz;
+//
 wire [31:0] gpio0;
 wire [31:0] gpio1;
 wire [31:0] gpio2;
@@ -287,7 +312,6 @@ wire [ 1:0] sdram_ba;   // SDRAM Bank Address
 wire [12:0] sdram_addr; // SDRAM Addess
 wire [15:0] sdram_dq;   // SDRAM Data
 //
-assign srst_n = tb_srst_n;
 pullup(txd);
 pullup(i2c0_scl);
 pullup(i2c0_sda);
@@ -307,21 +331,45 @@ generate
     end
 endgenerate
 //
-CHIP_TOP U_CHIP_TOP
+reg  tb_stby;
+reg  tb_debug_secure;
+reg  tb_reset_halt_n;
+assign gpio2[ 9] = tb_debug_secure;
+assign gpio2[10] = tb_reset_halt_n;
+assign gpio2[ 7] = tb_clk_speed;
+//
+CHIP_TOP_WRAP U_CHIP_TOP_WRAP
 (
     .RES_N (~tb_res),
     .CLK50 (tb_clk),
     //
+    .STBY_REQ   (tb_stby),
+    .STBY_ACK_N (),
+    //
     .RESOUT_N (),
     //
-    .TRSTn (tb_trst_n),
+`ifdef SIMULATION
     .SRSTn (srst_n),
+`endif
     //
+    .TRSTn (tb_trst_n),
     .TCK (tb_tck),
     .TMS (tb_tms),
     .TDI (tb_tdi),
     .TDO (tb_tdo),
+`ifdef SIMULATION
     .RTCK (tb_rtck),
+`endif
+    //
+`ifdef ENABLE_CJTAG
+    .TCKC_pri (tb_tckc),
+    .TCKC_rep (tb_tckc),
+    .TMSC_pri (tb_tmsc),
+    .TMSC_rep (tb_tmsc),
+    //
+    .TMSC_PUP_rep (tb_tmsc_pup),
+    .TMSC_PDN_rep (tb_tmsc_pdn),
+`endif
     //
     .GPIO0 (gpio0),
     .GPIO1 (gpio1),
@@ -388,15 +436,62 @@ sdr U_SDRAM
     .Dqm   (sdram_dqm)
 );
 
+//------------------------
+// Task : RESET_SYS
+// (except for degug logic)
+//------------------------
+task Task_RESET_SYS();
+    tb_srst_n = 1'bz;
+    #(`TB_TCYC_TCK * 1);
+    tb_srst_n = 1'b0;
+    #(`TB_TCYC_TCK * 1);
+    tb_srst_n = 1'bz;
+    #(`TB_TCYC_TCK * 1);
+    $display("----RESET_SYS");
+endtask
+
 //--------------------------
 // Task ; JTAG_INIT_PIN
 //--------------------------
 task Task_JTAG_INIT_PIN();
-    tb_tck = 1'b1;
+`ifdef ENABLE_CJTAG
+    // Compact JTAG
+    tb_tck = 1'b0;
+    tb_tms = 1'b0;
+    tb_tdi = 1'b0;
+    tb_trst_n = 1'b1;
+    tb_srst_n = 1'bz;
+    #(`TB_TCYC_TCK * 20);
     tb_tms = 1'b1;
+    tb_reset_halt_n = 1'b1;
+`else
+    // Normal JTAG
+    tb_tck = 1'b0;
+    tb_tms = 1'b0;
     tb_tdi = 1'bx;
     tb_trst_n = 1'b1;
-    tb_srst_n = 1'bz;    
+    tb_srst_n = 1'bz;
+    #(`TB_TCYC_TCK * 20);
+    tb_reset_halt_n = 1'b1;
+`endif
+    #(`TB_TCYC_TCK * 1);
+    $display("----JTAG_INIT_PIN");
+endtask
+
+//--------------------------
+// Task ; Reset Run
+//--------------------------
+task Task_RESET_RUN();
+    tb_reset_halt_n = 1'b1;
+    $display("----RESET RUN");
+endtask
+
+//--------------------------
+// Task ; Reset Halt
+//--------------------------
+task Task_RESET_HALT();
+    tb_reset_halt_n = 1'b0;
+    $display("----RESET HALT");
 endtask
 
 //------------------------
@@ -404,26 +499,286 @@ endtask
 //------------------------
 task Task_JTAG_RESET_TAP();
     tb_trst_n = 1'b1;
-    #(`TB_TCYC_TCLK * 1);
+    #(`TB_TCYC_TCK * 1);
     tb_trst_n = 1'b0;
-    #(`TB_TCYC_TCLK * 1);
+    #(`TB_TCYC_TCK * 1);
     tb_trst_n = 1'b1;
-    #(`TB_TCYC_TCLK * 1);
+    #(`TB_TCYC_TCK * 1);
     $display("----JTAG_RESET_TAP");
 endtask
 
-//------------------------
-// Task : JTAG_RESET_SYS
-// (except for degug logic)
-//------------------------
-task Task_JTAG_RESET_SYS();
-    tb_srst_n = 1'bz;
-    #(`TB_TCYC_TCLK * 1);
-    tb_srst_n = 1'b0;
-    #(`TB_TCYC_TCLK * 1);
-    tb_srst_n = 1'bz;
-    #(`TB_TCYC_TCLK * 1);
-    $display("----JTAG_RESET_SYS");
+//-------------------------
+// Task : JTAG_BIT
+//-------------------------
+task Task_JTAG_BIT(input TMS, input TDI);
+`ifdef ENABLE_CJTAG
+    // Compact JTAG
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0;
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = ~TDI; // nTDI
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = ~TDI; // nTDI
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = TMS; // TMS
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = TMS; // TMS
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b0; tb_tms = 1'b0; tb_tdi = 1'b1; // HIZ
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b0; tb_tms = 1'b0; tb_tdi = 1'b0; // TDO
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b1; tb_tms = 1'b0; tb_tdi = 1'b0; // TDO
+    TDO = tb_tdo;
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b0; tb_tms = 1'b0; tb_tdi = 1'b0; 
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0; 
+`else
+    // Normal JTAG
+    tb_tck = 1'b0;
+    tb_tms = TMS;
+    tb_tdi = TDI;
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b1; // rise
+    TDO = tb_tdo;
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b0; // fall
+`endif
+endtask
+
+//--------------------------
+// Task ; CJTAG_ONLINE
+//--------------------------
+task Task_CJTAG_ONLINE(integer count);
+`ifdef ENABLE_CJTAG
+    integer i;
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0;
+    for (i = 0; i < count; i = i + 1)
+    begin
+        #(`TB_TCYC_TCK / 2);
+        tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0;
+        #(`TB_TCYC_TCK / 2);
+        tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b1;
+    end
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0;
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0;
+    $display("----CJTAG_ONLINE");
+`endif
+endtask
+
+//--------------------------------
+// Task ; CJTAG_ACTIVATION_ILGL
+//--------------------------------
+task Task_CJTAG_ACTIVATION_ILGL();
+`ifdef ENABLE_CJTAG
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0;
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0;
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0;
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0;
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0;
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0;
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0;
+    $display("----CJTAG_ACTIVATION_ILGL");
+`endif
+endtask
+
+//--------------------------------
+// Task ; CJTAG_ACTIVATION_CODE
+//--------------------------------
+task Task_CJTAG_ACTIVATION_CODE(input [3:0] code);
+`ifdef ENABLE_CJTAG
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = code[0];
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = code[0];
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = code[1];
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = code[1];
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = code[2];
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = code[2];
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = code[3];
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = code[3];
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0;
+    $display("----CJTAG_ACTIVATION_CODE(0x%01x)", code);
+`endif
+endtask
+
+//-------------------------
+// Task : CJTAG_OPENOCD
+//-------------------------
+task Task_CJTAG_OPENOCD();
+    // Drive cJTAG escape sequence for TAP reset - 8 TMSC edges
+    //          /* TCK=0, TMS=1, TDI=0 (drive TMSC to 0 baseline) */
+    //          {'0', '1', '0'},
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=0 (rising edge of TCK with TMSC still 0) */
+    //          {'1', '1', '0'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=1 (drive rising TMSC edge) */
+    //          {'1', '1', '1'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b1; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=0 (drive falling TMSC edge) */
+    //          {'1', '1', '0'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=1 (drive rising TMSC edge) */
+    //          {'1', '1', '1'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b1; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=0 (drive falling TMSC edge) */
+    //          {'1', '1', '0'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=1 (drive rising TMSC edge) */
+    //          {'1', '1', '1'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b1; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=0 (drive falling TMSC edge) */
+    //          {'1', '1', '0'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=1 (drive rising TMSC edge) */
+    //          {'1', '1', '1'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b1; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=0 (drive falling TMSC edge) */
+    //          {'1', '1', '0'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=0, TMS=1, TDI=0 (falling edge TCK with TMSC still 0) */
+    //          {'0', '1', '0'},
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //
+    // 3 TCK pulses for padding
+    //          /* TCK=1, TMS=1, TDI=0 (drive rising TCK edge) */
+    //          {'1', '1', '0'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=0, TMS=1, TDI=0 (drive falling TCK edge) */
+    //          {'0', '1', '0'},
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=0 (drive rising TCK edge) */
+    //          {'1', '1', '0'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=0, TMS=1, TDI=0 (drive falling TCK edge) */
+    //          {'0', '1', '0'},
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=0 (drive rising TCK edge) */
+    //          {'1', '1', '0'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=0, TMS=1, TDI=0 (drive falling TCK edge) */
+    //          {'0', '1', '0'},
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //
+    // Drive cJTAG escape sequence for SELECT
+    //          /* TCK=1, TMS=1, TDI=0 (rising edge of TCK with TMSC still 0, TAP reset that was >
+    //          {'1', '1', '0'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=1 (drive rising TMSC edge) */
+    //          {'1', '1', '1'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b1; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=0 (drive falling TMSC edge) */
+    //          {'1', '1', '0'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=1 (drive rising TMSC edge) */
+    //          {'1', '1', '1'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b1; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=0 (drive falling TMSC edge) */
+    //          {'1', '1', '0'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=1 (drive rising TMSC edge) */
+    //          {'1', '1', '1'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b1; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=0 (drive falling TMSC edge) */
+    //          {'1', '1', '0'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=0, TMS=1, TDI=0 (falling edge TCK with TMSC still 0) */
+    //          {'0', '1', '0'},
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //
+    // Drive cJTAG escape sequence for OScan1 activation -- OAC = 1100 -> 2 wires -- >
+    //          /* TCK=1, TMS=1, TDI=0 (rising edge TCK with TMSC still 0... online mode activate>
+    //          {'1', '1', '0'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=0, TMS=1, TDI=0 (falling edge TCK) */
+    //          {'0', '1', '0'},
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=0 (rising edge TCK... OAC bit1==0) */
+    //          {'1', '1', '0'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=0, TMS=1, TDI=1 (falling edge TCK) */
+    //          {'0', '1', '1'},
+    #(`TB_TCYC_TCK / 2);
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b1; #(`TB_TCYC_TCK / 2); // BUG CAUSE
+    #(`TB_TCYC_TCK / 2);
+    #(`TB_TCYC_TCK / 2);
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b1; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=1 (rising edge TCK... OAC bit2==1) */
+    //          {'1', '1', '1'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b1; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=0, TMS=1, TDI=1 (falling edge TCK, TMSC stays high) */
+    //          {'0', '1', '1'},
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b1; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=1 (rising edge TCK... OAC bit3==1) */
+    //          {'1', '1', '1'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b1; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=0, TMS=1, TDI=0 (falling edge TCK) */
+    //          {'0', '1', '0'},
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //         /* TCK=1, TMS=1, TDI=0 (rising edge TCK... EC bit0==0) */
+    //          {'1', '1', '0'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=0, TMS=1, TDI=0 (falling edge TCK) */
+    //          {'0', '1', '0'},
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=0 (rising edge TCK... EC bit1==0) */
+    //          {'1', '1', '0'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=0, TMS=1, TDI=0 (falling edge TCK) */
+    //          {'0', '1', '0'},
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=0 (rising edge TCK... EC bit2==0) */
+    //          {'1', '1', '0'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=0, TMS=1, TDI=1 (falling edge TCK) */
+    //          {'0', '1', '1'},
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b1; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=1 (rising edge TCK... EC bit3==1) */
+    //          {'1', '1', '1'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b1; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=0, TMS=1, TDI=0 (falling edge TCK) */
+    //          {'0', '1', '0'},
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=0 (rising edge TCK... CP bit0==0) */
+    //          {'1', '1', '0'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=0, TMS=1, TDI=0 (falling edge TCK) */
+    //          {'0', '1', '0'},
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=0 (rising edge TCK... CP bit1==0) */
+    //          {'1', '1', '0'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=0, TMS=1, TDI=0 (falling edge TCK) */
+    //          {'0', '1', '0'},
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=0 (rising edge TCK... CP bit2==0) */
+    //          {'1', '1', '0'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=0, TMS=1, TDI=0 (falling edge TCK) */
+    //          {'0', '1', '0'},
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=1, TMS=1, TDI=0 (rising edge TCK... CP bit3==0) */
+    //          {'1', '1', '0'},
+    tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
+    //          /* TCK=0, TMS=1, TDI=0 (falling edge TCK) */
+    //          {'0', '1', '0'},
+    tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0; #(`TB_TCYC_TCK / 2);
 endtask
 
 //-------------------------
@@ -431,51 +786,15 @@ endtask
 //-------------------------
 task Task_JTAG_INIT_STATE();
     //---- Any State
-        tb_tms = 1'b1;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Any State
-        tb_tms = 1'b1;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Any State
-        tb_tms = 1'b1;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Any State
-        tb_tms = 1'b1;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Any State
-        tb_tms = 1'b1;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Any State
-        tb_tms = 1'b1;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
+    Task_JTAG_BIT(.TMS(1'b1), .TDI(1'bx));    
+    Task_JTAG_BIT(.TMS(1'b1), .TDI(1'bx));    
+    Task_JTAG_BIT(.TMS(1'b1), .TDI(1'bx));    
+    Task_JTAG_BIT(.TMS(1'b1), .TDI(1'bx));    
+    Task_JTAG_BIT(.TMS(1'b1), .TDI(1'bx));    
     //---- Test Logic Reset    
-        tb_tms = 1'b0;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
+    Task_JTAG_BIT(.TMS(1'b0), .TDI(1'bx));    
     //---- Run Test Idle
-        tb_tms = 1'b1;
-        tb_tck = 1'b1;
-    #(`TB_TCYC_TCLK * 1);
+    #(`TB_TCYC_TCK * 1);
     $display("----JTAG_INIT_STATE");
 endtask;
 
@@ -484,67 +803,30 @@ endtask;
 //----------------------
 task Task_JTAG_Shift_IR(input [4:0] IR, integer verbose);
     integer i;
-    reg [4:0] IR_OUT;
+    IR_OUT = 5'b0;
     //---- Run Test Idle
-        tb_tms = 1'b1;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
+    Task_JTAG_BIT(.TMS(1'b1), .TDI(1'bx));    
     //---- Select DR Scan
-        tb_tms = 1'b1;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
+    Task_JTAG_BIT(.TMS(1'b1), .TDI(1'bx));    
     //----Select IR Scan
-        tb_tms = 1'b0;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
+    Task_JTAG_BIT(.TMS(1'b0), .TDI(1'bx));    
     //---- Capture IR
-        tb_tms = 1'b0;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
+    Task_JTAG_BIT(.TMS(1'b0), .TDI(1'bx));    
     //---- Shift IR (bit0-bit3)
     for (i = 0; i < 4; i = i + 1)
     begin
-            tb_tms = 1'b0;
-            tb_tdi = IR[i];
-            tb_tck = 1'b0;
-        #(`TB_TCYC_TCLK / 2);
-            IR_OUT[i] = tb_tdo;
-            tb_tck = 1'b1; // rise
-        #(`TB_TCYC_TCLK / 2);
+        Task_JTAG_BIT(.TMS(1'b0), .TDI(IR[i]));    
+        IR_OUT[i] = TDO;
     end
     //---- Shift IR (bit4)
-        tb_tms = 1'b1;
-        tb_tdi = IR[4];
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        IR_OUT[4] = tb_tdo;
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
+    Task_JTAG_BIT(.TMS(1'b1), .TDI(IR[4]));    
+    IR_OUT[4] = TDO;
     //---- Exit1-IR
-        tb_tms = 1'b1;
-        tb_tdi = 1'bx;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
+    Task_JTAG_BIT(.TMS(1'b1), .TDI(1'bx));    
     //---- Update IR
-        tb_tms = 1'b0;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
+    Task_JTAG_BIT(.TMS(1'b0), .TDI(1'bx));    
     //---- Run Test Idle
-        tb_tms = 1'b1;
-        tb_tck = 1'b1;
-    #(`TB_TCYC_TCLK * 1);
+    #(`TB_TCYC_TCK * 1);
     // Message
     if (verbose) $display("----JTAG IR SFT_IN(0x%01x) SFT_OUT(0x%01x)", IR, IR_OUT);
 endtask
@@ -557,59 +839,26 @@ task Task_JTAG_Shift_DR(input [63:0] DR, integer length, integer verbose);
     integer i;
     DR_OUT = 64'h0;
     //---- Run Test Idle
-        tb_tms = 1'b1;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
+    Task_JTAG_BIT(.TMS(1'b1), .TDI(1'bx));    
     //---- Select DR Scan
-        tb_tms = 1'b0;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
+    Task_JTAG_BIT(.TMS(1'b0), .TDI(1'bx));    
     //---- Capture DR
-        tb_tms = 1'b0;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
+    Task_JTAG_BIT(.TMS(1'b0), .TDI(1'bx));    
     //---- Shift DR (bit0-)
     for (i = 0; i < (length - 1); i = i + 1)
     begin
-            tb_tms = 1'b0;
-            tb_tdi = DR[i];
-            tb_tck = 1'b0;
-        #(`TB_TCYC_TCLK / 2);
-            DR_OUT[i] = tb_tdo;
-            tb_tck = 1'b1; // rise
-        #(`TB_TCYC_TCLK / 2);
+        Task_JTAG_BIT(.TMS(1'b0), .TDI(DR[i]));    
+        DR_OUT[i] = TDO;
     end
     //---- Shift DR (bit length-1)
-        tb_tms = 1'b1;
-        tb_tdi = DR[length - 1];
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        DR_OUT[length - 1] = tb_tdo;
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
+    Task_JTAG_BIT(.TMS(1'b1), .TDI(DR[length - 1]));    
+    DR_OUT[length - 1] = TDO;
     //---- Exit1-DR
-        tb_tms = 1'b1;
-        tb_tdi = 1'bx;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
+    Task_JTAG_BIT(.TMS(1'b1), .TDI(1'bx));    
     //---- Update DR
-        tb_tms = 1'b0;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
+    Task_JTAG_BIT(.TMS(1'b0), .TDI(1'bx));    
     //---- Run Test Idle
-        tb_tms = 1'b1;
-        tb_tck = 1'b1;
-    #(`TB_TCYC_TCLK * 1);
+    #(`TB_TCYC_TCK * 1);
     // Message
     if (verbose) $display("----JTAG DR SFT_IN(0x%16x) SFT_OUT(0x%16x)", DR, DR_OUT);
 endtask
@@ -724,18 +973,52 @@ task Task_JTAG_DMI_READ(input [6:0] DMI_ADDR, input [31:0] DMI_DATA, integer ver
     $display("");
 endtask
 
+//-----------------------------
+// Task : JTAG_DMI_WRTE FAST
+//-----------------------------
+task Task_JTAG_DMI_WRTE_FAST(input [6:0] DMI_ADDR, input [31:0] DMI_DATA, integer verbose);
+    reg [63:0] DR;
+    DR = {23'h0, DMI_ADDR, DMI_DATA, `DMI_COMMAND_WR};
+    Task_JTAG_Shift_DR(DR, 41, verbose);
+    $display("----JTAG_DMI_WRTE (FAST) SFT_IN(0x%02x 0x%08x 0x%01x) SFT_OUT(0x%02x 0x%08x 0x%01x)",
+        DR[40:34], DR[33:2], DR[1:0], DR_OUT[40:34], DR_OUT[33:2], DR_OUT[1:0]);         
+endtask
+
+//-----------------------------
+// Task : JTAG_DMI_READ FAST
+//-----------------------------
+task Task_JTAG_DMI_READ_FAST(input [6:0] DMI_ADDR, input [31:0] DMI_DATA, integer verbose);
+    reg [63:0] DR;
+    DR = {23'h0, DMI_ADDR, DMI_DATA, `DMI_COMMAND_RD};
+    Task_JTAG_Shift_DR(DR, 41, verbose);
+    $display("----JTAG_DMI_READ (FAST) SFT_IN(0x%02x 0x%08x 0x%01x) SFT_OUT(0x%02x 0x%08x 0x%01x)",
+        DR[40:34], DR[33:2], DR[1:0], DR_OUT[40:34], DR_OUT[33:2], DR_OUT[1:0]);         
+    // Verify
+    if (DMI_DATA !== 32'hxxxxxxxx)
+    begin
+        if (DMI_DATA == DR_OUT[33:2])
+            $write(" ---> Verify OK:0x%08x", DMI_DATA);
+        else
+        begin
+            $display(" ---> Verify NG:0x%08x", DMI_DATA);
+            $stop;
+        end
+    end
+    $display("");
+endtask
+
 //--------------------------------
 // Display TAP Controller State
 //--------------------------------
-initial U_CHIP_TOP.U_MMRISC.U_DEBUG_TOP.U_DEBUG_DTM_JTAG.state_tap_tck = `JTAG_TAP_CAPTURE_IR;
+initial U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.U_DEBUG_TOP.U_DEBUG_DTM_JTAG.state_tap_tck = `JTAG_TAP_CAPTURE_IR;
 //
 `ifdef DEBUG_TAP_CONTROLLER_STATE
 wire tck;
 wire [3:0] state_tap;
 wire [3:0] state_tap_next;
-assign tck = U_CHIP_TOP.U_MMRISC.U_DEBUG_TOP.U_DEBUG_DTM_JTAG.TCK;
-assign state_tap = U_CHIP_TOP.U_MMRISC.U_DEBUG_TOP.U_DEBUG_DTM_JTAG.state_tap_tck;
-assign state_tap_next = U_CHIP_TOP.U_MMRISC.U_DEBUG_TOP.U_DEBUG_DTM_JTAG.state_tap_next_tck;
+assign tck = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.U_DEBUG_TOP.U_DEBUG_DTM_JTAG.TCK;
+assign state_tap = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.U_DEBUG_TOP.U_DEBUG_DTM_JTAG.state_tap_tck;
+assign state_tap_next = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.U_DEBUG_TOP.U_DEBUG_DTM_JTAG.state_tap_next_tck;
 //
 always @(posedge tck)
 begin
@@ -767,15 +1050,203 @@ end
 reg [31:0] jtag_data;
 initial
 begin
-    Task_JTAG_INIT_PIN();
-    #(`TB_TCYC_TCLK * 10);
+    tb_stby         = 1'b0;
+    tb_debug_secure = 1'b1;
+    tb_clk_speed    = 1'b0; // High Speed
+    tb_srst_n       = 1'bz; // pullup
     //
+//  Task_RESET_RUN();
+    Task_RESET_HALT();
+    #(`TB_TCYC_CLK);
+    @(negedge watch_res);
+    #(`TB_TCYC_TCK * 10);
+    //
+    Task_JTAG_INIT_PIN();
+    #(`TB_TCYC_TCK * 10);
+    
+    /*
+    Task_CJTAG_ONLINE(2);
+    #(`TB_TCYC_TCK * 10);
+    //
+    Task_CJTAG_ONLINE(3);
+    Task_CJTAG_ACTIVATION_CODE(4'b1100); // OAC
+    Task_CJTAG_ACTIVATION_CODE(4'b1001); // EC(NG)
+    Task_CJTAG_ACTIVATION_CODE(4'b0000); // CP
+    #(`TB_TCYC_TCK * 10);
+    Task_CJTAG_ONLINE(3);
+    Task_CJTAG_ACTIVATION_CODE(4'b1100); // OAC
+    Task_CJTAG_ACTIVATION_CODE(4'b1000); // EC
+    Task_CJTAG_ACTIVATION_CODE(4'b1000); // CP(NG)
+    #(`TB_TCYC_TCK * 10);
+    Task_CJTAG_ONLINE(3);
+    Task_CJTAG_ACTIVATION_CODE(4'b1100); // OAC
+    Task_CJTAG_ACTIVATION_CODE(4'b1000); // EC
+    Task_CJTAG_ACTIVATION_CODE(4'b0000); // CP
+    #(`TB_TCYC_TCK * 10);
+    Task_CJTAG_ONLINE(5);
+    Task_CJTAG_ACTIVATION_CODE(4'b1100); // OAC
+    Task_CJTAG_ACTIVATION_CODE(4'b1000); // EC
+    Task_CJTAG_ACTIVATION_CODE(4'b0000); // CP
+    #(`TB_TCYC_TCK * 10);
+    //
+    Task_JTAG_INIT_STATE();
+    #(`TB_TCYC_TCK * 10);
+    $display("Read JTAG ID");
+    Task_JTAG_Shift_IR(`JTAG_IR_IDCODE, `VERBOSE_ON);
+    Task_JTAG_Shift_DR(32'h0, 32, `VERBOSE_ON);
+    #(`TB_TCYC_TCK * 10);
+    //
+    Task_CJTAG_ONLINE(5);
+    Task_CJTAG_ACTIVATION_CODE(4'b1100); // OAC
+    Task_CJTAG_ACTIVATION_CODE(4'b1000); // EC
+    Task_CJTAG_ACTIVATION_CODE(4'b0000); // CP
+    #(`TB_TCYC_TCK * 10);
+    $stop;
+    */
+    //
+//------------------------------------------------------------------------
+`ifdef JTAG_SBACCESS   
+`ifdef ENABLE_CJTAG
+    //------------------------------------
+    Task_CJTAG_ONLINE(2);
+    #(`TB_TCYC_TCK * 10);
+    Task_CJTAG_ONLINE(5);
+    #(`TB_TCYC_TCK * 10);
+    Task_CJTAG_ONLINE(3);
+    #(`TB_TCYC_TCK * 10);
+    //
+    Task_CJTAG_ACTIVATION_CODE(4'b1100); // OAC
+    Task_CJTAG_ACTIVATION_CODE(4'b1000); // EC
+    Task_CJTAG_ACTIVATION_CODE(4'b0000); // CP
+    #(`TB_TCYC_TCK * 10);
+    //------------------------------------
+`endif // ENABLE_CJTAG
+    Task_JTAG_INIT_STATE();
+    #(`TB_TCYC_TCK * 10);
+    //
+    $display("WR&RD DM_CONTROL to set dmactive");
+    Task_JTAG_DMI_WRTE(`DM_CONTROL, 32'h00000001, `VERBOSE_OFF);
+    Task_JTAG_DMI_READ(`DM_CONTROL, 32'h00000001, `VERBOSE_OFF);
+    //
+    $display("Write DTMCS to Assert dmihardreset and Check dmactive cleared");
+    Task_JTAG_Shift_IR(`JTAG_IR_DTMCS, `VERBOSE_ON);
+    Task_JTAG_Shift_DR({32'h0, 14'h0, 1'b1, 1'b0, 16'h0}, 32, `VERBOSE_ON);
+    Task_JTAG_Shift_DR({32'h0, 14'h0, 1'b0, 1'b0, 16'h0}, 32, `VERBOSE_ON);
+    Task_JTAG_DMI_READ(`DM_CONTROL, 32'h00000000, `VERBOSE_OFF);
+    //
+    $display("Reset Rest of the System by ndmreset and set dmactive");
+    Task_JTAG_DMI_WRTE(`DM_CONTROL, 32'h00000003, `VERBOSE_OFF);
+    Task_JTAG_DMI_WRTE(`DM_CONTROL, 32'h00000001, `VERBOSE_OFF);
+    Task_JTAG_DMI_READ(`DM_CONTROL, 32'h00000001, `VERBOSE_OFF);
+    //
+    $display("Security Pass Code");
+    Task_JTAG_DMI_WRTE(`DM_AUTHDATA, 32'h12345678, `VERBOSE_OFF);
+    //
+    $display("Select Hart 0");
+    Task_JTAG_DMI_WRTE(`DM_HAWINDOWSEL, 32'h00000000, `VERBOSE_OFF);
+    Task_JTAG_DMI_WRTE(`DM_HAWINDOW   , 32'h00000001, `VERBOSE_OFF);
+    //
+    $display("ABSCMD WR/RD RAM");
+    Task_JTAG_DMI_WRTE(`DM_DATA_1, 32'h88000000, `VERBOSE_OFF); // addr
+    Task_JTAG_DMI_WRTE(`DM_DATA_0, 32'h00112233, `VERBOSE_OFF); // wdata
+    Task_JTAG_DMI_WRTE(`DM_COMMAND, {8'h2, 1'b0, 3'h2, 1'b1, 2'b0, 1'b1, 16'h0}, `VERBOSE_OFF); // WR
+    Task_JTAG_DMI_WRTE(`DM_DATA_0, 32'h44556677, `VERBOSE_OFF); // wdata
+    Task_JTAG_DMI_WRTE(`DM_COMMAND, {8'h2, 1'b0, 3'h2, 1'b1, 2'b0, 1'b1, 16'h0}, `VERBOSE_OFF); // WR
+    Task_JTAG_DMI_WRTE(`DM_DATA_0, 32'h8899aabb, `VERBOSE_OFF); // wdata
+    Task_JTAG_DMI_WRTE(`DM_COMMAND, {8'h2, 1'b0, 3'h2, 1'b1, 2'b0, 1'b1, 16'h0}, `VERBOSE_OFF); // WR
+    Task_JTAG_DMI_WRTE(`DM_DATA_0, 32'hccddeeff, `VERBOSE_OFF); // wdata
+    Task_JTAG_DMI_WRTE(`DM_COMMAND, {8'h2, 1'b0, 3'h2, 1'b1, 2'b0, 1'b1, 16'h0}, `VERBOSE_OFF); // WR
+    //
+    Task_JTAG_DMI_WRTE(`DM_DATA_1, 32'h88000000, `VERBOSE_OFF); // addr
+    Task_JTAG_DMI_WRTE(`DM_COMMAND, {8'h2, 1'b0, 3'h2, 1'b1, 2'b0, 1'b0, 16'h0}, `VERBOSE_OFF); // RD
+    Task_JTAG_DMI_READ(`DM_DATA_0, 32'h00112233, `VERBOSE_OFF); // rdata
+    Task_JTAG_DMI_WRTE(`DM_COMMAND, {8'h2, 1'b0, 3'h2, 1'b1, 2'b0, 1'b0, 16'h0}, `VERBOSE_OFF); // RD
+    Task_JTAG_DMI_READ(`DM_DATA_0, 32'h44556677, `VERBOSE_OFF); // rdata
+    Task_JTAG_DMI_WRTE(`DM_COMMAND, {8'h2, 1'b0, 3'h2, 1'b1, 2'b0, 1'b0, 16'h0}, `VERBOSE_OFF); // RD
+    Task_JTAG_DMI_READ(`DM_DATA_0, 32'h8899aabb, `VERBOSE_OFF); // rdata
+    Task_JTAG_DMI_WRTE(`DM_COMMAND, {8'h2, 1'b0, 3'h2, 1'b1, 2'b0, 1'b0, 16'h0}, `VERBOSE_OFF); // RD
+    Task_JTAG_DMI_READ(`DM_DATA_0, 32'hccddeeff, `VERBOSE_OFF); // rdata
+    //
+    $display("SBACCESS WR/RD RAM");
+    Task_JTAG_DMI_WRTE(`DM_SBCS, {3'h1, 6'b0, 1'b0, 1'b0, 1'b0, 3'h2, 1'b1, 1'b0, 3'b0, 7'd32, 5'b00111}, `VERBOSE_OFF);
+    Task_JTAG_DMI_WRTE(`DM_SBADDRESS_0, 32'h88000100, `VERBOSE_OFF); // addr
+    Task_JTAG_DMI_WRTE_FAST(`DM_SBDATA_0, 32'h00112233, `VERBOSE_OFF); // wdata
+    Task_JTAG_DMI_WRTE_FAST(`DM_SBDATA_0, 32'h44556677, `VERBOSE_OFF); // wdata
+    Task_JTAG_DMI_WRTE_FAST(`DM_SBDATA_0, 32'h8899aabb, `VERBOSE_OFF); // wdata
+    Task_JTAG_DMI_WRTE_FAST(`DM_SBDATA_0, 32'hccddeeff, `VERBOSE_OFF); // wdata
+    Task_JTAG_DMI_WRTE_FAST(`DM_SBDATA_0, 32'h01234567, `VERBOSE_OFF); // wdata
+    Task_JTAG_DMI_WRTE_FAST(`DM_SBDATA_0, 32'h89abcdef, `VERBOSE_OFF); // wdata
+    Task_JTAG_DMI_WRTE_FAST(`DM_SBDATA_0, 32'hbeefface, `VERBOSE_OFF); // wdata
+    Task_JTAG_DMI_WRTE_FAST(`DM_SBDATA_0, 32'hdeadface, `VERBOSE_OFF); // wdata
+    //
+    Task_JTAG_DMI_WRTE(`DM_SBCS, {3'h1, 6'b0, 1'b0, 1'b0, 1'b1, 3'h2, 1'b1, 1'b1, 3'b0, 7'd32, 5'b00111}, `VERBOSE_OFF);
+    Task_JTAG_DMI_WRTE(`DM_SBADDRESS_0, 32'h88000100, `VERBOSE_OFF); // addr
+    Task_JTAG_DMI_READ_FAST(`DM_SBDATA_0, 32'h00000000, `VERBOSE_OFF); // dummy rdata
+    Task_JTAG_DMI_READ_FAST(`DM_SBDATA_0, 32'h00112233, `VERBOSE_OFF); // rdata
+    Task_JTAG_DMI_READ_FAST(`DM_SBDATA_0, 32'h44556677, `VERBOSE_OFF); // rdata
+    Task_JTAG_DMI_READ_FAST(`DM_SBDATA_0, 32'h8899aabb, `VERBOSE_OFF); // rdata
+    Task_JTAG_DMI_READ_FAST(`DM_SBDATA_0, 32'hccddeeff, `VERBOSE_OFF); // rdata
+    Task_JTAG_DMI_READ_FAST(`DM_SBDATA_0, 32'h01234567, `VERBOSE_OFF); // rdata
+    Task_JTAG_DMI_READ_FAST(`DM_SBDATA_0, 32'h89abcdef, `VERBOSE_OFF); // rdata
+    Task_JTAG_DMI_READ_FAST(`DM_SBDATA_0, 32'hbeefface, `VERBOSE_OFF); // rdata
+    Task_JTAG_DMI_READ_FAST(`DM_SBDATA_0, 32'hdeadface, `VERBOSE_OFF); // rdata
+    //
+    $display("Resume Hart 0");
+    Task_JTAG_DMI_WRTE(`DM_CONTROL, 32'h40000001, `VERBOSE_OFF);
+    //
+    #(`TB_TCYC_TCK * 100);
+    $stop;
+`endif // JTAG_SBACCESS
+//
+//------------------------------------------------------------------------
 `ifdef JTAG_OPERATION
-    Task_JTAG_RESET_SYS();
-    #(`TB_TCYC_TCLK * 10);
+`ifdef ENABLE_CJTAG
+///*
+    Task_CJTAG_ONLINE(2);
+    #(`TB_TCYC_TCK * 10);
+    Task_CJTAG_ONLINE(5);
+    #(`TB_TCYC_TCK * 10);
+    Task_CJTAG_ONLINE(3);
+    #(`TB_TCYC_TCK * 10);
+    //
+    Task_CJTAG_ACTIVATION_CODE(4'b1100); // OAC
+    Task_CJTAG_ACTIVATION_CODE(4'b1000); // EC
+    Task_CJTAG_ACTIVATION_CODE(4'b0000); // CP
+    #(`TB_TCYC_TCK * 10);
+    Task_CJTAG_ONLINE(2);
+    Task_CJTAG_ONLINE(3);
+    Task_CJTAG_ONLINE(4);
+    Task_CJTAG_ACTIVATION_CODE(4'b0100); // Illegal
+    Task_CJTAG_ONLINE(3);
+    Task_CJTAG_ACTIVATION_CODE(4'b1100); // OAC
+    Task_CJTAG_ACTIVATION_CODE(4'b1000); // EC
+    Task_CJTAG_ACTIVATION_CODE(4'b0000); // CP
+    Task_CJTAG_OPENOCD();
+    #(`TB_TCYC_TCK * 10);
+    Task_JTAG_INIT_STATE();
+    #(`TB_TCYC_TCK * 10);
+    #(`TB_TCYC_TCK * 10);
+    #(`TB_TCYC_TCK * 10);
+    //------------------------------------
+    Task_CJTAG_ONLINE(3);
+    Task_CJTAG_ACTIVATION_CODE(4'b1100); // OAC
+    Task_CJTAG_ACTIVATION_CODE(4'b1000); // EC
+    Task_CJTAG_ACTIVATION_CODE(4'b0000); // CP
+    #(`TB_TCYC_TCK * 10);
+//*/
+    Task_CJTAG_OPENOCD();
+`endif // ENABLE_CJTAG
+    //--------------------------------------------------------
+  //Task_RESET_SYS();
+    #(`TB_TCYC_TCK * 10);
     #(`TB_TCYC_CLK * 10);
     Task_JTAG_INIT_STATE();
-    #(`TB_TCYC_TCLK * 10);
+    #(`TB_TCYC_TCK * 10);
+    //
+    $display("Read/Write USER");
+    Task_JTAG_Shift_IR(`JTAG_IR_USER, `VERBOSE_ON);
+    Task_JTAG_Shift_DR(64'h000000001234abcd, 32, `VERBOSE_ON);
+    Task_JTAG_Shift_DR(64'h00000000aa556699, 32, `VERBOSE_ON);
     //
     $display("Read IDCODE");
     Task_JTAG_Shift_IR(`JTAG_IR_IDCODE, `VERBOSE_ON);
@@ -799,6 +1270,9 @@ begin
     Task_JTAG_DMI_WRTE(`DM_CONTROL, 32'h00000001, `VERBOSE_OFF);
     Task_JTAG_DMI_READ(`DM_CONTROL, 32'h00000001, `VERBOSE_OFF);
     //
+    $display("Security Pass Code");
+    Task_JTAG_DMI_WRTE(`DM_AUTHDATA, 32'h12345678, `VERBOSE_OFF);
+    //
     $display("Select Hart 0");
     Task_JTAG_DMI_WRTE(`DM_HAWINDOWSEL, 32'h00000000, `VERBOSE_OFF);
     Task_JTAG_DMI_WRTE(`DM_HAWINDOW   , 32'h00000001, `VERBOSE_OFF);
@@ -811,6 +1285,7 @@ begin
     Task_JTAG_DMI_READ(`DM_DATA_0, 32'h456789ab, `VERBOSE_OFF);
     Task_JTAG_DMI_WRTE(`DM_COMMAND, {8'h0, 1'b0, 3'h2, 1'b0, 1'b0, 1'b1, 1'b1, 16'h1020}, `VERBOSE_OFF); // WR
     Task_JTAG_DMI_READ(`DM_ABSTRACTCS, 32'h00000002, `VERBOSE_OFF);
+    tb_clk_speed = 1'b1; // Low Speed
     Task_JTAG_DMI_WRTE(`DM_DATA_0, 32'h00000000, `VERBOSE_OFF);
     Task_JTAG_DMI_READ(`DM_DATA_0, 32'h00000000, `VERBOSE_OFF);
     Task_JTAG_DMI_WRTE(`DM_COMMAND, {8'h0, 1'b0, 3'h2, 1'b0, 1'b0, 1'b1, 1'b0, 16'h1020}, `VERBOSE_OFF); // RD
@@ -825,6 +1300,7 @@ begin
     Task_JTAG_DMI_WRTE(`DM_DATA_0, 32'h00000000, `VERBOSE_OFF);
     Task_JTAG_DMI_READ(`DM_DATA_0, 32'h00000000, `VERBOSE_OFF);
     Task_JTAG_DMI_WRTE(`DM_COMMAND, {8'h0, 1'b0, 3'h2, 1'b0, 1'b0, 1'b1, 1'b0, 16'h103f}, `VERBOSE_OFF); // RD
+    tb_clk_speed    = 1'b0; // High Speed
     Task_JTAG_DMI_READ(`DM_ABSTRACTCS, 32'h00000002, `VERBOSE_OFF);
     Task_JTAG_DMI_READ(`DM_DATA_0, 32'h56789abc, `VERBOSE_OFF);
     //
@@ -855,10 +1331,99 @@ begin
     //
     jtag_data = (1 << 30) | (0 << 26) | (0 << 16) | (1 << 0); //resumereq
     Task_JTAG_DMI_WRTE(`DM_CONTROL, jtag_data, `VERBOSE_OFF);
-`endif // JTAG_OPERATION
     //
-    #(`TB_TCYC_TCLK * 10);
-    #(`TB_TCYC_CLK  * 10);
+    $display("HALT for STBY and Step Execution");
+    #(`TB_TCYC_TCK * 20);
+    tb_stby = 1'b1;
+    #(`TB_TCYC_TCK * 20);
+    tb_stby = 1'b0;
+    #(`TB_TCYC_TCK * 20);
+    //
+    #(`TB_TCYC_TCK * 20);
+    tb_stby = 1'b1;
+    #(`TB_TCYC_TCK * 20);
+    jtag_data = (1 << 31) | (0 << 26) | (0 << 16) | (1 << 0); // haltreq
+    Task_JTAG_DMI_WRTE(`DM_CONTROL, jtag_data, `VERBOSE_OFF);
+    #(`TB_TCYC_TCK * 20);
+    tb_stby = 1'b0;
+    #(`TB_TCYC_TCK * 20);
+    jtag_data = (1 << 30) | (0 << 26) | (0 << 16) | (1 << 0); // resumereq
+    Task_JTAG_DMI_WRTE(`DM_CONTROL, jtag_data, `VERBOSE_OFF);
+    #(`TB_TCYC_TCK * 20);
+    //
+    #(`TB_TCYC_TCK * 20);
+    tb_stby = 1'b1;
+    #(`TB_TCYC_TCK * 20);
+    tb_stby = 1'b0;
+    #(`TB_TCYC_TCK * 20);
+    //
+    #(`TB_TCYC_TCK * 50);
+    tb_stby = 1'b1;
+    #(`TB_TCYC_TCK * 50);
+    jtag_data = (1 << 31) | (0 << 26) | (0 << 16) | (1 << 0); // haltreq
+    Task_JTAG_DMI_WRTE(`DM_CONTROL, jtag_data, `VERBOSE_OFF);
+    #(`TB_TCYC_TCK * 50);
+    jtag_data = (1 << 30) | (0 << 26) | (0 << 16) | (1 << 0); // resumereq
+    Task_JTAG_DMI_WRTE(`DM_CONTROL, jtag_data, `VERBOSE_OFF);
+    #(`TB_TCYC_TCK * 50);
+    tb_stby = 1'b0;
+    #(`TB_TCYC_TCK * 50);
+    //
+    jtag_data = (1 << 31) | (0 << 26) | (0 << 16) | (1 << 0); // haltreq
+    Task_JTAG_DMI_WRTE(`DM_CONTROL, jtag_data, `VERBOSE_OFF);
+    #(`TB_TCYC_TCK * 10);
+    tb_stby = 1'b1;
+    #(`TB_TCYC_TCK * 10);
+    Task_JTAG_DMI_WRTE(`DM_DATA_0, 32'h00000004, `VERBOSE_OFF); // step=1
+    Task_JTAG_DMI_WRTE(`DM_COMMAND, {8'h0, 1'b0, 3'h2, 1'b0, 1'b0, 1'b1, 1'b1, 16'h07b0}, `VERBOSE_OFF); // WR
+    Task_JTAG_DMI_READ(`DM_ABSTRACTCS, 32'h00000002, `VERBOSE_OFF);
+    jtag_data = (1 << 30) | (0 << 26) | (0 << 16) | (1 << 0); // resumereq
+    Task_JTAG_DMI_WRTE(`DM_CONTROL, jtag_data, `VERBOSE_OFF);
+    #(`TB_TCYC_TCK * 10);
+    jtag_data = (1 << 30) | (0 << 26) | (0 << 16) | (1 << 0); // resumereq
+    Task_JTAG_DMI_WRTE(`DM_CONTROL, jtag_data, `VERBOSE_OFF);
+    #(`TB_TCYC_TCK * 10);
+    jtag_data = (1 << 30) | (0 << 26) | (0 << 16) | (1 << 0); // resumereq
+    Task_JTAG_DMI_WRTE(`DM_CONTROL, jtag_data, `VERBOSE_OFF);
+    #(`TB_TCYC_TCK * 10);
+    tb_stby = 1'b0;
+    #(`TB_TCYC_TCK * 10);
+    //
+    jtag_data = (1 << 30) | (0 << 26) | (0 << 16) | (1 << 0); // resumereq
+    Task_JTAG_DMI_WRTE(`DM_CONTROL, jtag_data, `VERBOSE_OFF);
+    //
+    Task_JTAG_DMI_WRTE(`DM_DATA_0, 32'h00000000, `VERBOSE_OFF); // step=0
+    Task_JTAG_DMI_WRTE(`DM_COMMAND, {8'h0, 1'b0, 3'h2, 1'b0, 1'b0, 1'b1, 1'b1, 16'h07b0}, `VERBOSE_OFF); // WR
+    Task_JTAG_DMI_READ(`DM_ABSTRACTCS, 32'h00000002, `VERBOSE_OFF);
+    //
+    jtag_data = (1 << 30) | (0 << 26) | (0 << 16) | (1 << 0); //resumereq
+    Task_JTAG_DMI_WRTE(`DM_CONTROL, jtag_data, `VERBOSE_OFF);
+    #(`TB_TCYC_TCK * 10);
+    //
+    $display("***** Repeat STBY & RESUME *****");
+    #(`TB_TCYC_TCK * 50);
+    tb_stby = 1'b1;
+    tb_clk_speed = 1'b1; // Low Speed
+    #(`TB_TCYC_TCK * 50);
+    tb_stby = 1'b0;
+    #(`TB_TCYC_TCK * 50);
+    tb_stby = 1'b1;
+    #(`TB_TCYC_TCK * 50);
+    tb_stby = 1'b0;
+    #(`TB_TCYC_TCK * 50);
+    tb_stby = 1'b1;
+    #(`TB_TCYC_TCK * 50);
+    tb_clk_speed    = 1'b0; // High Speed
+    tb_stby = 1'b0;
+    #(`TB_TCYC_TCK * 50);
+    //    
+    #(`TB_TCYC_TCK * 10000);
+    tb_clk_speed = 1'b1; // Low Speed
+    #(`TB_TCYC_TCK * 10000);
+    tb_clk_speed    = 1'b0; // High Speed
+    #(`TB_TCYC_TCK * 50);
+`endif // JTAG_OPERATION
+    #(`TB_TCYC_TCK * 10);
     $display("***** DETECT FINAL STIMULUS *****");
     stop_by_stimulus = 1'b1;
 end
@@ -873,11 +1438,11 @@ reg  [31:0] count_bcc_not_taken;
 //
 wire cpu_res, cpu_clk;
 wire cpu_stall, cpu_bcc, cpu_cmp;
-assign cpu_res   = U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_PIPELINE.RES_CPU;
-assign cpu_clk   = U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_PIPELINE.CLK;
-assign cpu_stall = U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_PIPELINE.stall;
-assign cpu_bcc   = U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_PIPELINE.fetch_start_by_cond;
-assign cpu_cmp   = U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_PIPELINE.ID_CMP_RSLT;
+assign cpu_res   = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_PIPELINE.RES_CPU;
+assign cpu_clk   = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_PIPELINE.CLK;
+assign cpu_stall = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_PIPELINE.stall;
+assign cpu_bcc   = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_PIPELINE.fetch_start_by_cond;
+assign cpu_cmp   = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.U_CPU_TOP[0].U_CPU_TOP.U_CPU_PIPELINE.ID_CMP_RSLT;
 //
 always @(posedge cpu_clk, posedge cpu_res)
 begin

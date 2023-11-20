@@ -1,0 +1,53 @@
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces mmRISC-1 Block Diagram\footnotemark [1]\relax }}{3}{figure.caption.7}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Programmers Model for RV32IM[A][F][C]\relax }}{4}{figure.caption.8}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Programmers Model for RV32C/RV32CF (Compressed Instruction)\relax }}{4}{figure.caption.9}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Register Number Indication for RV32C/RV32CF (Compressed Instruction)\relax }}{4}{figure.caption.10}%
+\contentsline {figure}{\numberline {1.5}{\ignorespaces RTL Files\relax }}{7}{figure.caption.13}%
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Reset Structure\relax }}{11}{figure.caption.23}%
+\contentsline {figure}{\numberline {1.7}{\ignorespaces INTC (Interrupt Controller)\relax }}{14}{figure.caption.26}%
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Little Endian Memory Organization\relax }}{19}{figure.caption.27}%
+\contentsline {figure}{\numberline {1.9}{\ignorespaces CPU Pipeline\relax }}{47}{figure.caption.98}%
+\contentsline {figure}{\numberline {1.10}{\ignorespaces CPU Pipeline Logic Structure\relax }}{47}{figure.caption.99}%
+\contentsline {figure}{\numberline {1.11}{\ignorespaces FPU Pipeline\relax }}{49}{figure.caption.100}%
+\contentsline {figure}{\numberline {1.12}{\ignorespaces FPU Pipeline Logic Structure\relax }}{49}{figure.caption.101}%
+\contentsline {figure}{\numberline {1.13}{\ignorespaces Block Diagram of JTAG Chain in mmRISC-1\relax }}{56}{figure.caption.121}%
+\contentsline {figure}{\numberline {1.14}{\ignorespaces Halt on Reset\relax }}{58}{figure.caption.122}%
+\contentsline {figure}{\numberline {1.15}{\ignorespaces Example of Control Logic for Halt on Reset\relax }}{58}{figure.caption.123}%
+\contentsline {figure}{\numberline {1.16}{\ignorespaces cJTAG Escape Sequence and Activation Sequence\relax }}{60}{figure.caption.125}%
+\contentsline {figure}{\numberline {1.17}{\ignorespaces cJTAG OSCAN1 Sequence\relax }}{60}{figure.caption.126}%
+\contentsline {figure}{\numberline {1.18}{\ignorespaces cJTAG Halt on Reset\relax }}{61}{figure.caption.128}%
+\contentsline {figure}{\numberline {1.19}{\ignorespaces External Adapter to convert JTAG to cJTAG\relax }}{62}{figure.caption.129}%
+\contentsline {figure}{\numberline {1.20}{\ignorespaces cJTAG Implementation for Silicon (SoC)\relax }}{63}{figure.caption.130}%
+\contentsline {figure}{\numberline {1.21}{\ignorespaces cJTAG Implementation for FPGA and Test Bench\relax }}{64}{figure.caption.131}%
+\contentsline {figure}{\numberline {1.22}{\ignorespaces Security Configuration\relax }}{65}{figure.caption.132}%
+\contentsline {figure}{\numberline {1.23}{\ignorespaces Block Diagram of Low Power Support\relax }}{66}{figure.caption.133}%
+\contentsline {figure}{\numberline {1.24}{\ignorespaces Timing of Low Power Support\relax }}{67}{figure.caption.134}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Block Diagram of mmRISC-1 Tiny SoC for FPGA with 4-wire JTAG debug interface\relax }}{72}{figure.caption.136}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Block Diagram of mmRISC-1 Tiny SoC for FPGA with 2-wire cJTAG debug interface\relax }}{72}{figure.caption.137}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Structure of RTL Files of SoC\relax }}{74}{figure.caption.139}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Clock Structure in Tiny SoC\relax }}{76}{figure.caption.141}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Glitch-less Clock Selector\relax }}{76}{figure.caption.142}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Reset Structure in Tiny SoC\relax }}{77}{figure.caption.143}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces I/O Buffers for I2C\relax }}{89}{figure.caption.159}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Questa Screen Shot\relax }}{105}{figure.caption.184}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Terasic DE10-Lite Board \& OpenOCD JTAG Adapter\relax }}{117}{figure.caption.188}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Intel Quartus Prime Lite Edition\relax }}{117}{figure.caption.189}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Operation Positions to use special features\relax }}{120}{figure.caption.194}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Outline of OpenOCD JTAG/cJTAG Adapter (Left:Breadboard Type, Right:Print Board Type)\relax }}{123}{figure.caption.195}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Fundamental Connection of OpenOCD JTAG Adapter\relax }}{124}{figure.caption.196}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Detail Schematics of OpenOCD JTAG Adapter\relax }}{124}{figure.caption.197}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Connection of OpenOCD JTAG Adapter and PC\relax }}{125}{figure.caption.198}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Supplement for cJTAG\relax }}{126}{figure.caption.199}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Connection of OpenOCD JTAG Adapter and Raspberry Pi\relax }}{128}{figure.caption.201}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Eclipse Windows\relax }}{130}{figure.caption.202}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Demo Program "mmRISC\_TouchLCD"\relax }}{133}{figure.caption.204}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Adafruit 2.8" TFT Touch Shield for Arduino (Left: Product ID 1651 Resistive Touch Version; Right: Product ID 1947 Capacitive Touch Version)\relax }}{133}{figure.caption.205}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Startup Screen of TIc-Tac-Toe Game\relax }}{134}{figure.caption.206}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Ending Screen of TIc-Tac-Toe Game\relax }}{134}{figure.caption.206}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }

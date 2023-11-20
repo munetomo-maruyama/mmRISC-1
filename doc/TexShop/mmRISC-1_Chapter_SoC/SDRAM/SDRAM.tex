@@ -1,0 +1,115 @@
+%=========================================================
+% Peripheral : SDRAM Controller
+%=========================================================
+\section{Peripheral : SDRAM Controller)}
+
+\begin{description}
+
+    \item[Overview]\mbox{}\\
+         SDRAM Controller interfaces with internal AHB Lite bus and an external 64MB (32MB x 16bits) single data rate SDRAM. This interface logic is published on https://github.com/zhelnio/ahb\_lite\_sdram and is very simple so that it supports only single full ROW-COLUMN access and burst access with row/column hit judgment is not supported. Also, this logic is configured for ISSI IS42S16320D and no configuration registers are implemented. The SDRAM Clock is simply generated as the inverted System Clock in chip\_top.v because the system clock frequency is slow (20MHz or 16.667MHz).
+To simulate SDRAM access on Test Bench, SDRAM model from Micron is used. The file name are shown in Table \ref{tb:CHIPRTLFILES}.
+        
+    \item[Input / Output Signals]\mbox{}\\
+        Input / Output signals of SDRAM Controller are shown in Table \ref{tb:IOSIGNALS_SDRAM}.
+ 
+\end{description}
+
+%-------------------------------
+\begin{table}[H]
+    \begin{adjustbox}{scale={0.65}{0.8}}
+    \textsf{
+    \begin{tabular}{|L{4cm}{2cm}{t}|L{4cm}{2cm}{t}|L{2cm}{1cm}{t}|L{7cm}{6cm}{t}|L{10cm}{6cm}{t}|L{3cm}{2cm}{t}|}
+        \hline
+        %-------------------------------------
+        \rowcolor{LightPurple}
+        \textbf{Group} &
+        \textbf{Direction} &
+        \textbf{Width} &
+        \textbf{Name} &
+        \textbf{Description} &
+        \textbf{Note}
+        \nextRow \hline
+        %-------------------------------------
+        System & input  & ~ & HRESETn & Reset & ~
+        \nextRow \hline
+        %-------------------------------------
+        System & input  & ~ & HCLK    & System Clock & ~
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & input  & ~                   & HSEL      & AHB Lite Slave Select & ignored
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & input  & \lbrack  1:0\rbrack & HTRANS    & AHB Lite Slave Transfer Type & ~
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & input  & ~                   & HWRITE    & AHB Lite Slave Write & ~
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & input  &                     & HMASTLOCK & AHB Lite Slave Locked Transfer & ignored
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & input  & \lbrack  2:0\rbrack & HSIZE     & AHB Lite Slave Access Size & ~
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & input  & \lbrack  2:0\rbrack & HBURST    & AHB Lite Slave Burst Access & ignored
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & input  & \lbrack  3:0\rbrack & HPROT     & AHB Lite Slave Protection & ignored
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & input  & \lbrack 31:0\rbrack & HADDR     & AHB Lite Slave Address & ~
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & input  & \lbrack 31:0\rbrack & HWDATA    & AHB Lite Slave Write Data & ~
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & input  & ~                   & HREADY    & AHB Lite Slave Ready Input & ~
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & output & ~                   & HREADYOUT & AHB Lite Slave Ready Output & ~
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & output & \lbrack 31:0\rbrack & HRDATA    & AHB Lite Slave Read Data & ~
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & output & ~                   & HRESP     & AHB Lite Slave Response & always output 0
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & input  & ~                   & SI\_Endian & Endian Control & ignored
+        \nextRow \hline
+        %-------------------------------------
+        SDRAM  & output & ~                   & CKE  & SDRAM Clock Enable & ~
+        \nextRow \hline
+        %-------------------------------------
+        SDRAM  & output & ~                   & CSn  & SDRAM Chip Select & ~
+        \nextRow \hline
+        %-------------------------------------
+        SDRAM  & output & ~                   & RASn & SDRAM Row Address Strobe & ~
+        \nextRow \hline
+        %-------------------------------------
+        SDRAM  & output & ~                   & CASn & SDRAM Column Address Strobe & ~
+        \nextRow \hline
+        %-------------------------------------
+        SDRAM  & output & ~                   & WEn  & SDRAM Write Enable & ~
+        \nextRow \hline
+        %-------------------------------------
+        SDRAM  & output & \lbrack 12:0\rbrack & ADDR & SDRAM Address & ~
+        \nextRow \hline
+        %-------------------------------------
+        SDRAM  & output & \lbrack  1:0\rbrack & BA   & SDRAM Bank Address & ~
+        \nextRow \hline
+        %-------------------------------------
+        SDRAM  & inout  & \lbrack 15:0\rbrack & DQ   & SDRAM Data & ~
+        \nextRow \hline
+        %-------------------------------------
+        SDRAM  & output & \lbrack  1:0\rbrack & DQM  & SDRAM Byte Data Mask & ~
+        \nextRow \hline
+        %-------------------------------------
+    \end{tabular}
+    }
+    \end{adjustbox}
+    \caption{Input / Output Signals of SDRAM Controller)}
+    \label{tb:IOSIGNALS_SDRAM}
+\end{table}
+%-------------------------------
+

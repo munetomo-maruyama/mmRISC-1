@@ -7,8 +7,11 @@
 // History :
 // Rev.01 2017.08.02 M.Maruyama First Release
 // Rev.02 2020.01.01 M.Maruyama Debug Spec Version 0.13.2
+// Rev.03 2023.05.14 M.Maruyama cJTAG Support and Halt-on-Reset
+// Rev.04 2023.10.04 M.Maruyama Expand state_tap_tck to 5bit
+//                        to ensure non-glitch in res_tap_async
 //-----------------------------------------------------------
-// Copyright (C) 2017-2020 M.Maruyama
+// Copyright (C) 2017-2023 M.Maruyama
 //===========================================================
 // RISC-V External Debug Support Version 0.13.2
 // [Yes] 6     Debug Transport Module (DTM)
@@ -38,6 +41,10 @@ module DEBUG_DTM_JTAG
     output reg  TDO_E, // JTAG Data Output Enable
     output wire RTCK,  // JTAG Return Clock
     //
+    // Domain : TCK
+    input  wire [31:0] JTAG_DR_USER_IN,  // JTAG DR User Register Input
+    output wire [31:0] JTAG_DR_USER_OUT, // JTAG DR User Register Output
+    //
     // Domain : CLK
     input  wire RES_ORG, // Reset Origin (e.g. Power On Reset)
     input  wire CLK,     // System Clock
@@ -64,8 +71,8 @@ wire dtmcs_dmireset_tck;     // Reset Signal to Clear DTM Error State in DMI
 //--------------------------------
 // TAP Controller State Machine
 //--------------------------------
-reg [3:0] state_tap_tck;
-reg [3:0] state_tap_next_tck;
+reg [4:0] state_tap_tck;
+reg [4:0] state_tap_next_tck;
 //
 always @(posedge TCK, negedge TRSTn)
 begin
@@ -134,7 +141,10 @@ always @(posedge TCK, posedge res_tap_async)
 begin
     if (res_tap_async)
         bypass_sft_tck <= 1'b0;
-    else if ((ir_tap_tck != `JTAG_IR_IDCODE) && (ir_tap_tck != `JTAG_IR_DTMCS) && (ir_tap_tck != `JTAG_IR_DMI))
+    else if ((ir_tap_tck != `JTAG_IR_IDCODE)
+          && (ir_tap_tck != `JTAG_IR_USER  )
+          && (ir_tap_tck != `JTAG_IR_DTMCS )
+          && (ir_tap_tck != `JTAG_IR_DMI   ))
     begin
         case (state_tap_tck)
             `JTAG_TAP_SHIFT_DR  : bypass_sft_tck <= TDI;
@@ -142,6 +152,41 @@ begin
         endcase
     end
 end
+
+//------------------
+// Register USER
+//------------------
+reg  [31:0] user_sft_tck;
+reg  [31:0] user_tap_tck;
+//
+always @(posedge TCK, posedge res_tap_async)
+begin
+    if (res_tap_async)
+        user_sft_tck <= 32'h00000000;
+    else if (ir_tap_tck == `JTAG_IR_USER)
+    begin
+        case (state_tap_tck)
+            `JTAG_TAP_CAPTURE_DR : user_sft_tck <= JTAG_DR_USER_IN;
+            `JTAG_TAP_SHIFT_DR   : user_sft_tck <= {TDI, user_sft_tck[31:1]};
+            default              : user_sft_tck <= user_sft_tck;
+        endcase
+    end
+end
+//
+always @(posedge TCK, posedge res_tap_async)
+begin
+    if (res_tap_async)
+        user_tap_tck <= 32'h00000000;
+    else if (ir_tap_tck == `JTAG_IR_USER)
+    begin
+        case (state_tap_tck)
+            `JTAG_TAP_UPDATE_DR : user_tap_tck <= user_sft_tck;
+            default             : user_tap_tck <= user_tap_tck;
+        endcase
+    end
+end
+//
+assign JTAG_DR_USER_OUT = user_tap_tck;
 
 //------------------
 // Register IDCODE
@@ -448,6 +493,7 @@ begin
         case (ir_tap_tck)
             `JTAG_IR_BYPASS : TDO_D <= bypass_sft_tck; 
             `JTAG_IR_IDCODE : TDO_D <= idcode_sft_tck[0];
+            `JTAG_IR_USER   : TDO_D <= user_sft_tck[0];
             `JTAG_IR_DTMCS  : TDO_D <= dtmcs_sft_tck[0];
             `JTAG_IR_DMI    : TDO_D <= dmi_sft_tck[0];
             default         : TDO_D <= 1'b1;
@@ -470,12 +516,16 @@ assign RTCK = TCK;
 // Reset Structure
 //---------------------------
 // Reset JTAG TAP
-assign res_tap_async = RES_ORG | (state_tap_tck == `JTAG_TAP_TEST_LOGIC_RESET) | ~TRSTn;
+//assign res_tap_async = RES_ORG | (state_tap_tck == `JTAG_TAP_TEST_LOGIC_RESET) | ~TRSTn;
+assign res_tap_async = RES_ORG | state_tap_tck[4] | ~TRSTn;
+//
 // Reset Signal to Clear Error State in DMI
 assign dtmcs_dmireset_tck     = dtmcs_we_tck & dtmcs_sft_tck[16];
+//
 // Reset Signal from DTMCS
 assign dtmcs_dmihardreset_tck = dtmcs_we_tck & dtmcs_sft_tck[17];
 assign res_dmihard_async = RES_ORG | dtmcs_dmihardreset_tck;
+//
 // Reset Debugger
 assign RES_DBG = res_dmihard_async;
 

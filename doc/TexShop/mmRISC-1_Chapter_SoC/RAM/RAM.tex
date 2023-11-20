@@ -1,0 +1,97 @@
+%=========================================================
+% Peripheral : RAM (Instruction / Data)
+%=========================================================
+\section{Peripheral : RAM (Instruction / Data)}
+
+\begin{description}
+
+    \item[Overview]\mbox{}\\
+        The RAM is a single port read-write memory with 32bit data width. It is used as both instruction memory and data memory in the tiny SoC. The RAM size can be specified by module parameters (RAM\_SIZE in bytes) defined at instantiation of this module in the upper layer. Access interface is AHB-Lite and supports 1cyc access for both reading and writing and 1cyc in-turn access between reading and writing. To realize complete 1cyc access even for AHB-Lite interface (write data is 1cyc after address command), write buffer and dual port RAM are used to implement it. For logic simulation of the SoC, the contents of RAM can be initialized by \$readmemh from file “rom.memh”.
+        
+    \item[How to initialize Instruction RAM contents when FPGA powers up]\mbox{}\\
+        To initialize Instruction RAM contents when FPGA powers up, please use ram\_fpga.v for instruction RAM instead of ram.v. In the ram\_fpga.v, it instantiates RAM128KB\_DP.v which can be initialized by RAM128KB\_DP.mif. To generate RAM128KB\_DP.mif from your Intel-hex file, please execute commands shown in Listing \ref{list:CMDRAMINIT} and then configure your FPGA.
+        
+    \item[Input / Output Signals]\mbox{}\\
+        Input / Output signals of RAM are shown in Table \ref{tb:IOSIGNALS_RAM}.
+ 
+\end{description}
+
+%--------------------------
+    \begin{lstlisting}[caption=Commands to generate RAM initialization Data for FPGA, label=list:CMDRAMINIT, captionpos=b, language=, frame=single, basicstyle=\ttfamily\scriptsize]
+$ cd mmRISC-1 (move to mmRISC_1 directory)
+$ ./tools/hex2mif [your.hex] > ./fpga/128KB_DP.mif
+    \end{lstlisting}
+%--------------------------
+
+%-------------------------------
+\begin{table}[H]
+    \begin{adjustbox}{scale={0.65}{0.8}}
+    \textsf{
+    \begin{tabular}{|L{4cm}{2cm}{t}|L{4cm}{2cm}{t}|L{2cm}{1cm}{t}|L{7cm}{6cm}{t}|L{10cm}{6cm}{t}|L{3cm}{2cm}{t}|}
+        \hline
+        %-------------------------------------
+        \rowcolor{LightPurple}
+        \textbf{Group} &
+        \textbf{Direction} &
+        \textbf{Width} &
+        \textbf{Name} &
+        \textbf{Description} &
+        \textbf{Note}
+        \nextRow \hline
+        %-------------------------------------
+        Config & Parameter & ~ & RAM\_SIZE & RAM Size in bytes & ~
+        \nextRow \hline
+        %-------------------------------------
+        System & input  & ~ & RES & Reset & ~
+        \nextRow \hline
+        %-------------------------------------
+        System & input  & ~ & CLK & System Clock & ~
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & input  & ~                   & S\_HSEL      & AHB Lite Slave Select & ignored
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & input  & \lbrack  1:0\rbrack & S\_HTRANS    & AHB Lite Slave Transfer Type & ~
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & input  & ~                   & S\_HWRITE    & AHB Lite Slave Write & ~
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & input  &                     & S\_HMASTLOCK & AHB Lite Slave Locked Transfer & ignored
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & input  & \lbrack  2:0\rbrack & S\_HSIZE     & AHB Lite Slave Access Size & ~
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & input  & \lbrack  2:0\rbrack & S\_HBURST    & AHB Lite Slave Burst Access & ignored
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & input  & \lbrack  3:0\rbrack & S\_HPROT     & AHB Lite Slave Protection & ignored
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & input  & \lbrack 31:0\rbrack & S\_HADDR     & AHB Lite Slave Address & ~
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & input  & \lbrack 31:0\rbrack & S\_HWDATA    & AHB Lite Slave Write Data & ~
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & input  & ~                   & S\_HREADY    & AHB Lite Slave Ready Input & ~
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & output & ~                   & S\_HREADYOUT & AHB Lite Slave Ready Output & ~
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & output & \lbrack 31:0\rbrack & S\_HRDATA    & AHB Lite Slave Read Data & ~
+        \nextRow \hline
+        %-------------------------------------
+        AHB    & output & ~                   & S\_HRESP     & AHB Lite Slave Response & always output 0
+        \nextRow \hline
+        %-------------------------------------
+    \end{tabular}
+    }
+    \end{adjustbox}
+    \caption{Input / Output Signals of RAM)}
+    \label{tb:IOSIGNALS_RAM}
+\end{table}
+%-------------------------------
+

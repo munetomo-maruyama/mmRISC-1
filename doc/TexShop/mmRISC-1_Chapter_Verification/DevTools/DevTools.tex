@@ -1,0 +1,125 @@
+%=========================================================
+%  Development Environment and Tools
+%=========================================================
+\section{Development Environment and Tools}
+
+Please prepare the development environment and tools shown in Table \ref{tb:DEVTOOLS}. You can obtain the logic simulation tool Questa by installing Intel Quartus Prime. Please build and install the GNU tool chains and the OpenOCD from their respective GitHub repositories. Please add the locations of all executable binaries to the environment variable \$PATH. Details of USB-JTAG interface hardware are described later in this document.
+
+\begin{table}[H]
+    \begin{adjustbox}{scale={0.9}{0.9}}
+    \textsf{
+    \begin{tabular}{|L{3cm}{3cm}{t}|L{9cm}{9cm}{t}|L{3cm}{3cm}{t}|}
+        \hline
+        %-------------------------------------
+        \rowcolor{LightPurple}
+        \textbf{Item} & \textbf{Description} & \textbf{Note}
+        \nextRow \hline
+        %-------------------------------------
+        Platform &
+        Ubuntu 64bit for x86-64 &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        Simulator &
+        Mentor Questa Intel FPGA Starter Edition &
+        Included in Questa Prime
+        \nextRow \hline
+        %-------------------------------------
+        Compliance Test &
+        https://github.com/riscv-non-isa/riscv-arch-test &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        Unit Tests &
+        https://github.com/riscv-software-src/riscv-tests &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        FPGA Board &
+        Terasic DE10-Lite Board &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        FPGA Tool &
+        Intel Quartus Prime Lite Edition &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        C/C++ IDE &
+        Eclipse IDE for Embedded C/C++ Developers &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        GNU Tool Chain &
+        https://github.com/riscv-collab/riscv-gnu-toolchain &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        OpenOCD &
+        https://github.com/riscv/riscv-openocd &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        USB-JTAG &
+        Handmade Board or Olimex ARM-USB-OCD(H) &
+        Section \ref{sec:JTAGDEBUGGER}
+        \nextRow \hline
+        %-------------------------------------
+    \end{tabular}
+    }
+    \end{adjustbox}
+    \caption{Development Environment and Tools}
+    \label{tb:DEVTOOLS}
+\end{table}
+
+
+\textit{\textbf{Notes on ARM based environment}\\
+When you use an ARM-based macOS machine such as a MacBook Pro with Apple Silicon M-series, please install Parallels Desktop for Mac as a virtual PC environment first. Then, install both Ubuntu for 64-bit ARM and Windows for 64-bit ARM on the virtual machine. Please use each tool properly as shown in Table \ref{tb:ARMTOOLS}. I recommend you to share the same design files on macOS with Ubuntu, Windows and macOS during your design work.}
+
+\begin{table}[H]
+    \begin{adjustbox}{scale={0.8}{0.8}}
+    \textsf{
+    \begin{tabular}{|L{3cm}{3cm}{t}|L{3cm}{3cm}{t}|L{4cm}{4cm}{t}|L{6cm}{6cm}{t}|}
+        \hline
+        %-------------------------------------
+        \rowcolor{LightPurple}
+        \textbf{Operation} & \textbf{Platform} & \textbf{Tool} & \textbf{Note}
+        \nextRow \hline
+        %-------------------------------------
+        Software Development &
+        Ubuntu for 64bit ARM &
+        - Eclispe \lb
+        - GNU Tool Chain \lb
+        - OpenOCD &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        Logic Simulation &
+        Windows for 64bit ARM &
+        - Mentor Questa Intel FPGA Starter Edition &
+        Included in Questa Prime
+        \nextRow \hline
+        %-------------------------------------
+        FPGA Synthesis and P\&R &
+        Windows for 64bit ARM &
+        - Intel Quartus Prime Lite Edition &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        FPGA Configuration &
+        macOS for ARM &
+        - UrJTAG &
+        Convert *.sof or *.pof to *.svf file by the Programmer Tool in Intel Quartus and download it by using the "jtag" command in UrJTAG on macOS terminal.
+        \nextRow \hline
+        %-------------------------------------
+    \end{tabular}
+    }
+    \end{adjustbox}
+    \caption{Development Tools on ARM macOS}
+    \label{tb:ARMTOOLS}
+\end{table}
+
+
+
+
+

@@ -9,7 +9,10 @@
 +define+den512mb
 +define+sg75
 +define+x16
-../../../verilog/chip/chip_top.v
+../../../verilog/chip/chip_top_wrap.v  \
+../../../verilog/chip/chip_top.v       \
+../../../verilog/cjtag/cjtag_2_jtag.v  \
+../../../verilog/cjtag/cjtag_adapter.v \
 ../../../verilog/int_gen/int_gen.v
 ../../../verilog/ram/ram.v
 ../../../verilog/port/port.v

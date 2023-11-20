@@ -1,0 +1,119 @@
+\section{Overview}
+
+The "mmRISC-1" is a RISC-V compliant CPU core with RV32IM[A][F]C ISA for MCU. An overview of mmRISC-1 specifications is shown in Table \ref{tb:OVERVIEW}. "mmRISC" stands for "much more RISC".\\
+
+\begin{table}[H]
+    \begin{adjustbox}{scale={0.85}{1}}
+    \textsf{
+    \begin{tabular}{|L{6cm}{4cm}{t}|L{12cm}{8.5cm}{t}|L{4cm}{3cm}{t}|}
+        \hline
+        %-------------------------------------
+        \rowcolor{LightPurple}
+        \textbf{Item} &
+        \textbf{Description} &
+        \textbf{Note}        
+        \nextRow \hline
+        %-------------------------------------
+        Core Name & 
+        mmRISC-1 &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        ISA &
+        RV32IM[A][F]C &
+        configurable
+        \nextRow \hline
+        %-------------------------------------
+        Multi Harts	&
+        Multi Harts Supported, 1 to $2^{20}$ &
+        configurable
+        \nextRow \hline
+        %-------------------------------------
+        Pipeline &
+        3 to 5 stages for Integer, \lb 
+        5 to 6 stages for Floating Point &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        32bits Integer Multiply &
+        1 cycle for MUL &
+        ~	
+        \nextRow \hline
+        %-------------------------------------
+        32bits Integer Division	&
+        Non-Restoring Method, \lb
+        33 cycles for DIV/REM &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        32bits Floating Point \lb 
+        FADD/FMUL etc. & 
+        1 cycle for FADD.S/FSUB.S/FMUL.S/ \lb
+        FMADD.S/FMSUB.S/ \lb
+        FNMADD.S/FNMSUB.S &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        32bits Floating Point \lb FDIV/FSQRT &
+        Goldschmidt's Algorithm, \lb 
+        Convergence Loops = 1~16 (4typ), \lb
+        FDIV: 11 cycles (loops = 4), \lb
+        FDQRT: 19 cycles (loops = 4) &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        Debug Support &
+        External Debug Support Ver.0.13.2 \lb
+        with JTAG/cJTAG I/F \lb
+        Run / Stop / Step \lb
+        Abstract Command Access (Reg, Memory) \lb
+        System Bus Access (Memory) \lb
+        Hardware Break Points (Instr/Data) x 4 \lb
+        Instruction Count Break Point x 1 \lb
+        The relationship between the frequency of the \lb
+        system clock and TCK/TCKC does not matter. &
+        Number of \lb
+        Hardware Break \lb
+        is configurable 
+        \nextRow \hline
+        %-------------------------------------
+        Privileged Mode	&
+        Machine-Mode (M-Mode) only &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        Interrupt &
+        64 inputs \lb
+        Vectored Supported \lb
+        16 priority levels for each &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        Counters &
+        64bits MCYCLE (Clock Cycle Counter) \lb
+        64bits MINSTRET (Instruction Retired Counter) \lb
+        64bits MTIME (Memory Mapped Interrupt Timer) &
+        ~
+        \nextRow \hline
+        %-------------------------------------
+        Bus Interface &
+        Instruction Fetch Bus \lb
+        Data and Debugger Abstract Access Bus \lb
+        LR/SC Monitor Bus \lb
+        Debugger System Bus	&
+        AHB-Lite
+        \nextRow \hline
+        %-------------------------------------
+        RTL	& 
+        Verilog-2001 / System Verilog &
+        ~	
+        \nextRow \hline
+        %-------------------------------------
+    \end{tabular}
+    }
+    \end{adjustbox}
+    \caption{mmRISC-1 Overview}
+    \label{tb:OVERVIEW}
+\end{table}
+
+

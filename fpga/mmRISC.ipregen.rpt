@@ -1,6 +1,6 @@
 IP Upgrade report for mmRISC
-Wed Dec 29 11:28:37 2021
-Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+Fri Oct  6 00:17:51 2023
+Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
 ---------------------
@@ -8,7 +8,7 @@ Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 ---------------------
   1. Legal Notice
   2. IP Upgrade Summary
-  3. Successfully Upgraded IP Components
+  3. Failed Upgrade IP Components
   4. IP Upgrade Messages
 
 
@@ -16,7 +16,7 @@ Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2021  Intel Corporation. All rights reserved.
+Copyright (C) 2023  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
@@ -33,24 +33,24 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+----------------------------------------------------------------------------+
-; IP Upgrade Summary                                                         ;
-+------------------------------+---------------------------------------------+
-; IP Components Upgrade Status ; Passed - Wed Dec 29 11:28:37 2021           ;
-; Quartus Prime Version        ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
-; Revision Name                ; mmRISC                                      ;
-; Top-level Entity Name        ; CHIP_TOP                                    ;
-; Family                       ; MAX 10                                      ;
-+------------------------------+---------------------------------------------+
++-------------------------------------------------------------------------------+
+; IP Upgrade Summary                                                            ;
++------------------------------+------------------------------------------------+
+; IP Components Upgrade Status ; Failed - Fri Oct  6 00:17:51 2023              ;
+; Quartus Prime Version        ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
+; Revision Name                ; mmRISC                                         ;
+; Top-level Entity Name        ; CHIP_TOP_WRAP                                  ;
+; Family                       ; MAX 10                                         ;
++------------------------------+------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------+
-; Successfully Upgraded IP Components                                                                              ;
-+-------------+----------------+---------+----------------------+----------------------+-----------------+---------+
-; Entity Name ; Component Name ; Version ; Original Source File ; Generation File Path ; New Source File ; Message ;
-+-------------+----------------+---------+----------------------+----------------------+-----------------+---------+
-; PLL         ; ALTPLL         ; 20.1    ; PLL.qip              ; PLL.v                ; PLL.qip         ;         ;
-+-------------+----------------+---------+----------------------+----------------------+-----------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Failed Upgrade IP Components                                                                                                                   ;
++-------------+----------------+---------+----------------------+----------------------+-----------------+---------------------------------------+
+; Entity Name ; Component Name ; Version ; Original Source File ; Generation File Path ; New Source File ; Message                               ;
++-------------+----------------+---------+----------------------+----------------------+-----------------+---------------------------------------+
+; PLL         ; ALTPLL         ; 21.1    ; PLL.qip              ; PLL.v                ;                 ; Error upgrading IP component "PLL.v". ;
++-------------+----------------+---------+----------------------+----------------------+-----------------+---------------------------------------+
 
 
 +---------------------+
@@ -58,12 +58,15 @@ https://fpgasoftware.intel.com/eula.
 +---------------------+
 Info (11902): Backing up file "PLL.v" to "PLL.BAK.v"
 Info (11837): Started upgrading IP component ALTPLL with file "PLL.v"
-Info (11131): Completed upgrading IP component ALTPLL with file "PLL.v"
-Info (23030): Evaluation of Tcl script /home/taka/intelFPGA_lite/21.1/quartus/common/tcl/internal/ip_regen/ip_regen.tcl was successful
-Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 608 megabytes
-    Info: Processing ended: Wed Dec 29 11:28:37 2021
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:12
+Info (11904): Restoring file "PLL.BAK.v" to "PLL.v"
+Error (14921): Error upgrading IP component "PLL.v".
+Error (11133): IP component ALTPLL with file "PLL.v" upgrade failed
+Error (11889): IP component upgrade failed
+Error (23031): Evaluation of Tcl script c:/intelfpga_lite/22.1std/quartus/common/tcl/internal/ip_regen/ip_regen.tcl unsuccessful
+Error: Quartus Prime Shell was unsuccessful. 4 errors, 0 warnings
+    Error: Peak virtual memory: 13271 megabytes
+    Error: Processing ended: Fri Oct  6 00:17:51 2023
+    Error: Elapsed time: 00:00:12
+    Error: Total CPU time (on all processors): 00:00:26
 
 

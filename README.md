@@ -62,6 +62,15 @@ Followings are updated. Main RTL Body of mmRISC is not modified due to no bugs f
 ### 2022.05.04 Repaired directory contentes in riscv-arch-test and riscv-tests
 Some files and directories were lacked in riscv-arch-test and riscv-tests. Repaired them.<br>
 
+### 2023.11.20 Following updates are applied.<br>
+(1) Added cJTAG (2-wire compact JTAG) as the debug interface. You can select the debug interface from JTAG or cJTAG.<br>
+(2) Added alternative Halt-On-Reset, controlled by a hardware input signal level, instead of the one in standard RISC-V debug function.<br>
+(3) Added a new JTAG DR register for user’s multi purposes, for example, to configure the operation modes of the SoC from JTAG/cJTAG interface.<br>
+(4) The number of 32bit secure code for authentication is expanded from one to two.<br>
+(5) Supported low power mode (STBY).<br>
+(6) Added precise verification methods for floating point operations. Corrected RTL code in conversion from float to int (cpu_fpu32.v).<br>
+(7) Added a application program; Tic-Tac-Toe AI Game on Touch LCD panel.<br>
+
 ## ISA
 RV32IM[A][F]C (configurable)
 

@@ -7,7 +7,8 @@
 // History :
 // Rev.01 2017.07.16 M.Maruyama First Release
 // Rev.02 2020.01.01 M.Maruyama Debug Spec Version 0.13.2
-// Rev.02 2021.03.14 M.Maruyama riscv_tests
+// Rev.03 2021.03.14 M.Maruyama riscv_tests
+// Rev.04 2023.08.26 M.Maruyama for latest mmRISC-1
 //-----------------------------------------------------------
 // Copyright (C) 2017-2021 M.Maruyama
 //===========================================================
@@ -34,12 +35,12 @@
 //------------------------
 module tb_TOP;
 
-reg [63:0] DR_OUT; // global
-
 //-------------------------------
 // Generate Clock
 //-------------------------------
 reg tb_clk;
+wire tb_clk_speed;
+assign tb_clk_speed = 1'b0;
 //
 initial tb_clk = 1'b0;
 always #(`TB_TCYC_CLK / 2) tb_clk = ~tb_clk;
@@ -59,8 +60,8 @@ end
 // Initialize Internal Power on Reset
 initial
 begin
-    U_CHIP_TOP.por_count = 0;
-    U_CHIP_TOP.por_n = 0;
+    U_CHIP_TOP_WRAP.U_CHIP_TOP.por_count = 0;
+    U_CHIP_TOP_WRAP.U_CHIP_TOP.por_n = 0;
 end
 
 //----------------------------
@@ -107,16 +108,16 @@ generate
     genvar n;
     for (n = 0; n <  `HART_COUNT ; n = n + 1)
     begin
-        assign watch_res[n]    = U_CHIP_TOP.U_MMRISC.RES_ORG;
-        assign watch_clk[n]    = U_CHIP_TOP.U_MMRISC.CLK;
-        assign watch_hsel[n]   = U_CHIP_TOP.U_MMRISC.CPUD_M_HSEL[n];
-        assign watch_htrans[n] = U_CHIP_TOP.U_MMRISC.CPUD_M_HTRANS[n];
-        assign watch_hsize[n]  = U_CHIP_TOP.U_MMRISC.CPUD_M_HSIZE[n];
-        assign watch_hwrite[n] = U_CHIP_TOP.U_MMRISC.CPUD_M_HWRITE[n];
-        assign watch_haddr[n]  = U_CHIP_TOP.U_MMRISC.CPUD_M_HADDR[n];
-        assign watch_hwdata[n] = U_CHIP_TOP.U_MMRISC.CPUD_M_HWDATA[n];
-        assign watch_hready[n]    = U_CHIP_TOP.U_MMRISC.CPUD_M_HREADY[n];
-        assign watch_hreadyout[n] = U_CHIP_TOP.U_MMRISC.CPUD_M_HREADYOUT[n];
+        assign watch_res[n]    = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.RES_ORG;
+        assign watch_clk[n]    = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.CLK;
+        assign watch_hsel[n]   = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.CPUD_M_HSEL[n];
+        assign watch_htrans[n] = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.CPUD_M_HTRANS[n];
+        assign watch_hsize[n]  = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.CPUD_M_HSIZE[n];
+        assign watch_hwrite[n] = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.CPUD_M_HWRITE[n];
+        assign watch_haddr[n]  = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.CPUD_M_HADDR[n];
+        assign watch_hwdata[n] = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.CPUD_M_HWDATA[n];
+        assign watch_hready[n]    = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.CPUD_M_HREADY[n];
+        assign watch_hreadyout[n] = U_CHIP_TOP_WRAP.U_CHIP_TOP.U_MMRISC.CPUD_M_HREADYOUT[n];
         //
         always @(posedge watch_clk[n], posedge watch_res[n])
         begin
@@ -186,14 +187,28 @@ end
 //--------------------------
 // Device Under Test
 //--------------------------
-reg  tb_trst_n;
 reg  tb_srst_n; // reset except for debug logic
 wire srst_n;
+assign srst_n = tb_srst_n;
+pullup (srst_n);
+//
+reg  tb_trst_n;
 reg  tb_tck;
 reg  tb_tms;
 reg  tb_tdi;
 wire tb_tdo;
 wire tb_rtck;
+pullup(tb_tdo);
+//
+wire tb_tckc;
+wire tb_tmsc;
+wire tb_tmsc_pup;
+wire tb_tmsc_pdn;
+pullup(tb_tckc);
+//pullup(tb_tmsc);
+assign (weak1, weak0) #1 tb_tmsc = (tb_tmsc_pup === 1'b1)? 1'b1 : 1'bz;
+assign (weak1, weak0) #1 tb_tmsc = (tb_tmsc_pdn === 1'b0)? 1'b0 : 1'bz;
+//
 wire [31:0] gpio0;
 wire [31:0] gpio1;
 wire [31:0] gpio2;
@@ -243,21 +258,45 @@ generate
     end
 endgenerate
 //
-CHIP_TOP U_CHIP_TOP
+reg  tb_stby;
+reg  tb_debug_secure;
+reg  tb_reset_halt_n;
+assign gpio2[ 9] = tb_debug_secure;
+assign gpio2[10] = tb_reset_halt_n;
+assign gpio2[ 7] = tb_clk_speed;
+//
+CHIP_TOP_WRAP U_CHIP_TOP_WRAP
 (
     .RES_N (~tb_res),
     .CLK50 (tb_clk),
     //
+    .STBY_REQ   (tb_stby),
+    .STBY_ACK_N (),
+    //
     .RESOUT_N (),
     //
-    .TRSTn (tb_trst_n),
+`ifdef SIMULATION
     .SRSTn (srst_n),
+`endif
     //
+    .TRSTn (tb_trst_n),
     .TCK (tb_tck),
     .TMS (tb_tms),
     .TDI (tb_tdi),
     .TDO (tb_tdo),
+`ifdef SIMULATION
     .RTCK (tb_rtck),
+`endif
+    //
+`ifdef ENABLE_CJTAG
+    .TCKC_pri (tb_tckc),
+    .TCKC_rep (tb_tckc),
+    .TMSC_pri (tb_tmsc),
+    .TMSC_rep (tb_tmsc),
+    //
+    .TMSC_PUP_rep (tb_tmsc_pup),
+    .TMSC_PDN_rep (tb_tmsc_pdn),
+`endif
     //
     .GPIO0 (gpio0),
     .GPIO1 (gpio1),
@@ -334,368 +373,6 @@ task Task_JTAG_INIT_PIN();
     tb_trst_n = 1'b1;
     tb_srst_n = 1'bz;    
 endtask
-
-//------------------------
-// Task : JTAG_RESET_TAP
-//------------------------
-task Task_JTAG_RESET_TAP();
-    tb_trst_n = 1'b1;
-    #(`TB_TCYC_TCLK * 1);
-    tb_trst_n = 1'b0;
-    #(`TB_TCYC_TCLK * 1);
-    tb_trst_n = 1'b1;
-    #(`TB_TCYC_TCLK * 1);
-    $display("----JTAG_RESET_TAP");
-endtask
-
-//------------------------
-// Task : JTAG_RESET_SYS
-// (except for degug logic)
-//------------------------
-task Task_JTAG_RESET_SYS();
-    tb_srst_n = 1'bz;
-    #(`TB_TCYC_TCLK * 1);
-    tb_srst_n = 1'b0;
-    #(`TB_TCYC_TCLK * 1);
-    tb_srst_n = 1'bz;
-    #(`TB_TCYC_TCLK * 1);
-    $display("----JTAG_RESET_SYS");
-endtask
-
-//-------------------------
-// Task : JTAG_INIT_STATE
-//-------------------------
-task Task_JTAG_INIT_STATE();
-    //---- Any State
-        tb_tms = 1'b1;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Any State
-        tb_tms = 1'b1;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Any State
-        tb_tms = 1'b1;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Any State
-        tb_tms = 1'b1;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Any State
-        tb_tms = 1'b1;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Any State
-        tb_tms = 1'b1;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Test Logic Reset    
-        tb_tms = 1'b0;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Run Test Idle
-        tb_tms = 1'b1;
-        tb_tck = 1'b1;
-    #(`TB_TCYC_TCLK * 1);
-    $display("----JTAG_INIT_STATE");
-endtask;
-
-//----------------------
-// Task : JTAG_Shift_IR
-//----------------------
-task Task_JTAG_Shift_IR(input [4:0] IR, integer verbose);
-    integer i;
-    reg [4:0] IR_OUT;
-    //---- Run Test Idle
-        tb_tms = 1'b1;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Select DR Scan
-        tb_tms = 1'b1;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //----Select IR Scan
-        tb_tms = 1'b0;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Capture IR
-        tb_tms = 1'b0;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Shift IR (bit0-bit3)
-    for (i = 0; i < 4; i = i + 1)
-    begin
-            tb_tms = 1'b0;
-            tb_tdi = IR[i];
-            tb_tck = 1'b0;
-        #(`TB_TCYC_TCLK / 2);
-            IR_OUT[i] = tb_tdo;
-            tb_tck = 1'b1; // rise
-        #(`TB_TCYC_TCLK / 2);
-    end
-    //---- Shift IR (bit4)
-        tb_tms = 1'b1;
-        tb_tdi = IR[4];
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        IR_OUT[4] = tb_tdo;
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Exit1-IR
-        tb_tms = 1'b1;
-        tb_tdi = 1'bx;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Update IR
-        tb_tms = 1'b0;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Run Test Idle
-        tb_tms = 1'b1;
-        tb_tck = 1'b1;
-    #(`TB_TCYC_TCLK * 1);
-    // Message
-    if (verbose) $display("----JTAG IR SFT_IN(0x%01x) SFT_OUT(0x%01x)", IR, IR_OUT);
-endtask
-
-//------------------------
-// Task : JTAG_Shift_DR
-//------------------------
-task Task_JTAG_Shift_DR(input [63:0] DR, integer length, integer verbose);
-    // output [63:0] DR_OUT is declared as Global.
-    integer i;
-    DR_OUT = 64'h0;
-    //---- Run Test Idle
-        tb_tms = 1'b1;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Select DR Scan
-        tb_tms = 1'b0;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Capture DR
-        tb_tms = 1'b0;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Shift DR (bit0-)
-    for (i = 0; i < (length - 1); i = i + 1)
-    begin
-            tb_tms = 1'b0;
-            tb_tdi = DR[i];
-            tb_tck = 1'b0;
-        #(`TB_TCYC_TCLK / 2);
-            DR_OUT[i] = tb_tdo;
-            tb_tck = 1'b1; // rise
-        #(`TB_TCYC_TCLK / 2);
-    end
-    //---- Shift DR (bit length-1)
-        tb_tms = 1'b1;
-        tb_tdi = DR[length - 1];
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        DR_OUT[length - 1] = tb_tdo;
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Exit1-DR
-        tb_tms = 1'b1;
-        tb_tdi = 1'bx;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Update DR
-        tb_tms = 1'b0;
-        tb_tck = 1'b0;
-    #(`TB_TCYC_TCLK / 2);
-        tb_tck = 1'b1; // rise
-    #(`TB_TCYC_TCLK / 2);
-    //---- Run Test Idle
-        tb_tms = 1'b1;
-        tb_tck = 1'b1;
-    #(`TB_TCYC_TCLK * 1);
-    // Message
-    if (verbose) $display("----JTAG DR SFT_IN(0x%16x) SFT_OUT(0x%16x)", DR, DR_OUT);
-endtask
-
-//-----------------------------
-// Task : JTAG_DMI_WRTE
-//-----------------------------
-task Task_JTAG_DMI_WRTE(input [6:0] DMI_ADDR, input [31:0] DMI_DATA, integer verbose);
-    integer i;
-    reg [63:0] DR;
-    // Invoke a Command
-    i = 0;
-    Task_JTAG_Shift_IR(`JTAG_IR_DMI, verbose);  
-    DR = {23'h0, DMI_ADDR, DMI_DATA, `DMI_COMMAND_WR};
-    Task_JTAG_Shift_DR(DR, 41, verbose);
-    $display("----JTAG_DMI_WRTE (TRY%02d) SFT_IN(0x%02x 0x%08x 0x%01x) SFT_OUT(0x%02x 0x%08x 0x%01x)", 
-        i, DR[40:34], DR[33:2], DR[1:0], DR_OUT[40:34], DR_OUT[33:2], DR_OUT[1:0]);          
-    if (DR_OUT[1:0])  // unexpected op code
-    begin
-        $display("!!!!Unexpeced op code (0x%01x)", DR_OUT[1:0]);
-        $stop;
-    end
-    // Repeat until Not Busy
-    begin : Task_JTAG_DMI_WRTE_LOOP
-        for (i = 1; i < 10; i = i + 1)
-        begin
-            Task_JTAG_Shift_IR(`JTAG_IR_DMI, verbose);  
-            DR = {23'h0, DMI_ADDR, 32'hxxxxxxxx, `DMI_COMMAND_NOP};
-            Task_JTAG_Shift_DR(DR, 41, verbose);
-            $display("    JTAG_DMI_NOP  (TRY%2d) SFT_IN(0x%02x 0x%08x 0x%01x) SFT_OUT(0x%02x 0x%08x 0x%01x)", 
-                i, DR[40:34], DR[33:2], DR[1:0], DR_OUT[40:34], DR_OUT[33:2], DR_OUT[1:0]);          
-            if (DR_OUT[1:0] == `DMI_RESPONSE_OK   ) disable Task_JTAG_DMI_WRTE_LOOP;
-            if (DR_OUT[1:0] == `DMI_RESPONSE_ERROR) disable Task_JTAG_DMI_WRTE_LOOP;
-            // Retry because of BUSY
-          //$display("    Retry %2d because of BUSY.", i);
-            Task_JTAG_Shift_IR(`JTAG_IR_DTMCS, verbose);
-            Task_JTAG_Shift_DR({32'h0, 14'h0, 1'b0, 1'b1, 16'h0}, 32, verbose);
-            Task_JTAG_Shift_DR(64'h0, 32, verbose);
-        end
-    end
-    // Still not OK?
-    if (DR_OUT[1:0] == `DMI_RESPONSE_ERROR)
-    begin
-        $display("!!!!DMI Error (0x%1x)", DR_OUT[1:0]);
-        $stop;
-    end
-    if (DR_OUT[1:0] == `DMI_RESPONSE_BUSY)
-    begin
-        $display("!!!!DMI Busy Timeout (0x%1x)", DR_OUT[1:0]);
-        $stop;
-    end
-endtask
-
-//-----------------------------
-// Task : JTAG_DMI_READ
-//-----------------------------
-task Task_JTAG_DMI_READ(input [6:0] DMI_ADDR, input [31:0] DMI_DATA, integer verbose);
-    integer i;
-    reg [63:0] DR;
-    // Invoke a Command
-    i = 0;
-    Task_JTAG_Shift_IR(`JTAG_IR_DMI, verbose);  
-    DR = {23'h0, DMI_ADDR, DMI_DATA, `DMI_COMMAND_RD};
-    Task_JTAG_Shift_DR(DR, 41, verbose);
-    $display("----JTAG_DMI_READ (TRY%02d) SFT_IN(0x%02x 0x%08x 0x%01x) SFT_OUT(0x%02x 0x%08x 0x%01x)", 
-        i, DR[40:34], DR[33:2], DR[1:0], DR_OUT[40:34], DR_OUT[33:2], DR_OUT[1:0]);          
-    if (DR_OUT[1:0])  // unexpected op code
-    begin
-        $display("!!!!Unexpeced op code (0x%01x)", DR_OUT[1:0]);
-        $stop;
-    end
-    // Repeat until Not Busy
-    begin : Task_JTAG_DMI_READ_LOOP
-        for (i = 1; i < 10; i = i + 1)
-        begin
-            Task_JTAG_Shift_IR(`JTAG_IR_DMI, verbose);  
-            DR = {23'h0, DMI_ADDR, 32'hxxxxxxxx, `DMI_COMMAND_NOP};
-            Task_JTAG_Shift_DR(DR, 41, verbose);
-            $display("    JTAG_DMI_NOP  (TRY%2d) SFT_IN(0x%02x 0x%08x 0x%01x) SFT_OUT(0x%02x 0x%08x 0x%01x)", 
-                i, DR[40:34], DR[33:2], DR[1:0], DR_OUT[40:34], DR_OUT[33:2], DR_OUT[1:0]);          
-            if (DR_OUT[1:0] == `DMI_RESPONSE_OK   ) disable Task_JTAG_DMI_READ_LOOP;
-            if (DR_OUT[1:0] == `DMI_RESPONSE_ERROR) disable Task_JTAG_DMI_READ_LOOP;
-            // Retry because of BUSY
-          //$display("    Retry %2d because of BUSY.", i);
-            Task_JTAG_Shift_IR(`JTAG_IR_DTMCS, verbose);
-            Task_JTAG_Shift_DR({32'h0, 14'h0, 1'b0, 1'b1, 16'h0}, 32, verbose);
-            Task_JTAG_Shift_DR(64'h0, 32, verbose);
-        end
-    end
-    // Still not OK?
-    if (DR_OUT[1:0] == `DMI_RESPONSE_ERROR)
-    begin
-        $display("!!!!DMI Error (0x%1x)", DR_OUT[1:0]);
-        $stop;
-    end
-    if (DR_OUT[1:0] == `DMI_RESPONSE_BUSY)
-    begin
-        $display("!!!!DMI Busy Timeout (0x%1x)", DR_OUT[1:0]);
-        $stop;
-    end
-    // Verify
-    if (DMI_DATA !== 32'hxxxxxxxx)
-    begin
-        if (DMI_DATA == DR_OUT[33:2])
-            $write(" ---> Verify OK:0x%08x", DMI_DATA);
-        else
-        begin
-            $display(" ---> Verify NG:0x%08x", DMI_DATA);
-            $stop;
-        end
-    end
-    $display("");
-endtask
-
-//--------------------------------
-// Display TAP Controller State
-//--------------------------------
-initial U_CHIP_TOP.U_MMRISC.U_DEBUG_TOP.U_DEBUG_DTM_JTAG.state_tap_tck = `JTAG_TAP_CAPTURE_IR;
-//
-`ifdef DEBUG_TAP_CONTROLLER_STATE
-wire tck;
-wire [3:0] state_tap;
-wire [3:0] state_tap_next;
-assign tck = U_CHIP_TOP.U_MMRISC.U_DEBUG_TOP.U_DEBUG_DTM_JTAG.TCK;
-assign state_tap = U_CHIP_TOP.U_MMRISC.U_DEBUG_TOP.U_DEBUG_DTM_JTAG.state_tap_tck;
-assign state_tap_next = U_CHIP_TOP.U_MMRISC.U_DEBUG_TOP.U_DEBUG_DTM_JTAG.state_tap_next_tck;
-//
-always @(posedge tck)
-begin
-    if (state_tap != state_tap_next)
-    begin
-        if (state_tap_next == `JTAG_TAP_TEST_LOGIC_RESET) $display("JTAG_TAP_TEST_LOGIC_RESET");
-        if (state_tap_next == `JTAG_TAP_RUN_TEST_IDLE   ) $display("JTAG_TAP_RUN_TEST_IDLE");
-        if (state_tap_next == `JTAG_TAP_SELECT_DR_SCAN  ) $display("JTAG_TAP_SELECT_DR_SCAN");
-        if (state_tap_next == `JTAG_TAP_CAPTURE_DR      ) $display("JTAG_TAP_CAPTURE_DR");
-        if (state_tap_next == `JTAG_TAP_SHIFT_DR        ) $display("JTAG_TAP_SHIFT_DR");
-        if (state_tap_next == `JTAG_TAP_EXIT1_DR        ) $display("JTAG_TAP_EXIT1_DR");
-        if (state_tap_next == `JTAG_TAP_PAUSE_DR        ) $display("JTAG_TAP_PAUSE_DR");
-        if (state_tap_next == `JTAG_TAP_EXIT2_DR        ) $display("JTAG_TAP_EXIT2_DR");
-        if (state_tap_next == `JTAG_TAP_UPDATE_DR       ) $display("JTAG_TAP_UPDATE_DR");
-        if (state_tap_next == `JTAG_TAP_SELECT_IR_SCAN  ) $display("JTAG_TAP_SELECT_IR_SCAN");
-        if (state_tap_next == `JTAG_TAP_CAPTURE_IR      ) $display("JTAG_TAP_CAPTURE_IR");
-        if (state_tap_next == `JTAG_TAP_SHIFT_IR        ) $display("JTAG_TAP_SHIFT_IR");
-        if (state_tap_next == `JTAG_TAP_EXIT1_IR        ) $display("JTAG_TAP_EXIT1_IR");
-        if (state_tap_next == `JTAG_TAP_PAUSE_IR        ) $display("JTAG_TAP_PAUSE_IR");
-        if (state_tap_next == `JTAG_TAP_EXIT2_IR        ) $display("JTAG_TAP_EXIT2_IR");
-        if (state_tap_next == `JTAG_TAP_UPDATE_IR       ) $display("JTAG_TAP_UPDATE_IR");
-    end
-end
-`endif
 
 //------------------------
 // Stimulus

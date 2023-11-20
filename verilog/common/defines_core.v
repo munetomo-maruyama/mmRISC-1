@@ -8,8 +8,9 @@
 // Rev.01 2017.07.16 M.Maruyama First Release
 // Rev.02 2020.01.01 M.Maruyama Debug Spec Version 0.13.2
 // Rev.03 2021.02.05 M.Maruyama Divided into for Core and for Chip
+// Rev.04 2023.05.14 M.Maruyama cJTAG Support and Halt-on-Reset
 //-----------------------------------------------------------
-// Copyright (C) 2017-2020 M.Maruyama
+// Copyright (C) 2017-2023 M.Maruyama
 //===========================================================
 
 //-------------------------------------
@@ -23,6 +24,11 @@
 //----------------------
 // Version=0x1, PartNumber=0x6d6d(mm), ManuId=0
 `define JTAG_IDCODE 32'h16d6d001
+
+//-------------------------------------------------------
+// If Hart should be unavailabe during STBY, Comment out
+//-------------------------------------------------------
+//`define UNAVAILABLE_WHEN_STBY
 
 //------------------
 // ID Code
@@ -143,6 +149,7 @@
 // Define JTAG DTM TAP Registers
 //---------------------------------
 `define JTAG_IR_BYPASS    5'h00
+`define JTAG_IR_USER      5'h0f
 `define JTAG_IR_IDCODE    5'h01
 `define JTAG_IR_DTMCS     5'h10
 `define JTAG_IR_DMI       5'h11
@@ -151,22 +158,22 @@
 //-------------------------
 // Define JTAG TAP State
 //-------------------------
-`define JTAG_TAP_TEST_LOGIC_RESET 4'b0000
-`define JTAG_TAP_RUN_TEST_IDLE    4'b1000
-`define JTAG_TAP_SELECT_DR_SCAN   4'b0001
-`define JTAG_TAP_CAPTURE_DR       4'b0010
-`define JTAG_TAP_SHIFT_DR         4'b0011
-`define JTAG_TAP_EXIT1_DR         4'b0100
-`define JTAG_TAP_PAUSE_DR         4'b0101
-`define JTAG_TAP_EXIT2_DR         4'b0110
-`define JTAG_TAP_UPDATE_DR        4'b0111
-`define JTAG_TAP_SELECT_IR_SCAN   4'b1001
-`define JTAG_TAP_CAPTURE_IR       4'b1010
-`define JTAG_TAP_SHIFT_IR         4'b1011
-`define JTAG_TAP_EXIT1_IR         4'b1100
-`define JTAG_TAP_PAUSE_IR         4'b1101
-`define JTAG_TAP_EXIT2_IR         4'b1110
-`define JTAG_TAP_UPDATE_IR        4'b1111
+`define JTAG_TAP_TEST_LOGIC_RESET 5'b10000
+`define JTAG_TAP_RUN_TEST_IDLE    5'b01000
+`define JTAG_TAP_SELECT_DR_SCAN   5'b00001
+`define JTAG_TAP_CAPTURE_DR       5'b00010
+`define JTAG_TAP_SHIFT_DR         5'b00011
+`define JTAG_TAP_EXIT1_DR         5'b00100
+`define JTAG_TAP_PAUSE_DR         5'b00101
+`define JTAG_TAP_EXIT2_DR         5'b00110
+`define JTAG_TAP_UPDATE_DR        5'b00111
+`define JTAG_TAP_SELECT_IR_SCAN   5'b01001
+`define JTAG_TAP_CAPTURE_IR       5'b01010
+`define JTAG_TAP_SHIFT_IR         5'b01011
+`define JTAG_TAP_EXIT1_IR         5'b01100
+`define JTAG_TAP_PAUSE_IR         5'b01101
+`define JTAG_TAP_EXIT2_IR         5'b01110
+`define JTAG_TAP_UPDATE_IR        5'b01111
 
 //------------------------
 // Define Verbose Switch
@@ -265,6 +272,7 @@
 `define STATE_ID_DECODE_NORMAL  4'b0010
 `define STATE_ID_DECODE_TARGET  4'b0011
 `define STATE_ID_DEBUG_MODE     4'b0100 
+`define STATE_ID_STBY_MODE      4'b0101 
 
 //----------------------------
 // ALU Input/Output Resource

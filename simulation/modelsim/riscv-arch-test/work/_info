@@ -1,6 +1,11 @@
 m255
 K4
 z2
+Z0 !s99 nomlopt
+R0
+R0
+R0
+!s11f vlog 2021.2 2021.04, Apr 14 2021
 13
 !s112 1.1
 !i10d 8192
@@ -8,3 +13,1771 @@ z2
 !i10f 100
 cModel Technology
 d/home/taka/RISCV/mmRISC-1/simulation/modelsim/riscv-arch-test
+T_opt
+!s110 1698027717
+V2H:eOlT:f>;?3UkNL?mFc1
+04 6 4 work tb_TOP fast 0
+=1-001c42dda4a5-6535d8c4-2aa-18c4
+!s124 OEM10U141 
+o-quiet -auto_acc_if_foreign -work work -L altera_mf_ver +acc
+Z1 tCvgOpt 0
+n@_opt
+OL;O;2021.2;73
+vAHB_ARB
+Z2 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z3 !s110 1698027716
+!i10b 1
+!s100 eaN94b>U]PA5R74FbKhHa3
+IPz@YhAXUlVOMUIS7jYF;_3
+S1
+Z4 dZ:/Documents/CQ/RISCV/mmRISC/mmRISC-1/simulation/modelsim/riscv-arch-test
+Z5 w1681220345
+Z6 8../../../verilog/ahb_matrix/ahb_arb.v
+Z7 F../../../verilog/ahb_matrix/ahb_arb.v
+!i122 7
+L0 16 188
+Z8 VDg1SIo80bB@j0V0VzS_@n1
+Z9 OL;L;2021.2;73
+r1
+!s85 0
+31
+Z10 !s108 1698027715.000000
+Z11 !s107 ../../../verilog/ahb_sdram/model/sdr_parameters.vh|../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_defines.v|../../../verilog/i2c/i2c/trunk/rtl/verilog/timescale.v|../../../verilog/common/defines_core.v|../../../verilog/common/defines_chip.v|./tb_TOP.v|../../../verilog/ahb_sdram/model/sdr.v|../../../verilog/ahb_sdram/logic/ahb_lite_sdram.v|../../../verilog/ahb_matrix/ahb_arb.v|../../../verilog/ahb_matrix/ahb_interconnect.v|../../../verilog/ahb_matrix/ahb_slave_port.v|../../../verilog/ahb_matrix/ahb_master_port.v|../../../verilog/ahb_matrix/ahb_top.v|../../../verilog/debug/debug_dm.v|../../../verilog/debug/debug_cdc.v|../../../verilog/debug/debug_dtm_jtag.v|../../../verilog/debug/debug_top.v|../../../verilog/cpu/cpu_debug.v|../../../verilog/cpu/cpu_csr_dbg.v|../../../verilog/cpu/cpu_csr_int.v|../../../verilog/cpu/cpu_csr.v|../../../verilog/cpu/cpu_fpu32.v|../../../verilog/cpu/cpu_pipeline.v|../../../verilog/cpu/cpu_datapath.v|../../../verilog/cpu/cpu_fetch.v|../../../verilog/cpu/cpu_top.v|../../../verilog/mmRISC/csr_mtime.v|../../../verilog/mmRISC/bus_m_ahb.v|../../../verilog/mmRISC/mmRISC.v|../../../verilog/int_gen/int_gen.v|../../../verilog/spi/simple_spi/trunk/rtl/verilog/fifo4.v|../../../verilog/spi/simple_spi/trunk/rtl/verilog/simple_spi_top.v|../../../verilog/spi/spi.v|../../../verilog/i2c/i2c_slave_model.v|../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_byte_ctrl.v|../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_bit_ctrl.v|../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_top.v|../../../verilog/i2c/i2c.v|../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v|../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v|../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v|../../../verilog/uart/uart.v|../../../verilog/port/port.v|../../../fpga/RAM128KB_DP.v|../../../verilog/ram/ram_fpga.v|../../../verilog/ram/ram.v|../../../verilog/cjtag/cjtag_adapter.v|../../../verilog/cjtag/cjtag_2_jtag.v|../../../verilog/chip/chip_top.v|../../../verilog/chip/chip_top_wrap.v|
+Z12 !s90 -reportprogress|300|-work|work|-sv|+incdir+../../../verilog/common|+incdir+../../../verilog/ahb_sdram/model|+incdir+../../../verilog/i2c/i2c/trunk/rtl/verilog|-timescale=1ns/100ps|+define+RISCV_ARCH_TEST|+define+SIMULATION|+define+den512Mb|+define+sg75|+define+x16|+define+BUS_INTERVENTION_01|+define+DUMP_BGN=32'h90004010|+define+DUMP_END=32'h900048e0|+define+TOHOST=32'h90003000|../../../verilog/chip/chip_top_wrap.v|../../../verilog/chip/chip_top.v|../../../verilog/cjtag/cjtag_2_jtag.v|../../../verilog/cjtag/cjtag_adapter.v|../../../verilog/ram/ram.v|../../../verilog/ram/ram_fpga.v|../../../fpga/RAM128KB_DP.v|../../../verilog/port/port.v|../../../verilog/uart/uart.v|../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v|../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v|../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v|../../../verilog/i2c/i2c.v|../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_top.v|../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_bit_ctrl.v|../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_byte_ctrl.v|../../../verilog/i2c/i2c_slave_model.v|../../../verilog/spi/spi.v|../../../verilog/spi/simple_spi/trunk/rtl/verilog/simple_spi_top.v|../../../verilog/spi/simple_spi/trunk/rtl/verilog/fifo4.v|../../../verilog/int_gen/int_gen.v|../../../verilog/mmRISC/mmRISC.v|../../../verilog/mmRISC/bus_m_ahb.v|../../../verilog/mmRISC/csr_mtime.v|../../../verilog/cpu/cpu_top.v|../../../verilog/cpu/cpu_fetch.v|../../../verilog/cpu/cpu_datapath.v|../../../verilog/cpu/cpu_pipeline.v|../../../verilog/cpu/cpu_fpu32.v|../../../verilog/cpu/cpu_csr.v|../../../verilog/cpu/cpu_csr_int.v|../../../verilog/cpu/cpu_csr_dbg.v|../../../verilog/cpu/cpu_debug.v|../../../verilog/debug/debug_top.v|../../../verilog/debug/debug_dtm_jtag.v|../../../verilog/debug/debug_cdc.v|../../../verilog/debug/debug_dm.v|../../../verilog/ahb_matrix/ahb_top.v|../../../verilog/ahb_matrix/ahb_master_port.v|../../../verilog/ahb_matrix/ahb_slave_port.v|../../../verilog/ahb_matrix/ahb_interconnect.v|../../../verilog/ahb_matrix/ahb_arb.v|../../../verilog/ahb_sdram/logic/ahb_lite_sdram.v|../../../verilog/ahb_sdram/model/sdr.v|./tb_TOP.v|
+!i113 0
+Z13 o-work work -sv -timescale=1ns/100ps -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z14 !s92 -work work -sv +incdir+../../../verilog/common +incdir+../../../verilog/ahb_sdram/model +incdir+../../../verilog/i2c/i2c/trunk/rtl/verilog -timescale=1ns/100ps +define+RISCV_ARCH_TEST +define+SIMULATION +define+den512Mb +define+sg75 +define+x16 +define+BUS_INTERVENTION_01 +define+DUMP_BGN=32'h90004010 +define+DUMP_END=32'h900048e0 +define+TOHOST=32'h90003000 -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+n@a@h@b_@a@r@b
+vAHB_ARB_RB
+R2
+R3
+!i10b 1
+!s100 AZ7fP0fVd>ieWXamQ5;5k1
+IPXzOHRzD7:W39`X5;gAT<2
+S1
+R4
+R5
+R6
+R7
+!i122 7
+L0 208 73
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@a@h@b_@a@r@b_@r@b
+vAHB_INTERCONNECT
+R2
+R3
+!i10b 1
+!s100 fNYem:X9g8KQa>:<Kz;2j2
+IzB<h3WGRRQo4CSGj4<41e3
+S1
+R4
+R5
+8../../../verilog/ahb_matrix/ahb_interconnect.v
+F../../../verilog/ahb_matrix/ahb_interconnect.v
+!i122 7
+L0 16 420
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@a@h@b_@i@n@t@e@r@c@o@n@n@e@c@t
+vahb_lite_sdram
+R2
+R3
+!i10b 1
+!s100 afo3CY_@W]=lY]l0^UccV0
+IRBP1V4nV]TA:2eVm14^7P2
+S1
+R4
+Z15 w1681023139
+8../../../verilog/ahb_sdram/logic/ahb_lite_sdram.v
+F../../../verilog/ahb_sdram/logic/ahb_lite_sdram.v
+!i122 7
+L0 6 304
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+vAHB_MASTER_PORT
+R2
+R3
+!i10b 1
+!s100 6mS;d_e[9^X35odV@MIl@0
+IPI3@Q>0<zQkSI580e794d0
+S1
+R4
+R15
+8../../../verilog/ahb_matrix/ahb_master_port.v
+F../../../verilog/ahb_matrix/ahb_master_port.v
+!i122 7
+L0 16 179
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@a@h@b_@m@a@s@t@e@r_@p@o@r@t
+vAHB_MATRIX
+R2
+R3
+!i10b 1
+!s100 CMJnW33J9jM5eANA9ZezC2
+I6>]]Rn^Z^:7]bYBRcLIVh2
+S1
+R4
+R15
+8../../../verilog/ahb_matrix/ahb_top.v
+F../../../verilog/ahb_matrix/ahb_top.v
+!i122 7
+L0 16 249
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@a@h@b_@m@a@t@r@i@x
+vAHB_SLAVE_PORT
+R2
+R3
+!i10b 1
+!s100 VGhV_RB>Yi2EV<?SY`@dA3
+IO`VQIA0T2Vk2_IZl:]@TO3
+S1
+R4
+R15
+8../../../verilog/ahb_matrix/ahb_slave_port.v
+F../../../verilog/ahb_matrix/ahb_slave_port.v
+!i122 7
+L0 16 194
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@a@h@b_@s@l@a@v@e_@p@o@r@t
+vBEFF
+R2
+R3
+!i10b 1
+!s100 ^FTR>knmH]=UYGcYff1VL0
+I<H`n7gLiRRPmF:0gV_GhH1
+S1
+R4
+Z16 w1696508577
+Z17 8../../../verilog/cjtag/cjtag_2_jtag.v
+Z18 F../../../verilog/cjtag/cjtag_2_jtag.v
+!i122 7
+L0 316 30
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@b@e@f@f
+vBUS_M_AHB
+R2
+R3
+!i10b 1
+!s100 ?U@UaZ:O8@aFb`e1ed<L;0
+ISF]fkmGnUY=YmVFWSHYPa1
+S1
+R4
+w1698026543
+8../../../verilog/mmRISC/bus_m_ahb.v
+F../../../verilog/mmRISC/bus_m_ahb.v
+!i122 7
+L0 16 251
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@b@u@s_@m_@a@h@b
+vCHECK_FTYPE
+R2
+R3
+!i10b 1
+!s100 H9=GT4=olN760jjLEYF^`2
+I;4QN5`S^ZFc3LMD]ZzVez1
+S1
+R4
+Z19 w1698026398
+Z20 8../../../verilog/cpu/cpu_fpu32.v
+Z21 F../../../verilog/cpu/cpu_fpu32.v
+!i122 7
+L0 2413 44
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@c@h@e@c@k_@f@t@y@p@e
+vCHIP_TOP
+R2
+R3
+!i10b 1
+!s100 n@9iY5U`64:=AJOWE6g>l1
+I2jg2C`_QnZf^jG8IHZMlU0
+S1
+R4
+w1696810442
+8../../../verilog/chip/chip_top.v
+F../../../verilog/chip/chip_top.v
+!i122 7
+L0 206 1117
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@c@h@i@p_@t@o@p
+vCHIP_TOP_WRAP
+R2
+R3
+!i10b 1
+!s100 1IUld_hWciBOSF>h0^MP@0
+I3aocYmkl]FGODYGzjNjza2
+S1
+R4
+w1696810455
+8../../../verilog/chip/chip_top_wrap.v
+F../../../verilog/chip/chip_top_wrap.v
+!i122 7
+L0 202 181
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@c@h@i@p_@t@o@p_@w@r@a@p
+vCJTAG_2_JTAG
+R2
+R3
+!i10b 1
+!s100 a7YLVUCNL41lGN=ee>DoE1
+IObPdLHK@ZZHQ[1KNJU1cS3
+S1
+R4
+R16
+R17
+R18
+!i122 7
+L0 89 221
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@c@j@t@a@g_2_@j@t@a@g
+vCJTAG_ADAPTER
+R2
+R3
+!i10b 1
+!s100 T:6;W3=[2=jlK9O8Y;Mz[3
+IHZM]XLaZ1F35VbmaQ?[B:0
+S1
+R4
+w1685807897
+8../../../verilog/cjtag/cjtag_adapter.v
+F../../../verilog/cjtag/cjtag_adapter.v
+!i122 7
+L0 20 41
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@c@j@t@a@g_@a@d@a@p@t@e@r
+vCPU_CSR
+R2
+R3
+!i10b 1
+!s100 ?@Gllc>gMaN_aB5XU=TI_2
+I8nRdPKa?>1ddR6?Ubmz9]2
+S1
+R4
+R5
+8../../../verilog/cpu/cpu_csr.v
+F../../../verilog/cpu/cpu_csr.v
+!i122 7
+L0 168 788
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@c@p@u_@c@s@r
+vCPU_CSR_DBG
+R2
+R3
+!i10b 1
+!s100 LL@E=WgHDcUWDaiiP8HY71
+II1YN:no7L7RzKj<XJo9O02
+S1
+R4
+w1694134095
+8../../../verilog/cpu/cpu_csr_dbg.v
+F../../../verilog/cpu/cpu_csr_dbg.v
+!i122 7
+L0 82 902
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@c@p@u_@c@s@r_@d@b@g
+vCPU_CSR_INT
+R2
+R3
+!i10b 1
+!s100 ;Yo;7eaX>X8F=9Z_4MnhG1
+IR@zNfnSjiO@:`0>[>TP^n0
+S1
+R4
+R5
+8../../../verilog/cpu/cpu_csr_int.v
+F../../../verilog/cpu/cpu_csr_int.v
+!i122 7
+L0 50 426
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@c@p@u_@c@s@r_@i@n@t
+vCPU_DATAPATH
+R2
+R3
+!i10b 1
+!s100 mmMOm`z0c;dh>nec>R74:3
+I^eC0flXAhWACfY?4aDc_20
+S1
+R4
+w1694133864
+8../../../verilog/cpu/cpu_datapath.v
+F../../../verilog/cpu/cpu_datapath.v
+!i122 7
+L0 18 815
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@c@p@u_@d@a@t@a@p@a@t@h
+vCPU_DEBUG
+R2
+R3
+!i10b 1
+!s100 nZ=_QWB6Xd;6H]QE2V`_M2
+I`kXLTDh:<=AozUkPPMcUd0
+S1
+R4
+w1686827548
+8../../../verilog/cpu/cpu_debug.v
+F../../../verilog/cpu/cpu_debug.v
+!i122 7
+L0 18 779
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@c@p@u_@d@e@b@u@g
+vCPU_FETCH
+R2
+R3
+!i10b 1
+!s100 bGfNLdU2P]R=ZdzjREHPF0
+IV@SZ1:IdZ^Vj=[B0mbQ_Z3
+S1
+R4
+w1686827448
+8../../../verilog/cpu/cpu_fetch.v
+F../../../verilog/cpu/cpu_fetch.v
+!i122 7
+L0 128 582
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@c@p@u_@f@e@t@c@h
+vCPU_FPU32
+R2
+R3
+!i10b 1
+!s100 eiX^noHWKNF:FH7Y9@m@Q3
+I@Jf5C7>W<`=oE`:Z4kSYo2
+S1
+R4
+R19
+R20
+R21
+!i122 7
+L0 89 2319
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@c@p@u_@f@p@u32
+vCPU_PIPELINE
+R2
+R3
+!i10b 1
+!s100 AVncQ`R2K9MoST=m@C8Sf0
+Ia`9<4`M22C9`Kg`L<TJz60
+S1
+R4
+w1694142720
+8../../../verilog/cpu/cpu_pipeline.v
+F../../../verilog/cpu/cpu_pipeline.v
+!i122 7
+L0 80 2563
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@c@p@u_@p@i@p@e@l@i@n@e
+vCPU_TOP
+R2
+R3
+!i10b 1
+!s100 ;Xlc<WRB[A5z8EndB;b[U2
+IjJNZAVWfFlCK@UIGXc3Lm1
+S1
+R4
+w1695125744
+8../../../verilog/cpu/cpu_top.v
+F../../../verilog/cpu/cpu_top.v
+!i122 7
+L0 20 1000
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@c@p@u_@t@o@p
+vCSR_MTIME
+R2
+R3
+!i10b 1
+!s100 1[n`kQ]:>7ST?fX[KagQj2
+IeOIQmdEghiBj:@L9i>mO32
+S1
+R4
+R15
+8../../../verilog/mmRISC/csr_mtime.v
+F../../../verilog/mmRISC/csr_mtime.v
+!i122 7
+L0 59 307
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@c@s@r_@m@t@i@m@e
+vDEBUG_CDC
+R2
+R3
+!i10b 1
+!s100 KFRF:l`9?@mbj^GFMCY9a2
+I1mg4HP:KbI_fz[TGL6knX0
+S1
+R4
+R15
+8../../../verilog/debug/debug_cdc.v
+F../../../verilog/debug/debug_cdc.v
+!i122 7
+L0 14 111
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@d@e@b@u@g_@c@d@c
+vDEBUG_DM
+R2
+R3
+!i10b 1
+!s100 7AA`V];XSKW0FFF_3zzVJ0
+I]0H=dlC6TzDgAM0ebFc^H2
+S1
+R4
+w1694143364
+8../../../verilog/debug/debug_dm.v
+F../../../verilog/debug/debug_dm.v
+!i122 7
+L0 99 1403
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@d@e@b@u@g_@d@m
+vDEBUG_DTM_JTAG
+R2
+R3
+!i10b 1
+!s100 8[4m7lNQ7a7NaCC4KZBUS1
+IU8UFja:OT:Kc69b1ZYYgQ3
+S1
+R4
+w1696507366
+8../../../verilog/debug/debug_dtm_jtag.v
+F../../../verilog/debug/debug_dtm_jtag.v
+!i122 7
+L0 32 504
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@d@e@b@u@g_@d@t@m_@j@t@a@g
+vDEBUG_TOP
+R2
+R3
+!i10b 1
+!s100 jGKBT6=E@T9L<UHER1De90
+I;^ZHCec??`RNG]K0MI6BL3
+S1
+R4
+w1686052427
+8../../../verilog/debug/debug_top.v
+F../../../verilog/debug/debug_top.v
+!i122 7
+L0 95 196
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@d@e@b@u@g_@t@o@p
+vFADD_CORE
+R2
+R3
+!i10b 1
+!s100 cV2gk4;]hHSbi=86;i53H2
+I<9HZCffdG1hnm5em_g2Hf0
+S1
+R4
+R19
+R20
+R21
+!i122 7
+L0 3741 172
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@f@a@d@d_@c@o@r@e
+vFADD_SPECIAL_NUMBER
+R2
+R3
+!i10b 1
+!s100 o7W8KI^VQGE8D<C9cb28f3
+InEZP;oUX2A9h6SAgQdC]L0
+S1
+R4
+R19
+R20
+R21
+!i122 7
+L0 2461 134
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@f@a@d@d_@s@p@e@c@i@a@l_@n@u@m@b@e@r
+vFCVT_F2I
+R2
+R3
+!i10b 1
+!s100 Aihz<C=zM?a:Y6NAYJHPo0
+I4lFX4CCHm;JQXBmn1Hl:V1
+S1
+R4
+R19
+R20
+R21
+!i122 7
+L0 4080 190
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@f@c@v@t_@f2@i
+vFCVT_I2F
+R2
+R3
+!i10b 1
+!s100 L[_a326`_?zlA5ioIJfS=3
+Ih:>g3[a06CQW@]ia63Pcz3
+S1
+R4
+R19
+R20
+R21
+!i122 7
+L0 4297 97
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@f@c@v@t_@i2@f
+vFDIV_SPECIAL_NUMBER
+R2
+R3
+!i10b 1
+!s100 DLJO^bjIA<INUY345bohF2
+IN1<WAeUH6cVhZ9oUS;AWD3
+S1
+R4
+R19
+R20
+R21
+!i122 7
+L0 2804 142
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@f@d@i@v_@s@p@e@c@i@a@l_@n@u@m@b@e@r
+vfifo4
+R2
+R3
+!i10b 1
+!s100 ]EL4A_Ildl9SRaGHj0Df32
+InLRPUEa@jg[I<B>>bjFAz2
+S1
+R4
+R15
+8../../../verilog/spi/simple_spi/trunk/rtl/verilog/fifo4.v
+F../../../verilog/spi/simple_spi/trunk/rtl/verilog/fifo4.v
+!i122 7
+L0 59 73
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+vFIND_1ST_ONE_IN_FRAC27
+R2
+R3
+!i10b 1
+!s100 SzodiFbXO76R7ZYRYWV4e1
+IiO>hk09D__ODfaUFh;o3F0
+S1
+R4
+R19
+R20
+R21
+!i122 7
+L0 3027 31
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@f@i@n@d_1@s@t_@o@n@e_@i@n_@f@r@a@c27
+vFIND_1ST_ONE_IN_FRAC66
+R2
+R3
+!i10b 1
+!s100 dQd@N8Z@12`?:GzXd;BnE1
+I68JeB[fD4;;0DYCU@EMhZ2
+S1
+R4
+R19
+R20
+R21
+!i122 7
+L0 3063 31
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@f@i@n@d_1@s@t_@o@n@e_@i@n_@f@r@a@c66
+vFIND_1ST_ONE_IN_FRAC70
+R2
+R3
+!i10b 1
+!s100 WTghnS0IeC;gdn89ffO9h2
+IKS4on[Ll5Vj6e28OQT>>S3
+S1
+R4
+R19
+R20
+R21
+!i122 7
+L0 3099 31
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@f@i@n@d_1@s@t_@o@n@e_@i@n_@f@r@a@c70
+vFLOAT32_FROM_INNER79
+R2
+R3
+!i10b 1
+!s100 =eN@YVNe>7cJgAMVnN=V51
+I]9zIJ>4>B^MOkWFF?;I4]1
+S1
+R4
+R19
+R20
+R21
+!i122 7
+L0 3452 282
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@f@l@o@a@t32_@f@r@o@m_@i@n@n@e@r79
+vFMADD_SPECIAL_NUMBER
+R2
+R3
+!i10b 1
+!s100 _V1z;?@XKl0c<YLd>XQG=3
+I6o_W5dN4zD?Sl]@Z=F=5<0
+S1
+R4
+R19
+R20
+R21
+!i122 7
+L0 2748 52
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@f@m@a@d@d_@s@p@e@c@i@a@l_@n@u@m@b@e@r
+vFMUL_CORE
+R2
+R3
+!i10b 1
+!s100 7T]@8:O;=zQbSb`[Rm:eY0
+I7>LBm490n5[KQE^1N@1T;0
+S1
+R4
+R19
+R20
+R21
+!i122 7
+L0 3920 104
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@f@m@u@l_@c@o@r@e
+vFMUL_SPECIAL_NUMBER
+R2
+R3
+!i10b 1
+!s100 WjcB?iDO8TU1DJlHcC81i3
+IoHS_LaleXGIVfOGB_TH;O2
+S1
+R4
+R19
+R20
+R21
+!i122 7
+L0 2600 127
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@f@m@u@l_@s@p@e@c@i@a@l_@n@u@m@b@e@r
+vFRAC27_ROUND_FRAC66
+R2
+R3
+!i10b 1
+!s100 @MzN_VJ3HlzoCmz520=8?3
+I[1P0dPkM_GX3[=YFUBd:N0
+S1
+R4
+R19
+R20
+R21
+!i122 7
+L0 3286 43
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@f@r@a@c27_@r@o@u@n@d_@f@r@a@c66
+vFRAC70_ROUND_FRAC132
+R2
+R3
+!i10b 1
+!s100 nI2:P@bfJDHCD8;@[R[n?2
+I2JLl;hk2E=<M9nZHeC8><3
+S1
+R4
+R19
+R20
+R21
+!i122 7
+L0 3335 43
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@f@r@a@c70_@r@o@u@n@d_@f@r@a@c132
+vFSQRT_SPECIAL_NUMBER
+R2
+R3
+!i10b 1
+!s100 ;=iK2hiWb3_bLXIROjeK@2
+IER:Tk<6=i<cLfkB?9akQU3
+S1
+R4
+R19
+R20
+R21
+!i122 7
+L0 2950 72
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@f@s@q@r@t_@s@p@e@c@i@a@l_@n@u@m@b@e@r
+vI2C
+R2
+R3
+!i10b 1
+!s100 :9RTf84<UMH^J6<]MZHGC1
+I^TQkmOc_Rk=FB^YJ`C?[^1
+S1
+R4
+R15
+8../../../verilog/i2c/i2c.v
+F../../../verilog/i2c/i2c.v
+!i122 7
+L0 55 104
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@i2@c
+vi2c_master_bit_ctrl
+R2
+R3
+!i10b 1
+!s100 9A<FMWzZ=EZ9A[oj5NNS90
+I8ZOo9aebabLGER`7[aPXN1
+S1
+R4
+R15
+8../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_bit_ctrl.v
+F../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_bit_ctrl.v
+!i122 7
+L0 143 434
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+vi2c_master_byte_ctrl
+R2
+R3
+!i10b 1
+!s100 96i`A47QiDlMlRTn:Ogd10
+IzM>zcIZl<`P2]jKfD=b_H0
+S1
+R4
+R15
+8../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_byte_ctrl.v
+F../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_byte_ctrl.v
+!i122 7
+L0 75 270
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+vi2c_master_top
+R2
+R3
+!i10b 1
+!s100 USk]>lm1U4>BhL]Dd60mT0
+ISI^2KPVP8Cb1SdKdOSzbT0
+S1
+R4
+R15
+8../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_top.v
+F../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_top.v
+!i122 7
+L0 78 223
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+vi2c_slave_model
+R2
+R3
+!i10b 1
+!s100 99l>P7n=6kOK2z9WL5=`01
+Iz3>mz@Q;LnK]eLg84n5d]0
+S1
+R4
+R15
+8../../../verilog/i2c/i2c_slave_model.v
+F../../../verilog/i2c/i2c_slave_model.v
+!i122 7
+L0 71 299
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+vINNER79_FROM_FLOAT32
+R2
+R3
+!i10b 1
+!s100 6UYcQo2]=e:6JTQ9B^@190
+I8fTJRIcfUE[XY9X;E=[:C1
+S1
+R4
+R19
+R20
+R21
+!i122 7
+L0 3388 54
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@i@n@n@e@r79_@f@r@o@m_@f@l@o@a@t32
+vINT_GEN
+R2
+R3
+!i10b 1
+!s100 _=G`?1D:HZnz<;:>fDb0W2
+ILcUb_9LCTjJEEb:g?RbEV2
+S1
+R4
+R15
+8../../../verilog/int_gen/int_gen.v
+F../../../verilog/int_gen/int_gen.v
+!i122 7
+L0 32 113
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@i@n@t_@g@e@n
+vmmRISC
+R2
+R3
+!i10b 1
+!s100 0fDgQRjd^g4T?WF::Pe[B3
+IJ]g;SUZ6HA?NaOO2X??E`3
+S1
+R4
+w1688261347
+8../../../verilog/mmRISC/mmRISC.v
+F../../../verilog/mmRISC/mmRISC.v
+!i122 7
+L0 20 518
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+nmm@r@i@s@c
+vPORT
+R2
+R3
+!i10b 1
+!s100 :W[:Mc2MBSX;clDTX`gU[0
+IMc_klnLoXQN8hfMEg]c8`1
+S1
+R4
+R15
+8../../../verilog/port/port.v
+F../../../verilog/port/port.v
+!i122 7
+L0 35 150
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@p@o@r@t
+vRAM
+R2
+R3
+!i10b 1
+!s100 N?lN^@4gfC_h<V9dU3m8P0
+IY<41bmb>_1Ic^97UlUWG61
+S1
+R4
+R15
+8../../../verilog/ram/ram.v
+F../../../verilog/ram/ram.v
+!i122 7
+L0 16 261
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@r@a@m
+vRAM128KB_DP
+R2
+R3
+!i10b 1
+!s100 B5kE0ShjG:SinjY?c>LG51
+IYIOnDQ?A7VYZ`oBJYk:162
+S1
+R4
+w1696519183
+8../../../fpga/RAM128KB_DP.v
+F../../../fpga/RAM128KB_DP.v
+!i122 7
+L0 40 104
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@r@a@m128@k@b_@d@p
+vRAM_FPGA
+R2
+R3
+!i10b 1
+!s100 9kV>K[[7GV2g;aE<EYAB`1
+IH<<PT4OOMcQV2MUjA2?Wo2
+S1
+R4
+R15
+8../../../verilog/ram/ram_fpga.v
+F../../../verilog/ram/ram_fpga.v
+!i122 7
+L0 16 227
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@r@a@m_@f@p@g@a
+vROUND_JUDGMENT
+R2
+R3
+!i10b 1
+!s100 cNCK4<ZZ7]fY`5Rh:<gnM3
+I<_[Cz;YM?^Z0=dNP`D9dW0
+S1
+R4
+R19
+R20
+R21
+!i122 7
+L0 3215 65
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@r@o@u@n@d_@j@u@d@g@m@e@n@t
+vsasc_brg
+R2
+R3
+!i10b 1
+!s100 XOe3@i2DICFUZ<F2<Ok?k1
+IW`XTIFaV5nYP1PUWQ>0HH0
+S1
+R4
+R15
+8../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v
+F../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v
+!i122 7
+L0 84 72
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+vsasc_fifo4
+R2
+R3
+!i10b 1
+!s100 Qim603O3FbmIXfTacej;Q2
+Il2R4KR2B]Dm<2foTM?QRn3
+S1
+R4
+R15
+8../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v
+F../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v
+!i122 7
+L0 60 71
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+vsasc_top
+R2
+R3
+!i10b 1
+!s100 NM`KbX6GQ0niQMXFjH7h;0
+Io46PU:ZgIOcW0M<0hlL<=0
+S1
+R4
+R15
+8../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v
+F../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v
+!i122 7
+L0 73 232
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+vsdr
+R2
+R3
+!i10b 1
+!s100 Z`=5Z7O[>^T]O@RgfbmQT2
+IYEl5C<idhjImc`6GcbB9>0
+S1
+R4
+R15
+8../../../verilog/ahb_sdram/model/sdr.v
+F../../../verilog/ahb_sdram/model/sdr.v
+F../../../verilog/ahb_sdram/model/sdr_parameters.vh
+!i122 7
+L0 48 1230
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+vSHIFT_RIGHT_FRAC27
+R2
+R3
+!i10b 1
+!s100 ?7B=YoACc=2adz[`<2l7S1
+I_fR3I8<3LMbMU:L6FUQLX0
+S1
+R4
+R19
+R20
+R21
+!i122 7
+L0 3135 22
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@s@h@i@f@t_@r@i@g@h@t_@f@r@a@c27
+vSHIFT_RIGHT_FRAC66
+R2
+R3
+!i10b 1
+!s100 llYbA3`g<cQe<8;;63hOH3
+IV:WDjmHdko>Ai5307@JQz3
+S1
+R4
+R19
+R20
+R21
+!i122 7
+L0 3162 22
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@s@h@i@f@t_@r@i@g@h@t_@f@r@a@c66
+vSHIFT_RIGHT_FRAC70
+R2
+R3
+!i10b 1
+!s100 C2gBiFlkcRdXhiNOiNajj0
+IndSTLEhTgcAabDO5Q>`9W3
+S1
+R4
+R19
+R20
+R21
+!i122 7
+L0 3189 22
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@s@h@i@f@t_@r@i@g@h@t_@f@r@a@c70
+vsimple_spi_top
+R2
+R3
+!i10b 1
+!s100 en67N4^2Q8o52H0Cg[FnG3
+IDc_5Kgnl8EW8Uz=8LYcIX3
+S1
+R4
+R15
+8../../../verilog/spi/simple_spi/trunk/rtl/verilog/simple_spi_top.v
+F../../../verilog/spi/simple_spi/trunk/rtl/verilog/simple_spi_top.v
+!i122 7
+L0 73 252
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+vSPI
+R2
+R3
+!i10b 1
+!s100 W;S>eGc_o76LW8T7f8T`J2
+IATz@moHT`@LlmVD2P`d7^2
+S1
+R4
+R15
+8../../../verilog/spi/spi.v
+F../../../verilog/spi/spi.v
+!i122 7
+L0 60 148
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@s@p@i
+vtb_TOP
+R2
+R3
+!i10b 1
+!s100 00HHBhbaNjKPOfJPH9kO12
+I]DngSXl3P]>K]LVB9i9]a0
+S1
+R4
+w1698027663
+8./tb_TOP.v
+F./tb_TOP.v
+!i122 7
+L0 36 328
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+ntb_@t@o@p
+vUART
+R2
+R3
+!i10b 1
+!s100 ;DfS9VR=VC<lMC7bZbZ[l0
+In]kR^GHOK6Cc_bFW=]c]L0
+S1
+R4
+R15
+8../../../verilog/uart/uart.v
+F../../../verilog/uart/uart.v
+!i122 7
+L0 53 216
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R14
+R1
+n@u@a@r@t

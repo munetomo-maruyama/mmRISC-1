@@ -1,0 +1,150 @@
+\section{Configurable Options}
+
+The several specifications of the mmRISC-1 core are configurable as shown in Table \ref{tb:CONFIGURABLEOPTIONS}. Each configuration is specified by a parameter definition (\textasciigrave define) or the logic level of each input signal of the mmRISC-1 core.\\ 
+
+\begin{table}[H]
+    \begin{adjustbox}{scale={0.75}{1}}
+    \textsf{
+    \begin{tabular}{|L{6cm}{2.5cm}{t}|L{5cm}{2cm}{t}|L{8cm}{4.5cm}{t}|L{8cm}{5cm}{t}|L{8cm}{3cm}{t}|}
+        \hline
+        %-------------------------------------
+        \rowcolor{LightPurple}
+        \textbf{Where} &
+        \textbf{Class} &
+        \textbf{Name} &
+        \textbf{Description} &
+        \textbf{Default}
+        \nextRow \hline
+        %-------------------------------------
+        defines\_core.v &
+        \textasciigrave define &
+        \textasciigrave RISCV\_ISA\_RV32F &
+        Single Floating Point ISA &
+        enabled
+        \nextRow \hline
+        %-------------------------------------
+        defines\_core.v &
+        \textasciigrave define &
+        \textasciigrave RISCV\_ISA\_RV32A &
+        Atomic Access ISA &
+        enabled
+        \nextRow \hline
+        %-------------------------------------
+        defines\_core.v &
+        \textasciigrave define &
+        \textasciigrave JTAG\_IDCODE &
+        JTAG ID Code &
+        32'h16d6d001 \lb
+        Version = 0x1 \lb
+        PartNo.=0x6d6d \lb
+        (ASCII "mm") \lb
+        ManuID = 0
+        \nextRow \hline
+        %-------------------------------------
+        defines\_core.v &
+        \textasciigrave define &
+        \textasciigrave MVENDORID &
+        CSR MVENDORID &
+        32'h00000000
+        \nextRow \hline
+        %-------------------------------------
+        defines\_core.v &
+        \textasciigrave define &
+        \textasciigrave MARCHID &
+        CSR MARCHID &
+        32'h6d6d3031
+        \nextRow \hline
+        %-------------------------------------
+        defines\_core.v &
+        \textasciigrave define &
+        \textasciigrave MIMPID &
+        CSR MIMPID &
+        32'h00000010
+        \nextRow \hline
+        %-------------------------------------
+        defines\_core.v &
+        \textasciigrave define &
+        \textasciigrave TRG\_CH\_BUS &
+        Count of Type 2 Trigger ch \lb
+        (Type 3 Trigger is 1ch)	&
+        4
+        \nextRow \hline
+        %-------------------------------------
+        defines\_core.v &
+        \textasciigrave define &
+        \textasciigrave UNAVAILABLE \lb \_WHEN\_STBY &
+        During STBY, \lb
+        DM\_STATUS shows all \lb
+        harts are unavailable &
+        disabled \lb
+        (comment out)
+        \nextRow \hline
+        %-------------------------------------
+        defines\_chip.v &
+        \textasciigrave define &
+        \textasciigrave HART\_COUNT &
+        Hart Counts in mmRISC-1 &
+        1
+        \nextRow \hline
+        %-------------------------------------
+        defines\_chip.v &
+        \textasciigrave define &
+        \textasciigrave ENABLE\_CJTAG &
+        Use cJTAG instead of \lb
+        JTAG as debug I/F &
+        disabled \lb
+        (comment out)
+        \nextRow \hline
+        %-------------------------------------
+        defines\_chip.v &
+        \textasciigrave define &
+        \textasciigrave USE\_FORCE\_HALT\lb \_ON\_RESET &
+        Use Halt-On-Reset feature \lb
+        controlled by hardware \lb
+        input signal level &
+        enabled
+        \nextRow \hline
+        %-------------------------------------
+        mmRISC.v &
+        input signal &
+        RESET\_VECTOR \lb
+        \lbrack 0:\textasciigrave HART\_COUNT-1\rbrack  &
+        Reset Vector Address \lb
+        for each Hart &
+        32'h90000000
+        \nextRow \hline
+        %-------------------------------------
+        mmRISC.v &
+        input signal &
+        DEBUG\_SECURE &
+        Debug is secured or not	&
+        Input from \lb
+        Top Layer
+        \nextRow \hline
+        %-------------------------------------
+        mmRISC.v &
+        input signal &
+        DEBUG\_SECURE \lb
+        \_CODE\_0 \lbrack 31:0\rbrack  &
+        Debug Secure Code 0 \lb
+        to be matched with \lb
+        CSR AUTHDATA &
+        32’h12345678
+        \nextRow \hline
+        %-------------------------------------
+        mmRISC.v &
+        input signal &
+        DEBUG\_SECURE \lb
+        \_CODE\_1 \lbrack 31:0\rbrack  &
+        Debug Secure Code 1 \lb
+        to be matched with \lb
+        CSR AUTHDATA &
+        32’hbeefcafe
+        \nextRow \hline
+        %-------------------------------------
+    \end{tabular}
+    }
+    \end{adjustbox}
+    \caption{Configurable Options}
+    \label{tb:CONFIGURABLEOPTIONS}
+\end{table}

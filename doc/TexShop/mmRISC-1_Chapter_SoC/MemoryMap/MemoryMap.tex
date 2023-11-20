@@ -1,0 +1,128 @@
+%=========================================================
+% Memory Map
+%=========================================================
+\section{Memory Map}
+
+Memory map of the SoC is shown in Table \ref{tb:MEMORYMAPSOC}. All master ports of mmRISC block can access all peripheral resources assigned at the same address. Each area consists of an actual physical area and its shadowed areas.
+
+\begin{table}[H]
+    \begin{adjustbox}{scale={0.9}{1}}
+    \textsf{
+    \begin{tabular}{|L{7cm}{5cm}{t}|L{4cm}{2.5cm}{t}|L{4cm}{2.5cm}{t}|L{4cm}{2.5cm}{t}|L{2cm}{1cm}{t}|}
+        \hline
+        %-------------------------------------
+        \rowcolor{LightPurple}
+        \textbf{Address Range} &
+        \textbf{Instruction \lb Bus} &
+        \textbf{Data Bus} &
+        \textbf{System Bus \lb (debugger)} &
+        \textbf{Note}
+        %-------------------------------------
+        \nextRow \hline
+        \texttt{0x00000000-0x48ffffff} &
+        reserved &
+        reserved &
+        reserved &
+        ~
+        %-------------------------------------
+        \nextRow \hline
+        \texttt{0x49000000-0x4900001f} &
+        MTIME &
+        MTIME &
+        MTIME &
+        ~
+        %-------------------------------------
+        \nextRow \hline
+        \texttt{0x49000020-0x7fffffff} &
+        reserved &
+        reserved &
+        reserved &
+        ~
+        %-------------------------------------
+        \nextRow \hline
+        \texttt{0x80000000-0x87ffffff} &
+        SDRAM \lb 64MB &
+        SDRAM \lb 64MB &
+        SDRAM \lb 64MB &
+        ~
+        %-------------------------------------
+        \nextRow \hline
+        \texttt{0x88000000-0x8fffffff} &
+        RAMD (data) \lb 48KB &
+        RAMD (data) \lb 48KB &
+        RAMD (data) \lb 48KB &
+        \setMultiRow{2}{FPGA \lb Block \lb RAM} 
+        %-------------------------------------
+        \nextRow \cline{1-4}
+        \texttt{0x90000000-0x9fffffff} &
+        RAMI (instr) \lb 128KB &
+        RAMI (instr) \lb 128KB &
+        RAMI (instr) \lb 128KB &
+        ~
+        %-------------------------------------
+        \nextRow \hline
+        \texttt{0xa0000000-0xafffffff} &
+        PORT &
+        PORT &
+        PORT &
+        ~
+        %-------------------------------------
+        \nextRow \hline
+        \texttt{0xb0000000-0xbfffffff} &
+        UART &
+        UART &
+        UART &
+        ~
+        %-------------------------------------
+        \nextRow \hline
+        \texttt{0xc0000000-0xcfffffff} &
+        INT\_GEN &
+        INT\_GEN &
+        INT\_GEN &
+        ~
+        %-------------------------------------
+        \nextRow \hline
+        \texttt{0xd0000000-0xd00000ff} &
+        I2C0 &
+        I2C0 &
+        I2C0 &
+        ~
+        %-------------------------------------
+        \nextRow \hline
+        \texttt{0xd0000100-0xd00001ff} &
+        I2C1 &
+        I2C1 &
+        I2C1 &
+        ~
+        %-------------------------------------
+        \nextRow \hline
+        \texttt{0xd0000200-0xdfffffff} &
+        reserved &
+        reserved &
+        reserved &
+        ~
+        %-------------------------------------
+        \nextRow \hline
+        \texttt{0xe0000100-0xefffffff} &
+        SPI &
+        SPI &
+        SPI &
+        ~
+        %-------------------------------------
+        \nextRow \hline
+        \texttt{0xf0000200-0xffffffff} &
+        reserved &
+        reserved &
+        reserved &
+        ~
+        %-------------------------------------
+        \nextRow \hline
+    \end{tabular}
+    }
+    \end{adjustbox}
+  \caption{Memory Map of Tiny SoC}
+  \label{tb:MEMORYMAPSOC}
+\end{table}
+
+
+

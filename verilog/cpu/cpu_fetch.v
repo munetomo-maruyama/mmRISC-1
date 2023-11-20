@@ -261,7 +261,7 @@ assign BUSI_M_SEQ   = ~fetch_start_pending;
 assign BUSI_M_CONT  = fetch_req;
 assign BUSI_M_BURST = 3'b001; // INCR: undefined length including single burst. 
 assign BUSI_M_LOCK  = 1'b0;
-assign BUSI_M_PROT  = 4'b0000;
+assign BUSI_M_PROT  = 4'b0010; // Privileded, Instruction
 assign BUSI_M_WRITE = 1'b0;
 assign BUSI_M_SIZE  = (BUSI_M_ADDR[1] == 1'b0)? 2'b10 : 2'b01; // W or H
 assign BUSI_M_ADDR  = (fetch_start_pending)? fetch_addr_pending :busi_m_addr_next;

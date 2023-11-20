@@ -55,7 +55,7 @@ main-build: mmRISC_SampleCPU.elf secondary-outputs
 mmRISC_SampleCPU.elf: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GNU RISC-V Cross C Linker'
-	riscv64-unknown-elf-gcc -march=rv32imac -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -ggdb -T "/home/taka/RISCV/mmRISC-1/workspace/mmRISC_SampleCPU/link.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"mmRISC_SampleCPU.map" -nostartfiles -nostdlib -o "mmRISC_SampleCPU.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	riscv64-unknown-elf-gcc -march=rv32imac_zicsr -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -g3 -ggdb -T "/media/psf/Home/Documents/CQ/RISCV/mmRISC/mmRISC-1/workspace/mmRISC_SampleCPU/link.ld" -nostartfiles -Xlinker --gc-sections -L/opt/riscv/riscv64-unknown-elf/lib/rv32imac/ilp32 -L/opt/riscv/lib/gcc/riscv64-unknown-elf/12.2.0/rv32imac/ilp32 -Wl,-Map,"mmRISC_SampleCPU.map" -nostartfiles -nostdlib -o "mmRISC_SampleCPU.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -78,6 +78,6 @@ clean:
 
 secondary-outputs: $(SECONDARY_FLASH) $(SECONDARY_SIZE)
 
-.PHONY: all clean dependents
+.PHONY: all clean dependents main-build
 
 -include ../makefile.targets
