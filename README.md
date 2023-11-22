@@ -6,31 +6,34 @@ For details, please refer PDF file under doc directory. <br>
 
 ## Technical Notes
 
-### 2021.12.26 Notes on Questa Sim
-If you use Questa Sim to simulate mmRISC-1, please add an option -voptargs="+acc" in vsim command.<br>
+### 2023.11.20 Following updates are applied.<br>
+(1) Added cJTAG (2-wire compact JTAG) as the debug interface. You can select the debug interface from JTAG or cJTAG.<br>
+(2) Added alternative Halt-On-Reset, controlled by a hardware input signal level, instead of the one in standard RISC-V debug function.<br>
+(3) Added a new JTAG DR register for user’s multi purposes, for example, to configure the operation modes of the SoC from JTAG/cJTAG interface.<br>
+(4) The number of 32bit secure code for authentication is expanded from one to two.<br>
+(5) Supported low power mode (STBY).<br>
+(6) Added precise verification methods for floating point operations. Corrected RTL code in conversion from float to int (cpu_fpu32.v).<br>
+(7) Added a application program; Tic-Tac-Toe AI Game on Touch LCD panel.<br>
 
-### 2021.12.31 Some modifications except for mmRISC Core
-Followings are updated. Main RTL Body of mmRISC is not modified due to no bugs found yet.<br>
-  (1) Added MRET and WFI descriptions in Technical Reference Manual Rev.02. <br>
-  (2) Supported Questa as logic simulator. To do so, add an option -voptargs="+acc" in vsim command. <br>
-  (3) Supported Initialization of Instruction RAM in FPGA using .mif file. A conversion tool hex2mif is added in tools directory. <br>
-  (4) Updated JTAG interface schematic. <br>
-  (5) Changed operation of application mmRISC_SampleCPU. <br>
-  (6) Add a retro text video game StarTrek as an application. <br>
-  
-### 2022.02.12 Fixed a bug in HALT/RESUME operations of mmRISC Core
-  BUG: Sometimes ignored HALT/RESUME Requests from Debugger during ID Stage is being stalled due to memory wait cycles. <br>
-  WHY: DBG_HALT_ACK  and DBG_RESUME_ACK are asserted in one cycle even during ID stallings. If these ACK signals are asserted, corresponding DBG_HALT_REQ and DBG_RESUME_REQ are immediately negated, then the pipeline control may ignore DBG_HALT_REQ and DBG_RESUME_REQ. <br>
-  FIX: DBG_HALT_ACK and DBG_RESUME_ACK are asserted only at last of ID stages after its stalls in cpu_pipeline.v. <br>
-  
-### 2022.03.20 Fixed following bugs in Floating Point Instructions in mmRISC Core
-  BUG1: FMV W.X and FMV X.W sometimes could not transfer correct data according to pipeline stall or wait-cycle timing. <br>
-  WHY1: EX_FPU_DSTDATA was active only when EX_ALU_DST1 was asserted.  <br>
-  FIX1: EX_FPU_DSTDATA is connected from ex_busZ directly in cpu_datapath.v. EX_FPU_SRCDATA is stretched until next updating in cpu_fpu32.v. <br>
-  <br>
-  BUG2: In FLW (load) followed by FMADD.S/FMSUB.S/FNMSUB.S/FNMADD.S, FMADDs did not use latest loaded data in src3. <br>
-  WHY2: The register contention check between FLW's destination and FMADD's source 3 (src3) was not implemented. <br>
-  FIX2: Contention check between FLW's destination and FMADD's source 3 (src3) is implemented in cpu_pipeline.v. <br>
+### 2022.05.04 Repaired directory contentes in riscv-arch-test and riscv-tests
+Some files and directories were lacked in riscv-arch-test and riscv-tests. Repaired them.<br>
+
+### 2022.05.03 Corrected Test Banch Codes
+(1) In simulation/modelsim/mmRISC_Simulation, simulation/modelsim/riscv-tests and simulation/modelsim/riscv-arch-test, corrected test banch top RTL (tb_TOP.v) and simulation script (sim_TOP.do) in each directory.<br>
+(2) Correct minor typo in comment of uart.v.<br>
+(3) Body RTL codes of mmRISC and its SOC(FPGA) do not have any bugs.<br> 
+
+### 2022.05.01 Added Simple SPI, one more I2C in FPGA. Added an application mmRISC_TouchLCD
+(1) Added SPI, one more I2C.<br>
+(2) Wrote know-hows in Technical Reference Manual to use Raspberry Pi as a Development Environment including OpenOCD interface. Added an example of openocd script for Raspberry Pi in directory "openocd".<br>
+(3) In application mmRISC_SampleCPU, added access of Acceleration Sensor on MAX10-Lite board through I2C interface.<br>
+(4) Added new application mmRISC_TouchLCD which handles Adafruit-2-8-tft-touch-shield-v2 with Resistive Touch Panel or Capacitive Touch Panel for Arduino.<br>
+(5) In each sample program, baud rate of UART is unified to 115200bps.<br>
+
+### 2022.05.01 Fixed Operation of RV32F Instruction in which source registers are FRn and destination register is XRn. 
+ BUG : When RV32F Instruction in which destination register is XRn, such as FMV.X.W, FCLASS.S, FCMP,FCVT.W(U).S and FCMP.S, is followed by an instruction in which above XRn is used as source register, sometimes the source value is old one that has not been updated by the RV32F instruction.<br>
+ WHY : Incorrect instruction stallings.<br>
+ FIX : Make the RV32F instruction in which its destination is XRn be multicycle instruction in each. Updated cpu_pipeline.v and cpu_fpu32.v.<br>
 
 ### 2022.03.20 (2) Added Simple I2C and SDRAM Interface in FPGA
  Followings are updated. <br> 
@@ -42,34 +45,32 @@ Followings are updated. Main RTL Body of mmRISC is not modified due to no bugs f
  0x90000000-(128KB) Internal Instruction RAM <br>
  * The Technical Reference Manual has not been updated along with above updates. Please wait for a while. <br>
 
-### 2022.05.01 Fixed Operation of RV32F Instruction in which source registers are FRn and destination register is XRn. 
- BUG : When RV32F Instruction in which destination register is XRn, such as FMV.X.W, FCLASS.S, FCMP,FCVT.W(U).S and FCMP.S, is followed by an instruction in which above XRn is used as source register, sometimes the source value is old one that has not been updated by the RV32F instruction.<br>
- WHY : Incorrect instruction stallings.<br>
- FIX : Make the RV32F instruction in which its destination is XRn be multicycle instruction in each. Updated cpu_pipeline.v and cpu_fpu32.v.<br>
+### 2022.03.20 Fixed following bugs in Floating Point Instructions in mmRISC Core
+  BUG1: FMV W.X and FMV X.W sometimes could not transfer correct data according to pipeline stall or wait-cycle timing. <br>
+  WHY1: EX_FPU_DSTDATA was active only when EX_ALU_DST1 was asserted.  <br>
+  FIX1: EX_FPU_DSTDATA is connected from ex_busZ directly in cpu_datapath.v. EX_FPU_SRCDATA is stretched until next updating in cpu_fpu32.v. <br>
+  <br>
+  BUG2: In FLW (load) followed by FMADD.S/FMSUB.S/FNMSUB.S/FNMADD.S, FMADDs did not use latest loaded data in src3. <br>
+  WHY2: The register contention check between FLW's destination and FMADD's source 3 (src3) was not implemented. <br>
+  FIX2: Contention check between FLW's destination and FMADD's source 3 (src3) is implemented in cpu_pipeline.v. <br>
 
-### 2022.05.01 Added Simple SPI, one more I2C in FPGA. Added an application mmRISC_TouchLCD
-(1) Added SPI, one more I2C.<br>
-(2) Wrote know-hows in Technical Reference Manual to use Raspberry Pi as a Development Environment including OpenOCD interface. Added an example of openocd script for Raspberry Pi in directory "openocd".<br>
-(3) In application mmRISC_SampleCPU, added access of Acceleration Sensor on MAX10-Lite board through I2C interface.<br>
-(4) Added new application mmRISC_TouchLCD which handles Adafruit-2-8-tft-touch-shield-v2 with Resistive Touch Panel or Capacitive Touch Panel for Arduino.<br>
-(5) In each sample program, baud rate of UART is unified to 115200bps.<br>
+### 2022.02.12 Fixed a bug in HALT/RESUME operations of mmRISC Core
+  BUG: Sometimes ignored HALT/RESUME Requests from Debugger during ID Stage is being stalled due to memory wait cycles. <br>
+  WHY: DBG_HALT_ACK  and DBG_RESUME_ACK are asserted in one cycle even during ID stallings. If these ACK signals are asserted, corresponding DBG_HALT_REQ and DBG_RESUME_REQ are immediately negated, then the pipeline control may ignore DBG_HALT_REQ and DBG_RESUME_REQ. <br>
+  FIX: DBG_HALT_ACK and DBG_RESUME_ACK are asserted only at last of ID stages after its stalls in cpu_pipeline.v. <br>
+  
+### 2021.12.31 Some modifications except for mmRISC Core
+Followings are updated. Main RTL Body of mmRISC is not modified due to no bugs found yet.<br>
+  (1) Added MRET and WFI descriptions in Technical Reference Manual Rev.02. <br>
+  (2) Supported Questa as logic simulator. To do so, add an option -voptargs="+acc" in vsim command. <br>
+  (3) Supported Initialization of Instruction RAM in FPGA using .mif file. A conversion tool hex2mif is added in tools directory. <br>
+  (4) Updated JTAG interface schematic. <br>
+  (5) Changed operation of application mmRISC_SampleCPU. <br>
+  (6) Add a retro text video game StarTrek as an application. <br>
 
-### 2022.05.03 Corrected Test Banch Codes
-(1) In simulation/modelsim/mmRISC_Simulation, simulation/modelsim/riscv-tests and simulation/modelsim/riscv-arch-test, corrected test banch top RTL (tb_TOP.v) and simulation script (sim_TOP.do) in each directory.<br>
-(2) Correct minor typo in comment of uart.v.<br>
-(3) Body RTL codes of mmRISC and its SOC(FPGA) do not have any bugs.<br> 
- 
-### 2022.05.04 Repaired directory contentes in riscv-arch-test and riscv-tests
-Some files and directories were lacked in riscv-arch-test and riscv-tests. Repaired them.<br>
+### 2021.12.26 Notes on Questa Sim
+If you use Questa Sim to simulate mmRISC-1, please add an option -voptargs="+acc" in vsim command.<br>
 
-### 2023.11.20 Following updates are applied.<br>
-(1) Added cJTAG (2-wire compact JTAG) as the debug interface. You can select the debug interface from JTAG or cJTAG.<br>
-(2) Added alternative Halt-On-Reset, controlled by a hardware input signal level, instead of the one in standard RISC-V debug function.<br>
-(3) Added a new JTAG DR register for user’s multi purposes, for example, to configure the operation modes of the SoC from JTAG/cJTAG interface.<br>
-(4) The number of 32bit secure code for authentication is expanded from one to two.<br>
-(5) Supported low power mode (STBY).<br>
-(6) Added precise verification methods for floating point operations. Corrected RTL code in conversion from float to int (cpu_fpu32.v).<br>
-(7) Added a application program; Tic-Tac-Toe AI Game on Touch LCD panel.<br>
 
 ## ISA
 RV32IM[A][F]C (configurable)
@@ -125,11 +126,12 @@ Verilog-2001 / System Verilog <br>
 Vector Simluation <br>
 RISC-V Compliance Test “riscv-arch-test” for I/C/M/Zifence/Privileged <br>
 RISC-V Unit Test “riscv-tests” including Atomic and Floating Point ISA <br>
+Comparison between TestFloat and RV32F on FPGA <br>
 
 ## FPGA Proven
 DE10-Lite Board (Intel MAX 10 10M50DAF484C7G) <br>
-JTAG Interface (FT2232D) <br>
-Eclipse <br>
+cTAG/JTAG Interface (FT2232D) <br>
+Eclipse + Gnu Toolchains + OpenOCD <br>
 
 ## Sample Programs
 Simple CPU Sample Program <br>
@@ -138,4 +140,5 @@ FreeRTOS Porting (Blinky) <br>
 Dhrystone Benchmark <br>
 Coremark Benchmark <br>
 Retro StarTrek Game <br>
-Touch LCD Panal Demo <br>
+Touch LCD Panel Demo : Paint and Gravity Ball <br>
+Touch LCD Panel Demo : Human vs CPU Tic-Tac-Toe <br>
