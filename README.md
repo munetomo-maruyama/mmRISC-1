@@ -14,6 +14,7 @@ For details, please refer PDF file under doc directory. <br>
 (5) Supported low power mode (STBY).<br>
 (6) Added precise verification methods for floating point operations. Corrected RTL code in conversion from float to int (cpu_fpu32.v).<br>
 (7) Added a application program; Tic-Tac-Toe AI Game on Touch LCD panel.<br>
+(8) Fixed a bug in priority tournament logic in interrupt controller (cpu_csr_int.v).<br>
 
 ### 2022.05.04 Repaired directory contentes in riscv-arch-test and riscv-tests
 Some files and directories were lacked in riscv-arch-test and riscv-tests. Repaired them.<br>
