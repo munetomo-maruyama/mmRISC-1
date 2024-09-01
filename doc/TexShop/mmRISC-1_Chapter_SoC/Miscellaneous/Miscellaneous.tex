@@ -15,10 +15,10 @@
     When you use 2-wire cJTAG, if the module \seqsplit{CJTAG\_2\_JTAG} detects that the TMSC is set to low when reset is released, the module asserts \seqsplit{FORCE\_HALT\_ON\_RESET\_REQ}.
     
     \item[cJTAG]\mbox{}\\
-    This feature is explained in Section \ref{sec:cJTAG}. If you use conventional 4-wire JTAG for the debug interface, please disable \textasciigrave define ENABLE\_CJTAG switch in common/defines\_chip.v. On the other hand, if you use 2-wire cJTAG interface for the debug interface, please enable the define switch. \\
-    In the case of using 2-wire cJTAG,  the cJTAG Implementation for Silicon (SoC) is shown in Figure \ref{fig:cJTAG_SoC}. At the same layer of mmRISC, a converter from cJTAG to JTAG (CJTAG\_2\_JTAG) is instantiated. The I/O buffer block including TCKC and TMSC should handle both the pull-up and the bus keeper function as described in Section \ref{sec:cJTAG_PINCTRL} which are supported by the CJTAG\_2\_JTAG block. The method to control the I/O Port for cJTAG Pins is shown in Listing \ref{list:cJTAG_IOCTRL}.\\
+    This feature is explained in Section \ref{sec:cJTAG}. If you use conventional 4-wire JTAG for the debug interface, please set the signal level of "enable\_cjtag" to low in chip\_top\_wrap.v. On the other hand, if you use 2-wire cJTAG interface for the debug interface, please set the signal level of "enable\_cjtag" to high. The signal  "enable\_cjtag" is connected to GPIO2[6] corresponding to SW6 on DE10-Lite board in order to test both cases.\\
+    In the case of using 2-wire cJTAG,  the cJTAG Implementation for Silicon (SoC) is shown in Figure \ref{fig:cJTAG_SoC}. At the same layer of mmRISC, a converter from cJTAG to JTAG (CJTAG\_2\_JTAG) is instantiated. In the I/O buffer block, the TCKC should have pull-up function, and the TMSC should have both pull-up and bus-keeper functions, as described in Section \ref{sec:cJTAG_PINCTRL} which are supported by the CJTAG\_2\_JTAG block. The method to control the I/O Port for cJTAG Pins is shown in Listing \ref{list:cJTAG_IOCTRL}.\\
     An example of a cJTAG Implementation for FPGA and Test Bench is shown in Figure \ref{fig:cJTAG_FPGA}. In this system, the CHIP\_TOP layer, which is the SoC top layer, is surrounded by an additional upper layer \seqsplit{CHIP\_TOP\_WRAP}. The cJTAG Adapter described in Section \ref{sec:cJTAG_ADAPTER} is located as CJTAG\_ADAPTER in the layer \seqsplit{CHIP\_TOP\_WRAP}. The cJTAG external pin controls described in Section \ref{sec:cJTAG_PINCTRL} are also performed in the layer CHIP\_TOP\_WRAP.\\
-    If you want to realize a cJTAG Adapter which follows the cJTAG standard specification as described in the last paragraph of Section \ref{sec:cJTAG_ADAPTER}, the CJTAG\_ADAPTER block should receive reset and clock from the layer CHIP\_TOP\_WRAP and watch the cJTAG protocol sequence like the CJTAG\_2\_JTAG block does.
+    If you want to realize a cJTAG Adapter which completely follows the cJTAG standard specification as described in the last paragraph of Section \ref{sec:cJTAG_ADAPTER}, the CJTAG\_ADAPTER block should receive reset and clock from the layer CHIP\_TOP\_WRAP and watch the cJTAG protocol sequence like the CJTAG\_2\_JTAG block does.
     
     \item[Security (Authentication)]\mbox{}\\
     This feature is explained in Section \ref{sec:SECURITY}. As shown in Figure \ref{fig:SECURITY}, there are three input signals related to security. In the SoC, the security feature is controlled by a switch on the FPGA board. The DEBUG\_SECURE is connected to GPIO2[9] which is the SW9, so when the switch is ON, the DEBUG\_SECURE becomes 1. The \seqsplit{DEBUG\_SECURE\_CODE\_0[31:0]} is fixed to 32'h12345678, and the \seqsplit{DEBUG\_SECURE\_CODE\_1[31:0]} is fixed to 32'hbeefcafe, respectively. To debug the secure SoC, you should write "riscv autodata\_write" command in the OpenOCD configuration file as shown in Listing \ref{list:SECURE_OPENOCD}.
@@ -37,31 +37,31 @@
         %-------------------------------------
         \rowcolor{LightPurple}
         \textasciigrave USE \lb \_FORCE \lb \_HALT\_ON \lb \_RESET &
-        \textasciigrave ENABLE \lb \_CJTAG &
+        signal level of \lb "enable\_cjtag" in \lb chip\_top\_wrap.v&
         ~&
         ~
         \nextRow \hline
         %-------------------------------------
         OFF &
-        OFF &
+        LOW &
         JTAG \lb (4-wire) &
         N/A \lb (The CPU always runs after reset.)
         \nextRow \hline
         %-------------------------------------
         OFF &
-        ON &
+        HIGH &
         cJTAG \lb (2-wire) &
         N/A \lb (The CPU always runs after reset.)
         \nextRow \hline
         %-------------------------------------
         ON &
-        OFF &
+        LOW &
         JTAG \lb (4-wire) &
         When the reset (res\_org) is deasserted, if GPIO2[10] (a push switch KEY1 on the DE10-Lite FPGA board) is at a low level, the \seqsplit{FORCE\_HALT\_ON\_RESET\_REQ}, which is an input of mmRISC-1 core, becomes 1. The \seqsplit{FORCE\_HALT\_ON\_RESET\_REQ} will be cleared when \seqsplit{FORCE\_HALT\_ON\_RESET\_ACK} is asserted. This means, if you push the KEY1 on the FPGA board when releasing a push switch KEY0 (RES\_N), the CPU enters a halt state and does not execute instructions. Once the debugger issues a resume command, the CPU starts its instruction execution.
         \nextRow \hline
         %-------------------------------------
         ON &
-        ON &
+        HIGH &
         cJTAG \lb (2-wire) &
         When the reset (res\_org) is deasserted, if the input level of TMSC is at a low level, the \seqsplit{FORCE\_HALT\_ON\_RESET\_REQ} is asserted by the cjtag\_2\_jtag.v. The \seqsplit{FORCE\_HALT\_ON\_RESET\_REQ} will be cleared when \seqsplit{FORCE\_HALT\_ON\_RESET\_ACK} is asserted. The cjtag\_adapter.v in the top layer of the SoC, which is chip\_top\_wrap.v, sets the TMSC to 0 when the \seqsplit{RESET\_HALT\_N}, which is connected to GPIO2[10] (a push switch KEY1 on the DE10-Lite FPGA board), is at a low level, the TMSC becomes 0. This means, if you push the KEY1 on the FPGA board when releasing a push switch KEY0 (RES\_N), the CPU enters a halt state and does not execute instructions. Once the debugger issues a resume command, the CPU starts its instruction execution.
         \nextRow \hline
@@ -77,7 +77,7 @@
     This feature is explained in Section \ref{sec:LOWPOWERMODE}. In the SoC, when an input signal of STBY\_REQ which is connected to SW8 on the FPGA board is high, the chip top layer requests the mmRISC-1 core to enter into the stand-by mode, and a stand-by acknowledge signal is connected to an output signal STBY\_ACK\_N which is connected to HEX57 which is the decimal point of 7-segment LED "HEX5". In the SoC, the system clock is not stopped during stand-by mode, therefore, the debug operations via JTAG or cJTAG can be accepted.
 
     \item[Slow Clock]\mbox{}\\
-    To verify that the magnitude of the ratio between the system clock (clk) frequency and the JTAG/cJTAG clock (TCK/TCKC) frequency is acceptable in the mmRISC-1 core, the system clock can be selected from fast (16MHz or 20MHz) or slow (100KH) by setting level of GPIO2[7] at any time. If the GPIO2[7] is low level, the system clock becomes fast. Details are described in Section \ref{sec:CLOCKRESETSOC}.
+    To verify that the any magnitude of the ratio between the system clock (clk) frequency and the JTAG/cJTAG clock (TCK/TCKC) frequency is acceptable in the mmRISC-1 core, the system clock can be selected from fast (16MHz or 20MHz) or slow (100KH) by setting level of GPIO2[7] at any time. If the GPIO2[7] is low level, the system clock becomes fast. Details are described in Section \ref{sec:CLOCKRESETSOC}.
 
 
 \end{description}

@@ -20,11 +20,11 @@
 //`define JTAG_FAST
 //
 `ifdef JTAG_FAST
-    `define TB_TCYC_CLK  100 //ns (10MHz)
-    `define TB_TCYC_TCLK 20  //ns (50MHz)
+    `define TB_TCYC_CLK 100 //ns (10MHz)
+    `define TB_TCYC_TCK  20 //ns (50MHz)
 `else
-    `define TB_TCYC_CLK  20  //ns (50MHz)
-    `define TB_TCYC_TCLK 100 //ns (10MHz)
+    `define TB_TCYC_CLK  20 //ns (50MHz)
+    `define TB_TCYC_TCK 100 //ns (10MHz)
 `endif
 //
 `define TB_STOP 400000 //cyc
@@ -34,6 +34,12 @@
 // Top of Testbench
 //------------------------
 module tb_TOP;
+
+//--------------------
+// JTAG or cJTAG
+//--------------------
+reg tb_enable_cjtag; // selection whether using JTAG or cJTAG
+
 
 //-------------------------------
 // Generate Clock
@@ -261,16 +267,18 @@ endgenerate
 reg  tb_stby;
 reg  tb_debug_secure;
 reg  tb_reset_halt_n;
-assign gpio2[ 9] = tb_debug_secure;
 assign gpio2[10] = tb_reset_halt_n;
+assign gpio2[ 9] = tb_debug_secure;
+assign gpio2[ 8] = tb_stby;
 assign gpio2[ 7] = tb_clk_speed;
+assign gpio2[ 6] = tb_enable_cjtag;
 //
 CHIP_TOP_WRAP U_CHIP_TOP_WRAP
 (
     .RES_N (~tb_res),
     .CLK50 (tb_clk),
     //
-    .STBY_REQ   (tb_stby),
+//  .STBY_REQ   (tb_stby),
     .STBY_ACK_N (),
     //
     .RESOUT_N (),
@@ -367,11 +375,31 @@ sdr U_SDRAM
 // Task ; JTAG_INIT_PIN
 //--------------------------
 task Task_JTAG_INIT_PIN();
-    tb_tck = 1'b1;
-    tb_tms = 1'b1;
-    tb_tdi = 1'bx;
-    tb_trst_n = 1'b1;
-    tb_srst_n = 1'bz;    
+    if (tb_enable_cjtag)
+    begin
+        // Compact JTAG
+        tb_tck = 1'b0;
+        tb_tms = 1'b0;
+        tb_tdi = 1'b1;
+        tb_trst_n = 1'b1;
+        tb_srst_n = 1'bz;
+        #(`TB_TCYC_TCK);
+      //tb_reset_halt_n = 1'b1;
+        tb_tms = 1'b1;
+    end
+    else
+    begin
+        // Normal JTAG
+        tb_tck = 1'b0;
+        tb_tms = 1'b0;
+        tb_tdi = 1'bx;
+        tb_trst_n = 1'b1;
+        tb_srst_n = 1'bz;
+        #(`TB_TCYC_TCK);
+      //tb_reset_halt_n = 1'b1;
+    end
+    #(`TB_TCYC_TCK * 1);
+    $display("----JTAG_INIT_PIN");
 endtask
 
 //------------------------
@@ -379,6 +407,8 @@ endtask
 //------------------------
 initial
 begin
+    tb_stby         = 1'b0;
+    tb_enable_cjtag = 1'b0;
     Task_JTAG_INIT_PIN();
 end
 

@@ -214,7 +214,7 @@ RTL files of mmRISC-1 tiny SoC are shown in Table \ref{tb:CHIPRTLFILES}, and the
         fpga &
         PLL.v &
         PLL IP for FPGA \lb
-        (50MHz –> 20MHz and 16.667MHz) &
+        (50MHz \UTF{2013}> 20MHz and 16.667MHz) &
         ~
         \nextRow \hline
         %-------------------------------------
@@ -231,7 +231,11 @@ RTL files of mmRISC-1 tiny SoC are shown in Table \ref{tb:CHIPRTLFILES}, and the
     \label{tb:CHIPRTLFILES}
 \end{table}
 
-Basically, the debug interface is 4-wire JTAG, but you can use 2-wire cJTAG (Compact JTAG) instead. To select the debug interface from either 4-wire JTAG or 2-wire cJTAG, please use a define switch "\textasciigrave define ENABLE\_CJTAG" in verilog/common/defines\_core.v". When using 4-wire JTAG, please comment out the \textasciigrave define statement, whereas when using 2-wire cJTAG, leave the \textasciigrave define statement as active. The chip top RTL is surrounded by chip\_top\_wrap.v as shown in Figure \ref{fig:cJTAG_FPGA}. When selecting cJTAG interface, the cjtag\_adapters.v is included in the layer of chip\_top\_wrap.v, and cjtag\_2\_jtag.v is included in the layer of chip\_top.v. Even when selecting JTAG interface, to make the structure of chip top same as cJTAG version the chip top layer is also chip\_top\_wrap.v and unnecessary cJTAG related logics are eliminated by the \textasciigrave define switch.
+Basically, the debug interface of mmRISC-1 is 4-wire JTAG, but you can use 2-wire cJTAG (Compact JTAG) instead. The chip top RTL is surrounded by chip\_top\_wrap.v as shown in Figure \ref{fig:cJTAG_FPGA}. You can switch the debug interface between 4-wire JTAG or 2-wire cJTAG by setting the signal level of "enable\_cjtag" in chip\_top\_wrap.v. This signal is connected to GPIO2[6] to test both cases, as described in Section\ref{sec:cJTAG_FPGA}.
+
+When selecting cJTAG interface, the cjtag\_adapters.v is activated in the layer of chip\_top\_wrap.v, and cjtag\_2\_jtag.v is utilized in the layer of chip\_top.v. 
+
+The SoC RTL structure contains cJTAG related logics even when you do not use cJTAG interface. When you fix the signal "enable\_cjtag" to low level and synthesize whole SoC RTL, the unnecessary cJTAG related logics will be eliminated by the logic synthesizing tool.
 
 \begin{figure}[H]
     \includegraphics[width=1.0\columnwidth]{./Figure/CHIPRTLStructure.png}

@@ -258,7 +258,7 @@ assign BUSI_M_REQ = (fetch_start_pending | (fetch_req & ~fifo_room_full_issue)) 
 //assign BUSI_M_REQ = (fetch_start_pending | fetch_req) & ~FETCH_STOP & ~fifo_room_full_issue;
 //assign BUSI_M_REQ = fetch_start_pending | (fetch_req & ~FETCH_STOP & ~fifo_room_full_issue);
 assign BUSI_M_SEQ   = ~fetch_start_pending;
-assign BUSI_M_CONT  = fetch_req;
+assign BUSI_M_CONT  = fetch_req & ~FETCH_STOP; //fetch_req;
 assign BUSI_M_BURST = 3'b001; // INCR: undefined length including single burst. 
 assign BUSI_M_LOCK  = 1'b0;
 assign BUSI_M_PROT  = 4'b0010; // Privileded, Instruction
@@ -307,7 +307,7 @@ assign fifo_room_full_body   = (fifo_count_body  >= 4'b1000);
 assign fifo_we_issue = BUSI_M_REQ & BUSI_M_ACK; // including ~fifo_room_full_issue
 assign fifo_re_issue = fifo_re_body;
 assign fifo_cw_issue = fetch_start_ack; //FETCH_START & FETCH_ACK; //fifo_we_issue & ~BUSI_M_SEQ;
-assign fifo_cl_issue = 1'b0; //FETCH_STOP;
+assign fifo_cl_issue = FETCH_STOP; //1'b0; //FETCH_STOP;
 //
 //assign fifo_we_body = BUSI_M_LAST & if_busy; // must not be full state
 assign fifo_we_body = BUSI_M_LAST & if_busy & ~fifo_room_full_body;

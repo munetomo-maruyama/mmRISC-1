@@ -18,11 +18,17 @@
 #include "uart.h"
 #include "xprintf.h"
 
+//-----------------------
+// Global Variable
+//-----------------------
+uint32_t uart_rxd_data = 0;
+
 //------------------------
 // UART Interrupt Handler
 //------------------------
 void INT_UART_Handler(void)
 {
+    /*
     static uint32_t data0 = 0;;
     static uint32_t data1 = 0;;
     static uint32_t data2 = 0;;
@@ -35,6 +41,10 @@ void INT_UART_Handler(void)
     GPIO_SetSEG(data32);
     UART_TxD(data0);     // TXD
     if (data0 == '\r') UART_TxD((uint8_t)'\n');
+    */
+    uart_rxd_data = (uint32_t) UART_RxD(); // RXD
+    UART_TxD(uart_rxd_data);
+    if (uart_rxd_data == '\r') UART_TxD((uint8_t)'\n');
 }
 
 //----------------------

@@ -9,85 +9,85 @@
 \contentsline {section}{\numberline {1.7}Clock \& Reset}{11}{section.1.7}%
 \contentsline {section}{\numberline {1.8}Exceptions}{12}{section.1.8}%
 \contentsline {section}{\numberline {1.9}Interrupts and INTC (Interrupt Controller)}{14}{section.1.9}%
-\contentsline {section}{\numberline {1.10}Memory Model}{19}{section.1.10}%
-\contentsline {section}{\numberline {1.11}CSR Map List}{20}{section.1.11}%
-\contentsline {section}{\numberline {1.12}Other Register Map List except for CSR}{22}{section.1.12}%
-\contentsline {section}{\numberline {1.13}Machine Mode CSR}{24}{section.1.13}%
-\contentsline {section}{\numberline {1.14}Machine Mode MTIME (Memory Mapped)}{28}{section.1.14}%
-\contentsline {section}{\numberline {1.15}INTC (Interrupt Controller) CSR}{30}{section.1.15}%
-\contentsline {section}{\numberline {1.16}Floating Point CSR}{31}{section.1.16}%
-\contentsline {section}{\numberline {1.17}Debug CSR}{33}{section.1.17}%
-\contentsline {section}{\numberline {1.18}Debug Trigger Module CSR}{34}{section.1.18}%
-\contentsline {section}{\numberline {1.19}DTM (Debug Transport Module) JTAG Register}{37}{section.1.19}%
-\contentsline {section}{\numberline {1.20}DM (Debug Module) Register}{39}{section.1.20}%
-\contentsline {section}{\numberline {1.21}DM (Debug Module) Register : Abstract Command}{43}{section.1.21}%
-\contentsline {section}{\numberline {1.22}DM (Debug Module) Register : Abstract Command}{45}{section.1.22}%
-\contentsline {section}{\numberline {1.23}CPU Pipeline Structure}{46}{section.1.23}%
-\contentsline {section}{\numberline {1.24}FPU Pipeline Structure}{48}{section.1.24}%
-\contentsline {section}{\numberline {1.25}32bit ISA Specifications}{50}{section.1.25}%
-\contentsline {section}{\numberline {1.26}16bit ISA Specifications}{52}{section.1.26}%
-\contentsline {section}{\numberline {1.27}32bit ISA Code Assignments}{53}{section.1.27}%
-\contentsline {section}{\numberline {1.28}16bit ISA Code Assignments}{55}{section.1.28}%
-\contentsline {section}{\numberline {1.29}JTAG Data Register for User}{56}{section.1.29}%
-\contentsline {section}{\numberline {1.30}Halt on Reset}{57}{section.1.30}%
-\contentsline {section}{\numberline {1.31}cJTAG (Compact JTAG)}{59}{section.1.31}%
-\contentsline {subsection}{\numberline {1.31.1}cJTAG Signal Sequence}{59}{subsection.1.31.1}%
-\contentsline {subsection}{\numberline {1.31.2}cJTAG TCKC/TMSC Pin Controls}{60}{subsection.1.31.2}%
-\contentsline {subsection}{\numberline {1.31.3}cJTAG Halt on Reset}{61}{subsection.1.31.3}%
-\contentsline {subsection}{\numberline {1.31.4}cJTAG Adapter (FTDI)}{61}{subsection.1.31.4}%
-\contentsline {subsection}{\numberline {1.31.5}cJTAG Implementation for Silicon (SoC)}{63}{subsection.1.31.5}%
-\contentsline {subsection}{\numberline {1.31.6}cJTAG Implementation for FPGA and Test Bench}{64}{subsection.1.31.6}%
-\contentsline {section}{\numberline {1.32}Security (Authentication)}{65}{section.1.32}%
-\contentsline {section}{\numberline {1.33}Low Power Mode}{66}{section.1.33}%
-\contentsline {chapter}{\numberline {2}mmRISC-1 Tiny SoC for FPGA}{69}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Overview of SoC}{70}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Block Diagram of SoC}{71}{section.2.2}%
-\contentsline {section}{\numberline {2.3}RTL Files and Structure of SoC}{73}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Input / Output Signals of SoC}{75}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Clock \& Reset for SoC}{76}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Memory Map}{78}{section.2.6}%
-\contentsline {section}{\numberline {2.7}Interrupt Assignment}{79}{section.2.7}%
-\contentsline {section}{\numberline {2.8}Multi-Layer AHB Bus Matrix}{80}{section.2.8}%
-\contentsline {section}{\numberline {2.9}Peripheral : RAM (Instruction / Data)}{83}{section.2.9}%
-\contentsline {section}{\numberline {2.10}Peripheral : SDRAM Controller)}{84}{section.2.10}%
-\contentsline {section}{\numberline {2.11}Peripheral : Peripheral : Interrupt Generator (INT\_GEN)}{85}{section.2.11}%
-\contentsline {section}{\numberline {2.12}Peripheral : UART}{87}{section.2.12}%
-\contentsline {section}{\numberline {2.13}Peripheral : I2C}{89}{section.2.13}%
-\contentsline {section}{\numberline {2.14}Peripheral : SPI}{92}{section.2.14}%
-\contentsline {section}{\numberline {2.15}Peripheral : GPIO}{95}{section.2.15}%
-\contentsline {section}{\numberline {2.16}Using Miscellaneous Features of mmRISC-1}{97}{section.2.16}%
-\contentsline {chapter}{\numberline {3}mmRISC-1 Simulations and Verifications}{101}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Development Environment and Tools}{102}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Github Repository Files}{103}{section.3.2}%
-\contentsline {section}{\numberline {3.3}RTL Verification Methods}{104}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Vector Simulation}{104}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}RISC-V Compliance Test "riscv-arch-test" \\ for ISA of I/C/M/Zicsr/Zifence/Privileged}{106}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}RISC-V Unit Test "riscv-tests" \\including Atomic and Floating Point ISA}{107}{subsection.3.3.3}%
-\contentsline {section}{\numberline {3.4}Verification of Floating Point Operations}{108}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Preparation of Test Cases by using Berkeley TestFloat}{108}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Verification of all Test Cases by using FPGA system}{112}{subsection.3.4.2}%
-\contentsline {chapter}{\numberline {4}mmRISC-1 FPGA Implementation}{115}{chapter.4}%
-\contentsline {section}{\numberline {4.1}FPGA Implementation}{116}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}FPGA Configurations}{116}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Initialization of Instruction RAM}{116}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}FPGA Pin Assignments}{118}{subsection.4.1.3}%
-\contentsline {subsection}{\numberline {4.1.4}TIPS: How to configure the FPGA on ARM based macOS environment}{120}{subsection.4.1.4}%
-\contentsline {section}{\numberline {4.2}JTAG/cJTAG Debugger Interface for OpenOCD}{123}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}USB to JTAG/cJTAG Interface for OpenOCD}{123}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Schematics of USB to JTAG/cJTAG Interface for OpenOCD}{123}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Connection between USB to JTAG/cJTAG Interface and target FPGA}{125}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Supplemental Circuit required to use cJTAG}{126}{subsection.4.2.4}%
-\contentsline {subsection}{\numberline {4.2.5}Raspberry Pi 4 Model B as a Development Environment}{126}{subsection.4.2.5}%
-\contentsline {section}{\numberline {4.3}SamplePrograms}{129}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Integer Instructions: "mmRISC\_SampleCPU"}{129}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Floating Point Instructions: "mmRISC\_SampleFPU"}{129}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Integer Instructions: "mmRISC\_Floating"}{130}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}FreeRTOS Porting "mmRISC\_FreeRTOS"}{130}{subsection.4.3.4}%
-\contentsline {subsection}{\numberline {4.3.5}Dhrystone benchmark "mmRISC\_Dhrystone"}{130}{subsection.4.3.5}%
-\contentsline {subsection}{\numberline {4.3.6}Coremark benchmark "mmRISC\_Coremark"}{130}{subsection.4.3.6}%
-\contentsline {subsection}{\numberline {4.3.7}A Retro Text Video Game "mmRISC\_StarTrek"}{131}{subsection.4.3.7}%
-\contentsline {subsection}{\numberline {4.3.8}A Touch LCD Demo "mmRISC\_TouchLCD"}{132}{subsection.4.3.8}%
-\contentsline {subsection}{\numberline {4.3.9}A Touch LCD Demo "mmRISC\_TicTacToe"}{134}{subsection.4.3.9}%
-\contentsline {chapter}{\numberline {5}Referenced Documents}{135}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Referenced Documents}{136}{section.5.1}%
-\contentsline {chapter}{}{137}{chapter*.207}%
+\contentsline {section}{\numberline {1.10}Memory Model}{22}{section.1.10}%
+\contentsline {section}{\numberline {1.11}CSR Map List}{23}{section.1.11}%
+\contentsline {section}{\numberline {1.12}Other Register Map List except for CSR}{25}{section.1.12}%
+\contentsline {section}{\numberline {1.13}Machine Mode CSR}{27}{section.1.13}%
+\contentsline {section}{\numberline {1.14}Machine Mode MTIME (Memory Mapped)}{31}{section.1.14}%
+\contentsline {section}{\numberline {1.15}INTC (Interrupt Controller) CSR}{33}{section.1.15}%
+\contentsline {section}{\numberline {1.16}Floating Point CSR}{35}{section.1.16}%
+\contentsline {section}{\numberline {1.17}Debug CSR}{37}{section.1.17}%
+\contentsline {section}{\numberline {1.18}Debug Trigger Module CSR}{38}{section.1.18}%
+\contentsline {section}{\numberline {1.19}DTM (Debug Transport Module) JTAG Register}{41}{section.1.19}%
+\contentsline {section}{\numberline {1.20}DM (Debug Module) Register}{43}{section.1.20}%
+\contentsline {section}{\numberline {1.21}DM (Debug Module) Register : Abstract Command}{47}{section.1.21}%
+\contentsline {section}{\numberline {1.22}DM (Debug Module) Register : Abstract Command}{49}{section.1.22}%
+\contentsline {section}{\numberline {1.23}CPU Pipeline Structure}{50}{section.1.23}%
+\contentsline {section}{\numberline {1.24}FPU Pipeline Structure}{52}{section.1.24}%
+\contentsline {section}{\numberline {1.25}32bit ISA Specifications}{54}{section.1.25}%
+\contentsline {section}{\numberline {1.26}16bit ISA Specifications}{56}{section.1.26}%
+\contentsline {section}{\numberline {1.27}32bit ISA Code Assignments}{57}{section.1.27}%
+\contentsline {section}{\numberline {1.28}16bit ISA Code Assignments}{59}{section.1.28}%
+\contentsline {section}{\numberline {1.29}JTAG Data Register for User}{60}{section.1.29}%
+\contentsline {section}{\numberline {1.30}Halt on Reset}{61}{section.1.30}%
+\contentsline {section}{\numberline {1.31}cJTAG (Compact JTAG)}{63}{section.1.31}%
+\contentsline {subsection}{\numberline {1.31.1}cJTAG Signal Sequence}{63}{subsection.1.31.1}%
+\contentsline {subsection}{\numberline {1.31.2}cJTAG TCKC/TMSC Pin Controls}{64}{subsection.1.31.2}%
+\contentsline {subsection}{\numberline {1.31.3}cJTAG Halt on Reset}{65}{subsection.1.31.3}%
+\contentsline {subsection}{\numberline {1.31.4}cJTAG Adapter (FTDI)}{65}{subsection.1.31.4}%
+\contentsline {subsection}{\numberline {1.31.5}cJTAG Implementation for Silicon (SoC)}{67}{subsection.1.31.5}%
+\contentsline {subsection}{\numberline {1.31.6}JTAG/cJTAG Implementation for FPGA and Test Bench}{68}{subsection.1.31.6}%
+\contentsline {section}{\numberline {1.32}Security (Authentication)}{69}{section.1.32}%
+\contentsline {section}{\numberline {1.33}Low Power Mode}{70}{section.1.33}%
+\contentsline {chapter}{\numberline {2}mmRISC-1 Tiny SoC for FPGA}{73}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Overview of SoC}{74}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Block Diagram of SoC}{75}{section.2.2}%
+\contentsline {section}{\numberline {2.3}RTL Files and Structure of SoC}{77}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Input / Output Signals of SoC}{79}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Clock \& Reset for SoC}{80}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Memory Map}{82}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Interrupt Assignment}{83}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Multi-Layer AHB Bus Matrix}{84}{section.2.8}%
+\contentsline {section}{\numberline {2.9}Peripheral : RAM (Instruction / Data)}{87}{section.2.9}%
+\contentsline {section}{\numberline {2.10}Peripheral : SDRAM Controller)}{88}{section.2.10}%
+\contentsline {section}{\numberline {2.11}Peripheral : Peripheral : Interrupt Generator (INT\_GEN)}{89}{section.2.11}%
+\contentsline {section}{\numberline {2.12}Peripheral : UART}{91}{section.2.12}%
+\contentsline {section}{\numberline {2.13}Peripheral : I2C}{93}{section.2.13}%
+\contentsline {section}{\numberline {2.14}Peripheral : SPI}{96}{section.2.14}%
+\contentsline {section}{\numberline {2.15}Peripheral : GPIO}{99}{section.2.15}%
+\contentsline {section}{\numberline {2.16}Using Miscellaneous Features of mmRISC-1}{101}{section.2.16}%
+\contentsline {chapter}{\numberline {3}mmRISC-1 Simulations and Verifications}{105}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Development Environment and Tools}{106}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Github Repository Files}{107}{section.3.2}%
+\contentsline {section}{\numberline {3.3}RTL Verification Methods}{108}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Vector Simulation}{108}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}RISC-V Compliance Test "riscv-arch-test" \\ for ISA of I/C/M/Zicsr/Zifence/Privileged}{110}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}RISC-V Unit Test "riscv-tests" \\including Atomic and Floating Point ISA}{111}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Verification of Floating Point Operations}{112}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Preparation of Test Cases by using Berkeley TestFloat}{112}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Verification of all Test Cases by using FPGA system}{115}{subsection.3.4.2}%
+\contentsline {chapter}{\numberline {4}mmRISC-1 FPGA Implementation}{119}{chapter.4}%
+\contentsline {section}{\numberline {4.1}FPGA Implementation}{120}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}FPGA Configurations}{120}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Initialization of Instruction RAM}{120}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}TIPS: How to configure the FPGA on ARM based macOS environment}{122}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}FPGA Pin Assignments}{123}{subsection.4.1.4}%
+\contentsline {section}{\numberline {4.2}JTAG/cJTAG Debugger Interface for OpenOCD}{126}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}USB to 4-wire JTAG Interface for OpenOCD}{126}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Connection to the target FPGA as 4-wire JTAG interface}{128}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Connection to the target FPGA as 2-wire cJTAG interface}{129}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Raspberry Pi 4 Model B as a Development Environment}{131}{subsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.2.5}Generic Commercial Development Environments}{132}{subsection.4.2.5}%
+\contentsline {section}{\numberline {4.3}SamplePrograms}{133}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Integer Instructions: "mmRISC\_SampleCPU"}{133}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Floating Point Instructions: "mmRISC\_SampleFPU"}{133}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Verifications of Floating Point Instructions: "mmRISC\_Floating"}{134}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}FreeRTOS Porting "mmRISC\_FreeRTOS"}{134}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}Dhrystone benchmark "mmRISC\_Dhrystone"}{134}{subsection.4.3.5}%
+\contentsline {subsection}{\numberline {4.3.6}Coremark benchmark "mmRISC\_Coremark"}{134}{subsection.4.3.6}%
+\contentsline {subsection}{\numberline {4.3.7}A Retro Text Video Game "mmRISC\_StarTrek"}{135}{subsection.4.3.7}%
+\contentsline {subsection}{\numberline {4.3.8}A Touch LCD Demo "mmRISC\_TouchLCD"}{136}{subsection.4.3.8}%
+\contentsline {subsection}{\numberline {4.3.9}A Touch LCD Demo "mmRISC\_TicTacToe"}{138}{subsection.4.3.9}%
+\contentsline {chapter}{\numberline {5}Referenced Documents}{141}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Referenced Documents}{142}{section.5.1}%
+\contentsline {chapter}{}{143}{chapter*.207}%

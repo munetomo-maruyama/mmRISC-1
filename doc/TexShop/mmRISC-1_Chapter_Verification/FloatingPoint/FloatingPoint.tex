@@ -47,14 +47,7 @@ The test case body for the 1-operand type has three columns, as shown in Listing
 
 The test case body for the 2-operands type has four columns, as shown in Listing \ref{list:TESTCASE2}. Each column represents a 32-bit or a 5-bit hexadecimal data. The meanings of each column are as follows: (1) The first and second columns are the 32-bit input data, (2) The third column is the expected 32-bit result data, (3) The fourth column is the expected 5-bit exception flag, which is explained in Table \ref{tb:TESTCASEFLAG}.\\
 
-The test case body for the 3-operands type has five columns, as shown in Listing \ref{list:TESTCASE3}. Each column represents a 32-bit or a 5-bit hexadecimal data. The meanings of each column are as follows: (1) The first, second, and third columns are the 32-bit input data, (2) The fourth column is the expected 32-bit result data, which is calculated as (first * second + third), (3) The fifth column is the expected 5-bit exception flag, which is explained in Table \ref{tb:TESTCASEFLAG}.\\
-
-
-\it{Note 1 : The test case file for 3-operands type is indeed very large. It contains more than 6,000,000 test cases for each rounding mode. You can reduce it by selecting some test cases at regular intervals using some tool such as sed or awk. For example, you can use the following command to extract every 250th line from the original file and save it as a new file:\\
-\texttt{sed -n '1~250p' original\_file > new\_file}\\
-This will reduce the number of test cases for each rounding mode, which is more manageable. You can also adjust the interval according to your preference.}\rm{}\\
-
-\it{Note 2 : For "testfloat\_N" for multiplication and addition, there should be FMADD.S as well as FMSUB.S, FNMSUB.S and FNMADD.S. In the floating-point logic of mmRISC-1, the only differences among these four instructions are how they apply the sign bit to each input data. Therefore, FMADD can represent the other instructions.}\rm{}\\
+The test case body for the 3-operands type has five columns, as shown in Listing \ref{list:TESTCASE3}. Each column represents a 32-bit or a 5-bit hexadecimal data. The meanings of each column are as follows: (1) The first, second, and third columns are the 32-bit input data, (2) The fourth column is the expected 32-bit result data, which is calculated as (first * second + third), (3) The fifth column is the expected 5-bit exception flag, which is explained in Table \ref{tb:TESTCASEFLAG}.
 
 \begin{table}[H]
     \begin{adjustbox}{scale={0.72}{0.8}}
@@ -154,6 +147,11 @@ This will reduce the number of test cases for each rounding mode, which is more 
     \label{tb:TESTFLOATGEN}
 \end{table}
 
+\it{Note 1 : The test case file for 3-operands type is indeed very large. It contains more than 6,000,000 test cases for each rounding mode. You can reduce it by selecting some test cases at regular intervals using some tool such as sed or awk. For example, you can use the following command to extract every 250th line from the original file and save it as a new file:\\
+\texttt{sed -n '1~250p' original\_file > new\_file}\\
+This will reduce the number of test cases for each rounding mode, which is more manageable. You can also adjust the interval according to your preference.}\rm{}\\
+
+\it{Note 2 : For "testfloat\_N" for multiplication and addition, there should be FMADD.S as well as FMSUB.S, FNMSUB.S and FNMADD.S. In the floating-point logic of mmRISC-1, the only differences among these four instructions are how they apply the sign bit to each input data. Therefore, FMADD can represent the other instructions.}\rm{}
 
 \begin{lstlisting}[caption=Example of Generated 1-Operand Test Case (testfloat\_F2S), label=list:TESTCASE1, captionpos=b,  language=, frame=single, basicstyle=\ttfamily\scriptsize]
 #SN

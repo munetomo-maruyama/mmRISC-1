@@ -303,6 +303,8 @@ wire        dbg_resume_ack;  // Resume Acknowledge
 wire [31:0] dbg_dpc_save;    // Debug PC to be saved
 wire [31:0] dbg_dpc_load;    // Debug PC to be loaded
 wire [ 2:0] dbg_cause;       // Debug Entry Cause
+//
+wire        csr_dcsr_step;   // Step bit in CSR_DCSR
 
 //-------------------------
 // Instruction Retired
@@ -329,6 +331,8 @@ wire [ 1:0] trg_req_inst; // Trigger Request by Instruction (bit1:action, bit0:h
 wire [ 1:0] trg_req_data; // Trigger Request by Data Access (bit1:action, bit0:hit)
 wire        trg_ack_inst; // Trigger Acknowledge for TRG_REQ_INST
 wire        trg_ack_data; // Trigger Acknowledge for TRG_REQ_DATA
+wire        trg_req_inst_mask;  // Mask Trigger Request by Instruction
+
 
 //-------------------
 // FPU Interface
@@ -594,6 +598,7 @@ CPU_PIPELINE U_CPU_PIPELINE
     .TRG_ACK_INST (trg_ack_inst), // Trigger Acknowledge for TRG_REQ_INST
     .TRG_ACK_DATA (trg_ack_data), // Trigger Acknowledge for TRG_REQ_DATA
     .TRG_CND_ICOUNT_DEC (trg_cnd_icount_dec), // ICOUNT Decrement
+    .TRG_REQ_INST_MASK (trg_req_inst_mask),   // Mask Trigger Request by Instruction
     //
     .INSTR_EXEC (instr_exec), // Instruction Retired
     .INSTR_ADDR (instr_addr), // Instruction Retired Address
@@ -779,6 +784,8 @@ CPU_CSR_DBG U_CPU_CSR_DBG
     .DBG_DPC_LOAD   (dbg_dpc_load),    // Debug PC to be loaded
     .DBG_CAUSE      (dbg_cause),       // Debug Entry Cause
     //
+    .CSR_DCSR_STEP  (csr_dcsr_step),   // Step bit in CSR_DCSR
+    //
     .INSTR_EXEC (instr_exec), // Instruction Retired
     //
     .TRG_CND_BUS        (trg_cnd_bus),
@@ -861,6 +868,9 @@ CPU_DEBUG U_CPU_DEBUG
     .TRG_REQ_DATA (trg_req_data), // Trigger Request by Data Access (bit1:action, bit0:hit)
     .TRG_ACK_INST (trg_ack_inst), // Trigger Acknowledge for TRG_REQ_INST
     .TRG_ACK_DATA (trg_ack_data), // Trigger Acknowledge for TRG_REQ_DATA
+    .TRG_REQ_INST_MASK (trg_req_inst_mask), // Mask Trigger Request by Instruction
+    //
+    .CSR_DCSR_STEP  (csr_dcsr_step),   // Step bit in CSR_DCSR
     //
     .INSTR_EXEC (instr_exec), // Instruction Retired
     .INSTR_ADDR (instr_addr), // Instruction Retired Address

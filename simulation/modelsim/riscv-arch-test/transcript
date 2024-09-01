@@ -1,7 +1,7 @@
 # //  Questa Intel Starter FPGA Edition-64
-# //  Version 2021.2 win64 Apr 14 2021
+# //  Version 2023.3 win64 Jul 17 2023
 # //
-# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  Copyright 1991-2023 Mentor Graphics Corporation
 # //  All Rights Reserved.
 # //
 # //  QuestaSim and its associated documentation contain trade
@@ -17,16 +17,111 @@ do sim_TOP.do
 # ../../../fpga
 # ** Warning: (vlib-34) Library already exists at "work".
 # Errors: 0, Warnings: 1
-# Questa Intel Starter FPGA Edition-64 vmap 2021.2 Lib Mapping Utility 2021.04 Apr 14 2021
+# Questa Intel Starter FPGA Edition-64 vmap 2023.3 Lib Mapping Utility 2023.07 Jul 17 2023
 # vmap work work 
 # Modifying modelsim.ini
-# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:21:55 on Oct 23,2023
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 15:00:54 on Aug 13,2024
 # vlog -reportprogress 300 -work work -sv "+incdir+../../../verilog/common" "+incdir+../../../verilog/ahb_sdram/model" "+incdir+../../../verilog/i2c/i2c/trunk/rtl/verilog" -timescale=1ns/100ps "+define+RISCV_ARCH_TEST" "+define+SIMULATION" "+define+den512Mb" "+define+sg75" "+define+x16" "+define+BUS_INTERVENTION_01" "+define+DUMP_BGN=32'h90004010" "+define+DUMP_END=32'h900048e0" "+define+TOHOST=32'h90003000" ../../../verilog/chip/chip_top_wrap.v ../../../verilog/chip/chip_top.v ../../../verilog/cjtag/cjtag_2_jtag.v ../../../verilog/cjtag/cjtag_adapter.v ../../../verilog/ram/ram.v ../../../verilog/ram/ram_fpga.v ../../../fpga/RAM128KB_DP.v ../../../verilog/port/port.v ../../../verilog/uart/uart.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v ../../../verilog/i2c/i2c.v ../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_top.v ../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_bit_ctrl.v ../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_byte_ctrl.v ../../../verilog/i2c/i2c_slave_model.v ../../../verilog/spi/spi.v ../../../verilog/spi/simple_spi/trunk/rtl/verilog/simple_spi_top.v ../../../verilog/spi/simple_spi/trunk/rtl/verilog/fifo4.v ../../../verilog/int_gen/int_gen.v ../../../verilog/mmRISC/mmRISC.v ../../../verilog/mmRISC/bus_m_ahb.v ../../../verilog/mmRISC/csr_mtime.v ../../../verilog/cpu/cpu_top.v ../../../verilog/cpu/cpu_fetch.v ../../../verilog/cpu/cpu_datapath.v ../../../verilog/cpu/cpu_pipeline.v ../../../verilog/cpu/cpu_fpu32.v ../../../verilog/cpu/cpu_csr.v ../../../verilog/cpu/cpu_csr_int.v ../../../verilog/cpu/cpu_csr_dbg.v ../../../verilog/cpu/cpu_debug.v ../../../verilog/debug/debug_top.v ../../../verilog/debug/debug_dtm_jtag.v ../../../verilog/debug/debug_cdc.v ../../../verilog/debug/debug_dm.v ../../../verilog/ahb_matrix/ahb_top.v ../../../verilog/ahb_matrix/ahb_master_port.v ../../../verilog/ahb_matrix/ahb_slave_port.v ../../../verilog/ahb_matrix/ahb_interconnect.v ../../../verilog/ahb_matrix/ahb_arb.v ../../../verilog/ahb_sdram/logic/ahb_lite_sdram.v ../../../verilog/ahb_sdram/model/sdr.v ./tb_TOP.v 
 # -- Compiling module CHIP_TOP_WRAP
 # -- Compiling module CHIP_TOP
 # -- Compiling module CJTAG_2_JTAG
-# -- Compiling module BEFF
+# -- Compiling module CJTAG_ADAPTER
+# -- Compiling module RAM
+# -- Compiling module RAM_FPGA
+# -- Compiling module RAM128KB_DP
+# -- Compiling module PORT
+# -- Compiling module UART
+# -- Compiling module sasc_top
+# -- Compiling module sasc_fifo4
+# -- Compiling module sasc_brg
+# -- Compiling module I2C
+# -- Compiling module i2c_master_top
+# -- Compiling module i2c_master_bit_ctrl
+# -- Compiling module i2c_master_byte_ctrl
+# -- Compiling module i2c_slave_model
+# -- Compiling module SPI
+# -- Compiling module simple_spi_top
+# -- Compiling module fifo4
+# -- Compiling module INT_GEN
+# -- Compiling module mmRISC
+# -- Compiling module BUS_M_AHB
+# -- Compiling module CSR_MTIME
+# -- Compiling module CPU_TOP
+# -- Compiling module CPU_FETCH
+# -- Compiling module CPU_DATAPATH
+# -- Compiling module CPU_PIPELINE
+# -- Compiling module CPU_FPU32
+# -- Compiling module CHECK_FTYPE
+# -- Compiling module FADD_SPECIAL_NUMBER
+# -- Compiling module FMUL_SPECIAL_NUMBER
+# -- Compiling module FMADD_SPECIAL_NUMBER
+# -- Compiling module FDIV_SPECIAL_NUMBER
+# -- Compiling module FSQRT_SPECIAL_NUMBER
+# -- Compiling module FIND_1ST_ONE_IN_FRAC27
+# -- Compiling module FIND_1ST_ONE_IN_FRAC66
+# -- Compiling module FIND_1ST_ONE_IN_FRAC70
+# -- Compiling module SHIFT_RIGHT_FRAC27
+# -- Compiling module SHIFT_RIGHT_FRAC66
+# -- Compiling module SHIFT_RIGHT_FRAC70
+# -- Compiling module ROUND_JUDGMENT
+# -- Compiling module FRAC27_ROUND_FRAC66
+# -- Compiling module FRAC70_ROUND_FRAC132
+# -- Compiling module INNER79_FROM_FLOAT32
+# -- Compiling module FLOAT32_FROM_INNER79
+# -- Compiling module FADD_CORE
+# -- Compiling module FMUL_CORE
+# -- Compiling module FCVT_F2I
+# -- Compiling module FCVT_I2F
+# -- Compiling module CPU_CSR
+# -- Compiling module CPU_CSR_INT
+# -- Compiling module CPU_CSR_DBG
+# -- Compiling module CPU_DEBUG
+# -- Compiling module DEBUG_TOP
+# -- Compiling module DEBUG_DTM_JTAG
+# -- Compiling module DEBUG_CDC
+# -- Compiling module DEBUG_DM
+# -- Compiling module AHB_MATRIX
+# -- Compiling module AHB_MASTER_PORT
+# -- Compiling module AHB_SLAVE_PORT
+# -- Compiling module AHB_INTERCONNECT
+# -- Compiling module AHB_ARB
+# -- Compiling module AHB_ARB_RB
+# -- Compiling module ahb_lite_sdram
+# -- Compiling module sdr
+# -- Compiling module tb_TOP
+# ** Error: ./tb_TOP.v(355): (vlog-2163) Macro `TB_TCYC_TCK is undefined.
+# ** Error: (vlog-13069) ./tb_TOP.v(355): near ")": syntax error, unexpected ')'.
+# ** Error: ./tb_TOP.v(367): (vlog-2163) Macro `TB_TCYC_TCK is undefined.
+# ** Error: (vlog-13069) ./tb_TOP.v(367): near ")": syntax error, unexpected ')'.
+# ** Error: ./tb_TOP.v(370): (vlog-2163) Macro `TB_TCYC_TCK is undefined.
+# ** Error: (vlog-13069) ./tb_TOP.v(370): near "*": syntax error, unexpected '*'.
+# End time: 15:00:55 on Aug 13,2024, Elapsed time: 0:00:01
+# Errors: 6, Warnings: 0
+# ** Error: C:/intelFPGA_lite/23.1std/questa_fse/win64/vlog failed.
+# Error in macro ./sim_TOP.do line 69
+# C:/intelFPGA_lite/23.1std/questa_fse/win64/vlog failed.
+#     while executing
+# "vlog \
+#     -work work \
+#     -sv \
+#     +incdir+$DIR_RTL/common \
+#     +incdir+$DIR_RTL/ahb_sdram/model \
+#     +incdir+$DIR_RTL/i2c/i2c/trunk/rtl/verilog ..."
+do sim_TOP.do
+# ../../../verilog
+# ../../../fpga
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# Questa Intel Starter FPGA Edition-64 vmap 2023.3 Lib Mapping Utility 2023.07 Jul 17 2023
+# vmap work work 
+# Modifying modelsim.ini
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 15:04:09 on Aug 13,2024
+# vlog -reportprogress 300 -work work -sv "+incdir+../../../verilog/common" "+incdir+../../../verilog/ahb_sdram/model" "+incdir+../../../verilog/i2c/i2c/trunk/rtl/verilog" -timescale=1ns/100ps "+define+RISCV_ARCH_TEST" "+define+SIMULATION" "+define+den512Mb" "+define+sg75" "+define+x16" "+define+BUS_INTERVENTION_01" "+define+DUMP_BGN=32'h90004010" "+define+DUMP_END=32'h900048e0" "+define+TOHOST=32'h90003000" ../../../verilog/chip/chip_top_wrap.v ../../../verilog/chip/chip_top.v ../../../verilog/cjtag/cjtag_2_jtag.v ../../../verilog/cjtag/cjtag_adapter.v ../../../verilog/ram/ram.v ../../../verilog/ram/ram_fpga.v ../../../fpga/RAM128KB_DP.v ../../../verilog/port/port.v ../../../verilog/uart/uart.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v ../../../verilog/i2c/i2c.v ../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_top.v ../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_bit_ctrl.v ../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_byte_ctrl.v ../../../verilog/i2c/i2c_slave_model.v ../../../verilog/spi/spi.v ../../../verilog/spi/simple_spi/trunk/rtl/verilog/simple_spi_top.v ../../../verilog/spi/simple_spi/trunk/rtl/verilog/fifo4.v ../../../verilog/int_gen/int_gen.v ../../../verilog/mmRISC/mmRISC.v ../../../verilog/mmRISC/bus_m_ahb.v ../../../verilog/mmRISC/csr_mtime.v ../../../verilog/cpu/cpu_top.v ../../../verilog/cpu/cpu_fetch.v ../../../verilog/cpu/cpu_datapath.v ../../../verilog/cpu/cpu_pipeline.v ../../../verilog/cpu/cpu_fpu32.v ../../../verilog/cpu/cpu_csr.v ../../../verilog/cpu/cpu_csr_int.v ../../../verilog/cpu/cpu_csr_dbg.v ../../../verilog/cpu/cpu_debug.v ../../../verilog/debug/debug_top.v ../../../verilog/debug/debug_dtm_jtag.v ../../../verilog/debug/debug_cdc.v ../../../verilog/debug/debug_dm.v ../../../verilog/ahb_matrix/ahb_top.v ../../../verilog/ahb_matrix/ahb_master_port.v ../../../verilog/ahb_matrix/ahb_slave_port.v ../../../verilog/ahb_matrix/ahb_interconnect.v ../../../verilog/ahb_matrix/ahb_arb.v ../../../verilog/ahb_sdram/logic/ahb_lite_sdram.v ../../../verilog/ahb_sdram/model/sdr.v ./tb_TOP.v 
+# -- Compiling module CHIP_TOP_WRAP
+# -- Compiling module CHIP_TOP
+# -- Compiling module CJTAG_2_JTAG
 # -- Compiling module CJTAG_ADAPTER
 # -- Compiling module RAM
 # -- Compiling module RAM_FPGA
@@ -95,25 +190,122 @@ do sim_TOP.do
 # Top level modules:
 # 	RAM_FPGA
 # 	tb_TOP
-# End time: 11:21:56 on Oct 23,2023, Elapsed time: 0:00:01
+# End time: 15:04:10 on Aug 13,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vsim -c -voptargs=""+acc"" -L altera_mf_ver work.tb_TOP 
-# Start time: 11:21:56 on Oct 23,2023
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Start time: 15:04:10 on Aug 13,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Error (suppressible): ./tb_TOP.v(249): (vopt-2912) Port 'STBY_REQ' not found in module 'CHIP_TOP_WRAP' (3rd connection).
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=1.
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./sim_TOP.do PAUSED at line 79
+do sim_TOP.do
+# ../../../verilog
+# ../../../fpga
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# Questa Intel Starter FPGA Edition-64 vmap 2023.3 Lib Mapping Utility 2023.07 Jul 17 2023
+# vmap work work 
+# Modifying modelsim.ini
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 15:05:02 on Aug 13,2024
+# vlog -reportprogress 300 -work work -sv "+incdir+../../../verilog/common" "+incdir+../../../verilog/ahb_sdram/model" "+incdir+../../../verilog/i2c/i2c/trunk/rtl/verilog" -timescale=1ns/100ps "+define+RISCV_ARCH_TEST" "+define+SIMULATION" "+define+den512Mb" "+define+sg75" "+define+x16" "+define+BUS_INTERVENTION_01" "+define+DUMP_BGN=32'h90004010" "+define+DUMP_END=32'h900048e0" "+define+TOHOST=32'h90003000" ../../../verilog/chip/chip_top_wrap.v ../../../verilog/chip/chip_top.v ../../../verilog/cjtag/cjtag_2_jtag.v ../../../verilog/cjtag/cjtag_adapter.v ../../../verilog/ram/ram.v ../../../verilog/ram/ram_fpga.v ../../../fpga/RAM128KB_DP.v ../../../verilog/port/port.v ../../../verilog/uart/uart.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v ../../../verilog/i2c/i2c.v ../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_top.v ../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_bit_ctrl.v ../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_byte_ctrl.v ../../../verilog/i2c/i2c_slave_model.v ../../../verilog/spi/spi.v ../../../verilog/spi/simple_spi/trunk/rtl/verilog/simple_spi_top.v ../../../verilog/spi/simple_spi/trunk/rtl/verilog/fifo4.v ../../../verilog/int_gen/int_gen.v ../../../verilog/mmRISC/mmRISC.v ../../../verilog/mmRISC/bus_m_ahb.v ../../../verilog/mmRISC/csr_mtime.v ../../../verilog/cpu/cpu_top.v ../../../verilog/cpu/cpu_fetch.v ../../../verilog/cpu/cpu_datapath.v ../../../verilog/cpu/cpu_pipeline.v ../../../verilog/cpu/cpu_fpu32.v ../../../verilog/cpu/cpu_csr.v ../../../verilog/cpu/cpu_csr_int.v ../../../verilog/cpu/cpu_csr_dbg.v ../../../verilog/cpu/cpu_debug.v ../../../verilog/debug/debug_top.v ../../../verilog/debug/debug_dtm_jtag.v ../../../verilog/debug/debug_cdc.v ../../../verilog/debug/debug_dm.v ../../../verilog/ahb_matrix/ahb_top.v ../../../verilog/ahb_matrix/ahb_master_port.v ../../../verilog/ahb_matrix/ahb_slave_port.v ../../../verilog/ahb_matrix/ahb_interconnect.v ../../../verilog/ahb_matrix/ahb_arb.v ../../../verilog/ahb_sdram/logic/ahb_lite_sdram.v ../../../verilog/ahb_sdram/model/sdr.v ./tb_TOP.v 
+# -- Compiling module CHIP_TOP_WRAP
+# -- Compiling module CHIP_TOP
+# -- Compiling module CJTAG_2_JTAG
+# -- Compiling module CJTAG_ADAPTER
+# -- Compiling module RAM
+# -- Compiling module RAM_FPGA
+# -- Compiling module RAM128KB_DP
+# -- Compiling module PORT
+# -- Compiling module UART
+# -- Compiling module sasc_top
+# -- Compiling module sasc_fifo4
+# -- Compiling module sasc_brg
+# -- Compiling module I2C
+# -- Compiling module i2c_master_top
+# -- Compiling module i2c_master_bit_ctrl
+# -- Compiling module i2c_master_byte_ctrl
+# -- Compiling module i2c_slave_model
+# -- Compiling module SPI
+# -- Compiling module simple_spi_top
+# -- Compiling module fifo4
+# -- Compiling module INT_GEN
+# -- Compiling module mmRISC
+# -- Compiling module BUS_M_AHB
+# -- Compiling module CSR_MTIME
+# -- Compiling module CPU_TOP
+# -- Compiling module CPU_FETCH
+# -- Compiling module CPU_DATAPATH
+# -- Compiling module CPU_PIPELINE
+# -- Compiling module CPU_FPU32
+# -- Compiling module CHECK_FTYPE
+# -- Compiling module FADD_SPECIAL_NUMBER
+# -- Compiling module FMUL_SPECIAL_NUMBER
+# -- Compiling module FMADD_SPECIAL_NUMBER
+# -- Compiling module FDIV_SPECIAL_NUMBER
+# -- Compiling module FSQRT_SPECIAL_NUMBER
+# -- Compiling module FIND_1ST_ONE_IN_FRAC27
+# -- Compiling module FIND_1ST_ONE_IN_FRAC66
+# -- Compiling module FIND_1ST_ONE_IN_FRAC70
+# -- Compiling module SHIFT_RIGHT_FRAC27
+# -- Compiling module SHIFT_RIGHT_FRAC66
+# -- Compiling module SHIFT_RIGHT_FRAC70
+# -- Compiling module ROUND_JUDGMENT
+# -- Compiling module FRAC27_ROUND_FRAC66
+# -- Compiling module FRAC70_ROUND_FRAC132
+# -- Compiling module INNER79_FROM_FLOAT32
+# -- Compiling module FLOAT32_FROM_INNER79
+# -- Compiling module FADD_CORE
+# -- Compiling module FMUL_CORE
+# -- Compiling module FCVT_F2I
+# -- Compiling module FCVT_I2F
+# -- Compiling module CPU_CSR
+# -- Compiling module CPU_CSR_INT
+# -- Compiling module CPU_CSR_DBG
+# -- Compiling module CPU_DEBUG
+# -- Compiling module DEBUG_TOP
+# -- Compiling module DEBUG_DTM_JTAG
+# -- Compiling module DEBUG_CDC
+# -- Compiling module DEBUG_DM
+# -- Compiling module AHB_MATRIX
+# -- Compiling module AHB_MASTER_PORT
+# -- Compiling module AHB_SLAVE_PORT
+# -- Compiling module AHB_INTERCONNECT
+# -- Compiling module AHB_ARB
+# -- Compiling module AHB_ARB_RB
+# -- Compiling module ahb_lite_sdram
+# -- Compiling module sdr
+# -- Compiling module tb_TOP
+# 
+# Top level modules:
+# 	RAM_FPGA
+# 	tb_TOP
+# End time: 15:05:02 on Aug 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -c -voptargs=""+acc"" -L altera_mf_ver work.tb_TOP 
+# Start time: 15:04:10 on Aug 13,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
 # ** Note: (vopt-143) Recognized 2 FSMs in module "CPU_FPU32(fast)".
 # ** Note: (vopt-143) Recognized 1 FSM in module "i2c_master_bit_ctrl(fast)".
 # ** Note: (vopt-143) Recognized 2 FSMs in module "DEBUG_DTM_JTAG(fast)".
 # ** Note: (vopt-143) Recognized 1 FSM in module "ahb_lite_sdram(fast)".
 # ** Note: (vopt-143) Recognized 1 FSM in module "simple_spi_top(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "i2c_slave_model(fast)".
 # ** Note: (vopt-143) Recognized 1 FSM in module "sasc_top(fast)".
 # ** Note: (vopt-143) Recognized 1 FSM in module "i2c_master_byte_ctrl(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=2.
 # Loading sv_std.std
 # Loading work.tb_TOP(fast)
 # Loading work.CHIP_TOP_WRAP(fast)
 # Loading work.CJTAG_ADAPTER(fast)
 # Loading work.CHIP_TOP(fast)
 # Loading work.CJTAG_2_JTAG(fast)
-# Loading work.BEFF(fast)
 # Loading work.mmRISC(fast)
 # Loading work.DEBUG_TOP(fast)
 # Loading work.DEBUG_DTM_JTAG(fast)
@@ -176,6 +368,1202 @@ do sim_TOP.do
 # Loading work.fifo4(fast)
 # Loading work.i2c_slave_model(fast)
 # Loading work.sdr(fast)
+# ----JTAG_INIT_PIN
+# tb_TOP.U_SDRAM : at time     840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time     920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time    1000.0 ns LMR  : Load Mode Register
+# tb_TOP.U_SDRAM :                             CAS Latency      = 2
+# tb_TOP.U_SDRAM :                             Burst Length     = 2
+# tb_TOP.U_SDRAM :                             Burst Type       = Sequential
+# tb_TOP.U_SDRAM :                             Write Burst Mode = Programmed Burst Length
+# tb_TOP.U_SDRAM : at time    8760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time   16600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time   24440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time   32280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time   40120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time   47960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time   55800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time   63640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time   71480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time   79320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time   87160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time   95000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  102840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  110680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  118520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  126360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  134200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  142040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  149880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  157720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  165560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  173400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  181240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  189080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  196920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  204760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  212600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  220440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  228280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  236120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  243960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  251800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  259640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  267480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  275320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  283160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  291000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  298840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  306680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  314520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  322360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  330200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  338040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  345880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  353720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  361560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  369400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  377240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  385080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  392920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  400760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  408600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  416440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  424280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  432120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  439960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  447800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  455640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  463480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  471320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  479160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  487000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  494840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  502680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  510520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  518360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  526200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  534040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  541880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  549720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  557560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  565400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  573240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  581080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  588920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  596760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  604600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  612440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  620280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  628120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  635960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  643800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  651640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  659480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  667320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  675160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  683000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  690840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  698680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  706520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  714360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  722200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  730040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  737880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  745720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  753560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  761400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  769240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  777080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  784920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  792760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  800600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  808440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  816280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  824120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  831960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  839800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  847640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  855480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  863320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  871160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  879000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  886840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  894680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  902520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  910360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  918200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  926040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  933880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  941720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  949560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  957400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  965240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  973080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  980920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  988760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  996600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1004440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1012280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1020120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1027960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1035800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1043640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1051480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1059320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1067160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1075000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1082840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1090680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1098520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1106360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1114200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1122040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1129880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1137720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1145560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1153400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1161240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1169080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1176920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1184760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1192600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1200440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1208280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1216120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1223960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1231800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1239640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1247480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1255320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1263160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1271000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1278840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1286680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1294520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1302360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1310200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1318040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1325880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1333720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1341560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1349400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1357240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1365080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1372920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1380760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1388600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1396440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1404280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1412120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1419960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1427800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1435640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1443480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1451320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1459160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1467000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1474840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1482680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1490520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1498360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1506200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1514040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1521880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1529720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1537560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1545400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1553240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1561080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1568920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1576760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1584600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1592440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1600280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1608120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1615960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1623800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1631640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1639480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1647320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1655160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1663000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1670840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1678680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1686520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1694360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1702200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1710040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1717880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1725720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1733560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1741400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1749240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1757080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1764920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1772760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1780600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1788440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1796280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1804120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1811960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1819800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1827640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1835480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1843320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1851160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1859000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1866840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1874680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1882520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1890360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1898200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1906040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1913880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1921720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1929560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1937400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1945240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1953080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1960920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1968760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1976600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1984440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1992280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2000120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2007960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2015800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2023640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2031480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2039320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2047160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2055000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2062840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2070680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2078520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2086360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2094200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2102040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2109880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2117720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2125560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2133400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2141240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2149080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2156920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2164760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2172600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2180440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2188280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2196120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2203960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2211800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2219640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2227480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2235320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2243160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2251000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2258840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2266680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2274520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2282360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2290200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2298040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2305880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2313720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2321560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2329400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2337240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2345080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2352920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2360760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2368600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2376440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2384280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2392120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2399960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2407800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2415640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2423480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2431320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2439160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2447000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2454840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2462680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2470520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2478360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2486200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2494040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2501880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2509720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2517560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2525400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2533240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2541080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2548920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2556760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2564600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2572440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2580280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2588120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2595960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2603800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2611640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2619480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2627320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2635160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2643000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2650840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2658680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2666520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2674360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2682200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2690040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2697880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2705720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2713560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2721400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2729240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2737080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2744920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2752760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2760600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2768440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2776280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2784120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2791960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2799800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2807640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2815480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2823320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2831160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2839000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2846840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2854680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2862520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2870360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2878200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2886040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2893880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2901720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2909560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2917400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2925240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2933080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2940920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2948760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2956600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2964440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2972280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2980120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2987960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 2995800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3003640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3011480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3019320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3027160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3035000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3042840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3050680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3058520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3066360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3074200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3082040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3089880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3097720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3105560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3113400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3121240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3129080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3136920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3144760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3152600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3160440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3168280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3176120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3183960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3191800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3199640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3207480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3215320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3223160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3231000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3238840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3246680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3254520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3262360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3270200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3278040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3285880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3293720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3301560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3309400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3317240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3325080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3332920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3340760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3348600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3356440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3364280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3372120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3379960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3387800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3395640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3403480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3411320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3419160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3427000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3434840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3442680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3450520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3458360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3466200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3474040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3481880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3489720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3497560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3505400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3513240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3521080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3528920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3536760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3544600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3552440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3560280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3568120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3575960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3583800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3591640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3599480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3607320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3615160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3623000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3630840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3638680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3646520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3654360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3662200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3670040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3677880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3685720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3693560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3701400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3709240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3717080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3724920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3732760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3740600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3748440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3756280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3764120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3771960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3779800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3787640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3795480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3803320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3811160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3819000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3826840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3834680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3842520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3850360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3858200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3866040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3873880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3881720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3889560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3897400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3905240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3913080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3920920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3928760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3936600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3944440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3952280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3960120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3967960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3975800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3983640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3991480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3999320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4007160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4015000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4022840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4030680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4038520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4046360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4054200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4062040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4069880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4077720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4085560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4093400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4101240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4109080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4116920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4124760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4132600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4140440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4148280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4156120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4163960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4171800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4179640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4187480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4195320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4203160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4211000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4218840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4226680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4234520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4242360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4250200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4258040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4265880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4273720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4281560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4289400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4297240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4305080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4312920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4320760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4328600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4336440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4344280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4352120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4359960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4367800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4375640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4383480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4391320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4399160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4407000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4414840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4422680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4430520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4438360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4446200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4454040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4461880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4469720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4477560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4485400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4493240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4501080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4508920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4516760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4524600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4532440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4540280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4548120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4555960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4563800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4571640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4579480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4587320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4595160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4603000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4610840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4618680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4626520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4634360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4642200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4650040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4657880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4665720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4673560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4681400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4689240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4697080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4704920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4712760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4720600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4728440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4736280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4744120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4751960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4759800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4767640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4775480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4783320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4791160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4799000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4806840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4814680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4822520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4830360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4838200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4846040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4853880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4861720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4869560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4877400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4885240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4893080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4900920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4908760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4916600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4924440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4932280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4940120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4947960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4955800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4963640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4971480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4979320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4987160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4995000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5002840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5010680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5018520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5026360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5034200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5042040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5049880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5057720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5065560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5073400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5081240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5089080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5096920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5104760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5112600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5120440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5128280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5136120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5143960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5151800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5159640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5167480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5175320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5183160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5191000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5198840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5206680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5214520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5222360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5230200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5238040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5245880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5253720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5261560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5269400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5277240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5285080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5292920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5300760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5308600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5316440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5324280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5332120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5339960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5347800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5355640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5363480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5371320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5379160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5387000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5394840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5402680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5410520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5418360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5426200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5434040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5441880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5449720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5457560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5465400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5473240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5481080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5488920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5496760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5504600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5512440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5520280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5528120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5535960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5543800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5551640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5559480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5567320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5575160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5583000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5590840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5598680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5606520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5614360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5622200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5630040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5637880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5645720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5653560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5661400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5669240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5677080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5684920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5692760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5700600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5708440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5716280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5724120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5731960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5739800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5747640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5755480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5763320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5771160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5779000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5786840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5794680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5802520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5810360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5818200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5826040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5833880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5841720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5849560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5857400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5865240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5873080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5880920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5888760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5896600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5904440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5912280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5920120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5927960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5935800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5943640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5951480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5959320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5967160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5975000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5982840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5990680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5998520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6006360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6014200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6022040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6029880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6037720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6045560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6053400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6061240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6069080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6076920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6084760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6092600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6100440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6108280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6116120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6123960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6131800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6139640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6147480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6155320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6163160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6171000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6178840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6186680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6194520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6202360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6210200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6218040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6225880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6233720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6241560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6249400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6257240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6265080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6272920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6280760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6288600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6296440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6304280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6312120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6319960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6327800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6335640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6343480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6351320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6359160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6367000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6374840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6382680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6390520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6398360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6406200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6414040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6421880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6429720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6437560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6445400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6453240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6461080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6468920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6476760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6484600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6492440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6500280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6508120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6515960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6523800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6531640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6539480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6547320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6555160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6563000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6570840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6578680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6586520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6594360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6602200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6610040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6617880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6625720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6633560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6641400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6649240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6657080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6664920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6672760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6680600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6688440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6696280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6704120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6711960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6719800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6727640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6735480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6743320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6751160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6759000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6766840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6774680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6782520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6790360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6798200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6806040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6813880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6821720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6829560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6837400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6845240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6853080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6860920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6868760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6876600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6884440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6892280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6900120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6907960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6915800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6923640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6931480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6939320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6947160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6955000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6962840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6970680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6978520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6986360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 6994200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7002040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7009880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7017720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7025560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7033400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7041240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7049080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7056920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7064760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7072600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7080440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7088280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7096120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7103960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7111800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7119640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7127480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7135320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7143160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7151000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7158840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7166680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7174520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7182360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7190200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7198040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7205880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7213720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7221560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7229400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7237240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7245080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7252920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7260760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7268600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7276440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7284280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7292120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7299960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7307800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7315640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7323480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7331320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7339160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7347000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7354840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7362680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7370520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7378360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7386200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7394040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7401880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7409720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7417560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7425400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7433240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7441080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7448920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7456760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7464600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7472440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7480280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7488120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7495960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7503800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7511640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7519480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7527320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7535160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7543000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7550840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7558680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7566520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7574360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7582200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7590040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7597880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7605720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7613560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7621400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7629240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7637080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7644920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7652760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7660600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7668440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7676280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7684120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7691960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7699800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7707640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7715480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7723320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7731160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7739000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7746840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7754680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7762520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7770360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7778200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7786040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7793880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7801720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7809560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7817400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7825240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7833080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7840920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7848760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7856600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7864440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7872280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7880120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7887960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7895800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7903640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7911480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7919320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7927160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7935000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7942840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7950680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7958520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7966360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7974200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7982040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7989880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 7997720.0 ns AREF : Auto Refresh
+# ***** SIMULATION TIMEOUT ***** at     400000
+# ** Note: $finish    : ./tb_TOP.v(91)
+#    Time: 8000030 ns  Iteration: 2  Instance: /tb_TOP
+# 1
+# Break in Module tb_TOP at ./tb_TOP.v line 91
+add wave -position 129  sim:/tb_TOP/U_CHIP_TOP_WRAP/U_CHIP_TOP/U_MMRISC/STBY_REQ
+add wave -position 129  sim:/tb_TOP/U_CHIP_TOP_WRAP/GPIO2
+
+do sim_TOP.do
+# ../../../verilog
+# ../../../fpga
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# Questa Intel Starter FPGA Edition-64 vmap 2023.3 Lib Mapping Utility 2023.07 Jul 17 2023
+# vmap work work 
+# Modifying modelsim.ini
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 15:28:40 on Aug 13,2024
+# vlog -reportprogress 300 -work work -sv "+incdir+../../../verilog/common" "+incdir+../../../verilog/ahb_sdram/model" "+incdir+../../../verilog/i2c/i2c/trunk/rtl/verilog" -timescale=1ns/100ps "+define+RISCV_ARCH_TEST" "+define+SIMULATION" "+define+den512Mb" "+define+sg75" "+define+x16" "+define+BUS_INTERVENTION_01" "+define+DUMP_BGN=32'h90004010" "+define+DUMP_END=32'h900048e0" "+define+TOHOST=32'h90003000" ../../../verilog/chip/chip_top_wrap.v ../../../verilog/chip/chip_top.v ../../../verilog/cjtag/cjtag_2_jtag.v ../../../verilog/cjtag/cjtag_adapter.v ../../../verilog/ram/ram.v ../../../verilog/ram/ram_fpga.v ../../../fpga/RAM128KB_DP.v ../../../verilog/port/port.v ../../../verilog/uart/uart.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v ../../../verilog/i2c/i2c.v ../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_top.v ../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_bit_ctrl.v ../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_byte_ctrl.v ../../../verilog/i2c/i2c_slave_model.v ../../../verilog/spi/spi.v ../../../verilog/spi/simple_spi/trunk/rtl/verilog/simple_spi_top.v ../../../verilog/spi/simple_spi/trunk/rtl/verilog/fifo4.v ../../../verilog/int_gen/int_gen.v ../../../verilog/mmRISC/mmRISC.v ../../../verilog/mmRISC/bus_m_ahb.v ../../../verilog/mmRISC/csr_mtime.v ../../../verilog/cpu/cpu_top.v ../../../verilog/cpu/cpu_fetch.v ../../../verilog/cpu/cpu_datapath.v ../../../verilog/cpu/cpu_pipeline.v ../../../verilog/cpu/cpu_fpu32.v ../../../verilog/cpu/cpu_csr.v ../../../verilog/cpu/cpu_csr_int.v ../../../verilog/cpu/cpu_csr_dbg.v ../../../verilog/cpu/cpu_debug.v ../../../verilog/debug/debug_top.v ../../../verilog/debug/debug_dtm_jtag.v ../../../verilog/debug/debug_cdc.v ../../../verilog/debug/debug_dm.v ../../../verilog/ahb_matrix/ahb_top.v ../../../verilog/ahb_matrix/ahb_master_port.v ../../../verilog/ahb_matrix/ahb_slave_port.v ../../../verilog/ahb_matrix/ahb_interconnect.v ../../../verilog/ahb_matrix/ahb_arb.v ../../../verilog/ahb_sdram/logic/ahb_lite_sdram.v ../../../verilog/ahb_sdram/model/sdr.v ./tb_TOP.v 
+# -- Compiling module CHIP_TOP_WRAP
+# -- Compiling module CHIP_TOP
+# -- Compiling module CJTAG_2_JTAG
+# -- Compiling module CJTAG_ADAPTER
+# -- Compiling module RAM
+# -- Compiling module RAM_FPGA
+# -- Compiling module RAM128KB_DP
+# -- Compiling module PORT
+# -- Compiling module UART
+# -- Compiling module sasc_top
+# -- Compiling module sasc_fifo4
+# -- Compiling module sasc_brg
+# -- Compiling module I2C
+# -- Compiling module i2c_master_top
+# -- Compiling module i2c_master_bit_ctrl
+# -- Compiling module i2c_master_byte_ctrl
+# -- Compiling module i2c_slave_model
+# -- Compiling module SPI
+# -- Compiling module simple_spi_top
+# -- Compiling module fifo4
+# -- Compiling module INT_GEN
+# -- Compiling module mmRISC
+# -- Compiling module BUS_M_AHB
+# -- Compiling module CSR_MTIME
+# -- Compiling module CPU_TOP
+# -- Compiling module CPU_FETCH
+# -- Compiling module CPU_DATAPATH
+# -- Compiling module CPU_PIPELINE
+# -- Compiling module CPU_FPU32
+# -- Compiling module CHECK_FTYPE
+# -- Compiling module FADD_SPECIAL_NUMBER
+# -- Compiling module FMUL_SPECIAL_NUMBER
+# -- Compiling module FMADD_SPECIAL_NUMBER
+# -- Compiling module FDIV_SPECIAL_NUMBER
+# -- Compiling module FSQRT_SPECIAL_NUMBER
+# -- Compiling module FIND_1ST_ONE_IN_FRAC27
+# -- Compiling module FIND_1ST_ONE_IN_FRAC66
+# -- Compiling module FIND_1ST_ONE_IN_FRAC70
+# -- Compiling module SHIFT_RIGHT_FRAC27
+# -- Compiling module SHIFT_RIGHT_FRAC66
+# -- Compiling module SHIFT_RIGHT_FRAC70
+# -- Compiling module ROUND_JUDGMENT
+# -- Compiling module FRAC27_ROUND_FRAC66
+# -- Compiling module FRAC70_ROUND_FRAC132
+# -- Compiling module INNER79_FROM_FLOAT32
+# -- Compiling module FLOAT32_FROM_INNER79
+# -- Compiling module FADD_CORE
+# -- Compiling module FMUL_CORE
+# -- Compiling module FCVT_F2I
+# -- Compiling module FCVT_I2F
+# -- Compiling module CPU_CSR
+# -- Compiling module CPU_CSR_INT
+# -- Compiling module CPU_CSR_DBG
+# -- Compiling module CPU_DEBUG
+# -- Compiling module DEBUG_TOP
+# -- Compiling module DEBUG_DTM_JTAG
+# -- Compiling module DEBUG_CDC
+# -- Compiling module DEBUG_DM
+# -- Compiling module AHB_MATRIX
+# -- Compiling module AHB_MASTER_PORT
+# -- Compiling module AHB_SLAVE_PORT
+# -- Compiling module AHB_INTERCONNECT
+# -- Compiling module AHB_ARB
+# -- Compiling module AHB_ARB_RB
+# -- Compiling module ahb_lite_sdram
+# -- Compiling module sdr
+# -- Compiling module tb_TOP
+# 
+# Top level modules:
+# 	RAM_FPGA
+# 	tb_TOP
+# End time: 15:28:40 on Aug 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 15:28:46 on Aug 13,2024, Elapsed time: 0:24:36
+# Errors: 1, Warnings: 2
+# vsim -c -voptargs=""+acc"" -L altera_mf_ver work.tb_TOP 
+# Start time: 15:28:46 on Aug 13,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.tb_TOP(fast)
+# Loading work.CHIP_TOP_WRAP(fast)
+# Loading work.CJTAG_ADAPTER(fast)
+# Loading work.CHIP_TOP(fast)
+# Loading work.CJTAG_2_JTAG(fast)
+# Loading work.mmRISC(fast)
+# Loading work.DEBUG_TOP(fast)
+# Loading work.DEBUG_DTM_JTAG(fast)
+# Loading work.DEBUG_CDC(fast)
+# Loading work.DEBUG_CDC(fast__1)
+# Loading work.DEBUG_DM(fast)
+# Loading work.CPU_TOP(fast)
+# Loading work.CPU_FETCH(fast)
+# Loading work.CPU_DATAPATH(fast)
+# Loading work.CPU_PIPELINE(fast)
+# Loading work.CPU_CSR(fast)
+# Loading work.CPU_CSR_INT(fast)
+# Loading work.CPU_CSR_DBG(fast)
+# Loading work.CPU_DEBUG(fast)
+# Loading work.CPU_FPU32(fast)
+# Loading work.FMUL_SPECIAL_NUMBER(fast)
+# Loading work.CHECK_FTYPE(fast)
+# Loading work.FADD_SPECIAL_NUMBER(fast)
+# Loading work.FMADD_SPECIAL_NUMBER(fast)
+# Loading work.FDIV_SPECIAL_NUMBER(fast)
+# Loading work.FSQRT_SPECIAL_NUMBER(fast)
+# Loading work.INNER79_FROM_FLOAT32(fast)
+# Loading work.FIND_1ST_ONE_IN_FRAC66(fast)
+# Loading work.FMUL_CORE(fast)
+# Loading work.FRAC70_ROUND_FRAC132(fast)
+# Loading work.ROUND_JUDGMENT(fast)
+# Loading work.FIND_1ST_ONE_IN_FRAC70(fast)
+# Loading work.SHIFT_RIGHT_FRAC70(fast)
+# Loading work.FADD_CORE(fast)
+# Loading work.SHIFT_RIGHT_FRAC66(fast)
+# Loading work.FLOAT32_FROM_INNER79(fast)
+# Loading work.FRAC27_ROUND_FRAC66(fast)
+# Loading work.FIND_1ST_ONE_IN_FRAC27(fast)
+# Loading work.SHIFT_RIGHT_FRAC27(fast)
+# Loading work.FCVT_F2I(fast)
+# Loading work.FCVT_I2F(fast)
+# Loading work.BUS_M_AHB(fast)
+# Loading work.AHB_MATRIX(fast)
+# Loading work.AHB_MASTER_PORT(fast)
+# Loading work.AHB_INTERCONNECT(fast)
+# Loading work.AHB_ARB(fast)
+# Loading work.AHB_ARB_RB(fast)
+# Loading work.AHB_SLAVE_PORT(fast)
+# Loading work.CSR_MTIME(fast)
+# Loading work.ahb_lite_sdram(fast)
+# Loading work.RAM(fast)
+# Loading work.RAM(fast__1)
+# Loading work.PORT(fast)
+# Loading work.UART(fast)
+# Loading work.sasc_top(fast)
+# Loading work.sasc_fifo4(fast)
+# Loading work.sasc_brg(fast)
+# Loading work.INT_GEN(fast)
+# Loading work.I2C(fast)
+# Loading work.i2c_master_top(fast)
+# Loading work.i2c_master_byte_ctrl(fast)
+# Loading work.i2c_master_bit_ctrl(fast)
+# Loading work.SPI(fast)
+# Loading work.simple_spi_top(fast)
+# Loading work.fifo4(fast)
+# Loading work.i2c_slave_model(fast)
+# Loading work.sdr(fast)
+# ----JTAG_INIT_PIN
 # tb_TOP.U_SDRAM : at time     840.0 ns AREF : Auto Refresh
 # tb_TOP.U_SDRAM : at time     920.0 ns AREF : Auto Refresh
 # tb_TOP.U_SDRAM : at time    1000.0 ns LMR  : Load Mode Register
@@ -190,9 +1578,10 @@ do sim_TOP.do
 # tb_TOP.U_SDRAM : at time   40120.0 ns AREF : Auto Refresh
 # tb_TOP.U_SDRAM : at time   47960.0 ns AREF : Auto Refresh
 # ***** DETECT TOHOST ***** at 90003000
-# ** Note: $finish    : ./tb_TOP.v(156)
+# ** Note: $finish    : ./tb_TOP.v(161)
 #    Time: 54450 ns  Iteration: 1  Instance: /tb_TOP
 # 1
-# Break in Module tb_TOP at ./tb_TOP.v line 156
-# End time: 11:26:36 on Oct 23,2023, Elapsed time: 0:04:40
-# Errors: 0, Warnings: 0
+# Break in Module tb_TOP at ./tb_TOP.v line 161
+quit
+# End time: 15:31:02 on Aug 13,2024, Elapsed time: 0:02:16
+# Errors: 0, Warnings: 1

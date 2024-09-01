@@ -119,6 +119,8 @@ module CPU_CSR_DBG
     output wire [31:0] DBG_DPC_LOAD,    // Debug PC to be loaded
     input  wire [ 2:0] DBG_CAUSE,       // Debug Entry Cause
     //
+    output wire        CSR_DCSR_STEP,   // Step bit in CSR_DCSR
+    //
     input  wire        INSTR_EXEC, // Instruction Retired
     //
     output reg  [19:0]            TRG_CND_BUS        [0:`TRG_CH_BUS-1],
@@ -192,6 +194,7 @@ reg         csr_dcsr_stepie;
 reg         csr_dcsr_stopcount; // mcycle and minstret
 reg         csr_dcsr_stoptime;  // other counters
 reg         csr_dcsr_step;
+assign CSR_DCSR_STEP = csr_dcsr_step;
 //
 reg         debug_mode;
 reg  [ 2:0] dbg_cause_modify;
@@ -576,9 +579,9 @@ wire [31:0] csr_rdata_tdata1;
 assign csr_rdata_tdata1
     = (csr_tselect <  (`TRG_CH_ALL - 1))? {4'h2, csr_tdata1_dmode[csr_tselect], 
                                            6'h20, // maskmax = 32
-                                           csr_mcontrol[csr_tselect][20:6],
+                                           csr_mcontrol[csr_tselect][20: 6],
                                            1'b0,
-                                           csr_mcontrol[csr_tselect][ 4:0]}
+                                           csr_mcontrol[csr_tselect][ 4: 0]}
     : (csr_tselect == (`TRG_CH_ALL - 1))? {4'h3, csr_tdata1_dmode[csr_tselect], 
                                            2'b00,
                                            csr_icount[24],
@@ -838,7 +841,7 @@ end
 // CHAIN[5] 00000100 : temp[5] ffffffff
 // CHAIN[6] 00000000 : temp[6] gggggggg
 // CHAIN[7] 00000011 : temp[7] hhhhhhhh
-// ACTION[] abfffghh
+// ACTION[] abeeefhh
 reg [`TRG_CH_BUS-1:0] trg_cnd_bus_action_temp[0:`TRG_CH_BUS-1];
 //
 always @*

@@ -2,13 +2,15 @@
 %  JTAG/cJTAG Debugger Interface for OpenOCD
 %=========================================================
 \section{JTAG/cJTAG Debugger Interface for OpenOCD}
+\label{sec:JTAGDEBUGGER}
 
 %=========================================================
-\subsection{USB to JTAG/cJTAG Interface for OpenOCD}
+\subsection{USB to 4-wire JTAG Interface for OpenOCD}
 
-The commercial Olimex ARM-USB-OCD(H) is one of the recommended JTAG/cJTAG Debugger interfaces for OpenOCD. However, you can make an almost-compatible one by using the FTDI FT2232D chip. To do so, the commercial breakout board of FT2232D is convenient. You can get the board from the following URL.\\
+You can prepare the USB to 4-wire JTAG interface for OpenOCD by using the FTDI FT2232D chip. To do so, the commercial breakout board of FT2232D is convenient. You can get the board from the following URL.\\
 \texttt{https://akizukidenshi.com/catalog/g/gM-02990/}\\
- Figure \ref{fig:USBJTAGOUTLINE} shows the outline of the interface board. The left one is a convenient version made with a breadboard and the breakout board of FT2232D. The right one is made with a printed-circuit board and the breakout board.
+
+Figure \ref{fig:USBJTAGOUTLINE} shows the outline of the interface board. The left one is a convenient version made with a breadboard and the breakout board of FT2232D. The right one is made with a printed-circuit board and the breakout board.
 
 \textit{NOTE: If you use the breakout board of FT2232D shown above, please set the jumper pins as follows: JP1=short, JP2A=open, and JP2B=open, in order to supply 3.3V to VCCIOA and VCCIOB of the FT2232D chip from the target FPGA board.}
 
@@ -18,10 +20,10 @@ The commercial Olimex ARM-USB-OCD(H) is one of the recommended JTAG/cJTAG Debugg
     \label{fig:USBJTAGOUTLINE}
 \end{figure}
 
-%=========================================================
-\subsection{Schematics of USB to JTAG/cJTAG Interface for OpenOCD}
 
-You can make the interface according to the basic schematic that is shown in Figure \ref{fig:USBJTAGFUNDAMENTAL}. It is recommended to insert resistors of 200 ohms or less between the FT2232D and the FPGA to avoid hardware damage due to signal contention, and to improve signal integrity by reducing cross talk and signal ringing.\\ The detailed schematic including the FT2232D breakout is shown in Figure \ref{fig:USBJTAGSCHEMATICS}.
+You can make the interface according to the basic schematic that is shown in Figure \ref{fig:USBJTAGFUNDAMENTAL}. It is recommended to insert resistors of 200 ohms or less between the FT2232D and the FPGA to avoid hardware damage due to signal contention, and to improve signal integrity by reducing cross talk and signal ringing.
+
+The detailed schematic including the FT2232D breakout is shown in Figure \ref{fig:USBJTAGSCHEMATICS}.
 
 \begin{figure}[H]
     \includegraphics[width=0.75\columnwidth]{./Figure/USB_JTAG_Fundamental.png}
@@ -35,10 +37,13 @@ You can make the interface according to the basic schematic that is shown in Fig
     \label{fig:USBJTAGSCHEMATICS}
 \end{figure}
 
-%=========================================================
-\subsection{Connection between USB to JTAG/cJTAG Interface and target FPGA}
+Of course, you can use the commercial Olimex ARM-USB-OCD(H) as the JTAG debugger interface for OpenOCD. In the case, it is required to modify the configuration file of OpenOCD. The details are described later.
 
-Please refer to Figure \ref{fig:USBJTAGCONNECTIONPC} when connecting the JTAG/cJTAG Adapter to the PC in which the OpenOCD works. For this system, the configuration file of OpenOCD is shown in Listing \ref{list:OPENOCDCONFIGPC}.
+%=========================================================
+\subsection{Connection to the target FPGA as 4-wire JTAG interface}
+\label{sec:CONNECTADAPTERJTAG}
+
+When you set the debug interface of the target FPGA as 4-wire JTAG, please refer to Figure \ref{fig:USBJTAGCONNECTIONPC} when connecting the JTAG Adapter between the PC in which the OpenOCD works and the FPGA board. For this system, the configuration file of OpenOCD is shown in Listing \ref{list:OPENOCDCONFIGPCJTAG}.
 
 
 \begin{figure}[H]
@@ -47,7 +52,7 @@ Please refer to Figure \ref{fig:USBJTAGCONNECTIONPC} when connecting the JTAG/cJ
     \label{fig:USBJTAGCONNECTIONPC}
 \end{figure}
 
-\begin{lstlisting}[caption=OpenOCD Configuration File for Figure \ref{fig:USBJTAGCONNECTIONPC}, label=list:OPENOCDCONFIGPC, captionpos=b,  language=, frame=single, basicstyle=\ttfamily\scriptsize]
+\begin{lstlisting}[caption=OpenOCD Configuration File for 4-wire JTAG interface, label=list:OPENOCDCONFIGPCJTAG, captionpos=b,  language=, frame=single, basicstyle=\ttfamily\scriptsize]
 adapter driver ftdi
 adapter speed 1000
 ftdi_device_desc "Dual RS232"
@@ -70,6 +75,7 @@ init
 
 riscv authdata_write 0xbeefcafe
 \end{lstlisting}
+
 
 \textit{NOTE: When you use the commercial Olimex ARM-USB-OCD(H), an example of a corresponding OpenOCD configuration file is shown in Listing \ref{list:OPENOCDCONFIGOLIMEX}.}
 
@@ -99,9 +105,23 @@ riscv authdata_write 0xbeefcafe
 
 
 %=========================================================
-\subsection{Supplemental Circuit required to use cJTAG}
+\subsection{Connection to the target FPGA as 2-wire cJTAG interface}
 
-As described in Section \ref{sec:cJTAG_FPGA}, the FPGA implementation with 2-wire cJTAG requires external pull-up and pull-down resistors on the TMSC pin. In such a case, please make and install a small circuit as shown in Figure \ref{fig:USBCJTAGSUPPLEMENT}.
+When you set the debug interface of the target FPGA as 2-wire cJTAG, you can connect some generic debug probe with cJTAG interface to the mmRISC-1. Please connect TCKC of the probe to TCKC\_rep of mmRISC-1 SoC, and TSMC of the probe to TMSC\_rep of mmRISC-1 SoC.\\
+
+In this project, I have not made a dedicated cJTAG adapter. Therefore, both the JTAG to cJTAG converter and the cJTAG to JTAG converter are implemented into one FPGA, and the cJTAG signals are connected at outside of the FPGA; that are the pairs of TCKC\_pri - TCKC\_rep and TMSC\_pri - TMSC\_rep.\\
+
+First of all, please connect the 4-wire JTAG Adapter as described in previous Section \ref{sec:CONNECTADAPTERJTAG}. 
+
+Next, please make and install a small circuit board as shown in Figure \ref{fig:USBCJTAGSUPPLEMENT}. The small board includes the supplemental circuits shown below as described in Section \ref{sec:cJTAG_FPGA}.
+
+\begin{enumerate}
+  \item External connection between TCKC\_pri (from JTAG/cJTAG converter in the FPGA) and TCKC\_rep (to cJTAG/JTAG converter in the FPGA).
+  \item External connection between TMSC\_pri (from/to JTAG/cJTAG converter in the FPGA) and TMSC\_rep (to/from cJTAG/JTAG converter in the FPGA).
+  \item External pull-up and pull-down resistors on the TMSC pin to control pull-up or bus-keeper.
+\end{enumerate}
+
+For this system, the configuration file of OpenOCD is shown in Listing \ref{list:OPENOCDCONFIGPCCJTAG}.
 
 \begin{figure}[H]
     \includegraphics[width=1.0\columnwidth]{./Figure/USB_cJTAG_Supplement.png}
@@ -110,10 +130,42 @@ As described in Section \ref{sec:cJTAG_FPGA}, the FPGA implementation with 2-wir
 \end{figure}
 
 
+\begin{lstlisting}[caption=OpenOCD Configuration File for 2-wire cJTAG interface, label=list:OPENOCDCONFIGPCCJTAG, captionpos=b,  language=, frame=single, basicstyle=\ttfamily\scriptsize]
+dapter driver ftdi
+adapter speed 1000
+ftdi oscan1_mode on
+set protocol cjtag
+ftdi device_desc "Dual RS232"
+ftdi vid_pid 0x0403 0x6010
+
+ftdi layout_init 0x0808 0x0b1b
+ftdi layout_signal nTRST -data 0x0100
+ftdi layout_signal nSRST -oe   0x0200
+ftdi layout_signal JTAG_SEL -data 0x0800
+
+ftdi layout_signal TCK -data  0x0001
+ftdi layout_signal TDI -data  0x0002
+ftdi layout_signal TDO -input 0x0004
+ftdi layout_signal TMS -data  0x0008
+
+reset_config srst_only
+
+set _CHIPNAME riscv
+jtag newtap $_CHIPNAME cpu -irlen 5
+
+set _TARGETNAME $_CHIPNAME.cpu
+target create $_TARGETNAME riscv -endian little -chain-position $_TARGETNAME -coreid 0
+
+init
+
+riscv authdata_write 0xbeefcafe
+\end{lstlisting}
+
+
 %=========================================================
 \subsection{Raspberry Pi 4 Model B as a Development Environment}
 
-If you have a Raspberry Pi 4 Model B, it can be a comprehensive development environment for RISC-V including mmRISC-1. Please note that the GPIO pins of the Raspberry Pi can be a direct OpenOCD JTAG interface, so you do not need to prepare a dedicated USB to JTAG interface any more. However, the OpenOCD for Raspberry Pi does not support 2-wire compact JTAG (cJTAG) yet, so please configure the FPGA as the mmRISC-1 with the 4-wire JTAG interface.//
+If you have a Raspberry Pi 4 Model B, it can be a comprehensive development environment for RISC-V including mmRISC-1. Please note that the GPIO pins of the Raspberry Pi can be a direct OpenOCD 4-wire JTAG interface, so you do not need to prepare a dedicated USB to JTAG interface any more. However, the OpenOCD for Raspberry Pi does not support 2-wire compact JTAG (cJTAG) yet, so please configure the FPGA as the mmRISC-1 with the 4-wire JTAG interface.\\
 You need to install RISC-V development tools on the 64bit Raspberry Pi OS, because the Eclipse requires a 64bit OS. To install all the necessary tools, please follow the steps shown below.\\
 
 (1) Install "Eclipse IDE for Embedded C/C++ Developers" aarch64 version.
@@ -228,12 +280,19 @@ proc init_targets {} {
 
 \begin{figure}[H]
     \includegraphics[width=1.0\columnwidth]{./Figure/USB_JTAG_Connection_Raspi.png}
-    \caption{Connection of OpenOCD JTAG Adapter and Raspberry Pi}
+    \caption{Connection of Raspberry Pi and the FPGA}
     \label{fig:USBJTAGCONNECTIONRASPI}
 \end{figure}
 
 
+%=========================================================
+\subsection{Generic Commercial Development Environments}
 
+You can use the generic commercial development environments such as the IAR Embedded Workbench for RISC-V. You can connect the debug probe to the mmRISC-1 SoC. 
+
+For the 4-wire JTAG, please connect TRSTn, TCK, TMS, TDI and TDO of the probe to corresponding terminals of mmRISC-1 SoC configured as 4-wire JTAG, respectively. 
+
+For the 2-wire cJTAG, please connect TCKC and TMSC of the probe to TCKC\_rep and TMSC\_rep of mmRISC-1 SoC configured as 2-wire cJTAG, respectively. In this case, you need not use supplemental circuits shown in Figure \ref{fig:USBCJTAGSUPPLEMENT}.
 
 
 

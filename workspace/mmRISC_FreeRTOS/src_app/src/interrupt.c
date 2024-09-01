@@ -13,6 +13,9 @@
 #include <stdint.h>
 #include "common.h"
 #include "csr.h"
+#include "gpio.h"
+#include "system.h"
+#include "uart.h"
 #include "interrupt.h"
 
 //--------------------------
@@ -20,12 +23,187 @@
 //--------------------------
 void INT_Init(void)
 {
-    // Configure Interrupt Controller
-    // IRQ00 : UART, so far disabled
-    write_csr(MINTCFGPRIORITY0, 0x00000001); // IRQ00
+    uint32_t irq;
+    uint32_t level;
+    //
+    // Configure IRQ00 as UART RXD Interrupt
+    IRQ_Config(0, 1, 1, 1);
+    // Set Current Level as Zero
     write_csr(MINTCURLVL      , 0x00000000); // LVL=0
-    write_csr(MINTCFGSENSE0   , 0x00000001); // Edge Sense
-    write_csr(MINTCFGENABLE0  , 0x00000001); // IRQ00
+    // Other interrupts are configured in RTOS Kernel
+}
+
+//--------------------------
+// IRQ Configuration
+//--------------------------
+void IRQ_Config
+(
+    uint32_t irqnum,   // IRQ Number : 0 ~ 63
+    uint32_t enable,   // IRQ Enable : 0=Disable, 1=Enable
+    uint32_t sense,    // IRQ Sense  : 0=Level  , 1=Edge
+    uint32_t level     // IRQ Level  : 0 ~ 15
+)
+{
+    uint32_t pos1, pos4;
+    uint32_t data;
+    //
+    enable = enable & 0x01;
+    sense  = sense  & 0x01;
+    level  = level & 0x0f;
+    //
+    // Set Priority
+    if (irqnum < 8)
+    {
+        pos4 = (irqnum - 0) * 4;
+        //
+        data = read_csr(MINTCFGPRIORITY0);
+        data = (data & ~(0x0f << pos4)) | (level << pos4);
+        write_csr(MINTCFGPRIORITY0, data);
+    }
+    else if (irqnum < 16)
+    {
+        pos4 = (irqnum - 8) * 4;
+        //
+        data = read_csr(MINTCFGPRIORITY1);
+        data = (data & ~(0x0f << pos4)) | (level << pos4);
+        write_csr(MINTCFGPRIORITY1, data);
+    }
+    else if (irqnum < 24)
+    {
+        pos4 = (irqnum - 16) * 4;
+        //
+        data = read_csr(MINTCFGPRIORITY2);
+        data = (data & ~(0x0f << pos4)) | (level << pos4);
+        write_csr(MINTCFGPRIORITY2, data);
+    }
+    else if (irqnum < 32)
+    {
+        pos4 = (irqnum - 24) * 4;
+        //
+        data = read_csr(MINTCFGPRIORITY3);
+        data = (data & ~(0x0f << pos4)) | (level << pos4);
+        write_csr(MINTCFGPRIORITY3, data);
+    }
+    else if (irqnum < 40)
+    {
+        pos4 = (irqnum - 32) * 4;
+        //
+        data = read_csr(MINTCFGPRIORITY4);
+        data = (data & ~(0x0f << pos4)) | (level << pos4);
+        write_csr(MINTCFGPRIORITY4, data);
+    }
+    else if (irqnum < 48)
+    {
+        pos4 = (irqnum - 40) * 4;
+        //
+        data = read_csr(MINTCFGPRIORITY5);
+        data = (data & ~(0x0f << pos4)) | (level << pos4);
+        write_csr(MINTCFGPRIORITY5, data);
+    }
+    else if (irqnum < 56)
+    {
+        pos4 = (irqnum - 48) * 4;
+        //
+        data = read_csr(MINTCFGPRIORITY6);
+        data = (data & ~(0x0f << pos4)) | (level << pos4);
+        write_csr(MINTCFGPRIORITY6, data);
+    }
+    else if (irqnum < 64)
+    {
+        pos4 = (irqnum - 56) * 4;
+        //
+        data = read_csr(MINTCFGPRIORITY7);
+        data = (data & ~(0x0f << pos4)) | (level << pos4);
+        write_csr(MINTCFGPRIORITY7, data);
+    }
+    //
+    // Set Sense and Enable
+    if (irqnum < 32)
+    {
+        pos1 = (irqnum - 0);
+        //
+        data = read_csr(MINTCFGSENSE0);
+        data = (data & ~(0x01 << pos1)) | (sense << pos1);
+        write_csr(MINTCFGSENSE0, data);
+        //
+        data = read_csr(MINTCFGENABLE0);
+        data = (data & ~(0x01 << pos1)) | (enable << pos1);
+        write_csr(MINTCFGENABLE0, data);
+    }
+    else if (irqnum < 64)
+    {
+        pos1 = (irqnum - 32);
+        //
+        data = read_csr(MINTCFGSENSE1);
+        data = (data & ~(0x01 << pos1)) | (sense << pos1);
+        write_csr(MINTCFGSENSE1, data);
+        //
+        data = read_csr(MINTCFGENABLE1);
+        data = (data & ~(0x01 << pos1)) | (enable << pos1);
+        write_csr(MINTCFGENABLE1, data);
+    }
+}
+
+//--------------------------
+// Interrupt Configuration
+//--------------------------
+void INT_Config
+(
+    uint32_t ena_intext,   // Enable External Interrupt
+    uint32_t ena_intmtime, // Enable MTIME Interrupt
+    uint32_t ena_intmsoft, // Enable SOFTWARE Interrupt
+    uint32_t ena_irq,      // Enable IRQ Interrupts
+    uint32_t cur_irqlvl    // Current IRQ Level
+)
+{
+    uint32_t data;
+    //
+    ena_intext   = ena_intext & 0x01;
+    ena_intmtime = ena_intmtime & 0x01;
+    ena_intmsoft = ena_intmsoft & 0x01;
+    ena_irq      = ena_irq & 0x01;
+    cur_irqlvl   = cur_irqlvl & 0x0f;
+    //
+    // Interrupt Current Level
+    write_csr(MINTCURLVL, cur_irqlvl);
+    //
+    // Enable Interrupt
+    data = read_csr(MIE);
+    data = (data & ~((1<<11) | (1<<7)| (1<<3)))
+         | (ena_intext << 11) | (ena_intmtime << 7) | (ena_intmsoft << 3);
+    write_csr(MIE, data);
+    //
+    data = read_csr(MSTATUS);
+    data = (data & ~(0x01 << 3))
+         | ((ena_intext | ena_intmtime | ena_intmsoft | ena_irq) << 3);
+    write_csr(MSTATUS, data);
+}
+
+//---------------------
+// MTIME Initialization
+//---------------------
+void MTIME_Init
+(
+    uint32_t enable,
+    uint32_t div_plus_one,
+    uint64_t intena,
+    uint64_t mtime_count,
+    uint64_t mtime_compa
+)
+{
+    uint32_t div;
+    //
+    enable = enable & 0x01;
+    div    = (div_plus_one > 0)? div_plus_one - 1 : div_plus_one;
+    div    = div & 0x3f;
+    intena = intena & 0x01;
+    //
+    mem_wr32(MTIME_DIV , div);
+    mem_wr32(MTIME     , (uint32_t)(mtime_count & 0x0ffffffffUL));
+    mem_wr32(MTIMEH    , (uint32_t)(mtime_count >> 32          ));
+    mem_wr32(MTIMECMP  , (uint32_t)(mtime_compa & 0x0ffffffffUL));
+    mem_wr32(MTIMECMPH , (uint32_t)(mtime_compa >> 32          ));
+    mem_wr32(MTIME_CTRL, (intena << 2) | (enable << 0));
 }
 
 //===========================================================

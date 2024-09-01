@@ -15,6 +15,11 @@
 #include "gpio.h"
 
 //-----------------------
+// Global Variable
+//-----------------------
+extern uint32_t uart_rxd_data;
+
+//-----------------------
 // Initialize PORT
 //-----------------------
 void GPIO_Init(void)
@@ -93,9 +98,13 @@ void GPIO_SetSEG_SignedDecimal(int32_t num)
     uint32_t out;
     out = (num3 << 24) | (num2 << 16) | (num1 << 8) | (num0 << 0);
     mem_wr32(GPIO_PDR0, out);
-    out = mem_rd32(GPIO_PDR1);
-    out = out & 0xffff0000;
-    out = out | (sign << 8) | (num4 << 0);
+    //
+  //out = mem_rd32(GPIO_PDR1);
+  //out = out & 0xffff0000;
+  //out = out | (sign << 8) | (num4 << 0);
+  //mem_wr32(GPIO_PDR1, out);
+    out = (LED7SEG[uart_rxd_data >> 4  ] << 8)
+        | (LED7SEG[uart_rxd_data & 0x0f] << 0);
     mem_wr32(GPIO_PDR1, out);
 }
 

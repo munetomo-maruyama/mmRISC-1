@@ -22,150 +22,78 @@ INTCFGPRIORITY0/1/2/3 configure priority level of each IRQ. The priority level i
     \label{fig:INTERRUPTS_INTC}
 \end{figure}
 
-An example of a startup routine that includes an exception handler and an interrupt handler is shown in Listing \ref{list:STARTUPROUTINE}. Note that the sample routine ignores saving and restoring Floating Point Registers FRx. Also, an example of an interrupt initialization routine and an interrupt handler routine in the C language portion, which are combined with the startup routine, are shown in Listing \ref{list:INTERRUPTCROUTINE}. In this example, multiple interrupts with different priorities are gathered into one entry point and one handler routine. This example increases the interrupt latency due to the conditional judgment in the handler routine. If you want to improve the latency of an interrupt, it is recommended to prepare a dedicated entry point and handler routine for the interrupt.
+An example of a startup routine that includes exception handlers and interrupt entry points is shown in Listing \ref{list:STARTUPROUTINE}. Also, an example of interrupt initialization routines and interrupt handler routines written in C language, which are combined with the startup routine, are shown in Listing \ref{list:INTERRUPTCROUTINE}. The sample routines support nested interrupts.
+
+The sample routine depends on the GNU C compiler to save and restore the XRn and FRn registers by using the keyword "\_\_attribute\_\_ ((interrupt))" to define the interrupt handler routines. 
+
+In this example, multiple interrupts with different priorities are gathered into one entry point and one handler routine "INT\_Handler\_IRQ()". This example increases the interrupt latency due to the conditional judgment in the handler routine.
+
+If you want to improve the latency of each interrupt, it is recommended to prepare pairs of dedicated entry point and corresponding handler routine for each interrupt as shown in \ref{list:DEDICATEDHANDLER}. In the case, the interrupt nesting is not supported.
+
+
 %-------------------
-\begin{lstlisting}[caption=An Example of Startup Routine including Exception Handlers and Interrupt Handlers, captionpos=b, language=, frame=single, basicstyle=\ttfamily\scriptsize, label=list:STARTUPROUTINE]
+\begin{lstlisting}[caption=An Example of Startup Routine including Exception Handlers and Interrupt Entry Points written in Assembler language, captionpos=b, language=, frame=single, basicstyle=\ttfamily\scriptsize, label=list:STARTUPROUTINE]
+    .globl _start
+    .globl main
+    .globl INT_Handler_EXT
+    .globl INT_Handler_MSOFT
+    .globl INT_Handler_MTIME
+    .globl INT_Handler_IRQ
+//-----------------------------------
+// Reset Vector
+//-----------------------------------
+    .text
+    .section ".vectors"
+    .align 4
 _reset:
     j    _start
 _vector_base:
-    j    _trap_exception // 00:Exception
-    j    _trap_illegal   // 01:Reserved
-    j    _trap_illegal   // 02:Reserved
-    j    _trap_int_soft  // 03:IRQ_MSOFT
-    j    _trap_illegal   // 04:Reserved
-    j    _trap_illegal   // 05:Reserved
-    j    _trap_illegal   // 06:Reserved
-    j    _trap_int_timer // 07:IRQ_MTIME
-    j    _trap_illegal   // 08:Reserved
-    j    _trap_illegal   // 09:Reserved
-    j    _trap_illegal   // 10:Reserved
-    j    _trap_int_ext   // 11:IRQ_EXT
-    j    _trap_illegal   // 12:Reserved
-    j    _trap_illegal   // 13:Reserved
-    j    _trap_illegal   // 14:Reserved
-    j    _trap_illegal   // 15:Reserved
-    j    _trap_irq       // 16:IRQ00
-    j    _trap_irq       // 16:IRQ01
-    j    _trap_irq       // 16:IRQ02
-    j    _trap_irq       // 16:IRQ03
+    j    _trap_exception       // 00:Exception
+    j    _trap_illegal         // 01:Supervisor Software Interrupt
+    j    _trap_illegal         // 02:Reserved
+    j    INT_Handler_MSOFT     // 03:Machine Software Interrupt
+    j    _trap_illegal         // 04:Reserved
+    j    _trap_illegal         // 05:Reserved
+    j    _trap_illegal         // 06:Reserved
+    j    INT_Handler_MTIME     // 07:Machine Timer Interrupt
+    j    _trap_illegal         // 08:Reserved
+    j    _trap_illegal         // 09:Reserved
+    j    _trap_illegal         // 10:Reserved
+    j    INT_Handler_EXT       // 11:Machine External Interrupt
+    j    _trap_illegal         // 12:Reserved
+    j    _trap_illegal         // 13:Reserved
+    j    _trap_illegal         // 14:Reserved
+    j    _trap_illegal         // 15:Reserved
+    j    INT_Handler_IRQ       // 16:IRQ00
+    j    INT_Handler_IRQ       // 17:IRQ01
+    j    INT_Handler_IRQ       // 18:IRQ02
+    j    INT_Handler_IRQ       // 19:IRQ03
     ...
-    j    _trap_irq       // 16:IRQ63
+    j    INT_Handler_IRQ       // 76:IRQ60
+    j    INT_Handler_IRQ       // 77:IRQ61
+    j    INT_Handler_IRQ       // 78:IRQ62
+    j    INT_Handler_IRQ       // 79:IRQ63
+
+//-----------------------------------
+// Trap Entry
+//-----------------------------------
+    .text
+    .section ".trap"
+    .align 4
 //
 _trap_exception:
-    csrrw x1, mscratch, x1  // swap ra and macratch
-    jal   _trap_handler_save
-    jal   _trap_handler_exception
-    jal   _trap_handler_load
-    csrrw ra, mscratch, ra  // swap ra and macratch
-    mret
-//
-_trap_int_soft:
-    csrrw ra, mscratch, ra  // swap ra and macratch
-    jal   _trap_handler_save
-    jal   _trap_handler_int_soft
-    jal   _trap_handler_load
-    csrrw ra, mscratch, ra  // swap ra and macratch
-    mret
-//
-_trap_int_timer:
-    csrrw ra, mscratch, ra  // swap ra and macratch
-    jal   _trap_handler_save
-    call  INT_Timer_Handler
-    jal   _trap_handler_load
-    csrrw ra, mscratch, ra  // swap ra and macratch
-    mret
-//
-_trap_int_ext:
-    csrrw ra, mscratch, ra  // swap ra and macratch
-    jal   _trap_handler_save
-    jal   _trap_handler_int_ext
-    jal   _trap_handler_load
-    csrrw ra, mscratch, ra  // swap ra and macratch
-    mret
-//
-_trap_irq:
-    csrrw ra, mscratch, ra  // swap ra and macratch
-    jal   _trap_handler_save
-    jal   _trap_handler_irq
-    jal   _trap_handler_load
-    csrrw ra, mscratch, ra  // swap ra and macratch
+   // Do Nothing
     mret
 //
 _trap_illegal:
+   // Forever Loop as a Trap
    j     .
-//
-_trap_handler_save:
-    csrrw ra, mscratch, ra  // swap ra and macratch
-    addi  sp, sp, -124
-    sw    x1,    0(sp) // ra
-    sw    x2,    4(sp) // sp
-    sw    x3,    8(sp)
-    sw    x4,   12(sp)
-    ...
-    sw    x30, 116(sp)
-    sw    x31, 120(sp)
-    csrrw ra, mscratch, ra  // swap ra and macratch
-    ret
-//
-_trap_handler_load:
-    csrrw ra, mscratch, ra  // swap ra and macratch
-    lw    x1,    0(sp) // ra
-    lw    x2,    4(sp) // sp
-    lw    x3,    8(sp)
-    lw    x4,   12(sp)
-    ...
-    lw    x30, 116(sp)
-    lw    x31, 120(sp)
-    addi  sp, sp, 124
-    csrrw ra, mscratch, ra  // swap ra and macratch
-    ret
-//
-_trap_handler_exception:
-    // As well as _trap_handler_irq
-    ret
-//
-_trap_handler_int_soft:
-    // As well as _trap_handler_irq
-    ret
-//
-_trap_handler_int_timer:
-    // As well as _trap_handler_irq
-    ret
-//
-_trap_handler_int_ext:
-    // As well as _trap_handler_irq
-    ret
-//
-_trap_handler_irq:
-    // save PC, MSTATUS,mintprelvl
-    csrr  x8, mepc
-    csrr  x9, mstatus
-    csrr  x10, 0xbf1 //mintprelvl
-    addi  sp, sp, -16
-    sw    x1 , 0(sp)
-    sw    x8 , 4(sp)
-    sw    x9 , 8(sp)
-    sw    x10,12(sp)
-    // enable global interrupt (set mie)
-    csrrsi x15, mstatus, 0x08
-    // allow enested interrupt
-    call   INT_IRQ_Handler         // Defined in C Program
-    // disable global interrupt (clear mie)
-    csrrci x15, mstatus, 0x08
-    // load MSTATUS, PC, mintcurlvl
-    lw    x1 , 0(sp)
-    lw    x8 , 4(sp)
-    lw    x9 , 8(sp)
-    lw    x10,12(sp)
-    addi  sp, sp, 16
-    csrw  0xbf0, x10 // mintcurlvl
-    csrw  mstatus, x9
-    csrw  mepc, x8
-    // Return
-    ret
-//
-// Start Up Routine
-//
+
+//--------------------------------
+// Startup
+//--------------------------------
+    .text
+    .section ".startup"
 _start:
     //
     // Init GP and SP
@@ -173,9 +101,9 @@ _start:
     la  sp, __STACK_TOP__
     //
     // Copy Initial Data
-    la  a0, __ROM_INIT_BGN__  // Defined in Linker Script
-    la  a1, __RAM_INIT_BGN__  // Defined in Linker Script
-    la  a2, __RAM_INIT_END__  // Defined in Linker Script
+    la  a0, __ROM_INIT_BGN__
+    la  a1, __RAM_INIT_BGN__
+    la  a2, __RAM_INIT_END__
     bgeu a1, a2, 2f
 1:
     lw t0, (a0)
@@ -205,64 +133,369 @@ _start:
     //
     // Forever Loop
 3:
-    j    3    
+    j    3b
 \end{lstlisting}
 %------------------------------------------
-\begin{lstlisting}[caption=An Example of Interrupt Initialization and An Interrupt Handler in the C language portion, captionpos=b, language=, frame=single, basicstyle=\ttfamily\scriptsize, label=list:INTERRUPTCROUTINE]
+\begin{lstlisting}[caption=An Example of Interrupt Initializations and Interrupt Handlers written in C language, captionpos=b, language=, frame=single, basicstyle=\ttfamily\scriptsize, label=list:INTERRUPTCROUTINE]
+#include <stdint.h>
+#include "common.h"
+#include "csr.h"
+#include "gpio.h"
+#include "system.h"
+#include "uart.h"
+#include "interrupt.h"
+
 //--------------------------
 // Interrupt Initialization
 //--------------------------
 void INT_Init(void)
 {
-    // Configure Interrupt Controller
-    write_csr(MINTCFGPRIORITY0, 0x........);
-    write_csr(MINTCURLVL      , 0x........);
-    write_csr(MINTCFGSENSE0   , 0x........);
-    write_csr(MINTCFGENABLE0  , 0x........);
-    ....
+    uint32_t irq;
+    uint32_t level;
+    //
+    // Configure IRQ00 as UART RXD Interrupt
+    IRQ_Config(0, 1, 1, 1);
+    //
+    // Enable MTIME to make periodic interrupt
+    MTIME_Init(1, 10, 1, 0, 166666); // 100ms
+    //
+    // Enable MTIME and IRQ Interrupts
+    INT_Config(0, 1, 0, 1, 0x0);
+}
+
+//--------------------------
+// IRQ Configuration
+//--------------------------
+void IRQ_Config
+(
+    uint32_t irqnum,   // IRQ Number : 0 ~ 63
+    uint32_t enable,   // IRQ Enable : 0=Disable, 1=Enable
+    uint32_t sense,    // IRQ Sense  : 0=Level  , 1=Edge
+    uint32_t level     // IRQ Level  : 0 ~ 15
+)
+{
+    uint32_t pos1, pos4;
+    uint32_t data;
+    //
+    enable = enable & 0x01;
+    sense  = sense  & 0x01;
+    level  = level & 0x0f;
+    //
+    // Set Priority
+    if (irqnum < 8)
+    {
+        pos4 = (irqnum - 0) * 4;
+        //
+        data = read_csr(MINTCFGPRIORITY0);
+        data = (data & ~(0x0f << pos4)) | (level << pos4);
+        write_csr(MINTCFGPRIORITY0, data);
+    }
+    else if (irqnum < 16)
+    {
+        pos4 = (irqnum - 8) * 4;
+        //
+        data = read_csr(MINTCFGPRIORITY1);
+        data = (data & ~(0x0f << pos4)) | (level << pos4);
+        write_csr(MINTCFGPRIORITY1, data);
+    }
+    else if (irqnum < 24)
+    {
+        pos4 = (irqnum - 16) * 4;
+        //
+        data = read_csr(MINTCFGPRIORITY2);
+        data = (data & ~(0x0f << pos4)) | (level << pos4);
+        write_csr(MINTCFGPRIORITY2, data);
+    }
+    else if (irqnum < 32)
+    {
+        pos4 = (irqnum - 24) * 4;
+        //
+        data = read_csr(MINTCFGPRIORITY3);
+        data = (data & ~(0x0f << pos4)) | (level << pos4);
+        write_csr(MINTCFGPRIORITY3, data);
+    }
+    else if (irqnum < 40)
+    {
+        pos4 = (irqnum - 32) * 4;
+        //
+        data = read_csr(MINTCFGPRIORITY4);
+        data = (data & ~(0x0f << pos4)) | (level << pos4);
+        write_csr(MINTCFGPRIORITY4, data);
+    }
+    else if (irqnum < 48)
+    {
+        pos4 = (irqnum - 40) * 4;
+        //
+        data = read_csr(MINTCFGPRIORITY5);
+        data = (data & ~(0x0f << pos4)) | (level << pos4);
+        write_csr(MINTCFGPRIORITY5, data);
+    }
+    else if (irqnum < 56)
+    {
+        pos4 = (irqnum - 48) * 4;
+        //
+        data = read_csr(MINTCFGPRIORITY6);
+        data = (data & ~(0x0f << pos4)) | (level << pos4);
+        write_csr(MINTCFGPRIORITY6, data);
+    }
+    else if (irqnum < 64)
+    {
+        pos4 = (irqnum - 56) * 4;
+        //
+        data = read_csr(MINTCFGPRIORITY7);
+        data = (data & ~(0x0f << pos4)) | (level << pos4);
+        write_csr(MINTCFGPRIORITY7, data);
+    }
+    //
+    // Set Sense and Enable
+    if (irqnum < 32)
+    {
+        pos1 = (irqnum - 0);
+        //
+        data = read_csr(MINTCFGSENSE0);
+        data = (data & ~(0x01 << pos1)) | (sense << pos1);
+        write_csr(MINTCFGSENSE0, data);
+        //
+        data = read_csr(MINTCFGENABLE0);
+        data = (data & ~(0x01 << pos1)) | (enable << pos1);
+        write_csr(MINTCFGENABLE0, data);
+    }
+    else if (irqnum < 64)
+    {
+        pos1 = (irqnum - 32);
+        //
+        data = read_csr(MINTCFGSENSE1);
+        data = (data & ~(0x01 << pos1)) | (sense << pos1);
+        write_csr(MINTCFGSENSE1, data);
+        //
+        data = read_csr(MINTCFGENABLE1);
+        data = (data & ~(0x01 << pos1)) | (enable << pos1);
+        write_csr(MINTCFGENABLE1, data);
+    }
+}
+
+//--------------------------
+// Interrupt Configuration
+//--------------------------
+void INT_Config
+(
+    uint32_t ena_intext,   // Enable External Interrupt
+    uint32_t ena_intmtime, // Enable MTIME Interrupt
+    uint32_t ena_intmsoft, // Enable SOFTWARE Interrupt
+    uint32_t ena_irq,      // Enable IRQ Interrupts
+    uint32_t cur_irqlvl    // Current IRQ Level
+)
+{
+    uint32_t data;
+    //
+    ena_intext   = ena_intext & 0x01;
+    ena_intmtime = ena_intmtime & 0x01;
+    ena_intmsoft = ena_intmsoft & 0x01;
+    ena_irq      = ena_irq & 0x01;
+    cur_irqlvl   = cur_irqlvl & 0x0f;
+    //
+    // Interrupt Current Level
+    write_csr(MINTCURLVL, cur_irqlvl);
+    //
     // Enable Interrupt
-    write_csr(MIE, read_csr(MIE) | (1<<7)); // MTIME Interrupt
-    write_csr(MSTATUS, read_csr(MSTATUS) | (1<<3)); // MIE
+    data = read_csr(MIE);
+    data = (data & ~((1<<11) | (1<<7)| (1<<3)))
+         | (ena_intext << 11) | (ena_intmtime << 7) | (ena_intmsoft << 3);
+    write_csr(MIE, data);
+    //
+    data = read_csr(MSTATUS);
+    data = (data & ~(0x01 << 3))
+         | ((ena_intext | ena_intmtime | ena_intmsoft | ena_irq) << 3);
+    write_csr(MSTATUS, data);
+}
+
+//---------------------------
+// Interrupt Generate
+//---------------------------
+void INT_Generate
+(
+    uint32_t intext,
+    uint32_t intsoft,
+    uint64_t irq
+)
+{
+    mem_wr32(INTGEN_IRQ_EXT, intext  & 0x01);
+    mem_wr32(MSOFTIRQ      , intsoft & 0x01);
+    mem_wr32(INTGEN_IRQ1   , (uint32_t)(irq >> 32));
+    mem_wr32(INTGEN_IRQ0   , (uint32_t)(irq & 0x0ffffffffUL));
+}
+
+//---------------------
+// MTIME Initialization
+//---------------------
+void MTIME_Init
+(
+    uint32_t enable,
+    uint32_t div_plus_one,
+    uint64_t intena,
+    uint64_t mtime_count,
+    uint64_t mtime_compa
+)
+{
+    uint32_t div;
+    //
+    enable = enable & 0x01;
+    div    = (div_plus_one > 0)? div_plus_one - 1 : div_plus_one;
+    div    = div & 0x3f;
+    intena = intena & 0x01;
+    //
+    mem_wr32(MTIME_DIV , div);
+    mem_wr32(MTIME     , (uint32_t)(mtime_count & 0x0ffffffffUL));
+    mem_wr32(MTIMEH    , (uint32_t)(mtime_count >> 32          ));
+    mem_wr32(MTIMECMP  , (uint32_t)(mtime_compa & 0x0ffffffffUL));
+    mem_wr32(MTIMECMPH , (uint32_t)(mtime_compa >> 32          ));
+    mem_wr32(MTIME_CTRL, (intena << 2) | (enable << 0));
+}
+
+//-----------------------------
+// Interrupt Handler External
+//-----------------------------
+__attribute__ ((interrupt)) void INT_Handler_EXT(void)
+{
+    // Negate IRQ_EXT
+    mem_wr32(INTGEN_IRQ_EXT, 0x00000000);
+    //
+    // Write your own code
+    ...
+}
+
+//----------------------------
+// Interrupt Handler MTIME
+//----------------------------
+__attribute__ ((interrupt)) void INT_Handler_MTIME(void)
+{
+    // Clear Interrupt Flag in MTIME
+    mem_wr32(MTIME_CTRL, mem_rd32(MTIME_CTRL));
+    //
+    // Write your own code
+    ...
+}
+
+//-----------------------------
+// Interrupt Handler MSOFT
+//-----------------------------
+__attribute__ ((interrupt)) void INT_Handler_MSOFT(void)
+{
+    // Negate MSOFT
+    mem_wr32(MSOFTIRQ, 0x00000000);
+    //
+    // Write your own code
+    ...
 }
 
 //-------------------------
 // Interrupt Handler IRQ
 //-------------------------
-void INT_IRQ_Handler(void)
+__attribute__ ((interrupt)) void INT_Handler_IRQ(void)
 {
-    uint32_t irq_pend0, ...;
     uint32_t irq_level;
+    uint64_t irq_pend0;
+    uint64_t irq_pend1;
+    uint64_t irq_pend;
+    uint32_t prev_mepc;
+    uint32_t prev_mstatus;
+    uint32_t prev_mintprelvl;
     //
-    irq_pend0 = read_csr(MINTPENDING0);
-    ...
+    // Get Pending Status
     irq_level = read_csr(MINTCURLVL);
+    irq_pend0 = (uint64_t)read_csr(MINTPENDING0);
+    irq_pend1 = (uint64_t)read_csr(MINTPENDING1);
+    irq_pend  = (irq_pend1 << 32) + (irq_pend0 << 0);
     //
-    // Dispatch
+    // Save Previous Status
+    prev_mintprelvl = read_csr(MINTPRELVL);
+    prev_mepc       = read_csr(MEPC);
+    prev_mstatus    = read_csr(MSTATUS);
+    //
+    // Enable global interrupt (set mie)
+    write_csr(MSTATUS, prev_mstatus | 0x08);
+    //
+    //-------------------------------------------------
+    // Dispatch to each Priority Handler
     switch(irq_level)
     {
         // Group Priority Level 1
-        case 1 :
+        case  1 :
         {
-            if (irq_pend0 & 0x........)
+            // Write your own code
+            // IRQ00
+            if (irq_pend0 & 0x00000001)
             {
-                Interrput_Handler_for_each_Peripheral();
+                INT_UART_Handler();
+                write_csr(MINTPENDING0, 0x00000001); // Clear Pending Edge
             }
             break;
         }
-        // Group Priority Level 2
-        case 2 :
-        {
-            // ...
-            break;
-        }
-        // ...
-        // ...
-        // Group Priority Level 15
+        // Group Priority 2-15
+        case  2 :
+        case  3 :
+        case  4 :
+        case  5 :
+        case  6 :
+        case  7 :
+        case  8 :
+        case  9 :
+        case 10 :
+        case 11 :
+        case 12 :
+        case 13 :
+        case 14 :
         case 15 :
         {
-            // ...
+            // Write your own code
+            break;
+        }
+        //  Never reach here
+        default :
+        {
             break;
         }
     }
+    //-------------------------------------------------
+    //
+    // Disable global interrupt, Save Previous Status
+    write_csr(MSTATUS   , prev_mstatus); // mie=0
+    write_csr(MEPC      , prev_mepc);
+    write_csr(MINTCURLVL, prev_mintprelvl);
 }
 \end{lstlisting}
+
+%-------------------
+\begin{lstlisting}[caption=An Example of Interrupt related routines (assembler and C) involving pairs of dedicated entry point and corresponding handler routine in order to improve the interrupt latency, captionpos=b, language=, frame=single, basicstyle=\ttfamily\scriptsize, label=list:DEDICATEDHANDLER]
+==== Assembler Part ====
+...
+_vector_base:
+...
+    j    INT_Handler_IRQ00     // 16:IRQ00
+    j    INT_Handler_IRQ01     // 17:IRQ01
+    j    INT_Handler_IRQ02     // 18:IRQ02
+    j    INT_Handler_IRQ03     // 19:IRQ03
+...
+
+==== C language Part ====
+...
+__attribute__ ((interrupt)) void INT_Handler_IRQ00(void)
+{
+    // Write your own code
+}
+__attribute__ ((interrupt)) void INT_Handler_IRQ01(void)
+{
+    // Write your own code
+}
+__attribute__ ((interrupt)) void INT_Handler_IRQ02(void)
+{
+    // Write your own code
+}
+__attribute__ ((interrupt)) void INT_Handler_IRQ03(void)
+{
+    // Write your own code
+}
+...
+\end{lstlisting}
+
+

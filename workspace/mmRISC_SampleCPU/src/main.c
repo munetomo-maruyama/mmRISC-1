@@ -43,6 +43,7 @@ void main(void)
     UART_Init();
     GSENSOR_Init();
     INT_Init();
+    mem_wr32(0xfffffffc, 0xdeaddead); // Simulation Stop
     //
     // Message
     printf("======== mmRISC-1 ========\n");

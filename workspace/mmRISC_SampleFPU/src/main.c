@@ -57,6 +57,61 @@ void main(void)
     // Main Floating
     write_csr(0xbe0, 0x000000ff);
     main_floating();
+    //
+    // You will not reach here.
+    //--------------------------------
+    // Debug HBRK
+    volatile uint32_t data;
+    data = 0;
+    while(1)
+    {
+        data = data + 1;
+        data = data + 2;
+        data = data + 3;
+    }
+    //--------------------------------
+    // Debug C.FSWSP
+    volatile float fdata;
+    fdata = 2.0f;
+    while(1)
+    {
+        fdata = fdata + 1.0f;
+    }
+    //-----------------------------------------------
+    asm volatile ("flw fs0, 4(x2)");
+    asm volatile ("li x10, 0xffffffff");
+    asm volatile ("fmv.w.x fa0, x10");
+    asm volatile ("li x10, 0x3f800000"); // 1.0
+    asm volatile ("fmv.w.x fa1, x10");
+    asm volatile ("li x10, 0x40000000"); // 2.0
+    asm volatile ("mv x3, sp");
+    asm volatile ("sw x10, 4(sp)");
+    asm volatile ("sw x10, 4(x3)");
+    //-----------------------------------------------
+    asm volatile ("flw fa0, 4(sp)");
+    asm volatile ("fadd.s fa0, fa0, fa1");
+    asm volatile ("fsw fa0, 4(sp)");
+    //
+    asm volatile ("fmv.w.x fa0, x0");
+    //
+    asm volatile ("flw fa0, 4(sp)");
+    asm volatile ("fadd.s fa0, fa0, fa1");
+    asm volatile ("fsw fa0, 4(sp)");
+    //
+    asm volatile ("fmv.w.x fa0, x0");
+    //
+    asm volatile ("flw fa0, 4(sp)");
+    asm volatile ("fadd.s fa0, fa0, fa1");
+    asm volatile ("fsw fa0, 4(sp)");
+    //-----------------------------------------------
+    asm volatile ("fsw fs0, 4(x2)");
+    //-----------------------------------------------
+    asm volatile ("nop");
+    asm volatile ("nop");
+    asm volatile ("nop");
+    asm volatile ("nop");
+    mem_wr32(0xfffffffc, 0xdeaddead); // Simulation Stop
+    //--------------------------------
 }
 
 //===========================================================

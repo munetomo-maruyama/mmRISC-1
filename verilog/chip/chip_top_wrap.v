@@ -6,6 +6,7 @@
 //-----------------------------------------------------------
 // History :
 // Rev.01 2023.05.14 M.Maruyama cJTAG Support and Halt-on-Reset
+// Rev.02 2024.07.27 M.Maruyama Changed selection method for JTAG/cJTAG
 //-----------------------------------------------------------
 // Copyright (C) 2017-2023 M.Maruyama
 //===========================================================
@@ -139,7 +140,7 @@
 // GPIO1[12] M20 HEX54 segE
 // GPIO1[13] N19 HEX55 segF
 // GPIO1[14] N20 HEX56 segG
-// GPIO1[15] Y1  VGA_R3
+// GPIO1[15] Y2  VGA_R2
 // GPIO1[16] A8  LEDR0
 // GPIO1[17] A9  LEDR1
 // GPIO1[18] A10 LEDR2
@@ -163,9 +164,9 @@
 // GPIO2[ 3] C12  SW3
 // GPIO2[ 4] A12  SW4
 // GPIO2[ 5] B12  SW5
-// GPIO2[ 6] A13  SW6
+// GPIO2[ 6] A13  SW6  (ENABLE_CJTAG)
 // GPIO2[ 7] A14  SW7  (Slow Clock)
-// GPIO2[ 8] Y2   VGA_R2
+// GPIO2[ 8] B14  SW8  (STBY_REQ)
 // GPIO2[ 9] F15  SW9  (DEBUG_SECURE)
 // GPIO2[10] A7   KEY1 (RESET_HALT_N)
 // GPIO2[11] W6   GPIO_8
@@ -190,7 +191,6 @@
 // GPIO2[30] AA1  VGA_R0
 // GPIO2[31] V1   VGA_R1
 //
-// STBY_REQ   B14  SW8
 // STBY_ACK_N L19 HEX57 segDP
 
 `include "defines_chip.v"
@@ -204,13 +204,14 @@ module CHIP_TOP_WRAP
     input  wire RES_N, // Reset Input (Negative)
     input  wire CLK50, // Clock Input (50MHz)
     //
-    input  wire STBY_REQ,   // Stand-by Request
+  //input  wire STBY_REQ,   // Stand-by Request --> GPIO2[8]
     output wire STBY_ACK_N, // Stand=by Acknowledge (negative)
     //
     output wire RESOUT_N, // Reset Output (negative) 
     //
 `ifdef SIMULATION
     inout  wire SRSTn, // System Reset In/Out
+    output wire RTCK,  // JTAG Return Clock
 `endif
     //
     input  wire TRSTn, // JTAG TAP Reset
@@ -219,7 +220,6 @@ module CHIP_TOP_WRAP
     input  wire TDI,   // JTAG Data Input
     output wire TDO,   // JTAG Data Output (3-state)
     //
-`ifdef ENABLE_CJTAG
     output wire TCKC_pri, // cJTAG TCKC Loop Primary
     input  wire TCKC_rep, // cJTAG TCKC Loop Replica
     inout  wire TMSC_pri, // cJTAG TMSC Loop Primary
@@ -227,11 +227,6 @@ module CHIP_TOP_WRAP
     //
     output wire TMSC_PUP_rep, // cJTAG TMSC should be PullUp when 1
     output wire TMSC_PDN_rep, // cJTAG TMSC should be PullDn when 0
-`endif
-    //
-`ifdef SIMULATION
-    output wire RTCK,  // JTAG Return Clock
-`endif
     //
     inout  wire [31:0] GPIO0, // GPIO0 Port (should be pulled-up)
     inout  wire [31:0] GPIO1, // GPIO1 Port (should be pulled-up)
@@ -267,25 +262,46 @@ module CHIP_TOP_WRAP
     inout  wire [15:0] SDRAM_DQ    // SDRAM Data
 );
 
+//-------------------
+// STBY Request
+//-------------------
+wire stby_req;
+assign stby_req = GPIO2[8];
+
+//--------------------------------
+// Enable or Disable RESET_HALT 
+//--------------------------------
+wire reset_halt_n;
+//
+`ifdef USE_FORCE_HALT_ON_RESET
+    assign reset_halt_n = GPIO2[10]; // KEY1
+`else
+    assign reset_halt_n = 1'b1;
+`endif
+
+//----------------------------------------
+// Selection whether using JTAG or cJTAG
+//----------------------------------------
+wire enable_cjtag;
+assign enable_cjtag = GPIO2[6]; 
+
 //---------------------------------------------
 // Adapter to convert JTAG to cJTAG
 //---------------------------------------------
-`ifdef ENABLE_CJTAG
-wire tdo_d, tdo_e;
+wire tdo_d_jtag , tdo_e_jtag;
+wire tdo_d_cjtag, tdo_e_cjtag;
 wire tckc_o, tmsc_i, tmsc_o, tmsc_e;
 wire tmsc_pup, tmsc_pdn;
 //
 CJTAG_ADAPTER U_CJTAG_ADAPTER
 (
-`ifdef USE_FORCE_HALT_ON_RESET
-    .RESET_HALT_N (GPIO2[10]), // KEY1
-`endif
+    .RESET_HALT_N (reset_halt_n),
     //
     .TCK    (TCK),
     .TMS    (TMS),
     .TDI    (TDI),
-    .TDO_D  (tdo_d),
-    .TDO_E  (tdo_e),
+    .TDO_D  (tdo_d_cjtag),
+    .TDO_E  (tdo_e_cjtag),
     //
     .TCKC   (tckc_o),
     .TMSC_I (tmsc_i),
@@ -293,7 +309,8 @@ CJTAG_ADAPTER U_CJTAG_ADAPTER
     .TMSC_E (tmsc_e)
 );
 //
-assign TDO = (tdo_e)? tdo_d : 1'bz;
+assign TDO = (enable_cjtag)? ((tdo_e_cjtag)? tdo_d_cjtag : 1'bz)
+                           : ((tdo_e_jtag )? tdo_d_jtag  : 1'bz);
 //
 assign TCKC_pri = tckc_o;
 assign TMSC_pri = (tmsc_e)? tmsc_o : 1'bz;
@@ -302,11 +319,6 @@ assign tmsc_i   = TMSC_pri;
 // Keeper Control
 assign TMSC_PUP_rep = (tmsc_pup)? 1'b1 : 1'bz;
 assign TMSC_PDN_rep = (tmsc_pdn)? 1'b0 : 1'bz;
-`endif
-//
-`ifdef SIMULATION
-assign RTCK = TCK;
-`endif
 
 //------------------------
 // Chip Top
@@ -316,29 +328,29 @@ CHIP_TOP U_CHIP_TOP
     .RES_N    (RES_N), // Reset Input (Negative)
     .CLK50    (CLK50), // Clock Input (50MHz)
     //
-    .STBY_REQ   (STBY_REQ),   // Stand-by Request
+    .STBY_REQ   (stby_req),   // Stand-by Request
     .STBY_ACK_N (STBY_ACK_N), // Stand=by Acknowledge (negative)
     //
     .RESOUT_N (RESOUT_N), // Reset Output (negative) 
     //
-`ifdef SIMULATION
-    .SRSTn    (SRSTn), // System Reset In/Out
-`endif
+    .RESET_HALT_N (reset_halt_n), // Request of RESET_HALT
+    .ENABLE_CJTAG (enable_cjtag), // Selection whether using JTAG or cJTAG
     //
-`ifdef ENABLE_CJTAG
     .TCKC     (TCKC_rep), // cJTAG Clock
     .TMSC     (TMSC_rep), // cJTAG TMS/TDI/TDO
     .TMSC_PUP (tmsc_pup), // cJTAG TMSC should be Pull Up when 1
     .TMSC_PDN (tmsc_pdn), // cJTAG TMSC should be Pull Dn when 1
-`else // ENABLE_JTAG
+    //
     .TRSTn (TRSTn), // JTAG TAP Reset
     .TCK   (TCK),   // JTAG Clock
     .TMS   (TMS),   // JTAG Mode Select
     .TDI   (TDI),   // JTAG Data Input
-    .TDO   (TDO),   // JTAG Data Output (3-state)
-`endif
+    .TDO   (),      // JTAG Data Output (3-state)
+    .TDO_D (tdo_d_jtag), // JTAG Data Output Level
+    .TDO_E (tdo_e_jtag), // JTAG Data Output Enable
     //
 `ifdef SIMULATION
+    .SRSTn (SRSTn), // System Reset In/Out
     .RTCK  (RTCK),  // JTAG Return Clock
 `endif
     //

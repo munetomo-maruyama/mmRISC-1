@@ -7,9 +7,9 @@
 
 The target FPGA is the Intel MAX 10 10M50DAF484C7G and the target board is the Terasic DE10-Lite Board, as shown in Figure \ref{fig:DE10LITE}.\\
 
-There are four configurations, as shown in Table \ref{tb:FPGACONFIGJTAG} and Table \ref{tb:FPGACONFIGCJTAG}: (1) RV32IMAC with 4-wire JTAG, (2) RV32IMAFC with 4-wire JTAG, (3) RV32IMAC with 2-wire cJTAG, and (4) RV32IMAFC with 2-wire cJTAG. You can select each configuration by enabling or disabling the \textasciigrave define switches: RISCV\_ISA\_RV32F in defines\_core.v and ENABLE\_CJTAG in defines\_chip.v, which are stored in the ./verilog/common directory.\\
+There are two configurations, as shown in Table \ref{tb:FPGACONFIG}: (1) RV32IMAC with selectable 4-wire JTAG or 2-wire cJTAG, (2) RV32IMAFC with selectable 4-wire JTAG or 2-wire cJTAG. You can select each configuration by disabling or enabling the \textasciigrave define switches: RISCV\_ISA\_RV32F in defines\_core.v, which is stored in the ./verilog/common directory.\\
 
-If the RISC-V ISA in mmRISC-1 does not have floating point instructions (RV32IMAC: \textasciigrave define RISCV\_ISA\_RV32F is disabled), the FPGA operates at 20MHz (Tcyc = 50ns). However, if it has floating point instructions (RV32IMAFC: \textasciigrave define RISCV\_ISA\_RV32F is enabled), the FPGA operates at 16.67MHz (Tcyc = 60ns) due to the complexity of logic for floating point operations. In the CHIP\_TOP layer, if “\textasciigrave RISCV\_ISA\_RV32F” is defined, the 16.67MHz output from the PLL is used as the system clock. Otherwise, the 20MHz output from the PLL is used. The examples of FPGA configuration results are shown in Table \ref{tb:FPGACONFIGJTAG} and Table \ref{tb:FPGACONFIGCJTAG}.\\
+If the RISC-V ISA in mmRISC-1 does not have floating point instructions (RV32IMAC: \textasciigrave define RISCV\_ISA\_RV32F is disabled), the FPGA operates at 20MHz (Tcyc = 50ns). However, if it has floating point instructions (RV32IMAFC: \textasciigrave define RISCV\_ISA\_RV32F is enabled), the FPGA operates at 16.67MHz (Tcyc = 60ns) due to the complexity of logic for floating point operations. In the CHIP\_TOP layer, if “\textasciigrave RISCV\_ISA\_RV32F” is defined, the 16.67MHz output from the PLL is used as the system clock. Otherwise, the 20MHz output from the PLL is used. The examples of FPGA configuration results are shown in Table \ref{tb:FPGACONFIG}.\\
 
 The FPGA-related resources are stored in the directory "mmRISC-1/fpga". After launching Quartus Prime (Figure \ref{fig:QUESTAPRIME}), please open the project file "mmRISC.qpf". The timing constraints file is "mmRISC.sdc". \\
 
@@ -24,22 +24,22 @@ If you want to make the Instruction RAM have initial data like a ROM, apply the 
 
 The macro "FPGA" switches ram.v to ram\_fpga.v for the Instruction RAM (U\_RAMI) in the chip\_top layer. The ram\_fpga.v refers to the FPGA IP of RAM128KB\_DP.v stored in the directory "fpga".\\
 
-The already prepared RAM128KB\_DP.mif has been generated from "mmRISC\_TouchLCD" by the above command. If there is no Touch LCD shield on the FPGA board, this demo program toggles LEDs and outputs 3D acceleration sensor data to the UART terminal.
+The already prepared RAM128KB\_DP.mif has been generated from "mmRISC\_TouchLCD" (without floating point instructions) by the above command. If there is no Touch LCD shield on the FPGA board, this demo program toggles LEDs and outputs 3D acceleration sensor data to the UART terminal.
 
 
-\begin{figure}[H]
+\begin{figure}
     \includegraphics[width=0.8\columnwidth]{./Figure/DE10-Lite.png}
     \caption{Terasic DE10-Lite Board \& OpenOCD JTAG Adapter}
     \label{fig:DE10LITE}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
     \includegraphics[width=1.0\columnwidth]{./Figure/QuestaPrime.png}
     \caption{Intel Quartus Prime Lite Edition}
     \label{fig:QUESTAPRIME}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}
     \begin{adjustbox}{scale={0.95}{1}}
     \textsf{
     \begin{tabular}{|L{4cm}{4cm}{t}|L{4cm}{4cm}{t}|L{4cm}{4cm}{t}|L{1cm}{1cm}{t}|}
@@ -48,13 +48,13 @@ The already prepared RAM128KB\_DP.mif has been generated from "mmRISC\_TouchLCD"
         \rowcolor{LightPurple}
         \textbf{RISC-V ISA} &
         \textbf{RV32IMAC (integer)} &
-        \textbf{RV32IMAFC (floating)} &
+        \textbf{RV32IMAFC (interger + floating)} &
         \textbf{Note}
         \nextRow \hline
         %-------------------------------------
         Configuration Data &
-        ./fpga/output\_files/ \lb RV32IMAC\_JTAG/\ \  \lb mmRISC.pof &
-        ./fpga/output\_files/ \lb RV32IMAFC\_JTAG/\  \lb mmRISC.pof &
+        ./fpga/output\_files/ \lb RV32IMAC\_JTAGcJTAG/\ \  \lb mmRISC.pof &
+        ./fpga/output\_files/ \lb RV32IMAFC\_JTAGcJTAG/\  \lb mmRISC.pof &
         ~
         \nextRow \hline
         %-------------------------------------
@@ -81,25 +81,25 @@ The already prepared RAM128KB\_DP.mif has been generated from "mmRISC\_TouchLCD"
         %-------------------------------------
         Quartus Prime &
         \setMultiColumn{2}{12cm}{8cm}{l}{t}{}{|}
-        {Lite Edition Ver.21.1.1} &
+        {Lite Edition Ver.23.1std.0} &
         ~
         \nextRow \hline
         %-------------------------------------
         Optimization &
         \setMultiColumn{2}{12cm}{8cm}{l}{t}{}{|}
-        {Balanced (Normal Flow)} &
+        {Performance (High effort)} &
         ~
         \nextRow \hline
         %-------------------------------------
         Logic Elements &
-        24595/49760 = 49\% &
-        42625/49760 = 86\% &
+        25266/49760 = 49.8\% &
+        43190/49760 = 86.8\% &
         ~
         \nextRow \hline
         %-------------------------------------
         Interconnect Usage &
-        34.7\% &
-        47.0\% &
+        81,6\% (peak) &
+        91.8\% (peak) &
         ~
         \nextRow \hline
         %-------------------------------------
@@ -110,206 +110,17 @@ The already prepared RAM128KB\_DP.mif has been generated from "mmRISC\_TouchLCD"
         \nextRow \hline
         %-------------------------------------
         Worst Setup Slack &
-        0.124ns (met) &
-        0.706ns (met) &
+        0.964ns (met) &
+        4.662ns (met) &
         ~
         \nextRow \hline
         %-------------------------------------
     \end{tabular}
     }
     \end{adjustbox}
-    \caption{FPGA Configuration Results of mmRISC-1 with 4-wire JTAG }
-    \label{tb:FPGACONFIGJTAG}
+    \caption{FPGA Configuration Results of mmRISC-1}
+    \label{tb:FPGACONFIG}
 \end{table}
-
-\begin{table}[H]
-    \begin{adjustbox}{scale={0.95}{1}}
-    \textsf{
-    \begin{tabular}{|L{4cm}{4cm}{t}|L{4cm}{4cm}{t}|L{4cm}{4cm}{t}|L{1cm}{1cm}{t}|}
-        \hline
-        %-------------------------------------
-        \rowcolor{LightPurple}
-        \textbf{RISC-V ISA} &
-        \textbf{RV32IMAC (integer)} &
-        \textbf{RV32IMAFC (floating)} &
-        \textbf{Note}
-        \nextRow \hline
-        %-------------------------------------
-        Configuration Data &
-        ./fpga/output\_files/ \lb RV32IMAC\_CJTAG/\  \lb mmRISC.pof &
-        ./fpga/output\_files/ \lb RV32IMAFC\_CJTAG/ \lb mmRISC.pof &
-        ~
-        \nextRow \hline
-        %-------------------------------------
-        Debug I/F &
-        \setMultiColumn{2}{12cm}{8cm}{l}{t}{}{|}
-        {2-wire cJTAG} &
-        ~
-        \nextRow \hline
-        %-------------------------------------
-        Peripherals &
-        \setMultiColumn{2}{12cm}{8cm}{l}{t}{}{|}
-        {Instruction RAM 128KB (initialized by .mif), \lb 
-         Data RAM 48KB , Multilayer AHB BUS, \lb
-         UART + Timer + GPIO + I2C(2ch) \lb 
-         + SPI + SDRAM I/F} &
-        ~
-        \nextRow \hline
-        %-------------------------------------
-        Device &
-        \setMultiColumn{2}{12cm}{8cm}{l}{t}{}{|}
-        {MAX 10 10M50DAF484C7G} &
-        ~
-        \nextRow \hline
-        %-------------------------------------
-        Quartus Prime &
-        \setMultiColumn{2}{12cm}{8cm}{l}{t}{}{|}
-        {Lite Edition Ver.21.1.1} &
-        ~
-        \nextRow \hline
-        %-------------------------------------
-        Optimization &
-        \setMultiColumn{2}{12cm}{8cm}{l}{t}{}{|}
-        {Balanced (Normal Flow)} &
-        ~
-        \nextRow \hline
-        %-------------------------------------
-        Logic Elements &
-        24630/49760 = 49\% &
-        42671/49760 = 86\% &
-        ~
-        \nextRow \hline
-        %-------------------------------------
-        Interconnect Usage &
-        37.4\% &
-        48.6\% &
-        ~
-        \nextRow \hline
-        %-------------------------------------
-        Frequency &
-        20MHz &
-        16.67MHz &
-        ~
-        \nextRow \hline
-        %-------------------------------------
-        Worst Setup Slack &
-        1.208ns (met) &
-        2.192ns (met) &
-        ~
-        \nextRow \hline
-        %-------------------------------------
-    \end{tabular}
-    }
-    \end{adjustbox}
-    \caption{FPGA Configuration Results of mmRISC-1 with 2-wire cJTAG }
-    \label{tb:FPGACONFIGCJTAG}
-\end{table}
-
-
-\subsection{FPGA Pin Assignments}
-
-The FPGA pin assignments are shown in Table \ref{tb:FPGAPIN}. The Table \ref{tb:FPGAPINSPECIAL} shows some pins for special functions of the mmRISC-1 tiny SoC, such as cJTAG, stand-by (low power mode), authentication (security), slow clock, and halt-on-reset, which are described in Section \ref{sec:MISCELLANEOUS}. The positions on the FPGA board to use the special features are shown in Figure \ref{fig:SPECIALFEATURES}.
-
-
-\begin{table}[H]
-    \includegraphics[width=1.0\columnwidth]{./Table/FPGAPinAssign.png}
-    \caption{FPGA Pin Assignments}
-    \label{tb:FPGAPIN}
-\end{table}
-
-
-\begin{table}[H]
-    \begin{adjustbox}{scale={0.55}{0.8}}
-    \textsf{
-    \begin{tabular}{|L{2cm}{2cm}{t}|L{4cm}{4cm}{t}|L{1.5cm}{1.5cm}{t}|L{1cm}{1cm}{t}|L{4cm}{4cm}{t}|L{10cm}{10cm}{t}|}
-        \hline
-        %-------------------------------------
-        \rowcolor{LightPurple}
-        \textbf{Group} & 
-        \textbf{Signal Name} & 
-        \textbf{In/Out} &
-        \textbf{FPGA} &
-        \textbf{DE10 Lite Board} &
-        \textbf{Description}
-        \nextRow \hline
-        %-------------------------------------
-        cJTAG         & TCKC\_pri      & OUT    & W13  & Pin Header GPIO\_13 &
-        \setMultiRow{2}{Connect directly each other}
-        \nextRow \cline{1-5}
-        %-------------------------------------
-        cJTAG         & TCKC\_rep      & IN     & AB13 & Pin Header GPIO\_15 &
-        ~
-        \nextRow \hline
-        %-------------------------------------
-        cJTAG         & TMSC\_pri      & OUT    & AA14 & Pin Header GPIO\_12 &
-        \setMultiRow{2}{Connect directly each other}
-        \nextRow \cline{1-5}
-        %-------------------------------------
-        cJTAG         & TMSC\_rep      & IN     & W12  & Pin Header GPIO\_14 &
-        ~
-        \nextRow \hline
-        %-------------------------------------
-        cJTAG         & TSMC\_PUP\_rep & OUT    & Y1   & Pin Header GPIO\_17 &
-        Connect to TMSC\_pri through 10k resistor
-        \nextRow \hline
-        %-------------------------------------
-        cJTAG         & TSMC\_PDN\_rep & OUT    & AB12  & Pin Header GPIO\_16 &
-        Connect to TMSC\_pri through 10k resistor
-        \nextRow \hline
-        %-------------------------------------
-        STBY          & STBY\_REQ      & IN     & B14   & SW8 &
-        To enter STBY mode, slide up SW8
-        \nextRow \hline
-        %-------------------------------------
-        STBY          & STBY\_ACK\_N   & OUT    & L19   & HEX57 segment DP &
-        In STBY mode, turn on the segment DP of HEX57
-        \nextRow \hline
-        %-------------------------------------
-        Secure        & DEBUG\_SECURE \lb GPIO2 [9] & In/Out & F15 & SW9 &
-        To enable Secure Authentication, slide up SW9
-        \nextRow \hline
-        %-------------------------------------
-        Slow Clock    & GPIO2 [7]      & In/Out  & A14   & SW7 &
-        To make the System Clock slow (100KHz), slide up SW7
-        \nextRow \hline
-        %-------------------------------------
-        Halt on Reset & RESET\_HALT\_N \lb GPIO2 [10] & In/Out & A7 & KEY1 &
-        At negation of RESET, push KEY1 for Halt-on-Reset
-        \nextRow \hline
-        %-------------------------------------
-        VGA           & GPIO1 [15]     & In/Out  & Y1  & VGA\_R3 &
-        \setMultiRow{6}{These pins can not be assigned usable positions. \lb Therefore, Unusable, may be.}
-        \nextRow \cline{1-5}
-        %-------------------------------------
-        VGA           & GPIO2 [8]      & In/Out  & Y2  & VGA\_R2 & ~
-        \nextRow \cline{1-5}
-        %-------------------------------------
-        VGA           & GPIO2 [28]     & In/Out  & N1  & VGA\_VS & ~
-        \nextRow \cline{1-5}
-        %-------------------------------------
-        VGA           & GPIO2 [29]     & In/Out  & N3  & VGA\_HS & ~
-        \nextRow \cline{1-5}
-        %-------------------------------------
-        VGA           & GPIO2 [30]     & In/Out  & AA1 & VGA\_R0 & ~
-        \nextRow \cline{1-5}
-        %-------------------------------------
-        VGA           & GPIO2 [31]     & In/Out  & V1  & VGA\_R1 & ~
-        \nextRow \hline
-        %-------------------------------------
-    \end{tabular}
-    }
-    \end{adjustbox}
-    \caption{FPGA Special Function Pins}
-    \label{tb:FPGAPINSPECIAL}
-\end{table}
-
-
-\begin{figure}[H]
-    \includegraphics[width=1.0\columnwidth]{./Figure/SpecialFeatures.png}
-    \caption{Operation Positions to use special features}
-    \label{fig:SPECIALFEATURES}
-\end{figure}
-
 
 
 \subsection{TIPS: How to configure the FPGA on ARM based macOS environment}
@@ -400,3 +211,35 @@ For the MAX 10 FLASH configuration (non-volatile):\\
 \texttt{jtag> svf mmRISC.pof.svf stop progress}
 
 (6) Quit from the “jtag” command.
+
+
+\subsection{FPGA Pin Assignments}
+
+The FPGA pin assignments are shown in Table \ref{tb:FPGAPIN1} and Table \ref{tb:FPGAPIN2}. The Table \ref{tb:FPGAPINSPECIAL} shows some pins for special functions of the mmRISC-1 tiny SoC, such as cJTAG, stand-by (low power mode), authentication (security), slow clock, and halt-on-reset, which are described in Section \ref{sec:MISCELLANEOUS}. The positions on the FPGA board to use the special features are shown in Figure \ref{fig:SPECIALFEATURES}.
+
+
+\begin{table}[H]
+    \includegraphics[width=1.0\columnwidth]{./Table/FPGAPinAssign1.png}
+    \caption{FPGA Pin Assignments (1)}
+    \label{tb:FPGAPIN1}
+\end{table}
+
+\begin{table}[H]
+    \includegraphics[width=1.0\columnwidth]{./Table/FPGAPinAssign2.png}
+    \caption{FPGA Pin Assignments (2)}
+    \label{tb:FPGAPIN2}
+\end{table}
+
+\begin{table}[H]
+    \includegraphics[width=1.0\columnwidth]{./Table/FPGASpecialPin.png}
+    \caption{FPGA Special Function Pins}
+    \label{tb:FPGAPINSPECIAL}
+\end{table}
+
+\begin{figure}[H]
+    \includegraphics[width=1.0\columnwidth]{./Figure/SpecialFeatures.png}
+    \caption{Operation Positions to use special features}
+    \label{fig:SPECIALFEATURES}
+\end{figure}
+
+

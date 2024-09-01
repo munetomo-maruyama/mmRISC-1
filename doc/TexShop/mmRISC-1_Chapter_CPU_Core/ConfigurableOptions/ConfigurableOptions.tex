@@ -89,15 +89,6 @@ The several specifications of the mmRISC-1 core are configurable as shown in Tab
         %-------------------------------------
         defines\_chip.v &
         \textasciigrave define &
-        \textasciigrave ENABLE\_CJTAG &
-        Use cJTAG instead of \lb
-        JTAG as debug I/F &
-        disabled \lb
-        (comment out)
-        \nextRow \hline
-        %-------------------------------------
-        defines\_chip.v &
-        \textasciigrave define &
         \textasciigrave USE\_FORCE\_HALT\lb \_ON\_RESET &
         Use Halt-On-Reset feature \lb
         controlled by hardware \lb
@@ -148,3 +139,8 @@ The several specifications of the mmRISC-1 core are configurable as shown in Tab
     \caption{Configurable Options}
     \label{tb:CONFIGURABLEOPTIONS}
 \end{table}
+
+\textit{Note : The configurable option of "\textasciigrave ENABLE\_CJTAG" is no longer used. You can switch the debug interface between 4-wire JTAG or 2-wire cJTAG by setting the signal level of "enable\_cjtag" chip\_top\_wrap.v at SoC top level RTL. This signal is connected to GPIO2[6] corresponding to SW6 on DE10-Lite board. Therefore from this version onward, there are only two FPGA configurations; one is RV32IMAFC\_JTAGcJTAG, which unifies previous RV32IMAFC\_JTAG and RV32IMAFC\_cJTAG; the other is RV32IMAC\_JTAGcJTAG, which unifies previous RV32IMAC\_JTAG and RV32IMAFC\_cJTAG.}
+
+
+

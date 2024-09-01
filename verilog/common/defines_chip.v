@@ -9,6 +9,7 @@
 // Rev.02 2020.01.01 M.Maruyama Debug Spec Version 0.13.2
 // Rev.03 2021.02.05 M.Maruyama Divided into for Core and for Chip
 // Rev.04 2023.05.14 M.Maruyama cJTAG Support and Halt-on-Reset
+// Rev.05 2024.07.27 M.Maruyama Changed selection method for JTAG/cJTAG
 //-----------------------------------------------------------
 // Copyright (C) 2017-2023 M.Maruyama
 //===========================================================
@@ -16,7 +17,8 @@
 //------------------------------
 // JTAG or CJTAG
 //------------------------------
-`define ENABLE_CJTAG            // If you use cJTAG (not JTAG)
+// Selection from JTAG or cJTAG is now determined by an external signal level. 
+// So a macro "ENABLE_CJTAG" is not used any more.
 `define USE_FORCE_HALT_ON_RESET // If you use input signal FORCE_HALT_ON_RESET
 
 //-------------------------------------

@@ -40,7 +40,7 @@ The cJTAG signal sequence is divided into 3 phases shown below.
 \begin{description}
 
     \item[Escape Sequence]\mbox{}\\
-        After the reset, the CJTAG\_2\_JTAG is in Offline state. While TCKC is held high, TMSC is toggled(L\textrightarrow H\textrightarrow L) 3 times or more, the CJTAG\_2\_JTAG detects escape sequence and enters Online state as shown in Figure \ref{fig:cJTAG_ESC_ACT}(a).
+        After the reset, the CJTAG\_2\_JTAG is in Offline state. During TCKC is held high, if TMSC has rising edges (L\textrightarrow H) 3 times or more, the CJTAG\_2\_JTAG detects escape sequence and enters Online state as shown in Figure \ref{fig:cJTAG_ESC_ACT}(a).
 
     \item[Activation Sequence]\mbox{}\\
         After the Online Sequence, the CJTAG\_2\_JTAG waits for the Activation Sequence as shown in Figure \ref{fig:cJTAG_ESC_ACT}(b). During this sequence, TMSC is driven by external adapter, and the CJTAG\_2\_JTAG samples TMSC at the rising edge of TCKC. If it detects the Activation Sequence for OSCAN1, which consists of (1) OAC (Online Activation Code) = 4'b0011 (MSB first), (2) EC (Extension Code) = 4'b0001, and (3) CP (Check Packet) = 4'b0000, it enters OSCAN1 mode. If it detects any other sequence, it returns to Offline state.       
@@ -185,15 +185,14 @@ assign TMSC_E   = (RES )? 1'b0
 \end{lstlisting}
 
 %=========================================================
-% cJTAG Implementation for FPGA and Test Bench
+% JTAG/cJTAG Implementation for FPGA and Test Bench
 %=========================================================
-\subsection{cJTAG Implementation for FPGA and Test Bench}
+\subsection{JTAG/cJTAG Implementation for FPGA and Test Bench}
 \label{sec:cJTAG_FPGA}
 
+An implementation for FPGA and Test Bench supporting both JTAG and cJTAG is shown in Figure \ref{fig:cJTAG_FPGA}. In the CHIP\_TOP layer, which is the SoC top layer, is surrounded by an additional upper layer CHIP\_TOP\_WRAP. The cJTAG Adapter described in Section \ref{sec:cJTAG_ADAPTER} is located in the layer CHIP\_TOP\_WRAP as CJTAG\_ADAPTER. The cJTAG external pin controls described in Section \ref{sec:cJTAG_PINCTRL} are also implemented in the layer CHIP\_TOP\_WRAP. You can switch the debug interface between 4-wire JTAG or 2-wire cJTAG by setting the signal level of "enable\_cjtag" in chip\_top\_wrap.v. This signal is connected to GPIO2[6] corresponding to SW6 on DE10-Lite board to test both cases.\
 
-An example of a cJTAG Implementation for FPGA and Test Bench is shown in Figure \ref{fig:cJTAG_FPGA}. In this system, the CHIP\_TOP layer, which is the SoC top layer, is surrounded by an additional upper layer CHIP\_TOP\_WRAP.The cJTAG Adapter described in Section \ref{sec:cJTAG_ADAPTER} is located as CJTAG\_ADAPTER in the layer CHIP\_TOP\_WRAP. The cJTAG external pin controls described in Section \ref{sec:cJTAG_PINCTRL} are also performed in the layer CHIP\_TOP\_WRAP.\\
-
-If you have a dedicated USB-cJTAG adapter, you can directly connect it to TCKC and TMSC of the SoC without loopback connections from U\_CJTAG\_ADAPTER in Figure \ref{fig:cJTAG_FPGA}.\\
+If you have a dedicated USB-cJTAG adapter, you can directly connect it to TCKC and TMSC of the SoC without loopback connections from U\_CJTAG\_ADAPTER in Figure \ref{fig:cJTAG_FPGA}.\
 
 If you want to realize a cJTAG Adapter which follows the cJTAG standard specification as described in the last paragraph of Section \ref{sec:cJTAG_ADAPTER}, the CJTAG\_ADAPTER block should watch the cJTAG protocol sequence like the CJTAG\_2\_JTAG block does.
 

@@ -10,6 +10,7 @@
 // Rev.03 2023.05.14 M.Maruyama cJTAG Support and Halt-on-Reset
 // Rev.04 2023.10.04 M.Maruyama Expand state_tap_tck to 5bit
 //                        to ensure non-glitch in res_tap_async
+// Rev.05 2024.07.27 M.Maruyama Adapted Generic Debugger I/F
 //-----------------------------------------------------------
 // Copyright (C) 2017-2023 M.Maruyama
 //===========================================================
@@ -496,7 +497,7 @@ begin
             `JTAG_IR_USER   : TDO_D <= user_sft_tck[0];
             `JTAG_IR_DTMCS  : TDO_D <= dtmcs_sft_tck[0];
             `JTAG_IR_DMI    : TDO_D <= dmi_sft_tck[0];
-            default         : TDO_D <= 1'b1;
+            default         : TDO_D <= bypass_sft_tck; //1'b1;
         endcase
         TDO_E <= 1'b1;
     end

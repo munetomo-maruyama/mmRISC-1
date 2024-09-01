@@ -99,6 +99,15 @@ void main(void)
 // DMIPS = 95188/1757 = 54.2MIPS
 // DMIPS/MHz = 95188/1757/16.67 = 3.25DMIPS
 
+// 2024.08.11 : RV32IMAC @16.66MHz
+// IAR Embedded Workbench IDE - RISC-V 3.30.1
+// Optimization = High-Speed, no size constraints
+// Time: begin= 403130, end= 650639, diff= 247509
+// Microseconds for one run through Dhrystone: 29.701
+// Dhrystones per Second:                      33668
+// DMIPS = 33668/1757 = 19.16MIPS
+// DMIPS/MHz = 19.16/16.66 = 1.15DMIPS
+
 //===========================================================
 // End of Program
 //===========================================================

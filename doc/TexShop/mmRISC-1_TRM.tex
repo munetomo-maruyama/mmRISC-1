@@ -2,15 +2,19 @@
 % mmRISC-1 Technical Reference Manual
 %==============================================================
 \documentclass[a4paper,12pt]{book}
-\usepackage[T1]{fontenc}
 \usepackage{comment}
+\usepackage{filecontents}
+\usepackage{otf}
+\usepackage{titlesec}
+\usepackage[T1]{fontenc}
 \usepackage{inputenc}
+\usepackage{csquotes}
 \usepackage{lmodern}
-\usepackage{graphicx}
+\usepackage[dvipdfmx]{xcolor}
+\usepackage[dvipdfmx]{graphicx}
 \usepackage[english]{babel}
 \usepackage{vtable}
 \usepackage{colortbl}
-\usepackage{xcolor}
 \usepackage{layout}
 \usepackage[twoside,top=20truemm,bottom=20truemm,inner=25truemm,outer=25truemm]{geometry}
 \usepackage{import}
@@ -20,13 +24,20 @@
 \usepackage{float}
 \usepackage{caption}
 \usepackage{seqsplit}
-\usepackage[bookmarks=true,bookmarksnumbered=true]{hyperref}
 \usepackage{listings}
 \usepackage{amsmath}
 \usepackage{enumerate}
 \usepackage{midpage}
 \usepackage{upquote}
-%\usepackage{odsfile}
+\usepackage{url}
+\usepackage{ascmac}
+\usepackage[dvipdfmx]{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linkcolor=blue,  %choose some color if you want links to stand out
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    bookmarksnumbered=true
+}
 
 \renewcommand{\figurename}{Figure}
 \renewcommand{\tablename}{Table}

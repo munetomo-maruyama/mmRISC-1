@@ -13,15 +13,12 @@
 `include "defines_chip.v"
 `include "defines_core.v"
 
-`ifdef ENABLE_CJTAG
 //----------------------
 // Define Module
 //----------------------
 module CJTAG_ADAPTER
 (
-`ifdef USE_FORCE_HALT_ON_RESET
     input  wire RESET_HALT_N,
-`endif
     //
     input  wire TCK,
     input  wire TMS,
@@ -36,7 +33,6 @@ module CJTAG_ADAPTER
 );
 
 //
-`ifdef USE_FORCE_HALT_ON_RESET
 assign TCKC   = (~RESET_HALT_N)? 1'b1  // Force Target not to drive TMSC
               : TCK;                   // Through TCK
 assign TMSC_O = (~RESET_HALT_N)? 1'b0  // Force Low Level to make CPU in halt state
@@ -44,12 +40,6 @@ assign TMSC_O = (~RESET_HALT_N)? 1'b0  // Force Low Level to make CPU in halt st
 assign TMSC_E = (~RESET_HALT_N)? 1'b1  // Force Low Level to make CPU in halt state
               : (TMS          )? 1'b1  // TMS=1 then Drive TMSC
               :                  1'b0; // TMS=0 then Open TMSC (HiZ)
-`else
-assign TCKC   = TCK;                   // Through TCK
-assign TMSC_O = TDI;                   // TDI determines TMSC output level
-assign TMSC_E = (TMS          )? 1'b1  // TMS=1 then Drive TMSC
-              :                  1'b0; // TMS=0 then Open TMSC (HiZ)
-`endif
 //
 assign TDO_D  = TMSC_I;
 assign TDO_E  = 1'b1;
@@ -58,7 +48,6 @@ assign TDO_E  = 1'b1;
 // End of Module
 //------------------------
 endmodule
-`endif
 
 //===========================================================
 // End of File

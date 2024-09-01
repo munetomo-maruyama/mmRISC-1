@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;mmRISC_00_Simple/src/sc_print.c&apos; to &apos;print.c&apos;" description="Rename resource &apos;sc_print.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/sc_print.c" name="print.c" stamp="1622379462701" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;mmRISC_00_Simple/src/sc_print.h&apos; to &apos;print.h&apos;" description="Rename resource &apos;sc_print.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/sc_print.h" name="print.h" stamp="1622379474118" updateReferences="true"/>
-</session>

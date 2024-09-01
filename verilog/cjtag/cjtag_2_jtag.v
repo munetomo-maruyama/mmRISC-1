@@ -8,6 +8,7 @@
 // Rev.01 2023.05.14 M.Maruyama cJTAG Support and Halt-on-Reset
 // Rev.02 2023.10.05 M.Maruyama Both fCLK>fTCKC and fCLK>fTCKC
 //                              are supported
+// Rev.03 2024.07.27 M.Maruyama Adapted Generic Debugger I/F
 //-----------------------------------------------------------
 // Copyright (C) 2017-2023 M.Maruyama
 //===========================================================
@@ -82,7 +83,6 @@
 `include "defines_chip.v"
 `include "defines_core.v"
 
-`ifdef ENABLE_CJTAG
 //----------------------
 // Define Module
 //----------------------
@@ -113,7 +113,6 @@ module CJTAG_2_JTAG
 //----------------------------
 // Control HALT_ON_RESET
 //----------------------------
-`ifdef USE_FORCE_HALT_ON_RESET
 reg  halt_req;
 wire halt_req_resclr;
 wire halt_req_resset;
@@ -131,10 +130,8 @@ begin
         halt_req <= 1'b0;
 end
 assign FORCE_HALT_ON_RESET_REQ = halt_req;
-`else
-assign FORCE_HALT_ON_RESET_REQ = 1'b0;
-`endif
 
+/*
 //----------------------------
 // Detect Escape Sequence
 //----------------------------
@@ -160,7 +157,7 @@ wire escape_res;
 wire escape_set;
 //
 assign escape_res = RES | ~TCKC;
-assign escape_set = ~escape & TCKC & (escape_count == 3'b101);
+assign escape_set = ~escape & TCKC & (escape_count == 3'b100);
 //
 always @(negedge TMSC_I, posedge escape_res)
 begin
@@ -180,6 +177,57 @@ reg  online_clr;
 assign online_res = RES | online_clr;
 //
 always @(negedge TMSC_I, posedge online_res)
+begin
+    if (online_res)
+        online <= 1'b0;
+    else if (escape_set)
+        online <= 1'b1;
+end
+*/
+
+//----------------------------
+// Detect Escape Sequence
+//----------------------------
+reg  [1:0] escape_count;
+wire       escape_count_res;
+wire       escape_count_inc;
+//
+assign escape_count_res = RES | ~TCKC;
+assign escape_count_inc = TCKC & (escape_count < 2'b11);
+//
+always @(posedge TMSC_I, posedge escape_count_res)
+begin
+    if (escape_count_res)
+        escape_count <= 2'b00;
+    else if (escape_count_inc)
+        escape_count <= escape_count + 2'b01;
+end
+//
+reg  escape;
+wire escape_res;
+wire escape_set;
+//
+assign escape_res = RES | ~TCKC;
+assign escape_set = ~escape & TCKC & (escape_count == 2'b10);
+//
+always @(posedge TMSC_I, posedge escape_res)
+begin
+    if (escape_res)
+        escape <= 1'b0;
+    else if (escape_set)
+        escape <= 1'b1;
+end
+
+//-------------------------
+// Online
+//-------------------------
+reg  online;
+wire online_res;
+reg  online_clr;
+//
+assign online_res = RES | online_clr;
+//
+always @(posedge TMSC_I, posedge online_res)
 begin
     if (online_res)
         online <= 1'b0;
@@ -317,7 +365,7 @@ assign TMSC_PDN = (~cjtag_in_oscan1)? 1'b0   // Before OSCAN1, PULLDN OFF
 endmodule
 
 //===========================================================
-
+/*
 //----------------------------------------
 // Define Module : Both Edge F/F
 //----------------------------------------
@@ -351,7 +399,7 @@ module BEFF #(parameter WIDTH = 1)
 // End of Module
 //------------------------
 endmodule
-`endif
+*/
 
 //===========================================================
 // End of File

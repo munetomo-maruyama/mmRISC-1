@@ -91,7 +91,7 @@ module CPU_PIPELINE
     //
     // Instruction Fetch Command
     output wire        FETCH_START,      // Instruction Fetch Start Request
-    output wire        FETCH_STOP,       // Instruction Fetch Stop Request
+    output reg         FETCH_STOP,       // Instruction Fetch Stop Request
     input  wire        FETCH_ACK,        // Instruction Fetch Start Acknowledge
     output wire [31:0] FETCH_ADDR,       // Instruction Fetch Start Address
     input  wire        DECODE_REQ,       // Decode Request
@@ -169,6 +169,7 @@ module CPU_PIPELINE
     output wire        TRG_ACK_INST, // Trigger Acknowledge for TRG_REQ_INST
     output wire        TRG_ACK_DATA, // Trigger Acknowledge for TRG_REQ_DATA
     output wire        TRG_CND_ICOUNT_DEC, // ICOUNT Decrement
+    output wire        TRG_REQ_INST_MASK,  // Mask Trigger Request by Instruction
     //
     output wire        INSTR_EXEC, // Instruction Retired
     output wire [31:0] INSTR_ADDR, // Instruction Retired Address
@@ -391,10 +392,26 @@ wire stall_cpu;
 wire stall;
 reg  fetch_start;
 reg  fetch_start_by_cond;
-reg  fetch_stop;
+reg  fetch_stop_0;
+reg  fetch_stop_1;
 //
 assign FETCH_START = (fetch_start | (fetch_start_by_cond & ID_CMP_RSLT)) & ~stall & slot;
-assign FETCH_STOP  = fetch_stop;
+//
+always @(posedge CLK, posedge RES_CPU)
+begin
+    if (RES_CPU)
+        fetch_stop_1 <= 1'b0;
+    else
+        fetch_stop_1 <= fetch_stop_0;
+end
+//
+always @(posedge CLK, posedge RES_CPU)
+begin
+    if (RES_CPU)
+        FETCH_STOP <= 1'b0;
+    else
+        FETCH_STOP <= ~fetch_stop_1 & fetch_stop_0;
+end
 
 //--------------------
 // Pipeline Slot
@@ -869,6 +886,7 @@ reg trg_ack_data;
 assign TRG_CND_ICOUNT_DEC = (INSTR_EXEC | INT_ACK | EXP_ACK) & DECODE_ACK;
 assign TRG_ACK_INST = slot & ~stall & trg_ack_inst;
 assign TRG_ACK_DATA = slot & ~stall & trg_ack_data;
+assign TRG_REQ_INST_MASK = (state_id_ope == `STATE_ID_DECODE_TARGET) & (~DECODE_JUMP);
 
 //----------------------
 // Debug Mode
@@ -925,7 +943,7 @@ begin
     //
     fetch_start         = 1'b0;
     fetch_start_by_cond = 1'b0;
-    fetch_stop          = 1'b0;
+    fetch_stop_0        = 1'b0;
     //
     decode_ack = 1'b0;
     decode_stp = 1'b0;
@@ -1112,6 +1130,7 @@ begin
                 else if (stby_halt_req & (state_id_seq == 4'h0))
                 begin
                     pipe_id_enable = 1'b0; // disabled stage
+                    fetch_stop_0   = 1'b1; // Stop Instruction Fetch before enter in STBY mode
                     //
                     if (~pipe_ex_enable & ~pipe_ma_enable & ~pipe_wb_enable)
                     begin
@@ -2599,7 +2618,8 @@ begin
                         32'b????????????????_111_?_??_???_??_???_10:
                         begin
                             id_fpu_cmd  = `FPU32_CMD_FSW;
-                            id_fpu_src1 = `ALU_GPR | {9'h0, 5'b00010}; // x2
+                          //id_fpu_src1 = `ALU_GPR | {9'h0, 5'b00010}; // x2
+                            id_fpu_src1 = `ALU_FPR | {9'h0, pipe_id_code[6:2]}; // FF :Required for correct stalls as well as other FSWs.
                             id_alu_src1 = `ALU_GPR | {9'h0, 5'b00010}; // x2
                             id_alu_src2 = `ALU_IMM;
                             id_alu_imm  = IMM_CSWSPU(pipe_id_code); // FF

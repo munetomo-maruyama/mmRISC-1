@@ -577,10 +577,10 @@ void main_floating(void)
             float    fsin_disp = fsin  * 10000.0;
             int32_t  isin_disp = (int32_t) fsin_disp;
             GPIO_SetSEG_SignedDecimal(isin_disp);
-            printf("i=%3d fth=%8.6f fsin=%9.6f\n", i, fth, fsin);
             //
             mem_wr32(0xfffffffc, 0xdeaddead); // Simulation Stop
             //
+            printf("i=%3d fth=%8.6f fsin=%9.6f\n", i, fth, fsin);
             Wait_mSec(100);
         }
     }

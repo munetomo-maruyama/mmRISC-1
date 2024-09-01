@@ -74,7 +74,7 @@ void UART_Init(void)
         mem_wr8(UART_BG1,  6);
     }
     //
-  //mem_wr8(UART_CSR, 0x40); // IERX=1
+    mem_wr8(UART_CSR, 0x40); // IERX=1
 #endif
 #ifdef MODELSIM
     mem_wr8(UART_BG0, 1);

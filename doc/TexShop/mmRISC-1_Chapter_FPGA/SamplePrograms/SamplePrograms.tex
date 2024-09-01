@@ -33,8 +33,8 @@ This program periodically calculates the floating sinf() functions and displays 
 \end{figure}
 
 %=========================================================
-\subsection{Integer Instructions: "mmRISC\_Floating"}
-This project is a program to verify the Floating Point Operations. Please refer to Section \ref{sec:VERIFYFLOATINGPOINT} for more detailed information.
+\subsection{Verifications of Floating Point Instructions: "mmRISC\_Floating"}
+This project is a program to verify the Floating Point Operations. Please refer to Section \ref{sec:VEFIFYFLOATINGPOINT} for more detailed information.
 
 %=========================================================
 \subsection{FreeRTOS Porting "mmRISC\_FreeRTOS"}
@@ -122,6 +122,18 @@ This is the Coremark benchmark program ported to mmRISC-1. Please launch the ter
         -fgcse-sm \lb
         -fgcse-las &
         2.51 Coremark/MHz &
+        RAM: \lb
+        1cyc R/W
+        \nextRow \cline{2-5}
+        %-------------------------------------
+        ~ &
+        IAR Embedded \lb
+        Workbench IDE \lb
+        RISC-V 3.30.1 \lb
+        (Evaluation Version) &
+        Level=High Speed,\ lb
+        no size constraints &
+        3.30 Coremark/MHz &
         RAM: \lb
         1cyc R/W
         \nextRow \hline

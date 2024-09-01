@@ -73,6 +73,23 @@ void main(void)
 // [0]crcfinal      : 0xbd59
 // Correct operation validated. See README.md for run and reporting rules.
 
+// 2024.08.07 : RV32IMAFC Coremark=55.021445/16.666=3.30 Coremark/MHz
+// 2K performance run parameters for coremark.
+// CoreMark Size    : 666
+// Total ticks      : 333203420
+// Total time (secs): 19.992205
+// Iterations/Sec   : 55.021445
+// Iterations       : 1100
+// Compiler version : IAR
+// Compiler flags   : Speed
+// Memory location  : STACK
+// seedcrc          : 0xe9f5
+// [0]crclist       : 0xe714
+// [0]crcmatrix     : 0x1fd7
+// [0]crcstate      : 0x8e3a
+// [0]crcfinal      : 0x33ff
+// Correct operation validated. See README.md for run and reporting rules.
+// CoreMark 1.0 : 55.021445 / IAR Embedded Workbench IDE - RISC-V 3.30.1 Level=High Speed, no size constraints /
 
 //===========================================================
 // End of Program

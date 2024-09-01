@@ -8,6 +8,7 @@
 // Rev.01 2017.07.16 M.Maruyama First Release
 // Rev.02 2020.01.01 M.Maruyama Debug Spec Version 0.13.2
 // Rev.03 2023.05.14 M.Maruyama cJTAG Support and Halt-on-Reset
+// Rev.04 2024.07.27 M.Maruyama Changed selection method for JTAG/cJTAG
 //-----------------------------------------------------------
 // Copyright (C) 2017-2023 M.Maruyama
 //===========================================================
@@ -141,7 +142,7 @@
 // GPIO1[12] M20 HEX54 segE
 // GPIO1[13] N19 HEX55 segF
 // GPIO1[14] N20 HEX56 segG
-// GPIO1[15] Y1  VGA_R3
+// GPIO1[15] Y2  VGA_R2
 // GPIO1[16] A8  LEDR0
 // GPIO1[17] A9  LEDR1
 // GPIO1[18] A10 LEDR2
@@ -165,9 +166,9 @@
 // GPIO2[ 3] C12  SW3
 // GPIO2[ 4] A12  SW4
 // GPIO2[ 5] B12  SW5
-// GPIO2[ 6] A13  SW6
+// GPIO2[ 6] A13  SW6  (ENABLE_CJTAG)
 // GPIO2[ 7] A14  SW7  (Slow Clock)
-// GPIO2[ 8] Y2   VGA_R2
+// GPIO2[ 8] B14  SW8  (STBY_REQ)
 // GPIO2[ 9] F15  SW9  (DEBUG_SECURE)
 // GPIO2[10] A7   KEY1 (RESET_HALT_N)
 // GPIO2[11] W6   GPIO_8
@@ -192,7 +193,6 @@
 // GPIO2[30] AA1  VGA_R0
 // GPIO2[31] V1   VGA_R1
 //
-// STBY_REQ   B14  SW8
 // STBY_ACK_N L19 HEX57 segDP
 
 `include "defines_chip.v"
@@ -213,24 +213,24 @@ module CHIP_TOP
     //
     output wire RESOUT_N, // Reset Output (negative) 
     //
-`ifdef SIMULATION
-    inout  wire SRSTn, // System Reset In/Out
-`endif
+    input  wire RESET_HALT_N, // Request of RESET_HALT
+    input  wire ENABLE_CJTAG, // Selection whether using JTAG or cJTAG
     //
-`ifdef ENABLE_CJTAG
     input  wire TCKC,     // cJTAG Clock
     inout  wire TMSC,     // cJTAG TMS/TDI/TDO
     output wire TMSC_PUP, // cJTAG TMSC should be Pull Up when 1
     output wire TMSC_PDN, // cJTAG TMSC should be Pull Dn when 1
-`else
+    //
     input  wire TRSTn, // JTAG TAP Reset
     input  wire TCK,   // JTAG Clock
     input  wire TMS,   // JTAG Mode Select
     input  wire TDI,   // JTAG Data Input
     output wire TDO,   // JTAG Data Output (3-state)
-`endif
+    output wire TDO_D, // JTAG Data Output Level
+    output wire TDO_E, // JTAG Data Output Enable
     //
 `ifdef SIMULATION
+    inout  wire SRSTn, // System Reset In/Out
     output wire RTCK,  // JTAG Return Clock
 `endif
     //
@@ -477,21 +477,47 @@ assign STBY_ACK_N = ~stby_ack;
 // When entering to STBY,  Assert stby_req, and Stop clk after stby_ack is asserted.
 // When exiting from STBY, Start clk and Negate stby_req.
 
-//-----------------
-// JTAG Signals
-//-----------------
-wire trstn;
-wire tms;
-wire tck;
-wire tdi;
-wire tdo_d;
-wire tdo_e;
-
 //-------------------
 // JTAG and CJTAG
 //-------------------
+wire trstn, trstn_jtag, trstn_cjtag;
+wire tms  , tms_jtag  , tms_cjtag;
+wire tck  , tck_jtag  , tck_cjtag;
+wire tdi  , tdi_jtag  , tdi_cjtag;
+wire tdo_d, tdo_d_jtag, tdo_d_cjtag;
+wire tdo_e, tdo_e_jtag, tdo_e_cjtag;
+//
+assign trstn_jtag = TRSTn;
+assign tms_jtag   = TMS;
+assign tck_jtag   = TCK;
+assign tdi_jtag   = TDI;
+assign TDO   = (tdo_e_jtag)? tdo_d_jtag : 1'bz;
+assign TDO_D = tdo_d_jtag;
+assign TDO_E = tdo_e_jtag;
+//
+assign trstn = (ENABLE_CJTAG)? trstn_cjtag : trstn_jtag;
+assign tms   = (ENABLE_CJTAG)? tms_cjtag   : tms_jtag;
+assign tck   = (ENABLE_CJTAG)? tck_cjtag   : tck_jtag;
+assign tdi   = (ENABLE_CJTAG)? tdi_cjtag   : tdi_jtag;
+assign tdo_d_jtag  = (ENABLE_CJTAG)? 1'b0 : tdo_d;
+assign tdo_e_jtag  = (ENABLE_CJTAG)? 1'b0 : tdo_e;
+assign tdo_d_cjtag = (ENABLE_CJTAG)? tdo_d : 1'b0;
+assign tdo_e_cjtag = (ENABLE_CJTAG)? tdo_e : 1'b0;
+//
+wire        force_halt_on_reset_req_jtag;
+wire        force_halt_on_reset_req_cjtag;
 wire        force_halt_on_reset_req;
+wire        force_halt_on_reset_ack_jtag;
+wire        force_halt_on_reset_ack_cjtag;
 wire        force_halt_on_reset_ack;
+assign force_halt_on_reset_req 
+    = (ENABLE_CJTAG)? force_halt_on_reset_req_cjtag
+                    : force_halt_on_reset_req_jtag;
+assign force_halt_on_reset_ack_jtag
+    = (ENABLE_CJTAG)? 1'b0 : force_halt_on_reset_ack;
+assign force_halt_on_reset_ack_cjtag
+    = (ENABLE_CJTAG)? force_halt_on_reset_ack : 1'b0;    
+//
 wire [31:0] jtag_dr_user_in;   // You can put data to JTAG
 wire [31:0] jtag_dr_user_out;  // You can get data from JTAG such as Mode Settings
 assign jtag_dr_user_in = ~jtag_dr_user_out; // So far, Loop back inverted value
@@ -499,8 +525,6 @@ assign jtag_dr_user_in = ~jtag_dr_user_out; // So far, Loop back inverted value
 //-------------------
 // CJTAG
 //-------------------
-`ifdef ENABLE_CJTAG
-//
 wire   tmsc_i, tmsc_o, tmsc_e;
 //
 assign tmsc_i = TMSC;
@@ -518,14 +542,14 @@ CJTAG_2_JTAG U_CJTAG_2_JTAG
     .TMSC_PUP (TMSC_PUP), // cJTAG TMSC should be Pull Up when 1
     .TMSC_PDN (TMSC_PDN), // cJTAG TMSC should be Pull Dn when 1
     //
-    .TRSTn  (trstn),
-    .TCK    (tck),
-    .TMS    (tms),
-    .TDI    (tdi),
-    .TDO    (tdo_d),
+    .TRSTn  (trstn_cjtag),
+    .TCK    (tck_cjtag),
+    .TMS    (tms_cjtag),
+    .TDI    (tdi_cjtag),
+    .TDO    (tdo_d_cjtag),
     //
-    .FORCE_HALT_ON_RESET_REQ (force_halt_on_reset_req),
-    .FORCE_HALT_ON_RESET_ACK (force_halt_on_reset_ack),
+    .FORCE_HALT_ON_RESET_REQ (force_halt_on_reset_req_cjtag),
+    .FORCE_HALT_ON_RESET_ACK (force_halt_on_reset_ack_cjtag),
     //
     .CJTAG_IN_OSCAN1 ()
 );
@@ -533,27 +557,16 @@ CJTAG_2_JTAG U_CJTAG_2_JTAG
 //-----------------
 // JTAG
 //-----------------
-`else
-assign trstn = TRSTn;
-assign tck   = TCK;
-assign tms   = TMS;
-assign tdi   = TDI;
-assign TDO   = (tdo_e)? tdo_d : 1'bz;
-//
-`ifdef USE_FORCE_HALT_ON_RESET
 reg halt_req;
 always @(posedge clk, posedge res_org)
 begin
     if (res_org)
-        halt_req <= ~GPIO2[10]; // KEY1
-    else if (force_halt_on_reset_ack)
+        halt_req <= ~RESET_HALT_N;
+    else if (force_halt_on_reset_ack_jtag)
         halt_req <= 1'b0;
 end
-assign force_halt_on_reset_req = halt_req;
-`else
-assign force_halt_on_reset_req = 1'b0;
-`endif
-`endif
+//
+assign force_halt_on_reset_req_jtag = halt_req;
 
 //---------------
 // mmRISC

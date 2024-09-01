@@ -14,150 +14,150 @@
 \contentsline {table}{\numberline {1.12}{\ignorespaces Input / Output Signals of mmRISC-1 (MTIME)\relax }}{10}{table.caption.22}%
 \contentsline {table}{\numberline {1.13}{\ignorespaces Exceptions\relax }}{12}{table.caption.24}%
 \contentsline {table}{\numberline {1.14}{\ignorespaces Priority of Synchronous Exception\relax }}{13}{table.caption.25}%
-\contentsline {table}{\numberline {1.15}{\ignorespaces Machine Mode CSR\relax }}{20}{table.caption.28}%
-\contentsline {table}{\numberline {1.16}{\ignorespaces INTC (Interrupt Controller) CSR\relax }}{20}{table.caption.29}%
-\contentsline {table}{\numberline {1.17}{\ignorespaces FPU CSR\relax }}{21}{table.caption.30}%
-\contentsline {table}{\numberline {1.18}{\ignorespaces Debugger CSR\relax }}{21}{table.caption.31}%
-\contentsline {table}{\numberline {1.19}{\ignorespaces Debug Trigger Module CSR\relax }}{21}{table.caption.32}%
-\contentsline {table}{\numberline {1.20}{\ignorespaces Machine Mode MTIME Registers (Memory Mapped Registers; So far, recommended Base Address is 0x49000000)\relax }}{22}{table.caption.33}%
-\contentsline {table}{\numberline {1.21}{\ignorespaces DTM (Debug Transport Module) JTAG Tap Registers; Address is 5bit IR\relax }}{22}{table.caption.34}%
-\contentsline {table}{\numberline {1.22}{\ignorespaces DM (Debug Module) Registers; Address comes from DMI bus\relax }}{22}{table.caption.35}%
-\contentsline {table}{\numberline {1.23}{\ignorespaces DM (Debug Module) Abstract Command Registers; Address comes from DMI bus\relax }}{23}{table.caption.36}%
-\contentsline {table}{\numberline {1.24}{\ignorespaces DM (Debug Module) System Bus Access Registers; Address comes from DMI bus\relax }}{23}{table.caption.37}%
-\contentsline {table}{\numberline {1.25}{\ignorespaces MVENDORID\relax }}{24}{table.caption.38}%
-\contentsline {table}{\numberline {1.26}{\ignorespaces MARCHID\relax }}{24}{table.caption.39}%
-\contentsline {table}{\numberline {1.27}{\ignorespaces MIMPID\relax }}{24}{table.caption.40}%
-\contentsline {table}{\numberline {1.28}{\ignorespaces MSTATUS\relax }}{24}{table.caption.41}%
-\contentsline {table}{\numberline {1.29}{\ignorespaces MISA\relax }}{25}{table.caption.42}%
-\contentsline {table}{\numberline {1.30}{\ignorespaces MIE\relax }}{25}{table.caption.43}%
-\contentsline {table}{\numberline {1.31}{\ignorespaces MIP\relax }}{25}{table.caption.44}%
-\contentsline {table}{\numberline {1.32}{\ignorespaces MTVEC\relax }}{25}{table.caption.45}%
-\contentsline {table}{\numberline {1.33}{\ignorespaces MSCRATCH\relax }}{26}{table.caption.46}%
-\contentsline {table}{\numberline {1.34}{\ignorespaces MEPC\relax }}{26}{table.caption.47}%
-\contentsline {table}{\numberline {1.35}{\ignorespaces MCAUSE\relax }}{26}{table.caption.48}%
-\contentsline {table}{\numberline {1.36}{\ignorespaces MTVAL\relax }}{26}{table.caption.49}%
-\contentsline {table}{\numberline {1.37}{\ignorespaces MCYCLE / MCYCLEH\relax }}{26}{table.caption.50}%
-\contentsline {table}{\numberline {1.38}{\ignorespaces MINSTRET / MINSTRETH\relax }}{26}{table.caption.51}%
-\contentsline {table}{\numberline {1.39}{\ignorespaces MCOUNTINHIBIT\relax }}{27}{table.caption.52}%
-\contentsline {table}{\numberline {1.40}{\ignorespaces Read-Only Mirror Registers\relax }}{27}{table.caption.53}%
-\contentsline {table}{\numberline {1.41}{\ignorespaces MTIME\_CTRL\relax }}{28}{table.caption.54}%
-\contentsline {table}{\numberline {1.42}{\ignorespaces MTIME\_DIV\relax }}{28}{table.caption.55}%
-\contentsline {table}{\numberline {1.43}{\ignorespaces MTIME / MTIMEH\relax }}{28}{table.caption.56}%
-\contentsline {table}{\numberline {1.44}{\ignorespaces MTIMECMP / MTIMECMPH\relax }}{29}{table.caption.57}%
-\contentsline {table}{\numberline {1.45}{\ignorespaces MSOFTIRQ\relax }}{29}{table.caption.58}%
-\contentsline {table}{\numberline {1.46}{\ignorespaces MINTCURLVL\relax }}{30}{table.caption.59}%
-\contentsline {table}{\numberline {1.47}{\ignorespaces MINTPRELVL\relax }}{30}{table.caption.60}%
-\contentsline {table}{\numberline {1.48}{\ignorespaces MINTCFGENABLE 0/1\relax }}{30}{table.caption.61}%
-\contentsline {table}{\numberline {1.49}{\ignorespaces MINTCFGSENSE 0/1\relax }}{30}{table.caption.62}%
-\contentsline {table}{\numberline {1.50}{\ignorespaces MINTPENDING 0/1\relax }}{30}{table.caption.63}%
-\contentsline {table}{\numberline {1.51}{\ignorespaces MINTCFGPRIORITY 0/1/2/3/4/5/6/7\relax }}{30}{table.caption.64}%
-\contentsline {table}{\numberline {1.52}{\ignorespaces FCSR\relax }}{31}{table.caption.65}%
-\contentsline {table}{\numberline {1.53}{\ignorespaces FRM\relax }}{31}{table.caption.66}%
-\contentsline {table}{\numberline {1.54}{\ignorespaces FFLAGS\relax }}{31}{table.caption.67}%
-\contentsline {table}{\numberline {1.55}{\ignorespaces FCONV\relax }}{32}{table.caption.68}%
-\contentsline {table}{\numberline {1.56}{\ignorespaces DCSR\relax }}{33}{table.caption.69}%
-\contentsline {table}{\numberline {1.57}{\ignorespaces DPC\relax }}{33}{table.caption.70}%
-\contentsline {table}{\numberline {1.58}{\ignorespaces TSELECT\relax }}{34}{table.caption.71}%
-\contentsline {table}{\numberline {1.59}{\ignorespaces TDATA1\relax }}{34}{table.caption.72}%
-\contentsline {table}{\numberline {1.60}{\ignorespaces TDATA2\relax }}{34}{table.caption.73}%
-\contentsline {table}{\numberline {1.61}{\ignorespaces TINFO\relax }}{34}{table.caption.74}%
-\contentsline {table}{\numberline {1.62}{\ignorespaces MCONTROL\relax }}{35}{table.caption.75}%
-\contentsline {table}{\numberline {1.63}{\ignorespaces ICOUNT\relax }}{36}{table.caption.76}%
-\contentsline {table}{\numberline {1.64}{\ignorespaces IDCODE\relax }}{37}{table.caption.77}%
-\contentsline {table}{\numberline {1.65}{\ignorespaces BYPASS\relax }}{37}{table.caption.78}%
-\contentsline {table}{\numberline {1.66}{\ignorespaces DTMCS\relax }}{37}{table.caption.79}%
-\contentsline {table}{\numberline {1.67}{\ignorespaces DMI\relax }}{38}{table.caption.80}%
-\contentsline {table}{\numberline {1.68}{\ignorespaces DMSTATUS\relax }}{39}{table.caption.81}%
-\contentsline {table}{\numberline {1.69}{\ignorespaces DMCONTROL\relax }}{40}{table.caption.82}%
-\contentsline {table}{\numberline {1.70}{\ignorespaces HARTINFO\relax }}{40}{table.caption.83}%
-\contentsline {table}{\numberline {1.71}{\ignorespaces HAWINDOWSEL\relax }}{41}{table.caption.84}%
-\contentsline {table}{\numberline {1.72}{\ignorespaces HAWINDOW\relax }}{41}{table.caption.85}%
-\contentsline {table}{\numberline {1.73}{\ignorespaces AUTHDATA\relax }}{41}{table.caption.86}%
-\contentsline {table}{\numberline {1.74}{\ignorespaces HALTSUM0\relax }}{41}{table.caption.87}%
-\contentsline {table}{\numberline {1.75}{\ignorespaces HALTSUM1\relax }}{41}{table.caption.88}%
-\contentsline {table}{\numberline {1.76}{\ignorespaces HALTSUM2\relax }}{42}{table.caption.89}%
-\contentsline {table}{\numberline {1.77}{\ignorespaces HALTSUM3\relax }}{42}{table.caption.90}%
-\contentsline {table}{\numberline {1.78}{\ignorespaces DATA 0/1\relax }}{43}{table.caption.91}%
-\contentsline {table}{\numberline {1.79}{\ignorespaces COMMAND for Access Register\relax }}{43}{table.caption.92}%
-\contentsline {table}{\numberline {1.80}{\ignorespaces COMMAND for Access Memory\relax }}{43}{table.caption.93}%
-\contentsline {table}{\numberline {1.81}{\ignorespaces ABSTRACTCS\relax }}{44}{table.caption.94}%
-\contentsline {table}{\numberline {1.82}{\ignorespaces SBCS\relax }}{45}{table.caption.95}%
-\contentsline {table}{\numberline {1.83}{\ignorespaces SBADDRESS0\relax }}{45}{table.caption.96}%
-\contentsline {table}{\numberline {1.84}{\ignorespaces SBDATA0\relax }}{45}{table.caption.97}%
-\contentsline {table}{\numberline {1.85}{\ignorespaces RV32I Base Instruction Set Specification\relax }}{50}{table.caption.102}%
-\contentsline {table}{\numberline {1.86}{\ignorespaces RV32 Zifencei Specification\relax }}{50}{table.caption.103}%
-\contentsline {table}{\numberline {1.87}{\ignorespaces RV32 Zicsr Specification\relax }}{50}{table.caption.104}%
-\contentsline {table}{\numberline {1.88}{\ignorespaces RV32M Multiply and Divide Specification\relax }}{51}{table.caption.105}%
-\contentsline {table}{\numberline {1.89}{\ignorespaces RV32A Atomic Memory Access Specification\relax }}{51}{table.caption.106}%
-\contentsline {table}{\numberline {1.90}{\ignorespaces RV32F Single Precision Floating Point Operation Specification\relax }}{51}{table.caption.107}%
-\contentsline {table}{\numberline {1.91}{\ignorespaces RV32 Privileged Instruction Specification\relax }}{51}{table.caption.108}%
-\contentsline {table}{\numberline {1.92}{\ignorespaces RV32C Compressed Instruction Specification\relax }}{52}{table.caption.109}%
-\contentsline {table}{\numberline {1.93}{\ignorespaces RV32FC Floating Point Compressed Instruction Specification\relax }}{52}{table.caption.110}%
-\contentsline {table}{\numberline {1.94}{\ignorespaces RV32I Base Instruction Set Code\relax }}{53}{table.caption.111}%
-\contentsline {table}{\numberline {1.95}{\ignorespaces RV32 Zifencei Code\relax }}{53}{table.caption.112}%
-\contentsline {table}{\numberline {1.96}{\ignorespaces RV32 Zicsr Code\relax }}{53}{table.caption.113}%
-\contentsline {table}{\numberline {1.97}{\ignorespaces RV32M Multiply and Divide Code\relax }}{54}{table.caption.114}%
-\contentsline {table}{\numberline {1.98}{\ignorespaces RV32A Atomic Memory Access Code\relax }}{54}{table.caption.115}%
-\contentsline {table}{\numberline {1.99}{\ignorespaces RV32F Single Precision Floating Point Operation Code\relax }}{54}{table.caption.116}%
-\contentsline {table}{\numberline {1.100}{\ignorespaces RV32 Privileged Instruction Code\relax }}{54}{table.caption.117}%
-\contentsline {table}{\numberline {1.101}{\ignorespaces RV32C Compressed Instruction Code\relax }}{55}{table.caption.118}%
-\contentsline {table}{\numberline {1.102}{\ignorespaces RV32FC Floating Point Compressed Instruction Code\relax }}{55}{table.caption.119}%
-\contentsline {table}{\numberline {1.103}{\ignorespaces JTAG Data Register for User\relax }}{56}{table.caption.120}%
-\contentsline {table}{\numberline {1.104}{\ignorespaces Signal of cJTAG Interface\relax }}{59}{table.caption.124}%
-\contentsline {table}{\numberline {1.105}{\ignorespaces cJTAG Pin Control\relax }}{61}{table.caption.127}%
+\contentsline {table}{\numberline {1.15}{\ignorespaces Machine Mode CSR\relax }}{23}{table.caption.28}%
+\contentsline {table}{\numberline {1.16}{\ignorespaces INTC (Interrupt Controller) CSR\relax }}{23}{table.caption.29}%
+\contentsline {table}{\numberline {1.17}{\ignorespaces FPU CSR\relax }}{24}{table.caption.30}%
+\contentsline {table}{\numberline {1.18}{\ignorespaces Debugger CSR\relax }}{24}{table.caption.31}%
+\contentsline {table}{\numberline {1.19}{\ignorespaces Debug Trigger Module CSR\relax }}{24}{table.caption.32}%
+\contentsline {table}{\numberline {1.20}{\ignorespaces Machine Mode MTIME Registers (Memory Mapped Registers; So far, recommended Base Address is 0x49000000)\relax }}{25}{table.caption.33}%
+\contentsline {table}{\numberline {1.21}{\ignorespaces DTM (Debug Transport Module) JTAG Tap Registers; Address is 5bit IR\relax }}{25}{table.caption.34}%
+\contentsline {table}{\numberline {1.22}{\ignorespaces DM (Debug Module) Registers; Address comes from DMI bus\relax }}{25}{table.caption.35}%
+\contentsline {table}{\numberline {1.23}{\ignorespaces DM (Debug Module) Abstract Command Registers; Address comes from DMI bus\relax }}{26}{table.caption.36}%
+\contentsline {table}{\numberline {1.24}{\ignorespaces DM (Debug Module) System Bus Access Registers; Address comes from DMI bus\relax }}{26}{table.caption.37}%
+\contentsline {table}{\numberline {1.25}{\ignorespaces MVENDORID\relax }}{27}{table.caption.38}%
+\contentsline {table}{\numberline {1.26}{\ignorespaces MARCHID\relax }}{27}{table.caption.39}%
+\contentsline {table}{\numberline {1.27}{\ignorespaces MIMPID\relax }}{27}{table.caption.40}%
+\contentsline {table}{\numberline {1.28}{\ignorespaces MSTATUS\relax }}{27}{table.caption.41}%
+\contentsline {table}{\numberline {1.29}{\ignorespaces MISA\relax }}{28}{table.caption.42}%
+\contentsline {table}{\numberline {1.30}{\ignorespaces MIE\relax }}{28}{table.caption.43}%
+\contentsline {table}{\numberline {1.31}{\ignorespaces MIP\relax }}{28}{table.caption.44}%
+\contentsline {table}{\numberline {1.32}{\ignorespaces MTVEC\relax }}{28}{table.caption.45}%
+\contentsline {table}{\numberline {1.33}{\ignorespaces MSCRATCH\relax }}{29}{table.caption.46}%
+\contentsline {table}{\numberline {1.34}{\ignorespaces MEPC\relax }}{29}{table.caption.47}%
+\contentsline {table}{\numberline {1.35}{\ignorespaces MCAUSE\relax }}{29}{table.caption.48}%
+\contentsline {table}{\numberline {1.36}{\ignorespaces MTVAL\relax }}{29}{table.caption.49}%
+\contentsline {table}{\numberline {1.37}{\ignorespaces MCYCLE / MCYCLEH\relax }}{29}{table.caption.50}%
+\contentsline {table}{\numberline {1.38}{\ignorespaces MINSTRET / MINSTRETH\relax }}{29}{table.caption.51}%
+\contentsline {table}{\numberline {1.39}{\ignorespaces MCOUNTINHIBIT\relax }}{30}{table.caption.52}%
+\contentsline {table}{\numberline {1.40}{\ignorespaces Read-Only Mirror Registers\relax }}{30}{table.caption.53}%
+\contentsline {table}{\numberline {1.41}{\ignorespaces MTIME\_CTRL\relax }}{31}{table.caption.54}%
+\contentsline {table}{\numberline {1.42}{\ignorespaces MTIME\_DIV\relax }}{31}{table.caption.55}%
+\contentsline {table}{\numberline {1.43}{\ignorespaces MTIME / MTIMEH\relax }}{31}{table.caption.56}%
+\contentsline {table}{\numberline {1.44}{\ignorespaces MTIMECMP / MTIMECMPH\relax }}{32}{table.caption.57}%
+\contentsline {table}{\numberline {1.45}{\ignorespaces MSOFTIRQ\relax }}{32}{table.caption.58}%
+\contentsline {table}{\numberline {1.46}{\ignorespaces MINTCURLVL\relax }}{33}{table.caption.59}%
+\contentsline {table}{\numberline {1.47}{\ignorespaces MINTPRELVL\relax }}{33}{table.caption.60}%
+\contentsline {table}{\numberline {1.48}{\ignorespaces MINTCFGENABLE 0/1\relax }}{33}{table.caption.61}%
+\contentsline {table}{\numberline {1.49}{\ignorespaces MINTCFGSENSE 0/1\relax }}{33}{table.caption.62}%
+\contentsline {table}{\numberline {1.50}{\ignorespaces MINTPENDING 0/1\relax }}{33}{table.caption.63}%
+\contentsline {table}{\numberline {1.51}{\ignorespaces MINTCFGPRIORITY 0/1/2/3/4/5/6/7\relax }}{34}{table.caption.64}%
+\contentsline {table}{\numberline {1.52}{\ignorespaces FCSR\relax }}{35}{table.caption.65}%
+\contentsline {table}{\numberline {1.53}{\ignorespaces FRM\relax }}{35}{table.caption.66}%
+\contentsline {table}{\numberline {1.54}{\ignorespaces FFLAGS\relax }}{35}{table.caption.67}%
+\contentsline {table}{\numberline {1.55}{\ignorespaces FCONV\relax }}{36}{table.caption.68}%
+\contentsline {table}{\numberline {1.56}{\ignorespaces DCSR\relax }}{37}{table.caption.69}%
+\contentsline {table}{\numberline {1.57}{\ignorespaces DPC\relax }}{37}{table.caption.70}%
+\contentsline {table}{\numberline {1.58}{\ignorespaces TSELECT\relax }}{38}{table.caption.71}%
+\contentsline {table}{\numberline {1.59}{\ignorespaces TDATA1\relax }}{38}{table.caption.72}%
+\contentsline {table}{\numberline {1.60}{\ignorespaces TDATA2\relax }}{38}{table.caption.73}%
+\contentsline {table}{\numberline {1.61}{\ignorespaces TINFO\relax }}{38}{table.caption.74}%
+\contentsline {table}{\numberline {1.62}{\ignorespaces MCONTROL\relax }}{39}{table.caption.75}%
+\contentsline {table}{\numberline {1.63}{\ignorespaces ICOUNT\relax }}{40}{table.caption.76}%
+\contentsline {table}{\numberline {1.64}{\ignorespaces IDCODE\relax }}{41}{table.caption.77}%
+\contentsline {table}{\numberline {1.65}{\ignorespaces BYPASS\relax }}{41}{table.caption.78}%
+\contentsline {table}{\numberline {1.66}{\ignorespaces DTMCS\relax }}{41}{table.caption.79}%
+\contentsline {table}{\numberline {1.67}{\ignorespaces DMI\relax }}{42}{table.caption.80}%
+\contentsline {table}{\numberline {1.68}{\ignorespaces DMSTATUS\relax }}{43}{table.caption.81}%
+\contentsline {table}{\numberline {1.69}{\ignorespaces DMCONTROL\relax }}{44}{table.caption.82}%
+\contentsline {table}{\numberline {1.70}{\ignorespaces HARTINFO\relax }}{44}{table.caption.83}%
+\contentsline {table}{\numberline {1.71}{\ignorespaces HAWINDOWSEL\relax }}{45}{table.caption.84}%
+\contentsline {table}{\numberline {1.72}{\ignorespaces HAWINDOW\relax }}{45}{table.caption.85}%
+\contentsline {table}{\numberline {1.73}{\ignorespaces AUTHDATA\relax }}{45}{table.caption.86}%
+\contentsline {table}{\numberline {1.74}{\ignorespaces HALTSUM0\relax }}{45}{table.caption.87}%
+\contentsline {table}{\numberline {1.75}{\ignorespaces HALTSUM1\relax }}{45}{table.caption.88}%
+\contentsline {table}{\numberline {1.76}{\ignorespaces HALTSUM2\relax }}{46}{table.caption.89}%
+\contentsline {table}{\numberline {1.77}{\ignorespaces HALTSUM3\relax }}{46}{table.caption.90}%
+\contentsline {table}{\numberline {1.78}{\ignorespaces DATA 0/1\relax }}{47}{table.caption.91}%
+\contentsline {table}{\numberline {1.79}{\ignorespaces COMMAND for Access Register\relax }}{47}{table.caption.92}%
+\contentsline {table}{\numberline {1.80}{\ignorespaces COMMAND for Access Memory\relax }}{47}{table.caption.93}%
+\contentsline {table}{\numberline {1.81}{\ignorespaces ABSTRACTCS\relax }}{48}{table.caption.94}%
+\contentsline {table}{\numberline {1.82}{\ignorespaces SBCS\relax }}{49}{table.caption.95}%
+\contentsline {table}{\numberline {1.83}{\ignorespaces SBADDRESS0\relax }}{49}{table.caption.96}%
+\contentsline {table}{\numberline {1.84}{\ignorespaces SBDATA0\relax }}{49}{table.caption.97}%
+\contentsline {table}{\numberline {1.85}{\ignorespaces RV32I Base Instruction Set Specification\relax }}{54}{table.caption.102}%
+\contentsline {table}{\numberline {1.86}{\ignorespaces RV32 Zifencei Specification\relax }}{54}{table.caption.103}%
+\contentsline {table}{\numberline {1.87}{\ignorespaces RV32 Zicsr Specification\relax }}{54}{table.caption.104}%
+\contentsline {table}{\numberline {1.88}{\ignorespaces RV32M Multiply and Divide Specification\relax }}{55}{table.caption.105}%
+\contentsline {table}{\numberline {1.89}{\ignorespaces RV32A Atomic Memory Access Specification\relax }}{55}{table.caption.106}%
+\contentsline {table}{\numberline {1.90}{\ignorespaces RV32F Single Precision Floating Point Operation Specification\relax }}{55}{table.caption.107}%
+\contentsline {table}{\numberline {1.91}{\ignorespaces RV32 Privileged Instruction Specification\relax }}{55}{table.caption.108}%
+\contentsline {table}{\numberline {1.92}{\ignorespaces RV32C Compressed Instruction Specification\relax }}{56}{table.caption.109}%
+\contentsline {table}{\numberline {1.93}{\ignorespaces RV32FC Floating Point Compressed Instruction Specification\relax }}{56}{table.caption.110}%
+\contentsline {table}{\numberline {1.94}{\ignorespaces RV32I Base Instruction Set Code\relax }}{57}{table.caption.111}%
+\contentsline {table}{\numberline {1.95}{\ignorespaces RV32 Zifencei Code\relax }}{57}{table.caption.112}%
+\contentsline {table}{\numberline {1.96}{\ignorespaces RV32 Zicsr Code\relax }}{57}{table.caption.113}%
+\contentsline {table}{\numberline {1.97}{\ignorespaces RV32M Multiply and Divide Code\relax }}{58}{table.caption.114}%
+\contentsline {table}{\numberline {1.98}{\ignorespaces RV32A Atomic Memory Access Code\relax }}{58}{table.caption.115}%
+\contentsline {table}{\numberline {1.99}{\ignorespaces RV32F Single Precision Floating Point Operation Code\relax }}{58}{table.caption.116}%
+\contentsline {table}{\numberline {1.100}{\ignorespaces RV32 Privileged Instruction Code\relax }}{58}{table.caption.117}%
+\contentsline {table}{\numberline {1.101}{\ignorespaces RV32C Compressed Instruction Code\relax }}{59}{table.caption.118}%
+\contentsline {table}{\numberline {1.102}{\ignorespaces RV32FC Floating Point Compressed Instruction Code\relax }}{59}{table.caption.119}%
+\contentsline {table}{\numberline {1.103}{\ignorespaces JTAG Data Register for User\relax }}{60}{table.caption.120}%
+\contentsline {table}{\numberline {1.104}{\ignorespaces Signal of cJTAG Interface\relax }}{63}{table.caption.124}%
+\contentsline {table}{\numberline {1.105}{\ignorespaces cJTAG Pin Control\relax }}{65}{table.caption.127}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Overview of mmRISC-1 Tiny SoC for FPGA\relax }}{70}{table.caption.135}%
-\contentsline {table}{\numberline {2.2}{\ignorespaces RTL Files of SoC\relax }}{73}{table.caption.138}%
-\contentsline {table}{\numberline {2.3}{\ignorespaces Input / Output Signals of Tiny SoC Top Layer (chip\_top\_wrap.v)\relax }}{75}{table.caption.140}%
-\contentsline {table}{\numberline {2.4}{\ignorespaces Memory Map of Tiny SoC\relax }}{78}{table.caption.144}%
-\contentsline {table}{\numberline {2.5}{\ignorespaces Interrupt Assignment in Tiny SoC\relax }}{79}{table.caption.145}%
-\contentsline {table}{\numberline {2.6}{\ignorespaces Input / Output Signals of Multi-Layer AHB Bus Matrix)\relax }}{80}{table.caption.146}%
-\contentsline {table}{\numberline {2.7}{\ignorespaces Input / Output Signals of RAM)\relax }}{83}{table.caption.147}%
-\contentsline {table}{\numberline {2.8}{\ignorespaces Input / Output Signals of SDRAM Controller)\relax }}{84}{table.caption.148}%
-\contentsline {table}{\numberline {2.9}{\ignorespaces Input / Output Signals of INT\_GEN)\relax }}{85}{table.caption.149}%
-\contentsline {table}{\numberline {2.10}{\ignorespaces INT\_GEN Control Register IRQ\_EXT)\relax }}{85}{table.caption.150}%
-\contentsline {table}{\numberline {2.11}{\ignorespaces INT\_GEN Control Register IRQ0)\relax }}{86}{table.caption.151}%
-\contentsline {table}{\numberline {2.12}{\ignorespaces INT\_GEN Control Register IRQ1)\relax }}{86}{table.caption.152}%
-\contentsline {table}{\numberline {2.13}{\ignorespaces Input / Output Signals of UART\relax }}{87}{table.caption.153}%
-\contentsline {table}{\numberline {2.14}{\ignorespaces UART\_TXD / UART\_RXD\relax }}{87}{table.caption.154}%
-\contentsline {table}{\numberline {2.15}{\ignorespaces UART\_CSR\relax }}{88}{table.caption.155}%
-\contentsline {table}{\numberline {2.16}{\ignorespaces UART\_BG0\relax }}{88}{table.caption.156}%
-\contentsline {table}{\numberline {2.17}{\ignorespaces UART\_BG1\relax }}{88}{table.caption.157}%
-\contentsline {table}{\numberline {2.18}{\ignorespaces Input / Output Signals of I2C\relax }}{89}{table.caption.158}%
-\contentsline {table}{\numberline {2.19}{\ignorespaces I2C\_PRERL\relax }}{90}{table.caption.160}%
-\contentsline {table}{\numberline {2.20}{\ignorespaces I2C\_PRERH\relax }}{90}{table.caption.161}%
-\contentsline {table}{\numberline {2.21}{\ignorespaces I2C\_CTL\relax }}{90}{table.caption.162}%
-\contentsline {table}{\numberline {2.22}{\ignorespaces I2C\_TXR\relax }}{90}{table.caption.163}%
-\contentsline {table}{\numberline {2.23}{\ignorespaces I2C\_RXR\relax }}{90}{table.caption.164}%
-\contentsline {table}{\numberline {2.24}{\ignorespaces I2C\_CR\relax }}{91}{table.caption.165}%
-\contentsline {table}{\numberline {2.25}{\ignorespaces I2C\_SR\relax }}{91}{table.caption.166}%
-\contentsline {table}{\numberline {2.26}{\ignorespaces Input / Output Signals of SPI\relax }}{92}{table.caption.167}%
-\contentsline {table}{\numberline {2.27}{\ignorespaces I2C\_SPCR\relax }}{93}{table.caption.168}%
-\contentsline {table}{\numberline {2.28}{\ignorespaces I2C\_SPSR\relax }}{93}{table.caption.169}%
-\contentsline {table}{\numberline {2.29}{\ignorespaces I2C\_SPDR\relax }}{93}{table.caption.170}%
-\contentsline {table}{\numberline {2.30}{\ignorespaces I2C\_SPER\relax }}{94}{table.caption.171}%
-\contentsline {table}{\numberline {2.31}{\ignorespaces I2C\_SPCS\relax }}{94}{table.caption.172}%
-\contentsline {table}{\numberline {2.32}{\ignorespaces Input / Output Signals of GPIO(PORT)\relax }}{95}{table.caption.173}%
-\contentsline {table}{\numberline {2.33}{\ignorespaces PDR0\relax }}{95}{table.caption.174}%
-\contentsline {table}{\numberline {2.34}{\ignorespaces PDR1\relax }}{96}{table.caption.175}%
-\contentsline {table}{\numberline {2.35}{\ignorespaces PDR2\relax }}{96}{table.caption.176}%
-\contentsline {table}{\numberline {2.36}{\ignorespaces PDD0\relax }}{96}{table.caption.177}%
-\contentsline {table}{\numberline {2.37}{\ignorespaces PDD1\relax }}{96}{table.caption.178}%
-\contentsline {table}{\numberline {2.38}{\ignorespaces PDD2\relax }}{96}{table.caption.179}%
-\contentsline {table}{\numberline {2.39}{\ignorespaces Operations of Halt-on-Reset in the SoC\relax }}{98}{table.caption.180}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Overview of mmRISC-1 Tiny SoC for FPGA\relax }}{74}{table.caption.135}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces RTL Files of SoC\relax }}{77}{table.caption.138}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Input / Output Signals of Tiny SoC Top Layer (chip\_top\_wrap.v)\relax }}{79}{table.caption.140}%
+\contentsline {table}{\numberline {2.4}{\ignorespaces Memory Map of Tiny SoC\relax }}{82}{table.caption.144}%
+\contentsline {table}{\numberline {2.5}{\ignorespaces Interrupt Assignment in Tiny SoC\relax }}{83}{table.caption.145}%
+\contentsline {table}{\numberline {2.6}{\ignorespaces Input / Output Signals of Multi-Layer AHB Bus Matrix)\relax }}{84}{table.caption.146}%
+\contentsline {table}{\numberline {2.7}{\ignorespaces Input / Output Signals of RAM)\relax }}{87}{table.caption.147}%
+\contentsline {table}{\numberline {2.8}{\ignorespaces Input / Output Signals of SDRAM Controller)\relax }}{88}{table.caption.148}%
+\contentsline {table}{\numberline {2.9}{\ignorespaces Input / Output Signals of INT\_GEN)\relax }}{89}{table.caption.149}%
+\contentsline {table}{\numberline {2.10}{\ignorespaces INT\_GEN Control Register IRQ\_EXT)\relax }}{89}{table.caption.150}%
+\contentsline {table}{\numberline {2.11}{\ignorespaces INT\_GEN Control Register IRQ0)\relax }}{90}{table.caption.151}%
+\contentsline {table}{\numberline {2.12}{\ignorespaces INT\_GEN Control Register IRQ1)\relax }}{90}{table.caption.152}%
+\contentsline {table}{\numberline {2.13}{\ignorespaces Input / Output Signals of UART\relax }}{91}{table.caption.153}%
+\contentsline {table}{\numberline {2.14}{\ignorespaces UART\_TXD / UART\_RXD\relax }}{91}{table.caption.154}%
+\contentsline {table}{\numberline {2.15}{\ignorespaces UART\_CSR\relax }}{92}{table.caption.155}%
+\contentsline {table}{\numberline {2.16}{\ignorespaces UART\_BG0\relax }}{92}{table.caption.156}%
+\contentsline {table}{\numberline {2.17}{\ignorespaces UART\_BG1\relax }}{92}{table.caption.157}%
+\contentsline {table}{\numberline {2.18}{\ignorespaces Input / Output Signals of I2C\relax }}{93}{table.caption.158}%
+\contentsline {table}{\numberline {2.19}{\ignorespaces I2C\_PRERL\relax }}{94}{table.caption.160}%
+\contentsline {table}{\numberline {2.20}{\ignorespaces I2C\_PRERH\relax }}{94}{table.caption.161}%
+\contentsline {table}{\numberline {2.21}{\ignorespaces I2C\_CTL\relax }}{94}{table.caption.162}%
+\contentsline {table}{\numberline {2.22}{\ignorespaces I2C\_TXR\relax }}{94}{table.caption.163}%
+\contentsline {table}{\numberline {2.23}{\ignorespaces I2C\_RXR\relax }}{94}{table.caption.164}%
+\contentsline {table}{\numberline {2.24}{\ignorespaces I2C\_CR\relax }}{95}{table.caption.165}%
+\contentsline {table}{\numberline {2.25}{\ignorespaces I2C\_SR\relax }}{95}{table.caption.166}%
+\contentsline {table}{\numberline {2.26}{\ignorespaces Input / Output Signals of SPI\relax }}{96}{table.caption.167}%
+\contentsline {table}{\numberline {2.27}{\ignorespaces I2C\_SPCR\relax }}{97}{table.caption.168}%
+\contentsline {table}{\numberline {2.28}{\ignorespaces I2C\_SPSR\relax }}{97}{table.caption.169}%
+\contentsline {table}{\numberline {2.29}{\ignorespaces I2C\_SPDR\relax }}{97}{table.caption.170}%
+\contentsline {table}{\numberline {2.30}{\ignorespaces I2C\_SPER\relax }}{98}{table.caption.171}%
+\contentsline {table}{\numberline {2.31}{\ignorespaces I2C\_SPCS\relax }}{98}{table.caption.172}%
+\contentsline {table}{\numberline {2.32}{\ignorespaces Input / Output Signals of GPIO(PORT)\relax }}{99}{table.caption.173}%
+\contentsline {table}{\numberline {2.33}{\ignorespaces PDR0\relax }}{99}{table.caption.174}%
+\contentsline {table}{\numberline {2.34}{\ignorespaces PDR1\relax }}{100}{table.caption.175}%
+\contentsline {table}{\numberline {2.35}{\ignorespaces PDR2\relax }}{100}{table.caption.176}%
+\contentsline {table}{\numberline {2.36}{\ignorespaces PDD0\relax }}{100}{table.caption.177}%
+\contentsline {table}{\numberline {2.37}{\ignorespaces PDD1\relax }}{100}{table.caption.178}%
+\contentsline {table}{\numberline {2.38}{\ignorespaces PDD2\relax }}{100}{table.caption.179}%
+\contentsline {table}{\numberline {2.39}{\ignorespaces Operations of Halt-on-Reset in the SoC\relax }}{102}{table.caption.180}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Development Environment and Tools\relax }}{102}{table.caption.181}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces Development Tools on ARM macOS\relax }}{102}{table.caption.182}%
-\contentsline {table}{\numberline {3.3}{\ignorespaces Major Files in GitHub Repository\relax }}{103}{table.caption.183}%
-\contentsline {table}{\numberline {3.4}{\ignorespaces Scripts for Generating Floating Point Test Cases\relax }}{110}{table.caption.185}%
-\contentsline {table}{\numberline {3.5}{\ignorespaces OPCODEs in Test Case File\relax }}{111}{table.caption.186}%
-\contentsline {table}{\numberline {3.6}{\ignorespaces Exception Flag in Test Case File\relax }}{112}{table.caption.187}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Development Environment and Tools\relax }}{106}{table.caption.181}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Development Tools on ARM macOS\relax }}{106}{table.caption.182}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Major Files in GitHub Repository\relax }}{107}{table.caption.183}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces Scripts for Generating Floating Point Test Cases\relax }}{113}{table.caption.185}%
+\contentsline {table}{\numberline {3.5}{\ignorespaces OPCODEs in Test Case File\relax }}{115}{table.caption.186}%
+\contentsline {table}{\numberline {3.6}{\ignorespaces Exception Flag in Test Case File\relax }}{115}{table.caption.187}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces FPGA Configuration Results of mmRISC-1 with 4-wire JTAG \relax }}{118}{table.caption.190}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces FPGA Configuration Results of mmRISC-1 with 2-wire cJTAG \relax }}{118}{table.caption.191}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces FPGA Pin Assignments\relax }}{119}{table.caption.192}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces FPGA Special Function Pins\relax }}{120}{table.caption.193}%
-\contentsline {table}{\numberline {4.5}{\ignorespaces Assignments of GPIO of Raspberry Pi 4 Model B as an OpenOCD JTAG Debugger\relax }}{128}{table.caption.200}%
-\contentsline {table}{\numberline {4.6}{\ignorespaces Scores of Benchmarks of mmRISC-1 core\relax }}{131}{table.caption.203}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces FPGA Configuration Results of mmRISC-1\relax }}{122}{table.caption.190}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces FPGA Pin Assignments (1)\relax }}{124}{table.caption.191}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces FPGA Pin Assignments (2)\relax }}{124}{table.caption.192}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces FPGA Special Function Pins\relax }}{125}{table.caption.193}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Assignments of GPIO of Raspberry Pi 4 Model B as an OpenOCD JTAG Debugger\relax }}{132}{table.caption.200}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces Scores of Benchmarks of mmRISC-1 core\relax }}{135}{table.caption.203}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -1,6 +1,6 @@
 IP Upgrade report for mmRISC
-Fri Oct  6 00:17:51 2023
-Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+Thu Mar 14 17:09:40 2024
+Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
 ---------------------
@@ -36,8 +36,8 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; IP Upgrade Summary                                                            ;
 +------------------------------+------------------------------------------------+
-; IP Components Upgrade Status ; Failed - Fri Oct  6 00:17:51 2023              ;
-; Quartus Prime Version        ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
+; IP Components Upgrade Status ; Failed - Thu Mar 14 17:09:40 2024              ;
+; Quartus Prime Version        ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                ; mmRISC                                         ;
 ; Top-level Entity Name        ; CHIP_TOP_WRAP                                  ;
 ; Family                       ; MAX 10                                         ;
@@ -49,7 +49,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------+----------------+---------+----------------------+----------------------+-----------------+---------------------------------------+
 ; Entity Name ; Component Name ; Version ; Original Source File ; Generation File Path ; New Source File ; Message                               ;
 +-------------+----------------+---------+----------------------+----------------------+-----------------+---------------------------------------+
-; PLL         ; ALTPLL         ; 21.1    ; PLL.qip              ; PLL.v                ;                 ; Error upgrading IP component "PLL.v". ;
+; PLL         ; ALTPLL         ; 22.1    ; PLL.qip              ; PLL.v                ;                 ; Error upgrading IP component "PLL.v". ;
 +-------------+----------------+---------+----------------------+----------------------+-----------------+---------------------------------------+
 
 
@@ -62,11 +62,11 @@ Info (11904): Restoring file "PLL.BAK.v" to "PLL.v"
 Error (14921): Error upgrading IP component "PLL.v".
 Error (11133): IP component ALTPLL with file "PLL.v" upgrade failed
 Error (11889): IP component upgrade failed
-Error (23031): Evaluation of Tcl script c:/intelfpga_lite/22.1std/quartus/common/tcl/internal/ip_regen/ip_regen.tcl unsuccessful
+Error (23031): Evaluation of Tcl script c:/intelfpga_lite/23.1std/quartus/common/tcl/internal/ip_regen/ip_regen.tcl unsuccessful
 Error: Quartus Prime Shell was unsuccessful. 4 errors, 0 warnings
-    Error: Peak virtual memory: 13271 megabytes
-    Error: Processing ended: Fri Oct  6 00:17:51 2023
+    Error: Peak virtual memory: 13254 megabytes
+    Error: Processing ended: Thu Mar 14 17:09:40 2024
     Error: Elapsed time: 00:00:12
-    Error: Total CPU time (on all processors): 00:00:26
+    Error: Total CPU time (on all processors): 00:00:27
 
 

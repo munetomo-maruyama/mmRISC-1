@@ -27,13 +27,6 @@
 //-----------------
 void main(void)
 {
-    int    i;
-    double fth, fsin;
-    int    ith, isin;
-    char   buf[256];
-    char   *pbuf;
-    long   num;
-    //
     // Initialize Hardware
     GPIO_Init();
     UART_Init();
@@ -41,10 +34,6 @@ void main(void)
 
     // Program Body
     main_startrek();
-
-    printf("End of Game. Halt.\n");
-    // Loop Forever
-    while(1);
 }
 
 //===========================================================

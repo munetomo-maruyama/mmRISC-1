@@ -80,6 +80,9 @@ module CPU_DEBUG
     output wire [ 1:0] TRG_REQ_DATA, // Trigger Request by Data Access (bit1:action, bit0:hit)
     input  wire        TRG_ACK_INST, // Trigger Acknowledge for TRG_REQ_INST
     input  wire        TRG_ACK_DATA, // Trigger Acknowledge for TRG_REQ_DATA
+    input  wire        TRG_REQ_INST_MASK, // Mask Trigger Request by Instruction
+    //
+    input  wire        CSR_DCSR_STEP,   // Step bit in CSR_DCSR
     //
     input  wire        INSTR_EXEC, // Instruction Retired
     input  wire [31:0] INSTR_ADDR, // Instruction Retired Address
@@ -756,6 +759,10 @@ begin
         trg_req_inst_temp <= 2'b00;
     else if (DEBUG_MODE)
         trg_req_inst_temp <= 2'b00;
+    else if (CSR_DCSR_STEP)
+        trg_req_inst_temp <= 2'b00;
+    else if (TRG_REQ_INST_MASK)
+        trg_req_inst_temp <= 2'b00;    
     else if (trg_req_inst[0])
         trg_req_inst_temp <= trg_req_inst;
     else if (trg_req_icnt[0])
@@ -775,19 +782,27 @@ begin
 end
 //
 assign TRG_REQ_INST[0]
-    = (trg_req_inst[0]     )? 1'b1
+    = (DEBUG_MODE          )? 1'b0
+    : (CSR_DCSR_STEP       )? 1'b0
+    : (TRG_REQ_INST_MASK   )? 1'b0
+    : (trg_req_inst[0]     )? 1'b1
     : (trg_req_icnt[0]     )? 1'b1
     : (trg_req_inst_temp[0])? 1'b1 : 1'b0;
 assign TRG_REQ_INST[1]
-    = (trg_req_inst[0]     )? trg_req_inst[1]
+    = (DEBUG_MODE          )? 1'b0
+    : (CSR_DCSR_STEP       )? 1'b0 
+    : (TRG_REQ_INST_MASK   )? 1'b0
+    : (trg_req_inst[0]     )? trg_req_inst[1]
     : (trg_req_icnt[0]     )? trg_req_icnt[1]
     : (trg_req_inst_temp[0])? trg_req_inst_temp[1] : 1'b0;
 //
 assign TRG_REQ_DATA[0]
-    = (trg_req_data[0]     )? 1'b1
+    = (DEBUG_MODE          )? 1'b0
+    : (trg_req_data[0]     )? 1'b1
     : (trg_req_data_temp[0])? 1'b1 : 1'b0;
 assign TRG_REQ_DATA[1]
-    = (trg_req_data[0]     )? trg_req_data[1]
+    = (DEBUG_MODE          )? 1'b0
+    : (trg_req_data[0]     )? trg_req_data[1]
     : (trg_req_data_temp[0])? trg_req_data_temp[1] : 1'b0;
 
 //------------------------
