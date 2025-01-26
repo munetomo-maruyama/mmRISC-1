@@ -1,5 +1,5 @@
 Assembler report for mmRISC
-Fri Aug 30 23:19:36 2024
+Tue Nov 19 01:37:05 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Aug 30 23:19:36 2024 ;
+; Assembler Status      ; Successful - Tue Nov 19 01:37:05 2024 ;
 ; Revision Name         ; mmRISC                                ;
 ; Top-level Entity Name ; CHIP_TOP_WRAP                         ;
 ; Family                ; MAX 10                                ;
@@ -67,8 +67,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------+---------------------------------------------------------------------------+
 ; Option         ; Setting                                                                   ;
 +----------------+---------------------------------------------------------------------------+
-; JTAG usercode  ; 0x02BAFB72                                                                ;
-; Checksum       ; 0x02BAFB72                                                                ;
+; JTAG usercode  ; 0x02B72559                                                                ;
+; Checksum       ; 0x02B72559                                                                ;
 +----------------+---------------------------------------------------------------------------+
 
 
@@ -78,14 +78,14 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Fri Aug 30 23:19:30 2024
+    Info: Processing started: Tue Nov 19 01:36:58 2024
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off mmRISC -c mmRISC
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 13411 megabytes
-    Info: Processing ended: Fri Aug 30 23:19:37 2024
+    Info: Processing ended: Tue Nov 19 01:37:05 2024
     Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:06
+    Info: Total CPU time (on all processors): 00:00:07
 
 

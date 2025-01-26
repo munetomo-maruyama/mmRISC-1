@@ -1,5 +1,5 @@
 Flow report for mmRISC
-Fri Aug 30 21:34:46 2024
+Mon Nov 18 23:52:49 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -41,15 +41,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Flow Summary                                                                        ;
 +------------------------------------+------------------------------------------------+
-; Flow Status                        ; Successful - Fri Aug 30 21:34:46 2024          ;
+; Flow Status                        ; Successful - Mon Nov 18 23:52:49 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; mmRISC                                         ;
 ; Top-level Entity Name              ; CHIP_TOP_WRAP                                  ;
 ; Family                             ; MAX 10                                         ;
 ; Device                             ; 10M50DAF484C7G                                 ;
 ; Timing Models                      ; Final                                          ;
-; Total logic elements               ; 25,266 / 49,760 ( 51 % )                       ;
-;     Total combinational functions  ; 24,283 / 49,760 ( 49 % )                       ;
+; Total logic elements               ; 25,198 / 49,760 ( 51 % )                       ;
+;     Total combinational functions  ; 24,256 / 49,760 ( 49 % )                       ;
 ;     Dedicated logic registers      ; 6,792 / 49,760 ( 14 % )                        ;
 ; Total registers                    ; 6792                                           ;
 ; Total pins                         ; 167 / 360 ( 46 % )                             ;
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 08/30/2024 21:18:55 ;
+; Start date & time ; 11/18/2024 23:37:47 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; mmRISC              ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+---------------+---------------+-----------------------------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name   ; Section Id                        ;
 +--------------------------------------+----------------------------------------+---------------+---------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                ; 121380906149.172502033502164           ; --            ; --            ; --                                ;
+; COMPILER_SIGNATURE_ID                ; 121380906149.173194066701972           ; --            ; --            ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --            ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --            ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --            ; eda_board_design_signal_integrity ;
@@ -126,12 +126,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:03:46     ; 1.0                     ; 13614 MB            ; 00:03:57                           ;
-; Fitter               ; 00:10:59     ; 1.2                     ; 14207 MB            ; 00:15:53                           ;
+; Analysis & Synthesis ; 00:03:32     ; 1.0                     ; 13591 MB            ; 00:03:43                           ;
+; Fitter               ; 00:10:26     ; 1.2                     ; 14207 MB            ; 00:15:02                           ;
 ; Assembler            ; 00:00:06     ; 1.0                     ; 13347 MB            ; 00:00:05                           ;
-; Timing Analyzer      ; 00:00:38     ; 1.7                     ; 13596 MB            ; 00:01:02                           ;
-; EDA Netlist Writer   ; 00:00:07     ; 1.0                     ; 13248 MB            ; 00:00:05                           ;
-; Total                ; 00:15:36     ; --                      ; --                  ; 00:21:02                           ;
+; Timing Analyzer      ; 00:00:38     ; 1.7                     ; 13596 MB            ; 00:01:01                           ;
+; EDA Netlist Writer   ; 00:00:07     ; 1.0                     ; 13248 MB            ; 00:00:04                           ;
+; Total                ; 00:14:49     ; --                      ; --                  ; 00:19:55                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

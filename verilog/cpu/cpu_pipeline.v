@@ -1213,7 +1213,7 @@ begin
                         pipe_id_enable = 1'b0; // disabled stage
                         dbg_halt_ack   = 1'b1;
                         DBG_DPC_SAVE   = pipe_id_pc; // FF
-                        DBG_CAUSE      = `DBG_CAUSE_HALTREQ;
+                        DBG_CAUSE      = `DBG_CAUSE_BREAKPOINT; //`DBG_CAUSE_HALTREQ;
                         state_id_ope_nxt = `STATE_ID_DEBUG_MODE;
                         state_id_ope_upd = 1'b1;
                         decode_stp   = 1'b1;
@@ -1329,7 +1329,7 @@ begin
                         pipe_id_enable = 1'b0; // disabled stage
                         dbg_halt_ack   = 1'b1;
                         DBG_DPC_SAVE   = pipe_id_pc; // FF
-                        DBG_CAUSE      = `DBG_CAUSE_HALTREQ;
+                        DBG_CAUSE      = `DBG_CAUSE_BREAKPOINT; //`DBG_CAUSE_HALTREQ;
                         state_id_ope_nxt = `STATE_ID_DEBUG_MODE;
                         state_id_ope_upd = 1'b1;
                         decode_stp   = 1'b1;

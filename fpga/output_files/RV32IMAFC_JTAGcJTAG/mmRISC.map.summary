@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Fri Aug 30 21:56:05 2024
+Analysis & Synthesis Status : Successful - Tue Nov 19 00:07:19 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : mmRISC
 Top-level Entity Name : CHIP_TOP_WRAP
 Family : MAX 10
-Total logic elements : 44,219
-    Total combinational functions : 41,942
+Total logic elements : 44,232
+    Total combinational functions : 41,966
     Dedicated logic registers : 9,865
 Total registers : 9865
 Total pins : 167

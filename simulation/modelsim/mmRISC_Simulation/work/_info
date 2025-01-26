@@ -35,6 +35,8 @@ R0
 R1
 R0
 R1
+R0
+R1
 Z2 !s12c _opt1
 R1
 R2
@@ -361,10 +363,10 @@ n@_opt1
 Z9 OL;O;2023.3;77
 R3
 T_opt2
-!s110 1722764801
-V3Xj6^7M[?Nh6IQMG@1D8R3
+!s110 1731940136
+VzacHLRb_8cEWe>aJaNLWI3
 R4
-=1-001c42dda4a5-66af4e01-7b-2b8
+=1-001c42dda4a5-673b4f27-191-1524
 R1
 R7
 R8
@@ -372,11 +374,10 @@ R5
 R6
 n@_opt2
 R9
-R3
 vAHB_ARB
 Z10 2../../../verilog/chip/chip_top_wrap.v|../../../verilog/chip/chip_top.v|../../../verilog/cjtag/cjtag_2_jtag.v|../../../verilog/cjtag/cjtag_adapter.v|../../../verilog/ram/ram.v|../../../verilog/ram/ram_fpga.v|../../../fpga/RAM128KB_DP.v|../../../verilog/port/port.v|../../../verilog/uart/uart.v|../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v|../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v|../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v|../../../verilog/i2c/i2c.v|../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_top.v|../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_bit_ctrl.v|../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_byte_ctrl.v|../../../verilog/i2c/i2c_slave_model.v|../../../verilog/spi/spi.v|../../../verilog/spi/simple_spi/trunk/rtl/verilog/simple_spi_top.v|../../../verilog/spi/simple_spi/trunk/rtl/verilog/fifo4.v|../../../verilog/int_gen/int_gen.v|../../../verilog/mmRISC/mmRISC.v|../../../verilog/mmRISC/bus_m_ahb.v|../../../verilog/mmRISC/csr_mtime.v|../../../verilog/cpu/cpu_top.v|../../../verilog/cpu/cpu_fetch.v|../../../verilog/cpu/cpu_datapath.v|../../../verilog/cpu/cpu_pipeline.v|../../../verilog/cpu/cpu_fpu32.v|../../../verilog/cpu/cpu_csr.v|../../../verilog/cpu/cpu_csr_int.v|../../../verilog/cpu/cpu_csr_dbg.v|../../../verilog/cpu/cpu_debug.v|../../../verilog/debug/debug_top.v|../../../verilog/debug/debug_dtm_jtag.v|../../../verilog/debug/debug_cdc.v|../../../verilog/debug/debug_dm.v|../../../verilog/ahb_matrix/ahb_top.v|../../../verilog/ahb_matrix/ahb_master_port.v|../../../verilog/ahb_matrix/ahb_slave_port.v|../../../verilog/ahb_matrix/ahb_interconnect.v|../../../verilog/ahb_matrix/ahb_arb.v|../../../verilog/ahb_sdram/logic/ahb_lite_sdram.v|../../../verilog/ahb_sdram/model/sdr.v|./tb_TOP.v
 Z11 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z12 !s110 1723533703
+Z12 !s110 1731940134
 !i10b 1
 !s100 eaN94b>U]PA5R74FbKhHa3
 I=bF=>]=QL8P6^9IiaL4:c1
@@ -385,14 +386,14 @@ R3
 Z13 w1681220345
 Z14 8../../../verilog/ahb_matrix/ahb_arb.v
 Z15 F../../../verilog/ahb_matrix/ahb_arb.v
-!i122 383
+!i122 384
 L0 16 188
 Z16 VDg1SIo80bB@j0V0VzS_@n1
 Z17 OL;L;2023.3;77
 r1
 !s85 0
 31
-Z18 !s108 1723533702.000000
+Z18 !s108 1731940133.000000
 Z19 !s107 ../../../verilog/ahb_sdram/model/sdr_parameters.vh|../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_defines.v|../../../verilog/i2c/i2c/trunk/rtl/verilog/timescale.v|../../../verilog/common/defines_core.v|../../../verilog/common/defines_chip.v|./tb_TOP.v|../../../verilog/ahb_sdram/model/sdr.v|../../../verilog/ahb_sdram/logic/ahb_lite_sdram.v|../../../verilog/ahb_matrix/ahb_arb.v|../../../verilog/ahb_matrix/ahb_interconnect.v|../../../verilog/ahb_matrix/ahb_slave_port.v|../../../verilog/ahb_matrix/ahb_master_port.v|../../../verilog/ahb_matrix/ahb_top.v|../../../verilog/debug/debug_dm.v|../../../verilog/debug/debug_cdc.v|../../../verilog/debug/debug_dtm_jtag.v|../../../verilog/debug/debug_top.v|../../../verilog/cpu/cpu_debug.v|../../../verilog/cpu/cpu_csr_dbg.v|../../../verilog/cpu/cpu_csr_int.v|../../../verilog/cpu/cpu_csr.v|../../../verilog/cpu/cpu_fpu32.v|../../../verilog/cpu/cpu_pipeline.v|../../../verilog/cpu/cpu_datapath.v|../../../verilog/cpu/cpu_fetch.v|../../../verilog/cpu/cpu_top.v|../../../verilog/mmRISC/csr_mtime.v|../../../verilog/mmRISC/bus_m_ahb.v|../../../verilog/mmRISC/mmRISC.v|../../../verilog/int_gen/int_gen.v|../../../verilog/spi/simple_spi/trunk/rtl/verilog/fifo4.v|../../../verilog/spi/simple_spi/trunk/rtl/verilog/simple_spi_top.v|../../../verilog/spi/spi.v|../../../verilog/i2c/i2c_slave_model.v|../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_byte_ctrl.v|../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_bit_ctrl.v|../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_top.v|../../../verilog/i2c/i2c.v|../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v|../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v|../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v|../../../verilog/uart/uart.v|../../../verilog/port/port.v|../../../fpga/RAM128KB_DP.v|../../../verilog/ram/ram_fpga.v|../../../verilog/ram/ram.v|../../../verilog/cjtag/cjtag_adapter.v|../../../verilog/cjtag/cjtag_2_jtag.v|../../../verilog/chip/chip_top.v|../../../verilog/chip/chip_top_wrap.v|
 Z20 !s90 -reportprogress|300|-work|work|-sv|+incdir+../../../verilog/common|+incdir+../../../verilog/ahb_sdram/model|+incdir+../../../verilog/i2c/i2c/trunk/rtl/verilog|-timescale=1ns/100ps|+define+SIMULATION|+define+den512Mb|+define+sg75|+define+x16|../../../verilog/chip/chip_top_wrap.v|../../../verilog/chip/chip_top.v|../../../verilog/cjtag/cjtag_2_jtag.v|../../../verilog/cjtag/cjtag_adapter.v|../../../verilog/ram/ram.v|../../../verilog/ram/ram_fpga.v|../../../fpga/RAM128KB_DP.v|../../../verilog/port/port.v|../../../verilog/uart/uart.v|../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v|../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v|../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v|../../../verilog/i2c/i2c.v|../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_top.v|../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_bit_ctrl.v|../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_byte_ctrl.v|../../../verilog/i2c/i2c_slave_model.v|../../../verilog/spi/spi.v|../../../verilog/spi/simple_spi/trunk/rtl/verilog/simple_spi_top.v|../../../verilog/spi/simple_spi/trunk/rtl/verilog/fifo4.v|../../../verilog/int_gen/int_gen.v|../../../verilog/mmRISC/mmRISC.v|../../../verilog/mmRISC/bus_m_ahb.v|../../../verilog/mmRISC/csr_mtime.v|../../../verilog/cpu/cpu_top.v|../../../verilog/cpu/cpu_fetch.v|../../../verilog/cpu/cpu_datapath.v|../../../verilog/cpu/cpu_pipeline.v|../../../verilog/cpu/cpu_fpu32.v|../../../verilog/cpu/cpu_csr.v|../../../verilog/cpu/cpu_csr_int.v|../../../verilog/cpu/cpu_csr_dbg.v|../../../verilog/cpu/cpu_debug.v|../../../verilog/debug/debug_top.v|../../../verilog/debug/debug_dtm_jtag.v|../../../verilog/debug/debug_cdc.v|../../../verilog/debug/debug_dm.v|../../../verilog/ahb_matrix/ahb_top.v|../../../verilog/ahb_matrix/ahb_master_port.v|../../../verilog/ahb_matrix/ahb_slave_port.v|../../../verilog/ahb_matrix/ahb_interconnect.v|../../../verilog/ahb_matrix/ahb_arb.v|../../../verilog/ahb_sdram/logic/ahb_lite_sdram.v|../../../verilog/ahb_sdram/model/sdr.v|./tb_TOP.v|
 !i113 0
@@ -412,7 +413,7 @@ R3
 R13
 R14
 R15
-!i122 383
+!i122 384
 L0 208 73
 R16
 R17
@@ -439,7 +440,7 @@ R3
 R13
 8../../../verilog/ahb_matrix/ahb_interconnect.v
 F../../../verilog/ahb_matrix/ahb_interconnect.v
-!i122 383
+!i122 384
 L0 16 420
 R16
 R17
@@ -466,7 +467,7 @@ R3
 Z23 w1681023139
 8../../../verilog/ahb_sdram/logic/ahb_lite_sdram.v
 F../../../verilog/ahb_sdram/logic/ahb_lite_sdram.v
-!i122 383
+!i122 384
 L0 6 304
 R16
 R17
@@ -492,7 +493,7 @@ R3
 R23
 8../../../verilog/ahb_matrix/ahb_master_port.v
 F../../../verilog/ahb_matrix/ahb_master_port.v
-!i122 383
+!i122 384
 L0 16 179
 R16
 R17
@@ -519,7 +520,7 @@ R3
 R23
 8../../../verilog/ahb_matrix/ahb_top.v
 F../../../verilog/ahb_matrix/ahb_top.v
-!i122 383
+!i122 384
 L0 16 249
 R16
 R17
@@ -546,7 +547,7 @@ R3
 R23
 8../../../verilog/ahb_matrix/ahb_slave_port.v
 F../../../verilog/ahb_matrix/ahb_slave_port.v
-!i122 383
+!i122 384
 L0 16 194
 R16
 R17
@@ -600,7 +601,7 @@ R3
 w1698026543
 8../../../verilog/mmRISC/bus_m_ahb.v
 F../../../verilog/mmRISC/bus_m_ahb.v
-!i122 383
+!i122 384
 L0 16 251
 R16
 R17
@@ -627,7 +628,7 @@ R3
 Z26 w1722598824
 Z27 8../../../verilog/cpu/cpu_fpu32.v
 Z28 F../../../verilog/cpu/cpu_fpu32.v
-!i122 383
+!i122 384
 L0 2413 44
 R16
 R17
@@ -654,7 +655,7 @@ R3
 w1722091031
 8../../../verilog/chip/chip_top.v
 F../../../verilog/chip/chip_top.v
-!i122 383
+!i122 384
 L0 206 1130
 R16
 R17
@@ -681,7 +682,7 @@ R3
 w1722090986
 8../../../verilog/chip/chip_top_wrap.v
 F../../../verilog/chip/chip_top_wrap.v
-!i122 383
+!i122 384
 L0 202 193
 R16
 R17
@@ -708,7 +709,7 @@ R3
 w1722091639
 R24
 R25
-!i122 383
+!i122 384
 L0 89 277
 R16
 R17
@@ -735,7 +736,7 @@ R3
 w1722091650
 8../../../verilog/cjtag/cjtag_adapter.v
 F../../../verilog/cjtag/cjtag_adapter.v
-!i122 383
+!i122 384
 L0 19 32
 R16
 R17
@@ -762,7 +763,7 @@ R3
 R13
 8../../../verilog/cpu/cpu_csr.v
 F../../../verilog/cpu/cpu_csr.v
-!i122 383
+!i122 384
 L0 168 788
 R16
 R17
@@ -789,7 +790,7 @@ R3
 w1722439107
 8../../../verilog/cpu/cpu_csr_dbg.v
 F../../../verilog/cpu/cpu_csr_dbg.v
-!i122 383
+!i122 384
 L0 82 905
 R16
 R17
@@ -816,7 +817,7 @@ R3
 w1699861139
 8../../../verilog/cpu/cpu_csr_int.v
 F../../../verilog/cpu/cpu_csr_int.v
-!i122 383
+!i122 384
 L0 50 557
 R16
 R17
@@ -843,7 +844,7 @@ R3
 w1694133864
 8../../../verilog/cpu/cpu_datapath.v
 F../../../verilog/cpu/cpu_datapath.v
-!i122 383
+!i122 384
 L0 18 815
 R16
 R17
@@ -870,7 +871,7 @@ R3
 w1722764793
 8../../../verilog/cpu/cpu_debug.v
 F../../../verilog/cpu/cpu_debug.v
-!i122 383
+!i122 384
 L0 18 794
 R16
 R17
@@ -897,7 +898,7 @@ R3
 w1710726065
 8../../../verilog/cpu/cpu_fetch.v
 F../../../verilog/cpu/cpu_fetch.v
-!i122 383
+!i122 384
 L0 128 582
 R16
 R17
@@ -924,7 +925,7 @@ R3
 R26
 R27
 R28
-!i122 383
+!i122 384
 L0 89 2319
 R16
 R17
@@ -944,14 +945,14 @@ R10
 R11
 R12
 !i10b 1
-!s100 SX[LNYoM71;T;CT_^YUac2
-I1c[5nE[U^P[<A86G:V7PP3
+!s100 4Ki:mPSTVW3iXHFZ2BaRO2
+I3XJ@dZ?V?UOAG_V@`2LnH3
 S1
 R3
-w1722764362
+w1731939193
 8../../../verilog/cpu/cpu_pipeline.v
 F../../../verilog/cpu/cpu_pipeline.v
-!i122 383
+!i122 384
 L0 80 2583
 R16
 R17
@@ -978,7 +979,7 @@ R3
 w1722764543
 8../../../verilog/cpu/cpu_top.v
 F../../../verilog/cpu/cpu_top.v
-!i122 383
+!i122 384
 L0 20 1010
 R16
 R17
@@ -1005,7 +1006,7 @@ R3
 R23
 8../../../verilog/mmRISC/csr_mtime.v
 F../../../verilog/mmRISC/csr_mtime.v
-!i122 383
+!i122 384
 L0 59 307
 R16
 R17
@@ -1032,7 +1033,7 @@ R3
 R23
 8../../../verilog/debug/debug_cdc.v
 F../../../verilog/debug/debug_cdc.v
-!i122 383
+!i122 384
 L0 14 111
 R16
 R17
@@ -1059,7 +1060,7 @@ R3
 w1694143364
 8../../../verilog/debug/debug_dm.v
 F../../../verilog/debug/debug_dm.v
-!i122 383
+!i122 384
 L0 99 1403
 R16
 R17
@@ -1086,7 +1087,7 @@ R3
 w1722082957
 8../../../verilog/debug/debug_dtm_jtag.v
 F../../../verilog/debug/debug_dtm_jtag.v
-!i122 383
+!i122 384
 L0 33 504
 R16
 R17
@@ -1113,7 +1114,7 @@ R3
 w1686052427
 8../../../verilog/debug/debug_top.v
 F../../../verilog/debug/debug_top.v
-!i122 383
+!i122 384
 L0 95 196
 R16
 R17
@@ -1140,7 +1141,7 @@ R3
 R26
 R27
 R28
-!i122 383
+!i122 384
 L0 3741 172
 R16
 R17
@@ -1167,7 +1168,7 @@ R3
 R26
 R27
 R28
-!i122 383
+!i122 384
 L0 2461 134
 R16
 R17
@@ -1194,7 +1195,7 @@ R3
 R26
 R27
 R28
-!i122 383
+!i122 384
 L0 4080 190
 R16
 R17
@@ -1221,7 +1222,7 @@ R3
 R26
 R27
 R28
-!i122 383
+!i122 384
 L0 4297 97
 R16
 R17
@@ -1248,7 +1249,7 @@ R3
 R26
 R27
 R28
-!i122 383
+!i122 384
 L0 2804 142
 R16
 R17
@@ -1277,7 +1278,7 @@ R23
 F../../../verilog/spi/simple_spi/trunk/rtl/verilog/fifo4.v
 Z29 8../../../verilog/i2c/i2c/trunk/rtl/verilog/timescale.v
 Z30 F../../../verilog/i2c/i2c/trunk/rtl/verilog/timescale.v
-!i122 383
+!i122 384
 L0 59 73
 R16
 R17
@@ -1303,7 +1304,7 @@ R3
 R26
 R27
 R28
-!i122 383
+!i122 384
 L0 3027 31
 R16
 R17
@@ -1330,7 +1331,7 @@ R3
 R26
 R27
 R28
-!i122 383
+!i122 384
 L0 3063 31
 R16
 R17
@@ -1357,7 +1358,7 @@ R3
 R26
 R27
 R28
-!i122 383
+!i122 384
 L0 3099 31
 R16
 R17
@@ -1384,7 +1385,7 @@ R3
 R26
 R27
 R28
-!i122 383
+!i122 384
 L0 3452 282
 R16
 R17
@@ -1411,7 +1412,7 @@ R3
 R26
 R27
 R28
-!i122 383
+!i122 384
 L0 2748 52
 R16
 R17
@@ -1438,7 +1439,7 @@ R3
 R26
 R27
 R28
-!i122 383
+!i122 384
 L0 3920 104
 R16
 R17
@@ -1465,7 +1466,7 @@ R3
 R26
 R27
 R28
-!i122 383
+!i122 384
 L0 2600 127
 R16
 R17
@@ -1492,7 +1493,7 @@ R3
 R26
 R27
 R28
-!i122 383
+!i122 384
 L0 3286 43
 R16
 R17
@@ -1519,7 +1520,7 @@ R3
 R26
 R27
 R28
-!i122 383
+!i122 384
 L0 3335 43
 R16
 R17
@@ -1546,7 +1547,7 @@ R3
 R26
 R27
 R28
-!i122 383
+!i122 384
 L0 2950 72
 R16
 R17
@@ -1573,7 +1574,7 @@ R3
 R23
 8../../../verilog/i2c/i2c.v
 F../../../verilog/i2c/i2c.v
-!i122 383
+!i122 384
 L0 55 104
 R16
 R17
@@ -1602,7 +1603,7 @@ R23
 F../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_bit_ctrl.v
 R29
 R30
-!i122 383
+!i122 384
 L0 143 434
 R16
 R17
@@ -1630,7 +1631,7 @@ R23
 F../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_byte_ctrl.v
 R29
 R30
-!i122 383
+!i122 384
 L0 75 270
 R16
 R17
@@ -1658,7 +1659,7 @@ R23
 F../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_top.v
 R29
 R30
-!i122 383
+!i122 384
 L0 78 223
 R16
 R17
@@ -1686,7 +1687,7 @@ R23
 F../../../verilog/i2c/i2c_slave_model.v
 R29
 R30
-!i122 383
+!i122 384
 L0 71 299
 R16
 R17
@@ -1712,7 +1713,7 @@ R3
 R26
 R27
 R28
-!i122 383
+!i122 384
 L0 3388 54
 R16
 R17
@@ -1739,7 +1740,7 @@ R3
 R23
 8../../../verilog/int_gen/int_gen.v
 F../../../verilog/int_gen/int_gen.v
-!i122 383
+!i122 384
 L0 32 113
 R16
 R17
@@ -1766,7 +1767,7 @@ R3
 w1688261347
 8../../../verilog/mmRISC/mmRISC.v
 F../../../verilog/mmRISC/mmRISC.v
-!i122 383
+!i122 384
 L0 20 518
 R16
 R17
@@ -1793,7 +1794,7 @@ R3
 R23
 8../../../verilog/port/port.v
 F../../../verilog/port/port.v
-!i122 383
+!i122 384
 L0 35 150
 R16
 R17
@@ -1820,7 +1821,7 @@ R3
 R23
 8../../../verilog/ram/ram.v
 F../../../verilog/ram/ram.v
-!i122 383
+!i122 384
 L0 16 261
 R16
 R17
@@ -1847,7 +1848,7 @@ R3
 w1710405116
 8../../../fpga/RAM128KB_DP.v
 F../../../fpga/RAM128KB_DP.v
-!i122 383
+!i122 384
 L0 40 104
 R16
 R17
@@ -1874,7 +1875,7 @@ R3
 R23
 8../../../verilog/ram/ram_fpga.v
 F../../../verilog/ram/ram_fpga.v
-!i122 383
+!i122 384
 L0 16 227
 R16
 R17
@@ -1901,7 +1902,7 @@ R3
 R26
 R27
 R28
-!i122 383
+!i122 384
 L0 3215 65
 R16
 R17
@@ -1930,7 +1931,7 @@ R23
 F../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v
 R29
 R30
-!i122 383
+!i122 384
 L0 84 72
 R16
 R17
@@ -1958,7 +1959,7 @@ R23
 F../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v
 R29
 R30
-!i122 383
+!i122 384
 L0 60 71
 R16
 R17
@@ -1986,7 +1987,7 @@ R23
 F../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v
 R29
 R30
-!i122 383
+!i122 384
 L0 73 232
 R16
 R17
@@ -2013,7 +2014,7 @@ R23
 8../../../verilog/ahb_sdram/model/sdr.v
 F../../../verilog/ahb_sdram/model/sdr.v
 F../../../verilog/ahb_sdram/model/sdr_parameters.vh
-!i122 383
+!i122 384
 L0 48 1230
 R16
 R17
@@ -2039,7 +2040,7 @@ R3
 R26
 R27
 R28
-!i122 383
+!i122 384
 L0 3135 22
 R16
 R17
@@ -2066,7 +2067,7 @@ R3
 R26
 R27
 R28
-!i122 383
+!i122 384
 L0 3162 22
 R16
 R17
@@ -2093,7 +2094,7 @@ R3
 R26
 R27
 R28
-!i122 383
+!i122 384
 L0 3189 22
 R16
 R17
@@ -2122,7 +2123,7 @@ R23
 F../../../verilog/spi/simple_spi/trunk/rtl/verilog/simple_spi_top.v
 R29
 R30
-!i122 383
+!i122 384
 L0 73 252
 R16
 R17
@@ -2148,7 +2149,7 @@ R3
 R23
 8../../../verilog/spi/spi.v
 F../../../verilog/spi/spi.v
-!i122 383
+!i122 384
 L0 60 148
 R16
 R17
@@ -2175,7 +2176,7 @@ R3
 w1722761838
 8./tb_TOP.v
 F./tb_TOP.v
-!i122 383
+!i122 384
 L0 44 1838
 R16
 R17
@@ -2202,7 +2203,7 @@ R3
 R23
 8../../../verilog/uart/uart.v
 F../../../verilog/uart/uart.v
-!i122 383
+!i122 384
 L0 53 216
 R16
 R17

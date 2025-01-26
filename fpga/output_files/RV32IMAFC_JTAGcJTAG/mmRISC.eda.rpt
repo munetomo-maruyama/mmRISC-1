@@ -1,5 +1,5 @@
 EDA Netlist Writer report for mmRISC
-Fri Aug 30 23:20:50 2024
+Tue Nov 19 01:38:18 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Fri Aug 30 23:20:50 2024 ;
+; EDA Netlist Writer Status ; Successful - Tue Nov 19 01:38:18 2024 ;
 ; Revision Name             ; mmRISC                                ;
 ; Top-level Entity Name     ; CHIP_TOP_WRAP                         ;
 ; Family                    ; MAX 10                                ;
@@ -81,13 +81,13 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Fri Aug 30 23:20:39 2024
+    Info: Processing started: Tue Nov 19 01:38:07 2024
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off mmRISC -c mmRISC
 Info (204019): Generated file mmRISC.vo in folder "/Documents/CQ/RISCV/mmRISC/mmRISC-1/fpga/simulation/modelsim/" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 13344 megabytes
-    Info: Processing ended: Fri Aug 30 23:20:51 2024
+    Info: Processing ended: Tue Nov 19 01:38:19 2024
     Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:08
+    Info: Total CPU time (on all processors): 00:00:10
 
 
