@@ -6,6 +6,10 @@ For details, please refer PDF file under doc directory. <br>
 
 ## Technical Notes
 
+### 2025.02.01 Following update is applied.<br>
+Updated the document "mmRISC-1 Technical Reference Manual" to Rev07. In the section of "Connection to the target FPGA as 2-wire cJTAG interface", added a figure to show the connection between the cJTAG debugger probe and the cJTAG signals.<br>
+No technology files are modified such as RTLs.<br>
+
 ### 2025.01.26 Following updates are applied.<br>
 (1) The address expression for the TINFO Register (CSR) of the Debug Trigger Module has been corrected from 0x7a3 to 0x7a4 in the document. This error was only present in the document and did not aﬀect the RTL logic.<br>
 (2) The cause field in the DCSR Register (CSR) of the Debug related function was previously set to 3’b011 (halt request) even when the cause was a Hardware Break Point. This has been corrected in the RTL description to 3’b010 (breakpoint exception by hardware trigger module) when the cause is a Hardware Break Point. The corrected RTL file is cpu_pipeline.v. This cause field is used by some commercial IDEs to implement specific I/O emulation, such as printf().<br>
