@@ -77,17 +77,17 @@
 \contentsline {subsection}{\numberline {4.2.2}Connection to the target FPGA as 4-wire JTAG interface}{128}{subsection.4.2.2}%
 \contentsline {subsection}{\numberline {4.2.3}Connection to the target FPGA as 2-wire cJTAG interface}{129}{subsection.4.2.3}%
 \contentsline {subsection}{\numberline {4.2.4}Raspberry Pi 4 Model B as a Development Environment}{131}{subsection.4.2.4}%
-\contentsline {subsection}{\numberline {4.2.5}Generic Commercial Development Environments}{132}{subsection.4.2.5}%
-\contentsline {section}{\numberline {4.3}SamplePrograms}{133}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Integer Instructions: "mmRISC\_SampleCPU"}{133}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Floating Point Instructions: "mmRISC\_SampleFPU"}{133}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Verifications of Floating Point Instructions: "mmRISC\_Floating"}{134}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}FreeRTOS Porting "mmRISC\_FreeRTOS"}{134}{subsection.4.3.4}%
-\contentsline {subsection}{\numberline {4.3.5}Dhrystone benchmark "mmRISC\_Dhrystone"}{134}{subsection.4.3.5}%
-\contentsline {subsection}{\numberline {4.3.6}Coremark benchmark "mmRISC\_Coremark"}{134}{subsection.4.3.6}%
-\contentsline {subsection}{\numberline {4.3.7}A Retro Text Video Game "mmRISC\_StarTrek"}{135}{subsection.4.3.7}%
-\contentsline {subsection}{\numberline {4.3.8}A Touch LCD Demo "mmRISC\_TouchLCD"}{136}{subsection.4.3.8}%
-\contentsline {subsection}{\numberline {4.3.9}A Touch LCD Demo "mmRISC\_TicTacToe"}{138}{subsection.4.3.9}%
+\contentsline {subsection}{\numberline {4.2.5}Generic Commercial Development Environments}{133}{subsection.4.2.5}%
+\contentsline {section}{\numberline {4.3}SamplePrograms}{134}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Integer Instructions: "mmRISC\_SampleCPU"}{134}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Floating Point Instructions: "mmRISC\_SampleFPU"}{134}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Verifications of Floating Point Instructions: "mmRISC\_Floating"}{135}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}FreeRTOS Porting "mmRISC\_FreeRTOS"}{135}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}Dhrystone benchmark "mmRISC\_Dhrystone"}{135}{subsection.4.3.5}%
+\contentsline {subsection}{\numberline {4.3.6}Coremark benchmark "mmRISC\_Coremark"}{135}{subsection.4.3.6}%
+\contentsline {subsection}{\numberline {4.3.7}A Retro Text Video Game "mmRISC\_StarTrek"}{136}{subsection.4.3.7}%
+\contentsline {subsection}{\numberline {4.3.8}A Touch LCD Demo "mmRISC\_TouchLCD"}{137}{subsection.4.3.8}%
+\contentsline {subsection}{\numberline {4.3.9}A Touch LCD Demo "mmRISC\_TicTacToe"}{139}{subsection.4.3.9}%
 \contentsline {chapter}{\numberline {5}Referenced Documents}{141}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Referenced Documents}{142}{section.5.1}%
-\contentsline {chapter}{}{143}{chapter*.207}%
+\contentsline {chapter}{}{143}{chapter*.208}%

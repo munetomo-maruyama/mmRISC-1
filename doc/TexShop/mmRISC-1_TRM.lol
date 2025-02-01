@@ -20,5 +20,5 @@
 \contentsline {lstlisting}{\numberline {4.2}{\ignorespaces OpenOCD Configuration File for Olimex ARM-USB-OCD(H)}}{129}{lstlisting.4.2}%
 \contentsline {lstlisting}{\numberline {4.3}{\ignorespaces OpenOCD Configuration File for 2-wire cJTAG interface}}{130}{lstlisting.4.3}%
 \contentsline {lstlisting}{\numberline {4.4}{\ignorespaces OpenOCD Configuration file for Raspberry Pi}}{131}{lstlisting.4.4}%
-\contentsline {lstlisting}{\numberline {4.5}{\ignorespaces Star Trek Game}}{135}{lstlisting.4.5}%
-\contentsline {lstlisting}{\numberline {4.6}{\ignorespaces Tic-Tac-Toe on UART Terminal}}{138}{lstlisting.4.6}%
+\contentsline {lstlisting}{\numberline {4.5}{\ignorespaces Star Trek Game}}{136}{lstlisting.4.5}%
+\contentsline {lstlisting}{\numberline {4.6}{\ignorespaces Tic-Tac-Toe on UART Terminal}}{139}{lstlisting.4.6}%

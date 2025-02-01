@@ -68,6 +68,11 @@
 (2) The cause field in the DCSR Register (CSR) of the Debug related function was previously set to 3’b011 (halt request) even when the cause was a Hardware Break Point. This has been corrected in the RTL description to 3’b010 (breakpoint exception by hardware trigger module) when the cause is a Hardware Break Point. The corrected RTL file is cpu\_pipeline.v. This cause field is used by some commercial IDEs to implement specific I/O emulation, such as printf().&
         ~
         \nextRow \hline
+        %---- Rev.07 ----
+        07 & Feb.01 2025 & MM &
+(1) In the section of "Connection to the target FPGA as 2-wire cJTAG interface", added a figure to show the connection between the cJTAG debugger probe and the cJTAG signals.&
+        ~
+        \nextRow \hline
     \end{tabular}
     }
     \end{adjustbox}

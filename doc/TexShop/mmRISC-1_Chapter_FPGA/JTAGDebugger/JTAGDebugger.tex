@@ -43,7 +43,7 @@ Of course, you can use the commercial Olimex ARM-USB-OCD(H) as the JTAG debugger
 \subsection{Connection to the target FPGA as 4-wire JTAG interface}
 \label{sec:CONNECTADAPTERJTAG}
 
-When you set the debug interface of the target FPGA as 4-wire JTAG, please refer to Figure \ref{fig:USBJTAGCONNECTIONPC} when connecting the JTAG Adapter between the PC in which the OpenOCD works and the FPGA board. For this system, the configuration file of OpenOCD is shown in Listing \ref{list:OPENOCDCONFIGPCJTAG}.
+If you set the debug interface of the target FPGA to 4-wire JTAG by sliding down SW6 on the DE10-Lite board , please refer to Figure \ref{fig:USBJTAGCONNECTIONPC} when connecting the JTAG Adapter between the FPGA board and the PC running OpenOCD. For this system, the configuration file of OpenOCD is shown in Listing \ref{list:OPENOCDCONFIGPCJTAG}.
 
 
 \begin{figure}[H]
@@ -107,7 +107,13 @@ riscv authdata_write 0xbeefcafe
 %=========================================================
 \subsection{Connection to the target FPGA as 2-wire cJTAG interface}
 
-When you set the debug interface of the target FPGA as 2-wire cJTAG, you can connect some generic debug probe with cJTAG interface to the mmRISC-1. Please connect TCKC of the probe to TCKC\_rep of mmRISC-1 SoC, and TSMC of the probe to TMSC\_rep of mmRISC-1 SoC.\\
+If you set the debug interface of the target FPGA to 2-wire cJTAG by sliding up SW6 on the DE10-Lite board, you can connect a generic debug probe with a cJTAG interface to the mmRISC-1. Please connect TCKC of the probe to TCKC\_rep of mmRISC-1 SoC, and TSMC of the probe to TMSC\_rep of mmRISC-1 SoC, as shown in Figure \ref{fig:CONNECTIONCJTAGPROBE}.
+
+\begin{figure}[H]
+    \includegraphics[width=0.8\columnwidth]{./Figure/Connection_cJTAG_Probe.png}
+    \caption{Connection between the cJTAG debugger probe and cJTAG signals}
+    \label{fig:CONNECTIONCJTAGPROBE}
+\end{figure}
 
 In this project, I have not made a dedicated cJTAG adapter. Therefore, both the JTAG to cJTAG converter and the cJTAG to JTAG converter are implemented into one FPGA, and the cJTAG signals are connected at outside of the FPGA; that are the pairs of TCKC\_pri - TCKC\_rep and TMSC\_pri - TMSC\_rep.\\
 

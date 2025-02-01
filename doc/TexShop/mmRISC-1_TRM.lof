@@ -42,12 +42,13 @@
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Fundamental Connection of OpenOCD JTAG Adapter\relax }}{127}{figure.caption.196}%
 \contentsline {figure}{\numberline {4.6}{\ignorespaces Detail Schematics of OpenOCD JTAG Adapter\relax }}{127}{figure.caption.197}%
 \contentsline {figure}{\numberline {4.7}{\ignorespaces Connection of OpenOCD JTAG Adapter and PC\relax }}{128}{figure.caption.198}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Supplement for cJTAG\relax }}{130}{figure.caption.199}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Connection of Raspberry Pi and the FPGA\relax }}{132}{figure.caption.201}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Eclipse Windows\relax }}{134}{figure.caption.202}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Demo Program "mmRISC\_TouchLCD"\relax }}{137}{figure.caption.204}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Adafruit 2.8" TFT Touch Shield for Arduino (Left: Product ID 1651 Resistive Touch Version; Right: Product ID 1947 Capacitive Touch Version)\relax }}{138}{figure.caption.205}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Startup Screen of TIc-Tac-Toe Game\relax }}{138}{figure.caption.206}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Ending Screen of TIc-Tac-Toe Game\relax }}{138}{figure.caption.206}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Connection between the cJTAG debugger probe and cJTAG signals\relax }}{129}{figure.caption.199}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Supplement for cJTAG\relax }}{130}{figure.caption.200}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Connection of Raspberry Pi and the FPGA\relax }}{133}{figure.caption.202}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Eclipse Windows\relax }}{135}{figure.caption.203}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Demo Program "mmRISC\_TouchLCD"\relax }}{138}{figure.caption.205}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Adafruit 2.8" TFT Touch Shield for Arduino (Left: Product ID 1651 Resistive Touch Version; Right: Product ID 1947 Capacitive Touch Version)\relax }}{139}{figure.caption.206}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Startup Screen of TIc-Tac-Toe Game\relax }}{139}{figure.caption.207}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Ending Screen of TIc-Tac-Toe Game\relax }}{139}{figure.caption.207}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
