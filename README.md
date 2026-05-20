@@ -6,6 +6,11 @@ For details, please refer PDF file under doc directory. <br>
 
 ## Technical Notes
 
+### 2026.05.21 Following update is applied.<br>
+There was an issue where debuggers using the cJTAG interface in certain commercial integrated development environments (IDEs) failed to connect to the cJTAG interface of the mmRISC-1.<br>
+This occurred because the initial waveforms (online/activation) during the commercial IDE's cJTAG connection sequence are designed to trigger a connection error first, requiring a recovery process in the CPU core's RTL logic that was previously insufficient.<br>
+This issue has been resolved by updating the RTL logic in "cjtag_2_jtag.v".<br>
+
 ### 2025.02.01 Following update is applied.<br>
 Updated the document "mmRISC-1 Technical Reference Manual" to Rev07. In the section of "Connection to the target FPGA as 2-wire cJTAG interface", added a figure to show the connection between the cJTAG debugger probe and the cJTAG signals.<br>
 No technology files are modified such as RTLs.<br>
