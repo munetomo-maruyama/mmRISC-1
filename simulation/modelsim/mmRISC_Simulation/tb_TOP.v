@@ -34,9 +34,9 @@
 //
 `define DUMP_ID_STAGE
 //
-//`define JTAG_OPERATION
+`define JTAG_OPERATION
 //`define JTAG_SBACCESS
-`define HARDWARE_BREAK
+//`define HARDWARE_BREAK
 
 //------------------------
 // Top of Testbench
@@ -570,6 +570,7 @@ task Task_CJTAG_ONLINE(integer count);
     if (tb_enable_cjtag)
     begin
         integer i;
+        // Online Sequence
         tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0;
         for (i = 0; i < count; i = i + 1)
         begin
@@ -586,10 +587,11 @@ task Task_CJTAG_ONLINE(integer count);
     end
 endtask
 //
-task Task_CJTAG_ONLINE_NAGATIVE(integer count);
+task Task_CJTAG_ONLINE_NEGATIVE(integer count);
     if (tb_enable_cjtag)
     begin
         integer i;
+        // Online Sequence
         tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b1;
         for (i = 0; i < count; i = i + 1)
         begin
@@ -604,7 +606,93 @@ task Task_CJTAG_ONLINE_NAGATIVE(integer count);
         tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b1;
         #(`TB_TCYC_TCK / 2);
         tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0;
-        $display("----CJTAG_ONLINE_NAGATIVE");
+        $display("----CJTAG_ONLINE_NEGATIVE");
+    end
+endtask
+//
+task Task_CJTAG_ONLINE_WITH_RESET(integer count);
+    if (tb_enable_cjtag)
+    begin
+        integer i;
+        // cJTAG Reset (Real Wave from Commercial IDE)
+        tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b1;
+        #(`TB_TCYC_TCK * 10);
+        tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b1;
+        #(`TB_TCYC_TCK / 2);
+        tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b1;
+        //
+        #(`TB_TCYC_TCK * 20);
+        for (i = 0; i < 5; i = i + 1)
+        begin
+            #(`TB_TCYC_TCK / 2);
+            tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0;
+            #(`TB_TCYC_TCK / 2);
+            tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b1;        
+        end
+        #(`TB_TCYC_TCK / 2);
+        tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b1;
+        #(`TB_TCYC_TCK / 2);
+        tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b1;
+        #(`TB_TCYC_TCK * 20);
+        //       
+        // Online Sequence
+      //tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0;
+        for (i = 0; i < count; i = i + 1)
+        begin
+            #(`TB_TCYC_TCK / 2);
+            tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0;
+            #(`TB_TCYC_TCK / 2);
+            tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b1;
+        end
+        #(`TB_TCYC_TCK / 2);
+      //tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0;
+      //#(`TB_TCYC_TCK / 2);
+      //tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0;
+        $display("----CJTAG_ONLINE with cJTAG Reset");
+    end
+endtask
+//
+task Task_CJTAG_ONLINE_NEGATIVE_WITH_RESET(integer count);
+    if (tb_enable_cjtag)
+    begin
+        integer i;
+        // cJTAG Reset (Real Wave from Commercial IDE)
+        tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b1;
+        #(`TB_TCYC_TCK * 10);
+        tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b1;
+        #(`TB_TCYC_TCK / 2);
+        tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b1;
+        //
+        #(`TB_TCYC_TCK * 20);
+        for (i = 0; i < 5; i = i + 1)
+        begin
+            #(`TB_TCYC_TCK / 2);
+            tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0;
+            #(`TB_TCYC_TCK / 2);
+            tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b1;        
+        end
+        #(`TB_TCYC_TCK / 2);
+        tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b1;
+        #(`TB_TCYC_TCK / 2);
+        tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b1;
+        #(`TB_TCYC_TCK * 20);
+        //       
+        // Online Sequence
+      //tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b1;
+        for (i = 0; i < count; i = i + 1)
+        begin
+            #(`TB_TCYC_TCK / 2);
+            tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b1;
+            #(`TB_TCYC_TCK / 2);
+            tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b0;
+        end
+        #(`TB_TCYC_TCK / 2);
+        tb_tck = 1'b1; tb_tms = 1'b1; tb_tdi = 1'b1;
+      //#(`TB_TCYC_TCK / 2);
+      //tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b1;
+      //#(`TB_TCYC_TCK / 2);
+      //tb_tck = 1'b0; tb_tms = 1'b1; tb_tdi = 1'b0;
+        $display("----CJTAG_ONLINE_NEGATIVE with cJTAG Reset");
     end
 endtask
 
@@ -1221,14 +1309,21 @@ begin
     //------------------------------------
     if (tb_enable_cjtag)
     begin
-        Task_CJTAG_ONLINE_NAGATIVE(3);
+        Task_CJTAG_ONLINE_WITH_RESET(3);
         #(`TB_TCYC_TCK * 10);
         Task_CJTAG_ACTIVATION_CODE(4'b1100); // OAC
         Task_CJTAG_ACTIVATION_CODE(4'b1000); // EC
         Task_CJTAG_ACTIVATION_CODE(4'b0000); // CP
-        Task_CJTAG_ONLINE_NAGATIVE(2);
         #(`TB_TCYC_TCK * 10);
-        Task_CJTAG_ONLINE_NAGATIVE(3);
+        //    
+        Task_CJTAG_ONLINE_NEGATIVE_WITH_RESET(3);
+        #(`TB_TCYC_TCK * 10);
+        Task_CJTAG_ACTIVATION_CODE(4'b1100); // OAC
+        Task_CJTAG_ACTIVATION_CODE(4'b1000); // EC
+        Task_CJTAG_ACTIVATION_CODE(4'b0000); // CP
+        Task_CJTAG_ONLINE_NEGATIVE(2);
+        #(`TB_TCYC_TCK * 10);
+        Task_CJTAG_ONLINE_NEGATIVE(3);
         #(`TB_TCYC_TCK * 10);
         Task_CJTAG_ACTIVATION_CODE(4'b1100); // OAC
         Task_CJTAG_ACTIVATION_CODE(4'b1000); // EC
@@ -1238,7 +1333,7 @@ begin
         #(`TB_TCYC_TCK * 10);
         Task_CJTAG_ONLINE(5);
         #(`TB_TCYC_TCK * 10);
-        Task_CJTAG_ONLINE_NAGATIVE(3);
+        Task_CJTAG_ONLINE_NEGATIVE(3);
         #(`TB_TCYC_TCK * 10);
         Task_CJTAG_ONLINE(3);
         #(`TB_TCYC_TCK * 10);
@@ -1262,9 +1357,9 @@ begin
         #(`TB_TCYC_TCK * 10);
         #(`TB_TCYC_TCK * 10);
         //------------------------------------
-        Task_CJTAG_ONLINE_NAGATIVE(3);
-        #(`TB_TCYC_TCK * 10);
         Task_CJTAG_ONLINE(3);
+        #(`TB_TCYC_TCK * 10);
+        Task_CJTAG_ONLINE_WITH_RESET(3);
         #(`TB_TCYC_TCK * 10);
         Task_CJTAG_ACTIVATION_CODE(4'b1100); // OAC
         Task_CJTAG_ACTIVATION_CODE(4'b1000); // EC
@@ -1313,6 +1408,9 @@ begin
     Task_JTAG_DMI_WRTE(`DM_CONTROL, 32'h00000003, `VERBOSE_ON);
     Task_JTAG_DMI_WRTE(`DM_CONTROL, 32'h00000001, `VERBOSE_ON);
     Task_JTAG_DMI_READ(`DM_CONTROL, 32'h00000001, `VERBOSE_ON);
+    //
+    $display("Security Pass Code");
+    Task_JTAG_DMI_WRTE(`DM_AUTHDATA, 32'h12345678, `VERBOSE_ON);
     //
     $display("Select Hart 0");
     Task_JTAG_DMI_WRTE(`DM_HAWINDOWSEL, 32'h00000000, `VERBOSE_ON);
@@ -1505,6 +1603,9 @@ begin
     Task_JTAG_DMI_WRTE(`DM_CONTROL, 32'h00000001, `VERBOSE_OFF);
     Task_JTAG_DMI_READ(`DM_CONTROL, 32'h00000001, `VERBOSE_OFF);
     //
+    $display("Security Pass Code");
+    Task_JTAG_DMI_WRTE(`DM_AUTHDATA, 32'h12345678, `VERBOSE_ON);
+    //
     $display("Select Hart 0");
     Task_JTAG_DMI_WRTE(`DM_HAWINDOWSEL, 32'h00000000, `VERBOSE_OFF);
     Task_JTAG_DMI_WRTE(`DM_HAWINDOW   , 32'h00000001, `VERBOSE_OFF);
@@ -1565,7 +1666,7 @@ begin
     //------------------------------------
     if (tb_enable_cjtag)
     begin
-        Task_CJTAG_ONLINE(3);
+        Task_CJTAG_ONLINE_WITH_RESET(3);
         #(`TB_TCYC_TCK * 10);
         Task_CJTAG_ACTIVATION_CODE(4'b1100); // OAC
         Task_CJTAG_ACTIVATION_CODE(4'b1000); // EC

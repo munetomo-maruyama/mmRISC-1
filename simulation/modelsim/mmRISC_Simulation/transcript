@@ -12,6 +12,17 @@
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
+
+ls
+# dump.txt              vsim.wlf    wlft8e0n8y  wlftn8f0en  
+# modelsim.cr.mti       wlft09k8me  wlftb2yb20  wlftnr9fhh  
+# modelsim.ini          wlft0dwamd  wlftb9f86t  wlftnrrnnv  
+# modelsim.mpf          wlft2484bd  wlftbvmzra  wlftsqv3di  
+# rom.memh              wlft2521b3  wlftcedztt  wlftwqd6fh  
+# sim_TOP.do            wlft4w6mmi  wlftdaerfc  wlftzky7y7  
+# tb_TOP.v              wlft65s77f  wlftf0r7dq  work        
+# transcript            wlft65tvhr  wlftidhe79              
+# vish_stacktrace.vstf  wlft6t2y6k  wlftmgweey              
 do sim_TOP.do
 # ../../../verilog
 # ../../../fpga
@@ -21,7 +32,98 @@ do sim_TOP.do
 # vmap work work 
 # Modifying modelsim.ini
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 23:28:53 on Nov 18,2024
+# Start time: 22:09:11 on May 12,2026
+# vlog -reportprogress 300 -work work -sv "+incdir+../../../verilog/common" "+incdir+../../../verilog/ahb_sdram/model" "+incdir+../../../verilog/i2c/i2c/trunk/rtl/verilog" -timescale=1ns/100ps "+define+SIMULATION" "+define+den512Mb" "+define+sg75" "+define+x16" ../../../verilog/chip/chip_top_wrap.v ../../../verilog/chip/chip_top.v ../../../verilog/cjtag/cjtag_2_jtag.v ../../../verilog/cjtag/cjtag_adapter.v ../../../verilog/ram/ram.v ../../../verilog/ram/ram_fpga.v ../../../fpga/RAM128KB_DP.v ../../../verilog/port/port.v ../../../verilog/uart/uart.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v ../../../verilog/i2c/i2c.v ../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_top.v ../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_bit_ctrl.v ../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_byte_ctrl.v ../../../verilog/i2c/i2c_slave_model.v ../../../verilog/spi/spi.v ../../../verilog/spi/simple_spi/trunk/rtl/verilog/simple_spi_top.v ../../../verilog/spi/simple_spi/trunk/rtl/verilog/fifo4.v ../../../verilog/int_gen/int_gen.v ../../../verilog/mmRISC/mmRISC.v ../../../verilog/mmRISC/bus_m_ahb.v ../../../verilog/mmRISC/csr_mtime.v ../../../verilog/cpu/cpu_top.v ../../../verilog/cpu/cpu_fetch.v ../../../verilog/cpu/cpu_datapath.v ../../../verilog/cpu/cpu_pipeline.v ../../../verilog/cpu/cpu_fpu32.v ../../../verilog/cpu/cpu_csr.v ../../../verilog/cpu/cpu_csr_int.v ../../../verilog/cpu/cpu_csr_dbg.v ../../../verilog/cpu/cpu_debug.v ../../../verilog/debug/debug_top.v ../../../verilog/debug/debug_dtm_jtag.v ../../../verilog/debug/debug_cdc.v ../../../verilog/debug/debug_dm.v ../../../verilog/ahb_matrix/ahb_top.v ../../../verilog/ahb_matrix/ahb_master_port.v ../../../verilog/ahb_matrix/ahb_slave_port.v ../../../verilog/ahb_matrix/ahb_interconnect.v ../../../verilog/ahb_matrix/ahb_arb.v ../../../verilog/ahb_sdram/logic/ahb_lite_sdram.v ../../../verilog/ahb_sdram/model/sdr.v ./tb_TOP.v 
+# -- Compiling module CHIP_TOP_WRAP
+# -- Compiling module CHIP_TOP
+# -- Compiling module CJTAG_2_JTAG
+# ** Error: ../../../verilog/cjtag/cjtag_2_jtag.v(226): (vlog-2730) Undefined variable: 'TSMC_I'.
+# -- Compiling module CJTAG_ADAPTER
+# -- Compiling module RAM
+# -- Compiling module RAM_FPGA
+# -- Compiling module RAM128KB_DP
+# -- Compiling module PORT
+# -- Compiling module UART
+# -- Compiling module sasc_top
+# -- Compiling module sasc_fifo4
+# -- Compiling module sasc_brg
+# -- Compiling module I2C
+# -- Compiling module i2c_master_top
+# -- Compiling module i2c_master_bit_ctrl
+# -- Compiling module i2c_master_byte_ctrl
+# -- Compiling module i2c_slave_model
+# -- Compiling module SPI
+# -- Compiling module simple_spi_top
+# -- Compiling module fifo4
+# -- Compiling module INT_GEN
+# -- Compiling module mmRISC
+# -- Compiling module BUS_M_AHB
+# -- Compiling module CSR_MTIME
+# -- Compiling module CPU_TOP
+# -- Compiling module CPU_FETCH
+# -- Compiling module CPU_DATAPATH
+# -- Compiling module CPU_PIPELINE
+# -- Compiling module CPU_FPU32
+# -- Compiling module CHECK_FTYPE
+# -- Compiling module FADD_SPECIAL_NUMBER
+# -- Compiling module FMUL_SPECIAL_NUMBER
+# -- Compiling module FMADD_SPECIAL_NUMBER
+# -- Compiling module FDIV_SPECIAL_NUMBER
+# -- Compiling module FSQRT_SPECIAL_NUMBER
+# -- Compiling module FIND_1ST_ONE_IN_FRAC27
+# -- Compiling module FIND_1ST_ONE_IN_FRAC66
+# -- Compiling module FIND_1ST_ONE_IN_FRAC70
+# -- Compiling module SHIFT_RIGHT_FRAC27
+# -- Compiling module SHIFT_RIGHT_FRAC66
+# -- Compiling module SHIFT_RIGHT_FRAC70
+# -- Compiling module ROUND_JUDGMENT
+# -- Compiling module FRAC27_ROUND_FRAC66
+# -- Compiling module FRAC70_ROUND_FRAC132
+# -- Compiling module INNER79_FROM_FLOAT32
+# -- Compiling module FLOAT32_FROM_INNER79
+# -- Compiling module FADD_CORE
+# -- Compiling module FMUL_CORE
+# -- Compiling module FCVT_F2I
+# -- Compiling module FCVT_I2F
+# -- Compiling module CPU_CSR
+# -- Compiling module CPU_CSR_INT
+# -- Compiling module CPU_CSR_DBG
+# -- Compiling module CPU_DEBUG
+# -- Compiling module DEBUG_TOP
+# -- Compiling module DEBUG_DTM_JTAG
+# -- Compiling module DEBUG_CDC
+# -- Compiling module DEBUG_DM
+# -- Compiling module AHB_MATRIX
+# -- Compiling module AHB_MASTER_PORT
+# -- Compiling module AHB_SLAVE_PORT
+# -- Compiling module AHB_INTERCONNECT
+# -- Compiling module AHB_ARB
+# -- Compiling module AHB_ARB_RB
+# -- Compiling module ahb_lite_sdram
+# -- Compiling module sdr
+# -- Compiling module tb_TOP
+# End time: 22:09:12 on May 12,2026, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# ** Error: C:/intelFPGA_lite/23.1std/questa_fse/win64/vlog failed.
+# Error in macro ./sim_TOP.do line 72
+# C:/intelFPGA_lite/23.1std/questa_fse/win64/vlog failed.
+#     while executing
+# "vlog \
+#     -work work \
+#     -sv \
+#     +incdir+$DIR_RTL/common \
+#     +incdir+$DIR_RTL/ahb_sdram/model \
+#     +incdir+$DIR_RTL/i2c/i2c/trunk/rtl/verilog ..."
+do sim_TOP.do
+# ../../../verilog
+# ../../../fpga
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# Questa Intel Starter FPGA Edition-64 vmap 2023.3 Lib Mapping Utility 2023.07 Jul 17 2023
+# vmap work work 
+# Modifying modelsim.ini
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 22:10:01 on May 12,2026
 # vlog -reportprogress 300 -work work -sv "+incdir+../../../verilog/common" "+incdir+../../../verilog/ahb_sdram/model" "+incdir+../../../verilog/i2c/i2c/trunk/rtl/verilog" -timescale=1ns/100ps "+define+SIMULATION" "+define+den512Mb" "+define+sg75" "+define+x16" ../../../verilog/chip/chip_top_wrap.v ../../../verilog/chip/chip_top.v ../../../verilog/cjtag/cjtag_2_jtag.v ../../../verilog/cjtag/cjtag_adapter.v ../../../verilog/ram/ram.v ../../../verilog/ram/ram_fpga.v ../../../fpga/RAM128KB_DP.v ../../../verilog/port/port.v ../../../verilog/uart/uart.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_top.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_fifo4.v ../../../verilog/uart/sasc/trunk/rtl/verilog/sasc_brg.v ../../../verilog/i2c/i2c.v ../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_top.v ../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_bit_ctrl.v ../../../verilog/i2c/i2c/trunk/rtl/verilog/i2c_master_byte_ctrl.v ../../../verilog/i2c/i2c_slave_model.v ../../../verilog/spi/spi.v ../../../verilog/spi/simple_spi/trunk/rtl/verilog/simple_spi_top.v ../../../verilog/spi/simple_spi/trunk/rtl/verilog/fifo4.v ../../../verilog/int_gen/int_gen.v ../../../verilog/mmRISC/mmRISC.v ../../../verilog/mmRISC/bus_m_ahb.v ../../../verilog/mmRISC/csr_mtime.v ../../../verilog/cpu/cpu_top.v ../../../verilog/cpu/cpu_fetch.v ../../../verilog/cpu/cpu_datapath.v ../../../verilog/cpu/cpu_pipeline.v ../../../verilog/cpu/cpu_fpu32.v ../../../verilog/cpu/cpu_csr.v ../../../verilog/cpu/cpu_csr_int.v ../../../verilog/cpu/cpu_csr_dbg.v ../../../verilog/cpu/cpu_debug.v ../../../verilog/debug/debug_top.v ../../../verilog/debug/debug_dtm_jtag.v ../../../verilog/debug/debug_cdc.v ../../../verilog/debug/debug_dm.v ../../../verilog/ahb_matrix/ahb_top.v ../../../verilog/ahb_matrix/ahb_master_port.v ../../../verilog/ahb_matrix/ahb_slave_port.v ../../../verilog/ahb_matrix/ahb_interconnect.v ../../../verilog/ahb_matrix/ahb_arb.v ../../../verilog/ahb_sdram/logic/ahb_lite_sdram.v ../../../verilog/ahb_sdram/model/sdr.v ./tb_TOP.v 
 # -- Compiling module CHIP_TOP_WRAP
 # -- Compiling module CHIP_TOP
@@ -94,10 +196,10 @@ do sim_TOP.do
 # Top level modules:
 # 	RAM_FPGA
 # 	tb_TOP
-# End time: 23:28:54 on Nov 18,2024, Elapsed time: 0:00:01
+# End time: 22:10:02 on May 12,2026, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vsim -c -voptargs=""+acc"" -L altera_mf_ver work.tb_TOP 
-# Start time: 23:28:54 on Nov 18,2024
+# Start time: 22:10:02 on May 12,2026
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
 # ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
@@ -168,6 +270,11 @@ do sim_TOP.do
 # Loading work.fifo4(fast)
 # Loading work.i2c_slave_model(fast)
 # Loading work.sdr(fast)
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: taka  Hostname: ARM-WINDOWS  ProcessID: 1536
+#           Attempting to use alternate WLF file "./wlfta2tybg".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlfta2tybg
 # ----RESET RUN
 # ----JTAG_INIT_PIN
 # tb_TOP.U_SDRAM : at time     840.0 ns AREF : Auto Refresh
@@ -177,511 +284,742 @@ do sim_TOP.do
 # tb_TOP.U_SDRAM :                             Burst Length     = 2
 # tb_TOP.U_SDRAM :                             Burst Type       = Sequential
 # tb_TOP.U_SDRAM :                             Write Burst Mode = Programmed Burst Length
+# ----CJTAG_ONLINE with cJTAG Reset
+# ----CJTAG_ACTIVATION_CODE(0xc)
+# tb_TOP.U_SDRAM : at time    8760.0 ns AREF : Auto Refresh
+# ----CJTAG_ACTIVATION_CODE(0x8)
+# ----CJTAG_ACTIVATION_CODE(0x0)
+# ----CJTAG_ONLINE_NEGATIVE with cJTAG Reset
+# tb_TOP.U_SDRAM : at time   16600.0 ns AREF : Auto Refresh
+# ----CJTAG_ACTIVATION_CODE(0xc)
+# ----CJTAG_ACTIVATION_CODE(0x8)
+# ----CJTAG_ACTIVATION_CODE(0x0)
+# ----CJTAG_ONLINE_NEGATIVE
+# ----CJTAG_ONLINE_NEGATIVE
+# ----CJTAG_ACTIVATION_CODE(0xc)
+# ----CJTAG_ACTIVATION_CODE(0x8)
+# ----CJTAG_ACTIVATION_CODE(0x0)
+# ----CJTAG_ONLINE
+# tb_TOP.U_SDRAM : at time   24440.0 ns AREF : Auto Refresh
+# ----CJTAG_ONLINE
+# ----CJTAG_ONLINE_NEGATIVE
 # ----CJTAG_ONLINE
 # ----CJTAG_ACTIVATION_CODE(0xc)
 # ----CJTAG_ACTIVATION_CODE(0x8)
 # ----CJTAG_ACTIVATION_CODE(0x0)
-# ----JTAG_INIT_STATE
-# WR&RD DM_CONTROL to set dmactive
-# tb_TOP.U_SDRAM : at time    8760.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time   16600.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time   24440.0 ns AREF : Auto Refresh
+# ----CJTAG_ONLINE
+# ----CJTAG_ONLINE
+# ----CJTAG_ONLINE
+# ----CJTAG_ACTIVATION_CODE(0x4)
 # tb_TOP.U_SDRAM : at time   32280.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x00000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# ----CJTAG_ONLINE
+# ----CJTAG_ACTIVATION_CODE(0xc)
+# ----CJTAG_ACTIVATION_CODE(0x8)
+# ----CJTAG_ACTIVATION_CODE(0x0)
 # tb_TOP.U_SDRAM : at time   40120.0 ns AREF : Auto Refresh
+# ----JTAG_INIT_STATE
+# ----CJTAG_ONLINE
 # ***** DETECT FINAL INSTRUCTION *****
 # tb_TOP.U_SDRAM : at time   47960.0 ns AREF : Auto Refresh
+# ----CJTAG_ONLINE with cJTAG Reset
+# ----CJTAG_ACTIVATION_CODE(0xc)
+# ----CJTAG_ACTIVATION_CODE(0x8)
+# ----CJTAG_ACTIVATION_CODE(0x0)
 # tb_TOP.U_SDRAM : at time   55800.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000001 0x0)
+# ----JTAG_INIT_STATE
+# Shift in Long Data when IR=5'h1f
 # tb_TOP.U_SDRAM : at time   63640.0 ns AREF : Auto Refresh
+# ----JTAG IR SFT_IN(0x1f) SFT_OUT(0x1)
 # tb_TOP.U_SDRAM : at time   71480.0 ns AREF : Auto Refresh
 # tb_TOP.U_SDRAM : at time   79320.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x10 0x00000001 0x1) SFT_OUT(0x00 0x00000000 0x0)
 # tb_TOP.U_SDRAM : at time   87160.0 ns AREF : Auto Refresh
 # tb_TOP.U_SDRAM : at time   95000.0 ns AREF : Auto Refresh
+# ----JTAG DR SFT_IN(0x0123456789abcdef) SFT_OUT(0x02468acf13579bde)
+# Read/Write USER
 # tb_TOP.U_SDRAM : at time  102840.0 ns AREF : Auto Refresh
+# ----JTAG IR SFT_IN(0xf) SFT_OUT(0x1f)
 # tb_TOP.U_SDRAM : at time  110680.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000001 0x0)
-#  ---> Verify OK:0x00000001
-# Security Pass Code
-# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
 # tb_TOP.U_SDRAM : at time  118520.0 ns AREF : Auto Refresh
+# ----JTAG DR SFT_IN(0x000000001234abcd) SFT_OUT(0x00000000ffffffff)
 # tb_TOP.U_SDRAM : at time  126360.0 ns AREF : Auto Refresh
 # tb_TOP.U_SDRAM : at time  134200.0 ns AREF : Auto Refresh
-# ----JTAG DR SFT_IN(0x000000c048d159e2) SFT_OUT(0x0000000000000000)
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x30 0x12345678 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# ----JTAG DR SFT_IN(0x00000000aa556699) SFT_OUT(0x00000000edcb5432)
+# Read IDCODE
+# ----JTAG IR SFT_IN(0x1) SFT_OUT(0xf)
 # tb_TOP.U_SDRAM : at time  142040.0 ns AREF : Auto Refresh
-# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
 # tb_TOP.U_SDRAM : at time  149880.0 ns AREF : Auto Refresh
 # tb_TOP.U_SDRAM : at time  157720.0 ns AREF : Auto Refresh
-# ----JTAG DR SFT_IN(0x000000cXxxxxxxxX) SFT_OUT(0x000000c048d159e0)
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x30 0xxxxxxxxx 0x0) SFT_OUT(0x30 0x12345678 0x0)
-# Select Hart 0
+# ----JTAG DR SFT_IN(0x0000000000000000) SFT_OUT(0x0000000016d6d001)
+# RD DM_Default
+# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x1)
 # tb_TOP.U_SDRAM : at time  165560.0 ns AREF : Auto Refresh
-# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
 # tb_TOP.U_SDRAM : at time  173400.0 ns AREF : Auto Refresh
 # tb_TOP.U_SDRAM : at time  181240.0 ns AREF : Auto Refresh
+# ----JTAG DR SFT_IN(0x000001ff7ab401fd) SFT_OUT(0x0000000000000000)
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x7f 0xdead007f 0x1) SFT_OUT(0x00 0x00000000 0x0)
 # tb_TOP.U_SDRAM : at time  189080.0 ns AREF : Auto Refresh
-# ----JTAG DR SFT_IN(0x0000005000000002) SFT_OUT(0x0000000000000000)
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x14 0x00000000 0x2) SFT_OUT(0x00 0x00000000 0x0)
 # ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
 # tb_TOP.U_SDRAM : at time  196920.0 ns AREF : Auto Refresh
 # tb_TOP.U_SDRAM : at time  204760.0 ns AREF : Auto Refresh
+# ----JTAG DR SFT_IN(0x000001fXxxxxxxxX) SFT_OUT(0x000001ff7ab401fc)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x7f 0xxxxxxxxx 0x0) SFT_OUT(0x7f 0xdead007f 0x0)
+#  ---> Verify OK:0xdead007f
+# WR&RD DM_CONTROL to set dmactive
 # tb_TOP.U_SDRAM : at time  212600.0 ns AREF : Auto Refresh
-# ----JTAG DR SFT_IN(0x0000005XxxxxxxxX) SFT_OUT(0x0000005000000000)
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x14 0xxxxxxxxx 0x0) SFT_OUT(0x14 0x00000000 0x0)
+# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
 # tb_TOP.U_SDRAM : at time  220440.0 ns AREF : Auto Refresh
-# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
 # tb_TOP.U_SDRAM : at time  228280.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  236120.0 ns AREF : Auto Refresh
-# ----JTAG DR SFT_IN(0x0000005400000006) SFT_OUT(0x0000000000000000)
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x15 0x00000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time  243960.0 ns AREF : Auto Refresh
-# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
-# tb_TOP.U_SDRAM : at time  251800.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  259640.0 ns AREF : Auto Refresh
-# ----JTAG DR SFT_IN(0x0000005XxxxxxxxX) SFT_OUT(0x0000005400000004)
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x15 0xxxxxxxxx 0x0) SFT_OUT(0x15 0x00000001 0x0)
-# Reset Rest of the System by ndmreset with ResetHalt
-# tb_TOP.U_SDRAM : at time  267480.0 ns AREF : Auto Refresh
-# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
-# tb_TOP.U_SDRAM : at time  275320.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  283160.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  291000.0 ns AREF : Auto Refresh
-# ----JTAG DR SFT_IN(0x000000400000002e) SFT_OUT(0x0000000000000000)
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x0000000b 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
-# ----JTAG DR SFT_IN(0x0000004XxxxxxxxX) SFT_OUT(0x000000400000002c)
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x0000000b 0x0)
-# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
 # ----JTAG DR SFT_IN(0x0000004000000006) SFT_OUT(0x0000000000000000)
 # ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x00000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time  345160.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  345240.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  345320.0 ns LMR  : Load Mode Register
-# tb_TOP.U_SDRAM :                             CAS Latency      = 2
-# tb_TOP.U_SDRAM :                             Burst Length     = 2
-# tb_TOP.U_SDRAM :                             Burst Type       = Sequential
-# tb_TOP.U_SDRAM :                             Write Burst Mode = Programmed Burst Length
+# tb_TOP.U_SDRAM : at time  236120.0 ns AREF : Auto Refresh
 # ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
-# tb_TOP.U_SDRAM : at time  353080.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  360920.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  368760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  243960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  251800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  259640.0 ns AREF : Auto Refresh
 # ----JTAG DR SFT_IN(0x0000004XxxxxxxxX) SFT_OUT(0x0000004000000004)
 #     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000001 0x0)
 # ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
-# tb_TOP.U_SDRAM : at time  376600.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  384440.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  392280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  267480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  275320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  283160.0 ns AREF : Auto Refresh
 # ----JTAG DR SFT_IN(0x0000004000000005) SFT_OUT(0x0000000000000000)
 # ----JTAG_DMI_READ (TRY 0) SFT_IN(0x10 0x00000001 0x1) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time  400120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  291000.0 ns AREF : Auto Refresh
 # ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
-# tb_TOP.U_SDRAM : at time  407960.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  415800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  298840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  306680.0 ns AREF : Auto Refresh
 # ----JTAG DR SFT_IN(0x0000004XxxxxxxxX) SFT_OUT(0x0000004000000004)
 #     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000001 0x0)
 #  ---> Verify OK:0x00000001
-# Read Opcode at 0x90000808
-# tb_TOP.U_SDRAM : at time  423640.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  431480.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  439320.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  447160.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x05 0x90000808 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time  455000.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  462840.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  470680.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x05 0xxxxxxxxx 0x0) SFT_OUT(0x05 0x90000808 0x0)
-# tb_TOP.U_SDRAM : at time  478520.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  486360.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  494200.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x17 0x02200000 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time  502040.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  509880.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  517720.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  525560.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x17 0x02200000 0x0)
-# tb_TOP.U_SDRAM : at time  533400.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  541240.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  549080.0 ns AREF : Auto Refresh
+# Security Pass Code
+# tb_TOP.U_SDRAM : at time  314520.0 ns AREF : Auto Refresh
+# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
+# tb_TOP.U_SDRAM : at time  322360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  330200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  338040.0 ns AREF : Auto Refresh
+# ----JTAG DR SFT_IN(0x000000c048d159e2) SFT_OUT(0x0000000000000000)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x30 0x12345678 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
+# tb_TOP.U_SDRAM : at time  345880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  353720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  361560.0 ns AREF : Auto Refresh
+# ----JTAG DR SFT_IN(0x000000cXxxxxxxxX) SFT_OUT(0x000000c048d159e0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x30 0xxxxxxxxx 0x0) SFT_OUT(0x30 0x12345678 0x0)
+# Write DTMCS to Assert dmihardreset and Check dmactive cleared
+# tb_TOP.U_SDRAM : at time  369400.0 ns AREF : Auto Refresh
+# ----JTAG IR SFT_IN(0x10) SFT_OUT(0x11)
+# tb_TOP.U_SDRAM : at time  377240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  385080.0 ns AREF : Auto Refresh
+# ----JTAG DR SFT_IN(0x0000000000020000) SFT_OUT(0x0000000000005071)
+# tb_TOP.U_SDRAM : at time  392920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  400760.0 ns AREF : Auto Refresh
+# ----JTAG DR SFT_IN(0x0000000000000000) SFT_OUT(0x0000000000005071)
+# tb_TOP.U_SDRAM : at time  408600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  416440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  424280.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x10 0x00000000 0x1) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time  432120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  439960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  447800.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000000 0x0)
+#  ---> Verify OK:0x00000000
+# Reset Rest of the System by ndmreset and set dmactive
+# tb_TOP.U_SDRAM : at time  455640.0 ns AREF : Auto Refresh
+# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
+# tb_TOP.U_SDRAM : at time  463480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  471320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  479160.0 ns AREF : Auto Refresh
+# ----JTAG DR SFT_IN(0x000000400000000e) SFT_OUT(0x0000000000000000)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x00000003 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
+# tb_TOP.U_SDRAM : at time  487000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  494840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  502680.0 ns AREF : Auto Refresh
+# ----JTAG DR SFT_IN(0x0000004XxxxxxxxX) SFT_OUT(0x000000400000000c)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000003 0x0)
+# tb_TOP.U_SDRAM : at time  510520.0 ns AREF : Auto Refresh
+# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
+# tb_TOP.U_SDRAM : at time  518360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  526200.0 ns AREF : Auto Refresh
+# ----JTAG DR SFT_IN(0x0000004000000006) SFT_OUT(0x0000000000000000)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x00000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time  534040.0 ns AREF : Auto Refresh
+# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
+# tb_TOP.U_SDRAM : at time  541880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  549720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  557560.0 ns AREF : Auto Refresh
+# ----JTAG DR SFT_IN(0x0000004XxxxxxxxX) SFT_OUT(0x0000004000000004)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000001 0x0)
+# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
+# tb_TOP.U_SDRAM : at time  565400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  573240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  581080.0 ns AREF : Auto Refresh
+# ----JTAG DR SFT_IN(0x0000004000000005) SFT_OUT(0x0000000000000000)
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x10 0x00000001 0x1) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time  588920.0 ns AREF : Auto Refresh
+# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
+# tb_TOP.U_SDRAM : at time  596760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  604600.0 ns AREF : Auto Refresh
+# ----JTAG DR SFT_IN(0x0000004XxxxxxxxX) SFT_OUT(0x0000004000000004)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x00000001 0x0)
+#  ---> Verify OK:0x00000001
+# Security Pass Code
+# tb_TOP.U_SDRAM : at time  612440.0 ns AREF : Auto Refresh
+# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
+# tb_TOP.U_SDRAM : at time  620280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  628120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  635960.0 ns AREF : Auto Refresh
+# ----JTAG DR SFT_IN(0x000000c048d159e2) SFT_OUT(0x0000000000000000)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x30 0x12345678 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
+# tb_TOP.U_SDRAM : at time  643800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  651640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  659480.0 ns AREF : Auto Refresh
+# ----JTAG DR SFT_IN(0x000000cXxxxxxxxX) SFT_OUT(0x000000c048d159e0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x30 0xxxxxxxxx 0x0) SFT_OUT(0x30 0x12345678 0x0)
+# Select Hart 0
+# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
+# tb_TOP.U_SDRAM : at time  667320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  675160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  683000.0 ns AREF : Auto Refresh
+# ----JTAG DR SFT_IN(0x0000005000000002) SFT_OUT(0x0000000000000000)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x14 0x00000000 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time  690840.0 ns AREF : Auto Refresh
+# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
+# tb_TOP.U_SDRAM : at time  698680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  706520.0 ns AREF : Auto Refresh
+# ----JTAG DR SFT_IN(0x0000005XxxxxxxxX) SFT_OUT(0x0000005000000000)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x14 0xxxxxxxxx 0x0) SFT_OUT(0x14 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time  714360.0 ns AREF : Auto Refresh
+# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
+# tb_TOP.U_SDRAM : at time  722200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  730040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  737880.0 ns AREF : Auto Refresh
+# ----JTAG DR SFT_IN(0x0000005400000006) SFT_OUT(0x0000000000000000)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x15 0x00000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
+# tb_TOP.U_SDRAM : at time  745720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  753560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  761400.0 ns AREF : Auto Refresh
+# ----JTAG DR SFT_IN(0x0000005XxxxxxxxX) SFT_OUT(0x0000005400000004)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x15 0xxxxxxxxx 0x0) SFT_OUT(0x15 0x00000001 0x0)
+# Halt Hart 0
+# tb_TOP.U_SDRAM : at time  769240.0 ns AREF : Auto Refresh
+# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
+# tb_TOP.U_SDRAM : at time  777080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  784920.0 ns AREF : Auto Refresh
+# ----JTAG DR SFT_IN(0x0000004200000006) SFT_OUT(0x0000000000000000)
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x80000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time  792760.0 ns AREF : Auto Refresh
+# ----JTAG IR SFT_IN(0x11) SFT_OUT(0x11)
+# tb_TOP.U_SDRAM : at time  800600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  808440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  816280.0 ns AREF : Auto Refresh
+# ----JTAG DR SFT_IN(0x0000004XxxxxxxxX) SFT_OUT(0x0000004200000004)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x80000001 0x0)
+# ABSCMD WR/RD FPR 00
+# tb_TOP.U_SDRAM : at time  824120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  831960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  839800.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x04 0x456789ab 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time  847640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  855480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  863320.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x456789ab 0x0)
+# tb_TOP.U_SDRAM : at time  871160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  879000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  886840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  894680.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x04 0x456789ab 0x1) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time  902520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  910360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  918200.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x456789ab 0x0)
+#  ---> Verify OK:0x456789ab
+# tb_TOP.U_SDRAM : at time  926040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  933880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  941720.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x17 0x00231020 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time  949560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  957400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  965240.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x17 0x00231020 0x0)
+# tb_TOP.U_SDRAM : at time  973080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  980920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  988760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time  996600.0 ns AREF : Auto Refresh
 # ----JTAG_DMI_READ (TRY 0) SFT_IN(0x16 0x00000002 0x1) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time  556920.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  564760.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  572600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1004440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1012280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 1020120.0 ns AREF : Auto Refresh
 #     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x16 0x00000002 0x0)
 #  ---> Verify OK:0x00000002
-# tb_TOP.U_SDRAM : at time  580440.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  588280.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  596120.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x04 0xxxxxxxxx 0x1) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time  603960.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  611800.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  619640.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  627480.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x12001081 0x0)
-# 
-# ----JTAG_ABSCMD_RD(MEM) ADDR=0x90000808 RDATA=0x12001081
-# Write EBREAK at 0x90000808
-# tb_TOP.U_SDRAM : at time  635320.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  643160.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  651000.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x04 0x00100073 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time  658840.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  666680.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  674520.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x00100073 0x0)
-# tb_TOP.U_SDRAM : at time  682360.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  690200.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  698040.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  705880.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x05 0x90000808 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time  713720.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  721560.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  729400.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x05 0xxxxxxxxx 0x0) SFT_OUT(0x05 0x90000808 0x0)
-# tb_TOP.U_SDRAM : at time  737240.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  745080.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  752920.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x17 0x02210000 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time  760760.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  768600.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  776440.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x17 0x02210000 0x0)
-# tb_TOP.U_SDRAM : at time  784280.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  792120.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  799960.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  807800.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x16 0x00000002 0x1) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time  815640.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  823480.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  831320.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x16 0x00000002 0x0)
-#  ---> Verify OK:0x00000002
-# ----JTAG_ABSCMD_WR(MEM) ADDR=0x90000808 WDATA=0x00100073
-# Let EBREAK enter Debug Mode 
-# tb_TOP.U_SDRAM : at time  839160.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  847000.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  854840.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x04 0x400080c3 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time  862680.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  870520.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  878360.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  886200.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x400080c3 0x0)
-# tb_TOP.U_SDRAM : at time  894040.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  901880.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  909720.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x17 0x002307b0 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time  917560.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  925400.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  933240.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x17 0x002307b0 0x0)
-# tb_TOP.U_SDRAM : at time  941080.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  948920.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  956760.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  964600.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x16 0x00000002 0x1) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time  972440.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  980280.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time  988120.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x16 0x00000002 0x0)
-#  ---> Verify OK:0x00000002
-# ----JTAG_ABSCMD_WR(REG) RNUM=0x07b0 WDATA=0x400080c3
-# Set Hardware Breakpoint 0
-# tb_TOP.U_SDRAM : at time  995960.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1003800.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1011640.0 ns AREF : Auto Refresh
 # ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x04 0x00000000 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 1019480.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1027320.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1035160.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1043000.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 2) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 3) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x00000000 0x0)
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x04 0x00000000 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 2) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 3) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x00000000 0x0)
+#  ---> Verify OK:0x00000000
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x17 0x00221020 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 2) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 3) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x17 0x00221020 0x0)
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x16 0x00000002 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 2) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 3) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x16 0x00000002 0x0)
+#  ---> Verify OK:0x00000002
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x04 0x456789ab 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 2) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 3) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x456789ab 0x0)
+#  ---> Verify OK:0x456789ab
+# ABSCMD WR/RD FPR 31
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x04 0x56789abc 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 2) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 3) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x56789abc 0x0)
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x04 0x56789abc 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 2) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 3) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x56789abc 0x0)
+#  ---> Verify OK:0x56789abc
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x17 0x0023103f 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 2) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 3) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x17 0x0023103f 0x0)
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x16 0x00000002 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 2) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 3) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x16 0x00000002 0x0)
+#  ---> Verify OK:0x00000002
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x04 0x00000000 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 2) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 3) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x00000000 0x0)
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x04 0x00000000 0x1) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 2) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 3) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x00000000 0x0)
+#  ---> Verify OK:0x00000000
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x17 0x0022103f 0x2) SFT_OUT(0x00 0x00000000 0x0)
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 2) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x00 0x00000000 0x3)
+#     JTAG_DMI_NOP  (TRY 3) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x17 0x0022103f 0x0)
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x16 0x00000002 0x1) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 3221840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3229680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3237520.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x16 0x00000002 0x0)
+#  ---> Verify OK:0x00000002
+# tb_TOP.U_SDRAM : at time 3245360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3253200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3261040.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x04 0x56789abc 0x1) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 3268880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3276720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3284560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3292400.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x56789abc 0x0)
+#  ---> Verify OK:0x56789abc
+# Resume Hart 0
+# tb_TOP.U_SDRAM : at time 3300240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3308080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3315920.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 3323760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3331600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3339440.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
+# Halt Hart 0
+# tb_TOP.U_SDRAM : at time 3347280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3355120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3362960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3370800.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x80000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 3378640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3386480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3394320.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x80000001 0x0)
+# Resume Hart 0
+# tb_TOP.U_SDRAM : at time 3402160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3410000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3417840.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 3425680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3433520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3441360.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
+# HART_STEP_OPERATION
+# tb_TOP.U_SDRAM : at time 3449200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3457040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3464880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3472720.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x80000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 3480560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3488400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3496240.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x80000001 0x0)
+# tb_TOP.U_SDRAM : at time 3504080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3511920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3519760.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x04 0x00000004 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 3527600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3535440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3543280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3551120.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x00000004 0x0)
+# tb_TOP.U_SDRAM : at time 3558960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3566800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3574640.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x17 0x002307b0 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 3582480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3590320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3598160.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x17 0x002307b0 0x0)
+# tb_TOP.U_SDRAM : at time 3606000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3613840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3621680.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x16 0x00000002 0x1) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 3629520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3637360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3645200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3653040.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x16 0x00000002 0x0)
+#  ---> Verify OK:0x00000002
+# tb_TOP.U_SDRAM : at time 3660880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3668720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3676560.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 3684400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3692240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3700080.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
+# tb_TOP.U_SDRAM : at time 3707920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3715760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3723600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3731440.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 3739280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3747120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3754960.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
+# tb_TOP.U_SDRAM : at time 3762800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3770640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3778480.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x04 0x00000000 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 3786320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3794160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3802000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3809840.0 ns AREF : Auto Refresh
 #     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 1050840.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1058680.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1066520.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x17 0x002307a0 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 1074360.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1082200.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1090040.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x17 0x002307a0 0x0)
-# tb_TOP.U_SDRAM : at time 1097880.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1105720.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1113560.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x16 0x00000002 0x1) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 1121400.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1129240.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1137080.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1144920.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x16 0x00000002 0x0)
-#  ---> Verify OK:0x00000002
-# ----JTAG_ABSCMD_WR(REG) RNUM=0x07a0 WDATA=0x00000000
-# tb_TOP.U_SDRAM : at time 1152760.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1160600.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1168440.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x04 0x9000080c 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 1176280.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1184120.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1191960.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x9000080c 0x0)
-# tb_TOP.U_SDRAM : at time 1199800.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1207640.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1215480.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1223320.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x17 0x002307a2 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 1231160.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1239000.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1246840.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x17 0x002307a2 0x0)
-# tb_TOP.U_SDRAM : at time 1254680.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1262520.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1270360.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x16 0x00000002 0x1) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 1278200.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1286040.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1293880.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1301720.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x16 0x00000002 0x0)
-#  ---> Verify OK:0x00000002
-# ----JTAG_ABSCMD_WR(REG) RNUM=0x07a2 WDATA=0x9000080c
-# tb_TOP.U_SDRAM : at time 1309560.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1317400.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1325240.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x04 0x28001044 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 1333080.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1340920.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1348760.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x28001044 0x0)
-# tb_TOP.U_SDRAM : at time 1356600.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1364440.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1372280.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x17 0x002307a1 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 1380120.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1387960.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1395800.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1403640.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x17 0x002307a1 0x0)
-# tb_TOP.U_SDRAM : at time 1411480.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1419320.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1427160.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x16 0x00000002 0x1) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 1435000.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1442840.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1450680.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x16 0x00000002 0x0)
-#  ---> Verify OK:0x00000002
-# ----JTAG_ABSCMD_WR(REG) RNUM=0x07a1 WDATA=0x28001044
-# Resume Hart 0
-# tb_TOP.U_SDRAM : at time 1458520.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1466360.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1474200.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1482040.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 1489880.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1497720.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1505560.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
-# Wait for Software Break
-# tb_TOP.U_SDRAM : at time 1513400.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1521240.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1529080.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x11 0xxxxxxxxx 0x1) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 1536920.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1544760.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1552600.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1560440.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x11 0xxxxxxxxx 0x0) SFT_OUT(0x11 0x000f03a2 0x0)
-# 
-# Revert Opcode at 0x90000808
-# tb_TOP.U_SDRAM : at time 1568280.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1576120.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1583960.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x04 0x12001081 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 1591800.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1599640.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1607480.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x12001081 0x0)
-# tb_TOP.U_SDRAM : at time 1615320.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1623160.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1631000.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1638840.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x05 0x90000808 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 1646680.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1654520.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1662360.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x05 0xxxxxxxxx 0x0) SFT_OUT(0x05 0x90000808 0x0)
-# tb_TOP.U_SDRAM : at time 1670200.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1678040.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1685880.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x17 0x02210000 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 1693720.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1701560.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1709400.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x17 0x02210000 0x0)
-# tb_TOP.U_SDRAM : at time 1717240.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1725080.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1732920.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1740760.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x16 0x00000002 0x1) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 1748600.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1756440.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1764280.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x16 0x00000002 0x0)
-#  ---> Verify OK:0x00000002
-# ----JTAG_ABSCMD_WR(MEM) ADDR=0x90000808 WDATA=0x12001081
-# Resume Hart 0
-# tb_TOP.U_SDRAM : at time 1772120.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1779960.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1787800.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 1795640.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1803480.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1811320.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1819160.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
-# Wait for Hardware Break
-# Clear Detect Break
-# Enable Step in DCSR
-# tb_TOP.U_SDRAM : at time 1827000.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1834840.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1842680.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x17 0x002207b0 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 1850520.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1858360.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1866200.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1874040.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x17 0x002207b0 0x0)
-# tb_TOP.U_SDRAM : at time 1881880.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1889720.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1897560.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x16 0x00000002 0x1) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 1905400.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1913240.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1921080.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x16 0x00000002 0x0)
-#  ---> Verify OK:0x00000002
-# tb_TOP.U_SDRAM : at time 1928920.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1936760.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1944600.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1952440.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x04 0xxxxxxxxx 0x1) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 1960280.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1968120.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1975960.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x40008083 0x0)
-# 
-# ----JTAG_ABSCMD_RD(REG) RNUM=0x07b0 RDATA=0x40008083
-# tb_TOP.U_SDRAM : at time 1983800.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1991640.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 1999480.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x04 0x400080c7 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 2007320.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2015160.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2023000.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x400080c7 0x0)
-# tb_TOP.U_SDRAM : at time 2030840.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2038680.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2046520.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2054360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3817680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3825520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3833360.0 ns AREF : Auto Refresh
 # ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x17 0x002307b0 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 2062200.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2070040.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2077880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3841200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3849040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3856880.0 ns AREF : Auto Refresh
 #     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x17 0x002307b0 0x0)
-# tb_TOP.U_SDRAM : at time 2085720.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2093560.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2101400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3864720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3872560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3880400.0 ns AREF : Auto Refresh
 # ----JTAG_DMI_READ (TRY 0) SFT_IN(0x16 0x00000002 0x1) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 2109240.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2117080.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2124920.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2132760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3888240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3896080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3903920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3911760.0 ns AREF : Auto Refresh
 #     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x16 0x00000002 0x0)
 #  ---> Verify OK:0x00000002
-# ----JTAG_ABSCMD_WR(REG) RNUM=0x07b0 WDATA=0x400080c7
-# Resume Hart 0 Again
-# tb_TOP.U_SDRAM : at time 2140600.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2148440.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2156280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3919600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3927440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3935280.0 ns AREF : Auto Refresh
 # ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 2164120.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2171960.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2179800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3943120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3950960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3958800.0 ns AREF : Auto Refresh
 #     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
-# Disable Step in DCSR
-# tb_TOP.U_SDRAM : at time 2187640.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2195480.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2203320.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2211160.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x17 0x002207b0 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 2219000.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2226840.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2234680.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x17 0x002207b0 0x0)
-# tb_TOP.U_SDRAM : at time 2242520.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2250360.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2258200.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x16 0x00000002 0x1) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 2266040.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2273880.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2281720.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2289560.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x16 0x00000002 0x0)
-#  ---> Verify OK:0x00000002
-# tb_TOP.U_SDRAM : at time 2297400.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2305240.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2313080.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x04 0xxxxxxxxx 0x1) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 2320920.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2328760.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2336600.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x40008107 0x0)
-# 
-# ----JTAG_ABSCMD_RD(REG) RNUM=0x07b0 RDATA=0x40008107
-# tb_TOP.U_SDRAM : at time 2344440.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2352280.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2360120.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2367960.0 ns AREF : Auto Refresh
-# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x04 0x400080c3 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 2375800.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2383640.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2391480.0 ns AREF : Auto Refresh
-#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x400080c3 0x0)
-# tb_TOP.U_SDRAM : at time 2399320.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2407160.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2415000.0 ns AREF : Auto Refresh
+# HALT for STBY and Step Execution
+# tb_TOP.U_SDRAM : at time 3966640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3974480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3982320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3990160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 3998000.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x80000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 4005840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4013680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4021520.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x80000001 0x0)
+# tb_TOP.U_SDRAM : at time 4029360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4037200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4045040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4052880.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 4060720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4068560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4076400.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
+# tb_TOP.U_SDRAM : at time 4084240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4092080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4099920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4107760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4115600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4123440.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x80000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 4131280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4139120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4146960.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x80000001 0x0)
+# tb_TOP.U_SDRAM : at time 4154800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4162640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4170480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4178320.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 4186160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4194000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4201840.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
+# tb_TOP.U_SDRAM : at time 4209680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4217520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4225360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4233200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4241040.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x80000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 4248880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4256720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4264560.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x80000001 0x0)
+# tb_TOP.U_SDRAM : at time 4272400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4280240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4288080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4295920.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x04 0x00000004 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 4303760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4311600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4319440.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x00000004 0x0)
+# tb_TOP.U_SDRAM : at time 4327280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4335120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4342960.0 ns AREF : Auto Refresh
 # ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x17 0x002307b0 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 2422840.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2430680.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2438520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4350800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4358640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4366480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4374320.0 ns AREF : Auto Refresh
 #     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x17 0x002307b0 0x0)
-# tb_TOP.U_SDRAM : at time 2446360.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2454200.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2462040.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2469880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4382160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4390000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4397840.0 ns AREF : Auto Refresh
 # ----JTAG_DMI_READ (TRY 0) SFT_IN(0x16 0x00000002 0x1) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 2477720.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2485560.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2493400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4405680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4413520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4421360.0 ns AREF : Auto Refresh
 #     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x16 0x00000002 0x0)
 #  ---> Verify OK:0x00000002
-# ----JTAG_ABSCMD_WR(REG) RNUM=0x07b0 WDATA=0x400080c3
-# Resume Hart 0
-# tb_TOP.U_SDRAM : at time 2501240.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2509080.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2516920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4429200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4437040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4444880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4452720.0 ns AREF : Auto Refresh
 # ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
-# tb_TOP.U_SDRAM : at time 2524760.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2532600.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2540440.0 ns AREF : Auto Refresh
-# tb_TOP.U_SDRAM : at time 2548280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4460560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4468400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4476240.0 ns AREF : Auto Refresh
 #     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
+# tb_TOP.U_SDRAM : at time 4484080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4491920.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4499760.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 4507600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4515440.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4523280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4531120.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
+# tb_TOP.U_SDRAM : at time 4538960.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4546800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4554640.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 4562480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4570320.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4578160.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
+# tb_TOP.U_SDRAM : at time 4586000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4593840.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4601680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4609520.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 4617360.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4625200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4633040.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
+# tb_TOP.U_SDRAM : at time 4640880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4648720.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4656560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4664400.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x04 0x00000000 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 4672240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4680080.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4687920.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x04 0xxxxxxxxx 0x0) SFT_OUT(0x04 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 4695760.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4703600.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4711440.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x17 0x002307b0 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 4719280.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4727120.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4734960.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x17 0xxxxxxxxx 0x0) SFT_OUT(0x17 0x002307b0 0x0)
+# tb_TOP.U_SDRAM : at time 4742800.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4750640.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4758480.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4766320.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_READ (TRY 0) SFT_IN(0x16 0x00000002 0x1) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 4774160.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4782000.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4789840.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x16 0xxxxxxxxx 0x0) SFT_OUT(0x16 0x00000002 0x0)
+#  ---> Verify OK:0x00000002
+# tb_TOP.U_SDRAM : at time 4797680.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4805520.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4813360.0 ns AREF : Auto Refresh
+# ----JTAG_DMI_WRTE (TRY 0) SFT_IN(0x10 0x40000001 0x2) SFT_OUT(0x00 0x00000000 0x0)
+# tb_TOP.U_SDRAM : at time 4821200.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4829040.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4836880.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4844720.0 ns AREF : Auto Refresh
+#     JTAG_DMI_NOP  (TRY 1) SFT_IN(0x10 0xxxxxxxxx 0x0) SFT_OUT(0x10 0x40000001 0x0)
+# ***** Repeat STBY & RESUME *****
+# tb_TOP.U_SDRAM : at time 4877560.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4885400.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4893240.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4921060.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4928900.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4936740.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4944580.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4952420.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4960260.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4968100.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4975940.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4983780.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4991620.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 4999460.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5007300.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5015140.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5022980.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5030820.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5038660.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5046500.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5054340.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5062180.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5070020.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5077860.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5085700.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5093540.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5101380.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5109220.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5117060.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5124900.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5132740.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5140580.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5148420.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5156260.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5164100.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5171940.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5179780.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5187620.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5195460.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5203300.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5211140.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5218980.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5226820.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5234660.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5242500.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5250340.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5258180.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5266020.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5273860.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5281700.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5289540.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5297380.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5305220.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5313060.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5320900.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5328740.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5336580.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5344420.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5352260.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5360100.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5367940.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5375780.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5383620.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5391460.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5399300.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5407140.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5414980.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5422820.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5430660.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5438500.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5446340.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5454180.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5462020.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5469860.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5477700.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5485540.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5493380.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5501220.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5509060.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5516900.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5524740.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5532580.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5540420.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5548260.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5556100.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5563940.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5571780.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5579620.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5587460.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5595300.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5603140.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5610980.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5618820.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5626660.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5634500.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5642340.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5650180.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5658020.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5665860.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5673700.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5681540.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5689380.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5697220.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5705060.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5712900.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5720740.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5728580.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5736420.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5744260.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5752100.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5759940.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5767780.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5775620.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5783460.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5791300.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5799140.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5806980.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5814820.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5822660.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5830500.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5838340.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5846180.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5854020.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5861860.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5869700.0 ns AREF : Auto Refresh
+# tb_TOP.U_SDRAM : at time 5877540.0 ns AREF : Auto Refresh
 # ***** DETECT FINAL STIMULUS *****
 # ** Note: $stop    : ./tb_TOP.v(131)
-#    Time: 2552010 ns  Iteration: 1  Instance: /tb_TOP
+#    Time: 6887660 ns  Iteration: 1  Instance: /tb_TOP
 # Break in Module tb_TOP at ./tb_TOP.v line 131
-pwd
-# Z:/Documents/CQ/RISCV/mmRISC/mmRISC-1/simulation/modelsim/mmRISC_Simulation
-quit
-# End time: 22:45:55 on Dec 22,2024, Elapsed time: 815:17:01
-# Errors: 0, Warnings: 1
+# End time: 00:31:22 on May 13,2026, Elapsed time: 2:21:20
+# Errors: 0, Warnings: 3
