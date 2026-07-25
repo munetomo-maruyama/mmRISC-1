@@ -37,10 +37,35 @@ never assigned, so ModelSim read X, treated as "do not halt", while Verilator re
 every hart at reset, with no instruction ever fetched. It is now assigned explicitly, along with
 `tb_debug_secure`.
 
+## `rv32uf-p-frm`
+
+`riscv-tests/isa/rv32uf/frm.S` is not an upstream test. It covers the reserved floating point
+rounding modes, which upstream does not check anywhere: the reserved static encodings 5 and 6, the
+dynamic encoding while `frm` holds 5, 6 or 7, and the instructions whose `funct3` field selects an
+operation rather than a rounding mode and which must therefore keep working whatever `frm` holds.
+
+Its ELF sits with the others under `riscv-tests/work/isa/RV32IMFC/`, so both this flow and the
+ModelSim one pick it up automatically. It was built without `riscv64-unknown-elf-gcc`, which the
+`isa/Makefile` expects and which is not needed for a test written entirely in assembly:
+
+```sh
+cd simulation/modelsim/riscv-tests/riscv-tests/isa
+cpp -nostdinc -undef -D__riscv -D__riscv_xlen=32 -I../env/p -Imacros/scalar \
+    -x assembler-with-cpp rv32uf/frm.S -o frm.s
+riscv32-elf-as -march=rv32imfc_zicsr -mabi=ilp32f frm.s -o frm.o
+riscv32-elf-ld -T ../env/p/link.ld frm.o -o ../work/isa/RV32IMFC/rv32uf-p-frm
+riscv32-elf-objdump --disassemble-all --disassemble-zeroes \
+    --section=.text --section=.text.startup --section=.text.init --section=.data \
+    ../work/isa/RV32IMFC/rv32uf-p-frm > ../work/isa/RV32IMFC/rv32uf-p-frm.dump
+```
+
+`env/p/riscv_test.h` writes `sptbr`, the pre-1.10 name for `satp`, which current binutils rejects.
+Recent toolchains need `sed -i 's/\bsptbr\b/satp/g' frm.s` between the two steps above.
+
 ## Known failures
 
 These tests fail here. Recorded so that a regression is distinguishable from a pre-existing
-failure. Full sweep over `RV32IMFC RV32IMAC RV32IMC` with `--include-not-tested`: 296 pass, 12 fail.
+failure. Full sweep over `RV32IMFC RV32IMAC RV32IMC` with `--include-not-tested`: 300 pass, 12 fail.
 Every floating point test passes, `rv32uf-p-fdiv` included, though that one still sits in
 `not_tested/` where only `--include-not-tested` reaches it.
 

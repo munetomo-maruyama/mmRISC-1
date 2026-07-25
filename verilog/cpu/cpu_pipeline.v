@@ -194,7 +194,8 @@ module CPU_PIPELINE
     output wire [13:0] ID_FPU_DST1,  // FPU Destination 1 in ID Stage
     output wire [ 7:0] ID_FPU_CMD,   // FPU Command in ID Stage
     output wire [ 2:0] ID_FPU_RMODE, // FPU Round Mode in ID Stage
-    input  wire        ID_FPU_STALL, // FPU Stall Request in ID Stage    
+    input  wire        ID_FPU_STALL, // FPU Stall Request in ID Stage
+    input  wire [ 2:0] CSR_FPU_FRM,  // FRM Field of FCSR (for Reserved Round Mode Check)
     input  wire        FPUCSR_DIRTY  // FPU CSR is Dirty
 );
 
@@ -929,6 +930,49 @@ assign buserr_req_align = (EX_BUSERR_ALIGN[0])? EX_BUSERR_ALIGN
 assign buserr_req_fault = (WB_BUSERR_FAULT[0])? WB_BUSERR_FAULT
                         : buserr_req_fault_temp;
 
+`ifdef RISCV_ISA_RV32F
+//---------------------------------------------------
+// Reserved Floating Point Round Mode
+//---------------------------------------------------
+// Round mode encodings 5 and 6 are reserved, and the dynamic encoding is
+// reserved whenever FRM itself holds one of those or the dynamic value.
+// Only the instructions that really carry a round mode are checked: FSGNJ,
+// FMIN/FMAX, the comparisons, FCLASS and the moves put an operation
+// selector in the same three bits. The patterns therefore mirror the ones
+// in the instruction decode one for one.
+reg  fpu_rmode_field; // instruction carries a round mode in code[14:12]
+reg  fpu_rmode_resv;  // round mode of this instruction is reserved
+//
+always @*
+begin
+    casez (pipe_id_code) // FF
+        32'b0000000_?????_?????_???_?????_1010011, // FADD.S
+        32'b0000100_?????_?????_???_?????_1010011, // FSUB.S
+        32'b0001000_?????_?????_???_?????_1010011, // FMUL.S
+        32'b0001100_?????_?????_???_?????_1010011, // FDIV.S
+        32'b0101100_00000_?????_???_?????_1010011, // FSQRT.S
+        32'b1100000_0000?_?????_???_?????_1010011, // FCVT.W.S/FCVT.WU.S
+        32'b1101000_0000?_?????_???_?????_1010011, // FCVT.S.W/FCVT.S.WU
+        32'b?????00_?????_?????_???_?????_1000011, // FMADD.S
+        32'b?????00_?????_?????_???_?????_1000111, // FMSUB.S
+        32'b?????00_?????_?????_???_?????_1001011, // FNMSUB.S
+        32'b?????00_?????_?????_???_?????_1001111: // FNMADD.S
+            fpu_rmode_field = 1'b1;
+        default:
+            fpu_rmode_field = 1'b0;
+    endcase
+end
+//
+always @*
+begin
+    casez (pipe_id_code[14:12]) // FF
+        3'b101, 3'b110: fpu_rmode_resv = 1'b1;
+        `FPU32_RMODE_DYN: fpu_rmode_resv = (CSR_FPU_FRM > `FPU32_RMODE_RMM);
+        default: fpu_rmode_resv = 1'b0;
+    endcase
+end
+`endif // RISCV_ISA_RV32F
+
 //------------------------
 // ID Stage Control
 //------------------------
@@ -1255,6 +1299,25 @@ begin
                     MCAUSE    = `MCAUSE_ILLEGAL_INSTRUCTION;
                     exp_ack   = 1'b1; //FETCH_ACK;
                 end
+                `ifdef RISCV_ISA_RV32F
+                //-----------------------------------------------------
+                // RV32F : Illegal Instruction (Reserved Round Mode)
+                //-----------------------------------------------------
+                else if (fpu_rmode_field & fpu_rmode_resv) // FF
+                begin
+                    fetch_start = 1'b1;
+                    jump_target_exp = 1'b1;
+                    state_id_ope_nxt = `STATE_ID_DECODE_TARGET;
+                    state_id_ope_upd = 1'b1; //FETCH_ACK;
+                    decode_stp   = 1'b1; //FETCH_ACK;
+                    decode_ack   = 1'b1; //FETCH_ACK;
+                    //
+                    MTVAL     = 32'h00000000;
+                    MEPC_SAVE = pipe_id_pc; // FF
+                    MCAUSE    = `MCAUSE_ILLEGAL_INSTRUCTION;
+                    exp_ack   = 1'b1; //FETCH_ACK;
+                end
+                `endif // RISCV_ISA_RV32F
                 //-----------------------------------------------------
                 // RV32I : ECALL : Environment Call
                 //-----------------------------------------------------

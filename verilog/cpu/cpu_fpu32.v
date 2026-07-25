@@ -101,6 +101,7 @@ module CPU_FPU32
     input  wire [11:0] CSR_FPU_CPU_ADDR,  // FPU CSR Access Address
     input  wire [31:0] CSR_FPU_CPU_WDATA, // FPU CSR Access Write Data
     output wire [31:0] CSR_FPU_CPU_RDATA, // FPU CSR Access Read Data
+    output wire [ 2:0] CSR_FPU_FRM,       // FRM Field of FCSR (for Reserved Round Mode Check)
     //
     input  wire        DBGABS_FPR_REQ,   // Debug Abstract Command Request for FPR
     input  wire        DBGABS_FPR_WRITE, // Debug Abstract Command Write   for FPR
@@ -212,8 +213,11 @@ assign CSR_FPU_CPU_RDATA = (~CSR_FPU_CPU_REQ | CSR_FPU_CPU_WRITE)? 32'h00000000
             : (CSR_FPU_CPU_ADDR == `CSR_FRM   )? {29'h0, csr_frm   }
             : (CSR_FPU_CPU_ADDR == `CSR_FFLAGS)? {27'h0, csr_fflags}
             : (CSR_FPU_CPU_ADDR == `CSR_FCSR  )? {24'h0, csr_frm, csr_fflags}
-            : (CSR_FPU_CPU_ADDR == `CSR_FPU32CONV)? {24'h0, csr_sqr_loop, csr_div_loop} 
+            : (CSR_FPU_CPU_ADDR == `CSR_FPU32CONV)? {24'h0, csr_sqr_loop, csr_div_loop}
             :  32'h00000000;
+//
+// The ID stage needs frm to decide whether a dynamic rounding mode is legal.
+assign CSR_FPU_FRM = csr_frm;
 
 //-----------------------------------
 // Floating Point Registers FRn
@@ -1179,9 +1183,9 @@ begin
                          1'b0,
                          ID_FPU_RMODE[2:0],
                          ID_FPU_CMD  [7:0]};
-        imode <= ((ID_FPU_RMODE[2:0] == `FPU32_RMODE_DYN)
-               && (csr_frm == `FPU32_RMODE_DYN          ))? `FPU32_RMODE_RNE
-               : (ID_FPU_RMODE[2:0] == `FPU32_RMODE_DYN  )?  csr_frm
+        // A dynamic mode resolving to a reserved encoding never gets here:
+        // the ID stage traps it as an illegal instruction.
+        imode <= (ID_FPU_RMODE[2:0] == `FPU32_RMODE_DYN)? csr_frm
                : ID_FPU_RMODE[2:0];
     end
     else
@@ -2433,6 +2437,7 @@ assign fdata_float_out_final = (pipe_f_special == 2'b11)? pipe_f_special_data
 `else // RISCV_ISA_RV32F
 assign CSR_FPU_DBG_RDATA = 32'h00000000;
 assign CSR_FPU_CPU_RDATA = 32'h00000000;
+assign CSR_FPU_FRM   = 3'b000;
 assign ID_FPU_STALL  = 1'b0;
 assign SET_MSTATUS_FS_DIRTY = 1'b0;
 assign EX_FPU_SRCDATA = 32'h00000000;
