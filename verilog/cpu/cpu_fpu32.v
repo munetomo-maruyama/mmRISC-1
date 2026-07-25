@@ -2528,43 +2528,25 @@ CHECK_FTYPE U_CHECK_FTYPE_2
 always @*
 begin
     casez({ftype_in1, ftype_in2})
-        {`FPU32_FT_POSQNA, `FPU32_FT_POSQNA}, // add
-        {`FPU32_FT_POSQNA, `FPU32_FT_NEGQNA}, // add
-        {`FPU32_FT_POSQNA, `FPU32_FT_POSSNA}, // add
-        {`FPU32_FT_POSQNA, `FPU32_FT_NEGSNA}, // add
-        {`FPU32_FT_NEGQNA, `FPU32_FT_POSQNA}, // add
-        {`FPU32_FT_NEGQNA, `FPU32_FT_NEGQNA}, // add
-        {`FPU32_FT_NEGQNA, `FPU32_FT_POSSNA}, // add
-        {`FPU32_FT_NEGQNA, `FPU32_FT_NEGSNA}, // add
-        {`FPU32_FT_POSSNA, `FPU32_FT_POSQNA}, // add
-        {`FPU32_FT_POSSNA, `FPU32_FT_NEGQNA}, // add
-        {`FPU32_FT_POSSNA, `FPU32_FT_POSSNA}, // add
-        {`FPU32_FT_POSSNA, `FPU32_FT_NEGSNA}, // add
-        {`FPU32_FT_NEGSNA, `FPU32_FT_POSQNA}, // add
-        {`FPU32_FT_NEGSNA, `FPU32_FT_NEGQNA}, // add
-        {`FPU32_FT_NEGSNA, `FPU32_FT_POSSNA}, // add
-        {`FPU32_FT_NEGSNA, `FPU32_FT_NEGSNA}: // add
-        begin
-            FDATA_OUT = 32'h7fc00000; //FDATA_IN2 | 32'h00400000; // QNAN
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
-            SPECIAL = 1'b1;
-        end
-        {`FPU32_FT_POSQNA, 4'b????}, // add
-        {`FPU32_FT_NEGQNA, 4'b????}, // add
+        // A signaling NaN operand raises invalid. Listed first, so a
+        // signaling and a quiet NaN together still raise it.
         {`FPU32_FT_POSSNA, 4'b????}, // add
-        {`FPU32_FT_NEGSNA, 4'b????}: // add
-        begin
-            FDATA_OUT = 32'h7fc00000; //FDATA_IN1 | 32'h00400000; // QNAN
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
-            SPECIAL = 1'b1;
-        end
-        {4'b????, `FPU32_FT_POSQNA}, // add
-        {4'b????, `FPU32_FT_NEGQNA}, // add
+        {`FPU32_FT_NEGSNA, 4'b????}, // add
         {4'b????, `FPU32_FT_POSSNA}, // add
         {4'b????, `FPU32_FT_NEGSNA}: // add
         begin
-            FDATA_OUT = 32'h7fc00000; //FDATA_IN2 | 32'h00400000; // QNAN
+            FDATA_OUT = 32'h7fc00000; // QNAN
             FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
+            SPECIAL = 1'b1;
+        end
+        // A quiet NaN operand propagates quietly, with no exception.
+        {`FPU32_FT_POSQNA, 4'b????}, // add
+        {`FPU32_FT_NEGQNA, 4'b????}, // add
+        {4'b????, `FPU32_FT_POSQNA}, // add
+        {4'b????, `FPU32_FT_NEGQNA}: // add
+        begin
+            FDATA_OUT = 32'h7fc00000; // QNAN
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
         {`FPU32_FT_POSINF, `FPU32_FT_NEGINF}, // add
@@ -2667,43 +2649,25 @@ CHECK_FTYPE U_CHECK_FTYPE_2
 always @*
 begin
     casez({ftype_in1, ftype_in2})
-        {`FPU32_FT_POSQNA, `FPU32_FT_POSQNA}, // mul
-        {`FPU32_FT_POSQNA, `FPU32_FT_NEGQNA}, // mul
-        {`FPU32_FT_POSQNA, `FPU32_FT_POSSNA}, // mul
-        {`FPU32_FT_POSQNA, `FPU32_FT_NEGSNA}, // mul
-        {`FPU32_FT_NEGQNA, `FPU32_FT_POSQNA}, // mul
-        {`FPU32_FT_NEGQNA, `FPU32_FT_NEGQNA}, // mul
-        {`FPU32_FT_NEGQNA, `FPU32_FT_POSSNA}, // mul
-        {`FPU32_FT_NEGQNA, `FPU32_FT_NEGSNA}, // mul
-        {`FPU32_FT_POSSNA, `FPU32_FT_POSQNA}, // mul
-        {`FPU32_FT_POSSNA, `FPU32_FT_NEGQNA}, // mul
-        {`FPU32_FT_POSSNA, `FPU32_FT_POSSNA}, // mul
-        {`FPU32_FT_POSSNA, `FPU32_FT_NEGSNA}, // mul
-        {`FPU32_FT_NEGSNA, `FPU32_FT_POSQNA}, // mul
-        {`FPU32_FT_NEGSNA, `FPU32_FT_NEGQNA}, // mul
-        {`FPU32_FT_NEGSNA, `FPU32_FT_POSSNA}, // mul
-        {`FPU32_FT_NEGSNA, `FPU32_FT_NEGSNA}: // mul
-        begin
-            FDATA_OUT = 32'h7fc00000; //FDATA_IN2 | 32'h00400000; // QNAN
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
-            SPECIAL = 1'b1;
-        end
-        {`FPU32_FT_POSQNA, 4'b????}, // mul
-        {`FPU32_FT_NEGQNA, 4'b????}, // mul
+        // A signaling NaN operand raises invalid. Listed first, so a
+        // signaling and a quiet NaN together still raise it.
         {`FPU32_FT_POSSNA, 4'b????}, // mul
-        {`FPU32_FT_NEGSNA, 4'b????}: // mul
-        begin
-            FDATA_OUT = 32'h7fc00000; //FDATA_IN1 | 32'h00400000; // QNAN
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
-            SPECIAL = 1'b1;
-        end
-        {4'b????, `FPU32_FT_POSQNA}, // mul
-        {4'b????, `FPU32_FT_NEGQNA}, // mul
+        {`FPU32_FT_NEGSNA, 4'b????}, // mul
         {4'b????, `FPU32_FT_POSSNA}, // mul
         {4'b????, `FPU32_FT_NEGSNA}: // mul
         begin
-            FDATA_OUT = 32'h7fc00000; //FDATA_IN2 | 32'h00400000; // QNAN
+            FDATA_OUT = 32'h7fc00000; // QNAN
             FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
+            SPECIAL = 1'b1;
+        end
+        // A quiet NaN operand propagates quietly, with no exception.
+        {`FPU32_FT_POSQNA, 4'b????}, // mul
+        {`FPU32_FT_NEGQNA, 4'b????}, // mul
+        {4'b????, `FPU32_FT_POSQNA}, // mul
+        {4'b????, `FPU32_FT_NEGQNA}: // mul
+        begin
+            FDATA_OUT = 32'h7fc00000; // QNAN
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
         {`FPU32_FT_POSINF, `FPU32_FT_POSINF}, // mul
@@ -2871,43 +2835,25 @@ CHECK_FTYPE U_CHECK_FTYPE_2
 always @*
 begin
     casez({ftype_in1, ftype_in2})
-        {`FPU32_FT_POSQNA, `FPU32_FT_POSQNA}, // div
-        {`FPU32_FT_POSQNA, `FPU32_FT_NEGQNA}, // div
-        {`FPU32_FT_POSQNA, `FPU32_FT_POSSNA}, // div
-        {`FPU32_FT_POSQNA, `FPU32_FT_NEGSNA}, // div
-        {`FPU32_FT_NEGQNA, `FPU32_FT_POSQNA}, // div
-        {`FPU32_FT_NEGQNA, `FPU32_FT_NEGQNA}, // div
-        {`FPU32_FT_NEGQNA, `FPU32_FT_POSSNA}, // div
-        {`FPU32_FT_NEGQNA, `FPU32_FT_NEGSNA}, // div
-        {`FPU32_FT_POSSNA, `FPU32_FT_POSQNA}, // div
-        {`FPU32_FT_POSSNA, `FPU32_FT_NEGQNA}, // div
-        {`FPU32_FT_POSSNA, `FPU32_FT_POSSNA}, // div
-        {`FPU32_FT_POSSNA, `FPU32_FT_NEGSNA}, // div
-        {`FPU32_FT_NEGSNA, `FPU32_FT_POSQNA}, // div
-        {`FPU32_FT_NEGSNA, `FPU32_FT_NEGQNA}, // div
-        {`FPU32_FT_NEGSNA, `FPU32_FT_POSSNA}, // div
-        {`FPU32_FT_NEGSNA, `FPU32_FT_NEGSNA}: // div
-        begin
-            FDATA_OUT = 32'h7fc00000; //FDATA_IN1 | 32'h00400000; // QNAN
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
-            SPECIAL = 1'b1;
-        end
-        {`FPU32_FT_POSQNA, 4'b????}, // div
-        {`FPU32_FT_NEGQNA, 4'b????}, // div
+        // A signaling NaN operand raises invalid. Listed first, so a
+        // signaling and a quiet NaN together still raise it.
         {`FPU32_FT_POSSNA, 4'b????}, // div
-        {`FPU32_FT_NEGSNA, 4'b????}: // div
-        begin
-            FDATA_OUT = 32'h7fc00000; //FDATA_IN1 | 32'h00400000; // QNAN
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
-            SPECIAL = 1'b1;
-        end
-        {4'b????, `FPU32_FT_POSQNA}, // div
-        {4'b????, `FPU32_FT_NEGQNA}, // div
+        {`FPU32_FT_NEGSNA, 4'b????}, // div
         {4'b????, `FPU32_FT_POSSNA}, // div
         {4'b????, `FPU32_FT_NEGSNA}: // div
         begin
-            FDATA_OUT = 32'h7fc00000; //FDATA_IN2 | 32'h00400000; // QNAN
+            FDATA_OUT = 32'h7fc00000; // QNAN
             FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
+            SPECIAL = 1'b1;
+        end
+        // A quiet NaN operand propagates quietly, with no exception.
+        {`FPU32_FT_POSQNA, 4'b????}, // div
+        {`FPU32_FT_NEGQNA, 4'b????}, // div
+        {4'b????, `FPU32_FT_POSQNA}, // div
+        {4'b????, `FPU32_FT_NEGQNA}: // div
+        begin
+            FDATA_OUT = 32'h7fc00000; // QNAN
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
         {`FPU32_FT_POSINF, `FPU32_FT_POSINF}, // div
@@ -3010,13 +2956,19 @@ CHECK_FTYPE U_CHECK_FTYPE_1
 always @*
 begin
     casez(ftype_in1)
-        {`FPU32_FT_POSQNA}, // sqrt
-        {`FPU32_FT_NEGQNA}, // sqrt
+        // A signaling NaN operand raises invalid, a quiet one does not.
         {`FPU32_FT_POSSNA}, // sqrt
         {`FPU32_FT_NEGSNA}: // sqrt
         begin
-            FDATA_OUT = 32'h7fc00000; //FDATA_IN1 | 32'h00400000; // QNAN
+            FDATA_OUT = 32'h7fc00000; // QNAN
             FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
+            SPECIAL = 1'b1;
+        end
+        {`FPU32_FT_POSQNA}, // sqrt
+        {`FPU32_FT_NEGQNA}: // sqrt
+        begin
+            FDATA_OUT = 32'h7fc00000; // QNAN
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
         {`FPU32_FT_POSINF}: // sqrt

@@ -68,14 +68,13 @@ Every mismatch is attributed to exactly one class. `KNOWN_BUGS` lists the classe
 to fail on the current commit. A mismatch outside that list fails the run. Each fix removes one
 entry, so the list is both the regression gate and the running inventory of what is still wrong.
 
-Counts from the default sweep on the tree as of this commit, 771645 cases checked:
+Counts from the default sweep on the tree as of this commit, 774070 cases checked:
 
 | class | count | defect |
 |---|---:|---|
 | `F2I_NX` | 116328 | `FCVT.W.S`/`FCVT.WU.S` never raise inexact |
 | `OVERFLOW_NX` | 26418 | overflow sets OF or NX, never both |
 | `UNDERFLOW_NX` | 26091 | underflow sets UF or NX, never both |
-| `QNAN_NV` | 5998 | invalid raised for a quiet NaN operand, not only a signalling one |
 | `INF_OF` | 2245 | overflow raised because an operand is already infinite |
 | `INF_OPERAND_UF` | 320 | `x/inf` is an exact zero but raises underflow |
 | `DIVZERO_OF` | 300 | `x/0` raises overflow alongside the correct divide-by-zero |

@@ -532,6 +532,43 @@ static void check(Stats &stats, Fpu32 &fpu, uint8_t cmd, uint8_t rmode,
     }
 }
 
+// FMADD.S is covered for NaN propagation only, not for its result. Its
+// special-number handling is the FMUL and FADD handling wired in series,
+// so composing the two is worth checking. With no infinity among the
+// operands the NaN arms are the only reachable special-number arms, so
+// the result is a canonical quiet NaN and invalid is raised exactly when
+// some operand signals.
+static void check_fmadd_nan(Stats &stats, Fpu32 &fpu, uint8_t rmode,
+                            uint32_t a, uint32_t b, uint32_t c)
+{
+    uint8_t expected_flags = (is_snan(a) || is_snan(b) || is_snan(c)) ? NV : 0;
+
+    fpu.write_fpr(1, a);
+    fpu.write_fpr(2, b);
+    fpu.write_fpr(4, c);
+    fpu.write_csr(CSR_FFLAGS, 0);
+    fpu.issue(CMD_FMADD, rmode, 1, 2, 4, 3);
+    uint32_t got_result = fpu.read_fpr(3);
+    uint8_t got_flags = fpu.read_csr(CSR_FFLAGS) & 0x1f;
+
+    stats.checked++;
+    if (got_result == CANONICAL_NAN && got_flags == expected_flags) {
+        stats.matched++;
+        return;
+    }
+
+    stats.by_class["FMADD_NAN"]++;
+    std::vector<std::string> &examples = stats.examples["FMADD_NAN"];
+    if (examples.size() < stats.examples_per_class) {
+        char buffer[256];
+        snprintf(buffer, sizeof buffer,
+                 "fmadd.s   rm=%d a=%08x b=%08x c=%08x -> %08x/%02x  expected %08x/%02x",
+                 rmode, a, b, c, got_result, got_flags,
+                 CANONICAL_NAN, expected_flags);
+        examples.push_back(buffer);
+    }
+}
+
 //-----------------------------------------------------------
 // Corpus
 //-----------------------------------------------------------
@@ -634,6 +671,21 @@ int main(int argc, char **argv)
             }
         }
     }
+
+    // FMADD.S NaN propagation, every triple with at least one NaN in it.
+    // No infinity in the set, so nothing but the NaN arms can fire.
+    printf("FMADD NaN sweep\n");
+    const uint32_t fmadd_operands[] = {
+        0x7fc00000, 0xffc00000, 0x7ffe150f,  // quiet NaNs
+        0x7fa00000, 0x7f800001,              // signalling NaNs
+        0x3f800000, 0xc0200000, 0x00000000,  // 1.0, -2.5, +0.0
+    };
+    for (uint8_t rmode : rmodes)
+        for (uint32_t a : fmadd_operands)
+            for (uint32_t b : fmadd_operands)
+                for (uint32_t c : fmadd_operands)
+                    if (is_nan(a) || is_nan(b) || is_nan(c))
+                        check_fmadd_nan(stats, fpu, rmode, a, b, c);
 
     //-------------------------------------------------------
     // Report
