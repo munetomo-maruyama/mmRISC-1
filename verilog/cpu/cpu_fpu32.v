@@ -2193,7 +2193,8 @@ begin
     end
     else if (sqr_seq == 4'h7) // Loop Step4
     begin
-        // Answer is in sqr_dg_inner
+        // Answer is in sqr_mdata_inner_out (= g * r1), which the pipe_f
+        // stage samples on this same edge. sqr_dg_inner only gets it now.
         //
         // g = fmul (= g * r1)
         sqr_dg_inner <= sqr_mdata_inner_out;
@@ -2344,8 +2345,8 @@ begin
     begin
         pipe_f_token   <= pipe_s_token;
         fdata_inner_in <= {sqr_db_sign_keep,
-                           sqr_dg_inner[77:66] + sqr_db_expo_keep - 12'd1023,
-                           sqr_dg_inner[65:0]};
+                           sqr_mdata_inner_out[77:66] + sqr_db_expo_keep - 12'd1023,
+                           sqr_mdata_inner_out[65:0]};
         fmode    <= sqr_mmode;
         fflag_in <= sqr_mflag_out;
         //

@@ -77,7 +77,6 @@ static const int SETTLE_CYCLES = 128;
 // A mismatch is attributed to exactly one of these. The ones listed in
 // KNOWN_BUGS are the defects not yet fixed on this commit.
 static const char *KNOWN_BUGS[] = {
-    "SQRT_RESULT_EVEN_EXP",  // FSQRT tapped one refinement early
     "SQRT_RESULT_ODD_EXP",   // FSQRT seed is a fit for [1,2) only
     "QNAN_NV",               // NV raised for a quiet NaN operand
     "INF_OF",                // OF raised for an infinite operand
@@ -460,9 +459,14 @@ static std::string classify(uint8_t cmd, uint32_t a, uint32_t b,
                            || is_subnormal(got_result);
 
     if (got_result != expected.result) {
-        if (cmd == CMD_FSQRT)
+        if (cmd == CMD_FSQRT) {
+            // An exact square root has to come back bit-exact no matter how
+            // good the seed is, so missing one says the residual never
+            // closed, not that the iteration ran short of accurate bits.
+            if (!(expected.flags & NX))  return "SQRT_RESIDUAL";
             return (exponent_of(a) % 2 == 0) ? "SQRT_RESULT_EVEN_EXP"
                                              : "SQRT_RESULT_ODD_EXP";
+        }
         if (subnormal_involved)  return "SUBNORMAL_RESULT";
         if (cmd == CMD_FDIV)     return "DIV_RESIDUAL";
         return "RESULT";

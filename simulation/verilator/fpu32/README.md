@@ -85,7 +85,3 @@ Counts from the default sweep on the tree as of this commit, 143240 cases checke
 | `SQRT_RESIDUAL` | 15 | as `DIV_RESIDUAL`, for an exact square root: `sqrt(1.0)` is right but raises NX |
 | `SQRT_RESULT_EVEN_EXP` | 9 | FSQRT reads its result one refinement early, so a loop count of n delivers n-1 |
 | `SQRT_NEGZERO_NV` | 5 | `sqrt(-0)` is `-0` with no exception |
-
-Counts are not severity. `SQRT_RESULT_EVEN_EXP` is only 9 because the even-exponent seed is good
-enough that the shortfall shows up on few operands, while `SQRT_RESULT_ODD_EXP` is enormous because
-the odd-exponent seed is wrong by up to 79 percent.
