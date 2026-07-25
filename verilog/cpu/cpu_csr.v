@@ -248,7 +248,8 @@ module CPU_CSR
     input  wire        DBG_STOP_COUNT, // Stop Counter during Debug Mode
     input  wire        DBG_MIE_STEP,   // Master Interrupt Enable during Step
     //
-    input  wire        SET_MSTATUS_FS_DIRTY // Set MSTATUS FS Field as Dirty
+    input  wire        SET_MSTATUS_FS_DIRTY, // Set MSTATUS FS Field as Dirty
+    output wire [ 1:0] MSTATUS_FS            // MSTATUS FS Field (FPU Context Status)
 );
 
 //----------------------------
@@ -415,6 +416,9 @@ begin
 end
 //
 assign mie = csr_mstatus[3] & DBG_MIE_STEP;
+//
+// The ID stage needs FS to decide whether the FPU is available at all.
+assign MSTATUS_FS = csr_mstatus[14:13];
 
 //------------------------------------
 // CSR_MISA

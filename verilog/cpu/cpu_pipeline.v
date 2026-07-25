@@ -196,6 +196,7 @@ module CPU_PIPELINE
     output wire [ 2:0] ID_FPU_RMODE, // FPU Round Mode in ID Stage
     input  wire        ID_FPU_STALL, // FPU Stall Request in ID Stage
     input  wire [ 2:0] CSR_FPU_FRM,  // FRM Field of FCSR (for Reserved Round Mode Check)
+    input  wire [ 1:0] MSTATUS_FS,   // MSTATUS FS Field (FPU Context Status)
     input  wire        FPUCSR_DIRTY  // FPU CSR is Dirty
 );
 
@@ -932,6 +933,43 @@ assign buserr_req_fault = (WB_BUSERR_FAULT[0])? WB_BUSERR_FAULT
 
 `ifdef RISCV_ISA_RV32F
 //---------------------------------------------------
+// Floating Point Unit Disabled by MSTATUS.FS
+//---------------------------------------------------
+// While FS reads as Off, every instruction that would read or write a
+// float register or a floating point CSR raises an illegal instruction.
+// That is the whole of RV32F and RV32FC, the loads and stores included,
+// plus CSR access to FFLAGS, FRM and FCSR. Unlike the round mode check
+// below, this one covers every RV32F opcode, so it tests the opcode alone.
+reg  fpu_insn; // instruction touches float register or floating point CSR
+//
+always @*
+begin
+    casez (pipe_id_code) // FF
+        32'b???????_?????_?????_???_?????_1010011,   // OP-FP, all of it
+        32'b?????00_?????_?????_???_?????_1000011,   // FMADD.S
+        32'b?????00_?????_?????_???_?????_1000111,   // FMSUB.S
+        32'b?????00_?????_?????_???_?????_1001011,   // FNMSUB.S
+        32'b?????00_?????_?????_???_?????_1001111,   // FNMADD.S
+        32'b???????_?????_?????_010_?????_0000111,   // FLW
+        32'b???????_?????_?????_010_?????_0100111,   // FSW
+        32'b????????????????_011_?_??_???_??_???_00, // C.FLW
+        32'b????????????????_011_?_??_???_??_???_10, // C.FLWSP
+        32'b????????????????_111_?_??_???_??_???_00, // C.FSW
+        32'b????????????????_111_?_??_???_??_???_10: // C.FSWSP
+            fpu_insn = 1'b1;
+        // CSRRW/CSRRS/CSRRC and their immediate forms. A funct3 of 000 is
+        // ECALL and friends, and 100 is reserved, so neither is a CSR access.
+        32'b???????_?????_?????_??1_?????_1110011,
+        32'b???????_?????_?????_?1?_?????_1110011:
+            fpu_insn = (pipe_id_code[31:20] == `CSR_FFLAGS)
+                     | (pipe_id_code[31:20] == `CSR_FRM   )
+                     | (pipe_id_code[31:20] == `CSR_FCSR  );
+        default:
+            fpu_insn = 1'b0;
+    endcase
+end
+
+//---------------------------------------------------
 // Reserved Floating Point Round Mode
 //---------------------------------------------------
 // Round mode encodings 5 and 6 are reserved, and the dynamic encoding is
@@ -1300,6 +1338,23 @@ begin
                     exp_ack   = 1'b1; //FETCH_ACK;
                 end
                 `ifdef RISCV_ISA_RV32F
+                //-----------------------------------------------------
+                // RV32F : Illegal Instruction (FPU Disabled by MSTATUS.FS)
+                //-----------------------------------------------------
+                else if (fpu_insn & (MSTATUS_FS == 2'b00)) // FF
+                begin
+                    fetch_start = 1'b1;
+                    jump_target_exp = 1'b1;
+                    state_id_ope_nxt = `STATE_ID_DECODE_TARGET;
+                    state_id_ope_upd = 1'b1; //FETCH_ACK;
+                    decode_stp   = 1'b1; //FETCH_ACK;
+                    decode_ack   = 1'b1; //FETCH_ACK;
+                    //
+                    MTVAL     = 32'h00000000;
+                    MEPC_SAVE = pipe_id_pc; // FF
+                    MCAUSE    = `MCAUSE_ILLEGAL_INSTRUCTION;
+                    exp_ack   = 1'b1; //FETCH_ACK;
+                end
                 //-----------------------------------------------------
                 // RV32F : Illegal Instruction (Reserved Round Mode)
                 //-----------------------------------------------------
