@@ -3495,7 +3495,9 @@ wire [ 4:0] float32_toosmall_flag;
 assign float32_toosmall_select = (inner79_expo == 12'd0);
 assign float32_toosmall_expo = 0;
 assign float32_toosmall_frac = 0;
-assign float32_toosmall_flag = FLAG_IN | `FPU32_FLAG_UF;
+// Flushing a nonzero value to zero is inexact by construction, and an
+// exact zero was selected out above.
+assign float32_toosmall_flag = FLAG_IN | `FPU32_FLAG_UF | `FPU32_FLAG_NX;
 //
 // Inner79 Normal
 wire [65:0] inner79_normal_frac;
@@ -3518,10 +3520,11 @@ assign float32_overflow_frac = ((RMODE == `FPU32_RMODE_RTZ))? 27'h0ffffff
                              : ((RMODE == `FPU32_RMODE_RUP) && (float32_sign == 1'b1))? 27'h0ffffff
                              : ((RMODE == `FPU32_RMODE_RDN) && (float32_sign == 1'b0))? 27'h0ffffff
                              : 24'h000000;
-assign float32_overflow_flag = ((RMODE == `FPU32_RMODE_RTZ))? FLAG_IN | `FPU32_FLAG_NX
-                             : ((RMODE == `FPU32_RMODE_RUP) && (float32_sign == 1'b1))? FLAG_IN | `FPU32_FLAG_NX
-                             : ((RMODE == `FPU32_RMODE_RDN) && (float32_sign == 1'b0))? FLAG_IN | `FPU32_FLAG_NX
-                             : FLAG_IN | `FPU32_FLAG_OF;
+// IEEE 754-2008 clause 7.4 lists the delivered result per rounding mode,
+// an infinity or the largest finite value, and then adds unconditionally
+// that "the overflow flag shall be raised and the inexact exception shall
+// be signaled". The mode therefore selects the result, not the flags.
+assign float32_overflow_flag = FLAG_IN | `FPU32_FLAG_OF | `FPU32_FLAG_NX;
 //
 // Float32 Underflow
 // frac24 : [b23].[b22][b21].....[b00]
@@ -3538,9 +3541,11 @@ assign float32_underflow_expo = ((RMODE == `FPU32_RMODE_RUP) && (float32_sign ==
 assign float32_underflow_frac = ((RMODE == `FPU32_RMODE_RUP) && (float32_sign == 1'b0))? 27'h0000001
                               : ((RMODE == `FPU32_RMODE_RDN) && (float32_sign == 1'b1))? 27'h0000001
                               : 27'h0000000;
-assign float32_underflow_flag = ((RMODE == `FPU32_RMODE_RUP) && (float32_sign == 1'b0))?  FLAG_IN | `FPU32_FLAG_NX
-                              : ((RMODE == `FPU32_RMODE_RDN) && (float32_sign == 1'b1))?  FLAG_IN | `FPU32_FLAG_NX
-                              :  FLAG_IN | `FPU32_FLAG_UF;
+// Clause 7.5 raises the underflow flag and signals inexact together,
+// when the result is tiny and the rounded result is inexact. Every arm
+// here is both: the value is below the subnormal range and has been
+// rounded away to zero or up to the minimum subnormal.
+assign float32_underflow_flag = FLAG_IN | `FPU32_FLAG_UF | `FPU32_FLAG_NX;
 //
 // Float32 Subnormal
 // frac64 : [b63][b62].[b61][b60].....[b39]....
@@ -3602,18 +3607,22 @@ begin
     end
     else if (float32_subnormal_pos > 12'd0)
     begin
-        if (float32_subnormal_frac_temp == 27'd0)
-        begin
-            float32_subnormal_expo = 8'h0;
-            float32_subnormal_frac = 27'd0;
-            float32_subnormal_flag = float32_subnormal_flag_temp | `FPU32_FLAG_UF;
-        end
-        else
-        begin
-            float32_subnormal_expo = 8'h0;
-            float32_subnormal_frac = float32_subnormal_frac_temp;
-            float32_subnormal_flag = float32_subnormal_flag_temp;
-        end
+        // The delivered result is tiny, so clause 7.5 makes underflow
+        // follow the inexact flag: raised together when the rounded
+        // result is inexact, neither raised when it is exact. Rounding a
+        // nonzero value away to zero is inexact by construction.
+        //
+        // Tininess is detected after rounding, which is the choice
+        // RISC-V makes and which clause 7.5 permits: the arm above,
+        // where rounding carried the result up into the normal range,
+        // raises nothing.
+        float32_subnormal_expo = 8'h0;
+        float32_subnormal_frac = float32_subnormal_frac_temp;
+        float32_subnormal_flag = (float32_subnormal_frac_temp == 27'd0)
+                               ? float32_subnormal_flag_temp | `FPU32_FLAG_UF | `FPU32_FLAG_NX
+                               : ((float32_subnormal_flag_temp & `FPU32_FLAG_NX) != 5'b00000)
+                               ? float32_subnormal_flag_temp | `FPU32_FLAG_UF
+                               : float32_subnormal_flag_temp;
     end
     else
     begin
@@ -3661,32 +3670,25 @@ always @*
 begin
     if (float32_normal_pos[11]) // float32_normal_pos < 0
     begin
-        if (float32_normal_expo_temp > 12'd254) // Inf
+        if (float32_normal_expo_temp > 12'd254) // Overflow
         begin
-            if (RMODE == `FPU32_RMODE_RTZ)
+            // The rounding mode still decides between the largest finite
+            // value and an infinity, but both are overflows and both are
+            // inexact, so the flags no longer depend on it.
+            if ((RMODE == `FPU32_RMODE_RTZ)
+             || ((RMODE == `FPU32_RMODE_RUP) && (float32_sign == 1'b1))
+             || ((RMODE == `FPU32_RMODE_RDN) && (float32_sign == 1'b0)))
             begin
                 float32_normal_expo = 12'd254;
                 float32_normal_frac = 27'h0ffffff;
-                float32_normal_flag = float32_normal_flag_temp | `FPU32_FLAG_NX;
             end
-            else if ((RMODE == `FPU32_RMODE_RUP) && (float32_sign == 1'b1))
-            begin
-                float32_normal_expo = 12'd254;
-                float32_normal_frac = 27'h0ffffff;
-                float32_normal_flag = float32_normal_flag_temp | `FPU32_FLAG_NX;
-            end
-            else if ((RMODE == `FPU32_RMODE_RDN) && (float32_sign == 1'b0))
-            begin
-                float32_normal_expo = 12'd254;
-                float32_normal_frac = 27'h0ffffff;
-                float32_normal_flag = float32_normal_flag_temp | `FPU32_FLAG_NX;
-            end
-            else // Overflow
+            else
             begin
                 float32_normal_expo = 12'd255;
                 float32_normal_frac = 27'h0;
-                float32_normal_flag = float32_normal_flag_temp | `FPU32_FLAG_OF;
             end
+            float32_normal_flag = float32_normal_flag_temp
+                                | `FPU32_FLAG_OF | `FPU32_FLAG_NX;
         end
         else
         begin

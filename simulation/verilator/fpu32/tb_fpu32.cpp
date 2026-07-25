@@ -77,8 +77,6 @@ static const int SETTLE_CYCLES = 128;
 // A mismatch is attributed to exactly one of these. The ones listed in
 // KNOWN_BUGS are the defects not yet fixed on this commit.
 static const char *KNOWN_BUGS[] = {
-    "OVERFLOW_NX",           // overflow sets OF or NX, never both
-    "UNDERFLOW_NX",          // underflow sets UF or NX, never both
     "F2I_NX",                // float to int never raises NX
     "INF_OPERAND_UF",        // x/inf is an exact zero but raises UF
     "DIVZERO_OF",            // x/0 raises OF alongside the correct DZ
