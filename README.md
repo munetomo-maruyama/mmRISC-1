@@ -108,7 +108,7 @@ Integer Multiplication MUL/MULH/MULHSU/MULHU : 1 cycle
 Integer Division DIV/DIVU/REM/REMU : 33 cyles (Non-Restoring Method)
 Floating Operations <br>
   FADD.S/FSUB.S/FMUL.S/FMADD.S/FMSUB.S/FNMADD.S/FNMSUB.S : 1 cycle <br>
-  FDIV.S  : 11 cycles (Goldschmidt's Algorithm) <br>
+  FDIV.S  : 13 cycles (Goldschmidt's Algorithm) <br>
   FSQRT.S : 19 cycles (Goldschmidt's Algorithm) <br>
   The convergence loop counts for FDIV.S and FSQRT.S can be configured by software. <br>
 

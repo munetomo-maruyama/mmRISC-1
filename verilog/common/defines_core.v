@@ -486,7 +486,12 @@
 //-------------------------------------
 // FPU32 FDIV/FSQRT Convergence Loop
 //-------------------------------------
-`define FPU32_DIV_LOOP_INIT 4'b0100
+// FDIV needs five: its seed leaves an error of up to 0.086, so four
+// refinements still sit 81 ulp of the internal significand short of the
+// answer, too far for the residual snap in CPU_FPU32 to absorb. FSQRT
+// needs four: its seed error is 0.024 and four refinements are already
+// down at the rounding floor of the internal format.
+`define FPU32_DIV_LOOP_INIT 4'b0101
 `define FPU32_SQR_LOOP_INIT 4'b0100
 
 //===========================================================

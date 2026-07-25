@@ -2282,6 +2282,30 @@ reg [ 1:0] pipe_f_special;
 reg [31:0] pipe_f_special_data;
 reg [ 4:0] pipe_f_special_flag;
 //
+// Absorb the Convergence Residual of FDIV and FSQRT
+//
+// Both iterations approach the answer without ever reaching it, so an
+// exactly representable quotient or root arrives here a few units in the
+// last place of the 63 bit internal significand away from where it should
+// be. Rounding to float32 then reports inexact and, under a directed
+// rounding mode, delivers a neighbour of the correct result.
+//
+// Round the significand to nearest at 57 bits before converting. That
+// absorbs a residual of up to 32 ulp, measured worst case being 7, while
+// leaving every result that is not exactly representable untouched: for
+// binary32 operands such a quotient or root is at least 2**-50 away from
+// any rounding boundary, and this moves it by at most 2**-57.
+function [78:0] SNAP_INNER79;
+    input [78:0] inner79;
+    reg [65:0] frac;
+    begin
+        frac = (inner79[65:0] + 66'h20) & ~66'h3f;
+        SNAP_INNER79 = (frac[63])? // rounded up past the integer bit
+                       {inner79[78], inner79[77:66] + 12'd1, 1'b0, frac[65:1]}
+                     : {inner79[78], inner79[77:66],               frac[65:0]};
+    end
+endfunction
+//
 always @(posedge CLK, posedge RES_CPU)
 begin
     if (RES_CPU)
@@ -2344,11 +2368,14 @@ begin
     else if (div_complete) // FDIV
     begin
         pipe_f_token   <= pipe_d_token;
-        fdata_inner_in <= {div_da_sign_keep ^ div_db_sign_keep,
+        fdata_inner_in <= SNAP_INNER79(
+                          {div_da_sign_keep ^ div_db_sign_keep,
                            div_adata_inner_out[77:66] + div_da_expo_keep - div_db_expo_keep,
-                           div_adata_inner_out[65:0]};        
+                           div_adata_inner_out[65:0]});
         fmode    <= div_amode;
-        fflag_in <= div_aflag_out;
+        // The rounding of the iteration steps is internal to the algorithm
+        // and says nothing about the result, so it must not reach fflags.
+        fflag_in <= `FPU32_FLAG_OK;
         //
         pipe_f_special      <= pipe_d_special;
         pipe_f_special_data <= pipe_d_special_data;
@@ -2357,11 +2384,13 @@ begin
     else if (sqr_complete) // FSQRT
     begin
         pipe_f_token   <= pipe_s_token;
-        fdata_inner_in <= {sqr_db_sign_keep,
+        fdata_inner_in <= SNAP_INNER79(
+                          {sqr_db_sign_keep,
                            sqr_mdata_inner_out[77:66] + sqr_db_expo_keep - 12'd1023,
-                           sqr_mdata_inner_out[65:0]};
+                           sqr_mdata_inner_out[65:0]});
         fmode    <= sqr_mmode;
-        fflag_in <= sqr_mflag_out;
+        // As above, the iteration's own rounding is not the result's.
+        fflag_in <= `FPU32_FLAG_OK;
         //
         pipe_f_special      <= pipe_s_special;
         pipe_f_special_data <= pipe_s_special_data;

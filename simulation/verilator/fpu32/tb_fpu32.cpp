@@ -82,12 +82,6 @@ static const char *KNOWN_BUGS[] = {
     "OVERFLOW_NX",           // overflow sets OF or NX, never both
     "UNDERFLOW_NX",          // underflow sets UF or NX, never both
     "F2I_NX",                // float to int never raises NX
-    "DIV_RESIDUAL",          // Goldschmidt never lands exactly on an exact
-                             // quotient, so NX is always raised and directed
-                             // rounding is one ulp out. 1.0/2.0 is affected.
-    "SQRT_RESIDUAL",         // the same for an exact square root: sqrt(1.0)
-                             // is right but raises NX
-    "SUBNORMAL_RESULT",      // subnormal operands or results are mishandled
     "INF_OPERAND_UF",        // x/inf is an exact zero but raises UF
     "DIVZERO_OF",            // x/0 raises OF alongside the correct DZ
     "SQRT_NEGZERO_NV",       // sqrt(-0) is -0 with no exception
@@ -234,8 +228,10 @@ static Expected reference_arith(uint8_t cmd, uint32_t a, uint32_t b, uint8_t rmo
             default:       toward_zero = x2 / y2; break;
         }
         fesetround(saved);
+        // signbit, not a comparison: the toward-zero result of a tie that
+        // straddles zero is a signed zero, and -0.0 < 0 is false.
         expected.result = f32_to_bits(nextafterf(
-            toward_zero, toward_zero < 0 ? -INFINITY : INFINITY));
+            toward_zero, std::signbit(toward_zero) ? -INFINITY : INFINITY));
     }
     return expected;
 }

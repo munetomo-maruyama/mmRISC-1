@@ -73,13 +73,10 @@ Counts from the default sweep on the tree as of this commit, 771645 cases checke
 | class | count | defect |
 |---|---:|---|
 | `F2I_NX` | 116328 | `FCVT.W.S`/`FCVT.WU.S` never raise inexact |
-| `OVERFLOW_NX` | 26412 | overflow sets OF or NX, never both |
+| `OVERFLOW_NX` | 26418 | overflow sets OF or NX, never both |
 | `UNDERFLOW_NX` | 26091 | underflow sets UF or NX, never both |
 | `QNAN_NV` | 5998 | invalid raised for a quiet NaN operand, not only a signalling one |
 | `INF_OF` | 2245 | overflow raised because an operand is already infinite |
-| `DIV_RESIDUAL` | 730 | Goldschmidt never lands exactly on an exact quotient, so NX is always raised and directed rounding is one ulp out. `1.0/2.0` is affected |
 | `INF_OPERAND_UF` | 320 | `x/inf` is an exact zero but raises underflow |
 | `DIVZERO_OF` | 300 | `x/0` raises overflow alongside the correct divide-by-zero |
-| `SUBNORMAL_RESULT` | 210 | subnormal operands or results are mishandled |
-| `SQRT_RESIDUAL` | 39 | as `DIV_RESIDUAL`, for an exact square root: `sqrt(1.0)` is right but raises NX |
 | `SQRT_NEGZERO_NV` | 5 | `sqrt(-0)` is `-0` with no exception |
