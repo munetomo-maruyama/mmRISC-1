@@ -73,7 +73,7 @@
 // CSR_FPU32CONV : 0xbe0
 //   bit[31:8] WIRI (Reserved Writes Ignored, Reads Ignore Values)
 //   bit[ 7:4] R/W  FSQRT Convergence Loop Count (default 4)
-//   bit[ 3:0] R/W  FDIV  Convergence Loop Count (default 4)
+//   bit[ 3:0] R/W  FDIV  Convergence Loop Count (default 5)
 //===========================================================
 
 `include "defines_core.v"
@@ -101,6 +101,7 @@ module CPU_FPU32
     input  wire [11:0] CSR_FPU_CPU_ADDR,  // FPU CSR Access Address
     input  wire [31:0] CSR_FPU_CPU_WDATA, // FPU CSR Access Write Data
     output wire [31:0] CSR_FPU_CPU_RDATA, // FPU CSR Access Read Data
+    output wire [ 2:0] CSR_FPU_FRM,       // FRM Field of FCSR (for Reserved Round Mode Check)
     //
     input  wire        DBGABS_FPR_REQ,   // Debug Abstract Command Request for FPR
     input  wire        DBGABS_FPR_WRITE, // Debug Abstract Command Write   for FPR
@@ -212,8 +213,11 @@ assign CSR_FPU_CPU_RDATA = (~CSR_FPU_CPU_REQ | CSR_FPU_CPU_WRITE)? 32'h00000000
             : (CSR_FPU_CPU_ADDR == `CSR_FRM   )? {29'h0, csr_frm   }
             : (CSR_FPU_CPU_ADDR == `CSR_FFLAGS)? {27'h0, csr_fflags}
             : (CSR_FPU_CPU_ADDR == `CSR_FCSR  )? {24'h0, csr_frm, csr_fflags}
-            : (CSR_FPU_CPU_ADDR == `CSR_FPU32CONV)? {24'h0, csr_sqr_loop, csr_div_loop} 
+            : (CSR_FPU_CPU_ADDR == `CSR_FPU32CONV)? {24'h0, csr_sqr_loop, csr_div_loop}
             :  32'h00000000;
+//
+// The ID stage needs frm to decide whether a dynamic rounding mode is legal.
+assign CSR_FPU_FRM = csr_frm;
 
 //-----------------------------------
 // Floating Point Registers FRn
@@ -1179,9 +1183,9 @@ begin
                          1'b0,
                          ID_FPU_RMODE[2:0],
                          ID_FPU_CMD  [7:0]};
-        imode <= ((ID_FPU_RMODE[2:0] == `FPU32_RMODE_DYN)
-               && (csr_frm == `FPU32_RMODE_DYN          ))? `FPU32_RMODE_RNE
-               : (ID_FPU_RMODE[2:0] == `FPU32_RMODE_DYN  )?  csr_frm
+        // A dynamic mode resolving to a reserved encoding never gets here:
+        // the ID stage traps it as an illegal instruction.
+        imode <= (ID_FPU_RMODE[2:0] == `FPU32_RMODE_DYN)? csr_frm
                : ID_FPU_RMODE[2:0];
     end
     else
@@ -2034,7 +2038,10 @@ assign div_complete = (div_seq == 4'h5) & (div_cnt_plus_one == csr_div_loop);
 //     frac=[1.0, 2.0) expo=2n+1 --> frac=[2.0, 4.0) --> expo=n
 // Keep Exponent
 //     b_expo_keep = 1023; // b_expo_keep= (b_expo -1023) - (b_expo - 1023) + 1023;    
-// y = 1.2739 - 0.292 * b
+// y = 1.2739     - 0.292       * b, if b is in [1.0, 2.0)
+// y = 0.90078333 - 0.103237590 * b, if b is in [2.0, 4.0)
+//     The second line is the first one scaled by 1/sqrt(2) with b halved,
+//     so both ranges are seeded to the same 2.4 percent relative error.
 // g = b * y
 // h = y * 0.5
 // repeat
@@ -2048,6 +2055,7 @@ assign div_complete = (div_seq == 4'h5) & (div_cnt_plus_one == csr_div_loop);
 reg  [ 3:0] sqr_cnt;
 reg         sqr_db_sign_keep;
 reg  [11:0] sqr_db_expo_keep;
+reg         sqr_db_even_keep; // (b_expo - 1023) was even, so b is in [1.0, 2.0)
 reg  [78:0] sqr_db_inner;
 reg  [78:0] sqr_dy_inner;
 reg  [78:0] sqr_dg_inner;
@@ -2072,6 +2080,7 @@ begin
         //
         sqr_db_sign_keep <= 1'b0;
         sqr_db_expo_keep <= 12'h000;
+        sqr_db_even_keep <= 1'b0;
         //
         sqr_db_inner <= 79'h0;
         sqr_dy_inner <= 79'h0;
@@ -2112,9 +2121,12 @@ begin
                             {1'b0, 12'd1023, idata_inner_out1[65:0]      }  // frac
                           : {1'b0, 12'd1023, idata_inner_out1[64:0], 1'b0}; // frac << 1
         sqr_db_inner <= sqr_db_inner_temp;
+        sqr_db_even_keep <= idata_inner_out1[66];
         //
-        // fmul = -0.292 * b
-        sqr_mdata_inner_in1 <= {1'b1, 12'd1021, 66'h04AC083126E978D50}; // -0.292
+        // fmul = -0.292 * b, or -0.103237590 * b if b was shifted into [2.0, 4.0)
+        sqr_mdata_inner_in1 <= (idata_inner_out1[66])?
+                               {1'b1, 12'd1021, 66'h04AC083126E978D50}  // -0.292
+                             : {1'b1, 12'd1019, 66'h069B71D63FC6B596C}; // -0.103237590
         sqr_mdata_inner_in2 <= sqr_db_inner_temp; // b
         //
         sqr_mmode <= imode;
@@ -2130,8 +2142,10 @@ begin
     begin
         sqr_seq <= 4'h2;
         //
-        // fadd = 1.2739 + fmul (= 1.2739 - 0.292 * b)
-        sqr_adata_inner_in1 <= {1'b0, 12'd1023, 66'h0518793DD97F62B6B}; // 1.2739
+        // fadd = 1.2739 + fmul (= 1.2739 - 0.292 * b), or the [2.0, 4.0) line
+        sqr_adata_inner_in1 <= (sqr_db_even_keep)?
+                               {1'b0, 12'd1023, 66'h0518793DD97F62B6B}  // 1.2739
+                             : {1'b0, 12'd1022, 66'h0734CDE3C75B1D6AE}; // 0.90078333
         sqr_adata_inner_in2 <= sqr_mdata_inner_out;
     end
     else if (sqr_seq == 4'h2)
@@ -2193,7 +2207,8 @@ begin
     end
     else if (sqr_seq == 4'h7) // Loop Step4
     begin
-        // Answer is in sqr_dg_inner
+        // Answer is in sqr_mdata_inner_out (= g * r1), which the pipe_f
+        // stage samples on this same edge. sqr_dg_inner only gets it now.
         //
         // g = fmul (= g * r1)
         sqr_dg_inner <= sqr_mdata_inner_out;
@@ -2224,9 +2239,12 @@ begin
                                 {1'b0, 12'd1023, idata_inner_out1[65:0]      }  // frac
                               : {1'b0, 12'd1023, idata_inner_out1[64:0], 1'b0}; // frac << 1
             sqr_db_inner <= sqr_db_inner_temp;
+            sqr_db_even_keep <= idata_inner_out1[66];
             //
-            // fmul = -0.292 * b
-            sqr_mdata_inner_in1 <= {1'b1, 12'd1021, 66'h04AC083126E978D50}; // -0.292
+            // fmul = -0.292 * b, or -0.103237590 * b if b was shifted into [2.0, 4.0)
+            sqr_mdata_inner_in1 <= (idata_inner_out1[66])?
+                                   {1'b1, 12'd1021, 66'h04AC083126E978D50}  // -0.292
+                                 : {1'b1, 12'd1019, 66'h069B71D63FC6B596C}; // -0.103237590
             sqr_mdata_inner_in2 <= sqr_db_inner_temp; // b
             //
             sqr_mmode <= imode;
@@ -2267,6 +2285,30 @@ assign sqr_complete = (sqr_seq == 4'h7) & (sqr_cnt_plus_one == csr_sqr_loop);
 reg [ 1:0] pipe_f_special;
 reg [31:0] pipe_f_special_data;
 reg [ 4:0] pipe_f_special_flag;
+//
+// Absorb the Convergence Residual of FDIV and FSQRT
+//
+// Both iterations approach the answer without ever reaching it, so an
+// exactly representable quotient or root arrives here a few units in the
+// last place of the 63 bit internal significand away from where it should
+// be. Rounding to float32 then reports inexact and, under a directed
+// rounding mode, delivers a neighbour of the correct result.
+//
+// Round the significand to nearest at 57 bits before converting. That
+// absorbs a residual of up to 32 ulp, measured worst case being 7, while
+// leaving every result that is not exactly representable untouched: for
+// binary32 operands such a quotient or root is at least 2**-50 away from
+// any rounding boundary, and this moves it by at most 2**-57.
+function [78:0] SNAP_INNER79;
+    input [78:0] inner79;
+    reg [65:0] frac;
+    begin
+        frac = (inner79[65:0] + 66'h20) & ~66'h3f;
+        SNAP_INNER79 = (frac[63])? // rounded up past the integer bit
+                       {inner79[78], inner79[77:66] + 12'd1, 1'b0, frac[65:1]}
+                     : {inner79[78], inner79[77:66],               frac[65:0]};
+    end
+endfunction
 //
 always @(posedge CLK, posedge RES_CPU)
 begin
@@ -2330,11 +2372,14 @@ begin
     else if (div_complete) // FDIV
     begin
         pipe_f_token   <= pipe_d_token;
-        fdata_inner_in <= {div_da_sign_keep ^ div_db_sign_keep,
+        fdata_inner_in <= SNAP_INNER79(
+                          {div_da_sign_keep ^ div_db_sign_keep,
                            div_adata_inner_out[77:66] + div_da_expo_keep - div_db_expo_keep,
-                           div_adata_inner_out[65:0]};        
+                           div_adata_inner_out[65:0]});
         fmode    <= div_amode;
-        fflag_in <= div_aflag_out;
+        // The rounding of the iteration steps is internal to the algorithm
+        // and says nothing about the result, so it must not reach fflags.
+        fflag_in <= `FPU32_FLAG_OK;
         //
         pipe_f_special      <= pipe_d_special;
         pipe_f_special_data <= pipe_d_special_data;
@@ -2343,11 +2388,13 @@ begin
     else if (sqr_complete) // FSQRT
     begin
         pipe_f_token   <= pipe_s_token;
-        fdata_inner_in <= {sqr_db_sign_keep,
-                           sqr_dg_inner[77:66] + sqr_db_expo_keep - 12'd1023,
-                           sqr_dg_inner[65:0]};
+        fdata_inner_in <= SNAP_INNER79(
+                          {sqr_db_sign_keep,
+                           sqr_mdata_inner_out[77:66] + sqr_db_expo_keep - 12'd1023,
+                           sqr_mdata_inner_out[65:0]});
         fmode    <= sqr_mmode;
-        fflag_in <= sqr_mflag_out;
+        // As above, the iteration's own rounding is not the result's.
+        fflag_in <= `FPU32_FLAG_OK;
         //
         pipe_f_special      <= pipe_s_special;
         pipe_f_special_data <= pipe_s_special_data;
@@ -2390,6 +2437,7 @@ assign fdata_float_out_final = (pipe_f_special == 2'b11)? pipe_f_special_data
 `else // RISCV_ISA_RV32F
 assign CSR_FPU_DBG_RDATA = 32'h00000000;
 assign CSR_FPU_CPU_RDATA = 32'h00000000;
+assign CSR_FPU_FRM   = 3'b000;
 assign ID_FPU_STALL  = 1'b0;
 assign SET_MSTATUS_FS_DIRTY = 1'b0;
 assign EX_FPU_SRCDATA = 32'h00000000;
@@ -2485,43 +2533,25 @@ CHECK_FTYPE U_CHECK_FTYPE_2
 always @*
 begin
     casez({ftype_in1, ftype_in2})
-        {`FPU32_FT_POSQNA, `FPU32_FT_POSQNA}, // add
-        {`FPU32_FT_POSQNA, `FPU32_FT_NEGQNA}, // add
-        {`FPU32_FT_POSQNA, `FPU32_FT_POSSNA}, // add
-        {`FPU32_FT_POSQNA, `FPU32_FT_NEGSNA}, // add
-        {`FPU32_FT_NEGQNA, `FPU32_FT_POSQNA}, // add
-        {`FPU32_FT_NEGQNA, `FPU32_FT_NEGQNA}, // add
-        {`FPU32_FT_NEGQNA, `FPU32_FT_POSSNA}, // add
-        {`FPU32_FT_NEGQNA, `FPU32_FT_NEGSNA}, // add
-        {`FPU32_FT_POSSNA, `FPU32_FT_POSQNA}, // add
-        {`FPU32_FT_POSSNA, `FPU32_FT_NEGQNA}, // add
-        {`FPU32_FT_POSSNA, `FPU32_FT_POSSNA}, // add
-        {`FPU32_FT_POSSNA, `FPU32_FT_NEGSNA}, // add
-        {`FPU32_FT_NEGSNA, `FPU32_FT_POSQNA}, // add
-        {`FPU32_FT_NEGSNA, `FPU32_FT_NEGQNA}, // add
-        {`FPU32_FT_NEGSNA, `FPU32_FT_POSSNA}, // add
-        {`FPU32_FT_NEGSNA, `FPU32_FT_NEGSNA}: // add
-        begin
-            FDATA_OUT = 32'h7fc00000; //FDATA_IN2 | 32'h00400000; // QNAN
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
-            SPECIAL = 1'b1;
-        end
-        {`FPU32_FT_POSQNA, 4'b????}, // add
-        {`FPU32_FT_NEGQNA, 4'b????}, // add
+        // A signaling NaN operand raises invalid. Listed first, so a
+        // signaling and a quiet NaN together still raise it.
         {`FPU32_FT_POSSNA, 4'b????}, // add
-        {`FPU32_FT_NEGSNA, 4'b????}: // add
-        begin
-            FDATA_OUT = 32'h7fc00000; //FDATA_IN1 | 32'h00400000; // QNAN
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
-            SPECIAL = 1'b1;
-        end
-        {4'b????, `FPU32_FT_POSQNA}, // add
-        {4'b????, `FPU32_FT_NEGQNA}, // add
+        {`FPU32_FT_NEGSNA, 4'b????}, // add
         {4'b????, `FPU32_FT_POSSNA}, // add
         {4'b????, `FPU32_FT_NEGSNA}: // add
         begin
-            FDATA_OUT = 32'h7fc00000; //FDATA_IN2 | 32'h00400000; // QNAN
+            FDATA_OUT = 32'h7fc00000; // QNAN
             FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
+            SPECIAL = 1'b1;
+        end
+        // A quiet NaN operand propagates quietly, with no exception.
+        {`FPU32_FT_POSQNA, 4'b????}, // add
+        {`FPU32_FT_NEGQNA, 4'b????}, // add
+        {4'b????, `FPU32_FT_POSQNA}, // add
+        {4'b????, `FPU32_FT_NEGQNA}: // add
+        begin
+            FDATA_OUT = 32'h7fc00000; // QNAN
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
         {`FPU32_FT_POSINF, `FPU32_FT_NEGINF}, // add
@@ -2531,18 +2561,20 @@ begin
             FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
             SPECIAL = 1'b1;
         end
+        // An infinite operand gives an infinite result with no exception.
+        // Overflow is for a rounded result that leaves the format range.
         {`FPU32_FT_POSINF, 4'b????}, // add
         {`FPU32_FT_NEGINF, 4'b????}: // add
         begin
             FDATA_OUT = FDATA_IN1;
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_OF;
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
         {4'b????, `FPU32_FT_POSINF}, // add
         {4'b????, `FPU32_FT_NEGINF}: // add
         begin
             FDATA_OUT = FDATA_IN2;
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_OF;
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
         {`FPU32_FT_POSZRO, `FPU32_FT_POSZRO}: // add
@@ -2624,52 +2656,36 @@ CHECK_FTYPE U_CHECK_FTYPE_2
 always @*
 begin
     casez({ftype_in1, ftype_in2})
-        {`FPU32_FT_POSQNA, `FPU32_FT_POSQNA}, // mul
-        {`FPU32_FT_POSQNA, `FPU32_FT_NEGQNA}, // mul
-        {`FPU32_FT_POSQNA, `FPU32_FT_POSSNA}, // mul
-        {`FPU32_FT_POSQNA, `FPU32_FT_NEGSNA}, // mul
-        {`FPU32_FT_NEGQNA, `FPU32_FT_POSQNA}, // mul
-        {`FPU32_FT_NEGQNA, `FPU32_FT_NEGQNA}, // mul
-        {`FPU32_FT_NEGQNA, `FPU32_FT_POSSNA}, // mul
-        {`FPU32_FT_NEGQNA, `FPU32_FT_NEGSNA}, // mul
-        {`FPU32_FT_POSSNA, `FPU32_FT_POSQNA}, // mul
-        {`FPU32_FT_POSSNA, `FPU32_FT_NEGQNA}, // mul
-        {`FPU32_FT_POSSNA, `FPU32_FT_POSSNA}, // mul
-        {`FPU32_FT_POSSNA, `FPU32_FT_NEGSNA}, // mul
-        {`FPU32_FT_NEGSNA, `FPU32_FT_POSQNA}, // mul
-        {`FPU32_FT_NEGSNA, `FPU32_FT_NEGQNA}, // mul
-        {`FPU32_FT_NEGSNA, `FPU32_FT_POSSNA}, // mul
-        {`FPU32_FT_NEGSNA, `FPU32_FT_NEGSNA}: // mul
-        begin
-            FDATA_OUT = 32'h7fc00000; //FDATA_IN2 | 32'h00400000; // QNAN
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
-            SPECIAL = 1'b1;
-        end
-        {`FPU32_FT_POSQNA, 4'b????}, // mul
-        {`FPU32_FT_NEGQNA, 4'b????}, // mul
+        // A signaling NaN operand raises invalid. Listed first, so a
+        // signaling and a quiet NaN together still raise it.
         {`FPU32_FT_POSSNA, 4'b????}, // mul
-        {`FPU32_FT_NEGSNA, 4'b????}: // mul
-        begin
-            FDATA_OUT = 32'h7fc00000; //FDATA_IN1 | 32'h00400000; // QNAN
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
-            SPECIAL = 1'b1;
-        end
-        {4'b????, `FPU32_FT_POSQNA}, // mul
-        {4'b????, `FPU32_FT_NEGQNA}, // mul
+        {`FPU32_FT_NEGSNA, 4'b????}, // mul
         {4'b????, `FPU32_FT_POSSNA}, // mul
         {4'b????, `FPU32_FT_NEGSNA}: // mul
         begin
-            FDATA_OUT = 32'h7fc00000; //FDATA_IN2 | 32'h00400000; // QNAN
+            FDATA_OUT = 32'h7fc00000; // QNAN
             FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
             SPECIAL = 1'b1;
         end
+        // A quiet NaN operand propagates quietly, with no exception.
+        {`FPU32_FT_POSQNA, 4'b????}, // mul
+        {`FPU32_FT_NEGQNA, 4'b????}, // mul
+        {4'b????, `FPU32_FT_POSQNA}, // mul
+        {4'b????, `FPU32_FT_NEGQNA}: // mul
+        begin
+            FDATA_OUT = 32'h7fc00000; // QNAN
+            FLG_OUT   = FLG_IN;
+            SPECIAL = 1'b1;
+        end
+        // An infinite operand gives an infinite result with no exception.
+        // Overflow is for a rounded result that leaves the format range.
         {`FPU32_FT_POSINF, `FPU32_FT_POSINF}, // mul
         {`FPU32_FT_POSINF, `FPU32_FT_NEGINF}, // mul
         {`FPU32_FT_NEGINF, `FPU32_FT_POSINF}, // mul
         {`FPU32_FT_NEGINF, `FPU32_FT_NEGINF}: // mul
         begin
             FDATA_OUT = 32'h7f800000 | {(FDATA_IN1[31] ^ FDATA_IN2[31]), 31'h0}; // ???INF
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_OF;
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
         {`FPU32_FT_POSINF, `FPU32_FT_POSZRO}, // mul
@@ -2691,7 +2707,7 @@ begin
         {4'b????, `FPU32_FT_NEGINF}: // mul
         begin
             FDATA_OUT = 32'h7f800000 | {(FDATA_IN1[31] ^ FDATA_IN2[31]), 31'h0}; // ???INF
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_OF;
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
         {`FPU32_FT_POSZRO, `FPU32_FT_POSZRO}, // mul
@@ -2828,43 +2844,25 @@ CHECK_FTYPE U_CHECK_FTYPE_2
 always @*
 begin
     casez({ftype_in1, ftype_in2})
-        {`FPU32_FT_POSQNA, `FPU32_FT_POSQNA}, // div
-        {`FPU32_FT_POSQNA, `FPU32_FT_NEGQNA}, // div
-        {`FPU32_FT_POSQNA, `FPU32_FT_POSSNA}, // div
-        {`FPU32_FT_POSQNA, `FPU32_FT_NEGSNA}, // div
-        {`FPU32_FT_NEGQNA, `FPU32_FT_POSQNA}, // div
-        {`FPU32_FT_NEGQNA, `FPU32_FT_NEGQNA}, // div
-        {`FPU32_FT_NEGQNA, `FPU32_FT_POSSNA}, // div
-        {`FPU32_FT_NEGQNA, `FPU32_FT_NEGSNA}, // div
-        {`FPU32_FT_POSSNA, `FPU32_FT_POSQNA}, // div
-        {`FPU32_FT_POSSNA, `FPU32_FT_NEGQNA}, // div
-        {`FPU32_FT_POSSNA, `FPU32_FT_POSSNA}, // div
-        {`FPU32_FT_POSSNA, `FPU32_FT_NEGSNA}, // div
-        {`FPU32_FT_NEGSNA, `FPU32_FT_POSQNA}, // div
-        {`FPU32_FT_NEGSNA, `FPU32_FT_NEGQNA}, // div
-        {`FPU32_FT_NEGSNA, `FPU32_FT_POSSNA}, // div
-        {`FPU32_FT_NEGSNA, `FPU32_FT_NEGSNA}: // div
-        begin
-            FDATA_OUT = 32'h7fc00000; //FDATA_IN1 | 32'h00400000; // QNAN
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
-            SPECIAL = 1'b1;
-        end
-        {`FPU32_FT_POSQNA, 4'b????}, // div
-        {`FPU32_FT_NEGQNA, 4'b????}, // div
+        // A signaling NaN operand raises invalid. Listed first, so a
+        // signaling and a quiet NaN together still raise it.
         {`FPU32_FT_POSSNA, 4'b????}, // div
-        {`FPU32_FT_NEGSNA, 4'b????}: // div
-        begin
-            FDATA_OUT = 32'h7fc00000; //FDATA_IN1 | 32'h00400000; // QNAN
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
-            SPECIAL = 1'b1;
-        end
-        {4'b????, `FPU32_FT_POSQNA}, // div
-        {4'b????, `FPU32_FT_NEGQNA}, // div
+        {`FPU32_FT_NEGSNA, 4'b????}, // div
         {4'b????, `FPU32_FT_POSSNA}, // div
         {4'b????, `FPU32_FT_NEGSNA}: // div
         begin
-            FDATA_OUT = 32'h7fc00000; //FDATA_IN2 | 32'h00400000; // QNAN
+            FDATA_OUT = 32'h7fc00000; // QNAN
             FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
+            SPECIAL = 1'b1;
+        end
+        // A quiet NaN operand propagates quietly, with no exception.
+        {`FPU32_FT_POSQNA, 4'b????}, // div
+        {`FPU32_FT_NEGQNA, 4'b????}, // div
+        {4'b????, `FPU32_FT_POSQNA}, // div
+        {4'b????, `FPU32_FT_NEGQNA}: // div
+        begin
+            FDATA_OUT = 32'h7fc00000; // QNAN
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
         {`FPU32_FT_POSINF, `FPU32_FT_POSINF}, // div
@@ -2876,36 +2874,44 @@ begin
             FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
             SPECIAL = 1'b1;
         end
+        // inf / 0 raises nothing at all: the dividend is already infinite,
+        // and divide by zero wants a finite nonzero dividend.
         {`FPU32_FT_POSINF, `FPU32_FT_POSZRO}, // div
         {`FPU32_FT_POSINF, `FPU32_FT_NEGZRO}, // div
         {`FPU32_FT_NEGINF, `FPU32_FT_POSZRO}, // div
         {`FPU32_FT_NEGINF, `FPU32_FT_NEGZRO}: // div
         begin
             FDATA_OUT = 32'h7f800000 | {(FDATA_IN1[31] ^ FDATA_IN2[31]), 31'h0}; // ???INF
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_OF | `FPU32_FLAG_DZ;
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
+        // 0 / inf is an exact zero. Unlike 0 * inf it is perfectly well
+        // defined, so no invalid either.
         {`FPU32_FT_POSZRO, `FPU32_FT_POSINF}, // div
         {`FPU32_FT_POSZRO, `FPU32_FT_NEGINF}, // div
         {`FPU32_FT_NEGZRO, `FPU32_FT_POSINF}, // div
         {`FPU32_FT_NEGZRO, `FPU32_FT_NEGINF}: // div
         begin
             FDATA_OUT = 32'h00000000 | {(FDATA_IN1[31] ^ FDATA_IN2[31]), 31'h0}; // ???ZRO
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_UF;
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
+        // An infinite dividend gives an infinite result with no exception.
+        // Overflow is for a rounded result that leaves the format range.
         {`FPU32_FT_POSINF, 4'b????}, // div
         {`FPU32_FT_NEGINF, 4'b????}: // div
         begin
             FDATA_OUT = 32'h7f800000 | {(FDATA_IN1[31] ^ FDATA_IN2[31]), 31'h0}; // ???INF
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_OF;
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
+        // An infinite divisor gives an exact zero, not a tiny one, so there
+        // is nothing for underflow to report.
         {4'b????, `FPU32_FT_POSINF}, // div
         {4'b????, `FPU32_FT_NEGINF}: // div
         begin
-            FDATA_OUT = 32'h00000000 | {(FDATA_IN1[31] ^ FDATA_IN2[31]), 31'h0};; // ???ZRO
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_UF;
+            FDATA_OUT = 32'h00000000 | {(FDATA_IN1[31] ^ FDATA_IN2[31]), 31'h0}; // ???ZRO
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
         {`FPU32_FT_POSZRO, `FPU32_FT_POSZRO}, // div
@@ -2924,11 +2930,14 @@ begin
             FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
+        // A finite nonzero dividend over zero is the divide by zero case, and
+        // divide by zero alone. Overflow is for a rounded result that leaves
+        // the format range, and this infinity is exact rather than rounded.
         {4'b????, `FPU32_FT_POSZRO}, // div
         {4'b????, `FPU32_FT_NEGZRO}: // div
         begin
             FDATA_OUT = 32'h7f800000 | {(FDATA_IN1[31] ^ FDATA_IN2[31]), 31'h0}; // ???INF
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_OF | `FPU32_FLAG_DZ;
+            FLG_OUT   = FLG_IN | `FPU32_FLAG_DZ;
             SPECIAL = 1'b1;
         end
         default: // Others
@@ -2967,19 +2976,26 @@ CHECK_FTYPE U_CHECK_FTYPE_1
 always @*
 begin
     casez(ftype_in1)
-        {`FPU32_FT_POSQNA}, // sqrt
-        {`FPU32_FT_NEGQNA}, // sqrt
+        // A signaling NaN operand raises invalid, a quiet one does not.
         {`FPU32_FT_POSSNA}, // sqrt
         {`FPU32_FT_NEGSNA}: // sqrt
         begin
-            FDATA_OUT = 32'h7fc00000; //FDATA_IN1 | 32'h00400000; // QNAN
+            FDATA_OUT = 32'h7fc00000; // QNAN
             FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
             SPECIAL = 1'b1;
         end
+        {`FPU32_FT_POSQNA}, // sqrt
+        {`FPU32_FT_NEGQNA}: // sqrt
+        begin
+            FDATA_OUT = 32'h7fc00000; // QNAN
+            FLG_OUT   = FLG_IN;
+            SPECIAL = 1'b1;
+        end
+        // sqrt(+inf) is +inf, with no exception.
         {`FPU32_FT_POSINF}: // sqrt
         begin
             FDATA_OUT = 32'h7f800000; // POSINF
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_OF;
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
         {`FPU32_FT_NEGINF}: // sqrt
@@ -2994,10 +3010,12 @@ begin
             FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
+        // sqrt(-0) is -0 exactly, with no exception. Invalid is for an
+        // operand less than zero, and negative zero is not less than zero.
         {`FPU32_FT_NEGZRO}: // sqrt
         begin
             FDATA_OUT = 32'h80000000; // NEGZRO
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
         {`FPU32_FT_NEGNOR}, // sqrt
@@ -3491,7 +3509,9 @@ wire [ 4:0] float32_toosmall_flag;
 assign float32_toosmall_select = (inner79_expo == 12'd0);
 assign float32_toosmall_expo = 0;
 assign float32_toosmall_frac = 0;
-assign float32_toosmall_flag = FLAG_IN | `FPU32_FLAG_UF;
+// Flushing a nonzero value to zero is inexact by construction, and an
+// exact zero was selected out above.
+assign float32_toosmall_flag = FLAG_IN | `FPU32_FLAG_UF | `FPU32_FLAG_NX;
 //
 // Inner79 Normal
 wire [65:0] inner79_normal_frac;
@@ -3514,10 +3534,11 @@ assign float32_overflow_frac = ((RMODE == `FPU32_RMODE_RTZ))? 27'h0ffffff
                              : ((RMODE == `FPU32_RMODE_RUP) && (float32_sign == 1'b1))? 27'h0ffffff
                              : ((RMODE == `FPU32_RMODE_RDN) && (float32_sign == 1'b0))? 27'h0ffffff
                              : 24'h000000;
-assign float32_overflow_flag = ((RMODE == `FPU32_RMODE_RTZ))? FLAG_IN | `FPU32_FLAG_NX
-                             : ((RMODE == `FPU32_RMODE_RUP) && (float32_sign == 1'b1))? FLAG_IN | `FPU32_FLAG_NX
-                             : ((RMODE == `FPU32_RMODE_RDN) && (float32_sign == 1'b0))? FLAG_IN | `FPU32_FLAG_NX
-                             : FLAG_IN | `FPU32_FLAG_OF;
+// IEEE 754-2008 clause 7.4 lists the delivered result per rounding mode,
+// an infinity or the largest finite value, and then adds unconditionally
+// that "the overflow flag shall be raised and the inexact exception shall
+// be signaled". The mode therefore selects the result, not the flags.
+assign float32_overflow_flag = FLAG_IN | `FPU32_FLAG_OF | `FPU32_FLAG_NX;
 //
 // Float32 Underflow
 // frac24 : [b23].[b22][b21].....[b00]
@@ -3534,9 +3555,11 @@ assign float32_underflow_expo = ((RMODE == `FPU32_RMODE_RUP) && (float32_sign ==
 assign float32_underflow_frac = ((RMODE == `FPU32_RMODE_RUP) && (float32_sign == 1'b0))? 27'h0000001
                               : ((RMODE == `FPU32_RMODE_RDN) && (float32_sign == 1'b1))? 27'h0000001
                               : 27'h0000000;
-assign float32_underflow_flag = ((RMODE == `FPU32_RMODE_RUP) && (float32_sign == 1'b0))?  FLAG_IN | `FPU32_FLAG_NX
-                              : ((RMODE == `FPU32_RMODE_RDN) && (float32_sign == 1'b1))?  FLAG_IN | `FPU32_FLAG_NX
-                              :  FLAG_IN | `FPU32_FLAG_UF;
+// Clause 7.5 raises the underflow flag and signals inexact together,
+// when the result is tiny and the rounded result is inexact. Every arm
+// here is both: the value is below the subnormal range and has been
+// rounded away to zero or up to the minimum subnormal.
+assign float32_underflow_flag = FLAG_IN | `FPU32_FLAG_UF | `FPU32_FLAG_NX;
 //
 // Float32 Subnormal
 // frac64 : [b63][b62].[b61][b60].....[b39]....
@@ -3598,18 +3621,22 @@ begin
     end
     else if (float32_subnormal_pos > 12'd0)
     begin
-        if (float32_subnormal_frac_temp == 27'd0)
-        begin
-            float32_subnormal_expo = 8'h0;
-            float32_subnormal_frac = 27'd0;
-            float32_subnormal_flag = float32_subnormal_flag_temp | `FPU32_FLAG_UF;
-        end
-        else
-        begin
-            float32_subnormal_expo = 8'h0;
-            float32_subnormal_frac = float32_subnormal_frac_temp;
-            float32_subnormal_flag = float32_subnormal_flag_temp;
-        end
+        // The delivered result is tiny, so clause 7.5 makes underflow
+        // follow the inexact flag: raised together when the rounded
+        // result is inexact, neither raised when it is exact. Rounding a
+        // nonzero value away to zero is inexact by construction.
+        //
+        // Tininess is detected after rounding, which is the choice
+        // RISC-V makes and which clause 7.5 permits: the arm above,
+        // where rounding carried the result up into the normal range,
+        // raises nothing.
+        float32_subnormal_expo = 8'h0;
+        float32_subnormal_frac = float32_subnormal_frac_temp;
+        float32_subnormal_flag = (float32_subnormal_frac_temp == 27'd0)
+                               ? float32_subnormal_flag_temp | `FPU32_FLAG_UF | `FPU32_FLAG_NX
+                               : ((float32_subnormal_flag_temp & `FPU32_FLAG_NX) != 5'b00000)
+                               ? float32_subnormal_flag_temp | `FPU32_FLAG_UF
+                               : float32_subnormal_flag_temp;
     end
     else
     begin
@@ -3657,32 +3684,25 @@ always @*
 begin
     if (float32_normal_pos[11]) // float32_normal_pos < 0
     begin
-        if (float32_normal_expo_temp > 12'd254) // Inf
+        if (float32_normal_expo_temp > 12'd254) // Overflow
         begin
-            if (RMODE == `FPU32_RMODE_RTZ)
+            // The rounding mode still decides between the largest finite
+            // value and an infinity, but both are overflows and both are
+            // inexact, so the flags no longer depend on it.
+            if ((RMODE == `FPU32_RMODE_RTZ)
+             || ((RMODE == `FPU32_RMODE_RUP) && (float32_sign == 1'b1))
+             || ((RMODE == `FPU32_RMODE_RDN) && (float32_sign == 1'b0)))
             begin
                 float32_normal_expo = 12'd254;
                 float32_normal_frac = 27'h0ffffff;
-                float32_normal_flag = float32_normal_flag_temp | `FPU32_FLAG_NX;
             end
-            else if ((RMODE == `FPU32_RMODE_RUP) && (float32_sign == 1'b1))
-            begin
-                float32_normal_expo = 12'd254;
-                float32_normal_frac = 27'h0ffffff;
-                float32_normal_flag = float32_normal_flag_temp | `FPU32_FLAG_NX;
-            end
-            else if ((RMODE == `FPU32_RMODE_RDN) && (float32_sign == 1'b0))
-            begin
-                float32_normal_expo = 12'd254;
-                float32_normal_frac = 27'h0ffffff;
-                float32_normal_flag = float32_normal_flag_temp | `FPU32_FLAG_NX;
-            end
-            else // Overflow
+            else
             begin
                 float32_normal_expo = 12'd255;
                 float32_normal_frac = 27'h0;
-                float32_normal_flag = float32_normal_flag_temp | `FPU32_FLAG_OF;
             end
+            float32_normal_flag = float32_normal_flag_temp
+                                | `FPU32_FLAG_OF | `FPU32_FLAG_NX;
         end
         else
         begin
@@ -4110,10 +4130,9 @@ wire judge_inf_u;
 wire judge_gen_s;
 wire judge_gen_u;
 //
-//assign judge_zro   = expo < (pos + 12'd126); //---BUG--- RDN/RUP 
-//assign judge_inf_s = expo > (pos + 12'd157); //---BUG---
-//assign judge_inf_u = expo > (pos + 12'd158); //---BUG---
-assign judge_zro   = 1'b0; // expo < (pos + 12'd124);
+// judge_zro stays off. A value too small to reach the integer LSB still
+// has to be rounded, and under RDN or RUP that carries it to +/-1.
+assign judge_zro   = 1'b0;
 assign judge_inf_s = (~sign)? (expo > (pos + 12'd157))       // pos
     : ((expo == (pos + 12'd158)) && (frac[22:0] == 0))? 1'b0 // neg
     :   expo > (pos + 12'd157);                              // neg
@@ -4151,20 +4170,16 @@ assign stick_mask = (bit_stick == 12'hfff)? 27'h0
                   : 27'h7ffffff;
 assign stick = |(frac & stick_mask);
 //
-//wire        inexact;
-//wire [26:0] inexact_mask;
-//assign inexact_mask = (bit_guard < 12'd27)? 27'h7ffffff >>  (12'd26 - bit_guard) : 27'h0; //---BUG---
-//assign inexact_mask = (bit_guard < 12'd26)? 27'h3ffffff >>  (12'd25 - bit_guard) : 27'h0;
-//assign inexact = |(frac & inexact_mask);
-//
-// Rounding to integer is not exact (no inexact exceptions).
+// The discarded fraction is exactly guard, round and stick together:
+// the integer LSB sits at bit 150-expo and those three cover everything
+// below it. A value with no fractional part leaves all three clear.
 wire   inexact;
-assign inexact = 1'b0;
-// 
+assign inexact = guard | round | stick;
 //
 wire        round_add;
-wire [ 4:0] round_flg;
 //
+// Only ROUND_ADD is wanted here. The flag this module derives is for the
+// float paths, where the inexact condition is a different expression.
 ROUND_JUDGMENT U_ROUND_JUDGMENT
 (
     .SIGN      (sign),
@@ -4175,7 +4190,7 @@ ROUND_JUDGMENT U_ROUND_JUDGMENT
     .ROUND_ADD (round_add),
     .RMODE     (RMODE),
     .FLAG_IN   (`FPU32_FLAG_OK),
-    .FLAG_OUT  (round_flg)
+    .FLAG_OUT  ()
 );
 //
 wire [31:0] uint32_data_round;
@@ -4256,9 +4271,13 @@ begin
         else if (ftype == `FPU32_FT_POSZRO) FLG_OUT = `FPU32_FLAG_OK;
         else if (ftype == `FPU32_FT_NEGZRO) FLG_OUT = `FPU32_FLAG_OK;
         else if (judge_inf_u              ) FLG_OUT = `FPU32_FLAG_NV;
+        // A negative operand only leaves the unsigned range once rounding
+        // has taken it below zero. One that rounds to zero is in range,
+        // and merely inexact.
+        else if (sign & (uint32_data_round != 32'h00000000))
+                                            FLG_OUT = `FPU32_FLAG_NV;
         else if (inexact                  ) FLG_OUT = `FPU32_FLAG_NX;
         else if (judge_zro                ) FLG_OUT = `FPU32_FLAG_OK;
-        else if (sign                     ) FLG_OUT = `FPU32_FLAG_NV;
         else FLG_OUT = `FPU32_FLAG_OK;
     end
 end

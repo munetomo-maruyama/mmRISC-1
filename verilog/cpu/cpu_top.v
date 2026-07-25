@@ -360,9 +360,11 @@ wire        csr_fpu_cpu_write; // FPU CSR Access Write
 wire [11:0] csr_fpu_cpu_addr;  // FPU CSR Access Address
 wire [31:0] csr_fpu_cpu_wdata; // FPU CSR Access Write Data
 wire [31:0] csr_fpu_cpu_rdata; // FPU CSR Access Read Data
+wire [ 2:0] csr_fpu_frm;       // FRM Field of FCSR (for Reserved Round Mode Check)
 //
 wire        fpucsr_dirty;         // FPU CSR is Dirty
 wire        set_mstatus_fs_dirty; // Set MSTATUS FS Field as Dirty
+wire [ 1:0] mstatus_fs;           // MSTATUS FS Field (FPU Context Status)
 
 //-------------------------
 // Instruction Fetch Unit
@@ -624,6 +626,8 @@ CPU_PIPELINE U_CPU_PIPELINE
     .ID_FPU_CMD     (id_fpu_cmd),   // FPU Command in ID Stage
     .ID_FPU_RMODE   (id_fpu_rmode), // FPU Round Mode in ID Stage
     .ID_FPU_STALL   (id_fpu_stall), // FPU Stall Request in ID Stage
+    .CSR_FPU_FRM    (csr_fpu_frm),  // FRM Field of FCSR (for Reserved Round Mode Check)
+    .MSTATUS_FS     (mstatus_fs),   // MSTATUS FS Field (FPU Context Status)
     .FPUCSR_DIRTY   (fpucsr_dirty)  // FPU CSR is Dirty
 );
 
@@ -713,7 +717,8 @@ CPU_CSR U_CPU_CSR
     .DBG_STOP_COUNT (dbg_stop_count), // Stop Counter due to Debug Mode
     .DBG_MIE_STEP   (dbg_mie_step),   // Master Interrupt Enable during Step
     //
-    .SET_MSTATUS_FS_DIRTY (set_mstatus_fs_dirty)  // Set MSTATUS FS Field as Dirty
+    .SET_MSTATUS_FS_DIRTY (set_mstatus_fs_dirty), // Set MSTATUS FS Field as Dirty
+    .MSTATUS_FS           (mstatus_fs)            // MSTATUS FS Field (FPU Context Status)
 );
 
 //-----------------------
@@ -993,6 +998,7 @@ CPU_FPU32 U_CPU_FPU32
     .CSR_FPU_CPU_ADDR  (csr_fpu_cpu_addr),  // FPU CSR Access Address
     .CSR_FPU_CPU_WDATA (csr_fpu_cpu_wdata), // FPU CSR Access Write Data
     .CSR_FPU_CPU_RDATA (csr_fpu_cpu_rdata), // FPU CSR Access Read Data
+    .CSR_FPU_FRM       (csr_fpu_frm),       // FRM Field of FCSR (for Reserved Round Mode Check)
     //
     .DBGABS_FPR_REQ   (dbgabs_fpr_req),   // Debug Abstract Command Request for FPR
     .DBGABS_FPR_WRITE (dbgabs_fpr_write), // Debug Abstract Command Write   for FPR

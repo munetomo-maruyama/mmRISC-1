@@ -21,9 +21,9 @@
 #                         value, rounds to minimum magnitude instead.)
 #    -tininessbefore  --Detect underflow tininess before rounding.
 # *  -tininessafter   --Detect underflow tininess after rounding.
-# *  -notexact        --Rounding to integer is not exact (no inexact
+#    -notexact        --Rounding to integer is not exact (no inexact
 #                         exceptions).
-#    -exact           --Rounding to integer is exact (raising inexact
+# *  -exact           --Rounding to integer is exact (raising inexact
 #                         exceptions).
 #  <type>:
 #    <int>            --Generate test cases with one integer operand.
@@ -74,7 +74,7 @@ echo "beffffff 00000000 00" >> testfloat_F2S  # -0.499999970198
 echo "bf000000 00000000 00" >> testfloat_F2S  # -0.5
 echo "bf000001 00000000 00" >> testfloat_F2S  # -0.500000059605
 echo "" >> testfloat_F2S
-../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rnear_even -notexact f32 1 f32_to_i32 >> testfloat_F2S
+../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rnear_even -exact f32 1 f32_to_i32 >> testfloat_F2S
 
 #Z:RTZ Round to Zero;
 echo "#SZ" >> testfloat_F2S
@@ -97,7 +97,7 @@ echo "beffffff 00000000 00" >> testfloat_F2S  # -0.499999970198
 echo "bf000000 00000000 00" >> testfloat_F2S  # -0.5
 echo "bf000001 00000000 00" >> testfloat_F2S  # -0.500000059605
 echo "" >> testfloat_F2S
-../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rminMag -notexact f32 1 f32_to_i32 >> testfloat_F2S
+../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rminMag -exact f32 1 f32_to_i32 >> testfloat_F2S
 
 #D:RDN Round Down towards minus infinite
 echo "#SD" >> testfloat_F2S
@@ -120,7 +120,7 @@ echo "beffffff ffffffff 00" >> testfloat_F2S  # -0.499999970198
 echo "bf000000 ffffffff 00" >> testfloat_F2S  # -0.5
 echo "bf000001 ffffffff 00" >> testfloat_F2S  # -0.500000059605
 echo "" >> testfloat_F2S
-../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rmin -notexact f32 1 f32_to_i32 >> testfloat_F2S
+../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rmin -exact f32 1 f32_to_i32 >> testfloat_F2S
 
 #U:RUP Round Up towards plus infinite
 echo "#SU" >> testfloat_F2S
@@ -143,7 +143,7 @@ echo "beffffff 00000000 00" >> testfloat_F2S  # -0.499999970198
 echo "bf000000 00000000 00" >> testfloat_F2S  # -0.5
 echo "bf000001 00000000 00" >> testfloat_F2S  # -0.500000059605
 echo "" >> testfloat_F2S
-../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rmax -notexact f32 1 f32_to_i32 >> testfloat_F2S
+../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rmax -exact f32 1 f32_to_i32 >> testfloat_F2S
 
 #M:RMM Round to Nearest, ties to Max Magnitude
 echo "#SM" >> testfloat_F2S
@@ -166,7 +166,7 @@ echo "beffffff 00000000 00" >> testfloat_F2S  # -0.499999970198
 echo "bf000000 ffffffff 00" >> testfloat_F2S  # -0.5
 echo "bf000001 ffffffff 00" >> testfloat_F2S  # -0.500000059605
 echo "" >> testfloat_F2S
-../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rnear_maxMag -notexact f32 1 f32_to_i32 >> testfloat_F2S
+../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rnear_maxMag -exact f32 1 f32_to_i32 >> testfloat_F2S
 
 
 

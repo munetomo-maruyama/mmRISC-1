@@ -21,9 +21,9 @@
 #                         value, rounds to minimum magnitude instead.)
 #    -tininessbefore  --Detect underflow tininess before rounding.
 # *  -tininessafter   --Detect underflow tininess after rounding.
-# *  -notexact        --Rounding to integer is not exact (no inexact
+#    -notexact        --Rounding to integer is not exact (no inexact
 #                         exceptions).
-#    -exact           --Rounding to integer is exact (raising inexact
+# *  -exact           --Rounding to integer is exact (raising inexact
 #                         exceptions).
 #  <type>:
 #    <int>            --Generate test cases with one integer operand.
@@ -55,23 +55,23 @@
 #-------------------------------
 #N:RNE Round to Nearest, tied to even; 
 echo "#UN" > testfloat_F2U
-../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rnear_even -notexact f32 1 f32_to_ui32 >> testfloat_F2U
+../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rnear_even -exact f32 1 f32_to_ui32 >> testfloat_F2U
 
 #Z:RTZ Round to Zero;
 echo "#UZ" >> testfloat_F2U
-../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rminMag -notexact f32 1 f32_to_ui32 >> testfloat_F2U
+../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rminMag -exact f32 1 f32_to_ui32 >> testfloat_F2U
 
 #D:RDN Round Down towards minus infinite
 echo "#UD" >> testfloat_F2U
-../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rmin -notexact f32 1 f32_to_ui32 >> testfloat_F2U
+../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rmin -exact f32 1 f32_to_ui32 >> testfloat_F2U
 
 #U:RUP Round Up towards plus infinite
 echo "#UU" >> testfloat_F2U
-../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rmax -notexact f32 1 f32_to_ui32 >> testfloat_F2U
+../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rmax -exact f32 1 f32_to_ui32 >> testfloat_F2U
 
 #M:RMM Round to Nearest, ties to Max Magnitude
 echo "#UM" >> testfloat_F2U
-../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rnear_maxMag -notexact f32 1 f32_to_ui32 >> testfloat_F2U
+../build/Linux-x86_64-GCC/testfloat_gen -level 1 -rnear_maxMag -exact f32 1 f32_to_ui32 >> testfloat_F2U
 
 
 
