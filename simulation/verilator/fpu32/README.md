@@ -68,20 +68,18 @@ Every mismatch is attributed to exactly one class. `KNOWN_BUGS` lists the classe
 to fail on the current commit. A mismatch outside that list fails the run. Each fix removes one
 entry, so the list is both the regression gate and the running inventory of what is still wrong.
 
-Counts from the default sweep on the tree as of this commit, 143240 cases checked:
+Counts from the default sweep on the tree as of this commit, 771645 cases checked:
 
 | class | count | defect |
 |---|---:|---|
-| `SQRT_RESULT_ODD_EXP` | 21772 | FSQRT seed is a minimax fit of `1/sqrt(b)` over `[1,2)`, but an odd exponent puts `b` in `[2,4)` |
-| `F2I_NX` | 11766 | `FCVT.W.S`/`FCVT.WU.S` never raise inexact |
-| `QNAN_NV` | 4571 | invalid raised for a quiet NaN operand, not only a signalling one |
-| `OVERFLOW_NX` | 3932 | overflow sets OF or NX, never both |
-| `UNDERFLOW_NX` | 3776 | underflow sets UF or NX, never both |
-| `INF_OF` | 2315 | overflow raised because an operand is already infinite |
-| `DIV_RESIDUAL` | 781 | Goldschmidt never lands exactly on an exact quotient, so NX is always raised and directed rounding is one ulp out. `1.0/2.0` is affected |
-| `INF_OPERAND_UF` | 330 | `x/inf` is an exact zero but raises underflow |
-| `DIVZERO_OF` | 310 | `x/0` raises overflow alongside the correct divide-by-zero |
+| `F2I_NX` | 116328 | `FCVT.W.S`/`FCVT.WU.S` never raise inexact |
+| `OVERFLOW_NX` | 26412 | overflow sets OF or NX, never both |
+| `UNDERFLOW_NX` | 26091 | underflow sets UF or NX, never both |
+| `QNAN_NV` | 5998 | invalid raised for a quiet NaN operand, not only a signalling one |
+| `INF_OF` | 2245 | overflow raised because an operand is already infinite |
+| `DIV_RESIDUAL` | 730 | Goldschmidt never lands exactly on an exact quotient, so NX is always raised and directed rounding is one ulp out. `1.0/2.0` is affected |
+| `INF_OPERAND_UF` | 320 | `x/inf` is an exact zero but raises underflow |
+| `DIVZERO_OF` | 300 | `x/0` raises overflow alongside the correct divide-by-zero |
 | `SUBNORMAL_RESULT` | 210 | subnormal operands or results are mishandled |
-| `SQRT_RESIDUAL` | 15 | as `DIV_RESIDUAL`, for an exact square root: `sqrt(1.0)` is right but raises NX |
-| `SQRT_RESULT_EVEN_EXP` | 9 | FSQRT reads its result one refinement early, so a loop count of n delivers n-1 |
+| `SQRT_RESIDUAL` | 39 | as `DIV_RESIDUAL`, for an exact square root: `sqrt(1.0)` is right but raises NX |
 | `SQRT_NEGZERO_NV` | 5 | `sqrt(-0)` is `-0` with no exception |

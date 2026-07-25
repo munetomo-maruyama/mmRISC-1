@@ -77,7 +77,6 @@ static const int SETTLE_CYCLES = 128;
 // A mismatch is attributed to exactly one of these. The ones listed in
 // KNOWN_BUGS are the defects not yet fixed on this commit.
 static const char *KNOWN_BUGS[] = {
-    "SQRT_RESULT_ODD_EXP",   // FSQRT seed is a fit for [1,2) only
     "QNAN_NV",               // NV raised for a quiet NaN operand
     "INF_OF",                // OF raised for an infinite operand
     "OVERFLOW_NX",           // overflow sets OF or NX, never both

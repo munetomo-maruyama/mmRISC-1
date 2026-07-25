@@ -2034,7 +2034,10 @@ assign div_complete = (div_seq == 4'h5) & (div_cnt_plus_one == csr_div_loop);
 //     frac=[1.0, 2.0) expo=2n+1 --> frac=[2.0, 4.0) --> expo=n
 // Keep Exponent
 //     b_expo_keep = 1023; // b_expo_keep= (b_expo -1023) - (b_expo - 1023) + 1023;    
-// y = 1.2739 - 0.292 * b
+// y = 1.2739     - 0.292       * b, if b is in [1.0, 2.0)
+// y = 0.90078333 - 0.103237590 * b, if b is in [2.0, 4.0)
+//     The second line is the first one scaled by 1/sqrt(2) with b halved,
+//     so both ranges are seeded to the same 2.4 percent relative error.
 // g = b * y
 // h = y * 0.5
 // repeat
@@ -2048,6 +2051,7 @@ assign div_complete = (div_seq == 4'h5) & (div_cnt_plus_one == csr_div_loop);
 reg  [ 3:0] sqr_cnt;
 reg         sqr_db_sign_keep;
 reg  [11:0] sqr_db_expo_keep;
+reg         sqr_db_even_keep; // (b_expo - 1023) was even, so b is in [1.0, 2.0)
 reg  [78:0] sqr_db_inner;
 reg  [78:0] sqr_dy_inner;
 reg  [78:0] sqr_dg_inner;
@@ -2072,6 +2076,7 @@ begin
         //
         sqr_db_sign_keep <= 1'b0;
         sqr_db_expo_keep <= 12'h000;
+        sqr_db_even_keep <= 1'b0;
         //
         sqr_db_inner <= 79'h0;
         sqr_dy_inner <= 79'h0;
@@ -2112,9 +2117,12 @@ begin
                             {1'b0, 12'd1023, idata_inner_out1[65:0]      }  // frac
                           : {1'b0, 12'd1023, idata_inner_out1[64:0], 1'b0}; // frac << 1
         sqr_db_inner <= sqr_db_inner_temp;
+        sqr_db_even_keep <= idata_inner_out1[66];
         //
-        // fmul = -0.292 * b
-        sqr_mdata_inner_in1 <= {1'b1, 12'd1021, 66'h04AC083126E978D50}; // -0.292
+        // fmul = -0.292 * b, or -0.103237590 * b if b was shifted into [2.0, 4.0)
+        sqr_mdata_inner_in1 <= (idata_inner_out1[66])?
+                               {1'b1, 12'd1021, 66'h04AC083126E978D50}  // -0.292
+                             : {1'b1, 12'd1019, 66'h069B71D63FC6B596C}; // -0.103237590
         sqr_mdata_inner_in2 <= sqr_db_inner_temp; // b
         //
         sqr_mmode <= imode;
@@ -2130,8 +2138,10 @@ begin
     begin
         sqr_seq <= 4'h2;
         //
-        // fadd = 1.2739 + fmul (= 1.2739 - 0.292 * b)
-        sqr_adata_inner_in1 <= {1'b0, 12'd1023, 66'h0518793DD97F62B6B}; // 1.2739
+        // fadd = 1.2739 + fmul (= 1.2739 - 0.292 * b), or the [2.0, 4.0) line
+        sqr_adata_inner_in1 <= (sqr_db_even_keep)?
+                               {1'b0, 12'd1023, 66'h0518793DD97F62B6B}  // 1.2739
+                             : {1'b0, 12'd1022, 66'h0734CDE3C75B1D6AE}; // 0.90078333
         sqr_adata_inner_in2 <= sqr_mdata_inner_out;
     end
     else if (sqr_seq == 4'h2)
@@ -2225,9 +2235,12 @@ begin
                                 {1'b0, 12'd1023, idata_inner_out1[65:0]      }  // frac
                               : {1'b0, 12'd1023, idata_inner_out1[64:0], 1'b0}; // frac << 1
             sqr_db_inner <= sqr_db_inner_temp;
+            sqr_db_even_keep <= idata_inner_out1[66];
             //
-            // fmul = -0.292 * b
-            sqr_mdata_inner_in1 <= {1'b1, 12'd1021, 66'h04AC083126E978D50}; // -0.292
+            // fmul = -0.292 * b, or -0.103237590 * b if b was shifted into [2.0, 4.0)
+            sqr_mdata_inner_in1 <= (idata_inner_out1[66])?
+                                   {1'b1, 12'd1021, 66'h04AC083126E978D50}  // -0.292
+                                 : {1'b1, 12'd1019, 66'h069B71D63FC6B596C}; // -0.103237590
             sqr_mdata_inner_in2 <= sqr_db_inner_temp; // b
             //
             sqr_mmode <= imode;
