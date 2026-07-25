@@ -1,0 +1,3 @@
+# Verilator build output and per-run scratch files
+obj_dir_*/
+run/
