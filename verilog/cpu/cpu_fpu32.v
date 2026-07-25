@@ -73,7 +73,7 @@
 // CSR_FPU32CONV : 0xbe0
 //   bit[31:8] WIRI (Reserved Writes Ignored, Reads Ignore Values)
 //   bit[ 7:4] R/W  FSQRT Convergence Loop Count (default 4)
-//   bit[ 3:0] R/W  FDIV  Convergence Loop Count (default 4)
+//   bit[ 3:0] R/W  FDIV  Convergence Loop Count (default 5)
 //===========================================================
 
 `include "defines_core.v"
