@@ -72,5 +72,4 @@ Counts from the default sweep on the tree as of this commit, 774070 cases checke
 
 | class | count | defect |
 |---|---:|---|
-| `DIVZERO_OF` | 300 | `x/0` raises overflow alongside the correct divide-by-zero |
 | `SQRT_NEGZERO_NV` | 5 | `sqrt(-0)` is `-0` with no exception |

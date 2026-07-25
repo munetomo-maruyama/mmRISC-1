@@ -2930,11 +2930,14 @@ begin
             FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
+        // A finite nonzero dividend over zero is the divide by zero case, and
+        // divide by zero alone. Overflow is for a rounded result that leaves
+        // the format range, and this infinity is exact rather than rounded.
         {4'b????, `FPU32_FT_POSZRO}, // div
         {4'b????, `FPU32_FT_NEGZRO}: // div
         begin
             FDATA_OUT = 32'h7f800000 | {(FDATA_IN1[31] ^ FDATA_IN2[31]), 31'h0}; // ???INF
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_OF | `FPU32_FLAG_DZ;
+            FLG_OUT   = FLG_IN | `FPU32_FLAG_DZ;
             SPECIAL = 1'b1;
         end
         default: // Others

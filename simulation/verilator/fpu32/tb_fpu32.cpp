@@ -77,7 +77,6 @@ static const int SETTLE_CYCLES = 128;
 // A mismatch is attributed to exactly one of these. The ones listed in
 // KNOWN_BUGS are the defects not yet fixed on this commit.
 static const char *KNOWN_BUGS[] = {
-    "DIVZERO_OF",            // x/0 raises OF alongside the correct DZ
     "SQRT_NEGZERO_NV",       // sqrt(-0) is -0 with no exception
     nullptr
 };
