@@ -408,6 +408,8 @@ endtask
 initial
 begin
     tb_stby         = 1'b0;
+    tb_debug_secure = 1'b1;
+    tb_reset_halt_n = 1'b1;
     tb_enable_cjtag = 1'b0;
     Task_JTAG_INIT_PIN();
 end
