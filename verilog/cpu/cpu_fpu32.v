@@ -3010,10 +3010,12 @@ begin
             FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
+        // sqrt(-0) is -0 exactly, with no exception. Invalid is for an
+        // operand less than zero, and negative zero is not less than zero.
         {`FPU32_FT_NEGZRO}: // sqrt
         begin
             FDATA_OUT = 32'h80000000; // NEGZRO
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
         {`FPU32_FT_NEGNOR}, // sqrt

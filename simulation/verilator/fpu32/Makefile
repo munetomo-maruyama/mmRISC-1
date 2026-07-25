@@ -35,10 +35,7 @@ $(TARGET): tb_fpu32.cpp $(RTL)
 run: $(TARGET)
 	$(TARGET)
 
-strict: $(TARGET)
-	$(TARGET) --strict
-
 clean:
 	rm -rf obj_dir
 
-.PHONY: all run strict clean
+.PHONY: all run clean

@@ -21,9 +21,8 @@
 // magnitude and the float to integer conversions are modelled in
 // software, since neither maps onto host semantics.
 //
-// Mismatches are attributed to a defect class. Classes listed in
-// KNOWN_BUGS are expected to fail and do not fail the run. Anything else
-// does. Each RTL fix removes one entry.
+// Mismatches are attributed to a defect class, and any mismatch at all
+// fails the run.
 
 #include "VCPU_FPU32.h"
 #include "verilated.h"
@@ -70,23 +69,6 @@ static const uint32_t CANONICAL_NAN = 0x7fc00000u;
 
 // Long enough for FSQRT at the maximum convergence loop count of 15
 static const int SETTLE_CYCLES = 128;
-
-//-----------------------------------------------------------
-// Defect classes
-//-----------------------------------------------------------
-// A mismatch is attributed to exactly one of these. The ones listed in
-// KNOWN_BUGS are the defects not yet fixed on this commit.
-static const char *KNOWN_BUGS[] = {
-    "SQRT_NEGZERO_NV",       // sqrt(-0) is -0 with no exception
-    nullptr
-};
-
-static bool is_known_bug(const std::string &defect_class)
-{
-    for (int i = 0; KNOWN_BUGS[i] != nullptr; i++)
-        if (defect_class == KNOWN_BUGS[i]) return true;
-    return false;
-}
 
 //-----------------------------------------------------------
 // binary32 helpers
@@ -602,15 +584,13 @@ int main(int argc, char **argv)
 {
     Verilated::commandArgs(argc, argv);
 
-    bool strict = false;
     uint64_t seed = 1;
     int random_count = 20000;
     size_t examples_per_class = 1;
     int fconv = -1;
     for (int i = 1; i < argc; i++) {
         std::string arg = argv[i];
-        if (arg == "--strict") strict = true;
-        else if (arg == "--seed" && i + 1 < argc) seed = strtoull(argv[++i], nullptr, 0);
+        if (arg == "--seed" && i + 1 < argc) seed = strtoull(argv[++i], nullptr, 0);
         else if (arg == "-n" && i + 1 < argc) random_count = atoi(argv[++i]);
         else if (arg == "--examples" && i + 1 < argc) examples_per_class = atoi(argv[++i]);
         else if (arg == "--fconv" && i + 1 < argc) fconv = (int)strtoul(argv[++i], nullptr, 0);
@@ -690,20 +670,17 @@ int main(int argc, char **argv)
            (unsigned long long)(stats.checked - stats.matched),
            (unsigned long long)fpu.cycle_count());
 
-    int unexpected = 0;
     for (const auto &entry : stats.by_class) {
-        bool known = !strict && is_known_bug(entry.first);
-        printf("%-22s %10llu  %s\n", entry.first.c_str(),
-               (unsigned long long)entry.second, known ? "(known)" : "UNEXPECTED");
+        printf("%-22s %10llu\n", entry.first.c_str(),
+               (unsigned long long)entry.second);
         for (const std::string &example : stats.examples[entry.first])
             printf("    %s\n", example.c_str());
-        if (!known) unexpected++;
     }
 
-    if (unexpected == 0) {
-        printf("\nPASS%s\n", strict ? " (strict)" : "");
+    if (stats.by_class.empty()) {
+        printf("\nPASS\n");
         return 0;
     }
-    printf("\nFAIL: %d unexpected defect class(es)\n", unexpected);
+    printf("\nFAIL: %d defect class(es)\n", (int)stats.by_class.size());
     return 1;
 }

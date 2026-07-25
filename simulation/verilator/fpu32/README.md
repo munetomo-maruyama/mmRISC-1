@@ -20,7 +20,6 @@ only that include path.
 ```sh
 make                            # build
 make run                        # default sweep, about 15 s
-make strict                     # same, but ignore KNOWN_BUGS
 
 ./obj_dir/VCPU_FPU32 -n 50000            # deeper random sweep
 ./obj_dir/VCPU_FPU32 --seed 7            # different random operands
@@ -28,7 +27,7 @@ make strict                     # same, but ignore KNOWN_BUGS
 ./obj_dir/VCPU_FPU32 --fconv 0xff        # override the FCONV convergence loop counts
 ```
 
-Exit status is non-zero if a mismatch appears that is not in `KNOWN_BUGS`.
+Exit status is non-zero if any mismatch appears.
 
 ## How the DUT is driven
 
@@ -64,12 +63,7 @@ NaN results are compared against the canonical `0x7fc00000` that RISC-V requires
 
 ## Defect classes
 
-Every mismatch is attributed to exactly one class. `KNOWN_BUGS` lists the classes that are expected
-to fail on the current commit. A mismatch outside that list fails the run. Each fix removes one
-entry, so the list is both the regression gate and the running inventory of what is still wrong.
+Every mismatch is attributed to exactly one class, named for the defect rather than for the
+instruction, so that a failure report says what is wrong and not merely where. Any mismatch fails
+the run.
 
-Counts from the default sweep on the tree as of this commit, 774070 cases checked:
-
-| class | count | defect |
-|---|---:|---|
-| `SQRT_NEGZERO_NV` | 5 | `sqrt(-0)` is `-0` with no exception |
