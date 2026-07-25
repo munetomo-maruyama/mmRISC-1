@@ -21,8 +21,12 @@ potentially enabled a GitHub Actions based CI.
 ./do-verilator-tests.py                            # RV32IMFC, all four bus interventions
 ./do-verilator-tests.py --bus BUS_INTERVENTION_01  # one configuration
 ./do-verilator-tests.py --isa RV32IMC RV32IMAC     # other ISA subdirectories
-./do-verilator-tests.py --include-not-tested       # also run the quarantined ELFs
+./do-verilator-tests.py --include-not-tested       # also run any ELF quarantined in not_tested/
 ```
+
+Nothing is quarantined under `RV32IMFC`, `RV32IMAC` or `RV32IMC` at present, so `--include-not-tested`
+currently changes nothing. The `not_tested/` directory beside them holds RV64, virtual memory and
+supervisor tests, which no ISA subdirectory reaches.
 
 Exit status is non-zero if any test fails, and a summary of failures is printed at the end. Unlike
 the ModelSim script, a failure does not abort the run.
@@ -65,9 +69,8 @@ Recent toolchains need `sed -i 's/\bsptbr\b/satp/g' frm.s` between the two steps
 ## Known failures
 
 These tests fail here. Recorded so that a regression is distinguishable from a pre-existing
-failure. Full sweep over `RV32IMFC RV32IMAC RV32IMC` with `--include-not-tested`: 300 pass, 12 fail.
-Every floating point test passes, `rv32uf-p-fdiv` included, though that one still sits in
-`not_tested/` where only `--include-not-tested` reaches it.
+failure. Full sweep over `RV32IMFC RV32IMAC RV32IMC`: 300 pass, 12 fail. Every floating point test
+passes.
 
 | test | configurations | status |
 |----|----|---|
