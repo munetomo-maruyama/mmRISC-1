@@ -2556,18 +2556,20 @@ begin
             FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
             SPECIAL = 1'b1;
         end
+        // An infinite operand gives an infinite result with no exception.
+        // Overflow is for a rounded result that leaves the format range.
         {`FPU32_FT_POSINF, 4'b????}, // add
         {`FPU32_FT_NEGINF, 4'b????}: // add
         begin
             FDATA_OUT = FDATA_IN1;
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_OF;
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
         {4'b????, `FPU32_FT_POSINF}, // add
         {4'b????, `FPU32_FT_NEGINF}: // add
         begin
             FDATA_OUT = FDATA_IN2;
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_OF;
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
         {`FPU32_FT_POSZRO, `FPU32_FT_POSZRO}: // add
@@ -2670,13 +2672,15 @@ begin
             FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
+        // An infinite operand gives an infinite result with no exception.
+        // Overflow is for a rounded result that leaves the format range.
         {`FPU32_FT_POSINF, `FPU32_FT_POSINF}, // mul
         {`FPU32_FT_POSINF, `FPU32_FT_NEGINF}, // mul
         {`FPU32_FT_NEGINF, `FPU32_FT_POSINF}, // mul
         {`FPU32_FT_NEGINF, `FPU32_FT_NEGINF}: // mul
         begin
             FDATA_OUT = 32'h7f800000 | {(FDATA_IN1[31] ^ FDATA_IN2[31]), 31'h0}; // ???INF
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_OF;
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
         {`FPU32_FT_POSINF, `FPU32_FT_POSZRO}, // mul
@@ -2698,7 +2702,7 @@ begin
         {4'b????, `FPU32_FT_NEGINF}: // mul
         begin
             FDATA_OUT = 32'h7f800000 | {(FDATA_IN1[31] ^ FDATA_IN2[31]), 31'h0}; // ???INF
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_OF;
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
         {`FPU32_FT_POSZRO, `FPU32_FT_POSZRO}, // mul
@@ -2865,13 +2869,15 @@ begin
             FLG_OUT   = FLG_IN | `FPU32_FLAG_NV;
             SPECIAL = 1'b1;
         end
+        // inf / 0 raises nothing at all: the dividend is already infinite,
+        // and divide by zero wants a finite nonzero dividend.
         {`FPU32_FT_POSINF, `FPU32_FT_POSZRO}, // div
         {`FPU32_FT_POSINF, `FPU32_FT_NEGZRO}, // div
         {`FPU32_FT_NEGINF, `FPU32_FT_POSZRO}, // div
         {`FPU32_FT_NEGINF, `FPU32_FT_NEGZRO}: // div
         begin
             FDATA_OUT = 32'h7f800000 | {(FDATA_IN1[31] ^ FDATA_IN2[31]), 31'h0}; // ???INF
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_OF | `FPU32_FLAG_DZ;
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
         {`FPU32_FT_POSZRO, `FPU32_FT_POSINF}, // div
@@ -2883,11 +2889,13 @@ begin
             FLG_OUT   = FLG_IN | `FPU32_FLAG_UF;
             SPECIAL = 1'b1;
         end
+        // An infinite dividend gives an infinite result with no exception.
+        // Overflow is for a rounded result that leaves the format range.
         {`FPU32_FT_POSINF, 4'b????}, // div
         {`FPU32_FT_NEGINF, 4'b????}: // div
         begin
             FDATA_OUT = 32'h7f800000 | {(FDATA_IN1[31] ^ FDATA_IN2[31]), 31'h0}; // ???INF
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_OF;
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
         {4'b????, `FPU32_FT_POSINF}, // div
@@ -2971,10 +2979,11 @@ begin
             FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
+        // sqrt(+inf) is +inf, with no exception.
         {`FPU32_FT_POSINF}: // sqrt
         begin
             FDATA_OUT = 32'h7f800000; // POSINF
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_OF;
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
         {`FPU32_FT_NEGINF}: // sqrt

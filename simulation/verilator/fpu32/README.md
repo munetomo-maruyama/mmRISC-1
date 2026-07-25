@@ -75,7 +75,6 @@ Counts from the default sweep on the tree as of this commit, 774070 cases checke
 | `F2I_NX` | 116328 | `FCVT.W.S`/`FCVT.WU.S` never raise inexact |
 | `OVERFLOW_NX` | 26418 | overflow sets OF or NX, never both |
 | `UNDERFLOW_NX` | 26091 | underflow sets UF or NX, never both |
-| `INF_OF` | 2245 | overflow raised because an operand is already infinite |
 | `INF_OPERAND_UF` | 320 | `x/inf` is an exact zero but raises underflow |
 | `DIVZERO_OF` | 300 | `x/0` raises overflow alongside the correct divide-by-zero |
 | `SQRT_NEGZERO_NV` | 5 | `sqrt(-0)` is `-0` with no exception |
