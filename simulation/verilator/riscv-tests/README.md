@@ -39,14 +39,13 @@ every hart at reset, with no instruction ever fetched. It is now assigned explic
 
 ## Known failures
 
-On an otherwise unmodified tree, these tests fail here. Recorded so that a regression is
-distinguishable from a pre-existing failure. Full sweep over `RV32IMFC RV32IMAC RV32IMC` with
-`--include-not-tested`: 288 pass, 20 fail.
+These tests fail here. Recorded so that a regression is distinguishable from a pre-existing
+failure. Full sweep over `RV32IMFC RV32IMAC RV32IMC` with `--include-not-tested`: 296 pass, 12 fail.
+Every floating point test passes, `rv32uf-p-fdiv` included, though that one still sits in
+`not_tested/` where only `--include-not-tested` reaches it.
 
 | test | configurations | status |
 |----|----|---|
-| `rv32uf-p-fcvt_w` | all four | Genuine RTL defect. `FCVT.W.S`/`FCVT.WU.S` never raise the inexact flag; the test expects `fflags` = 1 after `fcvt.w.s` of -1.1. Introduced in `18487f5` (Nov 2023); the last committed ModelSim run log predates it (May 2022), so it fails there too. |
-| `rv32uf-p-fdiv` | all four | Genuine RTL defect, and quarantined in `not_tested/`, so only visible with `--include-not-tested`. FSQRT.S is not correctly rounded at the reset convergence count. |
 | `rv32mi-p-csr` | all four | Not triaged. |
 | seven `rv32ua-p-amo*_w` | `BUS_INTERVENTION_02` only | Not triaged. The atomics pass in the single-hart configurations and in `_04`, which is also two harts but with RAM wait states. Note that `do-riscv-tests.py` only ever selects one ISA directory at a time and ships with `RV32IMFC` selected, so `RV32IMAC` against two harts is a combination the ModelSim flow does not appear to have been run with either. |
 | `rv32uc-p-rvc` | `BUS_INTERVENTION_04` only | Not triaged. |

@@ -4116,10 +4116,9 @@ wire judge_inf_u;
 wire judge_gen_s;
 wire judge_gen_u;
 //
-//assign judge_zro   = expo < (pos + 12'd126); //---BUG--- RDN/RUP 
-//assign judge_inf_s = expo > (pos + 12'd157); //---BUG---
-//assign judge_inf_u = expo > (pos + 12'd158); //---BUG---
-assign judge_zro   = 1'b0; // expo < (pos + 12'd124);
+// judge_zro stays off. A value too small to reach the integer LSB still
+// has to be rounded, and under RDN or RUP that carries it to +/-1.
+assign judge_zro   = 1'b0;
 assign judge_inf_s = (~sign)? (expo > (pos + 12'd157))       // pos
     : ((expo == (pos + 12'd158)) && (frac[22:0] == 0))? 1'b0 // neg
     :   expo > (pos + 12'd157);                              // neg
@@ -4157,20 +4156,16 @@ assign stick_mask = (bit_stick == 12'hfff)? 27'h0
                   : 27'h7ffffff;
 assign stick = |(frac & stick_mask);
 //
-//wire        inexact;
-//wire [26:0] inexact_mask;
-//assign inexact_mask = (bit_guard < 12'd27)? 27'h7ffffff >>  (12'd26 - bit_guard) : 27'h0; //---BUG---
-//assign inexact_mask = (bit_guard < 12'd26)? 27'h3ffffff >>  (12'd25 - bit_guard) : 27'h0;
-//assign inexact = |(frac & inexact_mask);
-//
-// Rounding to integer is not exact (no inexact exceptions).
+// The discarded fraction is exactly guard, round and stick together:
+// the integer LSB sits at bit 150-expo and those three cover everything
+// below it. A value with no fractional part leaves all three clear.
 wire   inexact;
-assign inexact = 1'b0;
-// 
+assign inexact = guard | round | stick;
 //
 wire        round_add;
-wire [ 4:0] round_flg;
 //
+// Only ROUND_ADD is wanted here. The flag this module derives is for the
+// float paths, where the inexact condition is a different expression.
 ROUND_JUDGMENT U_ROUND_JUDGMENT
 (
     .SIGN      (sign),
@@ -4181,7 +4176,7 @@ ROUND_JUDGMENT U_ROUND_JUDGMENT
     .ROUND_ADD (round_add),
     .RMODE     (RMODE),
     .FLAG_IN   (`FPU32_FLAG_OK),
-    .FLAG_OUT  (round_flg)
+    .FLAG_OUT  ()
 );
 //
 wire [31:0] uint32_data_round;
@@ -4262,9 +4257,13 @@ begin
         else if (ftype == `FPU32_FT_POSZRO) FLG_OUT = `FPU32_FLAG_OK;
         else if (ftype == `FPU32_FT_NEGZRO) FLG_OUT = `FPU32_FLAG_OK;
         else if (judge_inf_u              ) FLG_OUT = `FPU32_FLAG_NV;
+        // A negative operand only leaves the unsigned range once rounding
+        // has taken it below zero. One that rounds to zero is in range,
+        // and merely inexact.
+        else if (sign & (uint32_data_round != 32'h00000000))
+                                            FLG_OUT = `FPU32_FLAG_NV;
         else if (inexact                  ) FLG_OUT = `FPU32_FLAG_NX;
         else if (judge_zro                ) FLG_OUT = `FPU32_FLAG_OK;
-        else if (sign                     ) FLG_OUT = `FPU32_FLAG_NV;
         else FLG_OUT = `FPU32_FLAG_OK;
     end
 end
