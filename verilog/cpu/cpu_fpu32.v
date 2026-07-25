@@ -2885,13 +2885,15 @@ begin
             FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
+        // 0 / inf is an exact zero. Unlike 0 * inf it is perfectly well
+        // defined, so no invalid either.
         {`FPU32_FT_POSZRO, `FPU32_FT_POSINF}, // div
         {`FPU32_FT_POSZRO, `FPU32_FT_NEGINF}, // div
         {`FPU32_FT_NEGZRO, `FPU32_FT_POSINF}, // div
         {`FPU32_FT_NEGZRO, `FPU32_FT_NEGINF}: // div
         begin
             FDATA_OUT = 32'h00000000 | {(FDATA_IN1[31] ^ FDATA_IN2[31]), 31'h0}; // ???ZRO
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_UF;
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
         // An infinite dividend gives an infinite result with no exception.
@@ -2903,11 +2905,13 @@ begin
             FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
+        // An infinite divisor gives an exact zero, not a tiny one, so there
+        // is nothing for underflow to report.
         {4'b????, `FPU32_FT_POSINF}, // div
         {4'b????, `FPU32_FT_NEGINF}: // div
         begin
-            FDATA_OUT = 32'h00000000 | {(FDATA_IN1[31] ^ FDATA_IN2[31]), 31'h0};; // ???ZRO
-            FLG_OUT   = FLG_IN | `FPU32_FLAG_UF;
+            FDATA_OUT = 32'h00000000 | {(FDATA_IN1[31] ^ FDATA_IN2[31]), 31'h0}; // ???ZRO
+            FLG_OUT   = FLG_IN;
             SPECIAL = 1'b1;
         end
         {`FPU32_FT_POSZRO, `FPU32_FT_POSZRO}, // div
